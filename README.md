@@ -1,7 +1,14 @@
-# Give-a-Lot
+# Kids Next Door
+
+## Give-a-Lot
+
+Give a Lot is a relatively simple idea that is meant to solve the problem that individuals and organisations encounter when it comes to verifying the authenticity of charities and many other different types of organisations. Give a Lot aims to solve this problem by becoming a central point of reference for the verification for charities and other types of organisations.
+
+## Project board
+[Demo 1 Project Board](https://github.com/COS301-SE-2021/Give-a-Lot/projects/1)
 
 
-## Give A Lot Team Members
+## Kids Next Door Team Members
 
 | **Team Member** | **Profiles** | **Skills/Interest** | <br/><br/><br/>
  ![Firstname Lastname](https://via.placeholder.com/150 "Firstname Lastname")  <br/>  <br/> [GitHub](https://github.com/CaptainCoDev) <br/> [Profile Page]() <br/> [LinkedIn](https://www.linkedin.com/in/) <br/> <br/>
@@ -10,3 +17,5 @@
  ![Firstname Lastname](https://via.placeholder.com/150 "Firstname Lastname")  <br/>  <br/> [GitHub](https://github.com/CaptainCoDev) <br/> [Profile Page]() <br/> [LinkedIn](https://www.linkedin.com/in/) <br/> <br/>
  ![Firstname Lastname](https://via.placeholder.com/150 "Firstname Lastname")  <br/>  <br/> [GitHub](https://github.com/CaptainCoDev) <br/> [Profile Page]() <br/> [LinkedIn](https://www.linkedin.com/in/) <br/> <br/>
 ---
+
+

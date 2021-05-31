@@ -20,7 +20,7 @@ Give a Lot is a relatively simple idea that is meant to solve the problem that i
 
  ![Firstname Lastname](https://via.placeholder.com/150 "Firstname Lastname")  <br/>  <br/> [GitHub](https://github.com/CaptainCoDev) <br/> [Profile Page]() <br/> [LinkedIn](https://www.linkedin.com/in/) <br/> <br/>
 
- ![Rashiidah Weira Wanda](https://via.placeholder.com/150 "Rashiidah Wanda")  <br/>  <br/> [GitHub](https://github.com/WandaWeira) <br/> [ https://wandaweira.github.io/personal/]() <br/> [LinkedIn](https://www.linkedin.com/in/wanda-weira-9929b1116/) <br/> I am a ﬁnal year computer science student with skills in C++, Java, Javascript, PHP and ReactJs. I am passionate about what I do and eager to use my skills in the project. My experience in basic IT functionalities, coupled with my enthusiasm and dedication to achieving success, I believe I could swiftly surpass your expectations in this project.<br/>
+ ![Rashiidah Weira Wanda](https://via.placeholder.com/150 "Rashiidah Wanda")  <br/>  <br/> [GitHub](https://github.com/WandaWeira) <br/> [Profile Page](https://wandaweira.github.io/personal/) <br/> [LinkedIn](https://www.linkedin.com/in/wanda-weira-9929b1116/) <br/> I am a ﬁnal year computer science student with skills in C++, Java, Javascript, PHP and ReactJs. I am passionate about what I do and eager to use my skills in the project. My experience in basic IT functionalities, coupled with my enthusiasm and dedication to achieving success, I believe I could swiftly surpass your expectations in this project.<br/>
 ---
 
 

@@ -27,5 +27,8 @@ public class CertificateTest {
     public String getDescriptionOFOrganisation() {
         return descriptionOFOrganisation;
     }
-    p
+
+    public String getEmail() {
+        return Email;
+    }
 }

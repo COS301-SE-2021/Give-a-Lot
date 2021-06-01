@@ -1,4 +1,4 @@
-package test.java.cs.givealot.CertificateUnitTest;
+package main.java.cs.givealot.Certificate;
 
 public class NFT {
 

@@ -1,0 +1,88 @@
+Index: backend/src/test/java/cs/givealot/CertificateUnitTest/NFT.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package test.java.cs.givealot.CertificateUnitTest;\r\n\r\npublic class NFT {\r\n\r\n    String verificationCode;\r\n    String NFTName;\r\n    String serverURL;\r\n\r\n    String nameOfOrganisation;\r\n    String descriptionOFOrganisation;\r\n    String Email;\r\n}\r\n\r\n\r\n//{\r\n//    \"name\": \"The Charity Organisation\",\r\n//    \"description\": \"The Charity Organisation is all about giving back...\",\r\n//    \"documentURL\": \"https://server/certificate/TheCharityOrganisation.pdf\",\r\n//    \"image\": \"https://server/cover/TheCharityOrganisation.jpg\",\r\n//\r\n//    \"attributes\": {\r\n//        \"verificationCode\" : \"hdfwe362yhufb\",\r\n//        \"email\" : \"charity@char.org\"\r\n//    }\r\n//}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/test/java/cs/givealot/CertificateUnitTest/NFT.java b/backend/src/test/java/cs/givealot/CertificateUnitTest/NFT.java
+--- a/backend/src/test/java/cs/givealot/CertificateUnitTest/NFT.java	(revision 9c99f7b9ae77c7af94c1fa3c49779cc104b5cd92)
++++ b/backend/src/test/java/cs/givealot/CertificateUnitTest/NFT.java	(date 1622543732074)
+@@ -1,7 +1,6 @@
+ package test.java.cs.givealot.CertificateUnitTest;
+ 
+ public class NFT {
+-
+     String verificationCode;
+     String NFTName;
+     String serverURL;
+@@ -10,8 +9,6 @@
+     String descriptionOFOrganisation;
+     String Email;
+ }
+-
+-
+ //{
+ //    "name": "The Charity Organisation",
+ //    "description": "The Charity Organisation is all about giving back...",
+Index: backend/src/test/java/cs/givealot/CertificateUnitTest/Certificate.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package test.java.cs.givealot.CertificateUnitTest;\r\n\r\npublic class Certificate {\r\n\r\n    String nameOfOrganisation;\r\n    String descriptionOFOrganisation;\r\n    String Email;\r\n    String Address;\r\n    String Url;\r\n    Boolean isVerified;\r\n    Boolean addressIsValid;\r\n\r\n    public Certificate(String nameOfOrganisation, String descriptionOFOrganisation, String Email, String Address, String Url){\r\n        this.nameOfOrganisation = nameOfOrganisation;\r\n        this.descriptionOFOrganisation = descriptionOFOrganisation;\r\n        this.Email = Email;\r\n        this.Address = Address;\r\n        this.Url = Url;\r\n        this.isVerified = false;\r\n        this.addressIsValid = false;\r\n    }\r\n\r\n    public String getNameOfOrganisation() {\r\n        return nameOfOrganisation;\r\n    }\r\n\r\n    public String getDescriptionOFOrganisation() {\r\n        return descriptionOFOrganisation;\r\n    }\r\n\r\n    public String getEmail() {\r\n        return Email;\r\n    }\r\n\r\n    public String getAddress() {\r\n        return Address;\r\n    }\r\n\r\n    public String getUrl() {\r\n        return Url;\r\n    }\r\n\r\n    public Boolean getVerified() {\r\n        return isVerified;\r\n    }\r\n\r\n    public Boolean getAddressIsValid() {\r\n        return addressIsValid;\r\n    }\r\n\r\n    public void setNameOfOrganisation(String nameOfOrganisation) {\r\n        this.nameOfOrganisation = nameOfOrganisation;\r\n    }\r\n\r\n    public void setDescriptionOFOrganisation(String descriptionOFOrganisation) {\r\n        this.descriptionOFOrganisation = descriptionOFOrganisation;\r\n    }\r\n\r\n    public void setEmail(String email) {\r\n        Email = email;\r\n    }\r\n\r\n    public void setAddress(String address) {\r\n        Address = address;\r\n    }\r\n\r\n    public void setUrl(String url) {\r\n        Url = url;\r\n    }\r\n\r\n    public void setVerified(Boolean verified) {\r\n        isVerified = verified;\r\n    }\r\n\r\n    public void setAddressIsValid(Boolean addressIsValid) {\r\n        this.addressIsValid = addressIsValid;\r\n    }\r\n\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/test/java/cs/givealot/CertificateUnitTest/Certificate.java b/backend/src/test/java/cs/givealot/CertificateUnitTest/Certificate.java
+--- a/backend/src/test/java/cs/givealot/CertificateUnitTest/Certificate.java	(revision 9c99f7b9ae77c7af94c1fa3c49779cc104b5cd92)
++++ b/backend/src/test/java/cs/givealot/CertificateUnitTest/Certificate.java	(date 1622543682383)
+@@ -1,7 +1,7 @@
+ package test.java.cs.givealot.CertificateUnitTest;
+ 
+-public class Certificate {
+-
++public class Certificate
++{
+     String nameOfOrganisation;
+     String descriptionOFOrganisation;
+     String Email;
+@@ -76,6 +76,4 @@
+         this.addressIsValid = addressIsValid;
+     }
+ 
+-
+-
+ }
+Index: .idea/codeStyles/codeStyleConfig.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/codeStyles/codeStyleConfig.xml b/.idea/codeStyles/codeStyleConfig.xml
+new file mode 100644
+--- /dev/null	(date 1622543090031)
++++ b/.idea/codeStyles/codeStyleConfig.xml	(date 1622543090031)
+@@ -0,0 +1,5 @@
++<component name="ProjectCodeStyleConfiguration">
++  <state>
++    <option name="PREFERRED_PROJECT_CODE_STYLE" value="Default" />
++  </state>
++</component>
+\ No newline at end of file
+Index: .idea/codeStyles/Project.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/codeStyles/Project.xml b/.idea/codeStyles/Project.xml
+new file mode 100644
+--- /dev/null	(date 1622543089872)
++++ b/.idea/codeStyles/Project.xml	(date 1622543089872)
+@@ -0,0 +1,7 @@
++<component name="ProjectCodeStyleConfiguration">
++  <code_scheme name="Project" version="173">
++    <ScalaCodeStyleSettings>
++      <option name="MULTILINE_STRING_CLOSING_QUOTES_ON_NEW_LINE" value="true" />
++    </ScalaCodeStyleSettings>
++  </code_scheme>
++</component>
+\ No newline at end of file

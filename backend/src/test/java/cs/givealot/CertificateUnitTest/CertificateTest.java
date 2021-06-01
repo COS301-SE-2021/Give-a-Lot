@@ -72,5 +72,7 @@ public class CertificateTest {
         isVerified = verified;
     }
 
-
+    public void setAddressIsValid(Boolean addressIsValid) {
+        this.addressIsValid = addressIsValid;
+    }
 }

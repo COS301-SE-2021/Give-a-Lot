@@ -9,4 +9,6 @@ public class CertificateTest {
     //upload pdf to server
 
     //create json nft
+
+    //upload nft verification code to the database
 }

@@ -6,7 +6,7 @@ import main.java.cs.givealot.Certificate.exceptions.InvalidRequestException;
 import main.java.cs.givealot.Certificate.exceptions.NotAuthorizedException;
 import main.java.cs.givealot.Certificate.rri.createPDFCertificateRequest;
 import main.java.cs.givealot.Certificate.rri.createPDFCertificateResponse;
-
+import
 public class CertificateServiceImpl implements CertificateService{
 
     public CertificateServiceImpl() {

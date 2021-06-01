@@ -60,5 +60,8 @@ public class CertificateTest {
         Email = email;
     }
 
-    p
+    public void setAddress(String address) {
+        Address = address;
+    }
+
 }

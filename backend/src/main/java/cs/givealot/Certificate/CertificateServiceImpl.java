@@ -6,7 +6,7 @@ import main.java.cs.givealot.Certificate.exceptions.InvalidRequestException;
 import main.java.cs.givealot.Certificate.exceptions.NotAuthorizedException;
 import main.java.cs.givealot.Certificate.rri.createPDFCertificateRequest;
 import main.java.cs.givealot.Certificate.rri.createPDFCertificateResponse;
-import
+import main.java.cs.givealot.Certificate.CertificateHelper;
 public class CertificateServiceImpl implements CertificateService{
 
     public CertificateServiceImpl() {
@@ -33,8 +33,8 @@ public class CertificateServiceImpl implements CertificateService{
             }
             cert = new Certificate("The Charity Organisation", "We are all about giving back...", "charity@char.com", "1234 Give Back Avenue", "www.charityOrg.org");
             certificate = new createPDFCertificateResponse();
-
-            certificate.setPDFCertificate(createPDF())
+            CertificateHelper createPDF = new CertificateHelper();
+            certificate.setPDFCertificate(createPDF.createPDFDocument(cert));
         }
         return certificate;
     }

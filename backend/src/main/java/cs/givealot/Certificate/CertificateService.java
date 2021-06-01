@@ -2,6 +2,7 @@ package main.java.cs.givealot.Certificate;
 
 import main.java.cs.givealot.Certificate.exceptions.CertificateException;
 import main.java.cs.givealot.Certificate.exceptions.InvalidRequestException;
+import main.java.cs.givealot.Certificate.exceptions.NotAuthorizedException;
 import main.java.cs.givealot.Certificate.rri.createPDFCertificateRequest;
 import main.java.cs.givealot.Certificate.rri.createPDFCertificateResponse;
 
@@ -15,5 +16,5 @@ public interface CertificateService {
      * @throws CertificateException if Report could not be generated for some reason
      * @throws InvalidRequestException if the request object is not correct
      */
-    createPDFCertificateResponse generateSalesReport(createPDFCertificateRequest request) throws Exception;
+    createPDFCertificateResponse createPDFCertificate(createPDFCertificateRequest request) throws Exception;
 }

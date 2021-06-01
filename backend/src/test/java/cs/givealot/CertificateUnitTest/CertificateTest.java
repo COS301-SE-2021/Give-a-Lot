@@ -35,4 +35,30 @@ public class CertificateTest {
     public String getAddress() {
         return Address;
     }
+
+    public String getUrl() {
+        return Url;
+    }
+
+    public Boolean getVerified() {
+        return isVerified;
+    }
+
+    public Boolean getAddressIsValid() {
+        return addressIsValid;
+    }
+
+    public void setNameOfOrganisation(String nameOfOrganisation) {
+        this.nameOfOrganisation = nameOfOrganisation;
+    }
+
+    public void setDescriptionOFOrganisation(String descriptionOFOrganisation) {
+        this.descriptionOFOrganisation = descriptionOFOrganisation;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    p
 }

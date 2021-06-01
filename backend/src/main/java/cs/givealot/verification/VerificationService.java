@@ -1,5 +1,6 @@
 package main.java.cs.givealot.verification;
 
-public class VerificationService {
+public class VerificationService
+{
     
 }

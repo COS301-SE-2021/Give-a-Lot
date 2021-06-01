@@ -68,5 +68,9 @@ public class CertificateTest {
         Url = url;
     }
 
+    public void setVerified(Boolean verified) {
+        isVerified = verified;
+    }
+
 
 }

@@ -64,4 +64,9 @@ public class CertificateTest {
         Address = address;
     }
 
+    public void setUrl(String url) {
+        Url = url;
+    }
+
+
 }

@@ -1,6 +1,6 @@
 package test.java.cs.givealot.CertificateUnitTest;
 
-public class CertificateTest {
+public class Certificate {
 
     String nameOfOrganisation;
     String descriptionOFOrganisation;
@@ -10,7 +10,7 @@ public class CertificateTest {
     Boolean isVerified;
     Boolean addressIsValid;
 
-    public CertificateTest(String nameOfOrganisation, String descriptionOFOrganisation, String Email, String Address, String Url){
+    public Certificate(String nameOfOrganisation, String descriptionOFOrganisation, String Email, String Address, String Url){
         this.nameOfOrganisation = nameOfOrganisation;
         this.descriptionOFOrganisation = descriptionOFOrganisation;
         this.Email = Email;
@@ -75,4 +75,7 @@ public class CertificateTest {
     public void setAddressIsValid(Boolean addressIsValid) {
         this.addressIsValid = addressIsValid;
     }
+
+
+
 }

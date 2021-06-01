@@ -1,10 +1,13 @@
 
 import './App.css';
+import Login from './components/login/Login'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
-     
+      <Login />
     </div>
   );
 }

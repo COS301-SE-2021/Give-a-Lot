@@ -3,8 +3,10 @@ package main.java.cs.givealot.Certificate.rri;
 import javax.swing.text.Document;
 
 public class createPDFCertificateResponse {
-    public Object setPDFCertificate;
+    private Document PDFCert;
 
-    public void setPDFCertificate(Document pdfDocument) {
-    }
+    public createPDFCertificateResponse(){}
+    public Document getPDFCertificate(){return PDFCert;};
+
+    public void setPDFCertificate(Document pdfDocument) {this.PDFCert = pdfDocument; }
 }

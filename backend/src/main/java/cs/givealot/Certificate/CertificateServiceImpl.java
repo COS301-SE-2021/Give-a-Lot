@@ -24,6 +24,25 @@ public class CertificateServiceImpl implements CertificateService{
         if (request==null){
             throw new InvalidRequestException("Exception: Certificate could not be created because the request object is null");
         }
-        return null;
+        if (isAuthorized(true)){
+            Certificate cert = null;
+            try {
+                cert = new Certificate("The Charity Organisation", "We are all about giving back...", "charity@char.com", "1234 Give Back Avenue", "www.charityOrg.org");
+            }catch (Exception e){
+                throw new CertificateException("Problem creating Certifcate");
+            }
+            cert = new Certificate("The Charity Organisation", "We are all about giving back...", "charity@char.com", "1234 Give Back Avenue", "www.charityOrg.org");
+            certificate = new createPDFCertificateResponse();
+
+            certificate.setPDFCertificate(createPDF())
+        }
+        return certificate;
+    }
+
+    public boolean isAuthorized(boolean value) throws NotAuthorizedException{
+        if (value==false){
+            throw new NotAuthorizedException("Error: User is not authorised to create Certifcate");
+        }
+        return true;
     }
 }

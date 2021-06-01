@@ -31,4 +31,8 @@ public class CertificateTest {
     public String getEmail() {
         return Email;
     }
+
+    public String getAddress() {
+        return Address;
+    }
 }

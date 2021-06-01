@@ -29,19 +29,23 @@ public class CertificateServiceImpl implements CertificateService{
             try {
                 cert = new Certificate("The Charity Organisation", "We are all about giving back...", "charity@char.com", "1234 Give Back Avenue", "www.charityOrg.org");
             }catch (Exception e){
-                throw new CertificateException("Problem creating Certifcate");
+                throw new CertificateException("Problem creating Certificate");
             }
             cert = new Certificate("The Charity Organisation", "We are all about giving back...", "charity@char.com", "1234 Give Back Avenue", "www.charityOrg.org");
             certificate = new createPDFCertificateResponse();
             CertificateHelper createPDF = new CertificateHelper();
-            certificate.setPDFCertificate(createPDF.createPDFDocument(cert));
+            try {
+                certificate.setPDFCertificate(createPDF.createPDFDocument(cert));
+            } catch (Exception e){
+                throw new CertificateException("Problem creating Certificate");
+            }
         }
         return certificate;
     }
 
     public boolean isAuthorized(boolean value) throws NotAuthorizedException{
         if (value==false){
-            throw new NotAuthorizedException("Error: User is not authorised to create Certifcate");
+            throw new NotAuthorizedException("Error: User is not authorised to create Certificate");
         }
         return true;
     }

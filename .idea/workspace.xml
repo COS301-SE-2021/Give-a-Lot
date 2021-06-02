@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51f17cb2-a697-4f7e-b772-ec1ec1759486" name="Default Changelist" comment="" />
+    <list default="true" id="51f17cb2-a697-4f7e-b772-ec1ec1759486" name="Default Changelist" comment="implemented the generateCertificateRequest.java and generateCertificateResponse.java">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/Certificate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/CertificateHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/CertificateHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/CertificateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/CertificateServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/dataclass/Certificate.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/dataclass/Certificate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/rri/createPDFCertificateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/rri/createPDFCertificateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/rri/createPDFCertificateResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/rri/createPDFCertificateResponse.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,10 +53,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../backend" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\joshu\IdeaProjects\CrowdBook_Alpha\CrowdBook_Alpha\CrowdBook_Alpha\Give-a-Lot\backend\src\main\java\cs\givealot" />
       <recent name="C:\Users\Nqobani_Xpl\Documents\Course\2021\COS301\capstone\Give-a-Lot\backend\src\main\java\cs\givealot\itext" />
     </key>
   </component>
@@ -81,8 +91,27 @@
       <option name="project" value="LOCAL" />
       <updated>1622554098086</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="implemented the generateCertificateRequest.java and generateCertificateResponse.java">
+      <created>1622624065596</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1622624065596</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

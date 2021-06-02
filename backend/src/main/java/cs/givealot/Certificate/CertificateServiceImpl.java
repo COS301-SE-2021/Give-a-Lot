@@ -1,12 +1,13 @@
 package main.java.cs.givealot.Certificate;
 
 
+import main.java.cs.givealot.Certificate.dataclass.Certificate;
 import main.java.cs.givealot.Certificate.exceptions.CertificateException;
 import main.java.cs.givealot.Certificate.exceptions.InvalidRequestException;
 import main.java.cs.givealot.Certificate.exceptions.NotAuthorizedException;
 import main.java.cs.givealot.Certificate.rri.createPDFCertificateRequest;
 import main.java.cs.givealot.Certificate.rri.createPDFCertificateResponse;
-import main.java.cs.givealot.Certificate.CertificateHelper;
+
 public class CertificateServiceImpl implements CertificateService{
 
     public CertificateServiceImpl() {
@@ -35,7 +36,7 @@ public class CertificateServiceImpl implements CertificateService{
             certificate = new createPDFCertificateResponse();
             CertificateHelper createPDF = new CertificateHelper();
             try {
-                certificate.setPDFCertificate(createPDF.createPDFDocument(cert));
+                certificate.createPDFCertificateResponse(createPDF.createPDFDocument(cert));
             } catch (Exception e){
                 throw new CertificateException("Problem creating Certificate");
             }

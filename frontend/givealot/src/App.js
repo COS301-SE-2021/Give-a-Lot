@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Registration from "./components/registration/registration"; 
 import Login from "./components/login/login";
 import GeneralUser from "./components/GeneralUser/GeneralUser";
+import AdminNav from './components/Admin/AdminNav/AdminNav';
+import Admin from "./components/Admin/Admin";
 
 function App() {
   
@@ -40,7 +42,7 @@ function App() {
   // </Router>
 
   <div className="App">
-    <GeneralUser/>
+    <Admin/>
   </div>
   );
 }

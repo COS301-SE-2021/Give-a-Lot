@@ -1,9 +1,74 @@
 package com.GiveaLot.givealot.CertificateUnitTest;
 
 
+import com.GiveaLot.givealot.Certificate.JSONHelper;
+import com.GiveaLot.givealot.Certificate.JSONServiceImpl;
+import com.GiveaLot.givealot.Certificate.dataclass.JSON;
+import com.GiveaLot.givealot.Certificate.exceptions.InvalidRequestException;
+import com.GiveaLot.givealot.Certificate.exceptions.JSONException;
+import com.GiveaLot.givealot.Certificate.rri.createJSONRequest;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import jdk.jfr.Description;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.security.NoSuchAlgorithmException;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 public class JSONUnitTest {
+
+    @InjectMocks
+    JSONServiceImpl jsonService;
+    JSONHelper jsonHelper;
+
+
+
+
+    createJSONRequest request1;
+    createJSONRequest request2;
+
+    JSON jObj1;
+    JSON jObj2;
+
+
+
+    @BeforeEach
+    void setUp() throws NoSuchAlgorithmException {
+
+        jsonHelper = new JSONHelper();
+
+        request1=null;
+        request2= new createJSONRequest("The Organisation", "Some description", "www.website.com", "www.image.com");
+
+        jObj1= new JSON();
+        jObj2 = new JSON(request2.name,request2.description,request2.serverUrl,request2.imageUrl);
+
+    }
+
+    @Test
+    @Description("Assumes that the createJSON Request is null")
+    void TEST_SHOULD_RETURN_INVALID_REQUEST_EXCEPTION(){
+        Throwable throwError = assertThrows(InvalidRequestException.class, () -> jsonService.createJSON(request1));
+        assertEquals("Exception: JSON could not be created because the request object is null", throwError.getMessage());
+    }
+
+    @Test
+    @Description("Assumes that the JSON object is default")
+    void TEST_SHOULD_RETURN_JSON_EXCEPTION(){
+        Throwable throwError = assertThrows(JSONException.class, () -> jsonHelper.createJSONObject(jObj1));
+        assertEquals("JSON data is null", throwError.getMessage());
+    }
+
+    @Test
+    @Description("Assumes that the JSON object file is already open")
+    void TEST_CANNOT_WRITE_OVER_FILE(){
+        Throwable throwError = assertThrows(JSONException.class, () -> jsonHelper.createFile(jsonHelper.createJSONObject(jObj2)));
+        assertEquals("JSON file is cannot be written over when open", throwError.getMessage());
+    }
 }

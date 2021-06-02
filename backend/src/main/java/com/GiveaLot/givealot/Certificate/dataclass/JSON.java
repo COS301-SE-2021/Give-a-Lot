@@ -12,6 +12,14 @@ public class JSON {
     public String imageUrl;
 
 
+    public JSON(){
+        this.name = "";
+        this.description = "";
+        this.serverUrl = "";
+        this.verificationCode = "";
+        this.imageUrl = "";
+    }
+
     public JSON( String name, String description, String url, String image) throws NoSuchAlgorithmException {
         this.name = name;
         this.description = description;

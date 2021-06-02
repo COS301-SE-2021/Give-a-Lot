@@ -3,27 +3,27 @@ import AdminNav from "../AdminNav/AdminNav";
 // import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 // import AdminNav from "../../AdminNav/AdminNav";
 
-
-
 export default class Adminsidebar extends Component {
+   
     render() {
+        const sidebarstyle ={
+            backgroundColor: "white",
+            width: "280px",
+            height:"100%"
+            // backgroud:"#fff"
+        }
         return (
             <div>
-               
                 <div className="bg-danger h-4">
                     <AdminNav/>
-                    {/* <h1>here it is</h1> */}
                 </div>
                
                 <main>
                 <div className="">
-                {/* <h1 style={{position:"absolute", left:"300px", top:"400px"}}>
-                    here
-                </h1> */}
-                <div className="d-flex flex-column flex-shrink-0 p-3 bg-light" style={{width: "280px",height:"100%"}}>
+                <div className="d-flex flex-column flex-shrink-0 p-3 bg-light" style={sidebarstyle}>
                     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                     {/* <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg> */}
-                    <span className="fs-4">Sidebar</span>
+                    <span className="fs-4">Give A lot</span>
                     </a>
                     <hr/>
                     <ul className="nav nav-pills flex-column mb-auto">

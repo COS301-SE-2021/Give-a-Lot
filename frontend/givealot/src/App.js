@@ -42,7 +42,8 @@ function App() {
   // </Router>
 
   <div className="App">
-    <Admin/>
+    {/* <Admin/> */}
+    <GeneralUser/>
   </div>
   );
 }

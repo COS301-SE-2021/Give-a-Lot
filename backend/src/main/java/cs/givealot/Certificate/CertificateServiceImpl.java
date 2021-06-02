@@ -32,7 +32,7 @@ public class CertificateServiceImpl implements CertificateService{
             }catch (Exception e){
                 throw new CertificateException("Problem creating Certificate");
             }
-            cert = new Certificate("The Charity Organisation", "We are all about giving back...", "charity@char.com", "1234 Give Back Avenue", "www.charityOrg.org");
+            cert = new Certificate(request.name, request.description, request.email, request.address, request.url);
             certificate = new createPDFCertificateResponse();
             CertificateHelper createPDF = new CertificateHelper();
             try {

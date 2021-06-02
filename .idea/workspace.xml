@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51f17cb2-a697-4f7e-b772-ec1ec1759486" name="Default Changelist" comment="implemented the generateCertificateRequest.java and generateCertificateResponse.java">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/itextpdf_5_5_13.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/Certificate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Give-a-Lot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Give-a-Lot.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/CertificateHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/CertificateHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/CertificateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/CertificateServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/dataclass/Certificate.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/dataclass/Certificate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/rri/createPDFCertificateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/rri/createPDFCertificateRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/rri/createPDFCertificateResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/cs/givealot/Certificate/rri/createPDFCertificateResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/cs/givealot/CertificateUnitTest/CertificateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/cs/givealot/CertificateUnitTest/CertificateTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,13 +53,64 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../backend" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../../jar/itextpdf-5.5.13.jar" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\joshu\IdeaProjects\CrowdBook_Alpha\CrowdBook_Alpha\CrowdBook_Alpha\Give-a-Lot\backend\src\main\java\cs\givealot" />
       <recent name="C:\Users\Nqobani_Xpl\Documents\Course\2021\COS301\capstone\Give-a-Lot\backend\src\main\java\cs\givealot\itext" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="CertificateTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-16" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="test.java.cs.givealot.CertificateUnitTest.CertificateTest" />
+      <module name="Give-a-Lot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.java.cs.givealot.CertificateUnitTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CertificateTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -69,6 +120,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1622542252653</updated>
+      <workItem from="1622628570592" duration="1302000" />
     </task>
     <task id="LOCAL-00001" summary="resolve conflict">
       <created>1622545511126</created>
@@ -98,8 +150,18 @@
       <option name="project" value="LOCAL" />
       <updated>1622624065596</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="implemented the generateCertificateRequest.java and generateCertificateResponse.java">
+      <created>1622627715660</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1622627715660</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

@@ -1,12 +1,22 @@
 package com.GiveaLot.givealot.Certificate.rri;
 
-import javax.swing.text.Document;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 
 public class createPDFCertificateResponse {
+    private byte [] cert;
     private Document PDFCert;
 
-    public createPDFCertificateResponse(){}
-    public Document getPDFCertificate(){return PDFCert;};
+//    public createPDFCertificateResponse(byte [] certificate)
+//    {
+//        this.cert = certificate;
+//    }
 
-    public void setPDFCertificate(Document pdfDocument) {this.PDFCert = pdfDocument; }
+//
+//    public createPDFCertificateResponse(){}
+//    public Document getPDFCertificate(){return PDFCert;};
+//
+    public void createPDFCertificateResponse(Document pdfDocument) {this.PDFCert = pdfDocument; }
 }

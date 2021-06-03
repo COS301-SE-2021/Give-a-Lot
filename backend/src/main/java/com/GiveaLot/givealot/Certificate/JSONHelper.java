@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
 public class JSONHelper implements  JSONHelperInterface{
-
     public JSONHelper() {
     }
     /**
@@ -48,7 +47,6 @@ public class JSONHelper implements  JSONHelperInterface{
         return metadata;
     }
 
-    @Override
     public String createFile(String obj) throws JSONException {
         if (obj.equals("")){
             throw new JSONException("Empty JSON object");

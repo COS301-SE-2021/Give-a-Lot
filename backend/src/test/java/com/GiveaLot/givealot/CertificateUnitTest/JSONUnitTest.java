@@ -10,6 +10,8 @@ import com.GiveaLot.givealot.Certificate.exceptions.InvalidRequestException;
 import com.GiveaLot.givealot.Certificate.exceptions.JSONException;
 import com.GiveaLot.givealot.Certificate.rri.createJSONRequest;
 import com.GiveaLot.givealot.Certificate.rri.createJSONResponse;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -56,7 +58,6 @@ public class JSONUnitTest {
     void setUp() throws Exception {
 
         jsonHelper = new JSONHelper();
-        //jsonHelperInt = new JSONHelper();
 
 
         request1=null;
@@ -71,16 +72,7 @@ public class JSONUnitTest {
 
         response1 = jsonServiceImpl.createJSON(request2);
 
-        response2 = jsonService.createJSON(request3);
-
-
-
-//        System.out.println("R1");
-//        System.out.println(response1);
-//        System.out.println("R2");
-//        System.out.println(response2);
-
-
+        //response2 = jsonService.createJSON(request3);
 
     }
 
@@ -119,10 +111,9 @@ public class JSONUnitTest {
 //    }
 
     @Test
-    @Description("Assumes that the returned object is the correct json response")
+    @Description("Assumes that the returned object is the correct json string")
     void TEST_RETURNS_JSON_OBJECT() throws JSONException {
-        when(jsonHelperInt.createJSONObject(jObj2)).thenReturn(jString1);
-        Assert.assertEquals(jsonHelper.createJSONObject(jObj2),jString1);
+        assertEquals(jsonHelper.createJSONObject(jObj2),jString1);
     }
 
 }

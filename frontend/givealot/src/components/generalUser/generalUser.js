@@ -9,7 +9,7 @@ export default class GeneralUser extends Component {
     render() {
         return (
             <div className="">
-                <Navbar />
+                {/* <Navbar /> */}
                 <h1 style={{position: "absolute", left: "450px", top: "200px"}}>
                     Search for an Organisation
                 </h1>

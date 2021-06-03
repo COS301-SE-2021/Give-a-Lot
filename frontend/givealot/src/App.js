@@ -7,7 +7,7 @@ import Login from "./components/login/login";
 import GeneralUser from "./components/GeneralUser/GeneralUser";
 import AdminNav from './components/Admin/AdminNav/AdminNav';
 import Admin from "./components/Admin/Admin";
-import Organisation from './components/organisation/Organisation';
+
 
 function App() {
   
@@ -34,8 +34,8 @@ function App() {
         {/* <div className="inner"> */}
           <Switch>
             <Route exact path='/' component={GeneralUser} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/Registration" component={Registration} />
+            <Route path="/login" component={Login} />
+            <Route path="/Registration" component={Registration} />
           </Switch>
         {/* </div> */}
       </div>
@@ -43,9 +43,7 @@ function App() {
   </Router>
 
   // <div className="App">
-  //   {/* <Admin/> */}
-  //   {/* <GeneralUser/> */}
-  //   <Organisation/>
+  //   <Admin/>
   // </div>
   );
 }

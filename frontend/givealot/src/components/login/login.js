@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 
+
 export default class Login extends Component {
     render() {
         return (
-            <form>
+            <form style={{position: "absolute", left: "450px", top: "200px", width:"500px"}}>
 
                 <h3>Log in</h3>
 

@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export default class Registration extends Component {
     render() {
         return (
-            <form>
+            <form style={{position: "absolute", left: "450px", top: "200px", width:"500px"}}>
                 <h3>Register</h3>
 
                 <div className="form-group">

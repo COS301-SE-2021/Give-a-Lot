@@ -9,7 +9,7 @@
         <module name="givealot" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="11">
       <module name="givealot" target="11" />
     </bytecodeTargetLevel>
   </component>

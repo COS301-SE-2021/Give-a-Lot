@@ -10,22 +10,16 @@ import com.GiveaLot.givealot.Certificate.exceptions.InvalidRequestException;
 import com.GiveaLot.givealot.Certificate.exceptions.JSONException;
 import com.GiveaLot.givealot.Certificate.rri.createJSONRequest;
 import com.GiveaLot.givealot.Certificate.rri.createJSONResponse;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import org.junit.Assert;
+import jdk.jfr.Description;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import jdk.jfr.Description;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.security.NoSuchAlgorithmException;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(MockitoExtension.class)
 public class JSONUnitTest {

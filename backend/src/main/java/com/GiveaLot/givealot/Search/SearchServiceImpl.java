@@ -22,7 +22,7 @@ public class SearchServiceImpl implements SearchService {
         List<User> results = new LinkedList<>();
         for (User u : mockusers.getUsers())
         {
-            if(similarity(u.getNameOfOrganisation(), search_value) > 1)
+            if(similarity(u.getNameOfOrganisation().toLowerCase(), search_value.toLowerCase()) > 1)
             {
                 results.add(0,u);
             }

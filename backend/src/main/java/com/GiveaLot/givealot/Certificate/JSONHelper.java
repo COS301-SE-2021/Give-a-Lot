@@ -1,7 +1,9 @@
 package com.GiveaLot.givealot.Certificate;
 
 import com.GiveaLot.givealot.Certificate.dataclass.JSON;
+import com.GiveaLot.givealot.Certificate.exceptions.InvalidRequestException;
 import com.GiveaLot.givealot.Certificate.exceptions.JSONException;
+import com.GiveaLot.givealot.Certificate.exceptions.NotAuthorizedException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -10,11 +12,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
-public class JSONHelper {
+public class JSONHelper implements  JSONHelperInterface{
 
     public JSONHelper() {
     }
-
+    /**
+     * @return
+     * @throws JSONException
+     */
+    @Override
     public String createJSONObject(JSON data) throws JSONException {
         if (data.name==""){
             throw new JSONException("JSON data is null");
@@ -42,7 +48,11 @@ public class JSONHelper {
         return metadata;
     }
 
+    @Override
     public String createFile(String obj) throws JSONException {
+        if (obj.equals("")){
+            throw new JSONException("Empty JSON object");
+        }
         try {
             FileWriter jsonObj = new FileWriter("C:\\generateCertificates\\JSON.txt");
             jsonObj.write(obj);

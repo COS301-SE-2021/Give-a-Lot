@@ -7,6 +7,7 @@ import Login from "./components/login/login";
 import GeneralUser from "./components/GeneralUser/GeneralUser";
 import AdminNav from './components/Admin/AdminNav/AdminNav';
 import Admin from "./components/Admin/Admin";
+import Organisation from './components/organisation/Organisation';
 
 function App() {
   
@@ -43,7 +44,8 @@ function App() {
 
   <div className="App">
     {/* <Admin/> */}
-    <GeneralUser/>
+    {/* <GeneralUser/> */}
+    <Organisation/>
   </div>
   );
 }

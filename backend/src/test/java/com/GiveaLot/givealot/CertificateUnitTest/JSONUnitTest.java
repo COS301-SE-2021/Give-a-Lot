@@ -81,7 +81,7 @@ public class JSONUnitTest {
     @Description("Assumes that the JSON object is default")
     void TEST_SHOULD_RETURN_JSON_EXCEPTION(){
         Throwable throwError = assertThrows(JSONException.class, () -> jsonHelper.createJSONObject(jObj1));
-        assertEquals("JSON data is null", throwError.getMessage());
+        assertEquals("Exception: JSON data is null", throwError.getMessage());
     }
 
 //    @Test
@@ -94,7 +94,7 @@ public class JSONUnitTest {
     @Description("Assumes that the JSON object passed is empty")
     void TEST_EMPTY_JSON_OBJECT(){
         Throwable throwError = assertThrows(JSONException.class, () -> jsonHelper.createFile(jsonString));
-        assertEquals("Empty JSON object", throwError.getMessage());
+        assertEquals("Exception: Empty JSON object", throwError.getMessage());
     }
 
 //    @Test

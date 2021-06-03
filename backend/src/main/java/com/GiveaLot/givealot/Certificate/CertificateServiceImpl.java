@@ -39,7 +39,7 @@ public class CertificateServiceImpl implements CertificateService{
             try {
                 certificate.createPDFCertificateResponse(createPDF.createPDFDocument(cert));
             } catch (Exception e){
-                throw new CertificateException("Problem creating Certificate");
+                throw new InvalidRequestException("Exception: Invalid request received");
             }
         }
         return certificate;

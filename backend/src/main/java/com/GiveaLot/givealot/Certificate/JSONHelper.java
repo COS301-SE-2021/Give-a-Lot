@@ -22,19 +22,19 @@ public class JSONHelper implements  JSONHelperInterface{
     @Override
     public String createJSONObject(JSON data) throws JSONException {
         if (data.name==""){
-            throw new JSONException("JSON data is null");
+            throw new JSONException("Exception: JSON data is null");
         }
         if (data.description==""){
-            throw new JSONException("JSON data is null");
+            throw new JSONException("Exception: JSON data is null");
         }
         if (data.serverUrl==""){
-            throw new JSONException("JSON data is null");
+            throw new JSONException("Exception: JSON data is null");
         }
         if (data.imageUrl==""){
-            throw new JSONException("JSON data is null");
+            throw new JSONException("Exception: JSON data is null");
         }
         if (data.verificationCode==""){
-            throw new JSONException("JSON data is null");
+            throw new JSONException("Exception: JSON data is null");
         }
         String metadata = "{\"name\":\"" + data.name + "\", \"description\":\"" + data.description + "\", \"serverUrl\":\"" + data.serverUrl + "\", \"verificationCode\":\"" + data.verificationCode + "\", \"imageUrl\" :\"" + data.imageUrl + "\"}";
         //System.out.println(metadata);
@@ -49,7 +49,7 @@ public class JSONHelper implements  JSONHelperInterface{
 
     public String createFile(String obj) throws JSONException {
         if (obj.equals("")){
-            throw new JSONException("Empty JSON object");
+            throw new JSONException("Exception: Empty JSON object");
         }
         try {
             FileWriter jsonObj = new FileWriter("C:\\generateCertificates\\JSON.txt");
@@ -57,7 +57,7 @@ public class JSONHelper implements  JSONHelperInterface{
             jsonObj.close();
             return obj;
         } catch (IOException e) {
-            throw new JSONException("JSON file is cannot be written over when open");
+            throw new JSONException("Exception: JSON file is cannot be written over when open");
         }
     }
 }

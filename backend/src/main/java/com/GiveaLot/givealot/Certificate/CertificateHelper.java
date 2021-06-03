@@ -7,6 +7,7 @@ import java.lang.String;
 
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Certificate.exceptions.CertificateException;
+import com.GiveaLot.givealot.Certificate.exceptions.JSONException;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
@@ -25,6 +26,21 @@ public class CertificateHelper {
     //Creates the pdf
     public CertificateHelper(){}
     public Document createPDFDocument(Certificate cert) throws Exception{
+        if (cert.getNameOfOrganisation()==""){
+            throw new CertificateException("Exception: Certificate data is null");
+        }
+        if (cert.getDescriptionOFOrganisation()==""){
+            throw new CertificateException("Exception: Certificate data is null");
+        }
+        if (cert.getEmail()==""){
+            throw new CertificateException("Exception: Certificate data is null");
+        }
+        if (cert.getAddress()==""){
+            throw new CertificateException("Exception: Certificate data is null");
+        }
+        if (cert.getUrl()==""){
+            throw new CertificateException("Exception: Certificate data is null");
+        }
             ByteArrayOutputStream out = new ByteArrayOutputStream();
             try
             {
@@ -44,7 +60,7 @@ public class CertificateHelper {
                 return document;
 
             } catch (Exception e) {
-                throw new CertificateException("Problem creating Certificate");
+                throw new CertificateException("Exception: Document cannot be overwritten when open");
             }
         }
     }

@@ -17,7 +17,6 @@ public class SearchServiceImpl implements SearchService {
         String search_value = request.getNameOfOrganisation();
         if (search_value.length() == 0) throw new InvalidInputException("empty search string");
         else if (!search_value.matches("\\A\\p{ASCII}*\\z")) throw new InvalidInputException("non-ascii characters");
-
         mockUsers mockusers = new mockUsers();
         List<User> results = new LinkedList<>();
         for (User u : mockusers.getUsers())

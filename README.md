@@ -69,15 +69,11 @@ phases of the project to the stakeholders of the GeoCode project.
 <ul>
   <li>master
    <ul>
-    <li>Developmemt
+    <li>Developer
       <ul>
-       <li>Shopping_development
-        <ul>
-         <li>feature_shopping_getCatalogue</li>
-         </ul>
-       </li>
+         <li>feature_getCatalogue</li>
      </ul>
-   </li
+   </li>
   </ul>
  </li>
 </ul>

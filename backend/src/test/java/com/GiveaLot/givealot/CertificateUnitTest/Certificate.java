@@ -23,7 +23,6 @@ public class Certificate {
     public String getNameOfOrganisation() {
         return nameOfOrganisation;
     }
-
     public String getDescriptionOFOrganisation() {
         return descriptionOFOrganisation;
     }
@@ -31,7 +30,6 @@ public class Certificate {
     public String getEmail() {
         return Email;
     }
-
     public String getAddress() {
         return Address;
     }
@@ -39,7 +37,6 @@ public class Certificate {
     public String getUrl() {
         return Url;
     }
-
     public Boolean getVerified() {
         return isVerified;
     }
@@ -47,7 +44,6 @@ public class Certificate {
     public Boolean getAddressIsValid() {
         return addressIsValid;
     }
-
     public void setNameOfOrganisation(String nameOfOrganisation) {
         this.nameOfOrganisation = nameOfOrganisation;
     }

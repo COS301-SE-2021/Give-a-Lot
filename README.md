@@ -41,7 +41,7 @@ Industry Mentor:
 * Madimetja Shika:  madi@deepsinkpartners.com
 
 University Mentor:
-* Mr Broekman: la.badat@up.ac.za
+* Mr Badat: la.badat@up.ac.za
 
 </div>
 
@@ -50,7 +50,7 @@ University Mentor:
 <div style="margin-left: 4%">
 
 The following links are the live demo videos held on blackboard collaborate to present the different <br/>
-phases of the project to the stakeholders of the GeoCode project.
+phases of the project to the stakeholders of the Give a lot project.
 
 * <a href="https://michael-stroh.github.io/capstone/"> Demo 1 </a>
 * <a href="https://michael-stroh.github.io/capstone/"> Demo 2 </a>

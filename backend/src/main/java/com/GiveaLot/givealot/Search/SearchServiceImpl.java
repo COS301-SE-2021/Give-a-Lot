@@ -25,7 +25,7 @@ public class SearchServiceImpl implements SearchService {
             {
                 results.add(0,u);
             }
-            else if(similarity(u.getNameOfOrganisation(), search_value) > 0.3) {
+            else if(similarity(u.getNameOfOrganisation(), search_value) > 0.2) {
                 if (results.size() == 0) {
                     results.add(0, u);
                 } else {

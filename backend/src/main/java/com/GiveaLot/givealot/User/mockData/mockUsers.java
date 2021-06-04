@@ -11,7 +11,7 @@ public class mockUsers
     {
         users = new LinkedList<>();
         users.add(new User("the givers of hope",
-                "give hope to the lost, and this and that and that other thing to make what what make sure",
+                "give hope to the lost, and this  that and that other thing to make what what make sure",
                 "givers@hope.com",
                 "givers street,pretoria,South Afriza",
                 "public/resources/images/org1.jpg",

@@ -99,21 +99,19 @@ public class mockUsers
                 false));
 
         users.add(new User("Gay and Lesbian Network",
-                "gay peopel should be accepted in the society, everyone has a freedom of choice to... okay why are you geh? who's geh, you are geh?",
-                "Gay@Network.com",
-                "givers street,pretoria,South Afriza",
-                "public/resources/images/org6.1.jpg",
-                "public/resources/ui/logo.png",
-                "givealot",
-                "LGBTQ",
-                false,
-                false));
-
+            "gay peopel should be accepted in the society, everyone has a freedom of choice to... okay why are you geh? who's geh, you are geh?",
+            "Gay@Network.com",
+            "givers street,pretoria,South Afriza",
+            "public/resources/images/org6.1.jpg",
+            "public/resources/ui/logo.png",
+            "givealot",
+            "LGBTQ",
+            false,
+            false));
     }
 
     public List<User> getUsers()
     {
         return users;
     }
-
 }

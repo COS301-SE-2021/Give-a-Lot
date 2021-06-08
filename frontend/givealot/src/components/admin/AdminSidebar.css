@@ -1,0 +1,11 @@
+.Adminsidebar{
+    padding: 25px 10px;
+    flex: 0.35;
+}
+.coLogo{
+    display: flex;
+}
+.coLogo > img{
+    height: 80px;
+    display: flex;
+}

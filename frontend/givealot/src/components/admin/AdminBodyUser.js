@@ -9,6 +9,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
+import SearchIcon from '@material-ui/icons/Search';
 
 const columns = [
     { id: 'name', label: 'Name', minWidth: 170 },
@@ -86,7 +87,14 @@ function AdminBodyUser() {
 
     return (
         <div className="adminbodyUser">
-            <h4>Users</h4>
+            <div className="headerField">
+                <h4>Users</h4>
+                <div className="header__input">
+                    <SearchIcon/>
+                    <input placeholder="search User" type="text" />
+                </div>
+            </div>
+            {/* <h4>Users</h4> */}
             <Paper className={classes.root}>
                 <TableContainer className={classes.container}>
                     <Table stickyHeader aria-label="sticky table">

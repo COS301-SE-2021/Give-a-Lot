@@ -7,8 +7,8 @@ function AdminBody() {
     return (
         <div className="Adminbody">
             <div className="AdminbodyOrg">
-                {/* <AdminBodyOrg /> */}
-                <AdminBodyUser />
+                <AdminBodyOrg />
+                {/* <AdminBodyUser /> */}
             </div>
             {/* <div className="AdminbodyUser">
             

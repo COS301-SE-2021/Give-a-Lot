@@ -9,6 +9,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
+import SearchIcon from '@material-ui/icons/Search';
 
 const columns = [
     { id: 'name', label: 'Name', minWidth: 170 },
@@ -86,7 +87,13 @@ function AdminBodyOrg() {
 
     return (
         <div className="adminbodyOrg">
-            <h4>Organisations</h4>
+            <div className="headerField">
+                <h4>Organisations</h4>
+                <div className="header__input">
+                    <SearchIcon/>
+                    <input placeholder="search Organisation" type="text" />
+                </div>
+            </div>
             <Paper className={classes.root}>
                 <TableContainer className={classes.container}>
                     <Table stickyHeader aria-label="sticky table">

@@ -9,7 +9,7 @@ import OrgRegistration from "./components/registration/OrgRegistration";
 function App() {
   return (
     <div className="App">
-      <Admin />
+      <Login />
     </div>
   );
 }

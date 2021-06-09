@@ -1,19 +1,17 @@
 import React from 'react';
 import "./Login.css";
-import loginBody from "./loginBody";
+import LoginBody from "./LoginBody";
+import LoginWelcome from "./LoginWelcome";
 
 function Login() {
     return (
         <div className="login">
-            <div>
-                
+          
+          <div>
+                <LoginWelcome />
             </div>
             <div>
-                <h1>welcome back</h1>
-            </div>
-
-            <div>
-                <loginBody />
+                <LoginBody />
             </div>
         </div>
     )

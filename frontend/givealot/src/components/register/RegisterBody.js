@@ -13,9 +13,10 @@ class RegisterBody extends Component {
                     <img  src={logo} width="350" height="250" alt=""/>
 
 
-                        <div >
+                        <div className="form-inline">
                             
-                             <input type="text" className="control" placeholder="First name" />  <input type="text" className="control" placeholder="First name" /> 
+                             <input type="text" className="control1" placeholder="First name" /> 
+                              <input type="text" className="control1" placeholder="Last name" /> 
                             
                         </div>
                         <div >
@@ -33,7 +34,7 @@ class RegisterBody extends Component {
                         </div>
                         <div>
 
-                             <button type="submit" className="button">Login</button>
+                             <button type="submit" className="button">Verify Email</button>
                          </div>
                     
                      </form>

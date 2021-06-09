@@ -2,6 +2,7 @@ import './App.css';
 //import Admin from "./components/admin/Admin";
 //import BasicUser from "./components/basicUser/BasicUser";
 import Login from "./components/login/Login";
+import Register from "./components/register/Register";
 //import Organisation from "./components/organisation/Organisation";
 //import Registration from "./components/registration/Registration";
 //import OrgRegistration from "./components/registration/OrgRegistration";
@@ -9,7 +10,7 @@ import Login from "./components/login/Login";
 function App() {
   return (
     <div className="App">
-      <Login />
+      <Register />
     </div>
   );
 }

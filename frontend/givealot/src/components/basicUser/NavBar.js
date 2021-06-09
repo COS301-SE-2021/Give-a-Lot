@@ -26,9 +26,12 @@ function NavBar() {
 
         <div>
             <Switch>
-                <Route></Route>
-                <Route path="Browse" ></Route>
-                <Route path="/Login" component={Login}></Route>
+
+                <Route exact path='/' component={BasicUser}/>
+                <Route path="BasicUser" component={BasicUser}/>
+                <Route path="Browse" component={Browse} />
+                <Route path="/Login" component={Login} />
+                
             </Switch>
         </div>
 

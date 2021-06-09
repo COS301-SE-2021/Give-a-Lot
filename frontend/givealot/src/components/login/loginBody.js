@@ -21,8 +21,8 @@ class LoginBody extends Component {
                             <input type="password" className="control" placeholder="Enter password" />
                         </div>
 
-                        <div >
-                            <p className="forgot-password text-right"> Forgot <a href="#">password?</a>  </p>
+                        <div > 
+                            <p ><a className="register" href="#">register</a> <a  className="forgot" href="#"> forget password?</a>   </p>
                         </div>
                         <div>
 

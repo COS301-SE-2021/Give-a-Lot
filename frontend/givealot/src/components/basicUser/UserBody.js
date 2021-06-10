@@ -7,17 +7,12 @@ class UserBody extends Component {
    
         render() {
             return (
-                <div >
-                    
-                    <form className="form">
+                <div className="form">
                     <img  src={logo} width="350" height="250" alt=""/>
-                       
-                        <div>
-
-                             <button type="submit" className="button">Login</button>
-                         </div>
+                    <div> 
+                        <input className="search" type="text" placeholder="Search here" />
+                    </div>
                     
-                     </form>
                 </div>
             );
         }

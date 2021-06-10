@@ -6,18 +6,33 @@ import Browse from "../browse/Browse";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function NavBar() {
+        const mystyle={
+            color:'#303030',
+            textDecoration: 'none',
+           
+
+        };
+
+        const mystyle1={
+            color:'#303030',
+            textDecoration: 'none',
+            borderBottomColor:  'red',
+
+        };
+   
+
     return ( <Router>
-        <nav className="container">
+        <nav >
             <div >
                 <ul>
-                    <li >
-                        <Link  to={'/BasicUser'}>Home</Link>
+                    <li className="one" >
+                        <Link style={mystyle1} to={'/BasicUser'}>home</Link>
                     </li>
                     <li>
-                        <Link to={"/Browse"}>Browse</Link>
+                        <Link style={mystyle} to={"/Browse"}>browse</Link>
                     </li>
                     <li>
-                        <Link to={"/Login"}>Login</Link>
+                        <Link style={mystyle} to={"/Login"}>login</Link>
                     </li>
                 </ul>
 
@@ -46,6 +61,7 @@ function NavBar() {
             <h1 className="welcome_back">welcome back</h1>
         </div>*/
     )
+
 }
 
 export default NavBar

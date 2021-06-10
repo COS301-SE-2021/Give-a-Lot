@@ -17,7 +17,6 @@ import Paper from '@material-ui/core/Paper';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Button from '@material-ui/core/Button';
-import Header from "./Header";
 
 
 const useRowStyles = makeStyles({
@@ -134,7 +133,12 @@ const rows = [
 function AdminBodyUser() {
     return (
         <div className="adminbodyUser">
-          <Header />
+          <div className="header">
+            <div className="header__input">
+                <SearchIcon/>
+                <input placeholder="search organisation" type="text" />
+            </div>
+        </div>
           <div className="tablecontent">
             <TableContainer component={Paper}>
               <Table aria-label="collapsible table">

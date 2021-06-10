@@ -24,7 +24,12 @@
     background-color: transparent;
     outline-width: 0;
 }
-/* .tablecontent{
+.tablecontent{
     position: absolute;
-    top: 400px;
-} */
+    left: 150px;
+}
+
+.adminbodyUser{
+    position: absolute;
+    left: 150px;
+}

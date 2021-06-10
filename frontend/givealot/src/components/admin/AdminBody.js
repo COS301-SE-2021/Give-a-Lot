@@ -3,16 +3,13 @@ import "./AdminBody.css";
 import AdminBodyOrg from "./AdminBodyOrg";
 import AdminBodyUser from "./AdminBodyUser";
 
-function AdminBody() {
+function AdminBody({AdminBodyOrg, AdminBodyUser}) {
     return (
         <div className="Adminbody">
             <div className="AdminbodyOrg">
-                {/* <AdminBodyOrg /> */}
-                <AdminBodyUser />
+                {AdminBodyOrg && < AdminBodyOrg/>}
+                {AdminBodyUser && < AdminBodyUser/>}
             </div>
-            {/* <div className="AdminbodyUser">
-            
-            </div> */}
         </div>
     )
 }

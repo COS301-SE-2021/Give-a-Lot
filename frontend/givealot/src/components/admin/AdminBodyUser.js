@@ -17,6 +17,7 @@ import Paper from '@material-ui/core/Paper';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Button from '@material-ui/core/Button';
+import Header from "./Header";
 
 
 const useRowStyles = makeStyles({
@@ -34,10 +35,6 @@ function createData(name, email, donation, datejoined, status) {
     donation,
     datejoined,
     status,
-    // history: [
-    //   { date: '2020-01-05', customerId: '11091700', amount: 3 },
-    //   { date: '2020-01-02', customerId: 'Anonymous', amount: 1 },
-    // ],
   };
 }
 
@@ -137,35 +134,30 @@ const rows = [
 function AdminBodyUser() {
     return (
         <div className="adminbodyUser">
-            <div className="headerField">
-                <h4>Users</h4>
-                <div className="header__input">
-                    <SearchIcon/>
-                    <input placeholder="search User" type="text" />
-                </div>
-                <div className="tablecontent">
-                <TableContainer component={Paper}>
-                  <Table aria-label="collapsible table">
-                    <TableHead>
-                      <TableRow>
-                        <TableCell />
-                        <TableCell>Name and Surname</TableCell>
-                        <TableCell align="right">Email</TableCell>
-                        <TableCell align="right">Donation&nbsp;(R)</TableCell>
-                        <TableCell align="right">Date Joined</TableCell>
-                        <TableCell align="right">Status</TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {rows.map((row) => (
-                        <Row key={row.name} row={row} />
-                      ))}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
-                </div>
-                
-            </div>
+          <Header />
+          <div className="tablecontent">
+            <TableContainer component={Paper}>
+              <Table aria-label="collapsible table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell />
+                    <TableCell>Name and Surname</TableCell>
+                    <TableCell align="right">Email</TableCell>
+                    <TableCell align="right">Donation&nbsp;(R)</TableCell>
+                    <TableCell align="right">Date Joined</TableCell>
+                    <TableCell align="right">Status</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {rows.map((row) => (
+                    <Row key={row.name} row={row} />
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+
+            
+          </div>
         </div>
     )
 }

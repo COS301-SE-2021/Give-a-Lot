@@ -5,7 +5,7 @@ import NavBar from "./NavBar";
 
 function BasicUser() {
     return (
-        <div className="basicUser">
+        <div >
             <div>
                 <NavBar />
             </div>

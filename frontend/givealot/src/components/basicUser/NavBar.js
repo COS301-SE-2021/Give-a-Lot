@@ -11,7 +11,7 @@ function NavBar() {
             <div >
                 <ul>
                     <li >
-                        <Link  to={"/BasicUser"}>Home</Link>
+                        <Link  to={'/BasicUser'}>Home</Link>
                     </li>
                     <li>
                         <Link to={"/Browse"}>Browse</Link>
@@ -27,9 +27,9 @@ function NavBar() {
         <div>
             <Switch>
 
-                <Route exact path='/' component={BasicUser}/>
-                <Route path="BasicUser" component={BasicUser}/>
-                <Route path="Browse" component={Browse} />
+               
+                <Route path="/Basic" component={BasicUser} />
+                <Route path="/Browse" component={Browse} />
                 <Route path="/Login" component={Login} />
                 
             </Switch>

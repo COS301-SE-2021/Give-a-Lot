@@ -10,7 +10,7 @@ function BasicUser() {
                 <NavBar />
             </div>
             <div>
-                
+                <UserBody />
             </div>
         </div>
     )

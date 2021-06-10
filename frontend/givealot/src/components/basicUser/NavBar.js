@@ -16,7 +16,7 @@ function NavBar() {
         const mystyle1={
             color:'#303030',
             textDecoration: 'none',
-            borderBottomColor:  'red',
+            
 
         };
    

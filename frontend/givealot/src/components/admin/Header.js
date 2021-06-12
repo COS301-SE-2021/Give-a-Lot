@@ -47,7 +47,7 @@ const Header = () => {
         </Typography>
         <div className="header__input">
             <SearchIcon/>
-            <input placeholder="search organisation" type="text" />
+            <input placeholder="search" type="text" />
         </div>
     </Toolbar>
     </AppBar>

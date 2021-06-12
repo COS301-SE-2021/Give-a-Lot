@@ -11,14 +11,12 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import Divider from '@material-ui/core/Divider';
+import AdminOrgs from "./AdminOrgs";
+import AdminUsers from "./AdminUsers";
 
 function SidebarRows({src, Icon, title}) {
     return (
         <div className="sidebarRow">
-            {/* if you pass a source, render a source, if oyu pass an icon render an icon */}
-            {/* {src && <Avatar src={src} /> }
-            {Icon && <Icon /> }
-            <h4>{title}</h4> */}
             <ListItem button >
                 <ListItemIcon>
                 <DashboardIcon />

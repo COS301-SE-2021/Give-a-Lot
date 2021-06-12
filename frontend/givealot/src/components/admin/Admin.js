@@ -4,6 +4,7 @@ import SidebarRows from "./SidebarRows"
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import Header from "./Header";
+import Dashboard from "./Dashboard"
 
 function Admin() {
     return (
@@ -18,7 +19,7 @@ function Admin() {
                 <Divider />
             </div>
             <div className="body">
-                here are other stuff
+                <Dashboard />
             </div>
             </div>
             

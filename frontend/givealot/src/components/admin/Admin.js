@@ -1,31 +1,28 @@
 import React from 'react';
 import "./Admin.css";
-import AdminSidebar from "./AdminSidebar";
-import AdminBody from "./AdminBody";
-import Cards from "./Cards";
-import TotalOrgs from "./TotalOrgs";
-import TotalUsers from "./TotalUsers";
-import Graph from "./Graph";
-
-
+import SidebarRows from "./SidebarRows"
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import Header from "./Header";
 
 function Admin() {
     return (
-        <div>
-             <div className="admin">
-                <div>
-                    <AdminSidebar />
-                </div>
-                <div className="dashboard">
-                    <Cards style={{padding:"0 30px"}}/>
-                    <TotalOrgs style={{padding:"0 30px"}}/>
-                    <TotalUsers style={{padding:"0 30px"}}/>
-                </div>
-                
-            </div> 
-            {/* <div>
-                <AdminBody />
-            </div> */}
+        <div className="admin">
+            <div className="header">
+                <List><Header/></List>
+                <Divider />
+            </div>
+            <div className="Adminbody">
+            <div className="sidebar">
+                <List><SidebarRows/></List>
+                <Divider />
+            </div>
+            <div className="body">
+                here are other stuff
+            </div>
+            </div>
+            
+            
         </div>
            
     )

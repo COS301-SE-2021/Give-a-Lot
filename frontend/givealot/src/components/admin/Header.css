@@ -1,0 +1,21 @@
+.header__input{
+    display: flex;
+    align-items: center;
+    background-color: #eff2f5;
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 999px;
+    position: absolute;
+    right: 50px;
+}
+
+
+.header__input > input{
+    border: none;
+    background-color: transparent;
+    outline-width: 0;
+}
+.appbar{
+    background-color:#707070 !important;
+    /* color: aqua !important; */
+}

@@ -1,3 +1,5 @@
+import React from 'react';
+import "./Header.css";
 import { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -10,7 +12,7 @@ import {
 // import MenuIcon from '@material-ui/icons/Menu';
 // import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
 import InputIcon from '@material-ui/icons/Input';
-import logo from './logo.png';
+// import logo from './logo.png';
 import "./Header.css";
 import { fade, makeStyles } from '@material-ui/core/styles';
 // import AppBar from '@material-ui/core/AppBar';
@@ -29,30 +31,28 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
 const Header = () => {
+    return (
+        <AppBar position="static" className="appbar">
+            <Toolbar>
+            <IconButton
+                edge="start"
+                className=""
+                color="inherit"
+                aria-label="open drawer"
+            >
+                <MenuIcon />
+                </IconButton>
+                <Typography className="" variant="h6" noWrap>
+                    Give A Lot
+                </Typography>
+                <div className="header">
+                    <SearchIcon/>
+                    <input placeholder="search" type="text" />
+                </div>
+            </Toolbar>
+        </AppBar>
 
+    )
+}
 
-  return (
-    <AppBar position="static" className="appbar">
-    <Toolbar>
-      <IconButton
-        edge="start"
-        className=""
-        color="inherit"
-        aria-label="open drawer"
-      >
-        <MenuIcon />
-        </IconButton>
-        <Typography className="" variant="h6" noWrap>
-            Give A Lot
-        </Typography>
-        <div className="headerserach">
-            <SearchIcon/>
-            <input placeholder="search" type="text" />
-        </div>
-    </Toolbar>
-    </AppBar>
-
-  );
-};
-
-export default Header;
+export default Header

@@ -1,6 +1,6 @@
 import React from 'react';
-import "./SidebarRows.css";
-import { Avatar } from '@material-ui/core';
+import "./Sidebar.css";
+// import { Avatar } from '@material-ui/core';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -11,10 +11,9 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import Divider from '@material-ui/core/Divider';
-import AdminOrgs from "./AdminOrgs";
-import AdminUsers from "./AdminUsers";
 
-function SidebarRows({src, Icon, title}) {
+
+function Sidebar() {
     return (
         <div className="sidebarRow">
             <ListItem button >
@@ -22,12 +21,6 @@ function SidebarRows({src, Icon, title}) {
                 <DashboardIcon />
                 </ListItemIcon>
                 <ListItemText primary="Dashboard" />
-            </ListItem>
-            <ListItem button>
-                <ListItemIcon>
-                <PeopleIcon />
-                </ListItemIcon>
-                <ListItemText primary="Organisations" />
             </ListItem>
             <ListItem button>
                 <ListItemIcon>
@@ -43,7 +36,7 @@ function SidebarRows({src, Icon, title}) {
             </ListItem>
             <ListItem button>
                 <ListItemIcon>
-                <BarChartIcon />
+                <LayersIcon />
                 </ListItemIcon>
                 <ListItemText primary="Donations" />
             </ListItem>
@@ -51,10 +44,10 @@ function SidebarRows({src, Icon, title}) {
                 <ListItemIcon>
                 <AssignmentIcon />
                 </ListItemIcon>
-                <ListItemText primary="Certificates" />
+                <ListItemText primary="Certificate" />
             </ListItem>
         </div>
     )
 }
 
-export default SidebarRows
+export default Sidebar

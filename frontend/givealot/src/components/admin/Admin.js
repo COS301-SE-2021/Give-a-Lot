@@ -4,9 +4,10 @@ import SidebarRows from "./SidebarRows"
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import Header from "./Header";
-import Dashboard from "./Dashboard"
+import Dashboard from "./Dashboard";
+import AdminOrgs from "./AdminOrgs";
 
-function Admin() {
+function Admin({}) {
     return (
         <div className="admin">
             <div className="header">
@@ -23,7 +24,7 @@ function Admin() {
             </div>
             </div>
             
-            
+            <AdminOrgs />
         </div>
            
     )

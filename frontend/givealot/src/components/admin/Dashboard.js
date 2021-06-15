@@ -9,9 +9,9 @@ function Dashboard() {
         <div className="dashboard">
             <div className="cards">
                 <Cards/>
-                <vr/>
+              
                 <Cards/>
-                <vr/>
+               
                 <Cards/>
             </div>
             <div className="graph">

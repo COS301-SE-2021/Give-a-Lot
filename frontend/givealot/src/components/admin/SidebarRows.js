@@ -13,46 +13,64 @@ import AssignmentIcon from '@material-ui/icons/Assignment';
 import Divider from '@material-ui/core/Divider';
 import AdminOrgs from "./AdminOrgs";
 import AdminUsers from "./AdminUsers";
+import {Link} from "react-router-dom"
 
 function SidebarRows({src, Icon, title}) {
     return (
         <div className="sidebarRow">
-            <ListItem button >
-                <ListItemIcon>
-                <DashboardIcon />
-                </ListItemIcon>
-                <ListItemText primary="Dashboard" />
-            </ListItem>
-            <ListItem button>
-                <ListItemIcon>
-                <PeopleIcon />
-                </ListItemIcon>
-                <ListItemText primary="Organisations" />
-            </ListItem>
-            <ListItem button>
-                <ListItemIcon>
-                <PeopleIcon />
-                </ListItemIcon>
-                <ListItemText primary="Users" />
-            </ListItem>
-            <ListItem button>
-                <ListItemIcon>
-                <BarChartIcon />
-                </ListItemIcon>
-                <ListItemText primary="Reports" />
-            </ListItem>
-            <ListItem button>
-                <ListItemIcon>
-                <BarChartIcon />
-                </ListItemIcon>
-                <ListItemText primary="Donations" />
-            </ListItem>
-            <ListItem button>
-                <ListItemIcon>
-                <AssignmentIcon />
-                </ListItemIcon>
-                <ListItemText primary="Certificates" />
-            </ListItem>
+            <Link to={"dashboard"}>
+                <ListItem button >
+                    <ListItemIcon>
+                    <DashboardIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Dashboard" />
+                </ListItem>
+            </Link>
+            <Link to={"adminorgs"}>
+                <ListItem button>
+                    <ListItemIcon>
+                    <PeopleIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Organisations" />
+                </ListItem>
+            </Link>
+
+            <Link to={"adminusers"}>
+                <ListItem button>
+                    <ListItemIcon>
+                    <PeopleIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Users" />
+                </ListItem>
+            </Link>
+
+            <Link to={"reports"}>
+                <ListItem button>
+                    <ListItemIcon>
+                    <BarChartIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Reports" />
+                </ListItem>
+            </Link>
+
+            <Link to={"donations"}>
+                <ListItem button>
+                    <ListItemIcon>
+                    <BarChartIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Donations" />
+                </ListItem>
+            </Link>
+
+            <Link to={"certificates"}>
+                <ListItem button>
+                    <ListItemIcon>
+                    <AssignmentIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Certificates" />
+                </ListItem>
+            </Link>  
+            
         </div>
     )
 }

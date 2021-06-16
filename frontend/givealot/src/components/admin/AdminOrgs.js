@@ -1,20 +1,48 @@
-import React from 'react';
-import SearchIcon from '@material-ui/icons/Search';
-import "./AdminOrgs.css";
-// import { DataGrid } from '@material-ui/data-grid';
+import React, { Component } from 'react'
+import axios from 'axios'
 
-function AdminOrgs() {
-    return (
-        <div className="Adminorg">
-            {/* <div className="header__input">
-                <SearchIcon/>
-                <input placeholder="search Organisation" type="text" />
-            </div> */}
-            <div className="table">
+export default class AdminOrgs extends Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+             posts:[],
+             error: ""
+        }
+    }
+
+    componentDidMount(){
+        axios.get('https://jsonplaceholder.typicode.com/posts')
+        .then(response =>{
+            console.log(response)
+            this.setState({posts: response.data})
+        })
+        .catch(error =>{
+            console.log(error)
+            this.setState({error : 'Error Retrieving data'})
+        })
+    }
+    
+    render() {
+        const { posts, error} = this.state
+        return (
+            <div>
+                List of posts
+                {
+                    posts.length ?
+                    posts.map(post => <div key={post.id}>
+                        {post.title}
+                        {post.body}
+                    </div>):
+                    null
+                    
+                }
+                
+                {
+                    error ? <div>{error}</div> : null
+                }
                 
             </div>
-        </div>
-    )
+        )
+    }
 }
-
-export default AdminOrgs

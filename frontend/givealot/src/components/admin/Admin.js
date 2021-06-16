@@ -25,12 +25,12 @@ function Admin() {
         </div>
         <div className="dashbaord">
           <Switch>
-            <Route path="/adminorgs" exact componet={AdminOrgs} />
-            <Route path="/adminusers" exact componet={AdminUsers} />
-            <Route path="/adminorgs" exact componet={AdminOrgs} />
-            <Route path="/certificates" exact componet={AdminCerts} />
-            <Route path="/adminreport" exact componet={AdminReports} />
-            <Route path="/admindonations" exact componet={AdminDonations} />
+            <Route path="/adminorgs" exact component={AdminOrgs} />
+            <Route path="/adminusers" exact component={AdminUsers} />
+            <Route path="/adminorgs" exact component={AdminOrgs} />
+            <Route path="/certificates" exact component={AdminCerts} />
+            <Route path="/adminreport" exact component={AdminReports} />
+            <Route path="/admindonations" exact component={AdminDonations} />
             <Route path="/" component={Dashboard} />
           </Switch>
         </div>

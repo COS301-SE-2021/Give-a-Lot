@@ -6,6 +6,9 @@ import Header from './Header';
 import Dashboard from './Dashboard';
 import AdminOrgs from './AdminOrgs';
 import AdminUsers from './AdminUsers';
+import AdminCerts from "./AdminCerts";
+import AdminReports from "./AdminReports";
+import AdminDonations from "./AdminDonations"
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function Admin() {
@@ -22,10 +25,13 @@ function Admin() {
         </div>
         <div className="dashbaord">
           <Switch>
-            <Route path="/adminorgs" exact componet={AdminOrgs} />
-            <Route path="/adminusers" exact componet={AdminUsers} />
-            <Route path="/adminorgs" exact componet={AdminOrgs} />
+            <Route path="/adminorgs" exact component={AdminOrgs} />
+            <Route path="/adminusers" exact component={AdminUsers} />
+            <Route path="/adminorgs" exact component={AdminOrgs} />
             <Route path="/dashboard" component={Dashboard} />
+            <Route path="/adminCerts" exact component={AdminCerts} />
+            <Route path="/admindonations" exact component={AdminDonations} />
+            <Route path="/adminReports" exact component={AdminReports} />
             <Route path="/" component={Dashboard} />
           </Switch>
         </div>

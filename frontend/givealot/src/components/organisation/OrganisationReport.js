@@ -1,107 +1,66 @@
-
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
+import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-
-const currencies = [
-    {
-      value: 'USD',
-      label: 'Incorect Profile Information',
-    },
-    {
-      value: 'EUR',
-      label: 'Suspicious Behavior',
-    },
-    {
-      value: 'BTC',
-      label: 'Fraud Activity',
-    },
-    {
-      value: 'JPY',
-      label: 'Other stuff',
-    },
-  ];
+import Typography from '@material-ui/core/Typography';
+import OrgReportForm from './OrgReportForm';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      margin: theme.spacing(1),
-      width: '50%',
+    appBar: {
+        position: 'relative',
     },
-  },
+    layout: {
+        width: 'auto',
+        marginLeft: theme.spacing(2),
+        marginRight: theme.spacing(2),
+        [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
+            width: 700,
+            marginLeft: 'auto',
+            marginRight: 'auto',
+        },
+    },
+    paper: {
+        marginTop: theme.spacing(3),
+        marginBottom: theme.spacing(3),
+        padding: theme.spacing(2),
+        [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
+            marginTop: theme.spacing(6),
+            marginBottom: theme.spacing(6),
+            padding: theme.spacing(3),
+        },
+    },
+
+    buttons: {
+        display: 'flex',
+        justifyContent: 'flex-end',
+    },
+    button: {
+        marginTop: theme.spacing(3),
+        marginLeft: theme.spacing(1),
+    },
 }));
 
 export default function OrganisationReport() {
-  const classes = useStyles();
+    const classes = useStyles();
 
-  return (
+    return (
+        <React.Fragment>
+            <main className={classes.layout}>
+                <Paper className={classes.paper}>
+                    <Typography component="h1" variant="h4" align="center" >
+                        Report Organisation
+                    </Typography>
+                    <Typography component="h1" variant="h4" align="center" >
+                        -
+                    </Typography>
 
-    <div>
-        <h4>Report Organisation</h4>
-        <form className={classes.root} noValidate autoComplete="off">
-            <TextField id="outlined-basic" label="Name" variant="outlined" />
-            {/* <div className="dateAndTime"> */}
-            <TextField
-                id="date"
-                label="Date"
-                type="date"
-                defaultValue="2017-05-24"
-                className={classes.textField}
-                InputLabelProps={{
-                shrink: true,
-                }}
-            />
-            <TextField
-                id="time"
-                label="Time"
-                type="time"
-                defaultValue="07:30"
-                className={classes.textField}
-                InputLabelProps={{
-                shrink: true,
-                }}
-                inputProps={{
-                step: 300, // 5 min
-                }}
-            />
-            {/* </div> */}
-            <TextField
-                id="outlined-multiline-static"
-                label="Description"
-                multiline
-                rows={8}
-                // defaultValue="Default Value"
-                variant="outlined"
-            />
+                    <React.Fragment>
+                        <OrgReportForm />
 
-            <TextField
-                id="standard-select-currency"
-                select
-                label="Type"
-                // value={currency}
-                // onChange={handleChange}
-                helperText="Please select report Type"
-                >
-                {currencies.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                    </MenuItem>
-                ))}
-            </TextField>
-            <TextField
-                id="outlined-multiline-static"
-                label="Follow up Recommendations"
-                multiline
-                rows={8}
-                // defaultValue="Default Value"
-                variant="outlined"
-            />
+                    </React.Fragment>
+                </Paper>
 
-            <Button variant="contained">Submit</Button>
-        </form>
-    </div>
-    
-  );
+            </main>
+        </React.Fragment>
+    );
 }

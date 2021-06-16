@@ -3,6 +3,7 @@ import Register from "./components/register/Register";
 //import Registration from "./components/registration/Registration";
 import Login from './components/login/Login';
 import Admin from "./components/Admin/Admin";
+// import Organisation from "./components/organisation/Organisation";
 import Organisation from "./components/organisation/Organisation";
 import BasicUser from "./components/basicUser/BasicUser";
 import OrganisationReport from './components/organisation/OrganisationReport';
@@ -12,7 +13,7 @@ import './App.css';
 function App() {
     return (
       <div className="App">
-        <Admin />
+        <OrganisationReport />
       </div>
    );
   

@@ -1,11 +1,11 @@
-package main.java.com.givealot.Report;
+package com.GiveaLot.givealot.Report;
 
-import main.java.cs.givealot.Report.exceptions.ReportException;
-import main.java.cs.givealot.Report.exceptions.InvalidRequestException;
-import main.java.cs.givealot.Report.exceptions.NotAuthorizedException;
-import main.java.cs.givealot.Report.exceptions.TypeException;
-import main.java.cs.givealot.Report.rri.createReportResponse;
-import main.java.cs.givealot.Report.rri.createReportRequest;
+import com.GiveaLot.givealot.Report.exceptions.ReportException;
+import com.GiveaLot.givealot.Report.exceptions.InvalidRequestException;
+import com.GiveaLot.givealot.Report.exceptions.NotAuthorizedException;
+import com.GiveaLot.givealot.Report.exceptions.TypeException;
+import com.GiveaLot.givealot.Report.rri.createReportResponse;
+import com.GiveaLot.givealot.Report.rri.createReportRequest;
 
 public interface ReportService {
 

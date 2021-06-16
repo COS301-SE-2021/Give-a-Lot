@@ -1,4 +1,4 @@
-package main.java.cs.givealot.Report.exceptions;
+package com.GiveaLot.givealot.Report.exceptions;
 
 public class TypeException {
 }

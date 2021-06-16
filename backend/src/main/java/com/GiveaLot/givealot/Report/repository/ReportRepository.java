@@ -1,4 +1,4 @@
-package main.java.cs.givealot.Report.repository;
+package com.GiveaLot.givealot.Report.repository;
 
 public class ReportRepository {
 }

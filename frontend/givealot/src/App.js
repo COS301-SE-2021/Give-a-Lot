@@ -8,8 +8,9 @@ import Test from "./components/Test/Test";
 import Register from "./components/register/Register";
 import BasicUser from "./components/basicUser/BasicUser";
 import Login from './components/login/Login';
+import OrganisationReport from './components/organisation/OrganisationReport';
 
-//import Organisation from "./components/organisation/Organisation";
+import Organisation from "./components/organisation/Organisation";
 //import Registration from "./components/registration/Registration";
 //import OrgRegistration from "./components/registration/OrgRegistration";
 
@@ -17,7 +18,7 @@ function App() {
  
     return (
       <div className="App">
-        <Admin />
+        <OrganisationReport />
       </div>
    );
   

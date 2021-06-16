@@ -30,12 +30,6 @@ function Sidebar() {
             </ListItem>
             <ListItem button>
                 <ListItemIcon>
-                <BarChartIcon />
-                </ListItemIcon>
-                <ListItemText primary="Reports" />
-            </ListItem>
-            <ListItem button>
-                <ListItemIcon>
                 <LayersIcon />
                 </ListItemIcon>
                 <ListItemText primary="Donations" />
@@ -45,6 +39,12 @@ function Sidebar() {
                 <AssignmentIcon />
                 </ListItemIcon>
                 <ListItemText primary="Certificate" />
+            </ListItem>
+            <ListItem button>
+                <ListItemIcon>
+                <BarChartIcon />
+                </ListItemIcon>
+                <ListItemText primary="Report" />
             </ListItem>
         </div>
     )

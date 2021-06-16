@@ -1,29 +1,39 @@
 package com.GiveaLot.givealot.Report.controller;
 import com.GiveaLot.givealot.Report.ReportService;
+import com.GiveaLot.givealot.Report.rri.createReportRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.security.Timestamp;
-import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.List;
 
 @RestController
+@RequestMapping("/report")
 public class ReportController {
 
+    private final ReportService reportService;
+
     @Autowired
-    ReportService reportService;
+    public ReportController(ReportService reportService) {
+        this.reportService = reportService;
+    }
 
-
-
-   public List<String> createReport(@RequestBody String reportDescription, String reportType, String reporterUsername)
+   @PostMapping("/organisation")
+   public List<String> createReport(@RequestBody createReportRequest request)
    {
-       List<String> res = new LinkedList<>();
-
-       res.add("status: 200");
-       res.add("status: 200");
-       return res;
+        List<String> res = new LinkedList<>();
+        try
+        {
+            reportService.createReport(request);
+            res.add("200");
+            return res;
+        }
+        catch(Exception e)
+        {
+            return List.of(e.getMessage());
+        }
    }
-
 }

@@ -9,21 +9,30 @@ import com.GiveaLot.givealot.Search.rri.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("search/org/request")
 public class SearchController {
 
+    private final SearchService searchService;
+
     @Autowired
-    SearchService searchService;
+    public SearchController(SearchService searchService)
+    {
+        this.searchService = searchService;
+    }
 
-    @PostMapping("search")
-    public List<User> search(@RequestBody String v) throws InvalidInputException, ResultNotFoundException {
-        /*
-            @Todo catch exceptions
-        * */
-
-        searchOrganisationResponse response;
-        searchOrganisationRequest request = new searchOrganisationRequest(v);
-        response = searchService.search(request);
-
-        return response.getOrganisations();
+    @PostMapping("/default")
+    public List<User> search(@RequestBody searchOrganisationRequest request) throws InvalidInputException, ResultNotFoundException {
+        try
+        {
+            searchOrganisationResponse response;
+            response = searchService.search(request);
+            return response.getOrganisations();
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            return List.of();
+        }
     }
 }
+

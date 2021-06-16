@@ -6,6 +6,8 @@ import Button from '@material-ui/core/Button';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import {makeStyles} from "@material-ui/core/styles";
+import MenuItem from "@material-ui/core/MenuItem";
+
 
 
 
@@ -20,6 +22,26 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: theme.spacing(1),
     },
 }));
+
+const currencies = [
+    {
+        value: 'USD',
+        label: 'Incorect Profile Information',
+    },
+    {
+        value: 'EUR',
+        label: 'Suspicious Behavior',
+    },
+    {
+        value: 'BTC',
+        label: 'Fraud Activity',
+    },
+    {
+        value: 'JPY',
+        label: 'Other stuff',
+    },
+];
+
 
 export default function ReportForm() {
     const classes = useStyles();
@@ -40,21 +62,6 @@ export default function ReportForm() {
                 <Grid item xs={12} sm={6}>
                     <TextField
                         required
-                        id="date"
-                        name="date"
-                        label="Date"
-                        type="date"
-                        fullWidth
-                        defaultValue="2017-05-24"
-
-                        InputLabelProps={{
-                            shrink: true,
-                        }}
-                    />
-                </Grid>
-                <Grid item xs={12}>
-                    <TextField
-                        required
                         id="department"
                         name="department"
                         label="Department"
@@ -62,6 +69,7 @@ export default function ReportForm() {
                         autoComplete="department"
                     />
                 </Grid>
+
                 <Grid item xs={12}>
 
                 </Grid>
@@ -98,13 +106,18 @@ export default function ReportForm() {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <TextField
-                        required
-                        id="zip"
-                        name="zip"
-                        label="Zip / Postal code"
+                        id="type"
+                        select
+                        label="Type"
                         fullWidth
-                        autoComplete="shipping postal-code"
-                    />
+                        helperText="Please select report Type"
+                    >
+                        {currencies.map((option) => (
+                            <MenuItem key={option.value} value={option.value}>
+                                {option.label}
+                            </MenuItem>
+                        ))}
+                    </TextField>
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <TextField
@@ -114,6 +127,27 @@ export default function ReportForm() {
                         label="Country"
                         fullWidth
                         autoComplete="shipping country"
+                    />
+                </Grid>
+                <Grid item xs={12} >
+                    <TextField
+                        id="outlined-multiline-static"
+                        label="Description"
+                        multiline
+                        rows={8}
+                        fullWidth
+                        
+                        variant="outlined"
+                    />
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField
+
+                        id="Follow"
+                        name="Follow"
+                        label="Follow Up Recommendations"
+                        fullWidth
+                        autoComplete="Follow "
                     />
                 </Grid>
                 <Grid item xs={12}>

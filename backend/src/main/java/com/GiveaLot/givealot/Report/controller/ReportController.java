@@ -1,4 +1,4 @@
-package main.java.cs.givealot.Report.controller;
+package com.GiveaLot.givealot.Report.controller;
 
 public class ReportController {
 }

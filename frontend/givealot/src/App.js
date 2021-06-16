@@ -12,7 +12,8 @@ import './App.css';
 function App() {
     return (
       <div className="App">
-        <Admin />
+        <OrganisationReport />
+         
       </div>
    );
   

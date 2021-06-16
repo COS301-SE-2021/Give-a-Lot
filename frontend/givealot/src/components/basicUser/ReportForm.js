@@ -50,7 +50,7 @@ class OrgReportForm extends Component {
         this.state = {
             description : "",
             type	     : "",
-            username    : "",
+            // username    : "",
             userEmail   : "",
             country: "",
             Follow: ""
@@ -79,65 +79,65 @@ class OrgReportForm extends Component {
             <form onSubmit={this.submitHandler}>
                 <React.Fragment >
                     <Grid container spacing={3}>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                required
-                                id="Name"
-                                name="username"
-                                label="Organisation name"
-                                fullWidth
-                                autoComplete="given-name"
-                                value={Name} onChange={this.changeHandler}
-                            />
-                        </Grid>
+                        {/* <Grid item xs={12} sm={6}>
+                        <TextField
+                            required
+                            id="Name"
+                            name="username"
+                            label="Organisation name"
+                            fullWidth
+                            autoComplete="given-name"
+                            value={Name} onChange={this.changeHandler}
+                        />
+                    </Grid> */}
                         <Grid item xs={12} sm={6}>
                             <TextField
                                 required
                                 id="department"
                                 name="userEmail"
-                                label="Department"
+                                label="Useremail"
                                 fullWidth
                                 autoComplete="department"
                                 value={department} onChange={this.changeHandler}
                             />
                         </Grid>
 
-                        <Grid item xs={12}>
+                        {/* <Grid item xs={12}>
 
                         </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                id="time"
-                                label="Time"
-                                type="time"
-                                name="time"
-                                defaultValue="07:30"
-                                fullWidth
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                                inputProps={{
-                                    step: 300, // 5 min
-                                }}
-                                value={time} onChange={this.changeHandler}
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                required
-                                id="date"
-                                name="date"
-                                label="Date"
-                                type="date"
-                                fullWidth
-                                defaultValue="2017-05-24"
+                         <Grid item xs={12} sm={6}>
+                        <TextField
+                            id="time"
+                            label="Time"
+                            type="time"
+                            name="time"
+                            defaultValue="07:30"
+                            fullWidth
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            inputProps={{
+                                step: 300, // 5 min
+                            }}
+                            value={time} onChange={this.changeHandler}
+                        />
+                    </Grid> */}
+                        {/* <Grid item xs={12} sm={6}>
+                        <TextField
+                            required
+                            id="date"
+                            name="date"
+                            label="Date"
+                            type="date"
+                            fullWidth
+                            defaultValue="2017-05-24"
 
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                                value={date} onChange={this.changeHandler}
-                            />
-                        </Grid>
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            value={date} onChange={this.changeHandler}
+                        />
+                    </Grid> */}
                         <Grid item xs={12} sm={6}>
                             <TextField
                                 id="type"
@@ -155,17 +155,17 @@ class OrgReportForm extends Component {
                                 ))}
                             </TextField>
                         </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                required
-                                id="country"
-                                name="country"
-                                label="Country"
-                                fullWidth
-                                autoComplete="shipping country"
-                                value={country} onChange={this.changeHandler}
-                            />
-                        </Grid>
+                        {/* <Grid item xs={12} sm={6}>
+                        <TextField
+                            required
+                            id="country"
+                            name="country"
+                            label="Country"
+                            fullWidth
+                            autoComplete="shipping country"
+                            value={country} onChange={this.changeHandler}
+                        />
+                    </Grid> */}
                         <Grid item xs={12} >
                             <TextField
                                 id="outlined-multiline-static"
@@ -178,17 +178,17 @@ class OrgReportForm extends Component {
                                 value={description} onChange={this.changeHandler}
                             />
                         </Grid>
-                        <Grid item xs={12}>
-                            <TextField
+                        { <Grid item xs={12}>
+                        <TextField
 
-                                id="Follow"
-                                name="Follow"
-                                label="Follow Up Recommendations"
-                                fullWidth
-                                autoComplete="Follow "
-                                value={Follow} onChange={this.changeHandler}
-                            />
-                        </Grid>
+                            id="Follow"
+                            name="Follow"
+                            label="Follow Up Recommendations"
+                            fullWidth
+                            autoComplete="Follow "
+                            value={Follow} onChange={this.changeHandler}
+                        />
+                    </Grid> }
                         <Grid item xs={12}>
                             <Button
                                 variant="contained"

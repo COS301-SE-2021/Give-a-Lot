@@ -93,17 +93,17 @@ class OrgReportForm extends Component {
                             required
                             id="department"
                             name="userEmail"
-                            label="userEmail"
+                            label="Useremail"
                             fullWidth
                             autoComplete="department"
                             value={department} onChange={this.changeHandler}
                         />
                     </Grid>
-    
-                    <Grid item xs={12}>
+
+                    {/*<Grid item xs={12}>
     
                     </Grid>
-                    {/* <Grid item xs={12} sm={6}>
+                     <Grid item xs={12} sm={6}>
                         <TextField
                             id="time"
                             label="Time"
@@ -176,7 +176,7 @@ class OrgReportForm extends Component {
                             value={description} onChange={this.changeHandler}
                         />
                     </Grid>
-                    {/* <Grid item xs={12}>
+                     <Grid item xs={12}>
                         <TextField
     
                             id="Follow"
@@ -186,7 +186,7 @@ class OrgReportForm extends Component {
                             autoComplete="Follow "
                             value={Follow} onChange={this.changeHandler}
                         />
-                    </Grid> */}
+                    </Grid>
                     <Grid item xs={12}>
                         <Button
                             variant="contained"

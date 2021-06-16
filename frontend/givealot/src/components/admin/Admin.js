@@ -25,12 +25,7 @@ function Admin() {
                     <div className="dashbaord">
                         <Dashboard />
                     </div>
-                    <Switch>
-                        <Route path="/" exact component={Dashboard} />
-                        <Route path="/adminorgs" exact componet={AdminOrgs} />
-                        <Route path="/adminusers" exact componet={AdminUsers} />
-                        <Route path="/adminorgs" exact componet={AdminOrgs} />
-                    </Switch>
+                    
                 </div>
             </div>
            

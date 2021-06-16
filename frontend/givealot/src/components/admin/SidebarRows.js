@@ -71,7 +71,14 @@ function SidebarRows({src, Icon, title}) {
                     </ListItemIcon>
                     <ListItemText primary="Certificates" />
                 </ListItem>
-            </Link>  
+            </Link>
+
+            <Switch>
+                <Route path="/" exact component={Dashboard} />
+                <Route path="/adminorgs" exact componet={AdminOrgs} />
+                <Route path="/adminusers" exact componet={AdminUsers} />
+                <Route path="/adminorgs" exact componet={AdminOrgs} />
+            </Switch>  
             
         </div>
         </Router>

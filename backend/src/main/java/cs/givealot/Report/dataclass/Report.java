@@ -53,4 +53,8 @@ public class Report {
     public void setDate(DateTimeFormatter date) {
         this.date = date;
     }
+
+    public void setId(Timestamp id) {
+        this.id = id;
+    }
 }

@@ -75,7 +75,7 @@ function SidebarRows({src, Icon, title}) {
             </Link>
 
             <Switch>
-                <Route path="/" exact component={Dashboard} />
+                {/* <Route path="/" exact component={Dashboard} /> */}
                 <Route path="/adminorgs" exact componet={AdminOrgs} />
                 <Route path="/adminusers" exact componet={AdminUsers} />
                 <Route path="/adminorgs" exact componet={AdminOrgs} />

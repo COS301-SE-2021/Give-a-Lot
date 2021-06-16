@@ -11,6 +11,8 @@ import Login from './components/login/Login';
 import OrganisationReport from './components/organisation/OrganisationReport';
 
 import Organisation from "./components/organisation/Organisation";
+import BasicUserReport from "./components/basicUser/BasicUserReport";
+//import Organisation from "./components/organisation/Organisation";
 //import Registration from "./components/registration/Registration";
 //import OrgRegistration from "./components/registration/OrgRegistration";
 
@@ -19,6 +21,7 @@ function App() {
     return (
       <div className="App">
         <OrganisationReport />
+        <BasicUserReport />
       </div>
    );
   

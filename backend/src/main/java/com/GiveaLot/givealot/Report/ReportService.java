@@ -6,6 +6,10 @@ import com.GiveaLot.givealot.Report.exceptions.NotAuthorizedException;
 import com.GiveaLot.givealot.Report.exceptions.TypeException;
 import com.GiveaLot.givealot.Report.rri.createReportResponse;
 import com.GiveaLot.givealot.Report.rri.createReportRequest;
+import com.GiveaLot.givealot.Search.exceptions.InvalidInputException;
+import com.GiveaLot.givealot.Search.exceptions.ResultNotFoundException;
+import com.GiveaLot.givealot.Search.rri.searchOrganisationRequest;
+import com.GiveaLot.givealot.Search.rri.searchOrganisationResponse;
 
 public interface ReportService {
 
@@ -21,3 +25,5 @@ public interface ReportService {
 
     createReportResponse createReport(createReportRequest request) throws Exception;
 }
+
+

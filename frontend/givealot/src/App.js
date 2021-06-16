@@ -9,7 +9,6 @@ import Register from "./components/register/Register";
 import BasicUser from "./components/basicUser/BasicUser";
 import Login from './components/login/Login';
 import OrganisationReport from './components/organisation/OrganisationReport';
-
 import Organisation from "./components/organisation/Organisation";
 import BasicUserReport from "./components/basicUser/BasicUserReport";
 //import Organisation from "./components/organisation/Organisation";
@@ -20,7 +19,6 @@ function App() {
  
     return (
       <div className="App">
-        <OrganisationReport />
         <BasicUserReport />
       </div>
    );

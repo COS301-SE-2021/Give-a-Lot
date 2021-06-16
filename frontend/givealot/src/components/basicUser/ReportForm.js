@@ -40,31 +40,30 @@ export default function ReportForm() {
                 <Grid item xs={12} sm={6}>
                     <TextField
                         required
-                        id="lastName"
-                        name="lastName"
-                        label="Last name"
+                        id="date"
+                        name="date"
+                        label="Date"
+                        type="date"
                         fullWidth
-                        autoComplete="family-name"
+                        defaultValue="2017-05-24"
+
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
                     />
                 </Grid>
                 <Grid item xs={12}>
                     <TextField
                         required
-                        id="address1"
-                        name="address1"
-                        label="Address line 1"
+                        id="department"
+                        name="department"
+                        label="Department"
                         fullWidth
-                        autoComplete="shipping address-line1"
+                        autoComplete="department"
                     />
                 </Grid>
                 <Grid item xs={12}>
-                    <TextField
-                        id="address2"
-                        name="address2"
-                        label="Address line 2"
-                        fullWidth
-                        autoComplete="shipping address-line2"
-                    />
+
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <TextField

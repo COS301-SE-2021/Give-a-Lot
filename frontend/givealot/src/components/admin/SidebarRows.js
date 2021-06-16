@@ -15,6 +15,7 @@ import AdminOrgs from "./AdminOrgs";
 import AdminUsers from "./AdminUsers";
 import {Link} from "react-router-dom";
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
+import Dashboard from "./Dashboard";
 
 function SidebarRows({src, Icon, title}) {
     return (

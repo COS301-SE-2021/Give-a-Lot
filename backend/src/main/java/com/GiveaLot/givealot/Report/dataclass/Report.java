@@ -1,6 +1,7 @@
 package com.GiveaLot.givealot.Report.dataclass;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Report {
@@ -10,11 +11,13 @@ public class Report {
     String date;
     String id;
 
-    public Report(String reportDescription, String reportType, String reporterUsername, String date, Timestamp id){
+    public Report(String reportDescription, String reportType, String reporterUsername, Timestamp id){
         this.reportDescription = reportDescription;
         this.reportType = reportType;
         this.reporterUsername = reporterUsername;
-        this.date = date;
+        LocalDateTime date = LocalDateTime.now();
+        DateTimeFormatter dateTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        this.date = date.format(dateTime);
 
         this.id = id.toString().replaceAll("[^a-zA-Z0-9]", "");;
     }

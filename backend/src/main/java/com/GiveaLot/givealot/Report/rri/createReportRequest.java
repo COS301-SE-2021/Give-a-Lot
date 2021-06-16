@@ -1,5 +1,7 @@
 package com.GiveaLot.givealot.Report.rri;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.security.Timestamp;
 import java.time.format.DateTimeFormatter;
 
@@ -7,16 +9,36 @@ public class createReportRequest {
     String reportDescription;
     String reportType;
     String reporterUsername;
+    String userEmail;
     DateTimeFormatter date;
     Timestamp id;
 
-    public createReportRequest(String reportDescription, String reportType, String reporterUsername, DateTimeFormatter date, Timestamp id){
+
+    createReportRequest(@JsonProperty("description") String reportDescription,
+                        @JsonProperty("type") String reportType,
+                        @JsonProperty("username") String reporterUsername,
+                        @JsonProperty("userEmail") String userEmail)
+    {
+        this.reportDescription = reportDescription;
+        this.reportType = reportType;
+        this.reporterUsername = reporterUsername;
+        this.userEmail = userEmail;
+
+    }
+
+  public createReportRequest( String reportDescription,
+                                String reportType,
+                                String reporterUsername,
+                                DateTimeFormatter date,
+                                 Timestamp id){
         this.reportDescription = reportDescription;
         this.reportType = reportType;
         this.reporterUsername = reporterUsername;
         this.date = date;
         this.id = id;
     }
+
+
 
     /** Getters **/
 
@@ -60,5 +82,13 @@ public class createReportRequest {
 
     public void setId(Timestamp id) {
         this.id = id;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
     }
 }

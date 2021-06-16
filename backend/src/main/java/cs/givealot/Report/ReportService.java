@@ -1,6 +1,6 @@
 package main.java.cs.givealot.Report;
 
-import main.java.cs.givealot.Report.exceptions.CertificateException;
+import main.java.cs.givealot.Report.exceptions.ReportException;
 import main.java.cs.givealot.Report.exceptions.InvalidRequestException;
 import main.java.cs.givealot.Report.exceptions.NotAuthorizedException;
 

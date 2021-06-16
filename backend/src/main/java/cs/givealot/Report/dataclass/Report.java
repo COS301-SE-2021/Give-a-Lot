@@ -15,7 +15,7 @@ public class Report {
         this.reportType = reportType;
         this.reporterUsername = reporterUsername;
         this.date = date;
-        t
+        this.id = id;
 
     }
 }

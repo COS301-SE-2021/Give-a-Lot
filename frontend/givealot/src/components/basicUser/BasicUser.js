@@ -15,6 +15,7 @@ function BasicUser() {
                 <UserBody />
             </div>
         </div>
+            </div>
     )
 }
 

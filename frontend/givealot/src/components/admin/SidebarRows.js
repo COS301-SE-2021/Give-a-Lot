@@ -63,7 +63,7 @@ function SidebarRows({ src, Icon, title }) {
         </ListItem>
       </Link>
 
-      <Link to={'/certificates'}>
+      <Link to={'/admincerts'}>
         <ListItem button>
           <ListItemIcon>
             <AssignmentIcon />

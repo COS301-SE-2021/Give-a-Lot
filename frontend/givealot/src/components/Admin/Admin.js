@@ -29,9 +29,9 @@ function Admin() {
             <Route path="/adminusers" exact component={AdminUsers} />
             <Route path="/adminorgs" exact component={AdminOrgs} />
             <Route path="/dashboard" component={Dashboard} />
-            <Route path="/adminCerts" exact component={AdminCerts} />
+            <Route path="/admincerts" exact component={AdminCerts} />
             <Route path="/admindonations" exact component={AdminDonations} />
-            <Route path="/adminReports" exact component={AdminReports} />
+            <Route path="/adminreport" exact component={AdminReports} />
             <Route path="/" component={Dashboard} />
           </Switch>
         </div>

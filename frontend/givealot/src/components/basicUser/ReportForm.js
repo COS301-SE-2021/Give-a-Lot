@@ -67,16 +67,34 @@ export default function ReportForm() {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <TextField
-                        required
-                        id="city"
-                        name="city"
-                        label="City"
+                        id="time"
+                        label="Time"
+                        type="time"
+                        defaultValue="07:30"
                         fullWidth
-                        autoComplete="shipping address-level2"
+
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        inputProps={{
+                            step: 300, // 5 min
+                        }}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <TextField id="state" name="state" label="State/Province/Region" fullWidth />
+                    <TextField
+                        required
+                        id="date"
+                        name="date"
+                        label="Date"
+                        type="date"
+                        fullWidth
+                        defaultValue="2017-05-24"
+
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                    />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <TextField

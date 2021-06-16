@@ -18,6 +18,8 @@ public class Report {
         this.id = id;
     }
 
+    /** Getters **/
+
     public String getReportDescription(){
         return reportDescription;
     }
@@ -37,6 +39,8 @@ public class Report {
     public Timestamp getId() {
         return id;
     }
+
+    /** Setters **/
 
     public void setReportDescription(String reportDescription) {
         this.reportDescription = reportDescription;

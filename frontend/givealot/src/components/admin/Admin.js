@@ -11,7 +11,7 @@ import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 
 function Admin() {
     return (
-        <Router>
+     
              <div className="admin">
                 <div className="header">
                     <List><Header/></List>
@@ -34,7 +34,7 @@ function Admin() {
                 </div>
             </div>
            
-        </Router>
+      
        
     )
 }

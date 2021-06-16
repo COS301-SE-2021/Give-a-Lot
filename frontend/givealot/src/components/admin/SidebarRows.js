@@ -13,11 +13,13 @@ import AssignmentIcon from '@material-ui/icons/Assignment';
 import Divider from '@material-ui/core/Divider';
 import AdminOrgs from "./AdminOrgs";
 import AdminUsers from "./AdminUsers";
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
+import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 
 function SidebarRows({src, Icon, title}) {
     return (
-        <div className="sidebarRow">
+        <Router>
+                    <div className="sidebarRow">
             <Link to={"dashboard"}>
                 <ListItem button >
                     <ListItemIcon>
@@ -72,6 +74,8 @@ function SidebarRows({src, Icon, title}) {
             </Link>  
             
         </div>
+        </Router>
+
     )
 }
 

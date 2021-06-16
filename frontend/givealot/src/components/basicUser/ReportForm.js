@@ -11,7 +11,6 @@ import axios from 'axios';
 
 
 
-
 const useStyles = makeStyles((theme) => ({
 
     buttons: {
@@ -43,18 +42,16 @@ const TypeChoices = [
     },
 ];
 
-class ReportForm extends Component {
+class OrgReportForm extends Component {
 
     constructor(props) {
         super(props)
 
         this.state = {
-            Name: "",
-            department : "",
-            time: "",
-            date: "",
-            type: "",
-            description: "",
+            description : "",
+            type	     : "",
+            username    : "",
+            userEmail   : "",
             country: "",
             Follow: ""
         }
@@ -66,7 +63,7 @@ class ReportForm extends Component {
     submitHandler = (e) =>{
         e.preventDefault()
         console.log(this.state)
-        axios.post('https://jsonplaceholder.typicode.com/posts', this.state)
+        axios.post('http://localhost:8080/report/organisation', this.state)
             .then(response =>{
                 console.log(response)
             })
@@ -86,7 +83,7 @@ class ReportForm extends Component {
                             <TextField
                                 required
                                 id="Name"
-                                name="Name"
+                                name="username"
                                 label="Organisation name"
                                 fullWidth
                                 autoComplete="given-name"
@@ -97,7 +94,7 @@ class ReportForm extends Component {
                             <TextField
                                 required
                                 id="department"
-                                name="department"
+                                name="userEmail"
                                 label="Department"
                                 fullWidth
                                 autoComplete="department"
@@ -196,8 +193,7 @@ class ReportForm extends Component {
                             <Button
                                 variant="contained"
                                 color="primary"
-                                // onClick={handleNext}
-                                // className={classes.button}
+
                             >
                                 Report
                             </Button>
@@ -212,4 +208,4 @@ class ReportForm extends Component {
 
 }
 
-export default ReportForm
+export default OrgReportForm

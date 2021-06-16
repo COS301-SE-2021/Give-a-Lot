@@ -10,6 +10,7 @@ public class createReportRequest {
     String reportDescription;
     String reportType;
     String reporterEmail;
+    DateTimeFormatter date;
     Timestamp id;
 
 
@@ -22,10 +23,22 @@ public class createReportRequest {
         this.reportDescription = reportDescription;
         this.reportType = reportType;
         this.reporterEmail = reporterEmail;
-        this.id = new Timestamp(System.currentTimeMillis());
 
     }
 
+  public createReportRequest( String orgName,
+                              String reportDescription,
+                                String reportType,
+                                String reporterEmail,
+                                DateTimeFormatter date,
+                                 Timestamp id){
+        this.orgName = orgName;
+        this.reportDescription = reportDescription;
+        this.reportType = reportType;
+        this.reporterEmail = reporterEmail;
+        this.date = date;
+        this.id = id;
+    }
 
 
 
@@ -46,6 +59,10 @@ public class createReportRequest {
 
     public String getReporterEmail() {
         return reporterEmail;
+    }
+
+    public DateTimeFormatter getDate() {
+        return date;
     }
 
     public Timestamp getId() {
@@ -70,6 +87,10 @@ public class createReportRequest {
 
     public void setReporterEmail(String reporterEmail) {
         this.reporterEmail = reporterEmail;
+    }
+
+    public void setDate(DateTimeFormatter date) {
+        this.date = date;
     }
 
     public void setId(Timestamp id) {

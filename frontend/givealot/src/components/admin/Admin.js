@@ -7,16 +7,13 @@ import Dashboard from './Dashboard';
 import AdminOrgs from './AdminOrgs';
 import AdminUsers from './AdminUsers';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import AdminCerts from "./AdminCerts";
-import AdminReports from "./AdminReports";
-import AdminDonations from "./AdminDonations";
 
 function Admin() {
   return (
     <div className="admin">
       <div className="header">
         <Header />
-        {/* <Divider /> */}
+        <Divider />
       </div>
       <div className="Adminbody">
         <div className="sidebar">
@@ -25,12 +22,10 @@ function Admin() {
         </div>
         <div className="dashbaord">
           <Switch>
-            <Route path="/adminorgs" exact component={AdminOrgs} />
-            <Route path="/adminusers" exact component={AdminUsers} />
-            <Route path="/adminorgs" exact component={AdminOrgs} />
-            <Route path="/certificates" exact component={AdminCerts} />
-            <Route path="/adminreport" exact component={AdminReports} />
-            <Route path="/admindonations" exact component={AdminDonations} />
+            <Route path="/adminorgs" exact componet={AdminOrgs} />
+            <Route path="/adminusers" exact componet={AdminUsers} />
+            <Route path="/adminorgs" exact componet={AdminOrgs} />
+            <Route path="/dashboard" component={Dashboard} />
             <Route path="/" component={Dashboard} />
           </Switch>
         </div>

@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: theme.spacing(2),
         marginRight: theme.spacing(2),
         [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
-            width: 600,
+            width: 700,
             marginLeft: 'auto',
             marginRight: 'auto',
         },
@@ -61,8 +61,11 @@ export default function BasicUserReport() {
             </AppBar>*/}
             <main className={classes.layout}>
                 <Paper className={classes.paper}>
-                    <Typography component="h1" variant="h4" align="center">
+                    <Typography component="h1" variant="h4" align="center" >
                         Report Organisation
+                    </Typography>
+                    <Typography component="h1" variant="h4" align="center" >
+                        -
                     </Typography>
 
                     <React.Fragment>

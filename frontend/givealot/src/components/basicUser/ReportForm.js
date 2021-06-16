@@ -2,22 +2,37 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import {makeStyles} from "@material-ui/core/styles";
+
+
+
+const useStyles = makeStyles((theme) => ({
+
+    buttons: {
+        display: 'flex',
+        justifyContent: 'flex-end',
+    },
+    button: {
+        marginTop: theme.spacing(3),
+        marginLeft: theme.spacing(1),
+    },
+}));
 
 export default function ReportForm() {
+    const classes = useStyles();
     return (
         <React.Fragment>
-            <Typography variant="h6" gutterBottom>
 
-            </Typography>
             <Grid container spacing={3}>
                 <Grid item xs={12} sm={6}>
                     <TextField
                         required
-                        id="firstName"
-                        name="firstName"
-                        label="First name"
+                        id="Name"
+                        name="Name"
+                        label="Organisation name"
                         fullWidth
                         autoComplete="given-name"
                     />
@@ -85,20 +100,16 @@ export default function ReportForm() {
                     />
                 </Grid>
                 <Grid item xs={12}>
-                    <FormControlLabel
-                        control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-                        label="Use this address for payment details"
-                    />
+                    <Button
+                        variant="contained"
+                        color="primary"
+                       // onClick={handleNext}
+                        className={classes.button}
+                    >
+                        Report
+                    </Button>
                 </Grid>
             </Grid>
         </React.Fragment>
     );
 }
-{/*<Button
-                                        variant="contained"
-                                        color="primary"
-                                        onClick={handleNext}
-                                        className={classes.button}
-                                    >
-                                        {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
-                                    </Button>*/}

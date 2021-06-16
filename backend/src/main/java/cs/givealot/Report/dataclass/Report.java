@@ -9,4 +9,10 @@ public class Report {
     String reporterUsername;
     DateTimeFormatter date;
     Timestamp id;
+
+    public Report(String reportDescription, String reportType, String reporterUsername, DateTimeFormatter date, Timestamp id){
+        this.reportDescription = reportDescription;
+        this.reportType = reportType;
+
+    }
 }

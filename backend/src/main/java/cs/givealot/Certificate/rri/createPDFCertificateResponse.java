@@ -6,7 +6,7 @@ public class createPDFCertificateResponse {
     private Document PDFCert;
 
     public createPDFCertificateResponse(){}
-    public Document getPDFCertificate(){return PDFCert;};
+    public Document getPDFCertificate(){return PDFCert;}
 
     public void setPDFCertificate(Document pdfDocument) {this.PDFCert = pdfDocument; }
 }

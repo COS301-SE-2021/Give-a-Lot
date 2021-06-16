@@ -16,6 +16,37 @@ public class Report {
         this.reporterUsername = reporterUsername;
         this.date = date;
         this.id = id;
+    }
 
+    public String getReportDescription(){
+        return reportDescription;
+    }
+
+    public String getReportType() {
+        return reportType;
+    }
+
+    public String getReporterUsername() {
+        return reporterUsername;
+    }
+
+    public DateTimeFormatter getDate() {
+        return date;
+    }
+
+    public Timestamp getId() {
+        return id;
+    }
+
+    public void setReportDescription(String reportDescription) {
+        this.reportDescription = reportDescription;
+    }
+
+    public void setReportType(String reportType) {
+        this.reportType = reportType;
+    }
+
+    public void setReporterUsername(String reporterUsername) {
+        this.reporterUsername = reporterUsername;
     }
 }

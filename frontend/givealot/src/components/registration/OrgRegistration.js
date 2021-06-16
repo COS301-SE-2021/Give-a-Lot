@@ -1,7 +1,7 @@
 import React from 'react';
-import "./Registration.css";
+import "./OrgRegistration.css";
 
-function Registration() {
+function OrgRegistration() {
     return (
         <div>
             
@@ -9,4 +9,4 @@ function Registration() {
     )
 }
 
-export default Registration
+export default OrgRegistration

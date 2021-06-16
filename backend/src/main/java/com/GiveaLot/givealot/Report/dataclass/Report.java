@@ -5,13 +5,15 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Report {
+    String orgName;
     String reportDescription;
     String reportType;
     String reporterEmail;
     String date;
     String id;
 
-    public Report(String reportDescription, String reportType, String reporterEmail, Timestamp id){
+    public Report(String orgName, String reportDescription, String reportType, String reporterEmail, Timestamp id){
+        this.orgName = orgName;
         this.reportDescription = reportDescription;
         this.reportType = reportType;
         this.reporterEmail = reporterEmail;
@@ -22,7 +24,13 @@ public class Report {
         this.id = id.toString().replaceAll("[^a-zA-Z0-9]", "");;
     }
 
+
+
     /** Getters **/
+
+    public String getOrgName() {
+        return orgName;
+    }
 
     public String getReportDescription(){
         return reportDescription;
@@ -44,7 +52,13 @@ public class Report {
         return id;
     }
 
+
+
     /** Setters **/
+
+    public void setOrgName(String orgName) {
+        this.orgName = orgName;
+    }
 
     public void setReportDescription(String reportDescription) {
         this.reportDescription = reportDescription;

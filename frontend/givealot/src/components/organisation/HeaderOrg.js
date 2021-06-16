@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Header.css";
+// import "./Header.css";
 // import { useState } from 'react';
 // import { Link as RouterLink } from 'react-router-dom';
 // import PropTypes from 'prop-types';
@@ -12,7 +12,7 @@ import {
 // import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
 // import InputIcon from '@material-ui/icons/Input';
 // import logo from './logo.png';
-import "./Header.css";
+import "./HeaderOrg.css";
 // import { fade, makeStyles } from '@material-ui/core/styles';
 // import AppBar from '@material-ui/core/AppBar';
 // import Toolbar from '@material-ui/core/Toolbar';
@@ -29,7 +29,7 @@ import SearchIcon from '@material-ui/icons/Search';
 // import NotificationsIcon from '@material-ui/icons/Notifications';
 // import MoreIcon from '@material-ui/icons/MoreVert';
 
-const Header = () => {
+const HeaderOrg = () => {
     return (
         <AppBar position="static" className="appbar">
             <Toolbar>
@@ -44,7 +44,7 @@ const Header = () => {
                 <Typography className="" variant="h6" noWrap>
                     Give A Lot
                 </Typography>
-                <div className="header">
+                <div className="head">
                     <SearchIcon/>
                     <input placeholder="search" type="text" />
                 </div>
@@ -54,4 +54,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default HeaderOrg

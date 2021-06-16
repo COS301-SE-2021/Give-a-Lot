@@ -6,10 +6,10 @@ import "./AdminOrgs.css";
 function AdminOrgs() {
     return (
         <div className="Adminorg">
-            <div className="header__input">
+            {/* <div className="header__input">
                 <SearchIcon/>
                 <input placeholder="search Organisation" type="text" />
-            </div>
+            </div> */}
             <div className="table">
                 
             </div>

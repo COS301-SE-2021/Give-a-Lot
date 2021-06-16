@@ -1,13 +1,13 @@
 import React from 'react';
 import "./Organisation.css";
 import Sidebar from "./Sidebar";
-import Header from "./Header";
+import HeaderOrg from "./HeaderOrg";
 import OrganisationReport from './OrganisationReport';
 
 function Organisation() {
     return (
         <div className="organisation">
-            <Header />
+            <HeaderOrg />
             <Sidebar />
             <OrganisationReport />
         </div>

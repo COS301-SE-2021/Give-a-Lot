@@ -3,4 +3,9 @@
     height: 100%;
     align-items: center;
     padding: 15px;
+    text-decoration: none;
+}
+
+.sidebarRow > Link{
+    text-decoration: none;
 }

@@ -20,7 +20,7 @@ public class ReportHelper {
     public File createReportFile(Report report) throws Exception{
         try {
 
-            String reportName = "report" + report.getId() + report.getReporterEmail();
+            String reportName = "report" + report.getId();
             reportName = reportName.replaceAll("[^a-zA-Z0-9]", "");
             File file = new File(reportName + ".txt");
             if (file.createNewFile()) {
@@ -39,6 +39,9 @@ public class ReportHelper {
             writer.write("\n");
             writer.write("User email: ");
             writer.write(report.getReporterEmail());
+            writer.write("\n");
+            writer.write("Organisation: ");
+            writer.write(report.getOrgName());
             writer.write("\n");
             writer.write("Type: ");
             writer.write(report.getReportType());
@@ -59,7 +62,7 @@ public class ReportHelper {
     public static void main(String[] args) throws Exception {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
-        Report report = new Report("They provided incorrect addresses and contact information", "Incorrect Profile Info", "CoolUser57", timestamp);
+        Report report = new Report("The Swindlers","They provided incorrect addresses and contact information", "Incorrect Profile Info", "CoolUser57", timestamp);
         ReportHelper help = new ReportHelper();
         File reportFile = help.createReportFile(report);
         System.out.println(reportFile);

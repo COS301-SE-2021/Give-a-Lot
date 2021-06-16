@@ -50,8 +50,6 @@ class OrgReportForm extends Component {
             type	     : "",
             username    : "",
             userEmail   : "",
-            type: "",
-            description: "",
             country: "",
             Follow: ""
         }

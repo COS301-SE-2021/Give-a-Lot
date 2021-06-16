@@ -1,4 +1,4 @@
-package main.java.cs.givealot.Report;
+package com.GiveaLot.givealot.Report;
 
 public class ReportServiceImpl {
 }

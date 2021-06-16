@@ -1,21 +1,22 @@
 package com.GiveaLot.givealot.Report.dataclass;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 import java.time.format.DateTimeFormatter;
 
 public class Report {
     String reportDescription;
     String reportType;
     String reporterUsername;
-    DateTimeFormatter date;
-    Timestamp id;
+    String date;
+    String id;
 
-    public Report(String reportDescription, String reportType, String reporterUsername, DateTimeFormatter date, Timestamp id){
+    public Report(String reportDescription, String reportType, String reporterUsername, String date, Timestamp id){
         this.reportDescription = reportDescription;
         this.reportType = reportType;
         this.reporterUsername = reporterUsername;
         this.date = date;
-        this.id = id;
+
+        this.id = id.toString().replaceAll("[^a-zA-Z0-9]", "");;
     }
 
     /** Getters **/
@@ -32,11 +33,11 @@ public class Report {
         return reporterUsername;
     }
 
-    public DateTimeFormatter getDate() {
+    public String getDate() {
         return date;
     }
 
-    public Timestamp getId() {
+    public String getId() {
         return id;
     }
 
@@ -54,11 +55,11 @@ public class Report {
         this.reporterUsername = reporterUsername;
     }
 
-    public void setDate(DateTimeFormatter date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
     public void setId(Timestamp id) {
-        this.id = id;
+        this.id = id.toString().replaceAll("[^a-zA-Z0-9]", "");
     }
 }

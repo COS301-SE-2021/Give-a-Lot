@@ -108,9 +108,9 @@ export default function ReportForm() {
                     <TextField
                         id="type"
                         select
-                        label="Type"
+                        label="Please select report Type"
                         fullWidth
-                        helperText="Please select report Type"
+                       
                     >
                         {currencies.map((option) => (
                             <MenuItem key={option.value} value={option.value}>
@@ -136,7 +136,7 @@ export default function ReportForm() {
                         multiline
                         rows={8}
                         fullWidth
-                        
+
                         variant="outlined"
                     />
                 </Grid>

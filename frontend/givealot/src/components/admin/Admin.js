@@ -7,6 +7,9 @@ import Dashboard from './Dashboard';
 import AdminOrgs from './AdminOrgs';
 import AdminUsers from './AdminUsers';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import AdminCerts from "./AdminCerts";
+import AdminReports from "./AdminReports";
+import AdminDonations from "./AdminDonations";
 
 function Admin() {
   return (
@@ -25,6 +28,9 @@ function Admin() {
             <Route path="/adminorgs" exact componet={AdminOrgs} />
             <Route path="/adminusers" exact componet={AdminUsers} />
             <Route path="/adminorgs" exact componet={AdminOrgs} />
+            <Route path="/certificates" exact componet={AdminCerts} />
+            <Route path="/adminreport" exact componet={AdminReports} />
+            <Route path="/admindonations" exact componet={AdminDonations} />
             <Route path="/" component={Dashboard} />
           </Switch>
         </div>

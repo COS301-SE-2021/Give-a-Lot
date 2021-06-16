@@ -45,7 +45,7 @@ function SidebarRows({ src, Icon, title }) {
         </ListItem>
       </Link>
 
-      <Link to={'/reports'}>
+      <Link to={'/adminreport'}>
         <ListItem button>
           <ListItemIcon>
             <BarChartIcon />
@@ -54,7 +54,7 @@ function SidebarRows({ src, Icon, title }) {
         </ListItem>
       </Link>
 
-      <Link to={'/donations'}>
+      <Link to={'/admindonations'}>
         <ListItem button>
           <ListItemIcon>
             <BarChartIcon />

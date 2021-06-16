@@ -110,7 +110,7 @@ export default function ReportForm() {
                         select
                         label="Please select report Type"
                         fullWidth
-                       
+
                     >
                         {currencies.map((option) => (
                             <MenuItem key={option.value} value={option.value}>

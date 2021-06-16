@@ -50,8 +50,8 @@ class OrgReportForm extends Component {
             type	     : "",
             username    : "",
             userEmail   : "",
-            // country: "",
-            // Follow: ""
+            country: "",
+            Follow: ""
         }
     }
 
@@ -191,7 +191,8 @@ class OrgReportForm extends Component {
                         <Button
                             variant="contained"
                             color="primary"
-                            type="submit"
+                        // onClick={handleNext}
+                            // className={classes.button}
                         >
                             Report
                         </Button>

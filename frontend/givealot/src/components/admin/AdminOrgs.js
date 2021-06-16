@@ -8,14 +8,6 @@ const columns = [
     { field: 'body', headerName: 'stuff', width: "300px" },
     
   ];
-//   const rows = [
-//     { field: 'id', headerName: 'ID', width: 70 },
-//     { field: 'firstName', headerName: 'First name', width: 130 },
-//     { field: 'lastName', headerName: 'Last name', width: 130 },
-    
-//   ];
-  
-
 export default class AdminOrgs extends Component {
     constructor(props) {
         super(props)
@@ -44,17 +36,12 @@ export default class AdminOrgs extends Component {
             <div>
                 <h4>List of Organisations</h4>
                 {
-                    // posts.length ?
-                    // posts.map(post => <div key={post.id}>
-                    //     {post.title}
-                    //     {post.body}
-                    // </div>):
-                    // null
                     <div style={{ height: 500, width: '1000px' }}>
-                        <DataGrid rows={posts} columns={columns} pageSize={10} checkboxSelection />
+                        <DataGrid
+                            rows={posts} columns={columns} pageSize={10} checkboxSelection
+                         />
                     </div>    
                 }
-                
                 {
                     error ? <div>{error}</div> : null
                 }

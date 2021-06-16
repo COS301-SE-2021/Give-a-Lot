@@ -46,10 +46,10 @@ class OrgReportForm extends Component {
         super(props)
     
         this.state = {
-            Name: "",
-            department : "",
-            time: "",
-            date: "",
+            description : "",
+            type	     : "",
+            username    : "",
+            userEmail   : "",
             type: "",
             description: "",
             country: "",
@@ -63,7 +63,7 @@ class OrgReportForm extends Component {
     submitHandler = (e) =>{
         e.preventDefault()
         console.log(this.state)
-        axios.post('https://jsonplaceholder.typicode.com/posts', this.state)
+        axios.post('http://localhost:8080/report/organisation', this.state)
         .then(response =>{
             console.log(response)
         })
@@ -83,7 +83,7 @@ class OrgReportForm extends Component {
                         <TextField
                             required
                             id="Name"
-                            name="Name"
+                            name="username"
                             label="Organisation name"
                             fullWidth
                             autoComplete="given-name"
@@ -94,7 +94,7 @@ class OrgReportForm extends Component {
                         <TextField
                             required
                             id="department"
-                            name="department"
+                            name="userEmail"
                             label="Department"
                             fullWidth
                             autoComplete="department"

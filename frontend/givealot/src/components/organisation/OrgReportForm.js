@@ -21,21 +21,21 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const currencies = [
+const TypeChoices = [
     {
-        value: 'USD',
+        value: 'one',
         label: 'Incorect Profile Information',
     },
     {
-        value: 'EUR',
+        value: 'two',
         label: 'Suspicious Behavior',
     },
     {
-        value: 'BTC',
+        value: 'three',
         label: 'Fraud Activity',
     },
     {
-        value: 'JPY',
+        value: 'four',
         label: 'Other stuff',
     },
 ];
@@ -68,7 +68,7 @@ class OrgReportForm extends Component {
             console.log(response)
         })
         .catch(error =>{
-            // console.log(error)
+            console.log(error)
         })
     }
 
@@ -148,7 +148,7 @@ class OrgReportForm extends Component {
                             value={type} onChange={this.changeHandler}
                         
                         >
-                            {currencies.map((option) => (
+                            {TypeChoices.map((option) => (
                                 <MenuItem key={option.value} value={option.value}>
                                     {option.label}
                                 </MenuItem>

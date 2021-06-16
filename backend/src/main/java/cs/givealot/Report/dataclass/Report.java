@@ -13,6 +13,8 @@ public class Report {
     public Report(String reportDescription, String reportType, String reporterUsername, DateTimeFormatter date, Timestamp id){
         this.reportDescription = reportDescription;
         this.reportType = reportType;
+        this.reporterUsername = reporterUsername;
+        
 
     }
 }

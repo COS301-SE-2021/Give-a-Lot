@@ -40,6 +40,9 @@ public class ReportHelper {
             writer.write("User: ");
             writer.write(report.getReporterUsername());
             writer.write("\n");
+            writer.write("Type: ");
+            writer.write(report.getReportType());
+            writer.write("\n");
             writer.write("Description: ");
             writer.write(report.getReportDescription());
             writer.write("\n");
@@ -55,13 +58,8 @@ public class ReportHelper {
 
     public static void main(String[] args) throws Exception {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        LocalDateTime date = LocalDateTime.now();
-        DateTimeFormatter dateTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        String dateStr = date.format(dateTime);
 
-        
-
-        Report report = new Report("They provided incorrect addresses and contact information", "Incorrect Profile Info", "CoolUser57",dateStr, timestamp);
+        Report report = new Report("They provided incorrect addresses and contact information", "Incorrect Profile Info", "CoolUser57", timestamp);
         ReportHelper help = new ReportHelper();
         File reportFile = help.createReportFile(report);
         System.out.println(reportFile);

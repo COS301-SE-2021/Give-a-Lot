@@ -49,4 +49,8 @@ public class Report {
     public void setReporterUsername(String reporterUsername) {
         this.reporterUsername = reporterUsername;
     }
+
+    public void setDate(DateTimeFormatter date) {
+        this.date = date;
+    }
 }

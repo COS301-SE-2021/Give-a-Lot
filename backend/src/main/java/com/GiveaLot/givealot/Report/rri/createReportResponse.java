@@ -6,6 +6,6 @@ public class createReportResponse {
     private File reportFile;
 
     public createReportResponse(){}
-    public File getReportFile(){return reportFile; }
+    public File getReportFile(){return reportFile;}
     public void setReportFile(File file){ this.reportFile = file; }
 }

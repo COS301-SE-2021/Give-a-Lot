@@ -1,8 +1,6 @@
 package com.GiveaLot.givealot.Report;
 
 
-import com.GiveaLot.givealot.Certificate.exceptions.CertificateException;
-import com.GiveaLot.givealot.Certificate.exceptions.NotAuthorizedException;
 import com.GiveaLot.givealot.Report.dataclass.Report;
 import com.GiveaLot.givealot.Report.exceptions.InvalidRequestException;
 import com.GiveaLot.givealot.Report.exceptions.ReportException;
@@ -25,12 +23,12 @@ public class ReportServiceImpl implements ReportService{
         Report report = null;
         Timestamp timestamp = null;
         try{
-            report = new Report("","","",timestamp);
+            report = new Report("","","","",timestamp);
         }catch (Exception e){
             throw new ReportException("Problem creating Report");
         }
         
-        report = new Report(request.getReportDescription(),request.getReportType(),request.getReporterEmail(),request.getId());
+        report = new Report(request.getOrgName(),request.getReportDescription(),request.getReportType(),request.getReporterEmail(),request.getId());
         reportRes = new createReportResponse();
         ReportHelper createReport = new ReportHelper();
         try {

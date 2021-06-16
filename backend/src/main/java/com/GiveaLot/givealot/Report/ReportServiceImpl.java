@@ -1,9 +1,16 @@
 package com.GiveaLot.givealot.Report;
 
 
+import com.GiveaLot.givealot.Certificate.exceptions.CertificateException;
+import com.GiveaLot.givealot.Certificate.exceptions.NotAuthorizedException;
+import com.GiveaLot.givealot.Report.dataclass.Report;
+import com.GiveaLot.givealot.Report.exceptions.InvalidRequestException;
+import com.GiveaLot.givealot.Report.exceptions.ReportException;
 import com.GiveaLot.givealot.Report.rri.createReportRequest;
 import com.GiveaLot.givealot.Report.rri.createReportResponse;
 import org.springframework.stereotype.Service;
+
+import java.sql.Timestamp;
 
 @Service
 public class ReportServiceImpl implements ReportService{
@@ -11,10 +18,27 @@ public class ReportServiceImpl implements ReportService{
     @Override
     public createReportResponse createReport(createReportRequest request) throws Exception
     {
-        System.out.println(request.getReportDescription());
-        System.out.println(request.getReportType());
-        System.out.println(request.getReporterUsername());
-        System.out.println(request.getUserEmail());
-        return null;
+        createReportResponse reportRes = null;
+        if (request == null){
+            throw new InvalidRequestException("Exception: Report could not be created because the request object is null");
+        }
+        Report report = null;
+        Timestamp timestamp = null;
+        try{
+            report = new Report("","","",timestamp);
+        }catch (Exception e){
+            throw new ReportException("Problem creating Report");
+        }
+        
+        report = new Report(request.getReportDescription(),request.getReportType(),request.getReporterEmail(),request.getId());
+        reportRes = new createReportResponse();
+        ReportHelper createReport = new ReportHelper();
+        try {
+            reportRes.setReportFile(createReport.createReportFile(report));
+        }catch (Exception e){
+            throw new ReportException("Exception: Problem creating Report");
+        }
+        return reportRes;
     }
+
 }

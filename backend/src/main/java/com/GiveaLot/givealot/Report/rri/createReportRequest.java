@@ -9,17 +9,20 @@ public class createReportRequest {
     String reportDescription;
     String reportType;
     String reporterUsername;
+    String userEmail;
     DateTimeFormatter date;
     Timestamp id;
 
 
     createReportRequest(@JsonProperty("description") String reportDescription,
-                               @JsonProperty("type") String reportType,
-                               @JsonProperty("username") String reporterUsername)
+                        @JsonProperty("type") String reportType,
+                        @JsonProperty("username") String reporterUsername,
+                        @JsonProperty("userEmail") String userEmail)
     {
         this.reportDescription = reportDescription;
         this.reportType = reportType;
         this.reporterUsername = reporterUsername;
+        this.userEmail = userEmail;
 
     }
 
@@ -79,5 +82,13 @@ public class createReportRequest {
 
     public void setId(Timestamp id) {
         this.id = id;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
     }
 }

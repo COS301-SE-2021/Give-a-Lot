@@ -1,4 +1,4 @@
-package main.java.com.givealot.Report;
+package com.GiveaLot.givealot.Report;
 
 import main.java.cs.givealot.Report.exceptions.ReportException;
 import main.java.cs.givealot.Report.exceptions.InvalidRequestException;

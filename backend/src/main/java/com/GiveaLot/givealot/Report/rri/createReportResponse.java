@@ -1,4 +1,4 @@
-package main.java.cs.givealot.Report.rri;
+package com.GiveaLot.givealot.Report.rri;
 
 import java.io.File;
 

@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import java.time.format.DateTimeFormatter;
 
 public class createReportRequest {
+    String orgName;
     String reportDescription;
     String reportType;
     String reporterEmail;
@@ -13,21 +14,25 @@ public class createReportRequest {
     Timestamp id;
 
 
-    createReportRequest(@JsonProperty("description") String reportDescription,
+    createReportRequest(@JsonProperty("organisation") String orgName,
+                        @JsonProperty("description") String reportDescription,
                         @JsonProperty("type") String reportType,
                         @JsonProperty("email") String reporterEmail)
     {
+        this.orgName = orgName;
         this.reportDescription = reportDescription;
         this.reportType = reportType;
         this.reporterEmail = reporterEmail;
 
     }
 
-  public createReportRequest( String reportDescription,
+  public createReportRequest( String orgName,
+                              String reportDescription,
                                 String reportType,
                                 String reporterEmail,
                                 DateTimeFormatter date,
                                  Timestamp id){
+        this.orgName = orgName;
         this.reportDescription = reportDescription;
         this.reportType = reportType;
         this.reporterEmail = reporterEmail;
@@ -37,7 +42,12 @@ public class createReportRequest {
 
 
 
+
     /** Getters **/
+
+    public String getOrgName() {
+        return orgName;
+    }
 
     public String getReportDescription(){
         return reportDescription;
@@ -59,7 +69,13 @@ public class createReportRequest {
         return id;
     }
 
+
+
     /** Setters **/
+
+    public void setOrgName(String orgName) {
+        this.orgName = orgName;
+    }
 
     public void setReportDescription(String reportDescription) {
         this.reportDescription = reportDescription;

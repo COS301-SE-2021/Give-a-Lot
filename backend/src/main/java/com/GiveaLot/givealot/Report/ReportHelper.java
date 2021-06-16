@@ -24,9 +24,13 @@ public class ReportHelper {
             String date = report.getDate().toString();
             FileWriter writer = new FileWriter(reportName + ".txt");
 
+            writer.write("ID:");
             writer.write(id);
+            writer.write("Date:");
             writer.write(date);
+            writer.write("User:");
             writer.write(report.getReporterUsername());
+            writer.write("Description:");
             writer.write(report.getReportDescription());
 
             writer.close();

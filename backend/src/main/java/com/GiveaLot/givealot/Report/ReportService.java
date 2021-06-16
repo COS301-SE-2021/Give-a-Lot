@@ -20,7 +20,7 @@ public interface ReportService {
      * @throws NotAuthorizedException if user is not an admin that is trying to generate report
      * @throws ReportException if Report could not be generated for some reason
      * @throws InvalidRequestException if the request object is not correct
-     * @throws TypeException if the type provided is not valid
+     * @throws TypeException if the type provided is not valid []
      */
 
     createReportResponse createReport(createReportRequest request) throws Exception;

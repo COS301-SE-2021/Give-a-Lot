@@ -7,14 +7,14 @@ import java.time.format.DateTimeFormatter;
 public class Report {
     String reportDescription;
     String reportType;
-    String reporterUsername;
+    String reporterEmail;
     String date;
     String id;
 
-    public Report(String reportDescription, String reportType, String reporterUsername, Timestamp id){
+    public Report(String reportDescription, String reportType, String reporterEmail, Timestamp id){
         this.reportDescription = reportDescription;
         this.reportType = reportType;
-        this.reporterUsername = reporterUsername;
+        this.reporterEmail = reporterEmail;
         LocalDateTime date = LocalDateTime.now();
         DateTimeFormatter dateTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         this.date = date.format(dateTime);
@@ -32,8 +32,8 @@ public class Report {
         return reportType;
     }
 
-    public String getReporterUsername() {
-        return reporterUsername;
+    public String getReporterEmail() {
+        return reporterEmail;
     }
 
     public String getDate() {
@@ -54,8 +54,8 @@ public class Report {
         this.reportType = reportType;
     }
 
-    public void setReporterUsername(String reporterUsername) {
-        this.reporterUsername = reporterUsername;
+    public void setReporterEmail(String reporterEmail) {
+        this.reporterEmail = reporterEmail;
     }
 
     public void setDate(String date) {

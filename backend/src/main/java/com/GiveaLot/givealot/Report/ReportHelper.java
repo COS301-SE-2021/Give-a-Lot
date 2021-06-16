@@ -20,7 +20,7 @@ public class ReportHelper {
     public File createReportFile(Report report) throws Exception{
         try {
 
-            String reportName = "report" + report.getId() + report.getReporterUsername();
+            String reportName = "report" + report.getId() + report.getReporterEmail();
             reportName = reportName.replaceAll("[^a-zA-Z0-9]", "");
             File file = new File(reportName + ".txt");
             if (file.createNewFile()) {
@@ -37,8 +37,8 @@ public class ReportHelper {
             writer.write("Date: ");
             writer.write(date);
             writer.write("\n");
-            writer.write("User: ");
-            writer.write(report.getReporterUsername());
+            writer.write("User email: ");
+            writer.write(report.getReporterEmail());
             writer.write("\n");
             writer.write("Type: ");
             writer.write(report.getReportType());

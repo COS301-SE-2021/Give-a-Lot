@@ -1,4 +1,4 @@
-package main.java.cs.givealot.Report.dataclass;
+package com.GiveaLot.givealot.Report.dataclass;
 
 import java.security.Timestamp;
 import java.time.format.DateTimeFormatter;

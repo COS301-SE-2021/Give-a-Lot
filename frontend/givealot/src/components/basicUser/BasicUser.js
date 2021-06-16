@@ -5,8 +5,6 @@ import NavBar from "./NavBar";
 
 function BasicUser() {
     return (
-        <div>
-            here
         <div >
             <div>
                 <NavBar />
@@ -15,7 +13,7 @@ function BasicUser() {
                 <UserBody />
             </div>
         </div>
-            </div>
+
     )
 }
 

@@ -13,6 +13,8 @@ function App() {
     return (
       <div className="App">
         <Admin />
+        <BasicUserReport />
+          {/*<OrganisationReport />*/}
       </div>
    );
   

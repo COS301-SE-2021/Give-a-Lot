@@ -61,11 +61,11 @@ export default function BasicUserReport() {
             </AppBar>*/}
             <main className={classes.layout}>
                 <Paper className={classes.paper}>
-                    <Typography component="h1" variant="h4" align="center" >
+                    <Typography component="h1" variant="h4" align="center" style={{color: "black", border:"5px solid #3f51b5"}}>
                         Report Organisation
                     </Typography>
-                    <Typography component="h1" variant="h4" align="center" >
-                        -
+                    <Typography component="h1" variant="h4" align="center" style={{color: "white"}} >
+                        .
                     </Typography>
 
                     <React.Fragment>

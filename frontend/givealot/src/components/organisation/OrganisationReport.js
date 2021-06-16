@@ -50,7 +50,7 @@ export default function OrganisationReport() {
                     <Typography component="h1" variant="h4" align="center" >
                         Report Organisation
                     </Typography>
-                    <Typography component="h1" variant="h4" align="center" >
+                    <Typography component="h1" variant="h4" align="center" style={{color: "white"}}>
                         -
                     </Typography>
 

@@ -10,6 +10,7 @@ import AdminCerts from "./AdminCerts";
 import AdminReports from "./AdminReports";
 import AdminDonations from "./AdminDonations"
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Manage from './Manage';
 
 function Admin() {
   return (
@@ -32,6 +33,7 @@ function Admin() {
             <Route path="/admincerts" exact component={AdminCerts} />
             <Route path="/admindonations" exact component={AdminDonations} />
             <Route path="/adminreport" exact component={AdminReports} />
+            <Route path="/manage" exact component={Manage} />
             <Route path="/" component={Dashboard} />
           </Switch>
         </div>

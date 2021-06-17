@@ -14,8 +14,9 @@ import AdminReports from "./components/Admin/AdminReports";
 function App() {
     return (
       <div className="App">
-        <Manage />
+        {/* <Manage /> */}
 
+        <Admin />
       </div>
    );
   

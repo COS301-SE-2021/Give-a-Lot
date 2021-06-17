@@ -33,7 +33,10 @@ export default class AdminOrgs extends Component {
         this.state = {
              posts:[],
              error: "",
-             show: false
+             show: false,
+             name: "",
+             email: "",
+             modalname: ""
         }
 
         this.showModal = this.showModal.bind(this);
@@ -43,9 +46,20 @@ export default class AdminOrgs extends Component {
     showModal = () => {
         this.setState({ show: true });
       };
+
+      
     
-      hideModal = () => {
+      hideModal = (e) => {
         this.setState({ show: false });
+        e.preventDefault()
+        console.log(this.state)
+        axios.post('http://localhost:8080/report/organisation', this.state)
+        .then(response =>{
+            console.log(response)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
       };
 
     componentDidMount(){
@@ -60,8 +74,13 @@ export default class AdminOrgs extends Component {
         })
     }
 
-    render(name, email) {
-        const { posts, error} = this.state
+    ModalchangeHandler(e){
+        this.setState({[e.target.name] : e.target.value})
+    }
+    ModalchangeHandler
+
+    render() {
+        const { posts, error,name, email,modalname} = this.state
         return (
             <div>
                 <TableContainer component={Paper} style={{width: "1000px", position:"absolute", top: "190px"}}>  
@@ -97,12 +116,12 @@ export default class AdminOrgs extends Component {
                     <div style={{position: "absolute", left: "270px", top: "120px"}}>
                     <Modal className="overlay" show={this.state.show} handleClose={this.hideModal}>
                         <h4>Add Organisation</h4>
-                        <form>
-                        <TextField id="outlined-basic" label="Name" variant="outlined" style={{width: "500px"}}/>
-                        <TextField id="outlined-basic" label="email" variant="outlined" style={{width: "500px"}}/>
-                        <TextField id="outlined-basic" label="stuff" variant="outlined" style={{width: "500px"}}/>
-                        <TextField id="outlined-basic" label="like" variant="outlined" style={{width: "500px"}}/>
-                        <TextField id="outlined-basic" label="stuff" variant="outlined" style={{width: "500px"}}/>
+                        <form onSubmit={this.hideModal}>
+                        <TextField id="outlined-basic" label="Name" variant="outlined" value={modalname} onChange={this.ModalchangeHandler}style={{width: "500px"}}/>
+                        <TextField id="outlined-basic" label="email" variant="outlined" value={modalname} onChange={this.ModalchangeHandler}style={{width: "500px"}}/>
+                        <TextField id="outlined-basic" label="stuff" variant="outlined" value={modalname} onChange={this.ModalchangeHandler}style={{width: "500px"}}/>
+                        <TextField id="outlined-basic" label="like" variant="outlined" value={modalname} onChange={this.ModalchangeHandler}style={{width: "500px"}}/>
+                        <TextField id="outlined-basic" label="stuff" variant="outlined" value={modalname} onChange={this.ModalchangeHandler}style={{width: "500px"}}/>
                         </form>
                     </Modal>
                         <Button variant="contained" color="primary" type="button" onClick={this.showModal}>

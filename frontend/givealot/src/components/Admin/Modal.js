@@ -8,9 +8,6 @@ const Modal = ({ handleClose, show, children }) => {
     <div className={showHideClassName}>
       <section className="modal-main">
         {children}
-        {/* <button type="submit" onClick={handleClose}>
-          Submit
-        </button> */}
         <Button variant="contained" color="primary" type="submit" onClick={handleClose}>
             Submit
         </Button>

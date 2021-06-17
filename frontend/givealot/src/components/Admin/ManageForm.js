@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import {makeStyles} from "@material-ui/core/styles";
+import Galleryy from "./Galleryy";
 import MenuItem from "@material-ui/core/MenuItem";
 import axios from 'axios';
 
@@ -20,7 +21,10 @@ const useStyles = makeStyles((theme) => ({
     button: {
         marginTop: theme.spacing(3),
         marginLeft: theme.spacing(1),
+        backgroundColor:'#94f8b9'
     },
+
+
 }));
 
 export class Manage extends Component {
@@ -53,11 +57,27 @@ export class Manage extends Component {
         const {username, userEmail} = this.state
         return (
             <div className="manage">
-                <div className="Orgname">
+                <div >
+
+                    <div >
+                        <h2>The givers of hope</h2>
+
+                        <p>Here is the description of what the organisation does and stuuff do not mind my typos , matter of
+                            fact do not mnd this text at all , it should be replaxced with the te description bla bla bla
+                            Here is the description of what the organisation does and stuuff do not mind my typos , matter of
+                            fact do not mnd this text at all , it should be replaxced with the te description bla bla bla
+
+                            Here is the description of what the organisation does and stuuff do not mind my typos , matter of
+                            fact do not mnd this text at all , it should be replaxced with the te description bla bla bla</p>
+                        <Galleryy />
+                        <h2 style={{color: "white"}}>Lazy space, don't remove</h2>
+                    </div>
+
+
                     <form onSubmit={this.submitHandler}>
                         <React.Fragment >
                             <Grid container spacing={3}>
-                                <Grid item xs={12} sm={6}>
+                                {/*<Grid item xs={12} sm={6}>
                                     <TextField
                                         required
                                         id="Name"
@@ -78,16 +98,46 @@ export class Manage extends Component {
                                         autoComplete="department"
                                         value={userEmail} onChange={this.changeHandler}
                                     />
-                                </Grid>
+                                </Grid>*/}
 
-                                <Grid item xs={12}>
+                                <Grid item xs={12} sm={3}>
                                     <Button
                                         variant="contained"
                                         color="primary"
                                         // onClick={handleNext}
                                         // className={classes.button}
                                     >
-                                        Report
+                                        Verify
+                                    </Button>
+                                </Grid>
+                                <Grid item xs={12} sm={3}>
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        // onClick={handleNext}
+                                        // className={classes.button}
+                                    >
+                                        Generate
+                                    </Button>
+                                </Grid>
+                                <Grid item xs={12} sm={3}>
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        // onClick={handleNext}
+                                        // className={classes.button}
+                                    >
+                                        Revoke
+                                    </Button>
+                                </Grid>
+                                <Grid item xs={12} sm={3}>
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        // onClick={handleNext}
+                                        // className={classes.button}
+                                    >
+                                        Something
                                     </Button>
                                 </Grid>
                             </Grid>

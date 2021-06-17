@@ -1,8 +1,19 @@
-import React from 'react'
+import React from 'react';
+import "./Browse.css";
+import BrowseBody from "./BrowseBody";
+import BrowseNav from "./BrowseNav";
 
 function Browse() {
     return (
-        <h1>Hello World</h1>
+        <div className="browse">
+
+            <div>
+                <BrowseNav />
+            </div>
+            <div>
+                <BrowseBody />
+            </div>
+        </div>
     )
 }
 

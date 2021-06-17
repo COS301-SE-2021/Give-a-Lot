@@ -29,6 +29,8 @@ public class OrganisationServiceImpl {
 
         help.addOrg(org);
 
+        //then send email
+
 
         return null;
     }
@@ -50,6 +52,8 @@ public class OrganisationServiceImpl {
         catch (Exception e){
             throw new OrgException("Exception: Organisation could not be reactivated");
         }
+
+        //then send email
 
 
         return null;
@@ -73,6 +77,8 @@ public class OrganisationServiceImpl {
             throw new OrgException("Exception: Organisation could not be set to UnderInvestagtion");
         }
 
+        //then send email
+
 
         return null;
     }
@@ -95,6 +101,8 @@ public class OrganisationServiceImpl {
         catch (Exception e){
             throw new OrgException("Exception: Organisation could not be suspended");
         }
+
+        //then send email
 
 
         return null;

@@ -47,6 +47,22 @@ public class Organisation {
 
     }
 
+    public String getOrgName() {
+        return orgName;
+    }
+
+    public String getOrgDescription() {
+        return orgDescription;
+    }
+
+    public String getOrgSector() {
+        return orgSector;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
     public static void main(String[] args) throws NoSuchAlgorithmException {
         String orgEmail = "hi";
         MD5 orgId = new MD5();

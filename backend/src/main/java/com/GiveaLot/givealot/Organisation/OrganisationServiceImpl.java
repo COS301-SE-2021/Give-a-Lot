@@ -11,13 +11,41 @@ public class OrganisationServiceImpl {
         UnderInvestigation,
         Suspended
     }
-  Status status;
-    suspendOrganisationResponse suspendOrganisation(suspendOrganisationRequest suspendOrganisationRequest) throws InvalidRequestException
+    Status status;
+
+    addOrganisationResponse addOrganisation(addOrganisationRequest request)throws InvalidRequestException
     {
-       if(suspendOrganisationRequest.getOrgEmail() == null)
-       {
-           throw new InvalidRequestException("Invalid organisation email");
-       }
+        if (request == null){
+            throw new InvalidRequestException("Exception: Organisation could not be added because the request object is null");
+        }
+
+
+        return null;
+    }
+
+    reactivateOrganisationResponse reactivateOrganisation(reactivateOrganisationRequest request)throws InvalidRequestException{
+        if (request == null){
+            throw new InvalidRequestException("Exception: Organisation could not be updated because the request object is null");
+        }
+
+
+        return null;
+    }
+
+    investigateOrganisationResponse investigateOrganisation(investigateOrganisationRequest request)throws InvalidRequestException{
+        if (request == null){
+            throw new InvalidRequestException("Exception: Organisation could not be updated because the request object is null");
+        }
+
+
+        return null;
+    }
+
+    suspendOrganisationResponse suspendOrganisation(suspendOrganisationRequest request) throws InvalidRequestException
+    {
+        if (request == null){
+            throw new InvalidRequestException("Exception: Organisation could not be updated because the request object is null");
+        }
 
 
         return null;

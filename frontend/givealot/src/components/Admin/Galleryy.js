@@ -5,11 +5,16 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Image from "./Image";
+import Image from './Image';
 
 const useStyles = makeStyles({
     root: {
         minWidth: 275,
+    },
+    sort:{
+
+        display: 'flex',
+        flexDirection: 'row',
     },
     bullet: {
         display: 'inline-block',
@@ -37,7 +42,7 @@ export default function Galleryy() {
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
                     Gallery
                 </Typography>
-                <Typography >
+                <Typography className={classes.sort}>
                     <Image/>
                     <Image/>
                     <Image/>
@@ -45,7 +50,7 @@ export default function Galleryy() {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small" className={classes.button} >View all</Button>
+                {/* <Button size="small" className={classes.button} >View all</Button>*/}
             </CardActions>
         </Card>
     );

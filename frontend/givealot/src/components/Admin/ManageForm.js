@@ -66,11 +66,9 @@ export class Manage extends Component {
                             fact do not mnd this text at all , it should be replaxced with the te description bla bla bla
                             Here is the description of what the organisation does and stuuff do not mind my typos , matter of
                             fact do not mnd this text at all , it should be replaxced with the te description bla bla bla
-
-                            Here is the description of what the organisation does and stuuff do not mind my typos , matter of
-                            fact do not mnd this text at all , it should be replaxced with the te description bla bla bla</p>
+                        </p>
                         <Galleryy />
-                        <h2 style={{color: "white"}}>Lazy space, don't remove</h2>
+                        {/* <h2 style={{color: "white"}}>Lazy space, don't remove</h2>*/}
                     </div>
 
 
@@ -137,7 +135,7 @@ export class Manage extends Component {
                                         // onClick={handleNext}
                                         // className={classes.button}
                                     >
-                                        Something
+                                        Remove
                                     </Button>
                                 </Grid>
                             </Grid>

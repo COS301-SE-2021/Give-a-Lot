@@ -5,10 +5,14 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import logo from "../basicUser/logo.png";
+import pic from "./pic.jpg";
 
 const useStyles = makeStyles({
     root: {
-        minWidth: 275,
+        minWidth: 260,
+        marginTop: '20px',
+
     },
     bullet: {
         display: 'inline-block',
@@ -27,6 +31,7 @@ const useStyles = makeStyles({
 });
 
 export default function Image() {
+
     const classes = useStyles();
     const bull = <span className={classes.bullet}>•</span>;
 
@@ -34,8 +39,8 @@ export default function Image() {
         <Card className={classes.root}>
             <CardContent>
 
-                <Typography variant="h5" component="h2">
-
+                <Typography  >
+                    <img  src={pic} width="200" height="175" alt=""/>
                 </Typography>
             </CardContent>
 

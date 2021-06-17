@@ -58,7 +58,7 @@ export default function Manage() {
                         Manage Organisation
                     </Typography>
                     <Typography component="h1" variant="h4" align="center" style={{color: "white"}} >
-                        .
+
                     </Typography>
 
                     <React.Fragment>

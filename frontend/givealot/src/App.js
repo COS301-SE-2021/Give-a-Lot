@@ -9,14 +9,12 @@ import BasicUser from "./components/basicUser/BasicUser";
 import OrganisationReport from './components/organisation/OrganisationReport';
 import BasicUserReport from "./components/basicUser/BasicUserReport";
 import './App.css';
-import Browse from "./components/browse/Browse";
+import Manage from "./components/Admin/Manage"
 
 function App() {
     return (
       <div className="App">
-          <BasicUser />
-
-
+        <Manage />
       </div>
    );
   

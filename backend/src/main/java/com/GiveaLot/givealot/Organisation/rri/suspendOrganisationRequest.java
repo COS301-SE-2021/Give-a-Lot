@@ -1,14 +1,11 @@
 package com.GiveaLot.givealot.Organisation.rri;
 
 import com.GiveaLot.givealot.Organisation.dataclass.Organisation;
+import com.GiveaLot.givealot.Organisation.dataclass.Status;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class suspendOrganisationRequest {
-    enum Status{
-        Active,
-        UnderInvestigation,
-        Suspended
-    }
+
     Status status;
     String orgEmail;
 

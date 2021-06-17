@@ -124,7 +124,7 @@ export default class AdminOrgs extends Component {
                         <TextField id="outlined-basic" label="stuff" variant="outlined" value={modalname} onChange={this.ModalchangeHandler}style={{width: "500px"}}/>
                         </form>
                     </Modal>
-                        <Button variant="contained" color="primary" type="button" onClick={this.showModal}>
+                        <Button variant="contained" color="primary" type="submit" onClick={this.showModal}>
                             Add Organisation
                         </Button>
                     </div>

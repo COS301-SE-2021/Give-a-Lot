@@ -9,6 +9,8 @@ public class OrganisationHelper {
     public void addOrg(Organisation organisation) throws SQLException {
 
         try {
+
+
             String serverName = "127.0.0.1";
             //database name
             String mydatabase = "givealot";
@@ -152,5 +154,24 @@ public class OrganisationHelper {
         catch (Exception e){
             throw new SQLException("Exception: Insert into database could not be fulfilled");
         }
+    }
+
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+
+        Class.forName("com.mysql.jdbc.Driver");
+
+        String serverName = "127.0.0.1";
+        //database name
+        String mydatabase = "voting_impl_";
+        String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
+
+        String username = "root";
+        String password = "password123";
+        System.out.println("Success");
+        //Setup connection
+        Connection connection = DriverManager.getConnection(url, username, password);
+
+        System.out.println("Success");
+        Statement state = connection.createStatement();
     }
 }

@@ -48,6 +48,7 @@ public class OrganisationServiceImpl {
             else{
                 throw new OrgException("Exception: Organisation is already Active");
             }
+            org.setStatus(com.GiveaLot.givealot.Organisation.dataclass.Status.Active);
         }
         catch (Exception e){
             throw new OrgException("Exception: Organisation could not be reactivated");
@@ -72,6 +73,7 @@ public class OrganisationServiceImpl {
             else{
                 throw new OrgException("Exception: Organisation is already UnderInvestigation");
             }
+            org.setStatus(com.GiveaLot.givealot.Organisation.dataclass.Status.UnderInvestigation);
         }
         catch (Exception e){
             throw new OrgException("Exception: Organisation could not be set to UnderInvestagtion");
@@ -97,6 +99,7 @@ public class OrganisationServiceImpl {
             else{
                 throw new OrgException("Exception: Organisation is already Suspended");
             }
+            org.setStatus(com.GiveaLot.givealot.Organisation.dataclass.Status.Suspended);
         }
         catch (Exception e){
             throw new OrgException("Exception: Organisation could not be suspended");

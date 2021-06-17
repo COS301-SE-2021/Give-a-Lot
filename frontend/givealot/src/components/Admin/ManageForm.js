@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 export class Manage extends Component {
 
+
     constructor(props) {
         super(props)
 
@@ -68,7 +69,7 @@ export class Manage extends Component {
                             fact do not mnd this text at all , it should be replaxced with the te description bla bla bla
                         </p>
                         <Galleryy />
-                        {/* <h2 style={{color: "white"}}>Lazy space, don't remove</h2>*/}
+                         <p style={{color: "white"}}>Lazy space, don't remove</p>
                     </div>
 
 

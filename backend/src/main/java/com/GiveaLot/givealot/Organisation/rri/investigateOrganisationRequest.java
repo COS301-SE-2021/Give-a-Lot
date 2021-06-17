@@ -1,17 +1,14 @@
 package com.GiveaLot.givealot.Organisation.rri;
 
+import com.GiveaLot.givealot.Organisation.dataclass.Status;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class investigateOrganisationRequest {
-    enum Status{
-        Active,
-        UnderInvestigation,
-        Suspended
-    }
-    investigateOrganisationRequest.Status status;
+
+    Status status;
     String orgEmail;
 
-    investigateOrganisationRequest(@JsonProperty("status") investigateOrganisationRequest.Status status,
+    investigateOrganisationRequest(@JsonProperty("status") Status status,
                                @JsonProperty("email") String orgEmail)
     {
         this.status=status;
@@ -20,7 +17,7 @@ public class investigateOrganisationRequest {
 
     //getters and setters
 
-    public investigateOrganisationRequest.Status getStatus() {
+    public Status getStatus() {
         return status;
     }
 
@@ -28,7 +25,7 @@ public class investigateOrganisationRequest {
         return orgEmail;
     }
 
-    public void setStatus(investigateOrganisationRequest.Status status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 

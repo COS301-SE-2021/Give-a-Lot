@@ -11,7 +11,7 @@ function Browse() {
                 <BrowseNav />
             </div>
             <div>
-                <BrowseBody />
+                {/*<BrowseBody />*/}
             </div>
         </div>
     )

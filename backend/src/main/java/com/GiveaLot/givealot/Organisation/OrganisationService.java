@@ -1,4 +1,5 @@
 package com.GiveaLot.givealot.Organisation;
+import com.GiveaLot.givealot.Organisation.exceptions.InvalidRequestException;
 import com.GiveaLot.givealot.Organisation.rri.*;
 
 public interface OrganisationService {
@@ -7,5 +8,5 @@ public interface OrganisationService {
      * @param suspendOrganisationRequest Request to use case
      * @return Return the status of the organisation
      */
-    suspendOrganisationResponse suspendOrganisation(suspendOrganisationRequest suspendOrganisationRequest);
+    suspendOrganisationResponse suspendOrganisation(suspendOrganisationRequest suspendOrganisationRequest)throws InvalidRequestException;
 }

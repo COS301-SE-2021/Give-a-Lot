@@ -1,11 +1,16 @@
 package com.GiveaLot.givealot.Organisation;
 
-import com.GiveaLot.givealot.Organisation.rri.suspendOrganisationRequest;
-import com.GiveaLot.givealot.Organisation.rri.suspendOrganisationResponse;
+import com.GiveaLot.givealot.Organisation.rri.*;
+import com.GiveaLot.givealot.Organisation.exceptions.*;
 
 public class OrganisationServiceImpl {
-    suspendOrganisationResponse suspendOrganisation(suspendOrganisationRequest suspendOrganisationRequest)
+    suspendOrganisationResponse suspendOrganisation(suspendOrganisationRequest suspendOrganisationRequest) throws InvalidRequestException
     {
+       if(suspendOrganisationRequest.getOrgEmail() == null)
+       {
+           throw new InvalidRequestException("Invalid organisation email");
+       }
+
         return null;
     }
 

@@ -10,11 +10,7 @@ import java.security.MessageDigest;
 import java.util.Base64;
 
 public class Organisation {
-    enum Status{
-        Active,
-        UnderInvestigation,
-        Suspended
-    }
+
     String orgName;
     String orgDescription;
     String orgSector;
@@ -26,7 +22,14 @@ public class Organisation {
     String contactNumber;
 
 
+    public Organisation(String orgEmail, Status orgStatus) throws NoSuchAlgorithmException {
+        MD5 md5 = new MD5();
 
+        this.orgEmail = orgEmail;
+        this.orgId = md5.getMd5(orgEmail);
+        this.status = orgStatus;
+
+    }
 
 
     public Organisation(String orgName, String orgDescription, String orgSector, String orgEmail, String password, String contactPerson, String contactNumber) throws NoSuchAlgorithmException {

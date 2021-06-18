@@ -19,7 +19,7 @@ public class SearchServiceImpl implements SearchService {
         else if (!search_value.matches("\\A\\p{ASCII}*\\z")) throw new InvalidInputException("non-ascii characters");
         mockUsers mockusers = new mockUsers();
         List<User> results = new LinkedList<>();
-        for (User u : mockusers.getUsers())
+        for (User u : mockusers.getUsersListView())
         {
             if(similarity(u.getNameOfOrganisation().toLowerCase(), search_value.toLowerCase()) > 1)
             {

@@ -174,7 +174,7 @@ export class AddOrg extends Component {
                                 &times;
                             </Button>
                             
-                            <div className="content" style={{position: "absolute", top: "50px"}}>
+                            <div className="content">
                             {' '}
                             <h4>Organisation successfully Added<br/>Send email to Organisation for confirmation</h4>
                             <div className="actions">

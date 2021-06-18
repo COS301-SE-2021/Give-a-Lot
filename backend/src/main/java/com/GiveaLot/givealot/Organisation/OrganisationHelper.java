@@ -159,13 +159,15 @@ public class OrganisationHelper {
 
       //  Class.forName("com.mysql.jdbc.Driver");
 
-        String serverName = "127.0.0.1";
+        String serverName = "sql4.freemysqlhosting.net:3306/sql4419888";
         //database name
         String mydatabase = "Givealot";
-        String url = "jdbc:postgresql://localhost/" + mydatabase;
 
-        String username = "admin";
-        String password = "admin";
+        String url="jdbc:postgresql://sql4.freemysqlhosting.net:3306/sql4419888";
+
+
+        String username = "sql4419888";
+        String password = "RE3E8mnLKV";
         System.out.println("Success");
         //Setup connection
         Connection connection = DriverManager.getConnection(url, username, password);

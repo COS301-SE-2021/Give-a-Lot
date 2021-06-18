@@ -22,17 +22,18 @@ public class OrganisationHelper {
             //Setup connection
             Connection connection = DriverManager.getConnection(url, username, password);
 
-            System.out.println("Success");
+            //Create statement
             Statement state = connection.createStatement();
-            System.out.println("Success");
+
             //organisations is a table
             //String query = "create database newDB;";
             String query = "insert into public.\"Organisations\"(\"orgName\", \"orgDescription\", \"orgSector\", \"orgEmail\", \"orgId\", status, password, \"contactPerson\", \"contactNumber\") values ('" + organisation.getOrgName() + "','" + organisation.getOrgDescription() + "','" + organisation.getOrgSector() + "','" + organisation.getOrgEmail() + "','" + organisation.getOrgId() + "','"+ organisation.getStatus().toString() + "','" + organisation.getPassword() + "','" + organisation.getContactPerson() + "','" + organisation.getContactNumber() + "');";
-            System.out.println(query);
-            System.out.println("Success");
+            //System.out.println(query);
+
             //execute the query
             state.executeUpdate(query);
-            System.out.println("Success");
+
+            System.out.println("Successfully Executed Update");
         }
         catch (Exception e){
             throw new SQLException("Exception: Insert into database could not be fulfilled");
@@ -52,15 +53,17 @@ public class OrganisationHelper {
             //Setup connection
             Connection connection = DriverManager.getConnection(url, username, password);
 
-            System.out.println("Success");
+            //Create statement
             Statement state = connection.createStatement();
-            System.out.println("Success");
+
             //organisations is a table
-            String query = "update Organisation set status = 'Active' where orgId = " + organisation.getOrgId() + ";";
-            System.out.println("Success");
+            String query = "update public.\"Organisations\" set status = 'Active' where \"orgId\" = '" + organisation.getOrgId() + "';";
+            //System.out.println(query);
+
             //execute the query
-            state.executeQuery(query);
-            System.out.println("Success");
+            state.executeUpdate(query);
+
+            System.out.println("Successfully Executed Update");
 
         }
         catch (Exception e){
@@ -77,21 +80,21 @@ public class OrganisationHelper {
 
             String username = "iqvyaozz";
             String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
-            System.out.println("Success");
+
             //Setup connection
             Connection connection = DriverManager.getConnection(url, username, password);
 
-            System.out.println("Success");
+            //Create statement
             Statement state = connection.createStatement();
-            System.out.println("Success");
 
             //organisations is a table
-            String query = "update Organisations set status = 'UnderInvestigation' where orgId = " + organisation.getOrgId() + ";";
+            String query = "update public.\"Organisations\" set status = 'UnderInvestigation' where \"orgId\" = '" + organisation.getOrgId() + "';";
+            //System.out.println(query);
 
             //execute the query
-            state.executeQuery(query);
+            state.executeUpdate(query);
 
-            System.out.println("Success");
+            System.out.println("Successfully Executed Update");
         }
         catch (Exception e){
             throw new SQLException("Exception: Insert into database could not be fulfilled");
@@ -107,23 +110,21 @@ public class OrganisationHelper {
 
             String username = "iqvyaozz";
             String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
-            System.out.println("Success");
+
             //Setup connection
             Connection connection = DriverManager.getConnection(url, username, password);
 
-            System.out.println("Success");
+            //Create statement
             Statement state = connection.createStatement();
-            System.out.println("Success");
 
             //organisations is a table
-            String query = "insert into public.\"Organisations\"(\"orgName\", \"orgDescription\", \"orgSector\", \"orgEmail\", \"orgId\", status, password, \"contactPerson\", \"contactNumber\") values ('" + organisation.getOrgName() + "','" + organisation.getOrgDescription() + "','" + organisation.getOrgSector() + "','" + organisation.getOrgEmail() + "','" + organisation.getOrgId() + "','"+ organisation.getStatus().toString() + "','" + organisation.getPassword() + "','" + organisation.getContactPerson() + "','" + organisation.getContactNumber() + "');";
-
-            String query = "update iqvyaozz.Givealot.Organisations set status = 'Suspended' where orgId = " + organisation.getOrgId() + ";";
+            String query = "update public.\"Organisations\" set status = 'Suspend' where \"orgId\" = '" + organisation.getOrgId() + "';";
+            //System.out.println(query);
 
             //execute the query
-            state.executeQuery(query);
+            state.executeUpdate(query);
 
-            System.out.println("Success");
+            System.out.println("Successfully Executed Update");
         }
         catch (Exception e){
             throw new SQLException("Exception: Insert into database could not be fulfilled");
@@ -156,8 +157,8 @@ public class OrganisationHelper {
 //            System.out.println(rs.getString(1));
 //        }
 
-        Organisation org = new Organisation("The New Orgss", "We are new heress", "Diseases", "neworg@gmail.comss","password", "Mrs. New Orgss", "0823322441");
+        Organisation org = new Organisation("The New Org", "We are new here", "Diseases", "neworg@gmail.com","password", "Mrs. New Org", "0823322441");
         OrganisationHelper helper = new OrganisationHelper();
-        helper.addOrg(org);
+        helper.reactivateOrg(org);
     }
 }

@@ -39,17 +39,14 @@ export class AddOrg extends Component {
             selectedFile: null
         }
     }
-
     changeHandler = (e) =>{
         this.setState({[e.target.name] : e.target.value})
     }
-
     handleSearchClick = event => {
         this.setState({
           mainState: "search"
         });
       };
-
     submitHandler = (e) =>{
         e.preventDefault()
         console.log(this.state)
@@ -61,7 +58,6 @@ export class AddOrg extends Component {
             console.log(error)
         })
     }
-
     render() {
         const { name, description,image, email} = this.state
         return (

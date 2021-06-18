@@ -10,7 +10,7 @@ public class mockUsers
     public mockUsers()
     {
         users = new LinkedList<>();
-        users.add(new User("the givers of hope",
+       /* users.add(new User("the givers of hope",
                 "give hope to the lost, and this  that and that other thing to make what what make sure",
                 "givers@hope.com",
                 "givers street,pretoria,South Afriza",
@@ -107,7 +107,7 @@ public class mockUsers
             "givealot",
             "LGBTQ",
             false,
-            false));
+            false));*/
     }
 
     public List<User> getUsers()

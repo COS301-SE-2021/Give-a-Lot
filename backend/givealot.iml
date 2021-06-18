@@ -5,8 +5,8 @@
       <configuration>
         <webroots />
         <sourceRoots>
-          <root url="file://$MODULE_DIR$/src/main/resources" />
           <root url="file://$MODULE_DIR$/src/main/java" />
+          <root url="file://$MODULE_DIR$/src/main/resources" />
         </sourceRoots>
       </configuration>
     </facet>
@@ -118,16 +118,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/postgresql-42.2.22.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../lib/postgresql-42.2.22.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/postgresql-42.2.22.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

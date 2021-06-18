@@ -34,7 +34,6 @@ public class OrganisationServiceImpl {
     }
     Session newSession = null;
     MimeMessage mimeMessage = null;
-    Status status;
 
     OrganisationHelper help = new OrganisationHelper();
 
@@ -45,13 +44,16 @@ public class OrganisationServiceImpl {
 
         Organisation org = new Organisation(request.getOrgName(),request.getOrgDescription(),request.getOrgSector(),request.getOrgEmail(),request.getPassword(),request.getContactPerson(),request.getContactNumber());
 
+
         help.addOrg(org);
+
+        org.setStatus(com.GiveaLot.givealot.Organisation.dataclass.Status.Active);
 
         //then send email
         OrganisationServiceImpl mail = new OrganisationServiceImpl();
 
         mail.setupServerProperties();
-        mail.draftEmail();
+        mail.OrganisationAddedEmail();
         mail.sendEmail();
 
 
@@ -82,7 +84,7 @@ public class OrganisationServiceImpl {
         OrganisationServiceImpl mail = new OrganisationServiceImpl();
 
         mail.setupServerProperties();
-        mail.draftEmail();
+        mail.OrganisationReactivatedEmail();
         mail.sendEmail();
 
 
@@ -113,7 +115,7 @@ public class OrganisationServiceImpl {
         OrganisationServiceImpl mail = new OrganisationServiceImpl();
 
         mail.setupServerProperties();
-        mail.draftEmail();
+        mail.OrganisationUnderInvestigationEmail();
         mail.sendEmail();
 
 
@@ -143,7 +145,7 @@ public class OrganisationServiceImpl {
         OrganisationServiceImpl mail = new OrganisationServiceImpl();
 
         mail.setupServerProperties();
-        mail.draftEmail();
+        mail.OrganisationSuspendedEmail();
         mail.sendEmail();
 
 
@@ -169,7 +171,88 @@ public class OrganisationServiceImpl {
         transport.close();
         System.out.println("Email successfully sent!!!");
     }
-     MimeMessage draftEmail() throws AddressException, MessagingException, IOException {
+
+    MimeMessage OrganisationUnderInvestigationEmail() throws AddressException, MessagingException, IOException {
+        String[] emailReceipients = {"u19104546@tuks.co.za"};  //Enter list of email recepients
+        String emailSubject = "Givealot Status Change";
+        String emailBody = "Hey \nWe hope this message finds you well we have written this message to you to notify you that due to numerous reports your status has changed " +
+                "due to this your account is under investigation and the status will be updated accordingly \n Thank you for your patience\n \nRegards\nGivealot";
+        mimeMessage = new MimeMessage(newSession);
+
+        for (int i =0 ;i<emailReceipients.length;i++)
+        {
+            mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(emailReceipients[i]));
+        }
+        mimeMessage.setSubject(emailSubject);
+
+        // CREATE MIMEMESSAGE
+        // CREATE MESSAGE BODY PARTS
+        // CREATE MESSAGE MULTIPART
+        // ADD MESSAGE BODY PARTS ----> MULTIPART
+        // FINALLY ADD MULTIPART TO MESSAGECONTENT i.e. mimeMessage object
+
+
+        MimeBodyPart bodyPart = new MimeBodyPart();
+        bodyPart.setContent(emailBody,"text/plain");
+        MimeMultipart multiPart = new MimeMultipart();
+        multiPart.addBodyPart(bodyPart);
+        mimeMessage.setContent(multiPart);
+        return mimeMessage;
+    }
+
+    MimeMessage OrganisationReactivatedEmail() throws AddressException, MessagingException, IOException {
+        String[] emailReceipients = {"u19104546@tuks.co.za"};  //Enter list of email recepients
+        String emailSubject = "Givealot Status Change";
+        String emailBody = "Hey \n Congratulations your Organisation has been Reactivated on the Givealot platform \n Thank you for your patience\n \nRegards\nGivealot";
+        mimeMessage = new MimeMessage(newSession);
+
+        for (int i =0 ;i<emailReceipients.length;i++)
+        {
+            mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(emailReceipients[i]));
+        }
+        mimeMessage.setSubject(emailSubject);
+
+        // CREATE MIMEMESSAGE
+        // CREATE MESSAGE BODY PARTS
+        // CREATE MESSAGE MULTIPART
+        // ADD MESSAGE BODY PARTS ----> MULTIPART
+        // FINALLY ADD MULTIPART TO MESSAGECONTENT i.e. mimeMessage object
+
+
+        MimeBodyPart bodyPart = new MimeBodyPart();
+        bodyPart.setContent(emailBody,"text/plain");
+        MimeMultipart multiPart = new MimeMultipart();
+        multiPart.addBodyPart(bodyPart);
+        mimeMessage.setContent(multiPart);
+        return mimeMessage;
+    }
+    MimeMessage OrganisationAddedEmail() throws AddressException, MessagingException, IOException {
+        String[] emailReceipients = {"u19104546@tuks.co.za"};  //Enter list of email recepients
+        String emailSubject = "Givealot Status Change";
+        String emailBody = "Hey \n Congratulations your Organisation has been added to the Givealot platform \n Thank you for your patience\n \nRegards\nGivealot";
+        mimeMessage = new MimeMessage(newSession);
+
+        for (int i =0 ;i<emailReceipients.length;i++)
+        {
+            mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(emailReceipients[i]));
+        }
+        mimeMessage.setSubject(emailSubject);
+
+        // CREATE MIMEMESSAGE
+        // CREATE MESSAGE BODY PARTS
+        // CREATE MESSAGE MULTIPART
+        // ADD MESSAGE BODY PARTS ----> MULTIPART
+        // FINALLY ADD MULTIPART TO MESSAGECONTENT i.e. mimeMessage object
+
+
+        MimeBodyPart bodyPart = new MimeBodyPart();
+        bodyPart.setContent(emailBody,"text/plain");
+        MimeMultipart multiPart = new MimeMultipart();
+        multiPart.addBodyPart(bodyPart);
+        mimeMessage.setContent(multiPart);
+        return mimeMessage;
+    }
+     MimeMessage OrganisationSuspendedEmail() throws AddressException, MessagingException, IOException {
         String[] emailReceipients = {"u19104546@tuks.co.za"};  //Enter list of email recepients
         String emailSubject = "Givealot Status Change";
         String emailBody = "Hey \nWe hope this message finds you well we have written this message to you to notify you that due to numerous reports your status has changed " +
@@ -203,7 +286,7 @@ public class OrganisationServiceImpl {
     {
         OrganisationServiceImpl mail = new OrganisationServiceImpl();
         mail.setupServerProperties();
-        mail.draftEmail();
+        mail.OrganisationReactivatedEmail();
         mail.sendEmail();
     }
 

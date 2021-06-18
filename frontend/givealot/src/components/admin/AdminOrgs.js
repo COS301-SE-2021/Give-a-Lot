@@ -18,7 +18,6 @@ import Modal from './Modal.js';
 import Status from "./Status"
 import "./AdminOrgs.css";
 
-
 const columns = [
     { field: 'id', headerName: 'ID', width: "100px" },
     { field: 'name', headerName: 'Organisation Name', width: "300px" },
@@ -37,34 +36,12 @@ export default class AdminOrgs extends Component {
              show: false,
              name: "",
              email: "",
-             modalname: ""
+            //  modalname: ""
         }
 
-        this.showModal = this.showModal.bind(this);
-        this.hideModal = this.hideModal.bind(this);
         this.getInitialState = this.getInitialState.bind(this);
         this. change = this. change.bind(this);
     }
-
-    showModal = () => {
-        this.setState({ show: true });
-      };
-
-      
-    
-      hideModal = (e) => {
-        this.setState({ show: false });
-        e.preventDefault()
-        console.log(this.state)
-        axios.post('http://localhost:8080/report/organisation', this.state)
-        .then(response =>{
-            console.log(response)
-        })
-        .catch(error =>{
-            console.log(error)
-        })
-      };
-
     componentDidMount(){
         axios.get('https://jsonplaceholder.typicode.com/users')
         .then(response =>{
@@ -92,9 +69,21 @@ export default class AdminOrgs extends Component {
     ModalchangeHandler
 
     render() {
-        const { posts, error,name, email,modalname} = this.state
+        const { posts, error,name, email} = this.state
         return (
             <div>
+                <div>
+                    <div style={{position: "absolute", left: "270px", top: "120px"}}>
+                        <Button variant="contained" color="primary" type="submit"
+                            style={{cursor: "pointer"}}
+                            onClick={event =>  window.location.href='AddOrg'} >
+                            Add Organisation
+                        </Button>
+                    </div>
+                    <div style={{position: "absolute", right: "100px", top: "120px"}}>
+                        search
+                    </div>
+                </div>
                 <TableContainer component={Paper} style={{width: "1000px", position:"absolute", top: "190px"}}>  
                 <Table >  
                 <TableHead>  
@@ -140,29 +129,7 @@ export default class AdminOrgs extends Component {
                 </TableBody>  
                 </Table>  
                 </TableContainer>  
-               <div>
-                    <div style={{position: "absolute", left: "270px", top: "120px"}}>
-                    <Modal className="overlay" show={this.state.show} handleClose={this.hideModal}>
-                        <h4>Add Organisation</h4>
-                        <form onSubmit={this.hideModal}>
-                        <TextField id="outlined-basic" label="Name" variant="outlined" value={modalname} onChange={this.ModalchangeHandler}style={{width: "500px"}}/>
-                        <TextField id="outlined-basic" label="email" variant="outlined" value={modalname} onChange={this.ModalchangeHandler}style={{width: "500px"}}/>
-                        <TextField id="outlined-basic" label="stuff" variant="outlined" value={modalname} onChange={this.ModalchangeHandler}style={{width: "500px"}}/>
-                        <TextField id="outlined-basic" label="like" variant="outlined" value={modalname} onChange={this.ModalchangeHandler}style={{width: "500px"}}/>
-                        <TextField id="outlined-basic" label="stuff" variant="outlined" value={modalname} onChange={this.ModalchangeHandler}style={{width: "500px"}}/>
-                        </form>
-                    </Modal>
-                        <Button variant="contained" color="primary" type="submit" onClick={this.showModal}>
-                            Add Organisation
-                        </Button>
-                    </div>
-                    <div style={{position: "absolute", right: "100px", top: "120px"}}>
-                            search
-                    </div>
-                </div>
-                
-                
-                
+               
             </div>
         )
     }

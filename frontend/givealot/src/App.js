@@ -8,7 +8,7 @@ import BasicUser from "./components/basicUser/BasicUser";
 import OrganisationReport from './components/organisation/OrganisationReport';
 import BasicUserReport from "./components/basicUser/BasicUserReport";
 import './App.css';
-import Manage from "./components/Admin/Manage"
+import Manage from "./components/Admin/Manage";
 import AdminReports from "./components/Admin/AdminReports";
 
 function App() {

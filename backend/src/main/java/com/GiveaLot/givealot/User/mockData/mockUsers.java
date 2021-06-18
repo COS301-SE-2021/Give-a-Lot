@@ -24,21 +24,21 @@ public class mockUsers
                 "here is a short description of what the organization does and what it's about.there is a word requirement and limit. else the ui will not be consistent",
                 "community",true,
                 "src/assets/images/organisations/unique2/logo/1.jpg",
-                "unique1"));
-
-        users_list.add(new User("the givers of hope",
-                "Restoring hope to the youth",
-                "here is a short description of what the organization does and what it's about.there is a word requirement and limit. else the ui will not be consistent",
-                "community",true,
-                "src/assets/images/organisations/unique3/logo/1.jpg",
                 "unique2"));
 
         users_list.add(new User("the givers of hope",
                 "Restoring hope to the youth",
                 "here is a short description of what the organization does and what it's about.there is a word requirement and limit. else the ui will not be consistent",
                 "community",true,
-                "src/assets/images/organisations/unique4/logo/1.jpg",
+                "src/assets/images/organisations/unique3/logo/1.jpg",
                 "unique3"));
+
+        users_list.add(new User("the givers of hope",
+                "Restoring hope to the youth",
+                "here is a short description of what the organization does and what it's about.there is a word requirement and limit. else the ui will not be consistent",
+                "community",true,
+                "src/assets/images/organisations/unique4/logo/1.jpg",
+                "unique4"));
     }
 
     public List<User> getUsersListView()

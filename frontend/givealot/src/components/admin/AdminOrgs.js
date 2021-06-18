@@ -39,8 +39,6 @@ export default class AdminOrgs extends Component {
             //  modalname: ""
         }
 
-        this.getInitialState = this.getInitialState.bind(this);
-        this. change = this. change.bind(this);
     }
     componentDidMount(){
         axios.get('https://jsonplaceholder.typicode.com/users')
@@ -54,14 +52,6 @@ export default class AdminOrgs extends Component {
         })
     }
 
-    getInitialState() {
-        return {
-            value: 'Active'
-        }
-    }
-    change(event){
-        this.setState({value: event.target.value});
-    }
 
     ModalchangeHandler(e){
         this.setState({[e.target.name] : e.target.value})
@@ -113,13 +103,7 @@ export default class AdminOrgs extends Component {
 
                             <TableCell align="right">
                                 <Status />
-                                {/*} <select id="lang" onChange={this.change} value={this.state.value}>
-                                    <option value="Active">Active</option>
-                                    <option value="Java">Suspend</option>
-                                    <option value="C++">Investigate</option>
-                                </select>
-                                <p></p>
-                                <p>{this.state.value}</p>*/}
+
                             </TableCell>
 
 

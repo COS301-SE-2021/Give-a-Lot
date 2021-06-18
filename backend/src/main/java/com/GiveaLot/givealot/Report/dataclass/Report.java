@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Report {
+    String orgId;
     String orgName;
     String reportDescription;
     String reportType;
@@ -12,7 +13,8 @@ public class Report {
     String date;
     String id;
 
-    public Report(String orgName, String reportDescription, String reportType, String reporterEmail, Timestamp id){
+    public Report(String orgId, String orgName, String reportDescription, String reportType, String reporterEmail, Timestamp id){
+        this.orgId = orgId;
         this.orgName = orgName;
         this.reportDescription = reportDescription;
         this.reportType = reportType;
@@ -26,7 +28,12 @@ public class Report {
 
 
 
+
     /** Getters **/
+
+    public String getOrgId() {
+        return orgId;
+    }
 
     public String getOrgName() {
         return orgName;
@@ -78,5 +85,9 @@ public class Report {
 
     public void setId(Timestamp id) {
         this.id = id.toString().replaceAll("[^a-zA-Z0-9]", "");
+    }
+
+    public void setOrgId(String orgId) {
+        this.orgId = orgId;
     }
 }

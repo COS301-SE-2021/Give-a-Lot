@@ -161,8 +161,10 @@ public class OrganisationHelper {
 //            System.out.println(rs.getString(1));
 //        }
 
-        Organisation org = new Organisation("The Old Orgs", "We are old heres", "Diseases", "oldorg@gmail.coms","password", "Mr. Old Orgs", "0823322443");
-        OrganisationHelper helper = new OrganisationHelper();
-        helper.addOrg(org);
+//        Organisation org = new Organisation("The Old Orgs", "We are old heres", "Diseases", "oldorg@gmail.coms","password", "Mr. Old Orgs", "0823322443");
+//        OrganisationHelper helper = new OrganisationHelper();
+//        helper.addOrg(org);
+
+
     }
 }

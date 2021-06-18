@@ -26,13 +26,13 @@ public class OrganisationHelper {
             Statement state = connection.createStatement();
 
             //organisations is a table
-            String query = "insert into organisations(orgId, orgName, orgDescription, orgSector, orgEmail, status, password, contactPerson, contactNumber) values (" + organisation.getOrgId() + "," + organisation.getOrgName() + "," + organisation.getOrgDescription() + "," + organisation.getOrgSector() + ", " + organisation.getOrgEmail() + ", " + organisation.getStatus() + ", " + organisation.getPassword() + ", " + organisation.getContactPerson() + ", " + organisation.getContactNumber() + ");";
+           // String query = "insert into organisations(orgId, orgName, orgDescription, orgSector, orgEmail, status, password, contactPerson, contactNumber) values (" + organisation.getOrgId() + "," + organisation.getOrgName() + "," + organisation.getOrgDescription() + "," + organisation.getOrgSector() + ", " + organisation.getOrgEmail() + ", " + organisation.getStatus() + ", " + organisation.getPassword() + ", " + organisation.getContactPerson() + ", " + organisation.getContactNumber() + ");";
 
             //execute the query
-            ResultSet rs = state.executeQuery(query);
+           // ResultSet rs = state.executeQuery(query);
 
             try{
-            rs.close();
+          //  rs.close();
             state.close();
             } catch(SQLException e) {
                 System.out.println(e.getMessage());
@@ -63,13 +63,13 @@ public class OrganisationHelper {
             Statement state = connection.createStatement();
 
             //organisations is a table
-            String query = "update organisations set status = 'Active' where orgId = " + organisation.getOrgId() + ";";
+        //    String query = "update organisations set status = 'Active' where orgId = " + organisation.getOrgId() + ";";
 
             //execute the query
-            ResultSet rs = state.executeQuery(query);
+         //   ResultSet rs = state.executeQuery(query);
 
             try{
-                rs.close();
+          //      rs.close();
                 state.close();
             } catch(SQLException e) {
                 System.out.println(e.getMessage());
@@ -100,13 +100,13 @@ public class OrganisationHelper {
             Statement state = connection.createStatement();
 
             //organisations is a table
-            String query = "update organisations set status = 'UnderInvestigation' where orgId = " + organisation.getOrgId() + ";";
+         //   String query = "update organisations set status = 'UnderInvestigation' where orgId = " + organisation.getOrgId() + ";";
 
             //execute the query
-            ResultSet rs = state.executeQuery(query);
+          //  ResultSet rs = state.executeQuery(query);
 
             try{
-                rs.close();
+         //       rs.close();
                 state.close();
             } catch(SQLException e) {
                 System.out.println(e.getMessage());
@@ -137,13 +137,13 @@ public class OrganisationHelper {
             Statement state = connection.createStatement();
 
             //organisations is a table
-            String query = "update organisations set status = 'Suspended' where orgId = " + organisation.getOrgId() + ";";
+        //    String query = "update organisations set status = 'Suspended' where orgId = " + organisation.getOrgId() + ";";
 
             //execute the query
-            ResultSet rs = state.executeQuery(query);
+        //    ResultSet rs = state.executeQuery(query);
 
             try{
-                rs.close();
+       //         rs.close();
                 state.close();
             } catch(SQLException e) {
                 System.out.println(e.getMessage());
@@ -158,15 +158,11 @@ public class OrganisationHelper {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-        Class.forName("com.mysql.jdbc.Driver");
 
-        String serverName = "127.0.0.1";
-        //database name
-        String mydatabase = "voting_impl_";
-        String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
+        String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/";
 
-        String username = "root";
-        String password = "password123";
+        String username = "iqvyaozz";
+        String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
         System.out.println("Success");
         //Setup connection
         Connection connection = DriverManager.getConnection(url, username, password);

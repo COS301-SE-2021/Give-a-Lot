@@ -35,7 +35,7 @@ public class Organisation {
     private String NGONumber;
     private List<String> galleryImages;
     private String longDescription;
-    private int noReports;
+    private int numberOfReports;
 
     //Data for points
 
@@ -175,8 +175,9 @@ public class Organisation {
         return isVerified;
     }
 
-
-
+    public int getNumberOfReports() {
+        return numberOfReports;
+    }
     //Setters
 
 
@@ -274,6 +275,10 @@ public class Organisation {
 
     public void setTenImagesProvided(Boolean tenImagesProvided) {
         this.tenImagesProvided = tenImagesProvided;
+    }
+
+    public void setNumberOfReports(int numberOfReports) {
+        this.numberOfReports = numberOfReports;
     }
 
     public static void main(String[] args) throws NoSuchAlgorithmException {

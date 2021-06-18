@@ -10,7 +10,7 @@ public class OrganisationHelper {
 
     public void addOrg(Organisation organisation) throws SQLException {
 
-//        try {
+        try {
 
             String serverName = "hansken.db.elephantsql.com";
             String mydatabase = "Givealot";
@@ -33,19 +33,18 @@ public class OrganisationHelper {
             //execute the query
             state.executeUpdate(query);
             System.out.println("Success");
-//        }
-//        catch (Exception e){
-//            throw new SQLException("Exception: Insert into database could not be fulfilled");
-//        }
+        }
+        catch (Exception e){
+            throw new SQLException("Exception: Insert into database could not be fulfilled");
+        }
     }
 
     public void reactivateOrg(Organisation organisation) throws SQLException {
 
         try {
             String serverName = "hansken.db.elephantsql.com";
-            //database name
             String mydatabase = "Givealot";
-            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/" + mydatabase;
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
 
             String username = "iqvyaozz";
             String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
@@ -60,16 +59,9 @@ public class OrganisationHelper {
             String query = "update Organisation set status = 'Active' where orgId = " + organisation.getOrgId() + ";";
             System.out.println("Success");
             //execute the query
-            ResultSet rs = state.executeQuery(query);
+            state.executeQuery(query);
             System.out.println("Success");
-            try{
-                rs.close();
-                state.close();
-            } catch(SQLException e) {
-                System.out.println(e.getMessage());
-            }
 
-            System.out.println("Success");
         }
         catch (Exception e){
             throw new SQLException("Exception: Insert into database could not be fulfilled");
@@ -80,9 +72,8 @@ public class OrganisationHelper {
 
         try {
             String serverName = "hansken.db.elephantsql.com";
-            //database name
             String mydatabase = "Givealot";
-            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/" + mydatabase;
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
 
             String username = "iqvyaozz";
             String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
@@ -92,19 +83,13 @@ public class OrganisationHelper {
 
             System.out.println("Success");
             Statement state = connection.createStatement();
+            System.out.println("Success");
 
             //organisations is a table
             String query = "update Organisations set status = 'UnderInvestigation' where orgId = " + organisation.getOrgId() + ";";
 
             //execute the query
-            ResultSet rs = state.executeQuery(query);
-
-            try{
-                rs.close();
-                state.close();
-            } catch(SQLException e) {
-                System.out.println(e.getMessage());
-            }
+            state.executeQuery(query);
 
             System.out.println("Success");
         }
@@ -117,9 +102,8 @@ public class OrganisationHelper {
 
         try {
             String serverName = "hansken.db.elephantsql.com";
-            //database name
             String mydatabase = "Givealot";
-            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/" + mydatabase;
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
 
             String username = "iqvyaozz";
             String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
@@ -129,19 +113,13 @@ public class OrganisationHelper {
 
             System.out.println("Success");
             Statement state = connection.createStatement();
+            System.out.println("Success");
 
             //organisations is a table
             String query = "update iqvyaozz.Givealot.Organisations set status = 'Suspended' where orgId = " + organisation.getOrgId() + ";";
 
             //execute the query
-            ResultSet rs = state.executeQuery(query);
-
-            try{
-                rs.close();
-                state.close();
-            } catch(SQLException e) {
-                System.out.println(e.getMessage());
-            }
+            state.executeQuery(query);
 
             System.out.println("Success");
         }

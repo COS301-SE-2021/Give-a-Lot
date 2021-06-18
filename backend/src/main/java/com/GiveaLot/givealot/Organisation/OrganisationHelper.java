@@ -87,7 +87,7 @@ public class OrganisationHelper {
         try {
             String serverName = "127.0.0.1";
             //database name
-            String mydatabase = "givealot";
+            String mydatabase = "Givealot";
             String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
 
             String username = "root";
@@ -124,7 +124,7 @@ public class OrganisationHelper {
         try {
             String serverName = "127.0.0.1";
             //database name
-            String mydatabase = "givealot";
+            String mydatabase = "Givealot";
             String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
 
             String username = "root";
@@ -158,15 +158,15 @@ public class OrganisationHelper {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-        Class.forName("com.mysql.jdbc.Driver");
+      //  Class.forName("com.mysql.jdbc.Driver");
 
         String serverName = "127.0.0.1";
         //database name
-        String mydatabase = "voting_impl_";
-        String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
+        String mydatabase = "Givealot";
+        String url = "jdbc:postgresql://localhost/" + mydatabase;
 
-        String username = "root";
-        String password = "password123";
+        String username = "kgomotsomoroke";
+        String password = "root";
         System.out.println("Success");
         //Setup connection
         Connection connection = DriverManager.getConnection(url, username, password);

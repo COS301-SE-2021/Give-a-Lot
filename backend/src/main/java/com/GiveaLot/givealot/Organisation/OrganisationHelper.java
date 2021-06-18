@@ -7,15 +7,17 @@ public class OrganisationHelper {
     OrganisationHelper(){}
 
     public void addOrg(Organisation organisation) throws SQLException {
-        String mydatabase = "Givealot";
+
         try {
 
+
+            String serverName = "127.0.0.1";
             //database name
+            String mydatabase = "givealot";
+            String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
 
-            String url = "jdbc:postgresql://localhost/" + mydatabase;
-
-            String username = "admin";
-            String password = "admin";
+            String username = "root";
+            String password = "password123";
             System.out.println("Success");
             //Setup connection
             Connection connection = DriverManager.getConnection(url, username, password);
@@ -24,7 +26,7 @@ public class OrganisationHelper {
             Statement state = connection.createStatement();
 
             //organisations is a table
-            String query = "INSERT INTO /Givealot/.Organisations(OrgID, OrgName, OrgDescription, OrgSector, OrgEmail, Status, Password, ContactPerson, ContactNumber) VALUES (" + organisation.getOrgId() + "," + organisation.getOrgName() + "," + organisation.getOrgDescription() + "," + organisation.getOrgSector() + ", " + organisation.getOrgEmail() + ", " + organisation.getStatus() + ", " + organisation.getPassword() + ", " + organisation.getContactPerson() + ", " + organisation.getContactNumber() + ");";
+            String query = "insert into organisations(orgId, orgName, orgDescription, orgSector, orgEmail, status, password, contactPerson, contactNumber) values (" + organisation.getOrgId() + "," + organisation.getOrgName() + "," + organisation.getOrgDescription() + "," + organisation.getOrgSector() + ", " + organisation.getOrgEmail() + ", " + organisation.getStatus() + ", " + organisation.getPassword() + ", " + organisation.getContactPerson() + ", " + organisation.getContactNumber() + ");";
 
             //execute the query
             ResultSet rs = state.executeQuery(query);
@@ -48,8 +50,7 @@ public class OrganisationHelper {
         try {
             String serverName = "127.0.0.1";
             //database name
-            String mydatabase = "Givealot";
-
+            String mydatabase = "givealot";
             String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
 
             String username = "root";
@@ -62,7 +63,7 @@ public class OrganisationHelper {
             Statement state = connection.createStatement();
 
             //organisations is a table
-            String query = "update /Givealot/.Organisations set status = 'Active' where orgId = " + organisation.getOrgId() + ";";
+            String query = "update organisations set status = 'Active' where orgId = " + organisation.getOrgId() + ";";
 
             //execute the query
             ResultSet rs = state.executeQuery(query);
@@ -86,7 +87,7 @@ public class OrganisationHelper {
         try {
             String serverName = "127.0.0.1";
             //database name
-            String mydatabase = "Givealot";
+            String mydatabase = "givealot";
             String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
 
             String username = "root";
@@ -99,7 +100,7 @@ public class OrganisationHelper {
             Statement state = connection.createStatement();
 
             //organisations is a table
-            String query = "update /Givalot/ Organisations set status = 'UnderInvestigation' where orgId = " + organisation.getOrgId() + ";";
+            String query = "update organisations set status = 'UnderInvestigation' where orgId = " + organisation.getOrgId() + ";";
 
             //execute the query
             ResultSet rs = state.executeQuery(query);
@@ -123,7 +124,7 @@ public class OrganisationHelper {
         try {
             String serverName = "127.0.0.1";
             //database name
-            String mydatabase = "Givealot";
+            String mydatabase = "givealot";
             String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
 
             String username = "root";
@@ -136,7 +137,7 @@ public class OrganisationHelper {
             Statement state = connection.createStatement();
 
             //organisations is a table
-            String query = "update /Givalot/organisations set status = 'Suspended' where orgId = " + organisation.getOrgId() + ";";
+            String query = "update organisations set status = 'Suspended' where orgId = " + organisation.getOrgId() + ";";
 
             //execute the query
             ResultSet rs = state.executeQuery(query);
@@ -157,17 +158,15 @@ public class OrganisationHelper {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-      //  Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.jdbc.Driver");
 
-        String serverName = "sql4.freemysqlhosting.net:3306/sql4419888";
+        String serverName = "127.0.0.1";
         //database name
-        String mydatabase = "Givealot";
+        String mydatabase = "voting_impl_";
+        String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
 
-        String url="jdbc:postgresql://sql4.freemysqlhosting.net:3306/sql4419888";
-
-
-        String username = "sql4419888";
-        String password = "RE3E8mnLKV";
+        String username = "root";
+        String password = "password123";
         System.out.println("Success");
         //Setup connection
         Connection connection = DriverManager.getConnection(url, username, password);

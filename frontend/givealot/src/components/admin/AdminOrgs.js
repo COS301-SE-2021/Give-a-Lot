@@ -15,6 +15,7 @@ import TablePagination from '@material-ui/core/TablePagination';
 import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
 import Modal from './Modal.js';
+import Status from "./Status"
 import "./AdminOrgs.css";
 
 
@@ -40,7 +41,9 @@ export default class AdminOrgs extends Component {
         }
 
         this.showModal = this.showModal.bind(this);
-        this.hideModal = this.hideModal.bind(this); 
+        this.hideModal = this.hideModal.bind(this);
+        this.getInitialState = this.getInitialState.bind(this);
+        this. change = this. change.bind(this);
     }
 
     showModal = () => {
@@ -74,6 +77,15 @@ export default class AdminOrgs extends Component {
         })
     }
 
+    getInitialState() {
+        return {
+            value: 'Active'
+        }
+    }
+    change(event){
+        this.setState({value: event.target.value});
+    }
+
     ModalchangeHandler(e){
         this.setState({[e.target.name] : e.target.value})
     }
@@ -88,9 +100,12 @@ export default class AdminOrgs extends Component {
                 <TableHead>  
                     <TableRow>  
                     <TableCell align="right">ID</TableCell> 
-                    <TableCell align="right">Name</TableCell>  
-                    <TableCell align="right">Email</TableCell> 
-                    <TableCell style={{paddingLeft:"60px"}} align="right" >Action</TableCell>  
+                    <TableCell align="right">Name</TableCell>
+                        <TableCell align="right">Email</TableCell>
+
+
+                        <TableCell style={{paddingLeft:"60px"}} align="right" >Action</TableCell>
+                        <TableCell align="right">Status</TableCell>
                     </TableRow>  
                 </TableHead>  
                 <TableBody>  
@@ -99,13 +114,26 @@ export default class AdminOrgs extends Component {
                         return <TableRow key={index}>  
                         <TableCell align="right">{p.id}</TableCell>  
                         <TableCell align="right">{p.name}</TableCell>  
-                        <TableCell align="right">{p.email}</TableCell> 
-                        <TableCell align="right">
-                            <CreateIcon
-                                style={{cursor: "pointer"}}
-                                onClick={event =>  window.location.href='Manage'} 
-                            />
-                        </TableCell> 
+                        <TableCell align="right">{p.email}</TableCell>
+                            <TableCell align="right">
+                                <CreateIcon
+                                    style={{cursor: "pointer"}}
+                                    onClick={event =>  window.location.href='Manage'}
+                                />
+                            </TableCell>
+
+                            <TableCell align="right">
+                                <Status />
+                                {/*} <select id="lang" onChange={this.change} value={this.state.value}>
+                                    <option value="Active">Active</option>
+                                    <option value="Java">Suspend</option>
+                                    <option value="C++">Investigate</option>
+                                </select>
+                                <p></p>
+                                <p>{this.state.value}</p>*/}
+                            </TableCell>
+
+
                       </TableRow> 
                     })  
                     }  

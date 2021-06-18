@@ -50,3 +50,7 @@ node_modules
 /backend/target/classes/com/GiveaLot/givealot/verification/controller/VerificationController.class
 /backend/target/classes/com/GiveaLot/givealot/verification/VerificationService.class
 /backend/target/classes/com/GiveaLot/givealot/verification/VerificationServiceImpl.class
+/backend/target/classes/com/GiveaLot/givealot/Browse/rri/browseRequest.class
+/backend/target/classes/com/GiveaLot/givealot/Browse/rri/browseResponse.class
+/backend/target/classes/com/GiveaLot/givealot/Browse/BrowseService.class
+/backend/target/classes/com/GiveaLot/givealot/Browse/BrowseServiceImp.class

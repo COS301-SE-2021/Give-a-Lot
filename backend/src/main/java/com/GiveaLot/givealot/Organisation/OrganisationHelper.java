@@ -10,14 +10,12 @@ public class OrganisationHelper {
 
         try {
 
-
-            String serverName = "127.0.0.1";
             //database name
-            String mydatabase = "givealot";
-            String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
+            String mydatabase = "Givealot";
+            String url = "jdbc:postgresql://localhost/" + mydatabase;
 
-            String username = "root";
-            String password = "password123";
+            String username = "admin";
+            String password = "admin";
             System.out.println("Success");
             //Setup connection
             Connection connection = DriverManager.getConnection(url, username, password);
@@ -26,7 +24,7 @@ public class OrganisationHelper {
             Statement state = connection.createStatement();
 
             //organisations is a table
-            String query = "insert into organisations(orgId, orgName, orgDescription, orgSector, orgEmail, status, password, contactPerson, contactNumber) values (" + organisation.getOrgId() + "," + organisation.getOrgName() + "," + organisation.getOrgDescription() + "," + organisation.getOrgSector() + ", " + organisation.getOrgEmail() + ", " + organisation.getStatus() + ", " + organisation.getPassword() + ", " + organisation.getContactPerson() + ", " + organisation.getContactNumber() + ");";
+            String query = "INSERT INTO Organisations(orgId, orgName, orgDescription, orgSector, orgEmail, status, password, contactPerson, contactNumber) VALUES (" + organisation.getOrgId() + "," + organisation.getOrgName() + "," + organisation.getOrgDescription() + "," + organisation.getOrgSector() + ", " + organisation.getOrgEmail() + ", " + organisation.getStatus() + ", " + organisation.getPassword() + ", " + organisation.getContactPerson() + ", " + organisation.getContactNumber() + ");";
 
             //execute the query
             ResultSet rs = state.executeQuery(query);
@@ -165,8 +163,8 @@ public class OrganisationHelper {
         String mydatabase = "Givealot";
         String url = "jdbc:postgresql://localhost/" + mydatabase;
 
-        String username = "kgomotsomoroke";
-        String password = "root";
+        String username = "admin";
+        String password = "admin";
         System.out.println("Success");
         //Setup connection
         Connection connection = DriverManager.getConnection(url, username, password);

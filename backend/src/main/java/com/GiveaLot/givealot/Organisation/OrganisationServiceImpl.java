@@ -38,7 +38,7 @@ public class OrganisationServiceImpl {
 
     OrganisationHelper help = new OrganisationHelper();
 
-    addOrganisationResponse addOrganisation(addOrganisationRequest request) throws InvalidRequestException, NoSuchAlgorithmException, SQLException {
+    addOrganisationResponse addOrganisation(addOrganisationRequest request) throws InvalidRequestException, NoSuchAlgorithmException, SQLException, MessagingException, IOException {
         if (request == null){
             throw new InvalidRequestException("Exception: Organisation could not be added because the request object is null");
         }
@@ -48,12 +48,17 @@ public class OrganisationServiceImpl {
         help.addOrg(org);
 
         //then send email
+        OrganisationServiceImpl mail = new OrganisationServiceImpl();
+
+        mail.setupServerProperties();
+        mail.draftEmail();
+        mail.sendEmail();
 
 
         return null;
     }
 
-    reactivateOrganisationResponse reactivateOrganisation(reactivateOrganisationRequest request) throws OrgException, NoSuchAlgorithmException, SQLException {
+    reactivateOrganisationResponse reactivateOrganisation(reactivateOrganisationRequest request) throws OrgException, NoSuchAlgorithmException, SQLException, MessagingException, IOException {
         if (request == null){
             throw new InvalidRequestException("Exception: Organisation could not be updated because the request object is null");
         }
@@ -74,11 +79,17 @@ public class OrganisationServiceImpl {
 
         //then send email
 
+        OrganisationServiceImpl mail = new OrganisationServiceImpl();
+
+        mail.setupServerProperties();
+        mail.draftEmail();
+        mail.sendEmail();
+
 
         return null;
     }
 
-    investigateOrganisationResponse investigateOrganisation(investigateOrganisationRequest request) throws OrgException {
+    investigateOrganisationResponse investigateOrganisation(investigateOrganisationRequest request) throws OrgException, MessagingException, IOException {
         if (request == null){
             throw new InvalidRequestException("Exception: Organisation could not be updated because the request object is null");
         }
@@ -99,12 +110,17 @@ public class OrganisationServiceImpl {
 
         //then send email
 
+        OrganisationServiceImpl mail = new OrganisationServiceImpl();
+
+        mail.setupServerProperties();
+        mail.draftEmail();
+        mail.sendEmail();
+
 
         return null;
     }
 
-    suspendOrganisationResponse suspendOrganisation(suspendOrganisationRequest request) throws OrgException
-    {
+    suspendOrganisationResponse suspendOrganisation(suspendOrganisationRequest request) throws OrgException, MessagingException, IOException {
         if (request == null){
             throw new InvalidRequestException("Exception: Organisation could not be updated because the request object is null");
         }
@@ -124,6 +140,11 @@ public class OrganisationServiceImpl {
         }
 
         //then send email
+        OrganisationServiceImpl mail = new OrganisationServiceImpl();
+
+        mail.setupServerProperties();
+        mail.draftEmail();
+        mail.sendEmail();
 
 
         return null;

@@ -116,6 +116,8 @@ public class OrganisationHelper {
             System.out.println("Success");
 
             //organisations is a table
+            String query = "insert into public.\"Organisations\"(\"orgName\", \"orgDescription\", \"orgSector\", \"orgEmail\", \"orgId\", status, password, \"contactPerson\", \"contactNumber\") values ('" + organisation.getOrgName() + "','" + organisation.getOrgDescription() + "','" + organisation.getOrgSector() + "','" + organisation.getOrgEmail() + "','" + organisation.getOrgId() + "','"+ organisation.getStatus().toString() + "','" + organisation.getPassword() + "','" + organisation.getContactPerson() + "','" + organisation.getContactNumber() + "');";
+
             String query = "update iqvyaozz.Givealot.Organisations set status = 'Suspended' where orgId = " + organisation.getOrgId() + ";";
 
             //execute the query

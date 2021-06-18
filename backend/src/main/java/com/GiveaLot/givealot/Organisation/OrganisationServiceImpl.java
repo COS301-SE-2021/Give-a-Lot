@@ -38,7 +38,7 @@ public class OrganisationServiceImpl {
 
     OrganisationHelper help = new OrganisationHelper();
 
-    addOrganisationResponse addOrganisation(addOrganisationRequest request) throws InvalidRequestException, NoSuchAlgorithmException, SQLException {
+    addOrganisationResponse addOrganisation(addOrganisationRequest request) throws InvalidRequestException, NoSuchAlgorithmException, SQLException, MessagingException, IOException {
         if (request == null){
             throw new InvalidRequestException("Exception: Organisation could not be added because the request object is null");
         }

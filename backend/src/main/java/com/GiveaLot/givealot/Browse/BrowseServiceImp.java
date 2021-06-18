@@ -18,6 +18,8 @@ public class BrowseServiceImp implements BrowseService
         * Exception handling left for later
         * */
 
+        String request_type = "list";
+
         mockUsers mockusers = new mockUsers();
         browseResponse browseResponse = new browseResponse();
         browseResponse.setOrganisations(mockusers.getUsersListView());

@@ -26,18 +26,18 @@ public class mockUsers
                 "src/assets/images/organisations/unique2/logo/1.jpg",
                 "unique2"));
 
-        users_list.add(new User("the givers of hope",
+        users_list.add(new User("Greener earth",
                 "Restoring hope to the youth",
                 "here is a short description of what the organization does and what it's about.there is a word requirement and limit. else the ui will not be consistent",
                 "community",true,
-                "src/assets/images/organisations/unique3/logo/1.jpg",
+                "src/assets/images/organisations/unique3/logo/1.png",
                 "unique3"));
 
-        users_list.add(new User("the givers of hope",
+        users_list.add(new User("Animal Protectors",
                 "Restoring hope to the youth",
                 "here is a short description of what the organization does and what it's about.there is a word requirement and limit. else the ui will not be consistent",
                 "community",true,
-                "src/assets/images/organisations/unique4/logo/1.jpg",
+                "src/assets/images/organisations/unique4/logo/1.png",
                 "unique4"));
     }
 

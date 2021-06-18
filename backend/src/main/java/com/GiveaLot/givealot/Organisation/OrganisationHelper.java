@@ -1,6 +1,9 @@
 package com.GiveaLot.givealot.Organisation;
 
 import com.GiveaLot.givealot.Organisation.dataclass.Organisation;
+import com.GiveaLot.givealot.Organisation.dataclass.Status;
+
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 
 public class OrganisationHelper {
@@ -26,10 +29,10 @@ public class OrganisationHelper {
             Statement state = connection.createStatement();
 
             //organisations is a table
-           // String query = "insert into organisations(orgId, orgName, orgDescription, orgSector, orgEmail, status, password, contactPerson, contactNumber) values (" + organisation.getOrgId() + "," + organisation.getOrgName() + "," + organisation.getOrgDescription() + "," + organisation.getOrgSector() + ", " + organisation.getOrgEmail() + ", " + organisation.getStatus() + ", " + organisation.getPassword() + ", " + organisation.getContactPerson() + ", " + organisation.getContactNumber() + ");";
+           String query = "INSERT INTO Organisation(orgId, orgName, orgDescription, orgSector, orgEmail, status, password, contactPerson, contactNumber) VALUES (" + organisation.getOrgId() + "," + organisation.getOrgName() + "," + organisation.getOrgDescription() + "," + organisation.getOrgSector() + ", " + organisation.getOrgEmail() + ", " + organisation.getStatus() + ", " + organisation.getPassword() + ", " + organisation.getContactPerson() + ", " + organisation.getContactNumber() + ");";
 
             //execute the query
-           // ResultSet rs = state.executeQuery(query);
+            ResultSet rs = state.executeQuery(query);
 
             try{
           //  rs.close();
@@ -156,18 +159,53 @@ public class OrganisationHelper {
         }
     }
 
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
-
+    public static void main(String[] args) throws SQLException, ClassNotFoundException, NoSuchAlgorithmException {
 
         String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/";
 
         String username = "iqvyaozz";
         String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
-        System.out.println("Success");
+
         //Setup connection
         Connection connection = DriverManager.getConnection(url, username, password);
 
-        System.out.println("Success");
+
         Statement state = connection.createStatement();
+
+        Organisation organisation = new Organisation("23323", "Avtive","scsc","aaas","cdsmcld","ksmskc","mclsmc");
+
+        //organisations is a table
+        String query = "INSERT INTO Organisation(orgId, orgName, orgDescription, orgSector, orgEmail, status, password, contactPerson, contactNumber) VALUES(?,?,?,?,?,?,?,?,?)";
+
+        //execute the query
+        long id=0;
+            try (PreparedStatement pstmt = connection.prepareStatement(query,
+                    Statement.RETURN_GENERATED_KEYS)) {
+
+                pstmt.setString(1, organisation.getOrgId());
+                pstmt.setString(2, organisation.getOrgName());
+                pstmt.setString(3, organisation.getOrgDescription());
+                pstmt.setString(4, organisation.getOrgSector());
+                pstmt.setString(5, organisation.getOrgEmail());
+                pstmt.setString(6, organisation.getStatus().toString());
+                pstmt.setString(7,  organisation.getPassword());
+                pstmt.setString(8, organisation.getContactPerson());
+                pstmt.setString(9, organisation.getContactNumber());
+
+
+                int affectedRows = pstmt.executeUpdate();
+                // check the affected rows
+                if (affectedRows > 0) {
+                    // get the ID back
+                    try (ResultSet rs = pstmt.getGeneratedKeys()) {
+                        if (rs.next()) {
+                            id = rs.getLong(1);
+                        }
+                    } catch (SQLException ex) {
+                        System.out.println(ex.getMessage());
+                    }
+                }
+            }
+        System.out.println("Success");
     }
 }

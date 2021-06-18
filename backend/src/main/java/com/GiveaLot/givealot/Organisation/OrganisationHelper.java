@@ -10,7 +10,7 @@ public class OrganisationHelper {
 
     public void addOrg(Organisation organisation) throws SQLException {
 
-        try {
+//        try {
 
             String serverName = "hansken.db.elephantsql.com";
             String mydatabase = "Givealot";
@@ -31,20 +31,12 @@ public class OrganisationHelper {
             System.out.println(query);
             System.out.println("Success");
             //execute the query
-            ResultSet rs = state.executeQuery(query);
+            state.executeUpdate(query);
             System.out.println("Success");
-            try{
-            rs.close();
-            state.close();
-            } catch(SQLException e) {
-                System.out.println(e.getMessage());
-            }
-
-            System.out.println("Success");
-        }
-        catch (Exception e){
-            throw new SQLException("Exception: Insert into database could not be fulfilled");
-        }
+//        }
+//        catch (Exception e){
+//            throw new SQLException("Exception: Insert into database could not be fulfilled");
+//        }
     }
 
     public void reactivateOrg(Organisation organisation) throws SQLException {
@@ -184,7 +176,7 @@ public class OrganisationHelper {
 //            System.out.println(rs.getString(1));
 //        }
 
-        Organisation org = new Organisation("The CG Charity", "Weve been here since the end", "Diseases", "clgcharity@gmail.com","password", "Mrs. Charity Woman", "0823322445");
+        Organisation org = new Organisation("The New Orgss", "We are new heress", "Diseases", "neworg@gmail.comss","password", "Mrs. New Orgss", "0823322441");
         OrganisationHelper helper = new OrganisationHelper();
         helper.addOrg(org);
     }

@@ -7,11 +7,11 @@ public class OrganisationHelper {
     OrganisationHelper(){}
 
     public void addOrg(Organisation organisation) throws SQLException {
-
+        String mydatabase = "Givealot";
         try {
 
             //database name
-            String mydatabase = "Givealot";
+
             String url = "jdbc:postgresql://localhost/" + mydatabase;
 
             String username = "admin";
@@ -24,7 +24,7 @@ public class OrganisationHelper {
             Statement state = connection.createStatement();
 
             //organisations is a table
-            String query = "INSERT INTO Organisations(orgId, orgName, orgDescription, orgSector, orgEmail, status, password, contactPerson, contactNumber) VALUES (" + organisation.getOrgId() + "," + organisation.getOrgName() + "," + organisation.getOrgDescription() + "," + organisation.getOrgSector() + ", " + organisation.getOrgEmail() + ", " + organisation.getStatus() + ", " + organisation.getPassword() + ", " + organisation.getContactPerson() + ", " + organisation.getContactNumber() + ");";
+            String query = "INSERT INTO /Givealot/.Organisations(OrgID, OrgName, OrgDescription, OrgSector, OrgEmail, Status, Password, ContactPerson, ContactNumber) VALUES (" + organisation.getOrgId() + "," + organisation.getOrgName() + "," + organisation.getOrgDescription() + "," + organisation.getOrgSector() + ", " + organisation.getOrgEmail() + ", " + organisation.getStatus() + ", " + organisation.getPassword() + ", " + organisation.getContactPerson() + ", " + organisation.getContactNumber() + ");";
 
             //execute the query
             ResultSet rs = state.executeQuery(query);
@@ -48,7 +48,8 @@ public class OrganisationHelper {
         try {
             String serverName = "127.0.0.1";
             //database name
-            String mydatabase = "givealot";
+            String mydatabase = "Givealot";
+
             String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
 
             String username = "root";
@@ -61,7 +62,7 @@ public class OrganisationHelper {
             Statement state = connection.createStatement();
 
             //organisations is a table
-            String query = "update organisations set status = 'Active' where orgId = " + organisation.getOrgId() + ";";
+            String query = "update /Givealot/.Organisations set status = 'Active' where orgId = " + organisation.getOrgId() + ";";
 
             //execute the query
             ResultSet rs = state.executeQuery(query);
@@ -98,7 +99,7 @@ public class OrganisationHelper {
             Statement state = connection.createStatement();
 
             //organisations is a table
-            String query = "update organisations set status = 'UnderInvestigation' where orgId = " + organisation.getOrgId() + ";";
+            String query = "update /Givalot/ Organisations set status = 'UnderInvestigation' where orgId = " + organisation.getOrgId() + ";";
 
             //execute the query
             ResultSet rs = state.executeQuery(query);
@@ -135,7 +136,7 @@ public class OrganisationHelper {
             Statement state = connection.createStatement();
 
             //organisations is a table
-            String query = "update organisations set status = 'Suspended' where orgId = " + organisation.getOrgId() + ";";
+            String query = "update /Givalot/organisations set status = 'Suspended' where orgId = " + organisation.getOrgId() + ";";
 
             //execute the query
             ResultSet rs = state.executeQuery(query);

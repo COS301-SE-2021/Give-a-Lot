@@ -35,6 +35,7 @@ public class Organisation {
     private String NGONumber;
     private List<String> galleryImages;
     private String longDescription;
+    private int noReports;
 
     //Data for points
 

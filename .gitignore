@@ -54,3 +54,4 @@ node_modules
 /backend/target/classes/com/GiveaLot/givealot/Browse/rri/browseResponse.class
 /backend/target/classes/com/GiveaLot/givealot/Browse/BrowseService.class
 /backend/target/classes/com/GiveaLot/givealot/Browse/BrowseServiceImp.class
+/backend/target/classes/com/GiveaLot/givealot/Browse/controller/BrowseController.class

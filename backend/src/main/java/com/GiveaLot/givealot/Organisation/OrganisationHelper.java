@@ -14,7 +14,7 @@ public class OrganisationHelper {
 
             String serverName = "hansken.db.elephantsql.com";
             String mydatabase = "Givealot";
-            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/";
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
 
             String username = "iqvyaozz";
             String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
@@ -26,7 +26,9 @@ public class OrganisationHelper {
             Statement state = connection.createStatement();
             System.out.println("Success");
             //organisations is a table
-            String query = "insert into Organisation(orgId, orgName, orgDescription, orgSector, orgEmail, status, password, contactPerson, contactNumber) values (" + organisation.getOrgId() + "," + organisation.getOrgName() + "," + organisation.getOrgDescription() + "," + organisation.getOrgSector() + ", " + organisation.getOrgEmail() + ", " + organisation.getStatus().toString() + ", " + organisation.getPassword() + ", " + organisation.getContactPerson() + ", " + organisation.getContactNumber() + ");";
+            //String query = "create database newDB;";
+            String query = "insert into public.\"Organisations\"(\"orgName\", \"orgDescription\", \"orgSector\", \"orgEmail\", \"orgId\", status, password, \"contactPerson\", \"contactNumber\") values ('" + organisation.getOrgName() + "','" + organisation.getOrgDescription() + "','" + organisation.getOrgSector() + "','" + organisation.getOrgEmail() + "','" + organisation.getOrgId() + "','"+ organisation.getStatus().toString() + "','" + organisation.getPassword() + "','" + organisation.getContactPerson() + "','" + organisation.getContactNumber() + "');";
+            System.out.println(query);
             System.out.println("Success");
             //execute the query
             ResultSet rs = state.executeQuery(query);
@@ -100,7 +102,7 @@ public class OrganisationHelper {
             Statement state = connection.createStatement();
 
             //organisations is a table
-            String query = "update organisations set status = 'UnderInvestigation' where orgId = " + organisation.getOrgId() + ";";
+            String query = "update Organisations set status = 'UnderInvestigation' where orgId = " + organisation.getOrgId() + ";";
 
             //execute the query
             ResultSet rs = state.executeQuery(query);
@@ -137,7 +139,7 @@ public class OrganisationHelper {
             Statement state = connection.createStatement();
 
             //organisations is a table
-            String query = "update organisations set status = 'Suspended' where orgId = " + organisation.getOrgId() + ";";
+            String query = "update iqvyaozz.Givealot.Organisations set status = 'Suspended' where orgId = " + organisation.getOrgId() + ";";
 
             //execute the query
             ResultSet rs = state.executeQuery(query);
@@ -160,7 +162,7 @@ public class OrganisationHelper {
 
 //        String serverName = "hansken.db.elephantsql.com";
 //        String mydatabase = "Givealot";
-//        String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/";
+//        String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
 //
 //        String username = "iqvyaozz";
 //        String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
@@ -170,8 +172,19 @@ public class OrganisationHelper {
 //
 //        System.out.println("Success");
 //        Statement state = connection.createStatement();
+//        //String query = "SELECT SCHEMA_NAME FROM information_schema.schemata;";
+//        String query = "select * from public.\"Organisations\"";
+//        //String query = "SELECT table_name FROM information_schema.TABLES where TABLE_NAME = 'Organisations';";
+//        System.out.println(query);
+//        System.out.println("Success");
+//
+//        ResultSet rs = state.executeQuery(query);
+//
+//        while (rs.next()) {
+//            System.out.println(rs.getString(1));
+//        }
 
-        Organisation org = new Organisation("The OG Charity", "We've been here since the start", "Diseases", "ogcharity@gmail.com","password", "Mr. Charity Guy", "0823322444");
+        Organisation org = new Organisation("The CG Charity", "Weve been here since the end", "Diseases", "clgcharity@gmail.com","password", "Mrs. Charity Woman", "0823322445");
         OrganisationHelper helper = new OrganisationHelper();
         helper.addOrg(org);
     }

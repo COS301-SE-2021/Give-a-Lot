@@ -8,7 +8,7 @@ public class browseResponse
 {
     private List<User> organisations;
 
-    browseResponse()
+    public browseResponse()
     {
         this.organisations = null;
     }

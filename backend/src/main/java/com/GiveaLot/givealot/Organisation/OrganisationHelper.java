@@ -1,7 +1,6 @@
 package com.GiveaLot.givealot.Organisation;
 
 import com.GiveaLot.givealot.Organisation.dataclass.Organisation;
-import com.GiveaLot.givealot.Organisation.dataclass.Status;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
@@ -11,68 +10,60 @@ public class OrganisationHelper {
 
     public void addOrg(Organisation organisation) throws SQLException {
 
-        try {
+//        try {
 
+            String serverName = "hansken.db.elephantsql.com";
+            String mydatabase = "Givealot";
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
 
-            String serverName = "127.0.0.1";
-            //database name
-            String mydatabase = "givealot";
-            String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
-
-            String username = "root";
-            String password = "password123";
+            String username = "iqvyaozz";
+            String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
             System.out.println("Success");
             //Setup connection
             Connection connection = DriverManager.getConnection(url, username, password);
 
             System.out.println("Success");
             Statement state = connection.createStatement();
-
-            //organisations is a table
-           String query = "INSERT INTO Organisation(orgId, orgName, orgDescription, orgSector, orgEmail, status, password, contactPerson, contactNumber) VALUES (" + organisation.getOrgId() + "," + organisation.getOrgName() + "," + organisation.getOrgDescription() + "," + organisation.getOrgSector() + ", " + organisation.getOrgEmail() + ", " + organisation.getStatus() + ", " + organisation.getPassword() + ", " + organisation.getContactPerson() + ", " + organisation.getContactNumber() + ");";
-
-            //execute the query
-            ResultSet rs = state.executeQuery(query);
-
-            try{
-          //  rs.close();
-            state.close();
-            } catch(SQLException e) {
-                System.out.println(e.getMessage());
-            }
-
             System.out.println("Success");
-        }
-        catch (Exception e){
-            throw new SQLException("Exception: Insert into database could not be fulfilled");
-        }
+            //organisations is a table
+            //String query = "create database newDB;";
+            String query = "insert into public.\"Organisations\"(\"orgName\", \"orgDescription\", \"orgSector\", \"orgEmail\", \"orgId\", status, password, \"contactPerson\", \"contactNumber\") values ('" + organisation.getOrgName() + "','" + organisation.getOrgDescription() + "','" + organisation.getOrgSector() + "','" + organisation.getOrgEmail() + "','" + organisation.getOrgId() + "','"+ organisation.getStatus().toString() + "','" + organisation.getPassword() + "','" + organisation.getContactPerson() + "','" + organisation.getContactNumber() + "');";
+            System.out.println(query);
+            System.out.println("Success");
+            //execute the query
+            state.executeUpdate(query);
+            System.out.println("Success");
+//        }
+//        catch (Exception e){
+//            throw new SQLException("Exception: Insert into database could not be fulfilled");
+//        }
     }
 
     public void reactivateOrg(Organisation organisation) throws SQLException {
 
         try {
-            String serverName = "127.0.0.1";
+            String serverName = "hansken.db.elephantsql.com";
             //database name
-            String mydatabase = "givealot";
-            String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
+            String mydatabase = "Givealot";
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/" + mydatabase;
 
-            String username = "root";
-            String password = "password123";
+            String username = "iqvyaozz";
+            String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
             System.out.println("Success");
             //Setup connection
             Connection connection = DriverManager.getConnection(url, username, password);
 
             System.out.println("Success");
             Statement state = connection.createStatement();
-
+            System.out.println("Success");
             //organisations is a table
-        //    String query = "update organisations set status = 'Active' where orgId = " + organisation.getOrgId() + ";";
-
+            String query = "update Organisation set status = 'Active' where orgId = " + organisation.getOrgId() + ";";
+            System.out.println("Success");
             //execute the query
-         //   ResultSet rs = state.executeQuery(query);
-
+            ResultSet rs = state.executeQuery(query);
+            System.out.println("Success");
             try{
-          //      rs.close();
+                rs.close();
                 state.close();
             } catch(SQLException e) {
                 System.out.println(e.getMessage());
@@ -88,13 +79,13 @@ public class OrganisationHelper {
     public void investigateOrg(Organisation organisation) throws SQLException {
 
         try {
-            String serverName = "127.0.0.1";
+            String serverName = "hansken.db.elephantsql.com";
             //database name
-            String mydatabase = "givealot";
-            String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
+            String mydatabase = "Givealot";
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/" + mydatabase;
 
-            String username = "root";
-            String password = "password123";
+            String username = "iqvyaozz";
+            String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
             System.out.println("Success");
             //Setup connection
             Connection connection = DriverManager.getConnection(url, username, password);
@@ -103,13 +94,13 @@ public class OrganisationHelper {
             Statement state = connection.createStatement();
 
             //organisations is a table
-         //   String query = "update organisations set status = 'UnderInvestigation' where orgId = " + organisation.getOrgId() + ";";
+            String query = "update Organisations set status = 'UnderInvestigation' where orgId = " + organisation.getOrgId() + ";";
 
             //execute the query
-          //  ResultSet rs = state.executeQuery(query);
+            ResultSet rs = state.executeQuery(query);
 
             try{
-         //       rs.close();
+                rs.close();
                 state.close();
             } catch(SQLException e) {
                 System.out.println(e.getMessage());
@@ -125,13 +116,13 @@ public class OrganisationHelper {
     public void suspendOrg(Organisation organisation) throws SQLException {
 
         try {
-            String serverName = "127.0.0.1";
+            String serverName = "hansken.db.elephantsql.com";
             //database name
-            String mydatabase = "givealot";
-            String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
+            String mydatabase = "Givealot";
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/" + mydatabase;
 
-            String username = "root";
-            String password = "password123";
+            String username = "iqvyaozz";
+            String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
             System.out.println("Success");
             //Setup connection
             Connection connection = DriverManager.getConnection(url, username, password);
@@ -140,13 +131,13 @@ public class OrganisationHelper {
             Statement state = connection.createStatement();
 
             //organisations is a table
-        //    String query = "update organisations set status = 'Suspended' where orgId = " + organisation.getOrgId() + ";";
+            String query = "update iqvyaozz.Givealot.Organisations set status = 'Suspended' where orgId = " + organisation.getOrgId() + ";";
 
             //execute the query
-        //    ResultSet rs = state.executeQuery(query);
+            ResultSet rs = state.executeQuery(query);
 
             try{
-       //         rs.close();
+                rs.close();
                 state.close();
             } catch(SQLException e) {
                 System.out.println(e.getMessage());
@@ -161,51 +152,32 @@ public class OrganisationHelper {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException, NoSuchAlgorithmException {
 
-        String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/";
+//        String serverName = "hansken.db.elephantsql.com";
+//        String mydatabase = "Givealot";
+//        String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
+//
+//        String username = "iqvyaozz";
+//        String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
+//        System.out.println("Success");
+//        //Setup connection
+//        Connection connection = DriverManager.getConnection(url, username, password);
+//
+//        System.out.println("Success");
+//        Statement state = connection.createStatement();
+//        //String query = "SELECT SCHEMA_NAME FROM information_schema.schemata;";
+//        String query = "select * from public.\"Organisations\"";
+//        //String query = "SELECT table_name FROM information_schema.TABLES where TABLE_NAME = 'Organisations';";
+//        System.out.println(query);
+//        System.out.println("Success");
+//
+//        ResultSet rs = state.executeQuery(query);
+//
+//        while (rs.next()) {
+//            System.out.println(rs.getString(1));
+//        }
 
-        String username = "iqvyaozz";
-        String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
-
-        //Setup connection
-        Connection connection = DriverManager.getConnection(url, username, password);
-
-
-        Statement state = connection.createStatement();
-
-        Organisation organisation = new Organisation("23323", "Avtive","scsc","aaas","cdsmcld","ksmskc","mclsmc");
-
-        //organisations is a table
-        String query = "INSERT INTO Organisation(orgId, orgName, orgDescription, orgSector, orgEmail, status, password, contactPerson, contactNumber) VALUES(?,?,?,?,?,?,?,?,?)";
-
-        //execute the query
-        long id=0;
-            try (PreparedStatement pstmt = connection.prepareStatement(query,
-                    Statement.RETURN_GENERATED_KEYS)) {
-
-                pstmt.setString(1, organisation.getOrgId());
-                pstmt.setString(2, organisation.getOrgName());
-                pstmt.setString(3, organisation.getOrgDescription());
-                pstmt.setString(4, organisation.getOrgSector());
-                pstmt.setString(5, organisation.getOrgEmail());
-                pstmt.setString(6, organisation.getStatus().toString());
-                pstmt.setString(7,  organisation.getPassword());
-                pstmt.setString(8, organisation.getContactPerson());
-                pstmt.setString(9, organisation.getContactNumber());
-
-
-                int affectedRows = pstmt.executeUpdate();
-                // check the affected rows
-                if (affectedRows > 0) {
-                    // get the ID back
-                    try (ResultSet rs = pstmt.getGeneratedKeys()) {
-                        if (rs.next()) {
-                            id = rs.getLong(1);
-                        }
-                    } catch (SQLException ex) {
-                        System.out.println(ex.getMessage());
-                    }
-                }
-            }
-        System.out.println("Success");
+        Organisation org = new Organisation("The New Orgss", "We are new heress", "Diseases", "neworg@gmail.comss","password", "Mrs. New Orgss", "0823322441");
+        OrganisationHelper helper = new OrganisationHelper();
+        helper.addOrg(org);
     }
 }

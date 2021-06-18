@@ -3,23 +3,49 @@ package com.GiveaLot.givealot.Organisation.dataclass;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.security.MessageDigest;
 import java.util.Base64;
+import java.util.List;
 
 public class Organisation {
 
-    String orgName;
-    String orgDescription;
-    String orgSector;
-    String orgEmail;
-    String orgId;
-    Status status;
-    String password;
-    String contactPerson;
-    String contactNumber;
+    private String orgName;
+    private String orgDescription;
+    private String orgSector;
+    private String orgEmail;
+    private String orgId;
+    private Status status;
+    private String password;
+    private String contactPerson;
+    private String contactNumber;
+
+    //Email verification
+
+    private Boolean isVerified;
+
+    //Extra information
+
+    private String address;
+    private Date dateFounded;
+    private String image;
+    private String NGONumber;
+    private List<String> galleryImages;
+    private String longDescription;
+
+    //Data for points
+
+    private int points;
+    private Boolean addressIsValid;
+    private Boolean dateIsValid;
+    private Boolean imageProvided;
+    private Boolean ngoNoProvided;
+    private Boolean fiveImagesProvided;
+    private Boolean tenImagesProvided;
+    private Boolean longDescriptionProvided;
 
 
     public Organisation(String orgEmail, Status orgStatus) throws NoSuchAlgorithmException {
@@ -88,6 +114,68 @@ public class Organisation {
         return contactPerson;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public Boolean getAddressIsValid() {
+        return addressIsValid;
+    }
+
+    public Boolean getDateIsValid() {
+        return dateIsValid;
+    }
+
+    public Boolean getFiveImagesProvided() {
+        return fiveImagesProvided;
+    }
+
+    public Boolean getImageProvided() {
+        return imageProvided;
+    }
+
+    public Boolean getLongDescriptionProvided() {
+        return longDescriptionProvided;
+    }
+
+    public Boolean getNgoNoProvided() {
+        return ngoNoProvided;
+    }
+
+    public Boolean getTenImagesProvided() {
+        return tenImagesProvided;
+    }
+
+    public Date getDateFounded() {
+        return dateFounded;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public List<String> getGalleryImages() {
+        return galleryImages;
+    }
+
+    public String getLongDescription() {
+        return longDescription;
+    }
+
+    public String getNGONumber() {
+        return NGONumber;
+    }
+
+    public Boolean getVerified() {
+        return isVerified;
+    }
+
+
+
     //Setters
 
 
@@ -125,6 +213,66 @@ public class Organisation {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public void setAddressIsValid(Boolean addressIsValid) {
+        this.addressIsValid = addressIsValid;
+    }
+
+    public void setVerified(Boolean verified) {
+        isVerified = verified;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setDateFounded(Date dateFounded) {
+        this.dateFounded = dateFounded;
+    }
+
+    public void setDateIsValid(Boolean dateIsValid) {
+        this.dateIsValid = dateIsValid;
+    }
+
+    public void setFiveImagesProvided(Boolean fiveImagesProvided) {
+        this.fiveImagesProvided = fiveImagesProvided;
+    }
+
+    public void setGalleryImages(List<String> galleryImages) {
+        this.galleryImages = galleryImages;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public void setImageProvided(Boolean imageProvided) {
+        this.imageProvided = imageProvided;
+    }
+
+    public void setLongDescription(String longDescription) {
+        this.longDescription = longDescription;
+    }
+
+    public void setLongDescriptionProvided(Boolean longDescriptionProvided) {
+        this.longDescriptionProvided = longDescriptionProvided;
+    }
+
+    public void setNgoNoProvided(Boolean ngoNoProvided) {
+        this.ngoNoProvided = ngoNoProvided;
+    }
+
+    public void setNGONumber(String NGONumber) {
+        this.NGONumber = NGONumber;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    public void setTenImagesProvided(Boolean tenImagesProvided) {
+        this.tenImagesProvided = tenImagesProvided;
     }
 
     public static void main(String[] args) throws NoSuchAlgorithmException {

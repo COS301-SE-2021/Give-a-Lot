@@ -158,12 +158,12 @@ public class OrganisationHelper {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-        Class.forName("com.mysql.jdbc.Driver");
+        //Class.forName("com.mysql.jdbc.Driver");
 
         String serverName = "127.0.0.1";
         //database name
         String mydatabase = "voting_impl_";
-        String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
+        String url = "jdbc:postgresql://" + serverName + "/" + mydatabase;
 
         String username = "root";
         String password = "password123";

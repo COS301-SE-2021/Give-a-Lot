@@ -11,11 +11,6 @@ import java.util.*;
 
 
 public class OrganisationServiceImpl {
-    enum Status{
-        Active,
-        UnderInvestigation,
-        Suspended
-    }
     Status status;
 
     OrganisationHelper help = new OrganisationHelper();

@@ -197,7 +197,7 @@ public class CertificateHelper {
             dateEx.setYear(year+1);
             String dateExpiry = format.format(dateEx);
 
-            String query = "update public.\"Certificate\" set \"adminRenewal\" = true, \"dateCreated\" = '" + dateCreated + "', \"dateExpiry\" = '" + dateExpiry+ "' where \"orgId\" = '" + orgId + "';";
+            String query = "update public.\"Certificate\" set \"adminRenewal\" = true, \"dateExpiry\" = '" + dateExpiry+ "' where \"orgId\" = '" + orgId + "';";
             //System.out.println(query);
 
             state.executeUpdate(query);
@@ -226,7 +226,7 @@ public class CertificateHelper {
 
         //help.checkRenewal();
 
-        help.adminRenew("c900d315725860232e9dfbdb723215fe");
+        help.adminRenew("40730ff87db670953bf2baad057065ea");
 
 
 

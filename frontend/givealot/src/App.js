@@ -15,9 +15,9 @@ import Testings from "./components/organisation/Testings";
 function App() {
     return (
       <div className="App">
-        {/* <Admin /> */}
+          <Admin />
 
-        <Organisation />
+          { /* <Organisation />*/}
       </div>
    );
   

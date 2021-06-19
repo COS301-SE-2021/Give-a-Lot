@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
 export class Manage extends Component {
 
 
-    constructor(props) {
+   /* constructor(props) {
         super(props)
 
         this.state = {
@@ -52,10 +52,40 @@ export class Manage extends Component {
             .catch(error =>{
                 console.log(error)
             })
+    }*/
+
+    handleView(){
+        console.log('Clicked')
     }
+    handleGenerate(){
+        console.log('Clicked')
+    }
+    handleRenew(){
+        console.log('Clicked')
+        const data={
+            "userId":233,
+            "id":233,
+            "title":"Yes baby",
+            "body":"yes mama",
+        }
+        axios.post('https://jsonplaceholder.typicode.com/posts',data)
+            .then((data)=>{
+               console.log(data);
+             })
+            .catch((err)=> {
+                console.log(err);
+            })
+    }
+
+
+    handleNotify(){
+        console.log('Clicked')
+    }
+
+
     render() {
 
-        const {username, userEmail} = this.state
+      //  const {username, userEmail} = this.state
         return (
             <div className="manage">
                 <div >
@@ -73,47 +103,26 @@ export class Manage extends Component {
                     </div>
 
 
-                    <form onSubmit={this.submitHandler}>
+
                         <React.Fragment >
                             <Grid container spacing={3}>
-                                {/*<Grid item xs={12} sm={6}>
-                                    <TextField
-                                        required
-                                        id="Name"
-                                        name="username"
-                                        label="Organisation name"
-                                        fullWidth
-                                        autoComplete="given-name"
-                                        value={username} onChange={this.changeHandler}
-                                    />
-                                </Grid>
-                                <Grid item xs={12} sm={6}>
-                                    <TextField
-                                        required
-                                        id="department"
-                                        name="userEmail"
-                                        label="Useremail"
-                                        fullWidth
-                                        autoComplete="department"
-                                        value={userEmail} onChange={this.changeHandler}
-                                    />
-                                </Grid>*/}
+
 
                                 <Grid item xs={12} sm={3}>
                                     <Button
                                         variant="contained"
                                         color="primary"
-                                        // onClick={handleNext}
+                                         onClick={this.handleView}
                                         // className={classes.button}
                                     >
-                                        Verify
+                                        View
                                     </Button>
                                 </Grid>
                                 <Grid item xs={12} sm={3}>
                                     <Button
                                         variant="contained"
                                         color="primary"
-                                        // onClick={handleNext}
+                                         onClick={this.handleGenerate}
                                         // className={classes.button}
                                     >
                                         Generate
@@ -123,25 +132,25 @@ export class Manage extends Component {
                                     <Button
                                         variant="contained"
                                         color="primary"
-                                        // onClick={handleNext}
+                                         onClick={this.handleRenew}
                                         // className={classes.button}
                                     >
-                                        Revoke
+                                        Renew
                                     </Button>
                                 </Grid>
                                 <Grid item xs={12} sm={3}>
                                     <Button
                                         variant="contained"
                                         color="primary"
-                                        // onClick={handleNext}
+                                         onClick={this.handleNotify}
                                         // className={classes.button}
                                     >
-                                        Remove
+                                        Notify
                                     </Button>
                                 </Grid>
                             </Grid>
                         </React.Fragment>
-                    </form>
+
                 </div>
             </div>
         )

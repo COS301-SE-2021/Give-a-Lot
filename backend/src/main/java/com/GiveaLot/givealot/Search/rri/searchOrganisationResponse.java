@@ -1,22 +1,32 @@
 package com.GiveaLot.givealot.Search.rri;
 
-import com.GiveaLot.givealot.User.dataclass.User;
+import com.GiveaLot.givealot.Organisation.dataclass.Organisation;
+import com.GiveaLot.givealot.Search.searchResponseJSON;
 
 import java.util.List;
 
 public class searchOrganisationResponse {
-    private List<User> organisations;
+    private List<Organisation> organisations;
+    private List<searchResponseJSON> searchResponseJSON;
 
     public searchOrganisationResponse() {
         this.organisations = null;
     }
 
-    public void setOrganisations(List<User> organisations) {
+    public void setOrganisations(List<Organisation> organisations) {
         this.organisations = organisations;
     }
 
-    public List<User> getOrganisations()
+    public List<Organisation> getOrganisations()
     {
         return organisations;
+    }
+
+    public void setSearchJSONresponse(List<searchResponseJSON> results) {
+        this.searchResponseJSON = results;
+    }
+
+    public   List<com.GiveaLot.givealot.Search.searchResponseJSON> getSearchResponseJSON() {
+        return searchResponseJSON;
     }
 }

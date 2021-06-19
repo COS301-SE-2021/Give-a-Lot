@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 
 public class OrganisationHelper {
-    OrganisationHelper(){}
+    public OrganisationHelper(){}
 
     public void addOrg(Organisation organisation) throws SQLException {
 
@@ -26,11 +26,17 @@ public class OrganisationHelper {
 
             //organisations is a table
             //String query = "create database newDB;";
-            String query = "insert into public.\"Organisations\"(\"orgName\", \"orgDescription\", \"orgSector\", \"orgEmail\", \"orgId\", status, password, \"contactPerson\", \"contactNumber\") values ('" + organisation.getOrgName() + "','" + organisation.getOrgDescription() + "','" + organisation.getOrgSector() + "','" + organisation.getOrgEmail() + "','" + organisation.getOrgId() + "','"+ organisation.getStatus().toString() + "','" + organisation.getPassword() + "','" + organisation.getContactPerson() + "','" + organisation.getContactNumber() + "');";
+            String query1 = "insert into public.\"Organisations\"(\"orgName\", \"orgDescription\", \"orgSector\", \"orgEmail\", \"orgId\", status, password, \"contactPerson\", \"contactNumber\") values ('" + organisation.getOrgName() + "','" + organisation.getOrgDescription() + "','" + organisation.getOrgSector() + "','" + organisation.getOrgEmail() + "','" + organisation.getOrgId() + "','"+ organisation.getStatus().toString() + "','" + organisation.getPassword() + "','" + organisation.getContactPerson() + "','" + organisation.getContactNumber() + "');";
+            String query2 = "insert into public.\"OrganisationPoints\"(\"orgId\") values ('" + organisation.getOrgId() + "');";
+            String query3 = "insert into public.\"OrganisationInfo\"(\"orgId\") values ('" + organisation.getOrgId() + "');";
+            String query4 = "insert into public.\"Certificate\"(\"orgId\") values ('" + organisation.getOrgId() + "');";
             //System.out.println(query);
 
             //execute the query
-            state.executeUpdate(query);
+            state.executeUpdate(query1);
+            state.executeUpdate(query2);
+            state.executeUpdate(query3);
+            state.executeUpdate(query4);
 
             System.out.println("Successfully Executed Update");
         }
@@ -156,8 +162,10 @@ public class OrganisationHelper {
 //            System.out.println(rs.getString(1));
 //        }
 
-        Organisation org = new Organisation("The New Org", "We are new here", "Diseases", "neworg@gmail.com","password", "Mrs. New Org", "0823322441");
-        OrganisationHelper helper = new OrganisationHelper();
-        helper.reactivateOrg(org);
+//        Organisation org = new Organisation("The Old Orgs", "We are old heres", "Diseases", "oldorg@gmail.coms","password", "Mr. Old Orgs", "0823322443");
+//        OrganisationHelper helper = new OrganisationHelper();
+//        helper.addOrg(org);
+
+
     }
 }

@@ -8,6 +8,12 @@ import Checkbox from '@material-ui/core/Checkbox';
 import {makeStyles} from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import axios from 'axios';
+import InputLabel from '@material-ui/core/InputLabel';
+// import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import NativeSelect from '@material-ui/core/NativeSelect';
+import InputBase from '@material-ui/core/InputBase';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -137,21 +143,17 @@ class OrgReportForm extends Component {
                         />
                     </Grid> */}
                     <Grid item xs={12} sm={6}>
-                        <TextField
-                            id="type"
-                            select
-                            label="Please select report Type"
-                            fullWidth
-                            name="type"
-                            value={type} onChange={this.changeHandler}
-                        
-                        >
-                            {TypeChoices.map((option) => (
-                                <MenuItem key={option.value} value={option.value}>
-                                    {option.label}
-                                </MenuItem>
-                            ))}
-                        </TextField>
+                    <InputLabel htmlFor="demo-customized-select-native">Select Type</InputLabel>
+                    <NativeSelect
+                    id="demo-customized-select-native"
+                    value={type} onChange={this.changeHandler}
+                    // input={<BootstrapInput />}
+                    >
+                    <option aria-label="None" value="" />
+                    <option value={10}>Incorect Profile Information</option>
+                    <option value={20}>Suspicious Behavior</option>
+                    <option value={30}>Fraud Activity</option>
+                    </NativeSelect>
                     </Grid>
                     {/* <Grid item xs={12} sm={6}>
                         <TextField

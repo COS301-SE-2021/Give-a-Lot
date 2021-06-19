@@ -1,6 +1,5 @@
 import React from 'react';
 import "./Manage.css";
-
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
@@ -46,12 +45,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Manage() {
     const classes = useStyles();
 
-
-
-
     return (
         <React.Fragment>
-
             <main className={classes.layout}>
                 <Paper className={classes.paper}>
                     <Typography component="h1" variant="h4" align="center" style={{color: "black", border:"5px solid #3f51b5"}}>

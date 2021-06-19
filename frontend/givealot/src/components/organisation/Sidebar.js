@@ -26,13 +26,13 @@ function Sidebar() {
             <ListItemText primary="Report" />
             </ListItem>
         </Link>
-        <Link to={'/issue'}>
-            <ListItem button>
-            <ListItemIcon>
-                <PeopleIcon />
-            </ListItemIcon>
-            <ListItemText primary="Issue" />
-            </ListItem>
+        <Link to={'/renewCert'}>
+        <ListItem button>
+          <ListItemIcon>
+            <BarChartIcon />
+          </ListItemIcon>
+          <ListItemText primary="Renew Certficate" />
+        </ListItem>
         </Link>
 
         

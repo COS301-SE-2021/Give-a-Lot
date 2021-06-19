@@ -127,7 +127,7 @@ public class OrganisationServiceImpl {
         return null;
     }
 
-    suspendOrganisationResponse suspendOrganisation(suspendOrganisationRequest request) throws OrgException, MessagingException, IOException {
+    public suspendOrganisationResponse suspendOrganisation(suspendOrganisationRequest request) throws OrgException, MessagingException, IOException {
 
         if(request == null)
         {
@@ -156,7 +156,7 @@ public class OrganisationServiceImpl {
             {
                 suspendOrganisationResponse suspendOrganisationResponse = new suspendOrganisationResponse();
                 suspendOrganisationResponse.setAddUserResponseJSON(List.of(new addUserResponseJSON(420, e.getMessage())));
-                return null;
+                return suspendOrganisationResponse;
             }
 
             /*
@@ -175,8 +175,11 @@ public class OrganisationServiceImpl {
             }
             org.setStatus(com.GiveaLot.givealot.Organisation.dataclass.Status.Suspended);*/
         }
-        catch (Exception e){
-            throw new OrgException("Exception: Organisation could not be suspended");
+        catch (Exception e)
+        {
+            suspendOrganisationResponse suspendOrganisationResponse = new suspendOrganisationResponse();
+            suspendOrganisationResponse.setAddUserResponseJSON(List.of(new addUserResponseJSON(500, e.getMessage())));
+            return suspendOrganisationResponse;
         }
     }
 

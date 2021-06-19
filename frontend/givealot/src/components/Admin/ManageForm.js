@@ -56,6 +56,10 @@ export class Manage extends Component {
             })
     }
 
+
+
+
+    
     handleRenew = (e) =>{
         e.preventDefault()
         console.log("this is ", this.state.id )

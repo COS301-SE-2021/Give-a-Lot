@@ -137,6 +137,8 @@ export class Status extends Component {
 
 
     handleChange = (e) => {
+        console.log(e);
+
         this.setState({[e.target.name] : e.target.value})
 
 
@@ -152,7 +154,7 @@ export class Status extends Component {
 
     };
 
-    handleClickOpen = () => {
+    handleClickOpen = (e) => {
         this.setState({ open: true });
     };
 
@@ -161,11 +163,11 @@ export class Status extends Component {
     };
 
     handleAgree = () => {
-        console.log("I agree!");
+        console.log("Proceed!");
         this.handleClose();
     };
     handleDisagree = () => {
-        console.log("I do not agree.");
+        console.log("Cancel.");
         this.handleClose();
     };
 
@@ -181,7 +183,8 @@ export class Status extends Component {
                     labelId="label"
                     id="id"
                     value={this.status}
-                    onChange={this.handleChange}
+                    //onChange={this.handleChange}
+                     onChange={this.handleClickOpen}
                     label="Status"
                 >
                     <MenuItem value="">
@@ -192,6 +195,31 @@ export class Status extends Component {
                     <MenuItem value={30}>UnderInvestigation</MenuItem>
                 </Select>
             </FormControl>
+
+
+                <Dialog
+                    open={this.state.open}
+                    onClose={this.handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogTitle id="alert-dialog-title">
+                        {"Status change Alert!"}
+                    </DialogTitle>
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                            Are you sure?
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={this.handleDisagree} color="primary">
+                           Cancel
+                        </Button>
+                        <Button onClick={this.handleAgree} color="primary" autoFocus>
+                            Proceed
+                        </Button>
+                    </DialogActions>
+                </Dialog>
 
             </div>
         )

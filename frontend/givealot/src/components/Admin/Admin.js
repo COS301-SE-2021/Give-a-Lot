@@ -13,7 +13,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Manage from './Manage';
 import AddOrg from './AddOrg';
 
-
 function Admin() {
   return (
     <div className="admin">
@@ -44,5 +43,6 @@ function Admin() {
     </div>
   );
 }
+// AddOrgModal
 
 export default Admin;

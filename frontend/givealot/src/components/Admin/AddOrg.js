@@ -22,6 +22,10 @@ import SearchIcon from "@material-ui/icons/Search";
 import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate";
 import CollectionsIcon from "@material-ui/icons/Collections";
 import Popover from "@material-ui/core/Popover";
+import { withRouter } from 'react-router-dom';
+import Popup from 'reactjs-popup';
+import "./AddOrgModal.css"
+import AdminOrgs from './AdminOrgs';
 
 export class AddOrg extends Component {
 
@@ -29,14 +33,13 @@ export class AddOrg extends Component {
         super(props)
     
         this.state = {
-            name: "",
-            description: "",
-            image: "",
-            email: "",
-            /////////image upload
-            mainState: "initial", // initial, search, gallery, uploaded
-            imageUploaded: 0,
-            selectedFile: null
+            orgName: "",
+            orgDescription: "",
+            orgSector: "",
+            orgEmail: "",
+            password: "",
+            contactPerson: "",
+            contactNumber: "",
         }
     }
     changeHandler = (e) =>{
@@ -57,9 +60,10 @@ export class AddOrg extends Component {
         .catch(error =>{
             console.log(error)
         })
+        // this.props.history.push('/AddOrgModal');
     }
     render() {
-        const { name, description,image, email} = this.state
+        const { orgName, orgDescription,orgSector, orgEmail,password,contactPerson,contactNumber} = this.state
         return (
             <Container component="main" maxWidth="xs" style={{position: "absolute", left: "500px", padding: "20px"}}>
                 <div className="">
@@ -72,44 +76,22 @@ export class AddOrg extends Component {
                         margin="normal"
                         required
                         fullWidth
-                        id="name"
+                        id="orgName"
                         label="Organisation Name"
-                        name="name"
-                        autoFocus
-                        value={name} onChange={this.changeHandler}
+                        name="orgName"
+                        // autoFocus
+                        value={orgName} onChange={this.changeHandler}
                     />
-                    
+
                     <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="email"
-                        label="Email"
-                        name="email"
-                        autoFocus
-                        value={email} onChange={this.changeHandler}
-                    />
-                    <TextField
-                        id="outlined-multiline-static"
+                        id="orgDescription"
                         label="Description"
                         multiline
                         rows={5}
                         fullWidth
-                        name="description"
+                        name="orgDescription"
                         variant="outlined"
-                        value={description} onChange={this.changeHandler}
-                    />
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="name"
-                        label="Address"
-                        name="name"
-                        autoFocus
-                        value={name} onChange={this.changeHandler}
+                        value={orgDescription} onChange={this.changeHandler}
                     />
                     
                     <TextField
@@ -117,17 +99,60 @@ export class AddOrg extends Component {
                         margin="normal"
                         required
                         fullWidth
-                        id="email"
-                        label="Something"
-                        name="email"
-                        autoFocus
-                        value={name} onChange={this.changeHandler}
+                        id="orgSector"
+                        label="Sector"
+                        name="orgSector"
+                        // autoFocus
+                        value={orgSector} onChange={this.changeHandler}
+                    />
+                    
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="orgEmail"
+                        label="orgEmail"
+                        name="orgEmail"
+                        // autoFocus
+                        value={orgEmail} onChange={this.changeHandler}
+                    />
+                    
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="password"
+                        label="password"
+                        name="password"
+                        // autoFocus
+                        value={password} onChange={this.changeHandler}
                     />
 
-                    <Fab className="" onClick={this.handleSearchClick}>
-                        <AddPhotoAlternateIcon />
-                    </Fab>
-                    <Button
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="contactPerson"
+                        label="contactPerson"
+                        name="contactPerson"
+                        // autoFocus
+                        value={contactPerson} onChange={this.changeHandler}
+                    />
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="contactNumber"
+                        label="contactNumber"
+                        name="contactNumber"
+                        // autoFocus
+                        value={contactNumber} onChange={this.changeHandler}
+                    />
+                    {/* <Button
                         type="submit"
                         fullWidth
                         variant="contained"
@@ -135,7 +160,40 @@ export class AddOrg extends Component {
                         className=""
                     >
                         Submit
-                    </Button>
+                    </Button> */}
+
+                    <Popup
+                        trigger={<Button className="button" type="submit" color="primary"> Submit </Button>}
+                        modal
+                        nested
+                        // style={{position: "absolute", top: "400px", left: "350px"}}
+                    >
+                        {close => (
+                        <div className="modal">
+                            <Button className="close" color="primary" onClick={close}>
+                                &times;
+                            </Button>
+                            
+                            <div className="content">
+                            {' '}
+                            <h4>Organisation successfully Added<br/>Send email to Organisation for confirmation</h4>
+                            <div className="actions">
+                            <button
+                                className="button"
+                                onClick={() => {
+                                console.log('modal closed ');
+                                close();
+                                window.location.href='AdminOrgs'
+                                }}
+                            >
+                                close
+                            </button>
+                            </div>
+                            </div>
+                            
+                        </div>
+                        )}
+                    </Popup>
                     </form>
                 </div>
             </Container>
@@ -143,4 +201,5 @@ export class AddOrg extends Component {
     }
 }
 
+// export default withRouter(AddOrg)
 export default AddOrg

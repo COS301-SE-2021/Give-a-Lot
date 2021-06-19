@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 export class Manage extends Component {
 
 
-    constructor(props) {
+   /* constructor(props) {
         super(props)
 
         this.state = {
@@ -54,10 +54,30 @@ export class Manage extends Component {
             .catch(error =>{
                 console.log(error)
             })
+    }*/
+
+    handleView(){
+        console.log('Clicked')
     }
-
-
-
+    handleGenerate(){
+        console.log('Clicked')
+    }
+    handleRenew(){
+        console.log('Clicked')
+        const data={
+            "userId":233,
+            "id":233,
+            "title":"Yes baby",
+            "body":"yes mama",
+        }
+        axios.post('https://jsonplaceholder.typicode.com/posts',data)
+            .then((data)=>{
+               console.log(data);
+             })
+            .catch((err)=> {
+                console.log(err);
+            })
+    }
 
     
     handleRenew = (e) =>{

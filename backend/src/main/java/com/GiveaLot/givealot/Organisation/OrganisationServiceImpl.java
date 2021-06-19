@@ -50,7 +50,7 @@ public class OrganisationServiceImpl {
             this.OrganisationAddedEmail();
             this.sendEmail();
             addOrganisationResponse addOrganisationResponse = new addOrganisationResponse();
-            addOrganisationResponse.setAddUserResponseJSON( List.of(new OrganisationResponseJSON(200, "ok")));
+            addOrganisationResponse.setOrganisationResponseJSON( List.of(new OrganisationResponseJSON(200, "ok")));
             return addOrganisationResponse;
         }
         catch (Exception e)

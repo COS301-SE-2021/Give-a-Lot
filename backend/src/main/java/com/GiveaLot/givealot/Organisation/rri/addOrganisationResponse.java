@@ -14,7 +14,7 @@ public class addOrganisationResponse {
         return this.OrganisationResponseJSON;
     }
 
-    public void setAddUserResponseJSON(List<OrganisationResponseJSON> OrganisationResponseJSON) {
+    public void setOrganisationResponseJSON(List<OrganisationResponseJSON> OrganisationResponseJSON) {
         this.OrganisationResponseJSON = OrganisationResponseJSON;
     }
 }

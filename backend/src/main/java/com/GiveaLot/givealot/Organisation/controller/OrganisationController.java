@@ -77,7 +77,7 @@ public class OrganisationController
 
             if(reactivateOrganisationResponse == null)
             {
-                return List.of(new OrganisationResponseJSON(500,"server error suspend"));
+                return List.of(new OrganisationResponseJSON(500,"server error activate"));
             }
             else
             {
@@ -100,7 +100,7 @@ public class OrganisationController
 
             if(investigateOrganisationResponse == null)
             {
-                return List.of(new OrganisationResponseJSON(500,"server error suspend"));
+                return List.of(new OrganisationResponseJSON(500,"server error investigate"));
             }
             else
             {

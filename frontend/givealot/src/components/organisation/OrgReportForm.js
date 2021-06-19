@@ -68,9 +68,6 @@ const BootstrapInput = withStyles((theme) => ({
     },
   }));
   
-  
-  
-
 class OrgReportForm extends Component {
      
     constructor(props) {
@@ -78,15 +75,16 @@ class OrgReportForm extends Component {
     
         this.state = {
             description : "",
-            type	     : "",
+            type: "",
             // username    : "",
-            userEmail   : "",
+            userEmail: "",
             country: "",
             Follow: ""
         }
     }
 
     changeHandler = (e) =>{
+        // console.log(this)
         this.setState({[e.target.name] : e.target.value})
     }
     submitHandler = (e) =>{
@@ -120,54 +118,19 @@ class OrgReportForm extends Component {
                         />
                     </Grid>
 
-                    {/*<Grid item xs={12}>
-    
-                    </Grid>
-                     <Grid item xs={12} sm={6}>
-                        <TextField
-                            id="time"
-                            label="Time"
-                            type="time"
-                            name="time"
-                            defaultValue="07:30"
-                            fullWidth
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                            inputProps={{
-                                step: 300, // 5 min
-                            }}
-                            value={time} onChange={this.changeHandler}
-                        />
-                    </Grid> */}
-                    {/* <Grid item xs={12} sm={6}>
-                        <TextField
-                            required
-                            id="date"
-                            name="date"
-                            label="Date"
-                            type="date"
-                            fullWidth
-                            defaultValue="2017-05-24"
-    
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                            value={date} onChange={this.changeHandler}
-                        />
-                    </Grid> */}
                     <Grid item xs={12} sm={6}>
-                    <InputLabel htmlFor="demo-customized-select-native">Select Type</InputLabel>
-                    <NativeSelect
-                    id="demo-customized-select-native"
-                    value={type} onChange={this.changeHandler}
-                    input={<BootstrapInput />}
-                    >
-                    <option aria-label="None" value="" />
-                    <option value={10}>Incorect Profile Information</option>
-                    <option value={20}>Suspicious Behavior</option>
-                    <option value={30}>Fraud Activity</option>
-                    </NativeSelect>
+                        <NativeSelect
+                        value={type}
+                        onChange={this.changeHandler}
+                        name="type"
+                        //   className={classes.selectEmpty}
+                        inputProps={{ 'aria-label': 'type' }}
+                        >
+                        <option disabled value="">Select Type</option>
+                        <option value={"Incorect Profile Information"}>Incorect Profile Information</option>
+                        <option value={"Suspicious Behavior"}>Suspicious Behavior</option>
+                        <option value={"Fraud Activity"}>Fraud Activity</option>
+                        </NativeSelect>
                     </Grid>
             
                     <Grid item xs={12} >
@@ -197,6 +160,7 @@ class OrgReportForm extends Component {
                         <Button
                             variant="contained"
                             color="primary"
+                            type="submit"
                         // onClick={handleNext}
                             // className={classes.button}
                         >

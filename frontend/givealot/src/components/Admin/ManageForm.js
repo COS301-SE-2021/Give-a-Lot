@@ -36,7 +36,7 @@ export class Manage extends Component {
         super(props)
 
         this.state = {
-            id: "6"
+            id: ""
         }
     }
 
@@ -146,7 +146,7 @@ export class Manage extends Component {
                                            name="id"
                                            
                                         >
-                                            ReNew Certificate
+                                            ReNew
                                         </Button>
                                     </Grid>
                                 </form>
@@ -158,8 +158,7 @@ export class Manage extends Component {
                                             variant="contained"
                                             color="primary"
                                            type="submit"
-                                           name="id"
-                                           
+                                           name="id"  
                                         >
                                             Remove
                                         </Button>

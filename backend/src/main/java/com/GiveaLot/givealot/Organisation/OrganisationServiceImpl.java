@@ -4,6 +4,7 @@ import com.GiveaLot.givealot.Organisation.dataclass.Organisation;
 import com.GiveaLot.givealot.Organisation.dataclass.Status;
 import com.GiveaLot.givealot.Organisation.rri.*;
 import com.GiveaLot.givealot.Organisation.exceptions.*;
+import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -26,7 +27,9 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 
+@Service
 public class OrganisationServiceImpl {
+
     enum Status{
         Active,
         UnderInvestigation,
@@ -37,27 +40,29 @@ public class OrganisationServiceImpl {
 
     OrganisationHelper help = new OrganisationHelper();
 
-    addOrganisationResponse addOrganisation(addOrganisationRequest request) throws InvalidRequestException, NoSuchAlgorithmException, SQLException, MessagingException, IOException {
-        if (request == null){
+    public addOrganisationResponse addOrganisation(addOrganisationRequest request) throws InvalidRequestException, NoSuchAlgorithmException, SQLException, MessagingException, IOException {
+        if (request == null)
+        {
             throw new InvalidRequestException("Exception: Organisation could not be added because the request object is null");
         }
 
         Organisation org = new Organisation(request.getOrgName(),request.getOrgDescription(),request.getOrgSector(),request.getOrgEmail(),request.getPassword(),request.getContactPerson(),request.getContactNumber());
 
-
-        help.addOrg(org);
-
-        org.setStatus(com.GiveaLot.givealot.Organisation.dataclass.Status.Active);
-
-        //then send email
-        OrganisationServiceImpl mail = new OrganisationServiceImpl();
-
-        mail.setupServerProperties();
-        mail.OrganisationAddedEmail();
-        mail.sendEmail();
-
-
-        return null;
+        try
+        {
+            help.addOrg(org);
+            org.setStatus(com.GiveaLot.givealot.Organisation.dataclass.Status.Active);
+            this.setupServerProperties();
+            this.OrganisationAddedEmail();
+            this.sendEmail();
+            addOrganisationResponse addOrganisationResponse = new addOrganisationResponse();
+            addOrganisationResponse.setAddUserResponseJSON( List.of(new addUserResponseJSON(200, "ok")));
+            return addOrganisationResponse;
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
     }
 
     reactivateOrganisationResponse reactivateOrganisation(reactivateOrganisationRequest request) throws OrgException, NoSuchAlgorithmException, SQLException, MessagingException, IOException {

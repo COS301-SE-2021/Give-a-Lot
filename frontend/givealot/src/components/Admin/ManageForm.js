@@ -36,7 +36,7 @@ export class Manage extends Component {
         super(props)
 
         this.state = {
-            id: ""
+            org_id: ""
         }
     }
 
@@ -44,10 +44,10 @@ export class Manage extends Component {
         this.setState({[e.target.name] : e.target.value})
     }
     
-    handleRemove = (e) =>{
+    handleSuspend = (e) =>{
         e.preventDefault()
         console.log("this is ", this.state.id )
-        axios.post('http://localhost:8080/report/organisation/remove', this.state.id)
+        axios.post('http://localhost:8080/organisation/suspend', this.state.id)
             .then(response =>{
                 console.log(response)
             })
@@ -71,7 +71,7 @@ export class Manage extends Component {
 
     render() {
 
-        const { id } = this.state
+        const { org_id } = this.state
         return (
             <div className="manage">
                 <div >
@@ -92,13 +92,13 @@ export class Manage extends Component {
                         <React.Fragment >
                             <Grid container spacing={3}>
                             <form onSubmit={this.handleRemove } style={{padding: "10px"}}>
-                                    <input type="hidden" value={id} />
+                                    <input type="hidden" value={org_id} />
                                     <Grid item xs={12} sm={3}>
                                         <Button
                                             variant="contained"
                                             color="primary"
                                            type="submit"
-                                           name="id"
+                                           name="org_id"
                                            onChange={this.changeHandler}
                                         >
                                             Verify
@@ -107,13 +107,13 @@ export class Manage extends Component {
                                 </form>
 
                                 <form onSubmit={this.handleRemove} style={{padding: "10px"}}>
-                                    <input type="hidden" value={id} />
+                                    <input type="hidden" value={org_id} />
                                     <Grid item xs={12} sm={3}>
                                         <Button
                                             variant="contained"
                                             color="primary"
                                            type="submit"
-                                           name="id"
+                                           name="org_id"
                                            onChange={this.changeHandler}
                                         >
                                             Generate
@@ -121,13 +121,13 @@ export class Manage extends Component {
                                     </Grid>
                                 </form>
                                 <form onSubmit={this.handleRemove} style={{padding: "10px", alignItems: "center"}}>
-                                    <input type="hidden" value={id} />
+                                    <input type="hidden" value={org_id} />
                                     <Grid item xs={12} sm={3}>
                                         <Button
                                             variant="contained"
                                             color="primary"
                                            type="submit"
-                                           name="id"
+                                           name="org_id"
                                            onChange={this.changeHandler}
                                         >
                                             Revoke
@@ -136,13 +136,13 @@ export class Manage extends Component {
                                 </form>
 
                                 <form onSubmit={this.handleRenew} style={{padding: "10px"}}>
-                                    <input type="hidden" value={id} />
+                                    <input type="hidden" value={org_id} />
                                     <Grid item xs={12} sm={3}>
                                         <Button
                                             variant="contained"
                                             color="primary"
                                            type="submit"
-                                           name="id"
+                                           name="org_id"
                                            
                                         >
                                             ReNew
@@ -150,16 +150,16 @@ export class Manage extends Component {
                                     </Grid>
                                 </form>
 
-                                <form onSubmit={this.handleRemove} style={{padding: "10px"}}>
-                                    <input type="hidden" value={id} />
+                                <form onSubmit={this.handleSuspend} style={{padding: "10px"}}>
+                                    <input type="hidden" value={org_id} />
                                     <Grid item xs={12} sm={3}>
                                         <Button
                                             variant="contained"
                                             color="primary"
                                            type="submit"
-                                           name="id"  
+                                           name="org_id"  
                                         >
-                                            Remove
+                                            Suspend
                                         </Button>
                                     </Grid>
                                 </form>

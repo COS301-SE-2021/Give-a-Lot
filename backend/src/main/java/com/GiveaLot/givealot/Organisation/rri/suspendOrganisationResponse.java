@@ -15,7 +15,7 @@ public class suspendOrganisationResponse
         return OrganisationResponseJSON;
     }
 
-    public void setAddUserResponseJSON(List<OrganisationResponseJSON> OrganisationResponseJSON) {
+    public void setOrganisationResponseJSON(List<OrganisationResponseJSON> OrganisationResponseJSON) {
         this.OrganisationResponseJSON = OrganisationResponseJSON;
     }
 }

@@ -159,20 +159,20 @@ public class OrganisationServiceImpl {
                 this.sendEmail();
 
                 suspendOrganisationResponse suspendOrganisationResponse = new suspendOrganisationResponse();
-                suspendOrganisationResponse.setAddUserResponseJSON(List.of(new OrganisationResponseJSON(200, "ok")));
+                suspendOrganisationResponse.setOrganisationResponseJSON(List.of(new OrganisationResponseJSON(200, "ok")));
                 return suspendOrganisationResponse;
             }
             catch (Exception e)
             {
                 suspendOrganisationResponse suspendOrganisationResponse = new suspendOrganisationResponse();
-                suspendOrganisationResponse.setAddUserResponseJSON(List.of(new OrganisationResponseJSON(420, e.getMessage())));
+                suspendOrganisationResponse.setOrganisationResponseJSON(List.of(new OrganisationResponseJSON(420, e.getMessage())));
                 return suspendOrganisationResponse;
             }
         }
         catch (Exception e)
         {
             suspendOrganisationResponse suspendOrganisationResponse = new suspendOrganisationResponse();
-            suspendOrganisationResponse.setAddUserResponseJSON(List.of(new OrganisationResponseJSON(500, e.getMessage())));
+            suspendOrganisationResponse.setOrganisationResponseJSON(List.of(new OrganisationResponseJSON(500, e.getMessage())));
             return suspendOrganisationResponse;
         }
     }

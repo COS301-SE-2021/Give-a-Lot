@@ -65,7 +65,7 @@ public class OrganisationServiceImpl {
         }
     }
 
-    reactivateOrganisationResponse reactivateOrganisation(reactivateOrganisationRequest request) throws OrgException, NoSuchAlgorithmException, SQLException, MessagingException, IOException {
+    public reactivateOrganisationResponse reactivateOrganisation(reactivateOrganisationRequest request) throws OrgException, NoSuchAlgorithmException, SQLException, MessagingException, IOException {
         if (request == null){
             throw new InvalidRequestException("Exception: Organisation could not be updated because the request object is null");
         }
@@ -158,22 +158,6 @@ public class OrganisationServiceImpl {
                 suspendOrganisationResponse.setAddUserResponseJSON(List.of(new addUserResponseJSON(420, e.getMessage())));
                 return suspendOrganisationResponse;
             }
-
-            /*
-
-            Code commented because we cannot get the status from frontend
-            in a non-malicious way. and the service implementation object is
-            destroyed always as such setting the status for the Organisation object
-            is futile
-
-            if ((org.getStatus() != com.GiveaLot.givealot.Organisation.dataclass.Status.Suspended))
-            {
-                help.suspendOrg(org);
-            }
-            else{
-                throw new OrgException("Exception: Organisation is already Suspended");
-            }
-            org.setStatus(com.GiveaLot.givealot.Organisation.dataclass.Status.Suspended);*/
         }
         catch (Exception e)
         {

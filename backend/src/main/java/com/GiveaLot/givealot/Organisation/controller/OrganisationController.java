@@ -2,10 +2,7 @@ package com.GiveaLot.givealot.Organisation.controller;
 
 import com.GiveaLot.givealot.Organisation.OrganisationServiceImpl;
 import com.GiveaLot.givealot.Organisation.addUserResponseJSON;
-import com.GiveaLot.givealot.Organisation.rri.addOrganisationRequest;
-import com.GiveaLot.givealot.Organisation.rri.addOrganisationResponse;
-import com.GiveaLot.givealot.Organisation.rri.suspendOrganisationRequest;
-import com.GiveaLot.givealot.Organisation.rri.suspendOrganisationResponse;
+import com.GiveaLot.givealot.Organisation.rri.*;
 import com.sun.jdi.event.ExceptionEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -52,10 +49,6 @@ public class OrganisationController
     @PostMapping("/suspend")
     List<addUserResponseJSON>suspend_organisation (@RequestBody suspendOrganisationRequest request)
     {
-        System.out.println("suspend_organisation");
-        System.out.println(request.getOrg_id());
-        System.out.println(request.getAdmin_id());
-
         try
         {
             suspendOrganisationResponse suspendOrganisationResponse;
@@ -74,6 +67,28 @@ public class OrganisationController
         {
             return List.of(new addUserResponseJSON(403,e.getMessage()));
         }
+    }
 
+    @PostMapping("/suspend")
+    List<addUserResponseJSON>activate_organisation (@RequestBody reactivateOrganisationRequest request)
+    {
+        try
+        {
+            reactivateOrganisationResponse reactivateOrganisationResponse;
+            reactivateOrganisationResponse = OrganisationServiceImpl.reactivateOrganisation(request);
+
+            if(reactivateOrganisationResponse == null)
+            {
+                return List.of(new addUserResponseJSON(500,"server error suspend"));
+            }
+            else
+            {
+                return reactivateOrganisationResponse.getAddUserResponseJSONS();
+            }
+        }
+        catch(Exception e)
+        {
+            return List.of(new addUserResponseJSON(403,e.getMessage()));
+        }
     }
 }

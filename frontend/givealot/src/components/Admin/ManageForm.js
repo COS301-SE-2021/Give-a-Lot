@@ -107,7 +107,6 @@ export class Manage extends Component {
                         <React.Fragment >
                             <Grid container spacing={3}>
 
-
                                 <Grid item xs={12} sm={3}>
                                     <Button
                                         variant="contained"

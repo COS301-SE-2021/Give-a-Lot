@@ -15,7 +15,7 @@ import ReNewCert from "./components/organisation/ReNewCert";
 function App() {
     return (
       <div className="App">
-        <Admin />
+        <Organisation />
 
         {/* <BasicUserReport /> */}
       </div>

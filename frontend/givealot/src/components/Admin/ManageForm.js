@@ -87,11 +87,9 @@ export class Manage extends Component {
                          <p style={{color: "white"}}>Lazy space, don't remove</p>
                     </div>
 
-
                     {/* <form onSubmit={this.submitHandler}> */}
                         <React.Fragment >
                             <Grid container spacing={3}>
-
                             <form onSubmit={this.handleRemove } style={{padding: "10px"}}>
                                     <input type="hidden" value={id} />
                                     <Grid item xs={12} sm={3}>

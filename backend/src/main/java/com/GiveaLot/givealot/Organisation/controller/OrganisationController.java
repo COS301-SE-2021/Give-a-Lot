@@ -1,13 +1,11 @@
 package com.GiveaLot.givealot.Organisation.controller;
 
+import com.GiveaLot.givealot.Organisation.OrganisationResponseJSON;
 import com.GiveaLot.givealot.Organisation.OrganisationServiceImpl;
-import com.GiveaLot.givealot.Organisation.addUserResponseJSON;
 import com.GiveaLot.givealot.Organisation.rri.*;
-import com.sun.jdi.event.ExceptionEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.*;
 import java.util.List;
 
 @RestController
@@ -23,7 +21,7 @@ public class OrganisationController
     }
 
     @PostMapping("/register")
-    List<addUserResponseJSON>add_organisation(@RequestBody addOrganisationRequest request)
+    List<OrganisationResponseJSON>add_organisation(@RequestBody addOrganisationRequest request)
     {
         try
         {
@@ -35,19 +33,19 @@ public class OrganisationController
                 return addOrganisationResponse.getAddUserResponseJSON();
             else
             {
-                addUserResponseJSON addUserResponseJSON = new addUserResponseJSON(420,"failed to add");
-                return List.of(addUserResponseJSON);
+                OrganisationResponseJSON OrganisationResponseJSON = new OrganisationResponseJSON(420,"failed to add");
+                return List.of(OrganisationResponseJSON);
             }
         }
         catch(Exception e)
         {
-            addUserResponseJSON addUserResponseJSON = new addUserResponseJSON(500,"server error, custom add organisation");
-            return List.of(addUserResponseJSON);
+            OrganisationResponseJSON OrganisationResponseJSON = new OrganisationResponseJSON(500,"server error, custom add organisation");
+            return List.of(OrganisationResponseJSON);
         }
     }
 
     @PostMapping("/suspend")
-    List<addUserResponseJSON>suspend_organisation (@RequestBody suspendOrganisationRequest request)
+    List<OrganisationResponseJSON>suspend_organisation (@RequestBody suspendOrganisationRequest request)
     {
         try
         {
@@ -56,7 +54,7 @@ public class OrganisationController
 
             if(suspendOrganisationResponse == null)
             {
-                return List.of(new addUserResponseJSON(500,"server error suspend"));
+                return List.of(new OrganisationResponseJSON(500,"server error suspend"));
             }
             else
             {
@@ -65,12 +63,12 @@ public class OrganisationController
         }
         catch(Exception e)
         {
-            return List.of(new addUserResponseJSON(403,e.getMessage()));
+            return List.of(new OrganisationResponseJSON(403,e.getMessage()));
         }
     }
 
     @PostMapping("/activate")
-    List<addUserResponseJSON>activate_organisation (@RequestBody reactivateOrganisationRequest request)
+    List<OrganisationResponseJSON>activate_organisation (@RequestBody reactivateOrganisationRequest request)
     {
         try
         {
@@ -79,7 +77,7 @@ public class OrganisationController
 
             if(reactivateOrganisationResponse == null)
             {
-                return List.of(new addUserResponseJSON(500,"server error suspend"));
+                return List.of(new OrganisationResponseJSON(500,"server error suspend"));
             }
             else
             {
@@ -88,7 +86,7 @@ public class OrganisationController
         }
         catch(Exception e)
         {
-            return List.of(new addUserResponseJSON(403,e.getMessage()));
+            return List.of(new OrganisationResponseJSON(403,e.getMessage()));
         }
     }
 }

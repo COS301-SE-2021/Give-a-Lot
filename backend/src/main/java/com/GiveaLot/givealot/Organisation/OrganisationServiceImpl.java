@@ -1,7 +1,6 @@
 package com.GiveaLot.givealot.Organisation;
 
 import com.GiveaLot.givealot.Organisation.dataclass.Organisation;
-import com.GiveaLot.givealot.Organisation.dataclass.Status;
 import com.GiveaLot.givealot.Organisation.rri.*;
 import com.GiveaLot.givealot.Organisation.exceptions.*;
 import org.springframework.stereotype.Service;
@@ -14,16 +13,11 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.*;
-import java.io.IOException;
 import java.util.Properties;
 import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
 import javax.mail.Transport;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 
@@ -56,7 +50,7 @@ public class OrganisationServiceImpl {
             this.OrganisationAddedEmail();
             this.sendEmail();
             addOrganisationResponse addOrganisationResponse = new addOrganisationResponse();
-            addOrganisationResponse.setAddUserResponseJSON( List.of(new addUserResponseJSON(200, "ok")));
+            addOrganisationResponse.setAddUserResponseJSON( List.of(new OrganisationResponseJSON(200, "ok")));
             return addOrganisationResponse;
         }
         catch (Exception e)
@@ -86,20 +80,20 @@ public class OrganisationServiceImpl {
                 this.sendEmail();
 
                 reactivateOrganisationResponse reactivateOrganisationResponse = new reactivateOrganisationResponse();
-                reactivateOrganisationResponse.setAddUserResponseJSON(List.of(new addUserResponseJSON(200, "ok")));
+                reactivateOrganisationResponse.setAddUserResponseJSON(List.of(new OrganisationResponseJSON(200, "ok")));
                 return reactivateOrganisationResponse;
             }
             catch (Exception e)
             {
                 reactivateOrganisationResponse reactivateOrganisationResponse = new reactivateOrganisationResponse();
-                reactivateOrganisationResponse.setAddUserResponseJSON(List.of(new addUserResponseJSON(420, e.getMessage())));
+                reactivateOrganisationResponse.setAddUserResponseJSON(List.of(new OrganisationResponseJSON(420, e.getMessage())));
                 return reactivateOrganisationResponse;
             }
         }
         catch (Exception e)
         {
             reactivateOrganisationResponse reactivateOrganisationResponse = new reactivateOrganisationResponse();
-            reactivateOrganisationResponse.setAddUserResponseJSON(List.of(new addUserResponseJSON(500, e.getMessage())));
+            reactivateOrganisationResponse.setAddUserResponseJSON(List.of(new OrganisationResponseJSON(500, e.getMessage())));
             return reactivateOrganisationResponse;
         }
     }
@@ -157,20 +151,20 @@ public class OrganisationServiceImpl {
                 this.sendEmail();
 
                 suspendOrganisationResponse suspendOrganisationResponse = new suspendOrganisationResponse();
-                suspendOrganisationResponse.setAddUserResponseJSON(List.of(new addUserResponseJSON(200, "ok")));
+                suspendOrganisationResponse.setAddUserResponseJSON(List.of(new OrganisationResponseJSON(200, "ok")));
                 return suspendOrganisationResponse;
             }
             catch (Exception e)
             {
                 suspendOrganisationResponse suspendOrganisationResponse = new suspendOrganisationResponse();
-                suspendOrganisationResponse.setAddUserResponseJSON(List.of(new addUserResponseJSON(420, e.getMessage())));
+                suspendOrganisationResponse.setAddUserResponseJSON(List.of(new OrganisationResponseJSON(420, e.getMessage())));
                 return suspendOrganisationResponse;
             }
         }
         catch (Exception e)
         {
             suspendOrganisationResponse suspendOrganisationResponse = new suspendOrganisationResponse();
-            suspendOrganisationResponse.setAddUserResponseJSON(List.of(new addUserResponseJSON(500, e.getMessage())));
+            suspendOrganisationResponse.setAddUserResponseJSON(List.of(new OrganisationResponseJSON(500, e.getMessage())));
             return suspendOrganisationResponse;
         }
     }

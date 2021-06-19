@@ -1,6 +1,6 @@
 package com.GiveaLot.givealot.Organisation.rri;
 
-import com.GiveaLot.givealot.Organisation.addUserResponseJSON;
+import com.GiveaLot.givealot.Organisation.OrganisationResponseJSON;
 
 import java.util.List;
 
@@ -8,13 +8,13 @@ public class addOrganisationResponse {
 
     public addOrganisationResponse(){}
 
-    List<addUserResponseJSON> addUserResponseJSON;
-    public List<addUserResponseJSON> getAddUserResponseJSON()
+    List<OrganisationResponseJSON> OrganisationResponseJSON;
+    public List<OrganisationResponseJSON> getAddUserResponseJSON()
     {
-        return this.addUserResponseJSON;
+        return this.OrganisationResponseJSON;
     }
 
-    public void setAddUserResponseJSON(List<addUserResponseJSON> addUserResponseJSON) {
-        this.addUserResponseJSON = addUserResponseJSON;
+    public void setAddUserResponseJSON(List<OrganisationResponseJSON> OrganisationResponseJSON) {
+        this.OrganisationResponseJSON = OrganisationResponseJSON;
     }
 }

@@ -22,8 +22,8 @@ import javax.mail.internet.MimeMultipart;
 
 
 @Service
-public class OrganisationServiceImpl {
-
+public class OrganisationServiceImpl
+{
     enum Status{
         Active,
         UnderInvestigation,
@@ -113,7 +113,7 @@ public class OrganisationServiceImpl {
             {
                 Organisation org = new Organisation();
                 org.setOrgId(request.getOrg_id());
-                help.reactivateOrg(org);
+                help.investigateOrg(org);
                 this.setupServerProperties();
                 this.OrganisationUnderInvestigationEmail();
                 this.sendEmail();

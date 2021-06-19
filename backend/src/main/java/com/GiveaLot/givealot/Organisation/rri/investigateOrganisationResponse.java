@@ -11,11 +11,13 @@ public class investigateOrganisationResponse
     public investigateOrganisationResponse()
     {}
 
-    public List<OrganisationResponseJSON> getAddUserResponseJSONS() {
+    public List<OrganisationResponseJSON> getAddUserResponseJSONS()
+    {
         return OrganisationResponseJSON;
     }
 
-    public void setOrganisationResponseJSON(List<OrganisationResponseJSON> OrganisationResponseJSON) {
+    public void setOrganisationResponseJSON(List<OrganisationResponseJSON> OrganisationResponseJSON)
+    {
         this.OrganisationResponseJSON = OrganisationResponseJSON;
     }
 }

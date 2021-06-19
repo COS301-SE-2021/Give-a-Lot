@@ -89,4 +89,27 @@ public class OrganisationController
             return List.of(new OrganisationResponseJSON(403,e.getMessage()));
         }
     }
+
+    @PostMapping("/investigate")
+    List<OrganisationResponseJSON>investigate_organisation (@RequestBody investigateOrganisationRequest request)
+    {
+        try
+        {
+            investigateOrganisationResponse investigateOrganisationResponse;
+            investigateOrganisationResponse = OrganisationServiceImpl.investigateOrganisation(request);
+
+            if(investigateOrganisationResponse == null)
+            {
+                return List.of(new OrganisationResponseJSON(500,"server error suspend"));
+            }
+            else
+            {
+                return investigateOrganisationResponse.getAddUserResponseJSONS();
+            }
+        }
+        catch(Exception e)
+        {
+            return List.of(new OrganisationResponseJSON(403,e.getMessage()));
+        }
+    }
 }

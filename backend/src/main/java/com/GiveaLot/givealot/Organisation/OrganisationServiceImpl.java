@@ -98,35 +98,43 @@ public class OrganisationServiceImpl {
         }
     }
 
-    investigateOrganisationResponse investigateOrganisation(investigateOrganisationRequest request) throws OrgException, MessagingException, IOException {
-        if (request == null){
+    public investigateOrganisationResponse investigateOrganisation(investigateOrganisationRequest request) throws OrgException, MessagingException, IOException {
+        if(request == null)
+        {
             throw new InvalidRequestException("Exception: Organisation could not be updated because the request object is null");
         }
-        try {
-            Organisation org = new Organisation(request.getOrgEmail(), request.getStatus());
-
-            if (!(org.getStatus() == com.GiveaLot.givealot.Organisation.dataclass.Status.UnderInvestigation)){
-                help.investigateOrg(org);
-            }
-            else{
-                throw new OrgException("Exception: Organisation is already UnderInvestigation");
-            }
-            org.setStatus(com.GiveaLot.givealot.Organisation.dataclass.Status.UnderInvestigation);
+        else if(!help.user_isAdmin(request.getAdmin_id()))
+        {
+            throw new OrgException("Exception: not authorized");
         }
-        catch (Exception e){
-            throw new OrgException("Exception: Organisation could not be set to UnderInvestagtion");
+        try
+        {
+            try
+            {
+                Organisation org = new Organisation();
+                org.setOrgId(request.getOrg_id());
+                help.reactivateOrg(org);
+                this.setupServerProperties();
+                this.OrganisationUnderInvestigationEmail();
+                this.sendEmail();
+
+                investigateOrganisationResponse investigateOrganisationResponse = new investigateOrganisationResponse();
+                investigateOrganisationResponse.setAddUserResponseJSON(List.of(new OrganisationResponseJSON(200, "ok")));
+                return investigateOrganisationResponse;
+            }
+            catch (Exception e)
+            {
+                investigateOrganisationResponse investigateOrganisationResponse = new investigateOrganisationResponse();
+                investigateOrganisationResponse.setAddUserResponseJSON(List.of(new OrganisationResponseJSON(420, e.getMessage())));
+                return investigateOrganisationResponse;
+            }
         }
-
-        //then send email
-
-        OrganisationServiceImpl mail = new OrganisationServiceImpl();
-
-        mail.setupServerProperties();
-        mail.OrganisationUnderInvestigationEmail();
-        mail.sendEmail();
-
-
-        return null;
+        catch (Exception e)
+        {
+            investigateOrganisationResponse investigateOrganisationResponse = new investigateOrganisationResponse();
+            investigateOrganisationResponse.setAddUserResponseJSON(List.of(new OrganisationResponseJSON(500, e.getMessage())));
+            return investigateOrganisationResponse;
+        }
     }
 
     public suspendOrganisationResponse suspendOrganisation(suspendOrganisationRequest request) throws OrgException, MessagingException, IOException {
@@ -269,7 +277,7 @@ public class OrganisationServiceImpl {
         mimeMessage.setContent(multiPart);
         return mimeMessage;
     }
-     MimeMessage OrganisationSuspendedEmail() throws AddressException, MessagingException, IOException {
+    MimeMessage OrganisationSuspendedEmail() throws AddressException, MessagingException, IOException {
         String[] emailReceipients = {"u19104546@tuks.co.za"};  //Enter list of email recepients
         String emailSubject = "Givealot Status Change";
         String emailBody = "Hey \nWe hope this message finds you well we have written this message to you to notify you that due to numerous reports your status has changed " +
@@ -297,8 +305,6 @@ public class OrganisationServiceImpl {
         return mimeMessage;
     }
 
-
-
     public static void main(String args[]) throws AddressException, MessagingException, IOException
     {
         OrganisationServiceImpl mail = new OrganisationServiceImpl();
@@ -306,8 +312,4 @@ public class OrganisationServiceImpl {
         mail.OrganisationReactivatedEmail();
         mail.sendEmail();
     }
-
-
-
-
 }

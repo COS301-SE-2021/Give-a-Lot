@@ -1,0 +1,93 @@
+POST http://localhost:8080/organisation/suspend
+Content-Type: application/json
+
+{
+  "org_id" : "organisation id",
+  "admin_id" : "admin id"
+}
+
+<> 2021-06-19T205251.200.json
+
+###
+
+POST http://localhost:8080/organisation/suspend
+Content-Type: application/json
+
+{
+  "org_id" : "organisation id",
+  "admin_id" : "admin id"
+}
+
+<> 2021-06-19T195344.200.json
+
+###
+
+POST http://localhost:8080/organisation/register
+Content-Type: application/json
+
+{
+  "orgName" : "test org name",
+  "orgDescription" : "test org description",
+  "orgSector" : "test org sector",
+  "orgEmail" : "test@email.com",
+  "password" : "test org password",
+  "contactPerson" : "test contact person",
+  "contactNumber" : "test contact number"
+}
+
+<> 2021-06-19T175329.200.json
+
+###
+
+POST http://localhost:8080/organisation/register
+Content-Type: application/json
+
+{
+  "orgName" : "test org name",
+  "orgDescription" : "test org description",
+  "orgSector" : "test org sector",
+  "orgEmail" : "test@email.com",
+  "password" : "test org password",
+  "contactPerson" : "test contact person",
+  "contactNumber" : "test contact number"
+}
+
+<> 2021-06-19T175100.200.json
+
+###
+
+POST http://localhost:8080/organisation/register
+Content-Type: application/json
+
+{
+  "orgName" : "test org name",
+  "orgDescription" : "test org description",
+  "orgSector" : "test org sector",
+  "orgEmail" : "test@email.com",
+  "password" : "test org password",
+  "contactPerson" : "test contact person",
+  "contactNumber" : "test contact number"
+}
+
+<> 2021-06-19T174436.200.json
+
+###
+
+POST http://localhost:8080/browse
+Content-Type: application/json
+
+<> 2021-06-19T084833.200.json
+
+###
+
+POST http://localhost:8080/search/org/request/default
+Content-Type: application/json
+
+{
+   "nameOfOrganisation" : "hope"
+}
+
+<> 2021-06-19T074008.200.json
+
+###
+

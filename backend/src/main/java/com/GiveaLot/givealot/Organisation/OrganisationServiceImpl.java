@@ -128,33 +128,56 @@ public class OrganisationServiceImpl {
     }
 
     suspendOrganisationResponse suspendOrganisation(suspendOrganisationRequest request) throws OrgException, MessagingException, IOException {
-        if (request == null){
+
+        if(request == null)
+        {
             throw new InvalidRequestException("Exception: Organisation could not be updated because the request object is null");
         }
-        try {
-            Organisation org = new Organisation(request.getOrgEmail(), request.getStatus());
+        else if(!help.user_isAdmin(request.getAdmin_id()))
+        {
+            throw new OrgException("Exception: not authorized");
+        }
+        try
+        {
+            try
+            {
+                Organisation org = new Organisation();
+                org.setOrgId(request.getOrg_id());
+                help.suspendOrg(org);
+                this.setupServerProperties();
+                this.OrganisationSuspendedEmail();
+                this.sendEmail();
 
-            if (!(org.getStatus() == com.GiveaLot.givealot.Organisation.dataclass.Status.Suspended)){
+                suspendOrganisationResponse suspendOrganisationResponse = new suspendOrganisationResponse();
+                suspendOrganisationResponse.setAddUserResponseJSON(List.of(new addUserResponseJSON(200, "ok")));
+                return suspendOrganisationResponse;
+            }
+            catch (Exception e)
+            {
+                suspendOrganisationResponse suspendOrganisationResponse = new suspendOrganisationResponse();
+                suspendOrganisationResponse.setAddUserResponseJSON(List.of(new addUserResponseJSON(420, e.getMessage())));
+                return null;
+            }
+
+            /*
+
+            Code commented because we cannot get the status from frontend
+            in a non-malicious way. and the service implementation object is
+            destroyed always as such setting the status for the Organisation object
+            is futile
+
+            if ((org.getStatus() != com.GiveaLot.givealot.Organisation.dataclass.Status.Suspended))
+            {
                 help.suspendOrg(org);
             }
             else{
                 throw new OrgException("Exception: Organisation is already Suspended");
             }
-            org.setStatus(com.GiveaLot.givealot.Organisation.dataclass.Status.Suspended);
+            org.setStatus(com.GiveaLot.givealot.Organisation.dataclass.Status.Suspended);*/
         }
         catch (Exception e){
             throw new OrgException("Exception: Organisation could not be suspended");
         }
-
-        //then send email
-        OrganisationServiceImpl mail = new OrganisationServiceImpl();
-
-        mail.setupServerProperties();
-        mail.OrganisationSuspendedEmail();
-        mail.sendEmail();
-
-
-        return null;
     }
 
      void setupServerProperties()

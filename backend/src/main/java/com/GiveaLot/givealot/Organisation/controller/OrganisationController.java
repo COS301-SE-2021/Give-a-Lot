@@ -4,6 +4,7 @@ import com.GiveaLot.givealot.Organisation.OrganisationServiceImpl;
 import com.GiveaLot.givealot.Organisation.addUserResponseJSON;
 import com.GiveaLot.givealot.Organisation.rri.addOrganisationRequest;
 import com.GiveaLot.givealot.Organisation.rri.addOrganisationResponse;
+import com.GiveaLot.givealot.Organisation.rri.suspendOrganisationRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +28,6 @@ public class OrganisationController
     {
         try
         {
-            System.out.println("controller test");
             System.out.println(request.getOrgName());
             addOrganisationResponse addOrganisationResponse;
             addOrganisationResponse = OrganisationServiceImpl.addOrganisation(request);
@@ -45,5 +45,16 @@ public class OrganisationController
             addUserResponseJSON addUserResponseJSON = new addUserResponseJSON(500,"server error, custom add organisation");
             return List.of(addUserResponseJSON);
         }
+    }
+
+    @PostMapping("/suspend")
+    List<addUserResponseJSON>suspend_organisation (@RequestBody suspendOrganisationRequest request)
+    {
+        System.out.println("suspend_organisation");
+        System.out.println(request.getOrg_id());
+        System.out.println(request.getAdmin_id());
+
+
+        return List.of(new addUserResponseJSON(200,"ok"));
     }
 }

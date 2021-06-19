@@ -147,8 +147,9 @@ public class OrganisationHelper {
 
             System.out.println("Successfully Executed Update");
         }
-        catch (Exception e){
-            throw new SQLException("Exception: Insert into database could not be fulfilled");
+        catch (Exception e)
+        {
+            throw new SQLException("Exception: organisation could not be suspended");
         }
     }
 
@@ -181,11 +182,11 @@ public class OrganisationHelper {
         Organisation org = new Organisation("The Old Orgss", "We are old heress", "Diseasess", "oldorg@gmail.comss","password", "Mr. Old Orgss", "0823322422");
         OrganisationHelper helper = new OrganisationHelper();
         helper.addOrg(org);
+    }
 
-
-
-
-
-
+    public boolean user_isAdmin(String userID)
+    {
+        /*needs implementing*/
+        return true;
     }
 }

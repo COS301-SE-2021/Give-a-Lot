@@ -10,14 +10,14 @@ function Organisation() {
         <div className="organisation">
             <HeaderOrg />
             <Sidebar />
-            {/* <OrganisationReport /> */}
+            <OrganisationReport />
 
-            <div className="dashbaord">
+            {/* <div className="dashbaord">
                 <Switch>
                 <Route path="/orgReport" exact component={OrganisationReport} />
                 <Route path="/" component={Organisation} />
                 </Switch>
-            </div>
+            </div> */}
         </div>
         
     )

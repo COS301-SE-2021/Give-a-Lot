@@ -11,8 +11,7 @@ public class OrganisationHelper {
     public void addOrg(Organisation organisation) throws SQLException {
 
         try {
-
-            String serverName = "hansken.db.elephantsql.com";
+            String serverName = "hanskeyn.db.elephantsql.com";
             String mydatabase = "Givealot";
             String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
 

@@ -66,34 +66,42 @@ public class OrganisationServiceImpl {
     }
 
     public reactivateOrganisationResponse reactivateOrganisation(reactivateOrganisationRequest request) throws OrgException, NoSuchAlgorithmException, SQLException, MessagingException, IOException {
-        if (request == null){
+        if(request == null)
+        {
             throw new InvalidRequestException("Exception: Organisation could not be updated because the request object is null");
         }
-        try {
-            Organisation org = new Organisation(request.getOrgEmail(), request.getStatus());
-
-            if (!(org.getStatus() == com.GiveaLot.givealot.Organisation.dataclass.Status.Active)){
+        else if(!help.user_isAdmin(request.getAdmin_id()))
+        {
+            throw new OrgException("Exception: not authorized");
+        }
+        try
+        {
+            try
+            {
+                Organisation org = new Organisation();
+                org.setOrgId(request.getOrg_id());
                 help.reactivateOrg(org);
+                this.setupServerProperties();
+                this.OrganisationReactivatedEmail();
+                this.sendEmail();
+
+                reactivateOrganisationResponse reactivateOrganisationResponse = new reactivateOrganisationResponse();
+                reactivateOrganisationResponse.setAddUserResponseJSON(List.of(new addUserResponseJSON(200, "ok")));
+                return reactivateOrganisationResponse;
             }
-            else{
-                throw new OrgException("Exception: Organisation is already Active");
+            catch (Exception e)
+            {
+                reactivateOrganisationResponse reactivateOrganisationResponse = new reactivateOrganisationResponse();
+                reactivateOrganisationResponse.setAddUserResponseJSON(List.of(new addUserResponseJSON(420, e.getMessage())));
+                return reactivateOrganisationResponse;
             }
-            org.setStatus(com.GiveaLot.givealot.Organisation.dataclass.Status.Active);
         }
-        catch (Exception e){
-            throw new OrgException("Exception: Organisation could not be reactivated");
+        catch (Exception e)
+        {
+            reactivateOrganisationResponse reactivateOrganisationResponse = new reactivateOrganisationResponse();
+            reactivateOrganisationResponse.setAddUserResponseJSON(List.of(new addUserResponseJSON(500, e.getMessage())));
+            return reactivateOrganisationResponse;
         }
-
-        //then send email
-
-        OrganisationServiceImpl mail = new OrganisationServiceImpl();
-
-        mail.setupServerProperties();
-        mail.OrganisationReactivatedEmail();
-        mail.sendEmail();
-
-
-        return null;
     }
 
     investigateOrganisationResponse investigateOrganisation(investigateOrganisationRequest request) throws OrgException, MessagingException, IOException {

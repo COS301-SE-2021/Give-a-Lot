@@ -18,58 +18,24 @@ import { Link } from 'react-router-dom';
 function Sidebar() {
     return (
         <div className="sidebarRow">
-       
+        <Link to={'/report'}>
             <ListItem button>
             <ListItemIcon>
                 <DashboardIcon />
             </ListItemIcon>
             <ListItemText primary="Report" />
             </ListItem>
-        
-        
+        </Link>
+        <Link to={'/issue'}>
             <ListItem button>
             <ListItemIcon>
                 <PeopleIcon />
             </ListItemIcon>
-            <ListItemText primary="Organisations" />
+            <ListItemText primary="Issue" />
             </ListItem>
-        
+        </Link>
 
         
-            <ListItem button>
-            <ListItemIcon>
-                <PeopleIcon />
-            </ListItemIcon>
-            <ListItemText primary="Users" />
-            </ListItem>
-      
-
-       
-            <ListItem button>
-            <ListItemIcon>
-                <BarChartIcon />
-            </ListItemIcon>
-            <ListItemText primary="Reports" />
-            </ListItem>
-      
-
-       
-            <ListItem button>
-            <ListItemIcon>
-                <BarChartIcon />
-            </ListItemIcon>
-            <ListItemText primary="Donations" />
-            </ListItem>
-        
-
-        
-            <ListItem button>
-            <ListItemIcon>
-                <AssignmentIcon />
-            </ListItemIcon>
-            <ListItemText primary="Certificates" />
-            </ListItem>
-       
     </div>
     )
 }

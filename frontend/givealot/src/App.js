@@ -10,6 +10,7 @@ import BasicUserReport from "./components/basicUser/BasicUserReport";
 import './App.css';
 import Manage from "./components/Admin/Manage";
 import AdminReports from "./components/Admin/AdminReports";
+import Testings from "./components/organisation/Testings";
 
 function App() {
     return (

@@ -1,24 +1,6 @@
 package com.GiveaLot.givealot.Certificate;
 
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.MimeMessage;
-import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
-import java.sql.SQLException;
-import java.util.*;
-import java.io.IOException;
-import java.util.Properties;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
+
 
 import java.io.FileOutputStream;
 import java.lang.String;
@@ -77,6 +59,8 @@ public class CertificateHelper {
         }
     }
 
+    public void checkRenewal() throws SQLException {
+        try {
     public void checkRenewal() throws SQLException, ParseException, MessagingException, IOException {
 //        try {
             String serverName = "hansken.db.elephantsql.com";
@@ -128,11 +112,7 @@ public class CertificateHelper {
                     System.out.println(dateCurrent);
                     System.out.println("Expired");
 
-
-
                     String queryUpdate1 = "update public.\"Certificate\" set \"orgRenewal\" = false where \"orgId\" = '" + id.get(i) + "';";
-
-
 
                     String queryUpdate2 = "update public.\"Certificate\" set \"adminRenewal\" = false where \"orgId\" = '" + id.get(i) + "';";
 
@@ -207,6 +187,30 @@ public class CertificateHelper {
         // CREATE MESSAGE MULTIPART
         // ADD MESSAGE BODY PARTS ----> MULTIPART
         // FINALLY ADD MULTIPART TO MESSAGECONTENT i.e. mimeMessage object
+        } catch (Exception e) {
+            throw new SQLException("Exception: Check database could not be fulfilled");
+        }
+
+    }
+
+    public void orgRenew(String orgId) throws SQLException {
+
+        try {
+            String serverName = "hansken.db.elephantsql.com";
+            String mydatabase = "Givealot";
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
+
+            String username = "iqvyaozz";
+            String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
+            System.out.println("Success");
+            //Setup connection
+            Connection connection = DriverManager.getConnection(url, username, password);
+
+            //Create statement
+            Statement state = connection.createStatement();
+
+            String query = "update public.\"Certificate\" set \"orgRenewal\" = true where \"orgId\" = '" + orgId + "';";
+            //System.out.println(query);
 
 
         MimeBodyPart bodyPart = new MimeBodyPart();
@@ -215,6 +219,51 @@ public class CertificateHelper {
         multiPart.addBodyPart(bodyPart);
         mimeMessage.setContent(multiPart);
         return mimeMessage;
+            state.executeUpdate(query);
+
+            state.close();
+
+        } catch (Exception e) {
+            throw new SQLException("Exception: Update database could not be fulfilled");
+        }
+    }
+    public void adminRenew(String orgId) throws SQLException {
+
+        try {
+            String serverName = "hansken.db.elephantsql.com";
+            String mydatabase = "Givealot";
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
+
+            String username = "iqvyaozz";
+            String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
+            System.out.println("Success");
+            //Setup connection
+            Connection connection = DriverManager.getConnection(url, username, password);
+
+            //Create statement
+            Statement state = connection.createStatement();
+
+            java.util.Date dateCurrent = new Date();
+            java.util.Date dateEx = new Date();
+
+            DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+            String dateCreated = format.format(dateCurrent);
+
+            int year = dateCurrent.getYear();
+            dateEx.setYear(year+1);
+            String dateExpiry = format.format(dateEx);
+
+            String query = "update public.\"Certificate\" set \"adminRenewal\" = true, \"dateExpiry\" = '" + dateExpiry+ "' where \"orgId\" = '" + orgId + "';";
+            //System.out.println(query);
+
+            state.executeUpdate(query);
+
+            state.close();
+
+        } catch (Exception e) {
+            throw new SQLException("Exception: Update database could not be fulfilled");
+        }
     }
 
     public static void main(String[] args) throws SQLException, ParseException, MessagingException, IOException {
@@ -234,6 +283,13 @@ public class CertificateHelper {
 
         CertificateHelper help = new CertificateHelper();
 help.checkRenewal();
+
+        //help.checkRenewal();
+
+        help.adminRenew("40730ff87db670953bf2baad057065ea");
+
+
+
 
     }
 }

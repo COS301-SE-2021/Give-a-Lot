@@ -13,13 +13,13 @@ public class addOrganisationRequest {
     String contactNumber;
 
     addOrganisationRequest(
-            @JsonProperty("organisation") String orgName,
-            @JsonProperty("description") String orgDescription,
-            @JsonProperty("sector") String orgSector,
-            @JsonProperty("email") String orgEmail,
+            @JsonProperty("orgName") String orgName,
+            @JsonProperty("orgDescription") String orgDescription,
+            @JsonProperty("orgSector") String orgSector,
+            @JsonProperty("orgEmail") String orgEmail,
             @JsonProperty("password") String password,
-            @JsonProperty("contact") String contactPerson,
-            @JsonProperty("number") String contactNumber) {
+            @JsonProperty("contactPerson") String contactPerson,
+            @JsonProperty("contactNumber") String contactNumber) {
         this.orgName = orgName;
         this.orgDescription = orgDescription;
         this.orgSector = orgSector;

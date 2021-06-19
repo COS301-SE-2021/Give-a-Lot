@@ -4,6 +4,9 @@ import com.GiveaLot.givealot.Organisation.dataclass.Organisation;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class OrganisationHelper {
     public OrganisationHelper(){}
@@ -24,13 +27,25 @@ public class OrganisationHelper {
             //Create statement
             Statement state = connection.createStatement();
 
+            java.util.Date dateCurrent = new Date();
+            java.util.Date dateEx = new Date();
+
+            DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+            String dateCreated = format.format(dateCurrent);
+
+            int year = dateCurrent.getYear();
+            dateEx.setYear(year+1);
+            String dateExpiry = format.format(dateEx);
+
+
             //organisations is a table
             //String query = "create database newDB;";
             String query1 = "insert into public.\"Organisations\"(\"orgName\", \"orgDescription\", \"orgSector\", \"orgEmail\", \"orgId\", status, password, \"contactPerson\", \"contactNumber\") values ('" + organisation.getOrgName() + "','" + organisation.getOrgDescription() + "','" + organisation.getOrgSector() + "','" + organisation.getOrgEmail() + "','" + organisation.getOrgId() + "','"+ organisation.getStatus().toString() + "','" + organisation.getPassword() + "','" + organisation.getContactPerson() + "','" + organisation.getContactNumber() + "');";
             String query2 = "insert into public.\"OrganisationPoints\"(\"orgId\") values ('" + organisation.getOrgId() + "');";
             String query3 = "insert into public.\"OrganisationInfo\"(\"orgId\") values ('" + organisation.getOrgId() + "');";
-            String query4 = "insert into public.\"Certificate\"(\"orgId\") values ('" + organisation.getOrgId() + "');";
-            //System.out.println(query);
+            String query4 = "insert into public.\"Certificate\"(\"orgId\", \"dateCreated\", \"dateExpiry\") values ('" + organisation.getOrgId() + "','" + dateCreated + "','" + dateExpiry +"');";
+            System.out.println(query4);
 
             //execute the query
             state.executeUpdate(query1);
@@ -162,9 +177,13 @@ public class OrganisationHelper {
 //            System.out.println(rs.getString(1));
 //        }
 
-//        Organisation org = new Organisation("The Old Orgs", "We are old heres", "Diseases", "oldorg@gmail.coms","password", "Mr. Old Orgs", "0823322443");
-//        OrganisationHelper helper = new OrganisationHelper();
-//        helper.addOrg(org);
+        Organisation org = new Organisation("The Old Orgss", "We are old heress", "Diseasess", "oldorg@gmail.comss","password", "Mr. Old Orgss", "0823322422");
+        OrganisationHelper helper = new OrganisationHelper();
+        helper.addOrg(org);
+
+
+
+
 
 
     }

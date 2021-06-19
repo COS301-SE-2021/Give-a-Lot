@@ -5,6 +5,7 @@ import HeaderOrg from "./HeaderOrg";
 import OrganisationReport from './OrganisationReport';
 import Issue from './Issue';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import ReNewCert from "./ReNewCert"
 
 function Organisation() {
     return (
@@ -21,7 +22,7 @@ function Organisation() {
             <div className="dashbaord">
               <Switch>
                 <Route path="/report" exact component={OrganisationReport} />
-                <Route path="/issue" exact component={Issue} />
+                <Route path="/renewCert" exact component={ReNewCert} />
                 {/* <Route path="/" component={Dashboard} /> */}
               </Switch>
             </div>

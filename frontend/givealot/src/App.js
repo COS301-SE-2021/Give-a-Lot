@@ -10,14 +10,14 @@ import BasicUserReport from "./components/basicUser/BasicUserReport";
 import './App.css';
 import Manage from "./components/Admin/Manage";
 import AdminReports from "./components/Admin/AdminReports";
-import Testings from "./components/organisation/Testings";
+import ReNewCert from "./components/organisation/ReNewCert";
 
 function App() {
     return (
       <div className="App">
-          <Admin />
+        <Admin />
 
-          { /* <Organisation />*/}
+        {/* <BasicUserReport /> */}
       </div>
    );
   

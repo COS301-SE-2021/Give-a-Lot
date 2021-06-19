@@ -17,6 +17,8 @@ const useStyles = makeStyles((theme) => ({
     buttons: {
         display: 'flex',
         justifyContent: 'flex-end',
+        padding: "30",
+        margin: "20"
     },
     button: {
         marginTop: theme.spacing(3),
@@ -34,18 +36,18 @@ export class Manage extends Component {
         super(props)
 
         this.state = {
-            username    : "",
-            userEmail   : "",
+            id: ""
         }
     }
 
     changeHandler = (e) =>{
         this.setState({[e.target.name] : e.target.value})
     }
-    submitHandler = (e) =>{
+    
+    handleRemove = (e) =>{
         e.preventDefault()
-        console.log(this.state)
-        axios.post('http://localhost:8080/report/organisation', this.state)
+        console.log("this is ", this.state.id )
+        axios.post('http://localhost:8080/report/organisation/remove', this.state.id)
             .then(response =>{
                 console.log(response)
             })
@@ -86,6 +88,22 @@ export class Manage extends Component {
     render() {
 
       //  const {username, userEmail} = this.state
+
+    handleRenew = (e) =>{
+        e.preventDefault()
+        console.log("this is ", this.state.id )
+        axios.post('http://localhost:8080/report/organisation/renew', this.state.id)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    render() {
+
+        const { id } = this.state
         return (
             <div className="manage">
                 <div >
@@ -150,6 +168,85 @@ export class Manage extends Component {
                             </Grid>
                         </React.Fragment>
 
+                    {/* <form onSubmit={this.submitHandler}> */}
+                        <React.Fragment >
+                            <Grid container spacing={3}>
+
+                            <form onSubmit={this.handleRemove } style={{padding: "10px"}}>
+                                    <input type="hidden" value={id} />
+                                    <Grid item xs={12} sm={3}>
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                           type="submit"
+                                           name="id"
+                                           onChange={this.changeHandler}
+                                        >
+                                            Verify
+                                        </Button>
+                                    </Grid>
+                                </form>
+
+                                <form onSubmit={this.handleRemove} style={{padding: "10px"}}>
+                                    <input type="hidden" value={id} />
+                                    <Grid item xs={12} sm={3}>
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                           type="submit"
+                                           name="id"
+                                           onChange={this.changeHandler}
+                                        >
+                                            Generate
+                                        </Button>
+                                    </Grid>
+                                </form>
+                                <form onSubmit={this.handleRemove} style={{padding: "10px", alignItems: "center"}}>
+                                    <input type="hidden" value={id} />
+                                    <Grid item xs={12} sm={3}>
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                           type="submit"
+                                           name="id"
+                                           onChange={this.changeHandler}
+                                        >
+                                            Revoke
+                                        </Button>
+                                    </Grid>
+                                </form>
+
+                                <form onSubmit={this.handleRenew} style={{padding: "10px"}}>
+                                    <input type="hidden" value={id} />
+                                    <Grid item xs={12} sm={3}>
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                           type="submit"
+                                           name="id"
+                                           
+                                        >
+                                            ReNew
+                                        </Button>
+                                    </Grid>
+                                </form>
+
+                                <form onSubmit={this.handleRemove} style={{padding: "10px"}}>
+                                    <input type="hidden" value={id} />
+                                    <Grid item xs={12} sm={3}>
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                           type="submit"
+                                           name="id"  
+                                        >
+                                            Remove
+                                        </Button>
+                                    </Grid>
+                                </form>
+                                
+                            </Grid>
+                        </React.Fragment>
                 </div>
             </div>
         )

@@ -1,75 +1,102 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import {makeStyles} from "@material-ui/core/styles";
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import MenuItem from "@material-ui/core/MenuItem";
 import axios from 'axios';
+import InputLabel from '@material-ui/core/InputLabel';
+// import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import NativeSelect from '@material-ui/core/NativeSelect';
+import InputBase from '@material-ui/core/InputBase';
+import { Report } from '@material-ui/icons';
 
+// const useStyles = makeStyles((theme) => ({
 
+//     buttons: {
+//         display: 'flex',
+//         justifyContent: 'flex-end',
+//     },
+//     button: {
+//         marginTop: theme.spacing(3),
+//         marginLeft: theme.spacing(1),
+//     },
+// }));
 
-const useStyles = makeStyles((theme) => ({
-
-    buttons: {
-        display: 'flex',
-        justifyContent: 'flex-end',
-    },
-    button: {
+const BootstrapInput = withStyles((theme) => ({
+    root: {
+      'label + &': {
         marginTop: theme.spacing(3),
-        marginLeft: theme.spacing(1),
+      },
     },
-}));
+    input: {
+      borderRadius: 4,
+      position: 'relative',
+      backgroundColor: theme.palette.background.paper,
+      border: '1px solid #ced4da',
+      fontSize: 16,
+      padding: '10px 26px 10px 12px',
+      transition: theme.transitions.create(['border-color', 'box-shadow']),
+      // Use the system font instead of the default Roboto font.
+      fontFamily: [
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+      ].join(','),
+      '&:focus': {
+        borderRadius: 4,
+        borderColor: '#80bdff',
+        boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
+      },
+    },
+  }))(InputBase);
 
-const TypeChoices = [
-    {
-        value: 'one',
-        label: 'Incorect Profile Information',
+  const useStyles = makeStyles((theme) => ({
+    margin: {
+      margin: theme.spacing(1),
     },
-    {
-        value: 'two',
-        label: 'Suspicious Behavior',
-    },
-    {
-        value: 'three',
-        label: 'Fraud Activity',
-    },
-    {
-        value: 'four',
-        label: 'Other stuff',
-    },
-];
-
-class OrgReportForm extends Component {
-
+  }));
+class ReportForm extends Component {
+     
     constructor(props) {
         super(props)
-
+    
         this.state = {
             description : "",
-            type	     : "",
+            type: "",
             // username    : "",
-            userEmail   : "",
+            userEmail: "",
             country: "",
             Follow: ""
         }
     }
 
     changeHandler = (e) =>{
+        // console.log(this)
         this.setState({[e.target.name] : e.target.value})
     }
     submitHandler = (e) =>{
         e.preventDefault()
         console.log(this.state)
         axios.post('http://localhost:8080/report/organisation', this.state)
-            .then(response =>{
-                console.log(response)
-            })
-            .catch(error =>{
-                console.log(error)
-            })
+        .then(response =>{
+            console.log(response)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
     }
 
     render() {
@@ -78,109 +105,49 @@ class OrgReportForm extends Component {
         return (
             <form onSubmit={this.submitHandler}>
                 <React.Fragment >
-                    <Grid container spacing={3}>
-                        {/* <Grid item xs={12} sm={6}>
+                <Grid container spacing={3}>
+                    <Grid item xs={12} sm={6}>
                         <TextField
                             required
-                            id="Name"
-                            name="username"
-                            label="Organisation name"
+                            id="department"
+                            name="userEmail"
+                            label="Useremail"
                             fullWidth
-                            autoComplete="given-name"
-                            value={Name} onChange={this.changeHandler}
+                            autoComplete="department"
+                            value={department} onChange={this.changeHandler}
                         />
-                    </Grid> */}
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                required
-                                id="department"
-                                name="userEmail"
-                                label="Useremail"
-                                fullWidth
-                                autoComplete="department"
-                                value={department} onChange={this.changeHandler}
-                            />
-                        </Grid>
+                    </Grid>
 
-                        {/* <Grid item xs={12}>
-
-                        </Grid>
-                         <Grid item xs={12} sm={6}>
+                    <Grid item xs={12} sm={6}>
+                        <NativeSelect
+                        value={type}
+                        onChange={this.changeHandler}
+                        name="type"
+                        //   className={classes.selectEmpty}
+                        inputProps={{ 'aria-label': 'type' }}
+                        >
+                        <option disabled value="">Select Type</option>
+                        <option value={"Incorect Profile Information"}>Incorect Profile Information</option>
+                        <option value={"Suspicious Behavior"}>Suspicious Behavior</option>
+                        <option value={"Fraud Activity"}>Fraud Activity</option>
+                        </NativeSelect>
+                    </Grid>
+            
+                    <Grid item xs={12} >
                         <TextField
-                            id="time"
-                            label="Time"
-                            type="time"
-                            name="time"
-                            defaultValue="07:30"
+                            id="outlined-multiline-static"
+                            label="Description"
+                            multiline
+                            rows={5}
                             fullWidth
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                            inputProps={{
-                                step: 300, // 5 min
-                            }}
-                            value={time} onChange={this.changeHandler}
+                            name="description"
+                            variant="outlined"
+                            value={description} onChange={this.changeHandler}
                         />
-                    </Grid> */}
-                        {/* <Grid item xs={12} sm={6}>
+                    </Grid>
+                     <Grid item xs={12}>
                         <TextField
-                            required
-                            id="date"
-                            name="date"
-                            label="Date"
-                            type="date"
-                            fullWidth
-                            defaultValue="2017-05-24"
-
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                            value={date} onChange={this.changeHandler}
-                        />
-                    </Grid> */}
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                id="type"
-                                select
-                                label="Please select report Type"
-                                fullWidth
-                                name="type"
-                                value={type} onChange={this.changeHandler}
-
-                            >
-                                {TypeChoices.map((option) => (
-                                    <MenuItem key={option.value} value={option.value}>
-                                        {option.label}
-                                    </MenuItem>
-                                ))}
-                            </TextField>
-                        </Grid>
-                        {/* <Grid item xs={12} sm={6}>
-                        <TextField
-                            required
-                            id="country"
-                            name="country"
-                            label="Country"
-                            fullWidth
-                            autoComplete="shipping country"
-                            value={country} onChange={this.changeHandler}
-                        />
-                    </Grid> */}
-                        <Grid item xs={12} >
-                            <TextField
-                                id="outlined-multiline-static"
-                                label="Description"
-                                multiline
-                                rows={8}
-                                fullWidth
-                                name="description"
-                                variant="outlined"
-                                value={description} onChange={this.changeHandler}
-                            />
-                        </Grid>
-                        { <Grid item xs={12}>
-                        <TextField
-
+    
                             id="Follow"
                             name="Follow"
                             label="Follow Up Recommendations"
@@ -188,24 +155,26 @@ class OrgReportForm extends Component {
                             autoComplete="Follow "
                             value={Follow} onChange={this.changeHandler}
                         />
-                    </Grid> }
-                        <Grid item xs={12}>
-                            <Button
-                                variant="contained"
-                                color="primary"
-
-                            >
-                                Report
-                            </Button>
-                        </Grid>
                     </Grid>
-                </React.Fragment>
-            </form>
-
+                    <Grid item xs={12}>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            type="submit"
+                        // onClick={handleNext}
+                            // className={classes.button}
+                        >
+                            Report
+                        </Button>
+                    </Grid>
+                </Grid>
+            </React.Fragment>
+        </form>
+            
         );
 
     }
 
 }
 
-export default OrgReportForm
+export default ReportForm

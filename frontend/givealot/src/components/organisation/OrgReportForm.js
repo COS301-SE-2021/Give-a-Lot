@@ -5,41 +5,69 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import {makeStyles} from "@material-ui/core/styles";
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import MenuItem from "@material-ui/core/MenuItem";
 import axios from 'axios';
+import InputLabel from '@material-ui/core/InputLabel';
+// import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import NativeSelect from '@material-ui/core/NativeSelect';
+import InputBase from '@material-ui/core/InputBase';
 
-const useStyles = makeStyles((theme) => ({
+// const useStyles = makeStyles((theme) => ({
 
-    buttons: {
-        display: 'flex',
-        justifyContent: 'flex-end',
-    },
-    button: {
+//     buttons: {
+//         display: 'flex',
+//         justifyContent: 'flex-end',
+//     },
+//     button: {
+//         marginTop: theme.spacing(3),
+//         marginLeft: theme.spacing(1),
+//     },
+// }));
+
+const BootstrapInput = withStyles((theme) => ({
+    root: {
+      'label + &': {
         marginTop: theme.spacing(3),
-        marginLeft: theme.spacing(1),
+      },
     },
-}));
+    input: {
+      borderRadius: 4,
+      position: 'relative',
+      backgroundColor: theme.palette.background.paper,
+      border: '1px solid #ced4da',
+      fontSize: 16,
+      padding: '10px 26px 10px 12px',
+      transition: theme.transitions.create(['border-color', 'box-shadow']),
+      // Use the system font instead of the default Roboto font.
+      fontFamily: [
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+      ].join(','),
+      '&:focus': {
+        borderRadius: 4,
+        borderColor: '#80bdff',
+        boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
+      },
+    },
+  }))(InputBase);
 
-const TypeChoices = [
-    {
-        value: 'one',
-        label: 'Incorect Profile Information',
+  const useStyles = makeStyles((theme) => ({
+    margin: {
+      margin: theme.spacing(1),
     },
-    {
-        value: 'two',
-        label: 'Suspicious Behavior',
-    },
-    {
-        value: 'three',
-        label: 'Fraud Activity',
-    },
-    {
-        value: 'four',
-        label: 'Other stuff',
-    },
-];
-
+  }));
+  
 class OrgReportForm extends Component {
      
     constructor(props) {
@@ -47,15 +75,16 @@ class OrgReportForm extends Component {
     
         this.state = {
             description : "",
-            type	     : "",
+            type: "",
             // username    : "",
-            userEmail   : "",
+            userEmail: "",
             country: "",
             Follow: ""
         }
     }
 
     changeHandler = (e) =>{
+        // console.log(this)
         this.setState({[e.target.name] : e.target.value})
     }
     submitHandler = (e) =>{
@@ -77,17 +106,6 @@ class OrgReportForm extends Component {
             <form onSubmit={this.submitHandler}>
                 <React.Fragment >
                 <Grid container spacing={3}>
-                    {/* <Grid item xs={12} sm={6}>
-                        <TextField
-                            required
-                            id="Name"
-                            name="username"
-                            label="Organisation name"
-                            fullWidth
-                            autoComplete="given-name"
-                            value={Name} onChange={this.changeHandler}
-                        />
-                    </Grid> */}
                     <Grid item xs={12} sm={6}>
                         <TextField
                             required
@@ -100,76 +118,27 @@ class OrgReportForm extends Component {
                         />
                     </Grid>
 
-                    {/*<Grid item xs={12}>
-    
-                    </Grid>
-                     <Grid item xs={12} sm={6}>
-                        <TextField
-                            id="time"
-                            label="Time"
-                            type="time"
-                            name="time"
-                            defaultValue="07:30"
-                            fullWidth
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                            inputProps={{
-                                step: 300, // 5 min
-                            }}
-                            value={time} onChange={this.changeHandler}
-                        />
-                    </Grid> */}
-                    {/* <Grid item xs={12} sm={6}>
-                        <TextField
-                            required
-                            id="date"
-                            name="date"
-                            label="Date"
-                            type="date"
-                            fullWidth
-                            defaultValue="2017-05-24"
-    
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                            value={date} onChange={this.changeHandler}
-                        />
-                    </Grid> */}
                     <Grid item xs={12} sm={6}>
-                        <TextField
-                            id="type"
-                            select
-                            label="Please select report Type"
-                            fullWidth
-                            name="type"
-                            value={type} onChange={this.changeHandler}
-                        
+                        <NativeSelect
+                        value={type}
+                        onChange={this.changeHandler}
+                        name="type"
+                        //   className={classes.selectEmpty}
+                        inputProps={{ 'aria-label': 'type' }}
                         >
-                            {TypeChoices.map((option) => (
-                                <MenuItem key={option.value} value={option.value}>
-                                    {option.label}
-                                </MenuItem>
-                            ))}
-                        </TextField>
+                        <option disabled value="">Select Type</option>
+                        <option value={"Incorect Profile Information"}>Incorect Profile Information</option>
+                        <option value={"Suspicious Behavior"}>Suspicious Behavior</option>
+                        <option value={"Fraud Activity"}>Fraud Activity</option>
+                        </NativeSelect>
                     </Grid>
-                    {/* <Grid item xs={12} sm={6}>
-                        <TextField
-                            required
-                            id="country"
-                            name="country"
-                            label="Country"
-                            fullWidth
-                            autoComplete="shipping country"
-                            value={country} onChange={this.changeHandler}
-                        />
-                    </Grid> */}
+            
                     <Grid item xs={12} >
                         <TextField
                             id="outlined-multiline-static"
                             label="Description"
                             multiline
-                            rows={8}
+                            rows={5}
                             fullWidth
                             name="description"
                             variant="outlined"
@@ -191,6 +160,7 @@ class OrgReportForm extends Component {
                         <Button
                             variant="contained"
                             color="primary"
+                            type="submit"
                         // onClick={handleNext}
                             // className={classes.button}
                         >

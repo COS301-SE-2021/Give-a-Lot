@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 
 public class OrganisationHelper {
-    OrganisationHelper(){}
+    public OrganisationHelper(){}
 
     public void addOrg(Organisation organisation) throws SQLException {
 

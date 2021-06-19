@@ -138,10 +138,7 @@ export class Status extends Component {
 
     handleChange = (e) => {
         console.log(e);
-
         this.setState({[e.target.name] : e.target.value})
-
-
             axios.post('https://jsonplaceholder.typicode.com/users',{state:this.status})
                 .then(response =>{
                     console.log(response)
@@ -151,7 +148,6 @@ export class Status extends Component {
                     console.log(error)
                     this.setState({error : 'Error Retrieving data'})
                 })
-
     };
 
     handleClickOpen = (e) => {
@@ -162,14 +158,38 @@ export class Status extends Component {
         this.setState({ open: false });
     };
 
-    handleAgree = () => {
-        console.log("Proceed!");
+    handleAgree = (e) => {
+        // console.log("Proceed!");
         this.handleClose();
+        this.setState({[e.target.name] : e.target.value})
+            axios.post('https://jsonplaceholder.typicode.com/users',{state:this.status})
+                .then(response =>{
+                    console.log(response)
+                    this.setState({posts: response.data})
+                })
+                .catch(error =>{
+                    console.log(error)
+                    this.setState({error : 'Error Retrieving data'})
+                })
     };
     handleDisagree = () => {
         console.log("Cancel.");
         this.handleClose();
     };
+
+    handleSubmit = (e) => {
+        console.log(e);
+        this.setState({[e.target.name] : e.target.value})
+            axios.post('https://jsonplaceholder.typicode.com/users',{state:this.status})
+                .then(response =>{
+                    console.log(response)
+                    this.setState({posts: response.data})
+                })
+                .catch(error =>{
+                    console.log(error)
+                    this.setState({error : 'Error Retrieving data'})
+                })
+    }
 
     render() {
         const { classes } = this.props;
@@ -177,7 +197,7 @@ export class Status extends Component {
 
         return (
             <div>
-                <FormControl variant="outlined" className={classes.formControl}>
+                <FormControl variant="outlined" className={classes.formControl} onSubmit={this.handleSubmit}>
                  <InputLabel id="label" >{status}</InputLabel>
                  <Select
                     labelId="label"
@@ -187,16 +207,13 @@ export class Status extends Component {
                      onChange={this.handleClickOpen}
                     label="Status"
                 >
-                    <MenuItem value="">
+                    <MenuItem value={status} name="status">
                         <em>None</em>
                     </MenuItem>
                     <MenuItem value={10}>Active</MenuItem>
                     <MenuItem value={20}>Suspend</MenuItem>
                     <MenuItem value={30}>UnderInvestigation</MenuItem>
                 </Select>
-            </FormControl>
-
-
                 <Dialog
                     open={this.state.open}
                     onClose={this.handleClose}
@@ -220,6 +237,10 @@ export class Status extends Component {
                         </Button>
                     </DialogActions>
                 </Dialog>
+            </FormControl>
+
+
+                
 
             </div>
         )

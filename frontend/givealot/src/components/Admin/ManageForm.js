@@ -47,7 +47,19 @@ export class Manage extends Component {
     handleRemove = (e) =>{
         e.preventDefault()
         console.log("this is ", this.state.id )
-        axios.post('http://localhost:8080/report/organisation', this.state.id)
+        axios.post('http://localhost:8080/report/organisation/remove', this.state.id)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    handleRenew = (e) =>{
+        e.preventDefault()
+        console.log("this is ", this.state.id )
+        axios.post('http://localhost:8080/report/organisation/renew', this.state.id)
             .then(response =>{
                 console.log(response)
             })
@@ -123,6 +135,22 @@ export class Manage extends Component {
                                         </Button>
                                     </Grid>
                                 </form>
+
+                                <form onSubmit={this.handleRenew} style={{padding: "10px"}}>
+                                    <input type="hidden" value={id} />
+                                    <Grid item xs={12} sm={3}>
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                           type="submit"
+                                           name="id"
+                                           
+                                        >
+                                            ReNew Certificate
+                                        </Button>
+                                    </Grid>
+                                </form>
+
                                 <form onSubmit={this.handleRemove} style={{padding: "10px"}}>
                                     <input type="hidden" value={id} />
                                     <Grid item xs={12} sm={3}>

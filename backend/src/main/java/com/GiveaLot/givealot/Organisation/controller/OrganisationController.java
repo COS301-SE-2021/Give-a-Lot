@@ -69,7 +69,7 @@ public class OrganisationController
         }
     }
 
-    @PostMapping("/suspend")
+    @PostMapping("/activate")
     List<addUserResponseJSON>activate_organisation (@RequestBody reactivateOrganisationRequest request)
     {
         try

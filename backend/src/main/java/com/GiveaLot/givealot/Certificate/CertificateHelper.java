@@ -21,6 +21,7 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 //import java.sql.Date;
 import java.util.Date;
@@ -56,8 +57,8 @@ public class CertificateHelper {
         }
     }
 
-    public void checkRenewal() throws SQLException {
-        try {
+    public void checkRenewal() throws SQLException, ParseException {
+//        try {
             String serverName = "hansken.db.elephantsql.com";
             String mydatabase = "Givealot";
             String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
@@ -82,37 +83,75 @@ public class CertificateHelper {
             System.out.println(query);
             ResultSet rs = state.executeQuery(query);
 
+            List<String>id = new ArrayList<>();
+
+            List<Date> expiry = new ArrayList<>();;
+
+            int j = 0;
+            while(rs.next()){
+                id.add(rs.getString("orgId"));
+                expiry.add(format.parse(rs.getString("dateExpiry")));
+                j++;
+
+            }
+
+
+
 
             System.out.println("Success");
-            try {
-                while (rs.next()) {
-                    System.out.println("//////////////////////////////////////////");
-                    rs.getString("dateExpiry");
-                    Date sqlDate = format.parse(rs.getString("dateExpiry"));
+            int i = 0;
+            while (i < j) {
+                System.out.println("//////////////////////////////////////////");
+                
+                Date sqlDate = expiry.get(i);
 
-                    boolean check = dateCurrent.after(sqlDate);
-                    if (check){
-                        System.out.println(sqlDate);
-                        System.out.println(" is before ");
-                        System.out.println(dateCurrent);
-                        System.out.println("Expired");
-                    }else{
-                        System.out.println(sqlDate);
-                        System.out.println(" is after ");
-                        System.out.println(dateCurrent);
-                        System.out.println("Valid");
-                    }
+                boolean check = dateCurrent.after(sqlDate);
+                if (check) {
+
+                    System.out.println(sqlDate);
+                    System.out.println(" is before ");
+                    System.out.println(dateCurrent);
+                    System.out.println("Expired");
+
+
+
+                    String queryUpdate1 = "update public.\"Certificate\" set \"orgRenewal\" = false where \"orgId\" = '" + id.get(i) + "';";
+
+
+
+                    String queryUpdate2 = "update public.\"Certificate\" set \"adminRenewal\" = false where \"orgId\" = '" + id.get(i) + "';";
+
+                    state.executeUpdate(queryUpdate1);
+                    state.executeUpdate(queryUpdate2);
+
+
+
+                } else {
+
+                    System.out.println(sqlDate);
+                    System.out.println(" is after ");
+                    System.out.println(dateCurrent);
+                    System.out.println("Valid");
+
                 }
-            } catch (ParseException parseException) {
-            parseException.printStackTrace();
-        }
+                i++;
+            }
 
-    } catch (Exception e) {
-            throw new SQLException("Exception: Check database could not be fulfilled");
-        }
+            try {
+                rs.close();
+                state.close();
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+
+
+//        } catch (Exception e) {
+//            throw new SQLException("Exception: Check database could not be fulfilled");
+//        }
+
     }
 
-    public static void main(String[] args) throws  SQLException {
+    public static void main(String[] args) throws SQLException, ParseException {
 //        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 //        Date dateCreated = new Date();
 //        Date dateExpiry = new Date();

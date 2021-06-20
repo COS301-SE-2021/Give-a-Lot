@@ -142,7 +142,6 @@ public class CertificateHelper {
                     setupServerProperties();
                     CertficateExpiredEmail(name,email);
                     sendEmail();
-
                 } else {
                     System.out.println(sqlDate);
                     System.out.println(" is after ");

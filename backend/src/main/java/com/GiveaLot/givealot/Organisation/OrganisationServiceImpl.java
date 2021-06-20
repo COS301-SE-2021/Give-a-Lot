@@ -50,6 +50,13 @@ public class OrganisationServiceImpl
         {
             throw new OrgException("Exception : empty fields not allowed");
         }
+        else
+        {
+            if(!request.getOrgEmail().contains("@"))
+            {
+                throw new OrgException("Exception : invalid email");
+            }
+        }
 
         Organisation org = new Organisation(request.getOrgName(),request.getOrgDescription(),request.getOrgSector(),request.getOrgEmail(),request.getPassword(),request.getContactPerson(),request.getContactNumber());
 

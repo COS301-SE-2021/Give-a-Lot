@@ -24,8 +24,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(MockitoExtension.class)
-public class ReportUnitTest {
-
+public class ReportUnitTest
+{
     @InjectMocks
 
     createReportRequest request1;
@@ -41,25 +41,18 @@ public class ReportUnitTest {
     Report report2;
     Report report3;
 
-
     @BeforeEach
     void setUp() {
 
         reportHelper = new ReportHelper();
 
-
         request1 = null;
 
-
         request2 = new createReportRequest("24534643576546", "Some description", "Fraud", "reporter@gmail.com");
-
 
         report1 = new Report();
         report2 = new Report(request2.getOrgId(), request2.getReportDescription(), request2.getReportType(), request2.getReporterEmail());
         report3 = new Report(request2.getOrgId(), request2.getReportDescription(), request2.getReportType(), request2.getReporterEmail());
-
-
-
     }
 
     @Test

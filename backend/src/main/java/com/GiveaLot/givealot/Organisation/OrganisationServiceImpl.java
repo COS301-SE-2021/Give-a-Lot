@@ -40,7 +40,7 @@ public class OrganisationServiceImpl {
 
     OrganisationHelper help = new OrganisationHelper();
 
-    public addOrganisationResponse addOrganisation(addOrganisationRequest request) throws InvalidRequestException, NoSuchAlgorithmException, SQLException, MessagingException, IOException {
+    public addOrganisationResponse addOrganisation(addOrganisationRequest request) throws OrgException, NoSuchAlgorithmException, SQLException, MessagingException, IOException {
         if (request == null)
         {
             throw new InvalidRequestException("Exception: Organisation could not be added because the request object is null");
@@ -48,8 +48,10 @@ public class OrganisationServiceImpl {
 
         Organisation org = new Organisation(request.getOrgName(),request.getOrgDescription(),request.getOrgSector(),request.getOrgEmail(),request.getPassword(),request.getContactPerson(),request.getContactNumber());
 
+        help.orgExists(org);
         try
         {
+
             help.addOrg(org);
             org.setStatus(com.GiveaLot.givealot.Organisation.dataclass.Status.Active);
             this.setupServerProperties();

@@ -242,13 +242,32 @@ public class OrganisationHelper {
         {
             try
             {
+                String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
+                String username = "iqvyaozz";
+                String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
+                Connection connection = DriverManager.getConnection(url, username, password);
+                Statement state = connection.createStatement();
 
+                String sql_query = "select * from public.\"Organisations\"  where \"orgId\" = '" + org.getOrgId() + "';";
+                ResultSet rs = state.executeQuery(sql_query);
+
+                if(!rs.next())
+                {
+                    System.out.println("organisation not found");
+                    return null;
+                }
+                else
+                {
+                    System.out.println("organisation found");
+                    return new get_OrganisationResponseJSON(rs.getString("orgId"),rs.getString("orgName"),rs.getString("orgDescription"));
+                }
             }
             catch (Exception e)
             {
-
+                System.out.println("get_org: problems executing query\n" + e.getMessage());
+                return  null;
             }
-            return  null;
+
         }
 
 
@@ -278,9 +297,19 @@ public class OrganisationHelper {
 //            System.out.println(rs.getString(1));
 //        }
 
-        Organisation org = new Organisation("The Old Orgssss", "We are old heressss", "Diseasess", "oldorg@gmail.comssss", "password", "Mr. Old Orgsss", "0823322423");
+        /*Organisation org = new Organisation("The Old Orgssss", "We are old heressss", "Diseasess", "oldorg@gmail.comssss", "password", "Mr. Old Orgsss", "0823322423");
         OrganisationHelper helper = new OrganisationHelper();
-        helper.addOrg(org);
+        helper.addOrg(org);*/
+
+
+        /*get organisation test
+        System.out.println("get organisation test");
+        OrganisationHelper OrganisationHelper = new OrganisationHelper();
+
+        Organisation Organisation = new Organisation();
+        Organisation.setOrgId("c289050761c2b2c85c4b8695ab9a0991");
+        System.out.println(OrganisationHelper.getOrganisation(Organisation).getOrg_description());
+        System.out.println("get organisation test complete :-)");*/
     }
 
 

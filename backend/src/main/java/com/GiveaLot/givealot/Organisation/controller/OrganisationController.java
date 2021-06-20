@@ -22,6 +22,7 @@ public class OrganisationController
         this.OrganisationServiceImpl = OrganisationServiceImpl;
     }
 
+    @CrossOrigin
     @PostMapping("/register")
     List<OrganisationResponseJSON>add_organisation(@RequestBody addOrganisationRequest request)
     {
@@ -45,6 +46,7 @@ public class OrganisationController
         }
     }
 
+    @CrossOrigin
     @PostMapping("/suspend")
     List<OrganisationResponseJSON>suspend_organisation (@RequestBody suspendOrganisationRequest request)
     {
@@ -68,6 +70,7 @@ public class OrganisationController
         }
     }
 
+    @CrossOrigin
     @PostMapping("/activate")
     List<OrganisationResponseJSON>activate_organisation (@RequestBody reactivateOrganisationRequest request)
     {
@@ -91,6 +94,7 @@ public class OrganisationController
         }
     }
 
+    @CrossOrigin
     @PostMapping("/investigate")
     List<OrganisationResponseJSON>investigate_organisation (@RequestBody investigateOrganisationRequest request)
     {
@@ -114,6 +118,7 @@ public class OrganisationController
         }
     }
 
+    @CrossOrigin
     @PostMapping("/get")
     List<get_OrganisationResponseJSON>get_organisation (@RequestBody getOrganisationRequest request)
     {
@@ -122,18 +127,16 @@ public class OrganisationController
             getOrganisationResponse getOrganisationResponse;
             getOrganisationResponse = OrganisationServiceImpl.getOrganisation(request);
 
-            if(getOrganisationResponse == null)
+            if(getOrganisationResponse != null)
             {
-                return List.of(new OrganisationResponseJSON(500,"server error investigate"));
-            }
-            else
-            {
-                return getOrganisationResponse.getAddUserResponseJSONS();
+                return getOrganisationResponse.get_OrganisationResponseJSON();
             }
         }
         catch(Exception e)
         {
-            return List.of(new get_OrganisationResponseJSON(403,e.getMessage()));
+            return List.of(null);
         }
+        return List.of(null);
+
     }
 }

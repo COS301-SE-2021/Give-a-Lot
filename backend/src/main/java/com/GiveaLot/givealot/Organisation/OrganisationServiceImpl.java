@@ -37,9 +37,18 @@ public class OrganisationServiceImpl
     OrganisationHelper help = new OrganisationHelper();
 
     public addOrganisationResponse addOrganisation(addOrganisationRequest request) throws OrgException, NoSuchAlgorithmException, SQLException, MessagingException, IOException {
-        if (request == null)
+
+        if(request == null)
         {
             throw new InvalidRequestException("Exception: Organisation could not be added because the request object is null");
+        }
+        else if(request.getOrgName().length() == 0 || request.getOrgDescription().length() == 0)
+        {
+            throw new OrgException("Exception : empty fields not allowed");
+        }
+        else if(request.getOrgSector().length() == 0 || request.getOrgEmail().length() == 0 || request.getContactPerson().length() == 0 || request.getContactNumber().length() == 0)
+        {
+            throw new OrgException("Exception : empty fields not allowed");
         }
 
         Organisation org = new Organisation(request.getOrgName(),request.getOrgDescription(),request.getOrgSector(),request.getOrgEmail(),request.getPassword(),request.getContactPerson(),request.getContactNumber());

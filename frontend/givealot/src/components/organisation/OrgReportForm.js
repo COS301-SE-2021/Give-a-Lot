@@ -76,10 +76,7 @@ class OrgReportForm extends Component {
         this.state = {
             description : "",
             type: "",
-            // username    : "",
-            userEmail: "",
-            country: "",
-            Follow: ""
+            yourEmail: "",
         }
     }
 
@@ -100,7 +97,7 @@ class OrgReportForm extends Component {
     }
 
     render() {
-        const {Name, department, time,date, type, description,country,Follow} = this.state
+        const {Name, yourEmail,department, time,date, type, description,country,Follow} = this.state
         // const classes = useStyles();
         return (
             <form onSubmit={this.submitHandler}>
@@ -109,12 +106,12 @@ class OrgReportForm extends Component {
                     <Grid item xs={12} sm={6}>
                         <TextField
                             required
-                            id="department"
-                            name="userEmail"
-                            label="Useremail"
+                            id="yourEmail"
+                            name="yourEmail"
+                            label="Your Email"
                             fullWidth
                             autoComplete="department"
-                            value={department} onChange={this.changeHandler}
+                            value={yourEmail} onChange={this.changeHandler}
                         />
                     </Grid>
 
@@ -145,7 +142,7 @@ class OrgReportForm extends Component {
                             value={description} onChange={this.changeHandler}
                         />
                     </Grid>
-                     <Grid item xs={12}>
+                     {/* <Grid item xs={12}>
                         <TextField
     
                             id="Follow"
@@ -155,7 +152,7 @@ class OrgReportForm extends Component {
                             autoComplete="Follow "
                             value={Follow} onChange={this.changeHandler}
                         />
-                    </Grid>
+                    </Grid> */}
                     <Grid item xs={12}>
                         <Button
                             variant="contained"

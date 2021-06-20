@@ -1,36 +1,57 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
-// import Routes, { Home, News, NoMatch } from './Routes';
-import { MemoryRouter
-} from 'react-router'
-import { Route } from 'react-router-dom';
-import Dashboard from './components/Admin/Dashboard';
+// import React from 'react';
+// import Enzyme, { shallow, mount } from 'enzyme'
+// import { MemoryRouter
+// } from 'react-router'
+// import Adapter from '@wojtekmaj/enzyme-adapter-react-17'
+// import { Route } from 'react-router-dom';
+// import SidebarRows from './components/Admin/SidebarRows';
+// import AdminOrgs from './components/Admin/AdminOrgs';
+// import AdminUsers from './components/Admin/AdminUsers';
+// import AdminCerts from './components/Admin/AdminCerts';
+
+// Enzyme.configure({adapter: new Adapter( )});
+
+// let pathMap = {};
+// describe('routes using array of routers', () => {
+//   beforeAll(() => {
+//     const component = shallow(<SidebarRows/>);
+//     pathMap = component.find(Route).reduce((pathMap, route) => {
+//         const routeProps = route.props();
+//         pathMap[routeProps.path] = routeProps.component;
+//         return pathMap;
+//       }, {});
+//       console.log(pathMap)
+//   })
+//   it('should show AdminOrgs component for /adminorgs router (getting array of routes)', () => {
+//     // console.log(pathMap['/adminorgs']);
+//     expect(pathMap['/adminorgs']).toBe(AdminOrgs);
+//   })
+
+// })
+
+// import { shallow } from 'enzyme';
+import { Route } from 'react-router';
+// import Routes from './Routes.jsx';
+import Admin from './components/admin/Admin';
 import AdminOrgs from './components/Admin/AdminOrgs';
-import AdminUsers from './components/Admin/AdminUsers';
+import Enzyme, { shallow, mount } from 'enzyme';
+ import { MemoryRouter
+ } from 'react-router';
+ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+
+ Enzyme.configure({adapter: new Adapter( )});
+
+it('renders correct routes', () => {
+  const wrapper = shallow(<Admin />);
+  const pathMap = wrapper.find(Route).reduce((pathMap, route) => {
+    const routeProps = route.props();
+    pathMap[routeProps.path] = routeProps.component;
+    return pathMap;
+  }, {});
+  // { '/adminorgs' : AdminOrgs, ... }
+
+  expect(pathMap['/adminorgs']).toBe(AdminOrgs);
+});
 
 
-let pathMap = {};
-describe('routes using array of routers', () => {
-  beforeAll(() => {
-    const component = shallow(<Routes/>);
-    pathMap = component.find(Route).reduce((pathMap, route) => {
-        const routeProps = route.props();
-        pathMap[routeProps.path] = routeProps.component;
-        return pathMap;
-      }, {});
-      console.log(pathMap)
-  })
-  it('should show Dashboard component for / router (getting array of routes)', () => {
 
-    expect(pathMap['/']).toBe(Dashboard);
-  })
-  it('should show AdminOrgs component for /adminorgs router', () => {
-    expect(pathMap['/adminorgs']).toBe(AdminOrgs);
-  })
-  it('should show AdminUsers component techdomain for /adminusers router', () => {
-    expect(pathMap['/adminusers']).toBe(AdminUsers);
-  })
-  it('should show No match component for route not defined', ()=>{
-      expect(pathMap['undefined']).toBe(NoMatch);
-  })
-})

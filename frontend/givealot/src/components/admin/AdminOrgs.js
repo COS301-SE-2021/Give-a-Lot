@@ -80,9 +80,12 @@ export default class AdminOrgs extends Component {
                     <TableRow>  
                     <TableCell align="right">ID</TableCell> 
                     <TableCell align="right">Name</TableCell>
-                        <TableCell align="right">Email</TableCell>
-
-
+                        <TableCell align="right">Description</TableCell>
+                        <TableCell align="right">Slogan</TableCell>
+                        <TableCell align="right">Sector</TableCell>
+                        {/* <TableCell align="right">Password</TableCell>
+                        <TableCell align="right">Contact Person</TableCell>
+                        <TableCell align="right">Contact Number</TableCell> */}
                         <TableCell style={{paddingLeft:"60px"}} align="right" >Action</TableCell>
                         <TableCell align="right">Status</TableCell>
                     </TableRow>  
@@ -91,9 +94,14 @@ export default class AdminOrgs extends Component {
                 {  
                     this.state.posts.map((p, index) => {  
                         return <TableRow key={index}>  
-                        <TableCell align="right">{p.id}</TableCell>  
-                        <TableCell align="right">{p.name}</TableCell>  
-                        <TableCell align="right">{p.email}</TableCell>
+                        <TableCell align="right">{p.org_id}</TableCell>  
+                        <TableCell align="right">{p.org_name}</TableCell>  
+                        <TableCell align="right">{p.org_short_description}</TableCell>
+                        <TableCell align="right">{p.org_slogan}</TableCell>
+                        <TableCell align="right">{p.org_sector}</TableCell>
+                        {/* <TableCell align="right">{p.password}</TableCell>
+                        <TableCell align="right">{p.contactPerson}</TableCell>
+                        <TableCell align="right">{p.contactNumber}</TableCell> */}
                             <TableCell align="right">
                                 <CreateIcon
                                     style={{cursor: "pointer"}}

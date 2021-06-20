@@ -11,10 +11,63 @@ import java.util.Date;
 public class OrganisationHelper {
     public OrganisationHelper(){}
 
-    public void addOrg(Organisation organisation) throws SQLException {
+
+    public void orgExists(Organisation organisation) throws SQLException, OrgException {
+        String serverName = "hansken.db.elephantsql.com";
+        String mydatabase = "Givealot";
+        String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
+
+        String username = "iqvyaozz";
+        String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
+        System.out.println("Success");
+        //Setup connection
+        Connection connection = DriverManager.getConnection(url, username, password);
+
+        //Create statement
+        Statement state = connection.createStatement();
+
+        String existsQuery = "select \"orgId\" from public.\"Organisations\";";
+
+        ResultSet exists = state.executeQuery(existsQuery);
+
+        List<String> ids = new ArrayList<>();
+
+        int x = 0;
+
+        while(exists.next()){
+            ids.add(exists.getString("orgId"));
+            x++;
+        }
+
 
         try {
-            String serverName = "hanskeyn.db.elephantsql.com";
+
+            for (int i = 0; i < x; i++) {
+                if (organisation.getOrgId().equals(ids.get(i))) {
+                    //System.out.println("exception");
+                    throw new OrgException("Exception: Organisation is already registered");
+
+//                } else {
+//                    System.out.println(organisation.getOrgId() + " / " + ids.get(i));
+//                }
+                }
+            }
+        }
+        catch(OrgException e) {
+            throw new OrgException("Exception: Organisation is already registered");
+        }
+
+    }
+
+    public void addOrg(Organisation organisation) throws SQLException, OrgException {
+
+        if (organisation.getOrgId()==null){
+            throw new OrgException("Exception: Organisation data is null");
+        }
+
+        try {
+
+            String serverName = "hansken.db.elephantsql.com";
             String mydatabase = "Givealot";
             String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
 
@@ -60,7 +113,13 @@ public class OrganisationHelper {
         }
     }
 
-    public void reactivateOrg(Organisation organisation) throws SQLException {
+    public void reactivateOrg(Organisation organisation) throws SQLException, OrgException {
+
+        Status status = Status.Active;
+
+        if (organisation.getStatus()==status){
+            throw new OrgException("Exception: Organisation is already active");
+        }
 
         try {
             String serverName = "hansken.db.elephantsql.com";
@@ -91,7 +150,12 @@ public class OrganisationHelper {
         }
     }
 
-    public void investigateOrg(Organisation organisation) throws SQLException {
+    public void investigateOrg(Organisation organisation) throws SQLException, OrgException {
+
+        Status status = Status.UnderInvestigation;
+        if (organisation.getStatus()==status){
+            throw new OrgException("Exception: Organisation is already under investigation");
+        }
 
         try {
             String serverName = "hansken.db.elephantsql.com";
@@ -121,7 +185,12 @@ public class OrganisationHelper {
         }
     }
 
-    public void suspendOrg(Organisation organisation) throws SQLException {
+    public void suspendOrg(Organisation organisation) throws SQLException, OrgException {
+
+        Status status = Status.Suspended;
+        if (organisation.getStatus()==status){
+            throw new OrgException("Exception: Organisation is already suspended");
+        }
 
         try {
             String serverName = "hansken.db.elephantsql.com";
@@ -151,11 +220,40 @@ public class OrganisationHelper {
         }
     }
 
-    public static void main(String[] args) throws SQLException, ClassNotFoundException, NoSuchAlgorithmException {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException, NoSuchAlgorithmException, OrgException {
 
-        Organisation org = new Organisation("The Old Orgss", "We are old heress", "Diseasess", "oldorg@gmail.comss","password", "Mr. Old Orgss", "0823322422");
+//        String serverName = "hansken.db.elephantsql.com";
+//        String mydatabase = "Givealot";
+//        String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
+//
+//        String username = "iqvyaozz";
+//        String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
+//        System.out.println("Success");
+//        //Setup connection
+//        Connection connection = DriverManager.getConnection(url, username, password);
+//
+//        System.out.println("Success");
+//        Statement state = connection.createStatement();
+//        //String query = "SELECT SCHEMA_NAME FROM information_schema.schemata;";
+//        String query = "select * from public.\"Organisations\"";
+//        //String query = "SELECT table_name FROM information_schema.TABLES where TABLE_NAME = 'Organisations';";
+//        System.out.println(query);
+//        System.out.println("Success");
+//
+//        ResultSet rs = state.executeQuery(query);
+//
+//        while (rs.next()) {
+//            System.out.println(rs.getString(1));
+//        }
+
+        Organisation org = new Organisation("The Old Orgssss", "We are old heressss", "Diseasess", "oldorg@gmail.comssss","password", "Mr. Old Orgsss", "0823322423");
         OrganisationHelper helper = new OrganisationHelper();
-        helper.addOrg(org);
+        helper.orgExists(org);
 
+
+    public boolean user_isAdmin(String userID)
+    {
+        /*needs implementing*/
+        return true;
     }
 }

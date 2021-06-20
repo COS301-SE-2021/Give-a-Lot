@@ -1,7 +1,6 @@
 package com.GiveaLot.givealot.Organisation;
 
 import com.GiveaLot.givealot.Organisation.dataclass.Organisation;
-import com.GiveaLot.givealot.Organisation.dataclass.Status;
 import com.GiveaLot.givealot.Organisation.rri.*;
 import com.GiveaLot.givealot.Organisation.exceptions.*;
 import org.springframework.stereotype.Service;
@@ -14,22 +13,17 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.*;
-import java.io.IOException;
 import java.util.Properties;
 import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
 import javax.mail.Transport;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 
 @Service
-public class OrganisationServiceImpl {
-
+public class OrganisationServiceImpl
+{
     enum Status{
         Active,
         UnderInvestigation,
@@ -40,7 +34,7 @@ public class OrganisationServiceImpl {
 
     OrganisationHelper help = new OrganisationHelper();
 
-    public addOrganisationResponse addOrganisation(addOrganisationRequest request) throws InvalidRequestException, NoSuchAlgorithmException, SQLException, MessagingException, IOException {
+    public addOrganisationResponse addOrganisation(addOrganisationRequest request) throws OrgException, NoSuchAlgorithmException, SQLException, MessagingException, IOException {
         if (request == null)
         {
             throw new InvalidRequestException("Exception: Organisation could not be added because the request object is null");
@@ -48,15 +42,17 @@ public class OrganisationServiceImpl {
 
         Organisation org = new Organisation(request.getOrgName(),request.getOrgDescription(),request.getOrgSector(),request.getOrgEmail(),request.getPassword(),request.getContactPerson(),request.getContactNumber());
 
+        help.orgExists(org);
         try
         {
+
             help.addOrg(org);
             org.setStatus(com.GiveaLot.givealot.Organisation.dataclass.Status.Active);
             this.setupServerProperties();
             this.OrganisationAddedEmail();
             this.sendEmail();
             addOrganisationResponse addOrganisationResponse = new addOrganisationResponse();
-            addOrganisationResponse.setAddUserResponseJSON( List.of(new addUserResponseJSON(200, "ok")));
+            addOrganisationResponse.setOrganisationResponseJSON( List.of(new OrganisationResponseJSON(200, "ok")));
             return addOrganisationResponse;
         }
         catch (Exception e)
@@ -65,96 +61,122 @@ public class OrganisationServiceImpl {
         }
     }
 
-    reactivateOrganisationResponse reactivateOrganisation(reactivateOrganisationRequest request) throws OrgException, NoSuchAlgorithmException, SQLException, MessagingException, IOException {
-        if (request == null){
+    public reactivateOrganisationResponse reactivateOrganisation(reactivateOrganisationRequest request) throws OrgException, NoSuchAlgorithmException, SQLException, MessagingException, IOException {
+        if(request == null)
+        {
             throw new InvalidRequestException("Exception: Organisation could not be updated because the request object is null");
         }
-        try {
-            Organisation org = new Organisation(request.getOrgEmail(), request.getStatus());
-
-            if (!(org.getStatus() == com.GiveaLot.givealot.Organisation.dataclass.Status.Active)){
+        else if(!help.user_isAdmin(request.getAdmin_id()))
+        {
+            throw new OrgException("Exception: not authorized");
+        }
+        try
+        {
+            try
+            {
+                Organisation org = new Organisation();
+                org.setOrgId(request.getOrg_id());
                 help.reactivateOrg(org);
+                this.setupServerProperties();
+                this.OrganisationReactivatedEmail();
+                this.sendEmail();
+
+                reactivateOrganisationResponse reactivateOrganisationResponse = new reactivateOrganisationResponse();
+                reactivateOrganisationResponse.setAddUserResponseJSON(List.of(new OrganisationResponseJSON(200, "ok")));
+                return reactivateOrganisationResponse;
             }
-            else{
-                throw new OrgException("Exception: Organisation is already Active");
+            catch (Exception e)
+            {
+                reactivateOrganisationResponse reactivateOrganisationResponse = new reactivateOrganisationResponse();
+                reactivateOrganisationResponse.setAddUserResponseJSON(List.of(new OrganisationResponseJSON(420, e.getMessage())));
+                return reactivateOrganisationResponse;
             }
-            org.setStatus(com.GiveaLot.givealot.Organisation.dataclass.Status.Active);
         }
-        catch (Exception e){
-            throw new OrgException("Exception: Organisation could not be reactivated");
+        catch (Exception e)
+        {
+            reactivateOrganisationResponse reactivateOrganisationResponse = new reactivateOrganisationResponse();
+            reactivateOrganisationResponse.setAddUserResponseJSON(List.of(new OrganisationResponseJSON(500, e.getMessage())));
+            return reactivateOrganisationResponse;
         }
-
-        //then send email
-
-        OrganisationServiceImpl mail = new OrganisationServiceImpl();
-
-        mail.setupServerProperties();
-        mail.OrganisationReactivatedEmail();
-        mail.sendEmail();
-
-
-        return null;
     }
 
-    investigateOrganisationResponse investigateOrganisation(investigateOrganisationRequest request) throws OrgException, MessagingException, IOException {
-        if (request == null){
+    public investigateOrganisationResponse investigateOrganisation(investigateOrganisationRequest request) throws OrgException, MessagingException, IOException {
+        if(request == null)
+        {
             throw new InvalidRequestException("Exception: Organisation could not be updated because the request object is null");
         }
-        try {
-            Organisation org = new Organisation(request.getOrgEmail(), request.getStatus());
-
-            if (!(org.getStatus() == com.GiveaLot.givealot.Organisation.dataclass.Status.UnderInvestigation)){
+        else if(!help.user_isAdmin(request.getAdmin_id()))
+        {
+            throw new OrgException("Exception: not authorized");
+        }
+        try
+        {
+            try
+            {
+                Organisation org = new Organisation();
+                org.setOrgId(request.getOrg_id());
                 help.investigateOrg(org);
+                this.setupServerProperties();
+                this.OrganisationUnderInvestigationEmail();
+                this.sendEmail();
+
+                investigateOrganisationResponse investigateOrganisationResponse = new investigateOrganisationResponse();
+                investigateOrganisationResponse.setOrganisationResponseJSON(List.of(new OrganisationResponseJSON(200, "ok")));
+                return investigateOrganisationResponse;
             }
-            else{
-                throw new OrgException("Exception: Organisation is already UnderInvestigation");
+            catch (Exception e)
+            {
+                investigateOrganisationResponse investigateOrganisationResponse = new investigateOrganisationResponse();
+                investigateOrganisationResponse.setOrganisationResponseJSON(List.of(new OrganisationResponseJSON(420, e.getMessage())));
+                return investigateOrganisationResponse;
             }
-            org.setStatus(com.GiveaLot.givealot.Organisation.dataclass.Status.UnderInvestigation);
         }
-        catch (Exception e){
-            throw new OrgException("Exception: Organisation could not be set to UnderInvestagtion");
+        catch (Exception e)
+        {
+            investigateOrganisationResponse investigateOrganisationResponse = new investigateOrganisationResponse();
+            investigateOrganisationResponse.setOrganisationResponseJSON(List.of(new OrganisationResponseJSON(500, e.getMessage())));
+            return investigateOrganisationResponse;
         }
-
-        //then send email
-
-        OrganisationServiceImpl mail = new OrganisationServiceImpl();
-
-        mail.setupServerProperties();
-        mail.OrganisationUnderInvestigationEmail();
-        mail.sendEmail();
-
-
-        return null;
     }
 
-    suspendOrganisationResponse suspendOrganisation(suspendOrganisationRequest request) throws OrgException, MessagingException, IOException {
-        if (request == null){
+    public suspendOrganisationResponse suspendOrganisation(suspendOrganisationRequest request) throws OrgException, MessagingException, IOException {
+
+        if(request == null)
+        {
             throw new InvalidRequestException("Exception: Organisation could not be updated because the request object is null");
         }
-        try {
-            Organisation org = new Organisation(request.getOrgEmail(), request.getStatus());
-
-            if (!(org.getStatus() == com.GiveaLot.givealot.Organisation.dataclass.Status.Suspended)){
+        else if(!help.user_isAdmin(request.getAdmin_id()))
+        {
+            throw new OrgException("Exception: not authorized");
+        }
+        try
+        {
+            try
+            {
+                Organisation org = new Organisation();
+                org.setOrgId(request.getOrg_id());
                 help.suspendOrg(org);
+                this.setupServerProperties();
+                this.OrganisationSuspendedEmail();
+                this.sendEmail();
+
+                suspendOrganisationResponse suspendOrganisationResponse = new suspendOrganisationResponse();
+                suspendOrganisationResponse.setOrganisationResponseJSON(List.of(new OrganisationResponseJSON(200, "ok")));
+                return suspendOrganisationResponse;
             }
-            else{
-                throw new OrgException("Exception: Organisation is already Suspended");
+            catch (Exception e)
+            {
+                suspendOrganisationResponse suspendOrganisationResponse = new suspendOrganisationResponse();
+                suspendOrganisationResponse.setOrganisationResponseJSON(List.of(new OrganisationResponseJSON(420, e.getMessage())));
+                return suspendOrganisationResponse;
             }
-            org.setStatus(com.GiveaLot.givealot.Organisation.dataclass.Status.Suspended);
         }
-        catch (Exception e){
-            throw new OrgException("Exception: Organisation could not be suspended");
+        catch (Exception e)
+        {
+            suspendOrganisationResponse suspendOrganisationResponse = new suspendOrganisationResponse();
+            suspendOrganisationResponse.setOrganisationResponseJSON(List.of(new OrganisationResponseJSON(500, e.getMessage())));
+            return suspendOrganisationResponse;
         }
-
-        //then send email
-        OrganisationServiceImpl mail = new OrganisationServiceImpl();
-
-        mail.setupServerProperties();
-        mail.OrganisationSuspendedEmail();
-        mail.sendEmail();
-
-
-        return null;
     }
 
      void setupServerProperties()
@@ -257,7 +279,7 @@ public class OrganisationServiceImpl {
         mimeMessage.setContent(multiPart);
         return mimeMessage;
     }
-     MimeMessage OrganisationSuspendedEmail() throws AddressException, MessagingException, IOException {
+    MimeMessage OrganisationSuspendedEmail() throws AddressException, MessagingException, IOException {
         String[] emailReceipients = {"u19104546@tuks.co.za"};  //Enter list of email recepients
         String emailSubject = "Givealot Status Change";
         String emailBody = "Hey \nWe hope this message finds you well we have written this message to you to notify you that due to numerous reports your status has changed " +
@@ -292,8 +314,4 @@ public class OrganisationServiceImpl {
         mail.OrganisationReactivatedEmail();
         mail.sendEmail();
     }
-
-
-
-
 }

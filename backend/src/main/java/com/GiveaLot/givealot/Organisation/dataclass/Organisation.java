@@ -49,6 +49,11 @@ public class Organisation {
     private Boolean longDescriptionProvided;
 
 
+    public Organisation()
+    {
+        this.orgId = null;
+    }
+
     public Organisation(String orgEmail, Status orgStatus) throws NoSuchAlgorithmException {
         MD5 md5 = new MD5();
         this.orgEmail = orgEmail;

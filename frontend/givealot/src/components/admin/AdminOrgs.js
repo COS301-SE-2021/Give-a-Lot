@@ -52,7 +52,6 @@ export default class AdminOrgs extends Component {
         })
     }
 
-
     ModalchangeHandler(e){
         this.setState({[e.target.name] : e.target.value})
     }

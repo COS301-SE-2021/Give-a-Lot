@@ -20,6 +20,7 @@ public class OrganisationController
         this.OrganisationServiceImpl = OrganisationServiceImpl;
     }
 
+    @CrossOrigin
     @PostMapping("/register")
     List<OrganisationResponseJSON>add_organisation(@RequestBody addOrganisationRequest request)
     {
@@ -43,7 +44,7 @@ public class OrganisationController
             return List.of(OrganisationResponseJSON);
         }
     }
-
+    @CrossOrigin
     @PostMapping("/suspend")
     List<OrganisationResponseJSON>suspend_organisation (@RequestBody suspendOrganisationRequest request)
     {
@@ -66,7 +67,7 @@ public class OrganisationController
             return List.of(new OrganisationResponseJSON(403,e.getMessage()));
         }
     }
-
+    @CrossOrigin
     @PostMapping("/activate")
     List<OrganisationResponseJSON>activate_organisation (@RequestBody reactivateOrganisationRequest request)
     {
@@ -89,7 +90,7 @@ public class OrganisationController
             return List.of(new OrganisationResponseJSON(403,e.getMessage()));
         }
     }
-
+    @CrossOrigin
     @PostMapping("/investigate")
     List<OrganisationResponseJSON>investigate_organisation (@RequestBody investigateOrganisationRequest request)
     {

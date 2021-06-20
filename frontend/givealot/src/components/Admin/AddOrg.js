@@ -50,10 +50,19 @@ export class AddOrg extends Component {
           mainState: "search"
         });
       };
+
     submitHandler = (e) =>{
         e.preventDefault()
         console.log(this.state)
-        axios.post('http://localhost:8080/organisation/register', this.state)
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.post('http://localhost:8080/organisation/register', this.state, config)
+
         .then(response =>{
             console.log(response)
         })

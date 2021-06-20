@@ -16,7 +16,8 @@ public class ReportHelper {
     //Create report
 
     public ReportHelper(){}
-    public File createReportFile(Report report) throws Exception{
+    public File createReportFile(Report report) throws Exception
+    {
         try {
 
             String reportName = "report" + report.getId();

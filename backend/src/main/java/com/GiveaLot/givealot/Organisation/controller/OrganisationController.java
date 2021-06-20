@@ -2,6 +2,8 @@ package com.GiveaLot.givealot.Organisation.controller;
 
 import com.GiveaLot.givealot.Organisation.OrganisationResponseJSON;
 import com.GiveaLot.givealot.Organisation.OrganisationServiceImpl;
+import com.GiveaLot.givealot.Organisation.getOrganisationResponse;
+import com.GiveaLot.givealot.Organisation.get_OrganisationResponseJSON;
 import com.GiveaLot.givealot.Organisation.rri.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -109,6 +111,29 @@ public class OrganisationController
         catch(Exception e)
         {
             return List.of(new OrganisationResponseJSON(403,e.getMessage()));
+        }
+    }
+
+    @PostMapping("/get")
+    List<get_OrganisationResponseJSON>get_organisation (@RequestBody getOrganisationRequest request)
+    {
+        try
+        {
+            getOrganisationResponse getOrganisationResponse;
+            getOrganisationResponse = OrganisationServiceImpl.getOrganisation(request);
+
+            if(getOrganisationResponse == null)
+            {
+                return List.of(new OrganisationResponseJSON(500,"server error investigate"));
+            }
+            else
+            {
+                return getOrganisationResponse.getAddUserResponseJSONS();
+            }
+        }
+        catch(Exception e)
+        {
+            return List.of(new get_OrganisationResponseJSON(403,e.getMessage()));
         }
     }
 }

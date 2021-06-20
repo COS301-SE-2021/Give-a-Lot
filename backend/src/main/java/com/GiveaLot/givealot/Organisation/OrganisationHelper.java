@@ -238,6 +238,19 @@ public class OrganisationHelper {
             return true;
         }
 
+        public get_OrganisationResponseJSON getOrganisation(Organisation org) throws SQLException, ClassNotFoundException, NoSuchAlgorithmException, OrgException
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+
+            }
+            return  null;
+        }
+
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException, NoSuchAlgorithmException, OrgException {
 
@@ -269,4 +282,6 @@ public class OrganisationHelper {
         OrganisationHelper helper = new OrganisationHelper();
         helper.addOrg(org);
     }
+
+
 }

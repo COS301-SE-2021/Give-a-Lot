@@ -153,38 +153,9 @@ public class OrganisationHelper {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException, NoSuchAlgorithmException {
 
-//        String serverName = "hansken.db.elephantsql.com";
-//        String mydatabase = "Givealot";
-//        String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
-//
-//        String username = "iqvyaozz";
-//        String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
-//        System.out.println("Success");
-//        //Setup connection
-//        Connection connection = DriverManager.getConnection(url, username, password);
-//
-//        System.out.println("Success");
-//        Statement state = connection.createStatement();
-//        //String query = "SELECT SCHEMA_NAME FROM information_schema.schemata;";
-//        String query = "select * from public.\"Organisations\"";
-//        //String query = "SELECT table_name FROM information_schema.TABLES where TABLE_NAME = 'Organisations';";
-//        System.out.println(query);
-//        System.out.println("Success");
-//
-//        ResultSet rs = state.executeQuery(query);
-//
-//        while (rs.next()) {
-//            System.out.println(rs.getString(1));
-//        }
-
         Organisation org = new Organisation("The Old Orgss", "We are old heress", "Diseasess", "oldorg@gmail.comss","password", "Mr. Old Orgss", "0823322422");
         OrganisationHelper helper = new OrganisationHelper();
         helper.addOrg(org);
-
-
-
-
-
 
     }
 }

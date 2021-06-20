@@ -13,7 +13,11 @@ public class Report {
     String date;
     String id;
 
-    public Report(String orgId, String orgName, String reportDescription, String reportType, String reporterEmail, Timestamp id){
+    public Report(){
+
+    }
+
+    public Report(String orgId, String reportDescription, String reportType, String reporterEmail){
         this.orgId = orgId;
         this.orgName = orgName;
         this.reportDescription = reportDescription;
@@ -22,6 +26,8 @@ public class Report {
         LocalDateTime date = LocalDateTime.now();
         DateTimeFormatter dateTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         this.date = date.format(dateTime);
+
+        Timestamp id = new Timestamp(System.currentTimeMillis());
 
         this.id = id.toString().replaceAll("[^a-zA-Z0-9]", "");;
     }

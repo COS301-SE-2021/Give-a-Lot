@@ -36,8 +36,23 @@ export class Manage extends Component {
         super(props)
 
         this.state = {
-            org_id: ""
+            users: [],
+            org_id: "",
+            org_name: "",
+            org_description: ""
         }
+    }
+
+    componentDidMount(){
+        axios.post('http://localhost:8080/organisation/get')
+        .then(response =>{
+            console.log(response)
+            this.setState({users: response.data})
+        })
+        .catch(error =>{
+            console.log(error)
+            this.setState({error : 'Error Retrieving data'})
+        })
     }
 
     changeHandler = (e) =>{
@@ -71,19 +86,16 @@ export class Manage extends Component {
 
     render() {
 
-        const { org_id } = this.state
+        const { org_id, org_name, org_description} = this.state
         return (
             <div className="manage">
                 <div >
 
                     <div >
-                        <h2>The givers of hope</h2>
+                        <h2>{org_name}</h2>
 
-                        <p>Here is the description of what the organisation does and stuuff do not mind my typos , matter of
-                            fact do not mnd this text at all , it should be replaxced with the te description bla bla bla
-                            Here is the description of what the organisation does and stuuff do not mind my typos , matter of
-                            fact do not mnd this text at all , it should be replaxced with the te description bla bla bla
-                        </p>
+                        <p>{org_description}</p>
+                        
                         <Galleryy />
                          <p style={{color: "white"}}>Lazy space, don't remove</p>
                     </div>

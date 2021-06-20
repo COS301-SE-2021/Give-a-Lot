@@ -17,12 +17,17 @@ public class BrowseServiceImp implements BrowseService
         /*
         * Exception handling left for later
         * */
-
-        String request_type = "list";
-
-        mockUsers mockusers = new mockUsers();
+        BrowseHelper browseHelper = new BrowseHelper();
         browseResponse browseResponse = new browseResponse();
-        browseResponse.setOrganisations(mockusers.getUsersListView());
-        return browseResponse;
+        try
+        {
+            browseResponse.setOrganisations(browseHelper.getOrganisations());
+            return browseResponse;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+            return browseResponse;
+        }
     }
 }

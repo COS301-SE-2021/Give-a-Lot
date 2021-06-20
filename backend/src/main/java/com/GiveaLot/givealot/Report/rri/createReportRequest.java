@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import java.time.format.DateTimeFormatter;
 
 public class createReportRequest {
+    String orgId;
     String orgName;
     String reportDescription;
     String reportType;
@@ -95,5 +96,12 @@ public class createReportRequest {
 
     public void setId(Timestamp id) {
         this.id = id;
+    }
+
+    public String getOrgId() { return orgId;
+    }
+
+    public void setOrgId(String orgId) {
+        this.orgId = orgId;
     }
 }

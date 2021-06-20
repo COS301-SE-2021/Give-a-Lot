@@ -23,12 +23,12 @@ public class ReportServiceImpl implements ReportService{
         Report report = null;
         Timestamp timestamp = null;
         try{
-            report = new Report("","","","",timestamp);
+            report = new Report("","","","","",timestamp);
         }catch (Exception e){
             throw new ReportException("Problem creating Report");
         }
         
-        report = new Report(request.getOrgName(),request.getReportDescription(),request.getReportType(),request.getReporterEmail(),request.getId());
+        report = new Report(request.getOrgId(), request.getOrgName(),request.getReportDescription(),request.getReportType(),request.getReporterEmail(),request.getId());
         reportRes = new createReportResponse();
         ReportHelper createReport = new ReportHelper();
         try {

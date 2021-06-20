@@ -6,17 +6,18 @@ import java.util.List;
 
 public class browseResponse
 {
-    private List<User> organisations;
+    private List<browseResponseJSON> organisations;
 
     public browseResponse()
     {
         this.organisations = null;
     }
-    public List<User> getOrganisations() {
+    public List<browseResponseJSON> getOrganisations() {
         return organisations;
     }
 
-    public void setOrganisations(List<User> organisations) {
+    public void setOrganisations(List<browseResponseJSON> organisations)
+    {
         this.organisations = organisations;
     }
 }

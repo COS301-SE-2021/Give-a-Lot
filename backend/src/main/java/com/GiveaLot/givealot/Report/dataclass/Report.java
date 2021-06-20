@@ -32,9 +32,6 @@ public class Report {
         this.id = id.toString().replaceAll("[^a-zA-Z0-9]", "");;
     }
 
-
-
-
     /** Getters **/
 
     public String getOrgId() {

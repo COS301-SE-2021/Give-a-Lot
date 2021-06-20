@@ -2,10 +2,7 @@ package com.GiveaLot.givealot.Report.controller;
 import com.GiveaLot.givealot.Report.ReportService;
 import com.GiveaLot.givealot.Report.rri.createReportRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -20,7 +17,7 @@ public class ReportController {
     public ReportController(ReportService reportService) {
         this.reportService = reportService;
     }
-
+    @CrossOrigin
    @PostMapping("/organisation")
    public List<String> createReport(@RequestBody createReportRequest request)
    {

@@ -137,7 +137,7 @@ public class CertificateHelper {
                         email = rsemail.getString(1);
                        name = rsemail.getString(2);
                     }
-                    System.out.println("--------------------------------------------");
+                    System.out.println("-------------------------------------------");
                     System.out.println(email);
                     System.out.println(name);
 

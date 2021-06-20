@@ -44,11 +44,11 @@ public class OrganisationServiceImpl
         }
         else if(request.getOrgName().length() == 0 || request.getOrgDescription().length() == 0)
         {
-            throw new OrgException("Exception : empty fields not allowed");
+            throw new OrgException("Exception : Empty fields not allowed");
         }
         else if(request.getOrgSector().length() == 0 || request.getOrgEmail().length() == 0 || request.getContactPerson().length() == 0 || request.getContactNumber().length() == 0)
         {
-            throw new OrgException("Exception : empty fields not allowed");
+            throw new OrgException("Exception : Empty fields not allowed");
         }
         else
         {

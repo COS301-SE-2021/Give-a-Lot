@@ -29,6 +29,7 @@ public class OrganisationUnitTest {
     addOrganisationRequest request1;
     addOrganisationRequest request2;
     addOrganisationRequest request3;
+    addOrganisationRequest request4;
 
     addOrganisationResponse response1;
 
@@ -38,6 +39,7 @@ public class OrganisationUnitTest {
     Organisation org1;
     Organisation org2;
     Organisation org3;
+    Organisation org4;
 
     Organisation orgActive;
     Organisation orgInvestigated;
@@ -46,12 +48,6 @@ public class OrganisationUnitTest {
 
     String organisation;
 
-
-
-
-
-
-
     @BeforeEach
     void setUp() throws Exception {
 
@@ -59,6 +55,7 @@ public class OrganisationUnitTest {
 
 
         request1 = null;
+        request4 = new addOrganisationRequest("","","","","","","");
 
 
 
@@ -70,7 +67,8 @@ public class OrganisationUnitTest {
 
         org1= new Organisation();
         org2= new Organisation(request2.getOrgName(),request2.getOrgDescription(),request2.getOrgSector(),request2.getOrgEmail(),request2.getPassword(),request2.getContactPerson(),request2.getContactNumber());
-        org2= new Organisation(request2.getOrgName(),request2.getOrgDescription(),request2.getOrgSector(),request2.getOrgEmail(),request2.getPassword(),request2.getContactPerson(),request2.getContactNumber());
+        org3= new Organisation(request2.getOrgName(),request2.getOrgDescription(),request2.getOrgSector(),request2.getOrgEmail(),request2.getPassword(),request2.getContactPerson(),request2.getContactNumber());
+        //org4 = new Organisation("","","","","","","");
 
         orgActive = new Organisation(request2.getOrgEmail(),Status.Active);
         orgInvestigated = new Organisation(request2.getOrgEmail(), Status.UnderInvestigation);
@@ -118,11 +116,12 @@ public class OrganisationUnitTest {
         Throwable throwError = assertThrows(OrgException.class, () -> organisationHelper.suspendOrg(orgSuspended));
         assertEquals("Exception: Organisation is already suspended", throwError.getMessage());
     }
-//
-//    @Test
-//    @Description("Assumes that the returned document contains the correct data")
-//    void TEST_RETURNS_JSON_OBJECT() {
-//        assertEquals(con.PDFtoString(),certificate);
-//    }
+
+    @Test
+    @Description("Assumes that the data given are empty strings")
+    void TEST_EMPTY_STRINGS() {
+        Throwable throwError = assertThrows(OrgException.class, () -> organisationServiceImpl.addOrganisation(request4));
+        assertEquals("Exception : Empty fields not allowed", throwError.getMessage());
+    }
 
 }

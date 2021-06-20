@@ -42,7 +42,6 @@ public class CertificateHelper {
     }
 
     public Document createPDFDocument(Certificate cert) throws Exception {
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
         try {
             if(cert.getNameOfOrganisation()== null)
                 throw new NullPointerException();

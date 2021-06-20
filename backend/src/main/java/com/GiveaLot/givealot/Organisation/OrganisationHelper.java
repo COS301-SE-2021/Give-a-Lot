@@ -1,12 +1,16 @@
 package com.GiveaLot.givealot.Organisation;
 
 import com.GiveaLot.givealot.Organisation.dataclass.Organisation;
+import com.GiveaLot.givealot.Organisation.dataclass.Status;
+import com.GiveaLot.givealot.Organisation.exceptions.OrgException;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class OrganisationHelper {
     public OrganisationHelper(){}
@@ -220,6 +224,12 @@ public class OrganisationHelper {
         }
     }
 
+    public boolean user_isAdmin(String userID)
+    {
+        /*needs implementing*/
+        return true;
+    }
+
     public static void main(String[] args) throws SQLException, ClassNotFoundException, NoSuchAlgorithmException, OrgException {
 
 //        String serverName = "hansken.db.elephantsql.com";
@@ -246,14 +256,8 @@ public class OrganisationHelper {
 //            System.out.println(rs.getString(1));
 //        }
 
-        Organisation org = new Organisation("The Old Orgssss", "We are old heressss", "Diseasess", "oldorg@gmail.comssss","password", "Mr. Old Orgsss", "0823322423");
+        Organisation org = new Organisation("The Old Orgssss", "We are old heressss", "Diseasess", "oldorg@gmail.comssss", "password", "Mr. Old Orgsss", "0823322423");
         OrganisationHelper helper = new OrganisationHelper();
         helper.orgExists(org);
-
-
-    public boolean user_isAdmin(String userID)
-    {
-        /*needs implementing*/
-        return true;
     }
 }

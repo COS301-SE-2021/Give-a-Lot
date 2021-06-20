@@ -46,7 +46,7 @@ public class CertificateServiceImpl implements CertificateService{
     }
 
     public boolean isAuthorized(boolean value) throws NotAuthorizedException{
-        if (value==false){
+        if (!value){
             throw new NotAuthorizedException("Error: User is not authorised to create Certificate");
         }
         return true;

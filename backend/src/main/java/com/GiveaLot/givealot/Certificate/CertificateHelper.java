@@ -3,6 +3,7 @@ package com.GiveaLot.givealot.Certificate;
 
 
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.lang.String;
 
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
@@ -14,23 +15,29 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
 
-
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.*;
 import java.io.ByteArrayOutputStream;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-//import java.sql.Date;
+import java.util.*;
 import java.util.Date;
-import java.util.List;
+//import java.sql.Date;
 
 
 public class CertificateHelper {
 
+    Session newSession = null;
+    MimeMessage mimeMessage = null;
     //Creates the pdf
+
+
     public CertificateHelper() {
     }
 
@@ -98,7 +105,7 @@ public class CertificateHelper {
             int i = 0;
             while (i < j) {
                 System.out.println("//////////////////////////////////////////");
-                
+
                 Date sqlDate = expiry.get(i);
 
                 boolean check = dateCurrent.after(sqlDate);
@@ -116,15 +123,29 @@ public class CertificateHelper {
                     state.executeUpdate(queryUpdate1);
                     state.executeUpdate(queryUpdate2);
 
+                    //send Email
+                    String emailnName = "select \"orgEmail\",\"orgName\" from public.\"Organisations\" where \"orgId\" ='"+id.get(i)+"';";
+
+                    ResultSet rsemail = state.executeQuery(emailnName);
 
 
+                    String email = "null";
+                    String name = "null";
+
+                    while(rsemail.next())
+                    {
+                        email = rsemail.getString(1);
+                        name = rsemail.getString(2);
+                    }
+
+                    setupServerProperties();
+                    CertficateExpiredEmail(name,email);
+                    sendEmail();
                 } else {
-
                     System.out.println(sqlDate);
                     System.out.println(" is after ");
                     System.out.println(dateCurrent);
                     System.out.println("Valid");
-
                 }
                 i++;
             }
@@ -141,6 +162,50 @@ public class CertificateHelper {
             throw new SQLException("Exception: Check database could not be fulfilled");
         }
 
+    }
+    void setupServerProperties()
+    {
+        Properties properties = System.getProperties();
+        properties.put("mail.smtp.port", "587");
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true");
+        newSession = Session.getDefaultInstance(properties,null);
+    }
+
+    private void sendEmail() throws MessagingException {
+        String fromUser = "u19104546@tuks.co.za";  //Enter sender email id
+        String fromUserPassword = "lvcpmtxpajyrfmdp";  //Enter sender gmail password , this will be authenticated by gmail smtp server
+        String emailHost = "smtp.gmail.com";
+        Transport transport = newSession.getTransport("smtp");
+        transport.connect(emailHost, fromUser, fromUserPassword);
+        transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
+        transport.close();
+        System.out.println("Email successfully sent!!!");
+    }
+    MimeMessage CertficateExpiredEmail(String name,String email) throws AddressException, MessagingException, IOException {
+          //Enter list of email recepients
+        String emailSubject = "Givealot Status Change";
+        String emailBody = "Hey "+name+"\nWe hope this message finds you well we have written this message to you to notify you that your Organisation Certficate has expired. " +
+                "Please log into your Organisation portal and follow the intructions to renew it \nThank you for your patience\n \nRegards\nGivealot";
+        mimeMessage = new MimeMessage(newSession);
+
+        mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+
+        mimeMessage.setSubject(emailSubject);
+
+        // CREATE MIMEMESSAGE
+        // CREATE MESSAGE BODY PARTS
+        // CREATE MESSAGE MULTIPART
+        // ADD MESSAGE BODY PARTS ----> MULTIPART
+        // FINALLY ADD MULTIPART TO MESSAGECONTENT i.e. mimeMessage object
+
+
+        MimeBodyPart bodyPart = new MimeBodyPart();
+        bodyPart.setContent(emailBody,"text/plain");
+        MimeMultipart multiPart = new MimeMultipart();
+        multiPart.addBodyPart(bodyPart);
+        mimeMessage.setContent(multiPart);
+        return mimeMessage;
     }
 
     public void orgRenew(String orgId) throws SQLException {
@@ -224,9 +289,9 @@ public class CertificateHelper {
 
         CertificateHelper help = new CertificateHelper();
 
-        //help.checkRenewal();
+        help.checkRenewal();
 
-        help.adminRenew("40730ff87db670953bf2baad057065ea");
+     //  help.adminRenew("40730ff87db670953bf2baad057065ea");
 
 
 

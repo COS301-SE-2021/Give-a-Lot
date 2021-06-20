@@ -47,7 +47,7 @@ public class JSONServiceImpl implements JSONService {
     }
 
     public boolean isAuthorized(boolean value) throws NotAuthorizedException {
-        if (value == false) {
+        if (!value) {
             throw new NotAuthorizedException("Error: User is not authorised to create JSON Objects");
         }
         return true;

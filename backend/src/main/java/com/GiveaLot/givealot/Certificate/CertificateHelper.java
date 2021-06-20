@@ -44,9 +44,12 @@ public class CertificateHelper {
     public Document createPDFDocument(Certificate cert) throws Exception {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         try {
+            if(cert.getNameOfOrganisation()== null)
+                throw new NullPointerException();
             String certName = cert.getNameOfOrganisation().replaceAll("\\s+", "");
             String file_name = "C:\\generateCertificates\\" + certName + ".pdf";
             Document document = new Document();
+
             PdfWriter.getInstance(document, new FileOutputStream(file_name));
 
             document.open();
@@ -74,6 +77,9 @@ public class CertificateHelper {
             String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
             System.out.println("Success");
             //Setup connection
+            if(DriverManager.getConnection(url,username,password) == null)
+                throw new NullPointerException();
+
             Connection connection = DriverManager.getConnection(url, username, password);
 
             //Create statement
@@ -105,6 +111,8 @@ public class CertificateHelper {
             int i = 0;
             while (i < j) {
                 System.out.println("//////////////////////////////////////////");
+                if(expiry.get(i)==null)
+                    throw new NullPointerException();
 
                 Date sqlDate = expiry.get(i);
 

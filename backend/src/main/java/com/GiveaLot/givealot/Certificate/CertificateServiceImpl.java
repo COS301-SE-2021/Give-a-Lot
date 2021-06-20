@@ -42,6 +42,10 @@ public class CertificateServiceImpl implements CertificateService{
                 throw new CertificateException("Problem creating Certificate");
             }
         }
+        else
+        {
+            throw new NotAuthorizedException("Error: User is not authorised to create Certificate");
+        }
         return certificate;
     }
 

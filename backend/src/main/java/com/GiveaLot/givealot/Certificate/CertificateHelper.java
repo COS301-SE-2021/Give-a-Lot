@@ -144,12 +144,10 @@ public class CertificateHelper {
                     sendEmail();
 
                 } else {
-
                     System.out.println(sqlDate);
                     System.out.println(" is after ");
                     System.out.println(dateCurrent);
                     System.out.println("Valid");
-
                 }
                 i++;
             }

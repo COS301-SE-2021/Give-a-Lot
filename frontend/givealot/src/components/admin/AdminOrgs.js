@@ -41,7 +41,7 @@ export default class AdminOrgs extends Component {
 
     }
     componentDidMount(){
-        axios.get('https://jsonplaceholder.typicode.com/users')
+        axios.get('http://localhost:8080/browse')
         .then(response =>{
             console.log(response)
             this.setState({posts: response.data})

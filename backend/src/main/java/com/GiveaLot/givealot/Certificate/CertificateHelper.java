@@ -138,7 +138,6 @@ public class CertificateHelper {
                        name = rsemail.getString(2);
                     }
 
-
                     setupServerProperties();
                     CertficateExpiredEmail(name,email);
                     sendEmail();

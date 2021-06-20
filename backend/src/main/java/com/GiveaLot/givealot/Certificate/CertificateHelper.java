@@ -135,7 +135,7 @@ public class CertificateHelper {
                     while(rsemail.next())
                     {
                         email = rsemail.getString(1);
-                       name = rsemail.getString(2);
+                        name = rsemail.getString(2);
                     }
 
                     setupServerProperties();

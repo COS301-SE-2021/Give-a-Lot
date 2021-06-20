@@ -22,8 +22,12 @@ public class ReportHelper {
             String reportName = "report" + report.getId();
             reportName = reportName.replaceAll("[^a-zA-Z0-9]", "");
             File file = new File(reportName + ".txt");
-            if (file.createNewFile()) {
-            } else {
+            if(file.createNewFile())
+            {
+
+            }
+            else
+            {
                 throw new ReportException("Exception: File already exists");
             }
             String id = report.getId().toString();
@@ -51,8 +55,8 @@ public class ReportHelper {
 
             writer.close();
 
-            try {
-
+            try
+            {
                 String serverName = "hansken.db.elephantsql.com";
                 String mydatabase = "Givealot";
                 String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";

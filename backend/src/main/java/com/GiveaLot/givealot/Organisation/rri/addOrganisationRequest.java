@@ -27,7 +27,6 @@ public class addOrganisationRequest {
         this.password = password;
         this.contactPerson = contactPerson;
         this.contactNumber = contactNumber;
-
     }
 
     /**

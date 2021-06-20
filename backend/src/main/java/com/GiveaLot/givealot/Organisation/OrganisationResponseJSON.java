@@ -1,11 +1,11 @@
 package com.GiveaLot.givealot.Organisation;
 
-public class addUserResponseJSON
+public class OrganisationResponseJSON
 {
     int code;
     String status;
 
-    public addUserResponseJSON(int http_code, String status) {
+    public OrganisationResponseJSON(int http_code, String status) {
         this.code = http_code;
         this.status = status;
     }

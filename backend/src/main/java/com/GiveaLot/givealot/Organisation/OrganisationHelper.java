@@ -1,16 +1,12 @@
 package com.GiveaLot.givealot.Organisation;
 
 import com.GiveaLot.givealot.Organisation.dataclass.Organisation;
-import com.GiveaLot.givealot.Organisation.dataclass.Status;
-import com.GiveaLot.givealot.Organisation.exceptions.OrgException;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class OrganisationHelper {
     public OrganisationHelper(){}
@@ -255,9 +251,9 @@ public class OrganisationHelper {
         helper.orgExists(org);
 
 
-
-
-
-
+    public boolean user_isAdmin(String userID)
+    {
+        /*needs implementing*/
+        return true;
     }
 }

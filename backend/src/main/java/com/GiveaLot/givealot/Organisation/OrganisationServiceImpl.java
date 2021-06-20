@@ -369,11 +369,7 @@ public class OrganisationServiceImpl
         return mimeMessage;
     }
 
-    public static void main(String args[]) throws AddressException, MessagingException, IOException
-    {
-        OrganisationServiceImpl mail = new OrganisationServiceImpl();
-        mail.setupServerProperties();
-        mail.OrganisationReactivatedEmail();
-        mail.sendEmail();
+    public static void main(String args[]) throws AddressException, MessagingException, IOException, NoSuchAlgorithmException {
+
     }
 }

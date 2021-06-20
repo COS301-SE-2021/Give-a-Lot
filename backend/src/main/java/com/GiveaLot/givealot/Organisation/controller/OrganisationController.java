@@ -25,7 +25,6 @@ public class OrganisationController
     {
         try
         {
-            System.out.println(request.getOrgName());
             addOrganisationResponse addOrganisationResponse;
             addOrganisationResponse = OrganisationServiceImpl.addOrganisation(request);
 

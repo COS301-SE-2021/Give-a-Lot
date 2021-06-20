@@ -22,9 +22,12 @@ public class ReportServiceImpl implements ReportService{
         }
         Report report = null;
         Timestamp timestamp = null;
-        try{
+        try
+        {
             report = new Report("","","","","",timestamp);
-        }catch (Exception e){
+        }
+        catch (Exception e)
+        {
             throw new ReportException("Problem creating Report");
         }
         

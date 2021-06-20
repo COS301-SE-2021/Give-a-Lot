@@ -45,10 +45,11 @@ public class OrganisationServiceImpl
         try
         {
             help.addOrg(org);
-            org.setStatus(com.GiveaLot.givealot.Organisation.dataclass.Status.Active);
+
             this.setupServerProperties();
             this.OrganisationAddedEmail();
             this.sendEmail();
+
             addOrganisationResponse addOrganisationResponse = new addOrganisationResponse();
             addOrganisationResponse.setOrganisationResponseJSON( List.of(new OrganisationResponseJSON(200, "ok")));
             return addOrganisationResponse;
@@ -154,6 +155,7 @@ public class OrganisationServiceImpl
                 Organisation org = new Organisation();
                 org.setOrgId(request.getOrg_id());
                 help.suspendOrg(org);
+
                 this.setupServerProperties();
                 this.OrganisationSuspendedEmail();
                 this.sendEmail();

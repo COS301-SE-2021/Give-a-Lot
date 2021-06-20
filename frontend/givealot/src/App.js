@@ -17,7 +17,6 @@ function App() {
       <div className="App">
         <Admin />
 
-
       </div>
    );
   

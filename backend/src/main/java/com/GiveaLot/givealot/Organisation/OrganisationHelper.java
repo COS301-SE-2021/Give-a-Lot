@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 public class OrganisationHelper {
-    public OrganisationHelper(){}
+    public OrganisationHelper() {}
 
 
     public void orgExists(Organisation organisation) throws SQLException, OrgException {
@@ -77,7 +77,7 @@ public class OrganisationHelper {
 
             String username = "iqvyaozz";
             String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
-            System.out.println("Success");
+            //System.out.println("Success");
             //Setup connection
             Connection connection = DriverManager.getConnection(url, username, password);
 
@@ -94,6 +94,7 @@ public class OrganisationHelper {
             int year = dateCurrent.getYear();
             dateEx.setYear(year+1);
             String dateExpiry = format.format(dateEx);
+
 
 
             //organisations is a table
@@ -126,13 +127,11 @@ public class OrganisationHelper {
         }
 
         try {
-            String serverName = "hansken.db.elephantsql.com";
-            String mydatabase = "Givealot";
             String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
 
             String username = "iqvyaozz";
             String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
-            System.out.println("Success");
+            //System.out.println("Success");
             //Setup connection
             Connection connection = DriverManager.getConnection(url, username, password);
 
@@ -162,8 +161,6 @@ public class OrganisationHelper {
         }
 
         try {
-            String serverName = "hansken.db.elephantsql.com";
-            String mydatabase = "Givealot";
             String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
 
             String username = "iqvyaozz";
@@ -197,8 +194,6 @@ public class OrganisationHelper {
         }
 
         try {
-            String serverName = "hansken.db.elephantsql.com";
-            String mydatabase = "Givealot";
             String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
 
             String username = "iqvyaozz";
@@ -224,11 +219,12 @@ public class OrganisationHelper {
         }
     }
 
-    public boolean user_isAdmin(String userID)
-    {
-        /*needs implementing*/
-        return true;
-    }
+        public boolean user_isAdmin (String userID)
+        {
+            /*needs implementing*/
+            return true;
+        }
+
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException, NoSuchAlgorithmException, OrgException {
 

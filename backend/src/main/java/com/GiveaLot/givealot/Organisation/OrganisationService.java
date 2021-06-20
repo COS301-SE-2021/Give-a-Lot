@@ -1,5 +1,6 @@
 package com.GiveaLot.givealot.Organisation;
 import com.GiveaLot.givealot.Organisation.exceptions.InvalidRequestException;
+import com.GiveaLot.givealot.Organisation.exceptions.OrgException;
 import com.GiveaLot.givealot.Organisation.rri.*;
 
 import javax.mail.MessagingException;
@@ -21,6 +22,7 @@ public interface OrganisationService {
     reactivateOrganisationResponse reactivateOrganisation(reactivateOrganisationRequest request)throws InvalidRequestException;
     investigateOrganisationResponse investigateOrganisation(investigateOrganisationRequest request)throws InvalidRequestException;
     suspendOrganisationResponse suspendOrganisation(suspendOrganisationRequest request)throws InvalidRequestException;
+    getOrganisationResponse getOrganisation(getOrganisationRequest request) throws InvalidRequestException, OrgException;
 
     void setupServerProperties();
     MimeMessage draftEmail() throws AddressException, MessagingException, IOException;

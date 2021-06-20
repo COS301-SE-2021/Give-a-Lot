@@ -1,5 +1,6 @@
 package com.GiveaLot.givealot.Report;
 
+import com.GiveaLot.givealot.Organisation.exceptions.OrgException;
 import com.GiveaLot.givealot.Report.dataclass.Report;
 import com.GiveaLot.givealot.Report.exceptions.ReportException;
 
@@ -17,7 +18,12 @@ public class ReportHelper {
 
     public ReportHelper(){}
     public File createReportFile(Report report) throws Exception{
+        if (report.getOrgId()==null){
+            throw new ReportException("Exception: Report data is null");
+        }
         try {
+
+            /** Create file **/
 
             String reportName = "report" + report.getId();
             reportName = reportName.replaceAll("[^a-zA-Z0-9]", "");
@@ -26,6 +32,9 @@ public class ReportHelper {
             } else {
                 throw new ReportException("Exception: File already exists");
             }
+
+            /** Write to file **/
+
             String id = report.getId().toString();
             String date = report.getDate().toString();
             FileWriter writer = new FileWriter(reportName + ".txt");
@@ -36,11 +45,11 @@ public class ReportHelper {
             writer.write("Date: ");
             writer.write(date);
             writer.write("\n");
-            writer.write("User email: ");
-            writer.write(report.getReporterEmail());
+            writer.write("Reporter email: ");
+//            writer.write(report.getReporterEmail());
             writer.write("\n");
-            writer.write("Organisation: ");
-            writer.write(report.getOrgName());
+            writer.write("Organisation ID: ");
+            writer.write(report.getOrgId());
             writer.write("\n");
             writer.write("Type: ");
             writer.write(report.getReportType());
@@ -50,6 +59,8 @@ public class ReportHelper {
             writer.write("\n");
 
             writer.close();
+
+            /** Update database **/
 
             try {
 
@@ -88,23 +99,41 @@ public class ReportHelper {
                 //execute the query
                 state.executeUpdate(query2);
 
+                rs = state.executeQuery(query1);
+
+                //System.out.println("Success");
+
+                int reportsConfirm = 0;
+
+                while (rs.next()){
+                    reportsConfirm = rs.getInt("numberOfReports");
+                }
+
+                reportsConfirm++;
+
+                /** Confirm ID exists **/
+
+                if (reports == reportsConfirm) {
+                    System.out.println("Non Existent");
+                    throw new ReportException();
+                }
+
                 System.out.println("Successfully Executed Update");
             }
             catch (Exception e){
-                throw new SQLException("Exception: Insert into database could not be fulfilled");
+                throw new SQLException("Exception: ID is not present in the database");
             }
 
             return file;
         }
         catch (Exception e) {
-            throw new ReportException("Exception: Problem creating Report");
+            throw new ReportException("Exception: ID is not present in the database");
         }
     }
 
     public static void main(String[] args) throws Exception {
-        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
-        Report report = new Report("0b5d9a449f7d4c99ca9bd41def84b659","The Swindlers","They provided incorrect addresses and contact information", "Incorrect Profile Info", "CoolUser57", timestamp);
+        Report report = new Report("0b5d9a449f7d4c99ca9bd41def84b659","They provided incorrect addresses and contact information", "Incorrect Profile Info", "CoolUser57@gmail.com");
 
         ReportHelper help = new ReportHelper();
         File reportFile = help.createReportFile(report);

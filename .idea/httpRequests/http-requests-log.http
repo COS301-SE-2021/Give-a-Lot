@@ -1,3 +1,62 @@
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "b7a516d8a81cda04974d40072f8d3e20"
+}
+
+<> 2021-06-20T235026.200.json
+
+###
+
+POST http://localhost:8080/organisation/register
+Content-Type: application/json
+
+{
+  "orgName" : "test org name",
+  "orgDescription" : "test org description",
+  "orgSector" : "test org sector",
+  "orgEmail" : "test@email.com",
+  "password" : "test org password",
+  "contactPerson" : "test contact person",
+  "contactNumber" : "test contact number"
+}
+
+<> 2021-06-20T153450.200.json
+
+###
+
+POST http://localhost:8080/browse
+Content-Type: application/json
+
+<> 2021-06-20T152018.200.json
+
+###
+
+POST http://localhost:8080/organisation/investigate
+Content-Type: application/json
+
+{
+  "org_id" : "b7a516d8a81cda04974d40072f8d3e20",
+  "admin_id" : "not relevant yet"
+}
+
+<> 2021-06-20T152005.200.json
+
+###
+
+POST http://localhost:8080/organisation/suspend
+Content-Type: application/json
+
+{
+  "org_id" : "b7a516d8a81cda04974d40072f8d3e20",
+  "admin_id" : "not relevant yet"
+}
+
+<> 2021-06-20T004423.200.json
+
+###
+
 POST http://localhost:8080/organisation/investigate
 Content-Type: application/json
 

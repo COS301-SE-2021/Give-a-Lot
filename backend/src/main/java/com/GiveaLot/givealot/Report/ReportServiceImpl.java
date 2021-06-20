@@ -21,14 +21,16 @@ public class ReportServiceImpl implements ReportService{
             throw new InvalidRequestException("Exception: Report could not be created because the request object is null");
         }
         Report report = null;
-        Timestamp timestamp = null;
-        try{
-            report = new Report("","","","","",timestamp);
-        }catch (Exception e){
+        try
+        {
+            report = new Report("","","","");
+        }
+        catch (Exception e)
+        {
             throw new ReportException("Problem creating Report");
         }
         
-        report = new Report(request.getOrgId(), request.getOrgName(),request.getReportDescription(),request.getReportType(),request.getReporterEmail(),request.getId());
+        report = new Report(request.getOrgId(),request.getReportDescription(),request.getReportType(),request.getReporterEmail());
         reportRes = new createReportResponse();
         ReportHelper createReport = new ReportHelper();
         try {

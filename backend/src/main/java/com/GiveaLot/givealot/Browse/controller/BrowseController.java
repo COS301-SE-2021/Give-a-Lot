@@ -20,7 +20,8 @@ public class BrowseController
     private final BrowseServiceImp BrowseServiceImp;
 
     @Autowired
-    public BrowseController(com.GiveaLot.givealot.Browse.BrowseServiceImp browseServiceImp) {
+    public BrowseController(com.GiveaLot.givealot.Browse.BrowseServiceImp browseServiceImp)
+    {
         BrowseServiceImp = browseServiceImp;
     }
 

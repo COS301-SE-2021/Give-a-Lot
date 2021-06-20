@@ -6,10 +6,7 @@ import com.GiveaLot.givealot.Browse.rri.browseResponse;
 import com.GiveaLot.givealot.Browse.rri.browseResponseJSON;
 import com.GiveaLot.givealot.User.dataclass.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,7 +21,7 @@ public class BrowseController
         BrowseServiceImp = browseServiceImp;
     }
 
-    @PostMapping
+    @GetMapping
     public List<browseResponseJSON> search()
     {
         browseRequest browseRequest = null;

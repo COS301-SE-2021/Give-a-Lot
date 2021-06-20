@@ -23,6 +23,7 @@ public class ReportHelper {
             String reportName = "report" + report.getId();
             reportName = reportName.replaceAll("[^a-zA-Z0-9]", "");
             File file = new File(reportName + ".txt");
+
             if(file.createNewFile())
             {
 

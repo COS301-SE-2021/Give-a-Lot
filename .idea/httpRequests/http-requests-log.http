@@ -1,3 +1,14 @@
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "b7a516d8a81cda04974d40072f8d3e20"
+}
+
+<> 2021-06-20T235026.200.json
+
+###
+
 POST http://localhost:8080/organisation/register
 Content-Type: application/json
 

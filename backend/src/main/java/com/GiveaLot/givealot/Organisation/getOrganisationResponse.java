@@ -11,7 +11,7 @@ public class getOrganisationResponse
         get_OrganisationResponseJSON = null;
     }
 
-    public List<get_OrganisationResponseJSON> getAddUserResponseJSONS()
+    public List<get_OrganisationResponseJSON> get_OrganisationResponseJSON()
     {
         return get_OrganisationResponseJSON;
     }

@@ -9,11 +9,12 @@ import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
 public class OrganisationHelper {
-    public OrganisationHelper(){}
+    public OrganisationHelper() {}
 
 
     public void orgExists(Organisation organisation) throws SQLException, OrgException {
@@ -77,7 +78,7 @@ public class OrganisationHelper {
 
             String username = "iqvyaozz";
             String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
-            System.out.println("Success");
+            //System.out.println("Success");
             //Setup connection
             Connection connection = DriverManager.getConnection(url, username, password);
 
@@ -95,10 +96,23 @@ public class OrganisationHelper {
             dateEx.setYear(year+1);
             String dateExpiry = format.format(dateEx);
 
+            Organisation.MD5 md5 = new Organisation.MD5();
+
+
+            String salt = md5.getMd5(organisation.getOrgEmail());
+
+            String salted = md5.getMd5(organisation.getPassword() + salt);
+
+
+
+            System.out.println("works");
+            System.out.println(salted);
+
+
 
             //organisations is a table
             //String query = "create database newDB;";
-            String query1 = "insert into public.\"Organisations\"(\"orgName\", \"orgDescription\", \"orgSector\", \"orgEmail\", \"orgId\", status, password, \"contactPerson\", \"contactNumber\") values ('" + organisation.getOrgName() + "','" + organisation.getOrgDescription() + "','" + organisation.getOrgSector() + "','" + organisation.getOrgEmail() + "','" + organisation.getOrgId() + "','"+ organisation.getStatus().toString() + "','" + organisation.getPassword() + "','" + organisation.getContactPerson() + "','" + organisation.getContactNumber() + "');";
+            String query1 = "insert into public.\"Organisations\"(\"orgName\", \"orgDescription\", \"orgSector\", \"orgEmail\", \"orgId\", status, password, \"contactPerson\", \"contactNumber\") values ('" + organisation.getOrgName() + "','" + organisation.getOrgDescription() + "','" + organisation.getOrgSector() + "','" + organisation.getOrgEmail() + "','" + organisation.getOrgId() + "','"+ organisation.getStatus().toString() + "','" + salted + "','" + organisation.getContactPerson() + "','" + organisation.getContactNumber() + "');";
             String query2 = "insert into public.\"OrganisationPoints\"(\"orgId\") values ('" + organisation.getOrgId() + "');";
             String query3 = "insert into public.\"OrganisationInfo\"(\"orgId\") values ('" + organisation.getOrgId() + "');";
             String query4 = "insert into public.\"Certificate\"(\"orgId\", \"dateCreated\", \"dateExpiry\") values ('" + organisation.getOrgId() + "','" + dateCreated + "','" + dateExpiry +"');";
@@ -126,13 +140,11 @@ public class OrganisationHelper {
         }
 
         try {
-            String serverName = "hansken.db.elephantsql.com";
-            String mydatabase = "Givealot";
             String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
 
             String username = "iqvyaozz";
             String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
-            System.out.println("Success");
+            //System.out.println("Success");
             //Setup connection
             Connection connection = DriverManager.getConnection(url, username, password);
 
@@ -162,8 +174,6 @@ public class OrganisationHelper {
         }
 
         try {
-            String serverName = "hansken.db.elephantsql.com";
-            String mydatabase = "Givealot";
             String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
 
             String username = "iqvyaozz";
@@ -197,8 +207,6 @@ public class OrganisationHelper {
         }
 
         try {
-            String serverName = "hansken.db.elephantsql.com";
-            String mydatabase = "Givealot";
             String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
 
             String username = "iqvyaozz";
@@ -224,11 +232,12 @@ public class OrganisationHelper {
         }
     }
 
-    public boolean user_isAdmin(String userID)
-    {
-        /*needs implementing*/
-        return true;
-    }
+        public boolean user_isAdmin (String userID)
+        {
+            /*needs implementing*/
+            return true;
+        }
+
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException, NoSuchAlgorithmException, OrgException {
 
@@ -258,6 +267,6 @@ public class OrganisationHelper {
 
         Organisation org = new Organisation("The Old Orgssss", "We are old heressss", "Diseasess", "oldorg@gmail.comssss", "password", "Mr. Old Orgsss", "0823322423");
         OrganisationHelper helper = new OrganisationHelper();
-        helper.orgExists(org);
+        helper.addOrg(org);
     }
 }

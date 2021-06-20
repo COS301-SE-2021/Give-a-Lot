@@ -108,7 +108,7 @@ public class OrganisationUnitTest {
     }
     @Test
     @Description("Assumes the Org is already UnderInvestigation when trying to Investigate")
-    void TEST_IS_UNDERINVESTIGATION(){
+    void TEST_IS_UNDER_INVESTIGATION(){
         Throwable throwError = assertThrows(OrgException.class, () -> organisationHelper.investigateOrg(orgInvestigated));
         assertEquals("Exception: Organisation is already under investigation", throwError.getMessage());
     }

@@ -127,9 +127,9 @@ public class CertificateHelper {
                     /** Sets database booleans to false because the certificate has expired **/
 
                     System.out.println(sqlDate);
-                    System.out.println(" is before ");
+                    System.out.println("is before");
                     System.out.println(dateCurrent);
-                    System.out.println("Expired");
+                    System.out.println("Certificate is Expired");
 
                     String queryUpdate1 = "update public.\"Certificate\" set \"orgRenewal\" = false where \"orgId\" = '" + id.get(i) + "';";
 
@@ -163,9 +163,9 @@ public class CertificateHelper {
                     /** Database values remain unchanged because the date is valid **/
 
                     System.out.println(sqlDate);
-                    System.out.println(" is after ");
+                    System.out.println("is after");
                     System.out.println(dateCurrent);
-                    System.out.println("Valid");
+                    System.out.println("Certificate is Valid");
                 }
                 i++;
             }
@@ -242,7 +242,7 @@ public class CertificateHelper {
 
             String username = "iqvyaozz";
             String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
-            System.out.println("Success");
+            //System.out.println("Success");
             //Setup connection
             Connection connection = DriverManager.getConnection(url, username, password);
 
@@ -270,7 +270,7 @@ public class CertificateHelper {
 
             String username = "iqvyaozz";
             String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
-            System.out.println("Success");
+            //System.out.println("Success");
             //Setup connection
             Connection connection = DriverManager.getConnection(url, username, password);
 

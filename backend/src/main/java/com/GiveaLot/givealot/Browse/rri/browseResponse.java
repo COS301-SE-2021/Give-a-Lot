@@ -1,6 +1,6 @@
 package com.GiveaLot.givealot.Browse.rri;
 
-import com.GiveaLot.givealot.User.dataclass.User;
+import com.GiveaLot.givealot.Browse.browseResponseJSON;
 
 import java.util.List;
 

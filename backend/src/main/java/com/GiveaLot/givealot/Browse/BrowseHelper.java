@@ -1,8 +1,5 @@
 package com.GiveaLot.givealot.Browse;
 
-import com.GiveaLot.givealot.Browse.rri.browseResponseJSON;
-import com.GiveaLot.givealot.Search.searchResponseJSON;
-
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;

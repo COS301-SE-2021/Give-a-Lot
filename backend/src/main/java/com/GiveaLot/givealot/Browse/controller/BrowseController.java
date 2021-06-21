@@ -3,11 +3,9 @@ package com.GiveaLot.givealot.Browse.controller;
 import com.GiveaLot.givealot.Browse.BrowseServiceImp;
 import com.GiveaLot.givealot.Browse.rri.browseRequest;
 import com.GiveaLot.givealot.Browse.rri.browseResponse;
-import com.GiveaLot.givealot.Browse.rri.browseResponseJSON;
-import com.GiveaLot.givealot.User.dataclass.User;
+import com.GiveaLot.givealot.Browse.browseResponseJSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -105,7 +105,7 @@ it('should fail', () => {
   }, {});
   // { '/adminorgs' : AdminOrgs, ... }
 
-  expect(pathMap['/dashboard']).toBe(Dashboard);
+  expect(pathMap['/admincerts']).toBe(Dashboard);
 
 });
 

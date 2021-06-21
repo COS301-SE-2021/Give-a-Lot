@@ -12,7 +12,7 @@ public class addOrganisationRequest {
     String contactPerson;
     String contactNumber;
 
-    addOrganisationRequest(
+    public addOrganisationRequest(
             @JsonProperty("orgName") String orgName,
             @JsonProperty("orgDescription") String orgDescription,
             @JsonProperty("orgSector") String orgSector,

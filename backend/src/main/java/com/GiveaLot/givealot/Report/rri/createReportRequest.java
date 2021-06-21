@@ -7,38 +7,21 @@ import java.time.format.DateTimeFormatter;
 
 public class createReportRequest {
     String orgId;
-    String orgName;
     String reportDescription;
     String reportType;
     String reporterEmail;
-    DateTimeFormatter date;
-    Timestamp id;
 
 
-    createReportRequest(@JsonProperty("organisation") String orgName,
-                        @JsonProperty("description") String reportDescription,
-                        @JsonProperty("type") String reportType,
-                        @JsonProperty("email") String reporterEmail)
+    public createReportRequest(@JsonProperty("orgId") String orgId,
+                               @JsonProperty("description") String reportDescription,
+                               @JsonProperty("type") String reportType,
+                               @JsonProperty("email") String reporterEmail)
     {
-        this.orgName = orgName;
+        this.orgId = orgId;
         this.reportDescription = reportDescription;
         this.reportType = reportType;
         this.reporterEmail = reporterEmail;
 
-    }
-
-  public createReportRequest( String orgName,
-                              String reportDescription,
-                                String reportType,
-                                String reporterEmail,
-                                DateTimeFormatter date,
-                                 Timestamp id){
-        this.orgName = orgName;
-        this.reportDescription = reportDescription;
-        this.reportType = reportType;
-        this.reporterEmail = reporterEmail;
-        this.date = date;
-        this.id = id;
     }
 
 
@@ -46,8 +29,8 @@ public class createReportRequest {
 
     /** Getters **/
 
-    public String getOrgName() {
-        return orgName;
+    public String getOrgId() {
+        return orgId;
     }
 
     public String getReportDescription(){
@@ -62,20 +45,13 @@ public class createReportRequest {
         return reporterEmail;
     }
 
-    public DateTimeFormatter getDate() {
-        return date;
-    }
-
-    public Timestamp getId() {
-        return id;
-    }
 
 
 
     /** Setters **/
 
-    public void setOrgName(String orgName) {
-        this.orgName = orgName;
+    public void setOrgId(String orgId) {
+        this.orgId = orgId;
     }
 
     public void setReportDescription(String reportDescription) {
@@ -90,18 +66,4 @@ public class createReportRequest {
         this.reporterEmail = reporterEmail;
     }
 
-    public void setDate(DateTimeFormatter date) {
-        this.date = date;
-    }
-
-    public void setId(Timestamp id) {
-        this.id = id;
-    }
-
-    public String getOrgId() { return orgId;
-    }
-
-    public void setOrgId(String orgId) {
-        this.orgId = orgId;
-    }
 }

@@ -11,7 +11,7 @@ public class suspendOrganisationRequest {
     String org_id;
     String admin_id;
 
-    suspendOrganisationRequest(@JsonProperty("org_id") String org_id, @JsonProperty("admin_id") String admin_id)
+    public suspendOrganisationRequest(@JsonProperty("org_id") String org_id, @JsonProperty("admin_id") String admin_id)
     {
         this.org_id = org_id;
         this.admin_id = admin_id;

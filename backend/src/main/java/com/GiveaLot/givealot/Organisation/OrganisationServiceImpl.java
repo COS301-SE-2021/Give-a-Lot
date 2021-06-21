@@ -24,6 +24,8 @@ import javax.mail.internet.MimeMultipart;
 @Service
 public class OrganisationServiceImpl
 {
+
+
     enum Status{
         Active,
         UnderInvestigation,
@@ -34,21 +36,39 @@ public class OrganisationServiceImpl
 
     OrganisationHelper help = new OrganisationHelper();
 
-    public addOrganisationResponse addOrganisation(addOrganisationRequest request) throws InvalidRequestException, NoSuchAlgorithmException, SQLException, MessagingException, IOException {
-        if (request == null)
+    public addOrganisationResponse addOrganisation(addOrganisationRequest request) throws OrgException, NoSuchAlgorithmException, SQLException, MessagingException, IOException {
+
+        if(request == null)
         {
             throw new InvalidRequestException("Exception: Organisation could not be added because the request object is null");
+        }
+        else if(request.getOrgName().length() == 0 || request.getOrgDescription().length() == 0)
+        {
+            throw new OrgException("Exception : Empty fields not allowed");
+        }
+        else if(request.getOrgSector().length() == 0 || request.getOrgEmail().length() == 0 || request.getContactPerson().length() == 0 || request.getContactNumber().length() == 0)
+        {
+            throw new OrgException("Exception : Empty fields not allowed");
+        }
+        else
+        {
+            if(!request.getOrgEmail().contains("@"))
+            {
+                throw new OrgException("Exception : invalid email");
+            }
         }
 
         Organisation org = new Organisation(request.getOrgName(),request.getOrgDescription(),request.getOrgSector(),request.getOrgEmail(),request.getPassword(),request.getContactPerson(),request.getContactNumber());
 
+        help.orgExists(org);
         try
         {
             help.addOrg(org);
-            org.setStatus(com.GiveaLot.givealot.Organisation.dataclass.Status.Active);
+
             this.setupServerProperties();
             this.OrganisationAddedEmail();
             this.sendEmail();
+
             addOrganisationResponse addOrganisationResponse = new addOrganisationResponse();
             addOrganisationResponse.setOrganisationResponseJSON( List.of(new OrganisationResponseJSON(200, "ok")));
             return addOrganisationResponse;
@@ -154,6 +174,7 @@ public class OrganisationServiceImpl
                 Organisation org = new Organisation();
                 org.setOrgId(request.getOrg_id());
                 help.suspendOrg(org);
+
                 this.setupServerProperties();
                 this.OrganisationSuspendedEmail();
                 this.sendEmail();
@@ -174,6 +195,48 @@ public class OrganisationServiceImpl
             suspendOrganisationResponse suspendOrganisationResponse = new suspendOrganisationResponse();
             suspendOrganisationResponse.setOrganisationResponseJSON(List.of(new OrganisationResponseJSON(500, e.getMessage())));
             return suspendOrganisationResponse;
+        }
+    }
+
+    public getOrganisationResponse getOrganisation(getOrganisationRequest request) throws OrgException
+    {
+        if(request == null)
+        {
+            throw new InvalidRequestException("Exception: request object is null");
+        }
+        else if(request.getOrg_id() != null && request.getOrg_id().length() == 0)
+        {
+            throw new InvalidRequestException("Exception: missing org_Id field");
+        }
+
+        get_OrganisationResponseJSON OrganisationResponseJSON = null;
+
+        try
+        {
+            Organisation org = new Organisation();
+            org.setOrgId(request.getOrg_id());
+            OrganisationResponseJSON  = help.getOrganisation(org);
+        }
+        catch (Exception e)
+        {
+            /*possible query exceptions*/
+            throw new OrgException (e.getMessage());
+        }
+
+        if(OrganisationResponseJSON == null)
+        {
+            throw new OrgException ("organisation does not exist");
+        }
+        else
+        {
+            getOrganisationResponse OrganisationResponse = new getOrganisationResponse();
+            OrganisationResponse.setGet_OrganisationResponseJSON(List.of(new get_OrganisationResponseJSON(
+                    OrganisationResponseJSON.getOrg_id(),
+                    OrganisationResponseJSON.getOrg_name(),
+                    OrganisationResponseJSON.getOrg_description()
+            )));
+
+            return OrganisationResponse;
         }
     }
 
@@ -305,11 +368,7 @@ public class OrganisationServiceImpl
         return mimeMessage;
     }
 
-    public static void main(String args[]) throws AddressException, MessagingException, IOException
-    {
-        OrganisationServiceImpl mail = new OrganisationServiceImpl();
-        mail.setupServerProperties();
-        mail.OrganisationReactivatedEmail();
-        mail.sendEmail();
+    public static void main(String args[]) throws AddressException, MessagingException, IOException, NoSuchAlgorithmException {
+
     }
 }

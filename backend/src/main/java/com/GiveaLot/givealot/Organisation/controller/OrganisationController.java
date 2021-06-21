@@ -2,6 +2,8 @@ package com.GiveaLot.givealot.Organisation.controller;
 
 import com.GiveaLot.givealot.Organisation.OrganisationResponseJSON;
 import com.GiveaLot.givealot.Organisation.OrganisationServiceImpl;
+import com.GiveaLot.givealot.Organisation.getOrganisationResponse;
+import com.GiveaLot.givealot.Organisation.get_OrganisationResponseJSON;
 import com.GiveaLot.givealot.Organisation.rri.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +28,6 @@ public class OrganisationController
     {
         try
         {
-            System.out.println(request.getOrgName());
             addOrganisationResponse addOrganisationResponse;
             addOrganisationResponse = OrganisationServiceImpl.addOrganisation(request);
 
@@ -44,6 +45,7 @@ public class OrganisationController
             return List.of(OrganisationResponseJSON);
         }
     }
+
     @CrossOrigin
     @PostMapping("/suspend")
     List<OrganisationResponseJSON>suspend_organisation (@RequestBody suspendOrganisationRequest request)
@@ -67,6 +69,7 @@ public class OrganisationController
             return List.of(new OrganisationResponseJSON(403,e.getMessage()));
         }
     }
+
     @CrossOrigin
     @PostMapping("/activate")
     List<OrganisationResponseJSON>activate_organisation (@RequestBody reactivateOrganisationRequest request)
@@ -90,6 +93,7 @@ public class OrganisationController
             return List.of(new OrganisationResponseJSON(403,e.getMessage()));
         }
     }
+
     @CrossOrigin
     @PostMapping("/investigate")
     List<OrganisationResponseJSON>investigate_organisation (@RequestBody investigateOrganisationRequest request)
@@ -112,5 +116,27 @@ public class OrganisationController
         {
             return List.of(new OrganisationResponseJSON(403,e.getMessage()));
         }
+    }
+
+    @CrossOrigin
+    @PostMapping("/get")
+    List<get_OrganisationResponseJSON>get_organisation (@RequestBody getOrganisationRequest request)
+    {
+        try
+        {
+            getOrganisationResponse getOrganisationResponse;
+            getOrganisationResponse = OrganisationServiceImpl.getOrganisation(request);
+
+            if(getOrganisationResponse != null)
+            {
+                return getOrganisationResponse.get_OrganisationResponseJSON();
+            }
+        }
+        catch(Exception e)
+        {
+            return List.of(new get_OrganisationResponseJSON(null,null,null));
+        }
+        return List.of(new get_OrganisationResponseJSON(null,null,null));
+
     }
 }

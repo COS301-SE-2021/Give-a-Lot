@@ -32,16 +32,19 @@
 // import { shallow } from 'enzyme';
 import { Route } from 'react-router';
 // import Routes from './Routes.jsx';
-import Admin from './components/admin/Admin';
+import Admin from './components/Admin/Admin';
 import AdminOrgs from './components/Admin/AdminOrgs';
 import Enzyme, { shallow, mount } from 'enzyme';
  import { MemoryRouter
  } from 'react-router';
  import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+ import AdminCerts from './components/Admin/AdminCerts';
+import AdminUsers from './components/Admin/AdminUsers';
+import Dashboard from "./components/Admin/Dashboard";
 
  Enzyme.configure({adapter: new Adapter( )});
 
-it('renders correct routes', () => {
+it('renders correct Admin organisation route', () => {
   const wrapper = shallow(<Admin />);
   const pathMap = wrapper.find(Route).reduce((pathMap, route) => {
     const routeProps = route.props();
@@ -51,7 +54,72 @@ it('renders correct routes', () => {
   // { '/adminorgs' : AdminOrgs, ... }
 
   expect(pathMap['/adminorgs']).toBe(AdminOrgs);
+
 });
 
+it('renders correct Admin Users route', () => {
+  const wrapper = shallow(<Admin />);
+  const pathMap = wrapper.find(Route).reduce((pathMap, route) => {
+    const routeProps = route.props();
+    pathMap[routeProps.path] = routeProps.component;
+    return pathMap;
+  }, {});
+  // { '/adminorgs' : AdminOrgs, ... }
+
+  expect(pathMap['/adminusers']).toBe(AdminUsers);
+
+});
+
+it('renders correct Admin Certificates route', () => {
+  const wrapper = shallow(<Admin />);
+  const pathMap = wrapper.find(Route).reduce((pathMap, route) => {
+    const routeProps = route.props();
+    pathMap[routeProps.path] = routeProps.component;
+    return pathMap;
+  }, {});
+  // { '/adminorgs' : AdminOrgs, ... }
+
+  expect(pathMap['/admincerts']).toBe(AdminCerts);
+
+});
+
+it('renders correct Admin Dashboard route', () => {
+  const wrapper = shallow(<Admin />);
+  const pathMap = wrapper.find(Route).reduce((pathMap, route) => {
+    const routeProps = route.props();
+    pathMap[routeProps.path] = routeProps.component;
+    return pathMap;
+  }, {});
+  // { '/adminorgs' : AdminOrgs, ... }
+
+  expect(pathMap['/']).toBe(Dashboard);
+
+});
+
+it('should fail', () => {
+  const wrapper = shallow(<Admin />);
+  const pathMap = wrapper.find(Route).reduce((pathMap, route) => {
+    const routeProps = route.props();
+    pathMap[routeProps.path] = routeProps.component;
+    return pathMap;
+  }, {});
+  // { '/adminorgs' : AdminOrgs, ... }
+
+  expect(pathMap['/dashboard']).toBe(Dashboard);
+
+});
+
+it('Should fail', () => {
+  const wrapper = shallow(<Admin />);
+  const pathMap = wrapper.find(Route).reduce((pathMap, route) => {
+    const routeProps = route.props();
+    pathMap[routeProps.path] = routeProps.component;
+    return pathMap;
+  }, {});
+  // { '/adminorgs' : AdminOrgs, ... }
+
+  expect(pathMap['/admin']).toBe(Dashboard);
+
+});
 
 

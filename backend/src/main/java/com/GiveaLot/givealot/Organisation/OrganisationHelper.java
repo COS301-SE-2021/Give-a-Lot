@@ -9,7 +9,6 @@ import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
@@ -254,7 +253,7 @@ public class OrganisationHelper {
                 else
                 {
                     System.out.println("organisation found");
-                    return new get_OrganisationResponseJSON(rs.getString("orgId"),rs.getString("orgName"),rs.getString("orgDescription"));
+                    return new get_OrganisationResponseJSON("200", "ok", rs.getString("orgId"),rs.getString("orgName"),rs.getString("orgDescription"));
                 }
             }
             catch (Exception e)

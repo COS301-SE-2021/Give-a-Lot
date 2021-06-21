@@ -134,9 +134,9 @@ public class OrganisationController
         }
         catch(Exception e)
         {
-            return List.of(null);
+            return List.of(new get_OrganisationResponseJSON(null,null,null));
         }
-        return List.of(null);
+        return List.of(new get_OrganisationResponseJSON(null,null,null));
 
     }
 }

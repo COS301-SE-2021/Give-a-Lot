@@ -76,7 +76,8 @@ class OrgReportForm extends Component {
         this.state = {
             description : "",
             type: "",
-            yourEmail: "",
+            email: "",
+            orgId: ""
         }
     }
 
@@ -97,7 +98,7 @@ class OrgReportForm extends Component {
     }
 
     render() {
-        const {Name, yourEmail,department, time,date, type, description,country,Follow} = this.state
+        const {Name, email,department, time,date, type, description,country,Follow} = this.state
         // const classes = useStyles();
         return (
             <form onSubmit={this.submitHandler}>
@@ -111,7 +112,7 @@ class OrgReportForm extends Component {
                             label="Your Email"
                             fullWidth
                             autoComplete="department"
-                            value={yourEmail} onChange={this.changeHandler}
+                            value={email} onChange={this.changeHandler}
                         />
                     </Grid>
 

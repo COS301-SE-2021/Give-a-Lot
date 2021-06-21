@@ -28,7 +28,16 @@ public class BrowseController
     {
         browseRequest browseRequest = null;
         browseResponse browseResponse;
-        browseResponse = BrowseServiceImp.browse(browseRequest);
-        return browseResponse.getOrganisations();
+
+        try
+        {
+            browseResponse = BrowseServiceImp.browse(browseRequest);
+            return browseResponse.getOrganisations();
+        }
+        catch (Exception e)
+        {
+            /*return a list of null fields*/
+            return List.of(new browseResponseJSON(null,null,null,null,null,null,false));
+        }
     }
 }

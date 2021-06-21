@@ -29,7 +29,6 @@ public class BrowseHelper {
                 String tmp_orgDescription = rs.getString("orgDescription");
                 String tmp_orgSector = rs.getString("orgSector");
 
-
                 organisationsList.add(new browseResponseJSON(tmp_org_id,tmp_org_name,tmp_orgDescription,"no slogan",tmp_orgSector,"",false));
             }
 

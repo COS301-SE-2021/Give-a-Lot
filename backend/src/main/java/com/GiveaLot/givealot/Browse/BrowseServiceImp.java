@@ -12,8 +12,7 @@ import java.util.List;
 @Service
 public class BrowseServiceImp implements BrowseService
 {
-    public browseResponse browse(browseRequest request)
-    {
+    public browseResponse browse(browseRequest request) throws Exception {
         BrowseHelper browseHelper = new BrowseHelper();
         browseResponse browseResponse = new browseResponse();
 
@@ -24,8 +23,7 @@ public class BrowseServiceImp implements BrowseService
         }
         catch (Exception e)
         {
-            System.out.println(e);
-            return browseResponse;
+            throw new Exception(e.getMessage());
         }
     }
 }

@@ -37,23 +37,35 @@ export class Manage extends Component {
 
         this.state = {
             users: [],
-            org_id: "",
+            org_id: "4fd69da9a34e2c771998e0c8f912b4f4",
             org_name: "",
             org_description: ""
         }
+
     }
 
     componentDidMount(){
-        axios.post('http://localhost:8080/organisation/get')
-        .then(response =>{
-            console.log(response)
-            this.setState({users: response.data})
-        })
-        .catch(error =>{
-            console.log(error)
-            this.setState({error : 'Error Retrieving data'})
-        })
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        axios.post('http://localhost:8080/organisation/get', { org_id : this.state.org_id}, config)
+
+            //axios.get('http://localhost:8080/organisation/get')
+            .then(response =>{
+                console.log(response)
+                console.log(response.data[0].org_name)
+                this.setState({org_name: response.data[0].org_name, org_description : response.data[0].org_description ,org_id: response.data[0].org_id})
+
+            })
+            .catch(error =>{
+                console.log(error)
+                this.setState({error : 'Error Retrieving data'})
+            })
     }
+
 
     changeHandler = (e) =>{
         this.setState({[e.target.name] : e.target.value})
@@ -61,9 +73,18 @@ export class Manage extends Component {
     
     handleSuspend = (e) =>{
         e.preventDefault()
-        console.log("this is ", this.state.id )
-        axios.post('http://localhost:8080/organisation/suspend', this.state.id)
+
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        console.log("this is ----| ", this.state.org_id )
+        axios.post('http://localhost:8080/organisation/suspend',{ org_id : this.state.org_id}, config)
             .then(response =>{
+                console.log("this is ", this.state.id )
                 console.log(response)
             })
             .catch(error =>{
@@ -74,8 +95,8 @@ export class Manage extends Component {
 
     handleRenew = (e) =>{
         e.preventDefault()
-        console.log("this is ", this.state.id )
-        axios.post('http://localhost:8080/report/organisation/renew', this.state.id)
+        console.log("this is ", this.state.org_id )
+        axios.post('http://localhost:8080/report/organisation/renew', this.state.org_id)
             .then(response =>{
                 console.log(response)
             })
@@ -94,7 +115,9 @@ export class Manage extends Component {
                     <div >
                         <h2>{org_name}</h2>
 
-                        <p>{org_description}</p>
+                        <p>{org_description}
+
+                            </p>
                         
                         <Galleryy />
                          <p style={{color: "white"}}>Lazy space, don't remove</p>
@@ -169,7 +192,7 @@ export class Manage extends Component {
                                             variant="contained"
                                             color="primary"
                                            type="submit"
-                                           name="org_id"  
+                                           name="org_id"
                                         >
                                             Suspend
                                         </Button>

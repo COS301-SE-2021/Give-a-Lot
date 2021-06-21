@@ -63,13 +63,14 @@ class OrganisationReport extends Component {
             }
         }
 
+         console.log(this.state.org_id)
         axios.post('http://localhost:8080/organisation/get', { org_id : this.state.org_id}, config)
 
         //axios.get('http://localhost:8080/organisation/get')
         .then(response =>{
             console.log(response)
-            console.log(response.data[0])
-            this.setState({users: response[0].data.org_name})
+            console.log(response.data[0].org_name)
+            this.setState({users: response.data[0].org_name})
 
         })
         .catch(error =>{
@@ -89,9 +90,9 @@ render() {
                     </Typography>
 
                     <Typography component="h1" variant="h4" align="center" >
-                        {users.org_name}
+                        {users}
 
-                        name goes here
+
                     </Typography>
                     
 

@@ -78,13 +78,7 @@ render() {
                     </Typography>
 
                     <Typography component="h1" variant="h4" align="center" >
-                        {users.org_name}
-                        {/*{
-                            users.length ?
-                                users.map(user => <div >{user.org_name}</div>):
-                                null
-                        }*/}
-                        name goes here
+                        
                     </Typography>
                     
 

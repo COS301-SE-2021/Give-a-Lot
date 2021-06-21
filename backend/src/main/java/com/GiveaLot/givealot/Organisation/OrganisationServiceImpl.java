@@ -63,7 +63,6 @@ public class OrganisationServiceImpl
         help.orgExists(org);
         try
         {
-
             help.addOrg(org);
 
             this.setupServerProperties();

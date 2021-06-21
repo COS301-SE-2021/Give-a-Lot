@@ -1,3 +1,123 @@
+POST http://localhost:8080/report/organisation
+Content-Type: application/json
+
+{
+  "orgId" : "8378a47a5f4a901d23222cef70df3203",
+  "description" : "The organisation is an imposter",
+  "type": "fraud",
+  "email": "nqobani2730@gmail.com"
+}
+
+<> 2021-06-21T015856.200.json
+
+###
+
+POST http://localhost:8080/report/organisation
+Content-Type: application/json
+
+{
+  "orgId" : "8378a47a5f4a901d23222cef70df3203",
+  "description" : "The organisation is an imposter",
+  "type": "fraud",
+  "email": "nqobani2730@gmail.com"
+}
+
+<> 2021-06-21T015320.200.json
+
+###
+
+POST http://localhost:8080/report/organisation
+Content-Type: application/json
+
+{
+  "orgId" : "c289050761c2b2c85c4b8695ab9a0991",
+  "description" : "The organisation is an imposter",
+  "type": "fraud",
+  "email": "nqobani2730@gmail.com"
+}
+
+<> 2021-06-21T013818.200.json
+
+###
+
+POST http://localhost:8080/report/organisation
+Content-Type: application/json
+
+{
+  "orgId" : "c289050761c2b2c85c4b8695ab9a0991",
+  "description" : "The organisation is an imposter",
+  "type": "fraud",
+  "email": "nqobani2730@gmail.com"
+}
+
+<> 2021-06-21T013515.200.json
+
+###
+
+POST http://localhost:8080/report/organisation
+Content-Type: application/json
+
+{
+  "orgId" : "c289050761c2b2c85c4b8695ab9a0991",
+  "description" : "The organisation is an imposter",
+  "type": "fraud",
+  "email": "nqobani2730@gmail.com"
+}
+
+<> 2021-06-21T013222.200.json
+
+###
+
+POST http://localhost:8080/report/organisation
+Content-Type: application/json
+
+{
+  "orgId" : "c289050761c2b2c85c4b8695ab9a0991",
+  "description" : "The organisation is an imposter",
+  "type": "fraud",
+  "email": "nqobani2730@gmail.com"
+}
+
+###
+
+POST http://localhost:8080/report/organisation
+Content-Type: application/json
+
+{
+  "orgId" : "c289050761c2b2c85c4b8695ab9a0991",
+  "description" : "The organisation is an imposter",
+  "type": "fraud",
+  "email": "nqobani2730@gmail.com"
+}
+
+###
+
+POST http://localhost:8080/report/organisation
+Content-Type: application/json
+
+{
+"orgId" : "c289050761c2b2c85c4b8695ab9a0991",
+  "description" : "The organisation is an imposter",
+  "type": "fraud",
+  "email": "nqobani2730@gmail.com"
+}
+
+###
+
+POST http://localhost:8080/report/organisation
+Content-Type: application/json
+
+{
+"orgId" : "c289050761c2b2c85c4b8695ab9a0991",
+  "description" : "The organisation is an imposter",
+  "type": "fraud",
+  "email": "nqobani2730@gmail.com"
+}
+
+<> 2021-06-21T012732.500.json
+
+###
+
 POST http://localhost:8080/organisation/get
 Content-Type: application/json
 

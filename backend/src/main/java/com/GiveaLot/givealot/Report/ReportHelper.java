@@ -17,7 +17,8 @@ public class ReportHelper {
     //Create report
 
     public ReportHelper(){}
-    public File createReportFile(Report report) throws Exception{
+    public File createReportFile(Report report) throws Exception
+    {
         if (report.getOrgId()==null){
             throw new ReportException("Exception: Report data is null");
         }
@@ -62,7 +63,8 @@ public class ReportHelper {
 
             /** Update database **/
 
-            try {
+            try
+            {
 
                 String serverName = "hansken.db.elephantsql.com";
                 String mydatabase = "Givealot";
@@ -94,7 +96,7 @@ public class ReportHelper {
                 reports++;
 
                 String query2 = "update public.\"OrganisationInfo\" set \"numberOfReports\" = '"+ reports +"' where \"orgId\" = '" + report.getOrgId() + "';";
-                //System.out.println(query2);
+                System.out.println(query2);
 
                 //execute the query
                 state.executeUpdate(query2);
@@ -121,13 +123,13 @@ public class ReportHelper {
                 System.out.println("Successfully Executed Update");
             }
             catch (Exception e){
-                throw new SQLException("Exception: ID is not present in the database");
+                throw new SQLException("Exception: ID is not present in the database 01");
             }
 
             return file;
         }
         catch (Exception e) {
-            throw new ReportException("Exception: ID is not present in the database");
+            throw new ReportException("Exception: ID is not present in the database 02");
         }
     }
 
@@ -139,7 +141,9 @@ public class ReportHelper {
         File reportFile = help.createReportFile(report);
         System.out.println(reportFile);
         Scanner reader = new Scanner(reportFile);
-        while (reader.hasNextLine()){
+
+        while (reader.hasNextLine())
+        {
             String data = reader.nextLine();
             System.out.println(data);
         }

@@ -3,5 +3,5 @@ import com.GiveaLot.givealot.Browse.rri.browseRequest;
 import com.GiveaLot.givealot.Browse.rri.browseResponse;
 
 public interface BrowseService {
-    browseResponse browse(browseRequest request);
+    browseResponse browse(browseRequest request) throws Exception;
 }

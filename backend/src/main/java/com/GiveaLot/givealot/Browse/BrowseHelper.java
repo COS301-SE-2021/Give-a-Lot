@@ -18,7 +18,7 @@ public class BrowseHelper {
             Statement state = connection.createStatement();
 
             String sql_query = "SELECT * FROM public.\"Organisations\" WHERE NOT status = 'Suspended';";
-            System.out.println(sql_query);
+            /*System.out.println(sql_query);*/
             ResultSet rs = state.executeQuery(sql_query);
 
             List<browseResponseJSON> organisationsList = new LinkedList<>();
@@ -29,10 +29,10 @@ public class BrowseHelper {
                 String tmp_orgDescription = rs.getString("orgDescription");
                 String tmp_orgSector = rs.getString("orgSector");
 
-
                 organisationsList.add(new browseResponseJSON(tmp_org_id,tmp_org_name,tmp_orgDescription,"no slogan",tmp_orgSector,"",false));
             }
 
+            connection.close();
             if(organisationsList.size() == 0)
                 return null;
             else return organisationsList;

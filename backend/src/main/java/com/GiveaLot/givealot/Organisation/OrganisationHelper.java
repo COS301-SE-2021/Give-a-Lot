@@ -183,7 +183,7 @@ public class OrganisationHelper {
 
             //execute the query
             state.executeUpdate(query);
-
+            connection.close();
             System.out.println("Successfully Executed Update");
         }
         catch (Exception e){
@@ -218,6 +218,7 @@ public class OrganisationHelper {
             //execute the query
             state.executeUpdate(query);
 
+            connection.close();
             System.out.println("Successfully Executed Update");
         }
         catch (Exception e){
@@ -250,11 +251,13 @@ public class OrganisationHelper {
                 if(!rs.next())
                 {
                     System.out.println("organisation not found");
+                    connection.close();
                     return null;
                 }
                 else
                 {
                     System.out.println("organisation found");
+                    connection.close();
                     return new get_OrganisationResponseJSON("200", "ok", rs.getString("orgId"),rs.getString("orgName"),rs.getString("orgDescription"));
                 }
             }

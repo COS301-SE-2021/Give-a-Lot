@@ -173,6 +173,7 @@ public class CertificateHelper {
             try {
                 rs.close();
                 state.close();
+                connection.close();
             }catch (Exception e){
                 System.out.println(e.getMessage());
             }
@@ -255,6 +256,7 @@ public class CertificateHelper {
             state.executeUpdate(query);
 
             state.close();
+            connection.close();
 
         } catch (Exception e) {
             throw new SQLException("Exception: Update database could not be fulfilled");
@@ -294,6 +296,7 @@ public class CertificateHelper {
             state.executeUpdate(query);
 
             state.close();
+            connection.close();
 
         } catch (Exception e) {
             throw new SQLException("Exception: Update database could not be fulfilled");

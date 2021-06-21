@@ -49,17 +49,28 @@ class OrganisationReport extends Component {
 
         this.state = {
             users: [],
-            //org_id: "",
-           // org_name: "",
-           // org_description: ""
+            org_id: "adad68a58fcdae537460fdacd5d20f42",
+            org_name: "",
+            //org_description: ""
         }
     }
 
     componentDidMount(){
-        axios.post('http://localhost:8080/organisation/get')
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.post('http://localhost:8080/organisation/get', { org_id : this.state.org_id}, config)
+
+        //axios.get('http://localhost:8080/organisation/get')
         .then(response =>{
             console.log(response)
-            this.setState({users: response.data})
+            console.log(response.data[0])
+            this.setState({users: response[0].data.org_name})
+
         })
         .catch(error =>{
             console.log(error)
@@ -79,11 +90,7 @@ render() {
 
                     <Typography component="h1" variant="h4" align="center" >
                         {users.org_name}
-                        {/*{
-                            users.length ?
-                                users.map(user => <div >{user.org_name}</div>):
-                                null
-                        }*/}
+
                         name goes here
                     </Typography>
                     

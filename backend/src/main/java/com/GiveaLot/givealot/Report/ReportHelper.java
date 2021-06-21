@@ -66,26 +66,24 @@ public class ReportHelper {
             try
             {
 
+                /** Setup connection **/
                 String serverName = "hansken.db.elephantsql.com";
                 String mydatabase = "Givealot";
                 String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
 
                 String username = "iqvyaozz";
                 String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
-                //System.out.println("Success");
-                //Setup connection
+
                 Connection connection = DriverManager.getConnection(url, username, password);
 
-                //Create statement
+                /** Create statement **/
                 Statement state = connection.createStatement();
 
-                //organisations is a table
-                //String query = "create database newDB;";
-                String query1 = "select \"numberOfReports\" from public.\"OrganisationInfo\" where \"orgId\" ='" + report.getOrgId() + "';";
-                //System.out.println(query1);
-                ResultSet rs = state.executeQuery(query1);
+                /** Selects data from table **/
 
-                //System.out.println("Success");
+                String query1 = "select \"numberOfReports\" from public.\"OrganisationInfo\" where \"orgId\" ='" + report.getOrgId() + "';";
+
+                ResultSet rs = state.executeQuery(query1);
 
                 int reports = 0;
 
@@ -95,22 +93,24 @@ public class ReportHelper {
 
                 reports++;
 
+                /** Creates query **/
+
                 String query2 = "update public.\"OrganisationInfo\" set \"numberOfReports\" = '"+ reports +"' where \"orgId\" = '" + report.getOrgId() + "';";
                 //System.out.println(query2);
 
-                //execute the query
+                /** Executes query **/
                 state.executeUpdate(query2);
 
                 rs = state.executeQuery(query1);
 
-                //System.out.println("Success");
 
                 int reportsConfirm = 0;
 
+
+                /** Gets data from result set **/
                 while (rs.next()){
                     reportsConfirm = rs.getInt("numberOfReports");
                 }
-
                 reportsConfirm++;
 
                 /** Confirm ID exists **/
@@ -123,22 +123,13 @@ public class ReportHelper {
                 System.out.println("Successfully Executed Update");
             }
             catch (Exception e){
-                throw new SQLException("Exception: ID is not present in the database 01");
-            }
-
-            System.out.println(file);
-
-            Scanner reader = new Scanner(file);
-            while (reader.hasNextLine())
-            {
-                String data = reader.nextLine();
-                System.out.println(data);
+                throw new SQLException("Exception: ID is not present in the database");
             }
 
             return file;
         }
         catch (Exception e) {
-            throw new ReportException("Exception: ID is not present in the database 02");
+            throw new ReportException("Exception: ID is not present in the database");
         }
     }
 

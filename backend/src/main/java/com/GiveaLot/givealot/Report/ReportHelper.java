@@ -90,7 +90,6 @@ public class ReportHelper {
                 while (rs.next()){
                     reports = rs.getInt("numberOfReports");
                 }
-
                 reports++;
 
                 /** Creates query **/

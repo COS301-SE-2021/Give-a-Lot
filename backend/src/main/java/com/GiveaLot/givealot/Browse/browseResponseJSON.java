@@ -1,4 +1,4 @@
-package com.GiveaLot.givealot.Browse.rri;
+package com.GiveaLot.givealot.Browse;
 
 public class browseResponseJSON
 {

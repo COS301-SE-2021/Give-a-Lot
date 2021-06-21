@@ -9,7 +9,6 @@ import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
@@ -43,18 +42,11 @@ public class OrganisationHelper {
             ids.add(exists.getString("orgId"));
             x++;
         }
-
-
         try {
 
             for (int i = 0; i < x; i++) {
                 if (organisation.getOrgId().equals(ids.get(i))) {
-                    //System.out.println("exception");
                     throw new OrgException("Exception: Organisation is already registered");
-
-//                } else {
-//                    System.out.println(organisation.getOrgId() + " / " + ids.get(i));
-//                }
                 }
             }
         }
@@ -64,6 +56,7 @@ public class OrganisationHelper {
 
     }
 
+    /** Adds an organisation to the givealot system **/
     public void addOrg(Organisation organisation) throws SQLException, OrgException {
 
         if (organisation.getOrgId()==null){
@@ -71,6 +64,7 @@ public class OrganisationHelper {
         }
 
         try {
+            /** Connects to database **/
 
             String serverName = "hansken.db.elephantsql.com";
             String mydatabase = "Givealot";
@@ -98,13 +92,14 @@ public class OrganisationHelper {
 
             Organisation.MD5 md5 = new Organisation.MD5();
 
+            /** Salts and hashes password **/
 
             String salt = md5.getMd5(organisation.getOrgEmail());
 
             String salted = md5.getMd5(organisation.getPassword() + salt);
 
 
-            //organisations is a table
+            /** Adds the organisation to all the respective tables **/
 
             String query1 = "insert into public.\"Organisations\"(\"orgName\", \"orgDescription\", \"orgSector\", \"orgEmail\", \"orgId\", status, password, \"contactPerson\", \"contactNumber\") values ('" + organisation.getOrgName() + "','" + organisation.getOrgDescription() + "','" + organisation.getOrgSector() + "','" + organisation.getOrgEmail() + "','" + organisation.getOrgId() + "','"+ organisation.getStatus().toString() + "','" + salted + "','" + organisation.getContactPerson() + "','" + organisation.getContactNumber() + "');";
             String query2 = "insert into public.\"OrganisationPoints\"(\"orgId\") values ('" + organisation.getOrgId() + "');";
@@ -112,7 +107,7 @@ public class OrganisationHelper {
             String query4 = "insert into public.\"Certificate\"(\"orgId\", \"dateCreated\", \"dateExpiry\") values ('" + organisation.getOrgId() + "','" + dateCreated + "','" + dateExpiry +"');";
 
 
-            //execute the query
+            /** Executes queries **/
 
             state.executeUpdate(query1);
             state.executeUpdate(query2);
@@ -126,6 +121,7 @@ public class OrganisationHelper {
         }
     }
 
+    /** Reactivates a suspended or under investigate organisation **/
     public void reactivateOrg(Organisation organisation) throws SQLException, OrgException {
 
         Status status = Status.Active;
@@ -161,6 +157,7 @@ public class OrganisationHelper {
         }
     }
 
+    /** Investigates an active or suspended organisation **/
     public void investigateOrg(Organisation organisation) throws SQLException, OrgException {
 
         Status status = Status.UnderInvestigation;
@@ -194,6 +191,7 @@ public class OrganisationHelper {
         }
     }
 
+    /** Suspends an active or under investigation organisation **/
     public void suspendOrg(Organisation organisation) throws SQLException, OrgException {
 
         Status status = Status.Suspended;
@@ -227,11 +225,14 @@ public class OrganisationHelper {
         }
     }
 
+    /** Checks if the user is an admin **/
         public boolean user_isAdmin (String userID)
         {
             /*needs implementing*/
             return true;
         }
+
+    /** Gets the json data from database **/
 
         public get_OrganisationResponseJSON getOrganisation(Organisation org) throws SQLException, ClassNotFoundException, NoSuchAlgorithmException, OrgException
         {
@@ -254,7 +255,7 @@ public class OrganisationHelper {
                 else
                 {
                     System.out.println("organisation found");
-                    return new get_OrganisationResponseJSON(rs.getString("orgId"),rs.getString("orgName"),rs.getString("orgDescription"));
+                    return new get_OrganisationResponseJSON("200", "ok", rs.getString("orgId"),rs.getString("orgName"),rs.getString("orgDescription"));
                 }
             }
             catch (Exception e)

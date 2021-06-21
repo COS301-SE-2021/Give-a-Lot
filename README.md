@@ -13,8 +13,16 @@
 
 <br>
 
+[Meetings Project Board]
+(https://github.com/COS301-SE-2021/Give-a-Lot/projects/3)
+
+<br><br>
 [Demo 1 Project Board]
 (https://github.com/COS301-SE-2021/Give-a-Lot/projects/1)
+<br>
+[Demo 2 Project Board]
+(https://github.com/COS301-SE-2021/Give-a-Lot/projects/2)
+<br>
 
 
 ## Kids Next Door Team Members
@@ -52,10 +60,10 @@ University Mentor:
 The following links are the live demo videos held on blackboard collaborate to present the different <br/>
 phases of the project to the stakeholders of the Give a lot project.
 
-* <a href="https://michael-stroh.github.io/capstone/"> Demo 1 </a>
-* <a href="https://michael-stroh.github.io/capstone/"> Demo 2 </a>
-* <a href="https://michael-stroh.github.io/capstone/"> Demo 3 </a>
-* <a href="https://michael-stroh.github.io/capstone/"> Demo 4 </a>
+* <a href=""> Demo 1 </a>
+* <a href=""> Demo 2 </a>
+* <a href=""> Demo 3 </a>
+* <a href=""> Demo 4 </a>
 
 </div>
 

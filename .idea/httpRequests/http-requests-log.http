@@ -2,6 +2,62 @@ POST http://localhost:8080/organisation/get
 Content-Type: application/json
 
 {
+  "org_id" : "b7a516d8a81cda04974d40072f8d3e20"
+}
+
+<> 2021-06-21T075901.200.json
+
+###
+
+POST http://localhost:8080/browse
+Content-Type: application/json
+
+<> 2021-06-21T052036.200.json
+
+###
+
+POST http://localhost:8080/browse
+Content-Type: application/json
+
+###
+
+POST http://localhost:8080/browse
+Content-Type: application/json
+
+<> 2021-06-21T051649.200.json
+
+###
+
+POST http://localhost:8080/browse
+Content-Type: application/json
+
+<> 2021-06-21T050726.200.json
+
+###
+
+POST http://localhost:8080/browse
+Content-Type: application/json
+
+###
+
+POST http://localhost:8080/browse
+Content-Type: application/json
+
+<> 2021-06-21T050108.200.json
+
+###
+
+POST http://localhost:8080/browse
+Content-Type: application/json
+
+<> 2021-06-21T045703.200.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
   "org_id" : "adad68a58fcdae537460fdacd5d20f42"
 }
 
@@ -478,100 +534,6 @@ POST http://localhost:8080/browse
 Content-Type: application/json
 
 <> 2021-06-20T152018.200.json
-
-###
-
-POST http://localhost:8080/organisation/investigate
-Content-Type: application/json
-
-{
-  "org_id" : "b7a516d8a81cda04974d40072f8d3e20",
-  "admin_id" : "not relevant yet"
-}
-
-<> 2021-06-20T152005.200.json
-
-###
-
-POST http://localhost:8080/organisation/suspend
-Content-Type: application/json
-
-{
-  "org_id" : "b7a516d8a81cda04974d40072f8d3e20",
-  "admin_id" : "not relevant yet"
-}
-
-<> 2021-06-20T004423.200.json
-
-###
-
-POST http://localhost:8080/organisation/investigate
-Content-Type: application/json
-
-{
-  "org_id" : "b7a516d8a81cda04974d40072f8d3e20",
-  "admin_id" : "not relevant yet"
-}
-
-<> 2021-06-20T002236.200.json
-
-###
-
-POST http://localhost:8080/organisation/suspend
-Content-Type: application/json
-
-{
-  "org_id" : "b7a516d8a81cda04974d40072f8d3e20",
-  "admin_id" : "not relevant yet"
-}
-
-<> 2021-06-19T224238.200.json
-
-###
-
-POST http://localhost:8080/organisation/activate
-Content-Type: application/json
-
-{
-  "org_id" : "b7a516d8a81cda04974d40072f8d3e20",
-  "admin_id" : "not relevant yet"
-}
-
-<> 2021-06-19T224220.200.json
-
-###
-
-POST http://localhost:8080/organisation/activate
-Content-Type: application/json
-
-{
-  "org_id" : "b7a516d8a81cda04974d40072f8d3e20",
-  "admin_id" : "not relevant yet"
-}
-
-<> 2021-06-19T223708.200.json
-
-###
-
-POST http://localhost:8080/organisation/suspend
-Content-Type: application/json
-
-{
-  "org_id" : "b7a516d8a81cda04974d40072f8d3e20",
-  "admin_id" : "not relevant yet"
-}
-
-<> 2021-06-19T212527.200.json
-
-###
-
-POST http://localhost:8080/organisation/suspend
-Content-Type: application/json
-
-{
-  "org_id" : "b7a516d8a81cda04974d40072f8d3e20",
-  "admin_id" : "not relevant yet"
-}
 
 ###
 

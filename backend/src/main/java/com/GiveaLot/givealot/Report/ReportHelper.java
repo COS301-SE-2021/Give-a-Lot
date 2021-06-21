@@ -117,12 +117,14 @@ public class ReportHelper {
 
                 if (reports == reportsConfirm) {
                     System.out.println("Non Existent");
+                    connection.close();
                     throw new ReportException();
                 }
-
+                connection.close();
                 System.out.println("Successfully Executed Update");
             }
             catch (Exception e){
+
                 throw new SQLException("Exception: ID is not present in the database 01");
             }
 

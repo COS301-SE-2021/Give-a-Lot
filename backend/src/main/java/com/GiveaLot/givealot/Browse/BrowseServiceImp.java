@@ -14,11 +14,9 @@ public class BrowseServiceImp implements BrowseService
 {
     public browseResponse browse(browseRequest request)
     {
-        /*
-        * Exception handling left for later
-        * */
         BrowseHelper browseHelper = new BrowseHelper();
         browseResponse browseResponse = new browseResponse();
+
         try
         {
             browseResponse.setOrganisations(browseHelper.getOrganisations());

@@ -42,7 +42,6 @@ public class CertificateHelper {
     }
 
     public Document createPDFDocument(Certificate cert) throws Exception {
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
         try {
             if(cert.getNameOfOrganisation()== null)
                 throw new NullPointerException();
@@ -75,7 +74,7 @@ public class CertificateHelper {
 
             String username = "iqvyaozz";
             String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
-            System.out.println("Success");
+            //System.out.println("Success");
             //Setup connection
             if(DriverManager.getConnection(url,username,password) == null)
                 throw new NullPointerException();
@@ -90,7 +89,7 @@ public class CertificateHelper {
             DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             //String dateCurr = format.format(dateCurrent);
 
-            System.out.println("Success");
+            //System.out.println("Success");
             String query = "select * from public.\"Certificate\";";
 
             System.out.println(query);
@@ -107,7 +106,7 @@ public class CertificateHelper {
                 j++;
 
             }
-            System.out.println("Success");
+            //System.out.println("Success");
             int i = 0;
             while (i < j) {
                 System.out.println("//////////////////////////////////////////");

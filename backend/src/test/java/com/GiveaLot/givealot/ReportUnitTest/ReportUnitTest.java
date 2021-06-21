@@ -70,7 +70,7 @@ public class ReportUnitTest
     }
 
     @Test
-    @Description("Assumes that the Organisation is already registered in the system")
+    @Description("Assumes that the Organisation ID is not in the system")
     void TEST_ORG_ID_NONEXISTENT() {
         Throwable throwError = assertThrows(ReportException.class, () -> reportHelper.createReportFile(report3));
         assertEquals("Exception: ID is not present in the database", throwError.getMessage());

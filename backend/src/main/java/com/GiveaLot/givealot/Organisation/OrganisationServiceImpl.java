@@ -231,7 +231,7 @@ public class OrganisationServiceImpl
         {
             getOrganisationResponse OrganisationResponse = new getOrganisationResponse();
             OrganisationResponse.setGet_OrganisationResponseJSON(List.of(new get_OrganisationResponseJSON(
-                    OrganisationResponseJSON.getOrg_id(),
+                    "200", "ok", OrganisationResponseJSON.getOrg_id(),
                     OrganisationResponseJSON.getOrg_name(),
                     OrganisationResponseJSON.getOrg_description()
             )));

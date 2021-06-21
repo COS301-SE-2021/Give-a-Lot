@@ -2,6 +2,169 @@ POST http://localhost:8080/organisation/get
 Content-Type: application/json
 
 {
+  "org_id" : "adad68a58fcdae537460fdacd5d20f42"
+}
+
+<> 2021-06-21T033141.200.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "adad688fcdae537460fdacd5d20f42"
+}
+
+<> 2021-06-21T033056.200.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "adad688fcdae537460fdacd5d20f42"
+}
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "adad688fcdae537460fdacd5d20f42"
+}
+
+<> 2021-06-21T032249.200.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "adad68a58fcdae537460fdacd5d20f42"
+}
+
+<> 2021-06-21T032236.200.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "adad68a58fcdae537460fdacd5d20f42"
+}
+
+<> 2021-06-21T032104.200.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "ae102798c8dcf79ad8085e48132cffe5"
+}
+
+<> 2021-06-21T031641.200.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "ae102798c8dcf79ad8085e48132cffe5"
+}
+
+<> 2021-06-21T031546.200.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "ae102798c8dcf79ad8085e48132cffe5"
+}
+
+<> 2021-06-21T031455.200.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "ae102798c8dcf79ad8085e48132cffe5"
+}
+
+<> 2021-06-21T030851.200.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "4941d81fe9e50abfd6e18595b78a21cf"
+}
+
+<> 2021-06-21T030640.200.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "4fd69da9a34e2c771998e0c8f912b4f4"
+}
+
+<> 2021-06-21T030549.200.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "dyf" : "4fd69da9a34e2c771998e0c8f912b4f4"
+}
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "dyf" : "b7a516d8a81cda04974d40072f8d3e20",
+  "rdfdf" : "b7a516d8a81cda04974d40072f8d3e20"
+}
+
+<> 2021-06-21T024420.200.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "b7a516d8a81cda04974d40072f8d3e20",
+  "rdfdf" : "b7a516d8a81cda04974d40072f8d3e20"
+}
+
+<> 2021-06-21T024409.200.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
   "org_id" : "8378a47a5f4a90duhkgjcvbjk,n23222cef70df3203"
 }
 
@@ -410,135 +573,6 @@ Content-Type: application/json
 }
 
 <> 2021-06-19T210444.200.json
-
-###
-
-POST http://localhost:8080/organisation/suspend
-Content-Type: application/json
-
-{
-  "org_id" : "b7a516d8a81cda04974d40072f8d3e20",
-  "admin_id" : "not relevant yet"
-}
-
-<> 2021-06-19T205902.200.json
-
-###
-
-POST http://localhost:8080/organisation/suspend
-Content-Type: application/json
-
-{
-  "org_id" : "b7a516d8a81cda04974d40072f8d3e20",
-  "admin_id" : "not relevant yet"
-}
-
-<> 2021-06-19T205451.200.json
-
-###
-
-POST http://localhost:8080/organisation/suspend
-Content-Type: application/json
-
-{
-  "org_id" : "b7a516d8a81cda04974d40072f8d3e20",
-  "admin_id" : "not relevant yet"
-}
-
-<> 2021-06-19T205407.200.json
-
-###
-
-POST http://localhost:8080/organisation/suspend
-Content-Type: application/json
-
-{
-  "org_id" : "organisation id",
-  "admin_id" : "admin id"
-}
-
-<> 2021-06-19T205251.200.json
-
-###
-
-POST http://localhost:8080/organisation/suspend
-Content-Type: application/json
-
-{
-  "org_id" : "organisation id",
-  "admin_id" : "admin id"
-}
-
-<> 2021-06-19T195344.200.json
-
-###
-
-POST http://localhost:8080/organisation/register
-Content-Type: application/json
-
-{
-  "orgName" : "test org name",
-  "orgDescription" : "test org description",
-  "orgSector" : "test org sector",
-  "orgEmail" : "test@email.com",
-  "password" : "test org password",
-  "contactPerson" : "test contact person",
-  "contactNumber" : "test contact number"
-}
-
-<> 2021-06-19T175329.200.json
-
-###
-
-POST http://localhost:8080/organisation/register
-Content-Type: application/json
-
-{
-  "orgName" : "test org name",
-  "orgDescription" : "test org description",
-  "orgSector" : "test org sector",
-  "orgEmail" : "test@email.com",
-  "password" : "test org password",
-  "contactPerson" : "test contact person",
-  "contactNumber" : "test contact number"
-}
-
-<> 2021-06-19T175100.200.json
-
-###
-
-POST http://localhost:8080/organisation/register
-Content-Type: application/json
-
-{
-  "orgName" : "test org name",
-  "orgDescription" : "test org description",
-  "orgSector" : "test org sector",
-  "orgEmail" : "test@email.com",
-  "password" : "test org password",
-  "contactPerson" : "test contact person",
-  "contactNumber" : "test contact number"
-}
-
-<> 2021-06-19T174436.200.json
-
-###
-
-POST http://localhost:8080/browse
-Content-Type: application/json
-
-<> 2021-06-19T084833.200.json
-
-###
-
-POST http://localhost:8080/search/org/request/default
-Content-Type: application/json
-
-{
-   "nameOfOrganisation" : "hope"
-}
-
-<> 2021-06-19T074008.200.json
 
 ###
 

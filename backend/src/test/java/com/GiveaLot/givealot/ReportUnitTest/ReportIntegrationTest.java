@@ -21,7 +21,7 @@ import java.util.Scanner;
 public class ReportIntegrationTest {
 
     @Test
-    @Description("Adds an organisation to the Givealot system")
+    @Description("Creates, files and displays the report created by a user")
     void TEST_REPORT() throws Exception {
         ReportServiceImpl service = new ReportServiceImpl();
         ReportHelper help = new ReportHelper();
@@ -46,7 +46,7 @@ public class ReportIntegrationTest {
 
 
     @Test
-    @Description("Adds an organisation to the Givealot system")
+    @Description("Runs the whole Report micro service")
     void TEST_INTEGRATION_REPORT() throws Exception {
         ReportServiceImpl service = new ReportServiceImpl();
         ReportHelper help = new ReportHelper();

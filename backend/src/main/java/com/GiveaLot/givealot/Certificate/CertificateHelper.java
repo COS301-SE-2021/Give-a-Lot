@@ -68,6 +68,9 @@ public class CertificateHelper {
 
     public void checkRenewal() throws SQLException {
         try {
+
+            /** Connects to the database **/
+
             String serverName = "hansken.db.elephantsql.com";
             String mydatabase = "Givealot";
             String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
@@ -81,23 +84,26 @@ public class CertificateHelper {
 
             Connection connection = DriverManager.getConnection(url, username, password);
 
-            //Create statement
+            /** Creates the statement **/
             Statement state = connection.createStatement();
 
             Date dateCurrent = new Date();
 
             DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-            //String dateCurr = format.format(dateCurrent);
 
-            //System.out.println("Success");
+            /** Creates the query **/
+
             String query = "select * from public.\"Certificate\";";
 
-            System.out.println(query);
+            /** Executes the query **/
+
             ResultSet rs = state.executeQuery(query);
 
             List<String>id = new ArrayList<>();
 
             List<Date> expiry = new ArrayList<>();;
+
+            /** Retrieves data from the result set **/
 
             int j = 0;
             while(rs.next()){
@@ -106,7 +112,7 @@ public class CertificateHelper {
                 j++;
 
             }
-            //System.out.println("Success");
+
             int i = 0;
             while (i < j) {
                 System.out.println("//////////////////////////////////////////");
@@ -118,10 +124,12 @@ public class CertificateHelper {
                 boolean check = dateCurrent.after(sqlDate);
                 if (check) {
 
+                    /** Sets database booleans to false because the certificate has expired **/
+
                     System.out.println(sqlDate);
-                    System.out.println(" is before ");
+                    System.out.println("is before");
                     System.out.println(dateCurrent);
-                    System.out.println("Expired");
+                    System.out.println("Certificate is Expired");
 
                     String queryUpdate1 = "update public.\"Certificate\" set \"orgRenewal\" = false where \"orgId\" = '" + id.get(i) + "';";
 
@@ -145,14 +153,19 @@ public class CertificateHelper {
                         name = rsemail.getString(2);
                     }
 
+                    /** Sets up email to be sent **/
+
                     setupServerProperties();
                     CertficateExpiredEmail(name,email);
                     sendEmail();
                 } else {
+
+                    /** Database values remain unchanged because the date is valid **/
+
                     System.out.println(sqlDate);
-                    System.out.println(" is after ");
+                    System.out.println("is after");
                     System.out.println(dateCurrent);
-                    System.out.println("Valid");
+                    System.out.println("Certificate is Valid");
                 }
                 i++;
             }
@@ -171,6 +184,7 @@ public class CertificateHelper {
         }
 
     }
+    /** Sets up email server **/
     void setupServerProperties()
     {
         Properties properties = System.getProperties();
@@ -180,6 +194,7 @@ public class CertificateHelper {
         newSession = Session.getDefaultInstance(properties,null);
     }
 
+    /** Sends email to the organisation **/
     private void sendEmail() throws MessagingException {
         String fromUser = "u19104546@tuks.co.za";  //Enter sender email id
         String fromUserPassword = "lvcpmtxpajyrfmdp";  //Enter sender gmail password , this will be authenticated by gmail smtp server
@@ -190,6 +205,8 @@ public class CertificateHelper {
         transport.close();
         System.out.println("Email successfully sent!!!");
     }
+
+    /** Contains the contents of the email **/
     MimeMessage CertficateExpiredEmail(String name,String email) throws AddressException, MessagingException, IOException {
           //Enter list of email recepients
         String emailSubject = "Givealot Status Change";
@@ -216,6 +233,7 @@ public class CertificateHelper {
         return mimeMessage;
     }
 
+    /** Renews the certificate from the organisations side **/
     public void orgRenew(String orgId) throws SQLException {
 
         try {
@@ -225,7 +243,7 @@ public class CertificateHelper {
 
             String username = "iqvyaozz";
             String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
-            System.out.println("Success");
+            //System.out.println("Success");
             //Setup connection
             Connection connection = DriverManager.getConnection(url, username, password);
 
@@ -244,6 +262,7 @@ public class CertificateHelper {
             throw new SQLException("Exception: Update database could not be fulfilled");
         }
     }
+    /** renews the certificate from the admins side and resets the expiry date **/
     public void adminRenew(String orgId) throws SQLException {
 
         try {
@@ -253,7 +272,7 @@ public class CertificateHelper {
 
             String username = "iqvyaozz";
             String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
-            System.out.println("Success");
+            //System.out.println("Success");
             //Setup connection
             Connection connection = DriverManager.getConnection(url, username, password);
 

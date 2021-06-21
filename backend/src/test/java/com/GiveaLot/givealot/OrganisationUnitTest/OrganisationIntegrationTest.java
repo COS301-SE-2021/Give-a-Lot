@@ -26,7 +26,7 @@ public class OrganisationIntegrationTest {
     void TEST_ADD() throws OrgException, SQLException, MessagingException, NoSuchAlgorithmException, IOException {
         OrganisationServiceImpl service = new OrganisationServiceImpl();
 
-        addOrganisationRequest request = new addOrganisationRequest("This Organisation", "Some Description", "Disease", "someemail@gmail.com", "password", "Mr. Somebody", "0823322000");
+        addOrganisationRequest request = new addOrganisationRequest("This Organisation is Unique", "Some Description", "Disease", "unique@gmail.com", "password", "Mr. Unique", "0823355000");
 
         service.addOrganisation(request);
     }
@@ -35,7 +35,7 @@ public class OrganisationIntegrationTest {
     void TEST_ORG_INVESTIGATE() throws OrgException, SQLException, MessagingException, NoSuchAlgorithmException, IOException {
         OrganisationServiceImpl service = new OrganisationServiceImpl();
 
-        investigateOrganisationRequest request = new investigateOrganisationRequest("8378a47a5f4a901d23222cef70df3203","");
+        investigateOrganisationRequest request = new investigateOrganisationRequest("8184476d860ea371fd26083ef58b216f","");
 
         service.investigateOrganisation(request);
     }
@@ -44,7 +44,7 @@ public class OrganisationIntegrationTest {
     void TEST_ORG_SUSPEND() throws OrgException, SQLException, MessagingException, NoSuchAlgorithmException, IOException {
         OrganisationServiceImpl service = new OrganisationServiceImpl();
 
-        suspendOrganisationRequest request = new suspendOrganisationRequest("8378a47a5f4a901d23222cef70df3203","");
+        suspendOrganisationRequest request = new suspendOrganisationRequest("8184476d860ea371fd26083ef58b216f","");
 
         service.suspendOrganisation(request);
     }
@@ -53,7 +53,7 @@ public class OrganisationIntegrationTest {
     void TEST_ORG_REACTIVATE() throws OrgException, SQLException, MessagingException, NoSuchAlgorithmException, IOException {
         OrganisationServiceImpl service = new OrganisationServiceImpl();
 
-        reactivateOrganisationRequest request = new reactivateOrganisationRequest("8378a47a5f4a901d23222cef70df3203","");
+        reactivateOrganisationRequest request = new reactivateOrganisationRequest("8184476d860ea371fd26083ef58b216f","");
 
         service.reactivateOrganisation(request);
     }

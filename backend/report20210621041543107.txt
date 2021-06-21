@@ -1,6 +1,0 @@
-ID: 20210621041543107
-Date: 21-06-2021 04:15:43
-Reporter email: 
-Organisation ID: 4941d81fe9e50abfd6e18595b78a21cf
-Type: Fraud
-Description: Some description

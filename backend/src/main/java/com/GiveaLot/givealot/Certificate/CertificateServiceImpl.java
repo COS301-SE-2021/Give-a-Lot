@@ -21,6 +21,7 @@ public class CertificateServiceImpl implements CertificateService{
      * @throws InvalidRequestException
      */
     @Override
+    /** Creates a PDF certificate **/
     public createPDFCertificateResponse createPDFCertificate(createPDFCertificateRequest request) throws Exception {
         createPDFCertificateResponse certificate = null;
         if (request==null){
@@ -42,11 +43,16 @@ public class CertificateServiceImpl implements CertificateService{
                 throw new CertificateException("Problem creating Certificate");
             }
         }
+        else
+        {
+            throw new NotAuthorizedException("Error: User is not authorised to create Certificate");
+        }
         return certificate;
     }
 
+    /** Checks that the user is authorized to create the certificate **/
     public boolean isAuthorized(boolean value) throws NotAuthorizedException{
-        if (value==false){
+        if (!value){
             throw new NotAuthorizedException("Error: User is not authorised to create Certificate");
         }
         return true;

@@ -1,0 +1,137 @@
+[
+  {
+    "org_id": "c289050761c2b2c85c4b8695ab9a0991",
+    "org_name": "Access Isreal the",
+    "org_short_description": "Giving you the freedom",
+    "org_slogan": "no slogan",
+    "org_sector": "embassador",
+    "org_logo_url": "",
+    "org_is_verified": false
+  },
+  {
+    "org_id": "bb5eb162e015e1e67cdb121d39912c36",
+    "org_name": "the International Paralympic Committee",
+    "org_short_description": "we ensure equal rights to the physically limited in olympics",
+    "org_slogan": "no slogan",
+    "org_sector": "sports",
+    "org_logo_url": "",
+    "org_is_verified": false
+  },
+  {
+    "org_id": "c900d315725860232e9dfbdb723215fe",
+    "org_name": "The Old Orgss",
+    "org_short_description": "We are old heress",
+    "org_slogan": "no slogan",
+    "org_sector": "Diseasess",
+    "org_logo_url": "",
+    "org_is_verified": false
+  },
+  {
+    "org_id": "93942e96f5acd83e2e047ad8fe03114d",
+    "org_name": "test org name",
+    "org_short_description": "test org description",
+    "org_slogan": "no slogan",
+    "org_sector": "test org sector",
+    "org_logo_url": "",
+    "org_is_verified": false
+  },
+  {
+    "org_id": "007",
+    "org_name": "Moroke",
+    "org_short_description": "Awesome",
+    "org_slogan": "no slogan",
+    "org_sector": "Awesomeness",
+    "org_logo_url": "",
+    "org_is_verified": false
+  },
+  {
+    "org_id": "ebc4cee50e83479f544c0aacfd1663bf",
+    "org_name": "givers of hope",
+    "org_short_description": "the givers of hope short description word limited",
+    "org_slogan": "no slogan",
+    "org_sector": "youth",
+    "org_logo_url": "",
+    "org_is_verified": false
+  },
+  {
+    "org_id": "3818e06de2ca2d9a808f4ad5292894aa",
+    "org_name": "AIDS-Free World",
+    "org_short_description": "living your best life with your status",
+    "org_slogan": "no slogan",
+    "org_sector": "health",
+    "org_logo_url": "",
+    "org_is_verified": false
+  },
+  {
+    "org_id": "d9c1ebfba4151e3937b0e36aeee07e2e",
+    "org_name": "Global Deaf Connection",
+    "org_short_description": "we at the organisation will always hear you shame",
+    "org_slogan": "no slogan",
+    "org_sector": "youth",
+    "org_logo_url": "",
+    "org_is_verified": false
+  },
+  {
+    "org_id": "40730ff87db670953bf2baad057065ea",
+    "org_name": "G3ict – Global Initiative for Inclusive Technologies",
+    "org_short_description": "We at the gobal nton we are about technology and empowering the digital age",
+    "org_slogan": "no slogan",
+    "org_sector": "tehonolgy",
+    "org_logo_url": "",
+    "org_is_verified": false
+  },
+  {
+    "org_id": "adb427b99b4531eae6ff9df5be6a27c6",
+    "org_name": "Society for Mental Health Care",
+    "org_short_description": "the society for mental health care helps tackle depression in our society",
+    "org_slogan": "no slogan",
+    "org_sector": "health",
+    "org_logo_url": "",
+    "org_is_verified": false
+  },
+  {
+    "org_id": "f42e6b73a2e040920a2e2f7df18388dd",
+    "org_name": "ddffddf",
+    "org_short_description": "dfd 4 3",
+    "org_slogan": "no slogan",
+    "org_sector": "dddf ",
+    "org_logo_url": "",
+    "org_is_verified": false
+  },
+  {
+    "org_id": "c89325a0e51e8142f9c19b2f00f148a1",
+    "org_name": "The Old Orgsss",
+    "org_short_description": "We are old heresss",
+    "org_slogan": "no slogan",
+    "org_sector": "Diseasess",
+    "org_logo_url": "",
+    "org_is_verified": false
+  },
+  {
+    "org_id": "adad68a58fcdae537460fdacd5d20f42",
+    "org_name": "The Organisation",
+    "org_short_description": "Some description",
+    "org_slogan": "no slogan",
+    "org_sector": "Youth",
+    "org_logo_url": "",
+    "org_is_verified": false
+  },
+  {
+    "org_id": "128ecf542a35ac5270a87dc740918404",
+    "org_name": "bla",
+    "org_short_description": "bla",
+    "org_slogan": "no slogan",
+    "org_sector": "bla",
+    "org_logo_url": "",
+    "org_is_verified": false
+  },
+  {
+    "org_id": "b7a516d8a81cda04974d40072f8d3e20",
+    "org_name": "Save the Children",
+    "org_short_description": "We at save the children we provide children with the safety and care their fragile minds deserve.",
+    "org_slogan": "no slogan",
+    "org_sector": "children",
+    "org_logo_url": "",
+    "org_is_verified": false
+  }
+]

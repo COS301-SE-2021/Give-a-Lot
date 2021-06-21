@@ -1,24 +1,37 @@
 package com.GiveaLot.givealot.Report.rri;
 
-import java.security.Timestamp;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.sql.Timestamp;
 import java.time.format.DateTimeFormatter;
 
 public class createReportRequest {
+    String orgId;
     String reportDescription;
     String reportType;
-    String reporterUsername;
-    DateTimeFormatter date;
-    Timestamp id;
+    String reporterEmail;
 
-    public createReportRequest(String reportDescription, String reportType, String reporterUsername, DateTimeFormatter date, Timestamp id){
+
+    public createReportRequest(@JsonProperty("orgId") String orgId,
+                               @JsonProperty("description") String reportDescription,
+                               @JsonProperty("type") String reportType,
+                               @JsonProperty("email") String reporterEmail)
+    {
+        this.orgId = orgId;
         this.reportDescription = reportDescription;
         this.reportType = reportType;
-        this.reporterUsername = reporterUsername;
-        this.date = date;
-        this.id = id;
+        this.reporterEmail = reporterEmail;
+
     }
 
+
+
+
     /** Getters **/
+
+    public String getOrgId() {
+        return orgId;
+    }
 
     public String getReportDescription(){
         return reportDescription;
@@ -28,19 +41,18 @@ public class createReportRequest {
         return reportType;
     }
 
-    public String getReporterUsername() {
-        return reporterUsername;
+    public String getReporterEmail() {
+        return reporterEmail;
     }
 
-    public DateTimeFormatter getDate() {
-        return date;
-    }
 
-    public Timestamp getId() {
-        return id;
-    }
+
 
     /** Setters **/
+
+    public void setOrgId(String orgId) {
+        this.orgId = orgId;
+    }
 
     public void setReportDescription(String reportDescription) {
         this.reportDescription = reportDescription;
@@ -50,15 +62,8 @@ public class createReportRequest {
         this.reportType = reportType;
     }
 
-    public void setReporterUsername(String reporterUsername) {
-        this.reporterUsername = reporterUsername;
+    public void setReporterEmail(String reporterEmail) {
+        this.reporterEmail = reporterEmail;
     }
 
-    public void setDate(DateTimeFormatter date) {
-        this.date = date;
-    }
-
-    public void setId(Timestamp id) {
-        this.id = id;
-    }
 }

@@ -13,8 +13,16 @@
 
 <br>
 
+[Meetings Project Board]
+(https://github.com/COS301-SE-2021/Give-a-Lot/projects/3)
+
+<br><br>
 [Demo 1 Project Board]
 (https://github.com/COS301-SE-2021/Give-a-Lot/projects/1)
+<br>
+[Demo 2 Project Board]
+(https://github.com/COS301-SE-2021/Give-a-Lot/projects/2)
+<br>
 
 
 ## Kids Next Door Team Members

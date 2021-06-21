@@ -20,7 +20,7 @@ public class BrowseHelper {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement state = connection.createStatement();
 
-            String sql_query = "SELECT * FROM public.\"Organisations\";";
+            String sql_query = "SELECT * FROM public.\"Organisations\" WHERE NOT status = 'Suspended';";
             System.out.println(sql_query);
             ResultSet rs = state.executeQuery(sql_query);
 

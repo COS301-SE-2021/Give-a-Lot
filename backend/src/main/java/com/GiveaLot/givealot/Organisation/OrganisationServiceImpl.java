@@ -63,7 +63,6 @@ public class OrganisationServiceImpl
         help.orgExists(org);
         try
         {
-
             help.addOrg(org);
 
             this.setupServerProperties();
@@ -205,7 +204,7 @@ public class OrganisationServiceImpl
         {
             throw new InvalidRequestException("Exception: request object is null");
         }
-        else if(request.getOrg_id().length() == 0)
+        else if(request.getOrg_id() != null && request.getOrg_id().length() == 0)
         {
             throw new InvalidRequestException("Exception: missing org_Id field");
         }

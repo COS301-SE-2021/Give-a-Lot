@@ -2,6 +2,280 @@ POST http://localhost:8080/organisation/get
 Content-Type: application/json
 
 {
+  "org_id" : "8378a47a5f4a90duhkgjcvbjk,n23222cef70df3203"
+}
+
+<> 2021-06-21T021927.200.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "8378a47a5f4a90d23222cef70df3203"
+}
+
+<> 2021-06-21T021917.200.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "8378a47a5f4a90d23222cef70df3203"
+}
+
+<> 2021-06-21T021801.500.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "8378a47a5f4a901d23222cef70df3203"
+}
+
+<> 2021-06-21T021752.200.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "8378a47a5f4a901d23222cef70df3203"
+}
+
+<> 2021-06-21T021713.200.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "8378a47a5f4a901d23222cef70df3203"
+}
+
+<> 2021-06-21T021618.500.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "vbju"
+}
+
+<> 2021-06-21T021544.500.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : ""
+}
+
+<> 2021-06-21T021532.500.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : ""
+}
+
+<> 2021-06-21T021325.500.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "8378a47a5f4a901d23222cef70df3203"
+}
+
+<> 2021-06-21T021317.200.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "8378a47a5f4a901d23222cef70df3203"
+}
+
+<> 2021-06-21T020846.200.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "8378a47a5f4a901d23222cef70df203"
+}
+
+<> 2021-06-21T020831.500.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "8378a47a5f4a901d23222cef70df3203"
+}
+
+<> 2021-06-21T020816.200.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
+  "org_id" : "b7a516d8a81cda04974d40072f8d3e20"
+}
+
+<> 2021-06-21T020749.500.json
+
+###
+
+POST http://localhost:8080/report/organisation
+Content-Type: application/json
+
+{
+  "orgId" : "8378a47a5f4a901d23222cef70df3203",
+  "description" : "The organisation is an imposter",
+  "type": "fraud",
+  "email": "nqobani2730@gmail.com"
+}
+
+<> 2021-06-21T015856.200.json
+
+###
+
+POST http://localhost:8080/report/organisation
+Content-Type: application/json
+
+{
+  "orgId" : "8378a47a5f4a901d23222cef70df3203",
+  "description" : "The organisation is an imposter",
+  "type": "fraud",
+  "email": "nqobani2730@gmail.com"
+}
+
+<> 2021-06-21T015320.200.json
+
+###
+
+POST http://localhost:8080/report/organisation
+Content-Type: application/json
+
+{
+  "orgId" : "c289050761c2b2c85c4b8695ab9a0991",
+  "description" : "The organisation is an imposter",
+  "type": "fraud",
+  "email": "nqobani2730@gmail.com"
+}
+
+<> 2021-06-21T013818.200.json
+
+###
+
+POST http://localhost:8080/report/organisation
+Content-Type: application/json
+
+{
+  "orgId" : "c289050761c2b2c85c4b8695ab9a0991",
+  "description" : "The organisation is an imposter",
+  "type": "fraud",
+  "email": "nqobani2730@gmail.com"
+}
+
+<> 2021-06-21T013515.200.json
+
+###
+
+POST http://localhost:8080/report/organisation
+Content-Type: application/json
+
+{
+  "orgId" : "c289050761c2b2c85c4b8695ab9a0991",
+  "description" : "The organisation is an imposter",
+  "type": "fraud",
+  "email": "nqobani2730@gmail.com"
+}
+
+<> 2021-06-21T013222.200.json
+
+###
+
+POST http://localhost:8080/report/organisation
+Content-Type: application/json
+
+{
+  "orgId" : "c289050761c2b2c85c4b8695ab9a0991",
+  "description" : "The organisation is an imposter",
+  "type": "fraud",
+  "email": "nqobani2730@gmail.com"
+}
+
+###
+
+POST http://localhost:8080/report/organisation
+Content-Type: application/json
+
+{
+  "orgId" : "c289050761c2b2c85c4b8695ab9a0991",
+  "description" : "The organisation is an imposter",
+  "type": "fraud",
+  "email": "nqobani2730@gmail.com"
+}
+
+###
+
+POST http://localhost:8080/report/organisation
+Content-Type: application/json
+
+{
+"orgId" : "c289050761c2b2c85c4b8695ab9a0991",
+  "description" : "The organisation is an imposter",
+  "type": "fraud",
+  "email": "nqobani2730@gmail.com"
+}
+
+###
+
+POST http://localhost:8080/report/organisation
+Content-Type: application/json
+
+{
+"orgId" : "c289050761c2b2c85c4b8695ab9a0991",
+  "description" : "The organisation is an imposter",
+  "type": "fraud",
+  "email": "nqobani2730@gmail.com"
+}
+
+<> 2021-06-21T012732.500.json
+
+###
+
+POST http://localhost:8080/organisation/get
+Content-Type: application/json
+
+{
   "org_id" : "b7a516d8a81cda04974d40072f8d3e20"
 }
 

@@ -25,7 +25,7 @@ public class OrganisationIntegrationTest {
     void TEST_ADD() throws OrgException, SQLException, MessagingException, NoSuchAlgorithmException, IOException {
         OrganisationServiceImpl service = new OrganisationServiceImpl();
 
-        addOrganisationRequest request = new addOrganisationRequest("This Organisation", "Some Description", "Disease", "someemail@gmail.com", "password", "Mr. Somebody", "0823322000");
+        addOrganisationRequest request = new addOrganisationRequest("Find My Finger", "Helps amputees get prostetics", "Health", "findmyfinger@gmail.com", "makingdramscome", "Mr. Frankling", "432423454");
 
         service.addOrganisation(request);
     }

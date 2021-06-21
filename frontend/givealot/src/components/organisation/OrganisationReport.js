@@ -49,9 +49,9 @@ class OrganisationReport extends Component {
 
         this.state = {
             users: [],
-            org_id: "",
-            org_name: "",
-            org_description: ""
+            //org_id: "",
+           // org_name: "",
+           // org_description: ""
         }
     }
 
@@ -68,7 +68,7 @@ class OrganisationReport extends Component {
     }
 
 render() {
-    const { org_id, org_name, org_description} = this.state
+    const {  users} = this.state
     return (
         <React.Fragment>
             <main className="">
@@ -78,7 +78,12 @@ render() {
                     </Typography>
 
                     <Typography component="h1" variant="h4" align="center" >
-                        {org_name}
+                        {users.org_name}
+                        {/*{
+                            users.length ?
+                                users.map(user => <div >{user.org_name}</div>):
+                                null
+                        }*/}
                         name goes here
                     </Typography>
                     

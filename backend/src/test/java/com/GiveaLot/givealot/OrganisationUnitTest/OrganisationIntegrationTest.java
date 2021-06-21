@@ -19,7 +19,7 @@ import java.sql.SQLException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class OrganisationTest {
+public class OrganisationIntegrationTest {
 
     @Test
     void TEST_ADD() throws OrgException, SQLException, MessagingException, NoSuchAlgorithmException, IOException {
@@ -33,9 +33,7 @@ public class OrganisationTest {
     void TEST_ORG_INVESTIGATE() throws OrgException, SQLException, MessagingException, NoSuchAlgorithmException, IOException {
         OrganisationServiceImpl service = new OrganisationServiceImpl();
 
-        investigateOrganisationRequest request = new investigateOrganisationRequest("8378a47a5f4a901d23222cef70df3203","");
 
-        service.investigateOrganisation(request);
     }
     @Test
     void TEST_ORG_SUSPEND() throws OrgException, SQLException, MessagingException, NoSuchAlgorithmException, IOException {
@@ -52,5 +50,33 @@ public class OrganisationTest {
         reactivateOrganisationRequest request = new reactivateOrganisationRequest("8378a47a5f4a901d23222cef70df3203","");
 
         service.reactivateOrganisation(request);
+    }
+
+    @Test
+    void TEST_INTEGRATION_ORGANISATION() throws OrgException, SQLException, MessagingException, NoSuchAlgorithmException, IOException {
+        OrganisationServiceImpl service = new OrganisationServiceImpl();
+
+        //Initialization
+
+        addOrganisationRequest request = new addOrganisationRequest("Integration Org", "Some Description", "Disease", "integration@gmail.com", "password", "Mr. Integration", "0823320000");
+
+        investigateOrganisationRequest requestInv = new investigateOrganisationRequest("8378a47a5f4a901d23222cef70df3203","");
+
+        suspendOrganisationRequest requestSus = new suspendOrganisationRequest("8378a47a5f4a901d23222cef70df3203","");
+
+        reactivateOrganisationRequest requestReact = new reactivateOrganisationRequest("8378a47a5f4a901d23222cef70df3203","");
+
+
+        //StatusChanges
+
+        service.addOrganisation(request);
+
+        service.investigateOrganisation(requestInv);
+
+        service.suspendOrganisation(requestSus);
+
+        service.reactivateOrganisation(requestReact);
+
+
     }
 }

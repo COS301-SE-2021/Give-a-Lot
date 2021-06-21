@@ -19,6 +19,11 @@ public class BrowseServiceImp implements BrowseService
     public browseResponse browse(browseRequest request) throws Exception
     {
 
+        if(request == null)
+        {
+            System.out.println("Exception: browse request not instantiated");
+            throw new Exception("Exception: browse request not instantiated");
+        }
         /*the helper is responsible for the database query logic*/
         BrowseHelper browseHelper = new BrowseHelper();
         browseResponse browseResponse = new browseResponse();
@@ -27,6 +32,7 @@ public class BrowseServiceImp implements BrowseService
         {
             /*create a response object which will set the JSON object*/
             browseResponse.setOrganisations(browseHelper.getOrganisations());
+            System.out.println("Browse: success");
             return browseResponse;
         }
         catch (Exception e)
@@ -36,7 +42,21 @@ public class BrowseServiceImp implements BrowseService
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
+        /**/
+        try
+        {
+            /*check for a null request*/
+            BrowseServiceImp BrowseServiceImp = new BrowseServiceImp();
+            //BrowseServiceImp.browse(null);
 
+            /*check for a non-null request*/
+            BrowseServiceImp.browse(new browseRequest());
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+        }
     }
 }

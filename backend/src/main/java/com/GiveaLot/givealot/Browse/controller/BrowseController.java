@@ -26,12 +26,10 @@ public class BrowseController
     @PostMapping
     public List<browseResponseJSON> search()
     {
-        browseRequest browseRequest = null;
         browseResponse browseResponse;
-
         try
         {
-            browseResponse = BrowseServiceImp.browse(browseRequest);
+            browseResponse = BrowseServiceImp.browse(new browseRequest());
             return browseResponse.getOrganisations();
         }
         catch (Exception e)

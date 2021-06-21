@@ -1,29 +1,38 @@
 package com.GiveaLot.givealot.Report.controller;
+import com.GiveaLot.givealot.Report.ReportResponseJSON;
 import com.GiveaLot.givealot.Report.ReportService;
+import com.GiveaLot.givealot.Report.ReportServiceImpl;
+import com.GiveaLot.givealot.Report.rri.createReportRequest;
+import com.GiveaLot.givealot.Report.rri.createReportResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.security.Timestamp;
-import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.List;
 
 @RestController
+@RequestMapping("/report")
 public class ReportController {
 
+    private final ReportServiceImpl ReportServiceImpl;
+
     @Autowired
-    ReportService reportService;
+    public ReportController(ReportServiceImpl ReportServiceImpl) {
+        this.ReportServiceImpl = ReportServiceImpl;
+    }
 
-
-
-   public List<String> createReport(@RequestBody String reportDescription, String reportType, String reporterUsername)
+   @CrossOrigin
+   @PostMapping("/organisation")
+   public List<ReportResponseJSON> createReport(@RequestBody createReportRequest request)
    {
-       List<String> res = new LinkedList<>();
-
-       res.add("status: 200");
-       res.add("status: 200");
-       return res;
+        try
+        {
+            createReportResponse createReportResponse = ReportServiceImpl.createReport(request);
+            return createReportResponse.getReportResponseJSON();
+        }
+        catch(Exception e)
+        {
+            return List.of(new ReportResponseJSON(402, e.getMessage(), null));
+        }
    }
-
 }

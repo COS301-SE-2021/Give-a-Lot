@@ -1,51 +1,21 @@
-import React from 'react';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
+import Register from "./components/register/Register";
+//import Registration from "./components/registration/Registration";
+import Login from './components/login/Login';
+import Admin from "./components/admin/Admin";
+import Organisation from "./components/organisation/Organisation";
+import BasicUser from "./components/basicUser/BasicUser";
+import OrganisationReport from './components/organisation/OrganisationReport';
+import BasicUserReport from "./components/basicUser/BasicUserReport";
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Registration from "./components/registration/registration"; 
-import Login from "./components/login/login";
-import GeneralUser from "./components/GeneralUser/GeneralUser";
-import AdminNav from './components/Admin/AdminNav/AdminNav';
-import Admin from "./components/Admin/Admin";
-
 
 function App() {
-  
-  return (
-  <Router>
-    <div className="App">
-      <nav className="navbar navbar-expand-lg navbar-light fixed-top">
-        <div className="container">
-          <Link className="navbar-brand" to={"/GeneralUser"}>Give Alot</Link>
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to={"/login"}>Login</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={"/Registration"}>Registration</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-      <div className="outer">
-        {/* <div className="inner"> */}
-          <Switch>
-            <Route exact path='/' component={GeneralUser} />
-            <Route path="/login" component={Login} />
-            <Route path="/Registration" component={Registration} />
-          </Switch>
-        {/* </div> */}
+    return (
+      <div className="App">
+        <Admin />
       </div>
-    </div>
-  </Router>
-
-  // <div className="App">
-  //   <Admin/>
-  // </div>
-  );
+   );
+  
 }
 
 export default App;

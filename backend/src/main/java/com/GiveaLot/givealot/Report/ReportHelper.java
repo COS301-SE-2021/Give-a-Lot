@@ -72,7 +72,7 @@ public class ReportHelper {
 
                 String username = "iqvyaozz";
                 String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
-                System.out.println("Success");
+                //System.out.println("Success");
                 //Setup connection
                 Connection connection = DriverManager.getConnection(url, username, password);
 
@@ -96,7 +96,7 @@ public class ReportHelper {
                 reports++;
 
                 String query2 = "update public.\"OrganisationInfo\" set \"numberOfReports\" = '"+ reports +"' where \"orgId\" = '" + report.getOrgId() + "';";
-                System.out.println(query2);
+                //System.out.println(query2);
 
                 //execute the query
                 state.executeUpdate(query2);
@@ -124,6 +124,15 @@ public class ReportHelper {
             }
             catch (Exception e){
                 throw new SQLException("Exception: ID is not present in the database 01");
+            }
+
+            System.out.println(file);
+
+            Scanner reader = new Scanner(file);
+            while (reader.hasNextLine())
+            {
+                String data = reader.nextLine();
+                System.out.println(data);
             }
 
             return file;

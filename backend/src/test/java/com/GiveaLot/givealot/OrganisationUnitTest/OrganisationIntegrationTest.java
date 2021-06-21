@@ -22,6 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class OrganisationIntegrationTest {
 
     @Test
+    @Description("Adds an organisation to the Givealot system")
     void TEST_ADD() throws OrgException, SQLException, MessagingException, NoSuchAlgorithmException, IOException {
         OrganisationServiceImpl service = new OrganisationServiceImpl();
 
@@ -30,12 +31,16 @@ public class OrganisationIntegrationTest {
         service.addOrganisation(request);
     }
     @Test
+    @Description("Investigates an organisation on the Givealot system")
     void TEST_ORG_INVESTIGATE() throws OrgException, SQLException, MessagingException, NoSuchAlgorithmException, IOException {
         OrganisationServiceImpl service = new OrganisationServiceImpl();
 
+        investigateOrganisationRequest request = new investigateOrganisationRequest("8378a47a5f4a901d23222cef70df3203","");
 
+        service.investigateOrganisation(request);
     }
     @Test
+    @Description("Suspends an organisation on the Givealot system")
     void TEST_ORG_SUSPEND() throws OrgException, SQLException, MessagingException, NoSuchAlgorithmException, IOException {
         OrganisationServiceImpl service = new OrganisationServiceImpl();
 
@@ -44,6 +49,7 @@ public class OrganisationIntegrationTest {
         service.suspendOrganisation(request);
     }
     @Test
+    @Description("Reactivates an organisation on the Givealot system")
     void TEST_ORG_REACTIVATE() throws OrgException, SQLException, MessagingException, NoSuchAlgorithmException, IOException {
         OrganisationServiceImpl service = new OrganisationServiceImpl();
 
@@ -53,6 +59,7 @@ public class OrganisationIntegrationTest {
     }
 
     @Test
+    @Description("Runs the whole organisation micro service test")
     void TEST_INTEGRATION_ORGANISATION() throws OrgException, SQLException, MessagingException, NoSuchAlgorithmException, IOException {
         OrganisationServiceImpl service = new OrganisationServiceImpl();
 

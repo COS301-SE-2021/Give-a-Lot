@@ -1,0 +1,68 @@
+Coding Standards Document
+
+////////////////////////////////////////////////////////////
+
+- Descriptions in function will be commented in the /** **/ format
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////
+
+In the backend
+
+In the main:
+
+- Each micro service in the main package will conform to the structure of having the packages:
+	-controller (The controller interface between the frontend and backend for the micro service)
+	-dataclass (The main data objects of the micro service)
+	-exceptions (The exceptions for the micro service)
+	-repository (The repository for the micro service)
+	-rri (The request and response classes which hold the request for the service and the response for that request)
+		-Each request/response class will be structure the same way with constructors and getters and setters
+-As well as:
+	-Helper class (Stores the functions which supplement the service)
+	-Service class (Which is an interface for ServiceImpl)
+	-ServiceImpl (Which implements the micro service by accepting a request and returning a response)
+
+
+In the test:
+
+- Each micro service in the test package will conform to the structure of having the Test package which contain:
+	-UnitTest (Contains all the unit tests for the micro service)
+	-Each Unit test will use mockito with all variables declared at the beginning
+	-IntegrationTest (Contains the sample run of the micro service as well as the integration test)
+
+////////////////////////////////////////////////////////////
+
+In the frontend
+
+////////////////////////////////////////////////////////////
+
+in the documentation
+
+- All documentation is stored here
+
+////////////////////////////////////////////////////////////
+
+In the lib
+
+- All libraries and modules are stored here
+
+////////////////////////////////////////////////////////////
+
+In the server
+
+////////////////////////////////////////////////////////////

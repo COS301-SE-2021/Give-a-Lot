@@ -39,10 +39,10 @@ public class BrowseUnitTest
     }
 
     @Test
-    @Description("Create a null request object to test if an exception is thrown")
+    @Description("Create a null request object to test if an exception is thrown for a null object")
     void TEST_SHOULD_RETURN_AN_EXCEPTION()
     {
         Throwable throwError = assertThrows(Exception.class, () -> browseServiceImpl.browse(request1));
-        assertEquals("Exception: browse request not instantiated", throwError.getMessage());
+        assertEquals("Exception: browse request object not instantiated", throwError.getMessage());
     }
 }

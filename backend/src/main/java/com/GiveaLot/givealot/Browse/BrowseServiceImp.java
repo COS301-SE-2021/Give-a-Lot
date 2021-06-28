@@ -21,8 +21,7 @@ public class BrowseServiceImp implements BrowseService
 
         if(request == null)
         {
-            System.out.println("Exception: browse request not instantiated");
-            throw new Exception("Exception: browse request not instantiated");
+            throw new Exception("Exception: browse request object not instantiated");
         }
         /*the helper is responsible for the database query logic*/
         BrowseHelper browseHelper = new BrowseHelper();

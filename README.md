@@ -61,7 +61,7 @@ The following links are the live demo videos held on blackboard collaborate to p
 phases of the project to the stakeholders of the Give a lot project.
 
 * <a href=""> Demo 1 </a>
-* <a href=""> Demo 2 </a>
+* <a href="https://drive.google.com/file/d/1nVGxjAXg2Bps2CiWN2UObfZMa0Hhtgmt/view?usp=sharing"> Demo 2 </a>
 * <a href=""> Demo 3 </a>
 * <a href=""> Demo 4 </a>
 

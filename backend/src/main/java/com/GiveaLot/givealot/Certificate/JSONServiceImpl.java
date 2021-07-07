@@ -43,13 +43,23 @@ public class JSONServiceImpl implements JSONService {
                 throw new CertificateException("Problem creating Certificate");
             }
         }
+        //System.out.println(jsonRes);
         return jsonRes;
     }
 
     public boolean isAuthorized(boolean value) throws NotAuthorizedException {
-        if (!value) {
+        if (value == false) {
             throw new NotAuthorizedException("Error: User is not authorised to create JSON Objects");
         }
         return true;
+    }
+
+    public class External{
+        private createJSONResponse response1;
+        private createJSONResponse response2;
+        public External(createJSONResponse response1, createJSONResponse response2){
+            this.response1 = response1;
+            this.response2 = response2;
+        }
     }
 }

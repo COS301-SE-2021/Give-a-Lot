@@ -42,27 +42,41 @@ public class CertificateHelper {
     }
 
     public Document createPDFDocument(Certificate cert) throws Exception {
-        try {
-            if(cert.getNameOfOrganisation()== null)
-                throw new NullPointerException();
-            String certName = cert.getNameOfOrganisation().replaceAll("\\s+", "");
-            String file_name = "C:\\generateCertificates\\" + certName + ".pdf";
+        if (cert.getNameOfOrganisation()==""){
+            throw new CertificateException("Exception: Certificate data is null");
+        }
+        if (cert.getDescriptionOFOrganisation()==""){
+            throw new CertificateException("Exception: Certificate data is null");
+        }
+        if (cert.getEmail()==""){
+            throw new CertificateException("Exception: Certificate data is null");
+        }
+        if (cert.getAddress()==""){
+            throw new CertificateException("Exception: Certificate data is null");
+        }
+        if (cert.getUrl()==""){
+            throw new CertificateException("Exception: Certificate data is null");
+        }
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        try
+        {
+            String certName = cert.getNameOfOrganisation().replaceAll("\\s+","");
+            String file_name = "C:\\generateCertificates\\"+ certName +".pdf";
             Document document = new Document();
-
-            PdfWriter.getInstance(document, new FileOutputStream(file_name));
+            PdfWriter.getInstance(document,new FileOutputStream(file_name));
 
             document.open();
             document.add(new Paragraph("This certificate represents the authenticity of " + cert.getNameOfOrganisation()));
-            document.add(new Paragraph(cert.getDescriptionOFOrganisation()));
-            document.add(new Paragraph(cert.getEmail()));
-            document.add(new Paragraph(cert.getAddress()));
-            document.add(new Paragraph(cert.getUrl()));
+            document.add(new Paragraph( cert.getDescriptionOFOrganisation()));
+            document.add(new Paragraph( cert.getEmail()));
+            document.add(new Paragraph( cert.getAddress()));
+            document.add(new Paragraph( cert.getUrl()));
 
             document.close();
             return document;
 
         } catch (Exception e) {
-            throw new CertificateException("Problem creating Certificate");
+            throw new CertificateException("Exception: Document cannot be overwritten when open");
         }
     }
 

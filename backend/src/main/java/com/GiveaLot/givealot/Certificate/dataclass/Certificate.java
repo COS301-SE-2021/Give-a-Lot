@@ -10,6 +10,16 @@ public class Certificate {
     Boolean isVerified;
     Boolean addressIsValid;
 
+    public Certificate(){
+        this.nameOfOrganisation = "";
+        this.descriptionOFOrganisation = "";
+        this.Email = "";
+        this.Address = "";
+        this.Url = "";
+        this.isVerified = false;
+        this.addressIsValid = false;
+    }
+
     public Certificate(String nameOfOrganisation, String descriptionOFOrganisation, String Email, String Address, String Url){
         this.nameOfOrganisation = nameOfOrganisation;
         this.descriptionOFOrganisation = descriptionOFOrganisation;

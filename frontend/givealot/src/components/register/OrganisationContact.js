@@ -1,17 +1,28 @@
 import React, { Component } from "react";
-import logo from "./imagesRegister/ID2.png";
+// import logo from "./imagesRegister/ID2.png";
+import Button from '@material-ui/core/Button';
 import "./Register.css"
 
 class OrganisationContact extends Component {
+    proceed = e => {
+        e.preventDefault();
+        this.props.nextStep();
+      };
+      back = e => {
+        e.preventDefault();
+        this.props.prevStep();
+      };
+      constructor() {
+        super();
+        this.state = {
+          disabled: false
+        };
+      }
     render() {
+        const { values, handleChange } = this.props;
         return (
             <div >
-                <div className="header">
-                    <div className="image">
-                        <img id="ID" src={logo} alt=""/>
-                    </div>
-
-                </div>
+               
                 <div className="container" >
 
                  <form className="form">
@@ -21,20 +32,57 @@ class OrganisationContact extends Component {
                     <div >
                         <label></label>
 
-                        <input type="name" className="control" placeholder="Contact Person" />
+                        <input type="contactPerson"
+                         className="control" 
+                         placeholder="Contact Person"
+                         onChange={handleChange("contactPerson")}
+                        defaultValue={values.contactPerson}
+                          />
                     </div>
 
                     <div >
                         <label></label>
-                        <input type="name" className="control" placeholder="Contact Number" />
+                        <input type="contactNumber"
+                         className="control" 
+                         placeholder="Contact Number" 
+                         onChange={handleChange("contactNumber")}
+                        defaultValue={values.contactNumber}
+                         />
                     </div>
 
                     <div >
                         <label></label>
-                        <input type="email" className="control" placeholder="Email Address" />
+                        <input type="email"
+                         className="control" 
+                         placeholder="Email Address" 
+                         onChange={handleChange("email")}
+                        defaultValue={values.email}
+                         />
                     </div>
                     <div>
-                        <button type="submit" className="button">Prcoceed</button>
+                    <Button
+                        style={{
+                            background: "#EE3B55",
+                            color: "#FFFFFF",
+                            marginRight: "1em"
+                        }}
+                        label="Back"
+                        onClick={this.back}
+                        >
+                        Back
+                    </Button>
+                    <Button
+                        style={{
+                            background: "#991A76",
+                            color: "#FFFFFF"
+                        }}
+                        label="Continue"
+                        onClick={this.proceed}
+                        >
+                        {" "}
+                        Proceed
+                    </Button>
+                        {/* <button type="submit" className="button">Prcoceed</button> */}
                     </div>
 
                 </form>

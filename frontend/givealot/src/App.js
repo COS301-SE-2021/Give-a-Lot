@@ -1,5 +1,5 @@
-// import Register from "./components/register/Register";
-import OrganisationMedia from "./components/register/OrganisationMedia";
+import Register from "./components/register/Register";
+// import RegisterOrganisation from "./components/register/RegisterOrganisation";
 // import Login from "./components/login/Login";
 // import Home from "./components/basicUser/home/Home"
 import './App.css';
@@ -7,7 +7,7 @@ import './App.css';
 function App() {
     return (
       <div className="App">
-        <OrganisationMedia />
+        <Register />
       </div>
    );
   

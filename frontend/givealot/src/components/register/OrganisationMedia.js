@@ -1,17 +1,26 @@
 import React, { Component } from "react";
-import logo from "./imagesRegister/ID2.png";
+import Button from '@material-ui/core/Button';
 import "./Register.css"
 
 class OrganisationMedia extends Component {
+    proceed = e => {
+        e.preventDefault();
+        this.props.nextStep();
+      };
+      back = e => {
+        e.preventDefault();
+        this.props.prevStep();
+      };
+      constructor() {
+        super();
+        this.state = {
+          disabled: false
+        };
+      }
     render() {
+        const { values, handleChange } = this.props;
         return (
             <div >
-                <div className="header">
-                    <div className="image">
-                        <img id="ID" src={logo} alt=""/>
-                    </div>
-
-                </div>
                 <div className="container" >
 
                  <form className="form">
@@ -23,11 +32,38 @@ class OrganisationMedia extends Component {
                      </div>
                     <div >
                         {/* <label for="img">Select image:</label> */}
-                        <input type="file" id="img" name="img" accept="image/*" />
+                        <input type="file" 
+                        id="img" name="image" 
+                        accept="image/*" 
+                        onChange={handleChange("image")}
+                        defaultValue={values.image}
+                        />
                     </div>
 
                     <div>
-                        <button type="submit" className="button">Register</button>
+                    <Button
+                        style={{
+                            background: "#EE3B55",
+                            color: "#FFFFFF",
+                            marginRight: "1em"
+                        }}
+                        label="Back"
+                        onClick={this.back}
+                        >
+                        Back
+                        </Button>
+                        <Button
+                        style={{
+                            background: "#991A76",
+                            color: "#FFFFFF"
+                        }}
+                        label="Continue"
+                        onClick={this.proceed}
+                        >
+                        {" "}
+                        Proceed
+                    </Button>
+                        {/* <button type="submit" className="button">Register</button> */}
                     </div>
 
                 </form>

@@ -3,7 +3,6 @@
     background-color: white;
     display: flex;
 }
-
 #ID{
     width: 100%;
     height: auto;
@@ -28,10 +27,12 @@
     color: white;
     font-weight: 300;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* margin-top: 5px; */
 }
 .mainBody{
     display: flex;
+}
+.bodyWords{
+    justify-content: space-between;
 }
 .bodyWords > h1{
     color: #2d9499;
@@ -49,4 +50,5 @@
 .Homebutton > Button{
     background-color: #2d9499;
     color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

@@ -1,9 +1,14 @@
+*
+{
+    font-family: "Segoe UI";
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 .header{
     text-align: left;
     background-color: white;
-
-
-
 }
 
 #ID{
@@ -24,9 +29,9 @@
     min-width: 100%;
     background-size: cover;
     background-position: center;
-;
-
 }
+
+
 .top{
     text-align: left;
     padding: 0px 15px;
@@ -39,10 +44,12 @@
     margin-top: 90px;
     float: right;
 
+
 }
 .button {
     background-color: #2386c2;
     width: 120px;
+
     padding: 4px 10px;
     font-size: 17px;
     font-family: Segoe UI;
@@ -59,9 +66,10 @@
     width: 230px;
     padding: 10px 25px;
     margin: 5px;
-    /*max-width: 320px;*/
+    text-decoration: none;
     border-radius: 8px;
-    /*border-color: rgba(48, 48, 48, 1);*/
+    border: none;
+
 }
 
 

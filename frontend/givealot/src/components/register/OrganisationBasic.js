@@ -54,9 +54,17 @@ class OrganisationBasic extends Component {
                     />
                 </div>
                 <div>
-                    <Button type="submit" className="button"
-                    onClick={this.proceed}
-                    >Proceed</Button>
+                <Button
+                        style={{
+                            background: "#991A76",
+                            color: "#FFFFFF"
+                        }}
+                        label="Continue"
+                        onClick={this.proceed}
+                        >
+                        {" "}
+                        Proceed
+                    </Button>
                 </div>
 
                 </form>

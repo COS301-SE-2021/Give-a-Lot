@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class addOrganisationRequest {
     String orgName;
+    String orgSlogan;
     String orgDescription;
     String orgSector;
     String orgEmail;
@@ -14,6 +15,7 @@ public class addOrganisationRequest {
 
     public addOrganisationRequest(
             @JsonProperty("orgName") String orgName,
+            @JsonProperty("orgSlogan") String orgSlogan,
             @JsonProperty("orgDescription") String orgDescription,
             @JsonProperty("orgSector") String orgSector,
             @JsonProperty("orgEmail") String orgEmail,
@@ -21,6 +23,7 @@ public class addOrganisationRequest {
             @JsonProperty("contactPerson") String contactPerson,
             @JsonProperty("contactNumber") String contactNumber) {
         this.orgName = orgName;
+        this.orgSlogan = orgSlogan;
         this.orgDescription = orgDescription;
         this.orgSector = orgSector;
         this.orgEmail = orgEmail;
@@ -61,6 +64,10 @@ public class addOrganisationRequest {
         return orgName;
     }
 
+    public String getOrgSlogan() {
+        return orgSlogan;
+    }
+
     /**Setters**/
 
     public void setOrgEmail(String orgEmail) {
@@ -91,4 +98,7 @@ public class addOrganisationRequest {
         this.orgDescription = orgDescription;
     }
 
+    public void setOrgSlogan(String orgSlogan) {
+        this.orgSlogan = orgSlogan;
+    }
 }

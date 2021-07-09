@@ -1,5 +1,4 @@
 package com.GiveaLot.givealot.Registration;
 
-public class RegistrationServiceImp
-{
+public class userRegistrationResponseJSON {
 }

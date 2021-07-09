@@ -58,7 +58,7 @@ public class OrganisationServiceImpl
             }
         }
 
-        Organisation org = new Organisation(request.getOrgName(),request.getOrgDescription(),request.getOrgSector(),request.getOrgEmail(),request.getPassword(),request.getContactPerson(),request.getContactNumber());
+        Organisation org = new Organisation(request.getOrgName(),request.getOrgSlogan(),request.getOrgDescription(),request.getOrgSector(),request.getOrgEmail(),request.getPassword(),request.getContactPerson(),request.getContactNumber());
 
         help.orgExists(org);
         try

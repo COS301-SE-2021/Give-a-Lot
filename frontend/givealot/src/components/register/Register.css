@@ -1,29 +1,3 @@
-.register{
-    width: 100%;
-    height: 100%;
-}
-#back{
-    position: absolute;
-	left: 0px;
-	top: 100px;
-    width: 100%;
-	height: 100%;
-    
-	/* overflow: visible; */
-}
-#back > img{
-    width: 100%;
-    height: 100%;
-    
-}
-#ID2 {
-    position: absolute;
-    /* width: 409px; */
-    height: 100px;
-    left: 0px;
-    top: 0px;
-    overflow: visible;
-}
 .NGOs_made_safer_for_you {
     left: 900px;
     top: 230px;
@@ -81,4 +55,33 @@
     font-weight: normal;
     font-size: 22px; */
     color: rgba(255,255,255,1);
+}
+
+
+.header{
+    text-align: left;
+    background-color: white;
+
+
+
+}
+
+#ID{
+    width: 100%;
+    height: auto;
+}
+.image{
+    width: 220px;
+    height: 70px;
+
+}
+.container {
+
+    align-content: center;
+    background-image: url("imagesRegister/back.png");
+    position: fixed;
+    min-height: 100%;
+    min-width: 100%;
+    background-size: cover;
+    background-position: center;
 }

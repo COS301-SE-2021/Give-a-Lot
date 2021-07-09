@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./Login.css";
-import {FaGithub } from "react-icons/fa";
+// import {FaGithub } from "react-icons/fa";
 import logo from "./images/logo.png";
-import body from "./images/body.png";
+// import body from "./images/body.png";
 
 
 class LoginBody extends Component {

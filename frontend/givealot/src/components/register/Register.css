@@ -1,0 +1,84 @@
+.register{
+    width: 100%;
+    height: 100%;
+}
+#back{
+    position: absolute;
+	left: 0px;
+	top: 100px;
+    width: 100%;
+	height: 100%;
+    
+	/* overflow: visible; */
+}
+#back > img{
+    width: 100%;
+    height: 100%;
+    
+}
+#ID2 {
+    position: absolute;
+    /* width: 409px; */
+    height: 100px;
+    left: 0px;
+    top: 0px;
+    overflow: visible;
+}
+.NGOs_made_safer_for_you {
+    left: 900px;
+    top: 230px;
+    position: absolute;
+    overflow: visible;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    color: rgba(255,255,255,1);
+}
+
+.orgs{
+    background-color: white !important;
+    position: absolute;
+    left: 900px;
+    top: 300px;
+    width: 300px;
+    justify-content: space-evenly;
+}
+.user{
+    background-color: white !important;
+    position: absolute;
+    left: 900px;
+    top: 370px;
+    width: 300px;
+}
+
+#Already_have_an_account_Log_in {
+    left: 900px;
+    top: 430px;
+    position: absolute;
+    overflow: visible;
+    width: 396px;
+    cursor: pointer;
+    /* text-align: left;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px; */
+    color: rgba(255,255,255,1);
+}
+#By_signing_up_you_agree_to_Giv {
+    left: 900px;
+    top: 450px;
+    position: absolute;
+    overflow: visible;
+    width: 529px;
+    /* white-space: nowrap;
+    text-align: left;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px; */
+    color: rgba(255,255,255,1);
+}

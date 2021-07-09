@@ -1,4 +1,6 @@
-// import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
+// import "bootstrap-css-only/css/bootstrap.min.css";
+// import "mdbreact/dist/css/mdb.css";
+// import "@fortawesome/fontawesome-free/css/all.min.css";
 import Register from "./components/register/Register";
 import Login from "./components/login/Login";
 import './App.css';

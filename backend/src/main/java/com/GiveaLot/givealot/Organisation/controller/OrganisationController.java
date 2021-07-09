@@ -138,6 +138,5 @@ public class OrganisationController
             return List.of(new get_OrganisationResponseJSON("404", "not available", null,null,null));
         }
         return List.of(new get_OrganisationResponseJSON("500", "server related... make sure the connection works", null,null,null));
-
     }
 }

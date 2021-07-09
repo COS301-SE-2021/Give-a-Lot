@@ -1,0 +1,87 @@
+.NGOs_made_safer_for_you {
+    left: 900px;
+    top: 230px;
+    position: absolute;
+    overflow: visible;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    color: rgba(255,255,255,1);
+}
+
+.orgs{
+    background-color: white !important;
+    position: absolute;
+    left: 900px;
+    top: 300px;
+    width: 300px;
+    justify-content: space-evenly;
+}
+.user{
+    background-color: white !important;
+    position: absolute;
+    left: 900px;
+    top: 370px;
+    width: 300px;
+}
+
+#Already_have_an_account_Log_in {
+    left: 900px;
+    top: 430px;
+    position: absolute;
+    overflow: visible;
+    width: 396px;
+    cursor: pointer;
+    /* text-align: left;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px; */
+    color: rgba(255,255,255,1);
+}
+#By_signing_up_you_agree_to_Giv {
+    left: 900px;
+    top: 450px;
+    position: absolute;
+    overflow: visible;
+    width: 529px;
+    /* white-space: nowrap;
+    text-align: left;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px; */
+    color: rgba(255,255,255,1);
+}
+
+
+.header{
+    text-align: left;
+    background-color: white;
+
+
+
+}
+
+#ID{
+    width: 100%;
+    height: auto;
+}
+.image{
+    width: 220px;
+    height: 70px;
+
+}
+.container {
+
+    align-content: center;
+    background-image: url("imagesRegister/back.png");
+    position: fixed;
+    min-height: 100%;
+    min-width: 100%;
+    background-size: cover;
+    background-position: center;
+}

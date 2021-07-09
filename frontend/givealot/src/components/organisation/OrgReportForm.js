@@ -76,7 +76,7 @@ class OrgReportForm extends Component {
         this.state = {
             description : "",
             type: "",
-            email: "",
+            yourEmail: "",
             orgId: ""
         }
     }
@@ -98,7 +98,7 @@ class OrgReportForm extends Component {
     }
 
     render() {
-        const {Name, email,department, time,date, type, description,country,Follow} = this.state
+        const {Name, yourEmail,department, time,date, type, description,country,Follow} = this.state
         // const classes = useStyles();
         return (
             <form onSubmit={this.submitHandler}>
@@ -112,7 +112,7 @@ class OrgReportForm extends Component {
                             label="Your Email"
                             fullWidth
                             autoComplete="department"
-                            value={email} onChange={this.changeHandler}
+                            value={yourEmail} onChange={this.changeHandler}
                         />
                     </Grid>
 
@@ -125,7 +125,7 @@ class OrgReportForm extends Component {
                         inputProps={{ 'aria-label': 'type' }}
                         >
                         <option disabled value="">Select Type</option>
-                        <option value={"Incorect Profile Information"}>Incorect Profile Information</option>
+                        <option value={"Incorrect Profile Information"}>Incorect Profile Information</option>
                         <option value={"Suspicious Behavior"}>Suspicious Behavior</option>
                         <option value={"Fraud Activity"}>Fraud Activity</option>
                         </NativeSelect>

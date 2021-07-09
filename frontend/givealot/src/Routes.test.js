@@ -96,7 +96,7 @@ it('renders correct Admin Dashboard route', () => {
 
 });
 
-it('should fail', () => {
+/*it('should fail', () => {
   const wrapper = shallow(<Admin />);
   const pathMap = wrapper.find(Route).reduce((pathMap, route) => {
     const routeProps = route.props();
@@ -120,6 +120,6 @@ it('Should fail', () => {
 
   expect(pathMap['/admin']).toBe(Dashboard);
 
-});
+});*/
 
 

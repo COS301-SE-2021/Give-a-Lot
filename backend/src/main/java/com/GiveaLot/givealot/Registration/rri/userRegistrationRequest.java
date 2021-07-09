@@ -1,6 +1,6 @@
 package com.GiveaLot.givealot.Registration.rri;
 
-public class UserRegistrationRequest
+public class userRegistrationRequest
 {
     private String firstName;
     private String lastName;
@@ -8,7 +8,7 @@ public class UserRegistrationRequest
     private String password;
     private String user_id;
 
-    public UserRegistrationRequest(String firstName, String lastName, String email, String password, String user_id) {
+    public userRegistrationRequest(String firstName, String lastName, String email, String password, String user_id) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

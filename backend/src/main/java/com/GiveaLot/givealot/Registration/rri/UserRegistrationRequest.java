@@ -1,12 +1,12 @@
 package com.GiveaLot.givealot.Registration.rri;
 
-public class UserRegistrationRequest {
+public class UserRegistrationRequest
+{
     private String firstName;
     private String lastName;
     private String email;
     private String password;
     private String user_id;
-
 
     public UserRegistrationRequest(String firstName, String lastName, String email, String password, String user_id) {
         this.firstName = firstName;

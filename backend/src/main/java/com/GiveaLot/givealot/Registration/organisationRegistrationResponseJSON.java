@@ -2,12 +2,23 @@ package com.GiveaLot.givealot.Registration;
 
 public class organisationRegistrationResponseJSON
 {
-    int status;
-    String message;
+    private int status;
+    private String message;
+    private String organisationKey;
 
-    public organisationRegistrationResponseJSON(int status, String message) {
+
+    public organisationRegistrationResponseJSON(int status, String message, String organisationKey) {
         this.status = status;
         this.message = message;
+        this.organisationKey = organisationKey;
+    }
+
+    public String getOrganisationKey() {
+        return organisationKey;
+    }
+
+    public void setOrganisationKey(String organisationKey) {
+        this.organisationKey = organisationKey;
     }
 
     public int getStatus() {

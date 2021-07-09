@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./RegisterUser.css"
 class RegisterUser extends Component {
     render() {
         return (

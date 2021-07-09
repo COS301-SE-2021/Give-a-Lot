@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import RegisterUser from './RegisterUser'
 import RegisterOrganisation from './RegisterOrganisation'
-// import back from "./imagesRegister/back.png";
 import logo from "./imagesRegister/ID2.png";
 import "./Register.css"
 import RegisterBack from "./RegisterBack"

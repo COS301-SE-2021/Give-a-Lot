@@ -18,7 +18,7 @@ export class ConfirmOrgRegistration extends Component {
 
   render() {
     const {
-      values: { image, slogan, email, sector, description, contactName, contactPerson, orgName }
+      values: { image, slogan, email, sector, description, contactNumber, contactPerson, orgName }
     } = this.props;
     return (
       <Fragment>
@@ -52,7 +52,7 @@ export class ConfirmOrgRegistration extends Component {
             <ListItemText primary="Description" secondary={description} />
           </ListItem>
           <ListItem>
-            <ListItemText primary="Contact Name" secondary={contactName} />
+            <ListItemText primary="Contact Number" secondary={contactNumber} />
           </ListItem>
           <ListItem>
             <ListItemText primary="Contact Person" secondary={contactPerson} />

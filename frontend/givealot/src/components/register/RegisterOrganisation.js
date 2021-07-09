@@ -49,8 +49,8 @@ export class RegisterOrganisation extends Component {
 
   render() {
     const { step } = this.state;
-    const { image, slogan, email, sector, despription, contactName, contactPerson, orgName } = this.state;
-    const values = { image, slogan, email, sector, despription, contactName, contactPerson, orgName };
+    const { image, slogan, email, sector, description, contactNumber, contactPerson, orgName } = this.state;
+    const values = { image, slogan, email, sector, description, contactNumber, contactPerson, orgName };
 
     switch (step) {
       default:

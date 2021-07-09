@@ -1,11 +1,11 @@
 // import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
-import RegisterUser from "./components/register/RegisterUser";
+import Register from "./components/register/Register";
 import './App.css';
 
 function App() {
     return (
       <div className="App">
-        <RegisterUser />
+        <Register />
       </div>
    );
   

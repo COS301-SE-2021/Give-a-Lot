@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import "./RegisterUser.css"
 class RegisterOrganisation extends Component {
     render() {
         return (
@@ -8,30 +7,25 @@ class RegisterOrganisation extends Component {
 
                  <form className="form">
                      <div className="top">
-                         <h4> Registration | Organisation</h4>
+                         <h4> Registration | Organisation | Info</h4>
                      </div>
                     <div >
                         <label></label>
 
-                        <input type="name" className="control" placeholder=" Name" />
+                        <input type="name" className="control" placeholder="Name of Organisation" />
                     </div>
 
                     <div >
                         <label></label>
-                        <input type="name" className="control" placeholder="Surname" />
+                        <input type="name" className="control" placeholder="Password" />
                     </div>
 
                     <div >
                         <label></label>
-                        <input type="email" className="control" placeholder="Email" />
-                    </div>
-
-                    <div >
-                        <label></label>
-                        <input type="password" className="control" placeholder="Password" />
+                        <input type="email" className="control" placeholder="Confrim Password" />
                     </div>
                     <div>
-                        <button type="submit" className="button">Sign Up</button>
+                        <button type="submit" className="button">Proceed</button>
                     </div>
 
                 </form>

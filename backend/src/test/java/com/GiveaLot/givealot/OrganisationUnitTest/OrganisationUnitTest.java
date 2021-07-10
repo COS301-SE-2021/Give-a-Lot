@@ -56,21 +56,21 @@ public class OrganisationUnitTest {
 
 
         request1 = null;
-        request4 = new addOrganisationRequest("","","","","","","");
+        request4 = new addOrganisationRequest("","","","","","","","");
 
-        request5 = new addOrganisationRequest("The Organisation", "Some description", "Youth", "theorganisation","NewPassword","Mr. Org", "0823475690");
-
-
+        request5 = new addOrganisationRequest("The Organisation","Some slogan", "Some description", "Youth", "theorganisation","NewPassword","Mr. Org", "0823475690");
 
 
-        request2= new addOrganisationRequest("The Organisation", "Some description", "Youth", "theorganisation@gmail.com","NewPassword","Mr. Org", "0823475690");
+
+
+        request2= new addOrganisationRequest("The Organisation", "Some slogan", "Some description", "Youth", "theorganisation@gmail.com","NewPassword","Mr. Org", "0823475690");
 
         //ORg is already in system
-        request3= new addOrganisationRequest("The Organisation", "Some description", "Youth", "theorganisation12@gmail.com","NewPassword","Mr. Org", "0823475690");
+        request3= new addOrganisationRequest("The Organisation", "Some slogan", "Some description", "Youth", "theorganisation12@gmail.com","NewPassword","Mr. Org", "0823475690");
 
         org1= new Organisation();
-        org2= new Organisation(request2.getOrgName(),request2.getOrgDescription(),request2.getOrgSector(),request2.getOrgEmail(),request2.getPassword(),request2.getContactPerson(),request2.getContactNumber());
-        org3= new Organisation(request2.getOrgName(),request2.getOrgDescription(),request2.getOrgSector(),request2.getOrgEmail(),request2.getPassword(),request2.getContactPerson(),request2.getContactNumber());
+        org2= new Organisation(request2.getOrgName(),request2.getOrgSlogan(),request2.getOrgDescription(),request2.getOrgSector(),request2.getOrgEmail(),request2.getPassword(),request2.getContactPerson(),request2.getContactNumber());
+        org3= new Organisation(request2.getOrgName(),request2.getOrgSlogan(),request2.getOrgDescription(),request2.getOrgSector(),request2.getOrgEmail(),request2.getPassword(),request2.getContactPerson(),request2.getContactNumber());
         //org4 = new Organisation("","","","","","","");
 
         orgActive = new Organisation(request2.getOrgEmail(),Status.Active);

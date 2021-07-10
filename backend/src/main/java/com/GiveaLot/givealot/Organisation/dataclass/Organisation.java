@@ -14,6 +14,7 @@ import java.util.List;
 public class Organisation {
 
     private String orgName;
+    private String slogan;
     private String orgDescription;
     private String orgSector;
     private String orgEmail;
@@ -62,10 +63,11 @@ public class Organisation {
     }
 
 
-    public Organisation(String orgName, String orgDescription, String orgSector, String orgEmail, String password, String contactPerson, String contactNumber) throws NoSuchAlgorithmException {
+    public Organisation(String orgName, String slogan, String orgDescription, String orgSector, String orgEmail, String password, String contactPerson, String contactNumber) throws NoSuchAlgorithmException {
         MD5 md5 = new MD5();
 
         this.orgName = orgName;
+        this.slogan = slogan;
         this.orgDescription = orgDescription;
         this.orgSector = orgSector;
         this.orgEmail = orgEmail;
@@ -181,6 +183,9 @@ public class Organisation {
     public int getNumberOfReports() {
         return numberOfReports;
     }
+
+    public String getSlogan() { return slogan; }
+
     //Setters
 
 
@@ -283,6 +288,8 @@ public class Organisation {
     public void setNumberOfReports(int numberOfReports) {
         this.numberOfReports = numberOfReports;
     }
+
+    public void setSlogan(String slogan) { this.slogan = slogan; }
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
         String orgEmail = "hi";

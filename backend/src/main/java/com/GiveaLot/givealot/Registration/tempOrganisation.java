@@ -1,9 +1,8 @@
-package com.GiveaLot.givealot.Organisation.rri;
+package com.GiveaLot.givealot.Registration;
 
-import com.GiveaLot.givealot.Organisation.dataclass.Organisation;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class addOrganisationRequest {
+public class tempOrganisation {
     String orgName;
     String orgSlogan;
     String orgDescription;
@@ -13,23 +12,15 @@ public class addOrganisationRequest {
     String contactPerson;
     String contactNumber;
 
-    public addOrganisationRequest(
-            @JsonProperty("orgName") String orgName,
-            @JsonProperty("orgSlogan") String orgSlogan,
-            @JsonProperty("orgDescription") String orgDescription,
-            @JsonProperty("orgSector") String orgSector,
-            @JsonProperty("orgEmail") String orgEmail,
-            @JsonProperty("password") String password,
-            @JsonProperty("contactPerson") String contactPerson,
-            @JsonProperty("contactNumber") String contactNumber) {
-        this.orgName = orgName;
-        this.orgSlogan = orgSlogan;
-        this.orgDescription = orgDescription;
-        this.orgSector = orgSector;
-        this.orgEmail = orgEmail;
-        this.password = password;
-        this.contactPerson = contactPerson;
-        this.contactNumber = contactNumber;
+    public tempOrganisation() {
+        this.orgName = "";
+        this.orgSlogan = "";
+        this.orgDescription = "";
+        this.orgSector = "";
+        this.orgEmail = "";
+        this.password = "";
+        this.contactPerson = "";
+        this.contactNumber = "";
     }
 
     /**

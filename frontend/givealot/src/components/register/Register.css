@@ -1,3 +1,13 @@
+*{
+    padding: 0px;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+body{
+    /*overflow: hidden;*/
+}
+
 .NGOs_made_safer_for_you {
     left: 900px;
     top: 230px;
@@ -76,13 +86,23 @@
 
     align-content: center;
     background-image: url("imagesRegister/back.png");
-    position: fixed;
-    min-height: 100%;
-    min-width: 100%;
+    position: relative;
+    height: 100vh;
+    width: 100%;
     background-size: cover;
     background-position: center;
-;
+    border: 2px solid red;
+    overflow: hidden;
+    z-index: -1;
 
+
+}
+
+.gradientOverlay{
+    border: 2px solid red;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
 }
 .top{
     text-align: left;
@@ -118,6 +138,7 @@
     margin: 5px;
     /*max-width: 320px;*/
     border-radius: 8px;
+    border: none;
     /*border-color: rgba(48, 48, 48, 1);*/
 }
 

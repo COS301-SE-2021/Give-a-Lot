@@ -3,7 +3,7 @@ class RegisterUser extends Component {
 
     render() {
         return (
-            <div>
+
                 <div className="container">
                     <div className="gradientOverlay"></div>
                     <form className="form">
@@ -35,7 +35,6 @@ class RegisterUser extends Component {
                         </div>
                     </form>
                 </div>
-            </div>
         );
     }
 

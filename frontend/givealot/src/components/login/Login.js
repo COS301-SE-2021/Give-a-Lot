@@ -5,7 +5,7 @@ import logo from "./images/logo.png";
 // import body from "./images/body.png";
 
 
-class LoginBody extends Component {
+class Login extends Component {
 
     render() {
         return (
@@ -54,4 +54,4 @@ class LoginBody extends Component {
 
 }
 
-export default LoginBody
+export default Login

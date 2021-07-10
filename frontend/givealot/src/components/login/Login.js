@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import "./Login.css";
-import {FaBars } from "react-icons/fa";
 import logo from "./images/logo.png";
 // import body from "./images/body.png";
-
 
 class Login extends Component {
 
@@ -20,7 +18,7 @@ class Login extends Component {
 
                     <form className="Login_form">
                         <div className="topline">
-                            <p> Login | USER</p>
+                            <p> Login </p>
                         </div>
 
                         <div >
@@ -32,6 +30,12 @@ class Login extends Component {
                             <label></label>
                             <input type="password" className="input" placeholder="Password" />
                         </div>
+                        <div style={{color: "white"}}>
+                            <div id="createAccount">
+                                <span>Create Account? <span style={{textDecoration:"underline", color: "white"}} >Sign Up</span> </span>
+                            </div>
+
+                        </div>  
                         <div>
                             <button type="submit" className="Login_button">Sign Up</button>
                         </div>

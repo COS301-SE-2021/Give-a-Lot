@@ -1,62 +1,55 @@
 import React, { Component } from 'react'
-import logo from "./imagesHome/ID2.png";
+import logo from "../../login/images/logo.png";
 import bodyImage from "./imagesHome/bodyImage.png";
-import "./Home.css"
-import SearchIcon from '@material-ui/icons/Search';
-import Button from '@material-ui/core/Button';
-import MenuIcon from '@material-ui/icons/Menu';
-// import {Switch,Route} from "react-router-dom";
+import "./Home.css";
+import {FaBars } from "react-icons/fa";
+import {FaSearch } from "react-icons/fa";
 
 export class Home extends Component {
-    
+
     render() {
         return (
-            <div className="register">
-                <div className="headerHome">
-                    <div className="imageHome">
-                        <img id="ID" src={logo} alt=""/>
+            <div>
+                <div className="home_header">
+
+                    <div className="list">
+                        <FaSearch size="1.9em" color="#767676" className="menu" />
+                        <button type="submit" className="home_button">Login</button>
+                        <FaBars size="1.9em" color="#767676" className="menu"/>
                     </div>
-                    <div className="headerRight">
-                        <SearchIcon/>
-                        <Button variant="contained">Login</Button>
-                        <MenuIcon/>
+
+                    <div className="home_image">
+                        <img id="home_ID" src={logo} alt=""/>
                     </div>
 
                 </div>
-                <div className="container" >
-                    <div className="slogan">
-                        <span>Your Platform for safe Organisations</span>
-                    </div>
-                    <div className="mainBody">
-                        <div className="bodyImage">
-                            <img id="ID" src={bodyImage} alt=""/>
-                        </div>
-                        <div className="bodyWords">
-                            <h1>
-                                Where Givers Live
-                            </h1>
-                            <p>
-                                GiveAlot is a relatively simple idea that is meant <br/>
-                                to solve the problem that individuals and organisations <br/>
-                                encounter when it comes to verifying the authenticity of <br/>
-                                charities and many other different kinds of Organisations. <br/>
-                                GiveAlot aims to solve this problem by becoming a central point <br/>
-                                of reference for the verification for charities and other kinds of organisations.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="Homebutton">
-                        <Button variant="contained">Browse Organisations</Button>
-                    </div>
-                    
-                    {/* <RegisterBack />
-                    <Switch>
-                            <Route exact path="/registerOrgs" component={RegisterOrganisation} />
-                            <Route exact path="/registeruser" component={RegisterUser} />
-                    </Switch> */}
+
+                <div className="ribbon">
+                    <p>Your platform for safe organizations</p>
                 </div>
-                
-                
+
+                <div className="mainBody">
+
+                  <div className="image">
+                        <img id="body_ID" src={bodyImage} alt=""/>
+                    </div>
+
+                  <div className="words">
+                    <p className="bigWord">
+                        Where givers live
+                    </p>
+                    <p className="smallWord">
+                        GiveAlot is a relatively simple idea that is meant
+                        to solve the problem that individuals and organisations
+                        encounter when it comes to verifying the authenticity of
+                        charities and many other different kinds of Organisations.
+                        GiveAlot aims to solve this problem by becoming a central point
+                        of reference for the verification for charities and other kinds of organisations.
+                    </p>
+                  </div>
+                </div>
+                <button type="submit" className="browse_button">Browse Organisations</button>
+
             </div>
         )
     }

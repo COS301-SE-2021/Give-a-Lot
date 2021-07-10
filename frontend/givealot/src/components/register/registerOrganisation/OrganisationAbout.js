@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 // import logo from "./imagesRegister/ID2.png";
 import Button from '@material-ui/core/Button';
-import "./Register.css"
+import "../Register.css"
 
-class OrganisationContact extends Component {
+class OrganisationAbout extends Component {
     proceed = e => {
         e.preventDefault();
         this.props.nextStep();
@@ -22,41 +22,46 @@ class OrganisationContact extends Component {
         const { values, handleChange } = this.props;
         return (
             <div >
-               
+                {/* <div className="header">
+                    <div className="image">
+                        <img id="ID" src={logo} alt=""/>
+                    </div>
+
+                </div> */}
                 <div className="container" >
 
                  <form className="form">
                      <div className="top">
-                         <h4> Registration | Organisation | Contact</h4>
+                         <h4> Registration | Organisation | About</h4>
                      </div>
                     <div >
                         <label></label>
 
-                        <input type="contactPerson"
-                         className="control" 
-                         placeholder="Contact Person"
-                         onChange={handleChange("contactPerson")}
-                        defaultValue={values.contactPerson}
-                          />
+                        <input type="slogan"
+                        className="control" 
+                        placeholder="Slogan" 
+                        onChange={handleChange("slogan")}
+                        defaultValue={values.slogan}
+                        />
                     </div>
 
                     <div >
                         <label></label>
-                        <input type="contactNumber"
-                         className="control" 
-                         placeholder="Contact Number" 
-                         onChange={handleChange("contactNumber")}
-                        defaultValue={values.contactNumber}
-                         />
+                        <input type="sector" 
+                        className="control" 
+                        placeholder="Sector" 
+                        onChange={handleChange("sector")}
+                        defaultValue={values.sector}
+                        />
                     </div>
 
                     <div >
                         <label></label>
-                        <input type="email"
+                        <input type="description"
                          className="control" 
-                         placeholder="Email Address" 
-                         onChange={handleChange("email")}
-                        defaultValue={values.email}
+                         placeholder="Description"
+                         onChange={handleChange("description")}
+                        defaultValue={values.description} 
                          />
                     </div>
                     <div>
@@ -93,4 +98,4 @@ class OrganisationContact extends Component {
 
 }
 
-export default OrganisationContact
+export default OrganisationAbout

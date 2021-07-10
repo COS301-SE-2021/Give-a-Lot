@@ -2,76 +2,6 @@
     padding: 0px;
     margin: 0;
     box-sizing: border-box;
-
-}
-body{
-    /*overflow: hidden;*/
-}
-
-.NGOs_made_safer_for_you {
-    left: 900px;
-    top: 230px;
-    position: absolute;
-    overflow: visible;
-    white-space: nowrap;
-    text-align: left;
-    font-family: Segoe UI;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 26px;
-    color: rgba(255,255,255,1);
-}
-
-.orgs{
-    background-color: white !important;
-    position: absolute;
-    left: 900px;
-    top: 300px;
-    width: 300px;
-    justify-content: space-evenly;
-}
-.user{
-    background-color: white !important;
-    position: absolute;
-    left: 900px;
-    top: 370px;
-    width: 300px;
-}
-
-#Already_have_an_account_Log_in {
-    left: 900px;
-    top: 430px;
-    position: absolute;
-    overflow: visible;
-    width: 396px;
-    cursor: pointer;
-    /* text-align: left;
-    font-family: Segoe UI;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 26px; */
-    color: rgba(255,255,255,1);
-}
-#By_signing_up_you_agree_to_Giv {
-    left: 900px;
-    top: 450px;
-    position: absolute;
-    overflow: visible;
-    width: 529px;
-    /* white-space: nowrap;
-    text-align: left;
-    font-family: Segoe UI;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 22px; */
-    color: rgba(255,255,255,1);
-}
-
-
-*{
-    padding: 0px;
-    margin: 0;
-    box-sizing: border-box;
     border: none;
 
 }
@@ -81,21 +11,21 @@ body{
 
 
 
-.header{
+.header1{
     text-align: left;
     background-color: white;
 }
 
-#ID{
+#ID1{
     width: 100%;
     height: auto;
 }
-.image{
+.image1{
     width: 220px;
     height: 70px;
 
 }
-.container {
+.container1 {
 
     align-content: center;
     background-image: url("imagesRegister/back.png");
@@ -111,7 +41,7 @@ body{
 
 }
 
-.gradientOverlay{
+.gradientOverlay1{
 
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
     height: 100vh;
@@ -119,7 +49,7 @@ body{
     position: absolute;
     border: none;
 }
-.top{
+.top1{
     position: relative;
     left: -16px;
     padding: 0px 15px;
@@ -129,7 +59,7 @@ body{
 
 
 }
-.form{
+.form1{
 
 
     margin-top: 90px;
@@ -141,7 +71,7 @@ body{
 
 
 }
-.button {
+.button1 {
     background-color: #2386c2;
     width: 122px;
     padding: 7px 10px;
@@ -160,7 +90,7 @@ body{
 
 }
 
-.control {
+.input {
     width: 300px;
     padding: 17px 25px;
     border-radius: 8px;

@@ -1,14 +1,26 @@
 import React, { Component } from "react";
+import "./Register.css";
+// import {FaGithub } from "react-icons/fa";
+import logo from "./imagesRegister/ID2.png";
+// import body from "./images/body.png";
+
+
 class RegisterUser extends Component {
 
     render() {
         return (
+            <div >
+                <div className="header">
+                    <div className="image">
+                        <img id="ID" src={logo} alt=""/>
+                    </div>
 
-                <div className="container">
-                    <div className="gradientOverlay"></div>
+                </div>
+                <div className="container" >
+
                     <form className="form">
                         <div className="top">
-                            <h4> Registration | USER</h4>
+                            <p> Registration | USER</p>
                         </div>
                         <div >
                             <label></label>
@@ -33,8 +45,11 @@ class RegisterUser extends Component {
                         <div>
                             <button type="submit" className="button">Sign Up</button>
                         </div>
+
                     </form>
+                    <div className="gradientOverlay"></div>
                 </div>
+            </div>
         );
     }
 

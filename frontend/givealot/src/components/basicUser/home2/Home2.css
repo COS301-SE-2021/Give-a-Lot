@@ -101,3 +101,26 @@ body{
     width: 504px;
     padding: 50px 10px;
 }
+#body_ID{
+    width: 100%;
+    height: auto;
+
+}
+.words{
+
+    font-family: "Segoe UI";
+    width: 904px;
+    padding: 60px 20px;
+
+}
+
+.bigWord{
+    color: #2d9499;
+    font-size: 80px;
+}
+.smallWord{
+    color:#767676;
+    font-size: medium;
+    width: 804px;
+    padding: 50px 0px;
+}

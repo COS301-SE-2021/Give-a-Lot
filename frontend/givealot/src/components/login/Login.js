@@ -20,7 +20,7 @@ class Login extends Component {
 
                  <form className="form">
                      <div className="top">
-                         <h4> Registration | USER</h4>
+                         <p> Registration | USER</p>
                      </div>
                     <div >
                         <label></label>
@@ -47,6 +47,7 @@ class Login extends Component {
                     </div>
 
                 </form>
+                    <div className="gradientOverlay"></div>
                 </div>
             </div>
         );

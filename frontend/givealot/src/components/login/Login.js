@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "./Login.css";
 import logo from "./images/logo.png";
-// import { FaBeer } from 'react-icons/fa';
-// import body from "./images/body.png";
+import axios from 'axios';
 import Register from "../register/Register"
 import { Redirect } from "react-router";
 import {Switch,Route,Link} from "react-router-dom";
@@ -20,8 +19,33 @@ class Login extends Component {
             return <Redirect to='/register' />
         }
     }
+    ////capture Login details and post them
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+            email: "",
+            password : "",
+        }
+    }
+
+    changeHandler = (e) =>{
+        this.setState({[e.target.name] : e.target.value})
+    }
+    submitHandler = (e) =>{
+        e.preventDefault()
+        console.log(this.state)
+        axios.post('https://jsonplaceholder.typicode.com/posts', this.state)
+        .then(response =>{
+            console.log(response)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+    }
 
     render() {
+        const {email, password} = this.state
         return (
             <div>
                 <div className="Login_header">
@@ -30,7 +54,7 @@ class Login extends Component {
                     </div>
                 </div>
                 <div className="Login_container" >
-                    <form className="Login_form">
+                    <form className="Login_form" onSubmit={this.submitHandler}>
                         <div className="topline">
                             <p> Login </p>
                         </div>
@@ -38,12 +62,12 @@ class Login extends Component {
                         <div>
                             <label></label>
                             {/* <FaBeer /> */}
-                            <input type="email" className="input" placeholder="Email" />
+                            <input type="type" name="email" value={email} onChange={this.changeHandler}className="input" placeholder="Email" />
                         </div>
 
                         <div>
                             <label></label>
-                            <input type="password" className="input" placeholder="Password" />
+                            <input type="type" name="password" value={password} onChange={this.changeHandler} className="input" placeholder="Password" />
                         </div>
                         <div style={{color: "white"}}>
                             <div id="createAccount">

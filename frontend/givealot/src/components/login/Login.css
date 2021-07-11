@@ -37,8 +37,6 @@ body{
     overflow: hidden;
     border: none;
 
-
-
 }
 
 .Login_gradientOverlay{
@@ -99,6 +97,7 @@ body{
     position: relative;
     left: 50%;
     transform: translate(-50%,0);
+
 
 }
 

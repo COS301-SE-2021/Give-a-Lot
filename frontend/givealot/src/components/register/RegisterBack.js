@@ -4,6 +4,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import {Link} from "react-router-dom";
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import "./Register.css"
 
 export class RegisterBack extends Component {
     render() {
@@ -13,15 +14,15 @@ export class RegisterBack extends Component {
                     <div>
                     <Link to={'/registerOrgs'} className="orgs">
                         <ListItem button>
-                        <PeopleIcon />
-                            <ListItemText primary="signup  as organization" style={{textDecoration:"none"}}/>
+                        <PeopleIcon className="icon"/>
+                        <ListItemText primary="signup  as organization" />
                         </ListItem>
                     </Link>
                     <Link to={'/registeruser'} className="user">
                         <ListItem button>
                             
-                        <PersonIcon />
-                            <ListItemText primary="signup  as user" style={{textDecoration:"none"}}/>
+                        <PersonIcon className="icon"/>
+                        <ListItemText primary="signup  as user" />
                         </ListItem>
                     </Link>
                     </div>

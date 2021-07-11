@@ -12,7 +12,7 @@ export class Register extends Component {
         return (
             <div className="register">
                 <div className="header">
-                    <div className="image">
+                    <div style={{width: "220px ",height: "70px"}}>
                         <img id="ID" src={logo} alt=""/>
                     </div>
 

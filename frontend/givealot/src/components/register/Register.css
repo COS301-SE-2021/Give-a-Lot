@@ -42,11 +42,6 @@
     overflow: visible;
     width: 396px;
     cursor: pointer;
-    /* text-align: left;
-    font-family: Segoe UI;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 26px; */
     color: rgba(255,255,255,1);
 }
 #By_signing_up_you_agree_to_Giv {
@@ -55,12 +50,6 @@
     position: absolute;
     overflow: visible;
     width: 529px;
-    /* white-space: nowrap;
-    text-align: left;
-    font-family: Segoe UI;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 22px; */
     color: rgba(255,255,255,1);
 }
 
@@ -81,6 +70,7 @@ body{
 .header{
     text-align: left;
     background-color: white;
+    height: 70px;
 }
 
 #ID{
@@ -126,19 +116,8 @@ body{
 
 
 }
-.form{
 
-
-    margin-top: 90px;
-    z-index: 10;
-    position: absolute;
-    right: 150px;
-
-
-
-
-}
-.button {
+/* .button {
     background-color: #2386c2;
     width: 122px;
     padding: 7px 10px;
@@ -167,4 +146,4 @@ body{
     left: 50%;
     transform: translate(-50%,0);
 
-}
+} */

@@ -4,8 +4,23 @@ import bodyImage from "./imagesHome/bodyImage.png";
 import "./Home.css";
 import {FaBars } from "react-icons/fa";
 import {FaSearch } from "react-icons/fa";
+import { Redirect } from "react-router";
+import {Switch,Route} from "react-router-dom";
+import Login from "../../login/Login"
 
 export class Home extends Component {
+    state = {
+        redirect: false
+    }
+    redirectHandler = () => {
+        this.setState({ redirect: true })
+        this.renderRedirect();
+    }
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return <Redirect to='/login' />
+        }
+    }
 
     render() {
         return (
@@ -14,7 +29,8 @@ export class Home extends Component {
 
                     <div className="list">
                         <FaSearch size="1.9em" color="#767676" className="menu" />
-                        <button type="submit" className="home_button">Login</button>
+                        <button type="submit" className="home_button" onClick={this.redirectHandler} >Login</button>
+                        {this.renderRedirect()}
                         <FaBars size="1.9em" color="#767676" className="menu"/>
                     </div>
 
@@ -49,7 +65,9 @@ export class Home extends Component {
                   </div>
                 </div>
                 <button type="submit" className="browse_button">Browse Organisations</button>
-
+                <Switch>       
+                    <Route exact path="/login" component={Login} />
+                </Switch>
             </div>
         )
     }

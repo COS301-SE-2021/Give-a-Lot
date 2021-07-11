@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import logo from "./imagesRegister/ID2.png";
-import "../Register.css"
+import "./RegisterOrganisation.css"
 import Button from '@material-ui/core/Button';
 
 class OrganisationBasic extends Component {

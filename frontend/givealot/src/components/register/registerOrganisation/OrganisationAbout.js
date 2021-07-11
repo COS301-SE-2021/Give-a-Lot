@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import logo from "./imagesRegister/ID2.png";
 import Button from '@material-ui/core/Button';
-import "../Register.css"
+import "./RegisterOrganisation.css"
 
 class OrganisationAbout extends Component {
     proceed = e => {

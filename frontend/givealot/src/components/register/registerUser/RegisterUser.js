@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import "../Register.css";
+// import "../Register.css";
+import "./RegisterUser.css"
 // import {FaGithub } from "react-icons/fa";
-// import logo from "../imagesRegister/ID2.png";
+import logo from "../imagesRegister/ID2.png";
 // import body from "./images/body.png";
 
 
@@ -10,12 +11,12 @@ class RegisterUser extends Component {
     render() {
         return (
             <div >
-                {/* <div className="header">
+                <div className="header">
                     <div className="image">
                         <img id="ID" src={logo} alt=""/>
                     </div>
 
-                </div> */}
+                </div>
                 <div className="container" >
 
                     <form className="form">

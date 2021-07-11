@@ -19,6 +19,7 @@ export class Register extends Component {
 
                 </div>
                 <div className="container" >
+                    <div className="gradientOverlay"></div>
                     <div className="NGOs_made_safer_for_you">
                         <span>NGOs made safer for you</span>
                     </div>
@@ -28,8 +29,9 @@ export class Register extends Component {
                             <Route exact path="/registeruser" component={RegisterUser} />
                             <Route exact path="/login" component={Login} />
                     </Switch>
+
                 </div>
-                
+
                 
             </div>
         )

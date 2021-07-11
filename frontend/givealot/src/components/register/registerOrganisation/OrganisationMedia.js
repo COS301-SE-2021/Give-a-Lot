@@ -74,6 +74,7 @@ class OrganisationMedia extends Component {
                     </div>
 
                 </form>
+                    <div className="gradientOverlay"></div>
                 </div>
             </div>
         );

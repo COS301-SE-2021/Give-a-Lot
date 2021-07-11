@@ -97,6 +97,7 @@ export class ConfirmOrgRegistration extends Component {
         >
           Confirm and Continue
         </Button>
+
       </Fragment>
     );
   }

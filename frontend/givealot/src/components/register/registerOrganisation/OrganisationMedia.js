@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Button from '@material-ui/core/Button';
 import "./RegisterOrganisation.css"
+import logo from "./imagesRegister/ID2.png";
 
 class OrganisationMedia extends Component {
     proceed = e => {
@@ -21,6 +22,12 @@ class OrganisationMedia extends Component {
         const { values, handleChange } = this.props;
         return (
             <div >
+                <div className="header">
+                    <div className="image">
+                        <img id="ID" src={logo} alt=""/>
+                    </div>
+
+                </div>
                 <div className="container" >
 
                  <form className="form">

@@ -9,9 +9,7 @@ body{
     overflow: hidden;
 }
 
-
-
-.header1{
+.header{
     text-align: left;
     background-color: white;
 }
@@ -20,12 +18,12 @@ body{
     width: 100%;
     height: auto;
 }
-.image1{
+.image{
     width: 220px;
     height: 70px;
 
 }
-.container1 {
+.container {
 
     align-content: center;
     background-image: url("imagesRegister/back.png");
@@ -39,7 +37,7 @@ body{
 
 }
 
-.gradientOverlay1{
+.gradientOverlay{
 
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
     height: 100vh;
@@ -47,29 +45,22 @@ body{
     position: absolute;
     border: none;
 }
-.top1{
+.top{
     position: relative;
     left: -16px;
     padding: 0px 15px;
     font-family: sans-serif;
     color: white;
     margin-bottom: 35px;
-
-
 }
-.form1{
-
-
+.form{
     margin-top: 90px;
     z-index: 10;
     position: absolute;
     right: 150px;
 
-
-
-
 }
-.button1 {
+.button {
     background-color: #2386c2;
     width: 122px;
     padding: 7px 10px;
@@ -88,7 +79,7 @@ body{
 
 }
 
-.input {
+.control {
     width: 300px;
     padding: 17px 25px;
     border-radius: 8px;

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import logo from "./imagesRegister/ID2.png";
+import logo from "./imagesRegister/ID2.png";
 import "./RegisterOrganisation.css"
 import Button from '@material-ui/core/Button';
 
@@ -17,6 +17,12 @@ class OrganisationBasic extends Component {
         const { values, handleChange } = this.props;
         return (
             <div >
+                <div className="header">
+                    <div className="image">
+                        <img id="ID" src={logo} alt=""/>
+                    </div>
+
+                </div>
                 <div className="container" >
 
                 <form className="form">

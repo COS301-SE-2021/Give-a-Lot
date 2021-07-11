@@ -4,9 +4,26 @@ import "./RegisterUser.css"
 // import {FaGithub } from "react-icons/fa";
 import logo from "../imagesRegister/ID2.png";
 import axios from 'axios';
+import { Redirect } from "react-router";
+import Login from "../../login/Login"
+import {Switch,Route} from "react-router-dom";
+import PopUp from "./PopUp";
 
 
 class RegisterUser extends Component {
+    state = {
+        redirect: false
+    }
+    redirectHandler = () => {
+        this.setState({ redirect: true })
+        this.renderRedirect();
+    }
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return <Redirect to='/login' />
+        }
+    }
+
     constructor(props) {
         super(props)
     
@@ -19,6 +36,16 @@ class RegisterUser extends Component {
 
         }
     }
+    state = {
+        seen: false
+      };
+    
+      togglePop = () => {
+        this.setState({
+          seen: !this.state.seen
+        });
+      };
+    
 
     changeHandler = (e) =>{
         this.setState({[e.target.name] : e.target.value})
@@ -75,12 +102,24 @@ class RegisterUser extends Component {
                             <label></label>
                             <input type="password" name="confirmPassword" value={confirmPassword} onChange={this.changeHandler} className="control" placeholder="Confirm Password" />
                         </div>
+                        {/* <div>
+                            <button type="submit" className="button" onClick={this.redirectHandler}>
+                                Sign Up
+                                {this.renderRedirect()}
+                            </button>
+                        </div> */}
                         <div>
-                            <button type="submit" className="button">Sign Up</button>
+                            <div >
+                                <button className="button" onClick={this.togglePop}>Sign Up</button>
+                            </div>
+                            {this.state.seen ? <PopUp toggle={this.togglePop} /> : null}
                         </div>
 
                     </form>
                     <div className="gradientOverlay"></div>
+                    <Switch>       
+                        <Route exact path="/login" component={Login} />
+                    </Switch>
                 </div>
             </div>
         );

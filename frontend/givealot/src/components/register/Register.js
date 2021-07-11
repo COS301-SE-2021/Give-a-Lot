@@ -5,6 +5,7 @@ import logo from "./imagesRegister/ID2.png";
 import "./Register.css"
 import RegisterBack from "./RegisterBack"
 import {Switch,Route} from "react-router-dom";
+import Login from "../login/Login"
 
 export class Register extends Component {
     
@@ -25,6 +26,7 @@ export class Register extends Component {
                     <Switch>
                             <Route exact path="/registerOrgs" component={RegisterOrganisation} />
                             <Route exact path="/registeruser" component={RegisterUser} />
+                            <Route exact path="/login" component={Login} />
                     </Switch>
                 </div>
                 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PeopleIcon from '@material-ui/icons/People';
 import PersonIcon from '@material-ui/icons/Person';
-import { Link } from 'react-router-dom';
+import {Link} from "react-router-dom";
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
@@ -27,7 +27,7 @@ export class RegisterBack extends Component {
                     </div>
                     <div>
                         <div id="Already_have_an_account_Log_in">
-                            <span>Already have an account? <span style={{textDecoration:"underline"}} >Log in</span> </span>
+                            <span>Already have an account? <span style={{textDecoration:"underline"}} ><Link to={"/login"}>Login</Link></span> </span>
                         </div>
                         <div id="By_signing_up_you_agree_to_Giv">
                             <span>By signing up, you agree to Givealot's </span>

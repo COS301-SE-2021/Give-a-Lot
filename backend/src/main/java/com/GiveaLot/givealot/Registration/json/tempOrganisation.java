@@ -1,31 +1,58 @@
-package com.GiveaLot.givealot.Registration;
+package com.GiveaLot.givealot.Registration.json;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
+/*
+*  this object will be returned by the controller
+*  during organisation registration
+* */
+
+
 public class tempOrganisation {
-    String orgName;
-    String orgSlogan;
-    String orgDescription;
-    String orgSector;
-    String orgEmail;
-    String password;
-    String contactPerson;
-    String contactNumber;
+    private Integer status;
+    private String message;
+    private String orgName;
+    private String orgSlogan;
+    private String orgDescription;
+    private String orgSector;
+    private String orgEmail;
+    private String password;
+    private String contactPerson;
+    private String contactNumber;
 
     public tempOrganisation() {
-        this.orgName = "";
-        this.orgSlogan = "";
-        this.orgDescription = "";
-        this.orgSector = "";
-        this.orgEmail = "";
-        this.password = "";
-        this.contactPerson = "";
-        this.contactNumber = "";
+        this.status = null;
+        this.message = null;
+        this.orgName = null;
+        this.orgSlogan = null;
+        this.orgDescription = null;
+        this.orgSector = null;
+        this.orgEmail = null;
+        this.password = null;
+        this.contactPerson = null;
+        this.contactNumber = null;
     }
 
     /**
      * Getters
      **/
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
     public String getContactPerson() {
         return contactPerson;

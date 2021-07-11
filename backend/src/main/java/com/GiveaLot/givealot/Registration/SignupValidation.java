@@ -102,7 +102,8 @@ public class SignupValidation {
         if (validator.matches()){
             return true;
         }
-        else{
+        else
+        {
             return false;
         }
     }
@@ -110,7 +111,7 @@ public class SignupValidation {
     /** Makes sure passwords match one another **/
     public boolean validateMatchingPasswords(String password, String passwordRep){
 
-        if (!password.equals(password)){
+        if (!password.equals(passwordRep)){
             return false;
         }
         return true;
@@ -125,7 +126,8 @@ public class SignupValidation {
 
         Matcher validator = regexCheck.matcher(email);
 
-        if (validator.matches()){
+        if(validator.matches())
+        {
             return true;
         }
         else{
@@ -156,7 +158,8 @@ public class SignupValidation {
 
             int x = 0;
 
-            while (rs.next()) {
+            while (rs.next())
+            {
                 emails.add(rs.getString("email"));
                 x++;
             }

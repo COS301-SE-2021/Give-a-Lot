@@ -1,12 +1,13 @@
-package com.GiveaLot.givealot.Registration;
+package com.GiveaLot.givealot.Registration.json;
 
-public class userRegistrationResponseJSON
+public class organisationRegistrationResponseJSON
 {
     private int status;
     private String message;
     private String organisationKey;
 
-    public userRegistrationResponseJSON(int status, String message, String organisationKey) {
+
+    public organisationRegistrationResponseJSON(int status, String message, String organisationKey) {
         this.status = status;
         this.message = message;
         this.organisationKey = organisationKey;

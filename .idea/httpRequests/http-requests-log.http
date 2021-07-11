@@ -1,3 +1,201 @@
+POST http://localhost:8080/registration/type/organisation/sendInfo
+Content-Type: application/json
+
+{
+  "orgName" : "b7a516d8a81cda04974d40072f8d3e20",
+  "OrgPassword" : "@assassinsCreed2",
+  "orgPasswordConfirm" : "@assassinsCreed2"
+}
+
+<> 2021-07-11T222144.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/sendInfo
+Content-Type: application/json
+
+{
+  "orgName" : "b7a516d8a81cda04974d40072f8d3e20",
+  "OrgPassword" : "@assassinsCreed2",
+  "orgPasswordConfirm" : "@assassinsCreed2"
+}
+
+<> 2021-07-11T221731.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/sendInfo
+Content-Type: application/json
+
+{
+  "orgName" : "b7a516d8a81cda04974d40072f8d3e20",
+  "OrgPassword" : "@assassinsCreed2",
+  "orgPasswordConfirm" : "@assassinsCreed2"
+}
+
+<> 2021-07-11T221516.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/sendInfo
+Content-Type: application/json
+
+{
+  "orgName" : "b7a516d8a81cda04974d40072f8d3e20",
+  "OrgPassword" : "@assassinsCreed2",
+  "orgPasswordConfirm" : "@a-ssassinsCreed2"
+}
+
+<> 2021-07-11T221503.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/sendInfo
+Content-Type: application/json
+
+{
+  "orgName" : "b7a516d8a81cda04974d40072f8d3e20",
+  "OrgPassword" : "@assassinsCreed2",
+  "orgPasswordConfirm" : "@a-ssassinsCreed2"
+}
+
+###
+
+POST http://localhost:8080/registration/type/organisation/sendInfo
+Content-Type: application/json
+
+{
+  "orgName" : "b7a516d8a81cda04974d40072f8d3e20",
+  "OrgPassword" : "@assassinsCreed2",
+  "orgPasswordConfirm" : "@a-ssassinsCreed2"
+}
+
+<> 2021-07-11T220903.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/sendInfo
+Content-Type: application/json
+
+{
+  "orgName" : "b7a516d8a81cda04974d40072f8d3e20",
+  "OrgPassword" : "@assassinsCreed2",
+  "orgPasswordConfirm" : "@a-ssassinsCreed2"
+}
+
+###
+
+POST http://localhost:8080/registration/type/organisation/sendInfo
+Content-Type: application/json
+
+{
+  "orgName" : "b7a516d8a81cda04974d40072f8d3e20",
+  "OrgPassword" : "@assassinsCreed2",
+  "orgPasswordConfirm" : "@a-ssassinsCreed2"
+}
+
+###
+
+POST http://localhost:8080/registration/type/organisation/sendInfo
+Content-Type: application/json
+
+{
+  "orgName" : "b7a516d8a81cda04974d40072f8d3e20",
+  "OrgPassword" : "@assassinsCreed2",
+  "orgPasswordConfirm" : "@a-ssassinsCreed2"
+}
+
+<> 2021-07-11T220259.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/sendInfo
+Content-Type: application/json
+
+{
+  "orgName" : "b7a516d8a81cda04974d40072f8d3e20",
+  "OrgPassword" : "@assassinsCreed2",
+  "orgPasswordConfirm" : "@assassinsCreed2"
+}
+
+<> 2021-07-11T220245.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/sendInfo
+Content-Type: application/json
+
+{
+  "orgName" : "b7a516d8a81cda04974d40072f8d3e20",
+  "OrgPassword" : "@assassinsCreed2",
+  "orgPasswordConfirm" : "@@assassinsCreed2"
+}
+
+<> 2021-07-11T220156.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/sendInfo
+Content-Type: application/json
+
+{
+  "orgName" : "b7a516d8a81cda04974d40072f8d3e20",
+  "OrgPassword" : "password",
+  "orgPasswordConfirm" : "password"
+}
+
+<> 2021-07-11T220118.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/sendInfo
+Content-Type: application/json
+
+{
+  "orgName" : "b7a516d8a81cda04974d40072f8d3e20",
+  "OrgPassword" : "password",
+  "orgPasswordConfirm" : "password"
+}
+
+<> 2021-07-11T214959.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/sendInfo
+Content-Type: application/json
+
+{
+  "orgName" : "b7a516d8a81cda04974d40072f8d3e20",
+  "OrgPassword" : "password",
+  "orgPasswordConfirm" : "password"
+}
+
+###
+
+POST http://localhost:8080/registration/type/organisation/sendInfo
+Content-Type: application/json
+
+{
+  "orgName" : "b7a516d8a81cda04974d40072f8d3e20",
+  "OrgPassword" : "password",
+  "orgPasswordConfirm" : "password"
+}
+
+###
+
+POST http://localhost:8080/registration/type/organisation/sendInfo
+Content-Type: application/json
+
+{
+  "orgName" : "b7a516d8a81cda04974d40072f8d3e20",
+  "OrgPassword" : "password",
+  "orgPasswordConfirm" : "password"
+}
+
+<> 2021-07-11T213358.200.json
+
+###
+
 POST http://localhost:8080/organisation/get
 Content-Type: application/json
 
@@ -335,205 +533,6 @@ Content-Type: application/json
 }
 
 <> 2021-06-21T021317.200.json
-
-###
-
-POST http://localhost:8080/organisation/get
-Content-Type: application/json
-
-{
-  "org_id" : "8378a47a5f4a901d23222cef70df3203"
-}
-
-<> 2021-06-21T020846.200.json
-
-###
-
-POST http://localhost:8080/organisation/get
-Content-Type: application/json
-
-{
-  "org_id" : "8378a47a5f4a901d23222cef70df203"
-}
-
-<> 2021-06-21T020831.500.json
-
-###
-
-POST http://localhost:8080/organisation/get
-Content-Type: application/json
-
-{
-  "org_id" : "8378a47a5f4a901d23222cef70df3203"
-}
-
-<> 2021-06-21T020816.200.json
-
-###
-
-POST http://localhost:8080/organisation/get
-Content-Type: application/json
-
-{
-  "org_id" : "b7a516d8a81cda04974d40072f8d3e20"
-}
-
-<> 2021-06-21T020749.500.json
-
-###
-
-POST http://localhost:8080/report/organisation
-Content-Type: application/json
-
-{
-  "orgId" : "8378a47a5f4a901d23222cef70df3203",
-  "description" : "The organisation is an imposter",
-  "type": "fraud",
-  "email": "nqobani2730@gmail.com"
-}
-
-<> 2021-06-21T015856.200.json
-
-###
-
-POST http://localhost:8080/report/organisation
-Content-Type: application/json
-
-{
-  "orgId" : "8378a47a5f4a901d23222cef70df3203",
-  "description" : "The organisation is an imposter",
-  "type": "fraud",
-  "email": "nqobani2730@gmail.com"
-}
-
-<> 2021-06-21T015320.200.json
-
-###
-
-POST http://localhost:8080/report/organisation
-Content-Type: application/json
-
-{
-  "orgId" : "c289050761c2b2c85c4b8695ab9a0991",
-  "description" : "The organisation is an imposter",
-  "type": "fraud",
-  "email": "nqobani2730@gmail.com"
-}
-
-<> 2021-06-21T013818.200.json
-
-###
-
-POST http://localhost:8080/report/organisation
-Content-Type: application/json
-
-{
-  "orgId" : "c289050761c2b2c85c4b8695ab9a0991",
-  "description" : "The organisation is an imposter",
-  "type": "fraud",
-  "email": "nqobani2730@gmail.com"
-}
-
-<> 2021-06-21T013515.200.json
-
-###
-
-POST http://localhost:8080/report/organisation
-Content-Type: application/json
-
-{
-  "orgId" : "c289050761c2b2c85c4b8695ab9a0991",
-  "description" : "The organisation is an imposter",
-  "type": "fraud",
-  "email": "nqobani2730@gmail.com"
-}
-
-<> 2021-06-21T013222.200.json
-
-###
-
-POST http://localhost:8080/report/organisation
-Content-Type: application/json
-
-{
-  "orgId" : "c289050761c2b2c85c4b8695ab9a0991",
-  "description" : "The organisation is an imposter",
-  "type": "fraud",
-  "email": "nqobani2730@gmail.com"
-}
-
-###
-
-POST http://localhost:8080/report/organisation
-Content-Type: application/json
-
-{
-  "orgId" : "c289050761c2b2c85c4b8695ab9a0991",
-  "description" : "The organisation is an imposter",
-  "type": "fraud",
-  "email": "nqobani2730@gmail.com"
-}
-
-###
-
-POST http://localhost:8080/report/organisation
-Content-Type: application/json
-
-{
-"orgId" : "c289050761c2b2c85c4b8695ab9a0991",
-  "description" : "The organisation is an imposter",
-  "type": "fraud",
-  "email": "nqobani2730@gmail.com"
-}
-
-###
-
-POST http://localhost:8080/report/organisation
-Content-Type: application/json
-
-{
-"orgId" : "c289050761c2b2c85c4b8695ab9a0991",
-  "description" : "The organisation is an imposter",
-  "type": "fraud",
-  "email": "nqobani2730@gmail.com"
-}
-
-<> 2021-06-21T012732.500.json
-
-###
-
-POST http://localhost:8080/organisation/get
-Content-Type: application/json
-
-{
-  "org_id" : "b7a516d8a81cda04974d40072f8d3e20"
-}
-
-<> 2021-06-20T235026.200.json
-
-###
-
-POST http://localhost:8080/organisation/register
-Content-Type: application/json
-
-{
-  "orgName" : "test org name",
-  "orgDescription" : "test org description",
-  "orgSector" : "test org sector",
-  "orgEmail" : "test@email.com",
-  "password" : "test org password",
-  "contactPerson" : "test contact person",
-  "contactNumber" : "test contact number"
-}
-
-<> 2021-06-20T153450.200.json
-
-###
-
-POST http://localhost:8080/browse
-Content-Type: application/json
-
-<> 2021-06-20T152018.200.json
 
 ###
 

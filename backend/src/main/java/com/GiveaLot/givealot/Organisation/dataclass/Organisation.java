@@ -63,7 +63,7 @@ public class Organisation {
     }
 
 
-    public Organisation(String orgName, String slogan, String orgDescription, String orgSector, String orgEmail, String password, String contactPerson, String contactNumber) throws NoSuchAlgorithmException {
+    public Organisation(String slogan,String orgName, String orgDescription, String orgSector, String orgEmail, String password, String contactPerson, String contactNumber) throws NoSuchAlgorithmException {
         MD5 md5 = new MD5();
 
         this.orgName = orgName;

@@ -4,6 +4,8 @@ import ListSubheader from "@material-ui/core/ListSubheader";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import logo from "./imagesRegister/ID2.png";
+import "./RegisterOrganisation.css"
 
 export class ConfirmOrgRegistration extends Component {
   proceed = e => {
@@ -22,6 +24,11 @@ export class ConfirmOrgRegistration extends Component {
     } = this.props;
     return (
       <Fragment>
+        <div className="header">
+          <div style={{width: "220px",height: "70px"}}>
+              <img id="ID" src={logo} alt=""/>
+          </div>
+        </div>
         <AppBar style={{ background: "#098F8F" }} position="sticky">
           <Toolbar title="Enter Personal Information">
             <Typography color="inherit" variant="title">

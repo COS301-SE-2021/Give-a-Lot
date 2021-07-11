@@ -6,6 +6,7 @@ import {
   Button,
   MuiThemeProvider
 } from "@material-ui/core";
+import logo from "./imagesRegister/ID2.png";
 
 export class OrgSuceessRegistration extends Component {
   first = e => {
@@ -16,6 +17,12 @@ export class OrgSuceessRegistration extends Component {
   render() {
     return (
       <MuiThemeProvider>
+        <div className="header">
+            <div style={{width: "220px",height: "70px"}}>
+                <img id="ID" src={logo} alt=""/>
+            </div>
+
+        </div>
         <AppBar style={{ background: "#77E976" }} position="sticky">
           <Toolbar title="Enter Personal Information">
             <Typography color="inherit" variant="title">

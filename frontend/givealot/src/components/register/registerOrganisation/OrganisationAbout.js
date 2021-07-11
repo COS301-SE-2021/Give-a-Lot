@@ -23,7 +23,7 @@ class OrganisationAbout extends Component {
         return (
             <div >
                 <div className="header">
-                    <div className="image">
+                    <div style={{width: "220px",height: "70px"}}>
                         <img id="ID" src={logo} alt=""/>
                     </div>
 

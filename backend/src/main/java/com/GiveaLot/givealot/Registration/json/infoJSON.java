@@ -7,15 +7,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 *  used in the first step of organisation
 *  to get post request parameters
 * */
-public class getInfoJSON
+public class infoJSON
 {
     private String organisationName;
     private String organisationPassword;
     private String confirmPassword;
 
-    public getInfoJSON(@JsonProperty("orgName") String organisationName,
-                       @JsonProperty("OrgPassword") String organisationPassword,
-                       @JsonProperty("orgPasswordConfirm") String confirmPassword)
+    public infoJSON(@JsonProperty("orgName") String organisationName,
+                    @JsonProperty("OrgPassword") String organisationPassword,
+                    @JsonProperty("orgPasswordConfirm") String confirmPassword)
     {
 
         this.organisationName = organisationName;

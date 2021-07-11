@@ -2,7 +2,7 @@ package com.GiveaLot.givealot.Registration.json;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class getContactDetailsJSON {
+public class contactDetailsJSON {
 
     private String previous_step_organisationName;
     private String previous_step_organisationPassword;
@@ -10,11 +10,11 @@ public class getContactDetailsJSON {
     private String email;
     private String contactNumber;
 
-    public getContactDetailsJSON(@JsonProperty String previous_step_organisationName,
-                                 @JsonProperty String previous_step_organisationPassword,
-                                 @JsonProperty String contactPerson,
-                                 @JsonProperty String email,
-                                 @JsonProperty String contactNumber)
+    public contactDetailsJSON(@JsonProperty("orgName") String previous_step_organisationName,
+                              @JsonProperty("orgPassword") String previous_step_organisationPassword,
+                              @JsonProperty("contactPerson") String contactPerson,
+                              @JsonProperty("email") String email,
+                              @JsonProperty("contactNumber") String contactNumber)
     {
         this.previous_step_organisationName = previous_step_organisationName;
         this.previous_step_organisationPassword = previous_step_organisationPassword;

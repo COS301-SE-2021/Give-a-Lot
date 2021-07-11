@@ -1,3 +1,204 @@
+POST http://localhost:8080/registration/type/organisation/about
+Content-Type: application/json
+
+{
+  "orgName" : "the givers of hop",
+  "orgPassword" : "@assassinsCreed2",
+  "contactPerson" : "Nqobani",
+  "email" : "ion@side.com",
+  "contactNumber" : "01123477854",
+  "sector" : "Children",
+  "description" : "avout organisation",
+  "slogan" : "new slogan"
+}
+
+<> 2021-07-12T004230.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/contact
+Content-Type: application/json
+
+{
+  "orgName" : "the givers of hop",
+  "orgPassword" : "@assassinsCreed2",
+  "contactPerson" : "Nqobani",
+  "email" : "ion@side.com",
+  "contactNumber" : "01123477854"
+}
+
+<> 2021-07-12T004223.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/info
+Content-Type: application/json
+
+{
+  "orgName" : "the givers of hope",
+  "OrgPassword" : "@assassinsCreed2",
+  "orgPasswordConfirm" : "@assassinsCreed2"
+}
+
+<> 2021-07-12T004214.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/sendInfo
+Content-Type: application/json
+
+{
+  "orgName" : "the givers of hope",
+  "OrgPassword" : "@assassinsCreed2",
+  "orgPasswordConfirm" : "@assassinsCreed2"
+}
+
+<> 2021-07-12T004142.404.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/sendInfo
+Content-Type: application/json
+
+{
+  "orgName" : "the givers of hope",
+  "OrgPassword" : "@assassinsCreed2",
+  "orgPasswordConfirm" : "@assassinsCreed2"
+}
+
+<> 2021-07-12T004134.404.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/about
+Content-Type: application/json
+
+{
+  "orgName" : "the givers of hop",
+  "orgPassword" : "@assassinsCreed2",
+  "contactPerson" : "Nqobani",
+  "email" : "ion@side.com",
+  "contactNumber" : "01123477854",
+  "sector" : "Children",
+  "description" : "avout organisation",
+  "slogan" : "new slogan"
+}
+
+<> 2021-07-12T004121.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/contact
+Content-Type: application/json
+
+{
+  "orgName" : "the givers of hop",
+  "orgPassword" : "@assassinsCreed2",
+  "contactPerson" : "Nqobani",
+  "email" : "ion@side.com",
+  "contactNumber" : "01123477854",
+  "sector" : "Children",
+  "description" : "avout organisation",
+  "slogan" : "new slogan"
+}
+
+<> 2021-07-12T004100.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/contact
+Content-Type: application/json
+
+{
+  "orgName" : "the givers of hop",
+  "orgPassword" : "@assassinsCreed2",
+  "contactPerson" : "Nqobani",
+  "email" : "ion@side.com",
+  "contactNumber" : "01123477854",
+  "sector" : "Children",
+  "description" : "avout organisation",
+  "slogan" : "new slogan"
+}
+
+###
+
+POST http://localhost:8080/registration/type/organisation/contact
+Content-Type: application/json
+
+{
+  "orgName" : "the givers of hop",
+  "orgPassword" : "@assassinsCreed2",
+  "contactPerson" : "Nqobani",
+  "email" : "ion@side.com",
+  "contactNumber" : "01123477854",
+  "sector" : "Children",
+  "description" : "avout organisation",
+  "slogan" : "new slogan"
+}
+
+<> 2021-07-12T003959.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/contact
+Content-Type: application/json
+
+{
+  "orgName" : "the givers of hop",
+  "orgPassword" : "@assassinsCreed2",
+  "contactPerson" : "Nqobani",
+  "email" : "ion@side.com",
+  "contactNumber" : "01123477854",
+  "sector" : "Children",
+  "description" : "avout organisation",
+  "slogan" : "new slogan"
+}
+
+<> 2021-07-12T003720.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/contact
+Content-Type: application/json
+
+{
+  "orgName" : "previousorgname",
+  "orgPassword" : "previousorgpass",
+  "contactPerson" : "Nqobani",
+  "email" : "ion@gmail.com",
+  "contactNumber" : "01123477854"
+}
+
+<> 2021-07-11T231517.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/contact
+Content-Type: application/json
+
+{
+  "orgName" : "previousorgname",
+  "orgPassword" : "previousorgpass",
+  "contactPerson" : "Nqobani",
+  "email" : "ion@gmail.com",
+  "contactNumber" : "01123477854"
+}
+
+<> 2021-07-11T231021.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/sendInfo
+Content-Type: application/json
+
+{
+  "orgName" : "b7a516d8a81cda04974d40072f8d3e20",
+  "OrgPassword" : "@assassinsCreed2",
+  "orgPasswordConfirm" : "@assassinsCreed2"
+}
+
+###
+
 POST http://localhost:8080/registration/type/organisation/sendInfo
 Content-Type: application/json
 
@@ -390,149 +591,6 @@ Content-Type: application/json
 }
 
 <> 2021-06-21T030549.200.json
-
-###
-
-POST http://localhost:8080/organisation/get
-Content-Type: application/json
-
-{
-  "dyf" : "4fd69da9a34e2c771998e0c8f912b4f4"
-}
-
-###
-
-POST http://localhost:8080/organisation/get
-Content-Type: application/json
-
-{
-  "dyf" : "b7a516d8a81cda04974d40072f8d3e20",
-  "rdfdf" : "b7a516d8a81cda04974d40072f8d3e20"
-}
-
-<> 2021-06-21T024420.200.json
-
-###
-
-POST http://localhost:8080/organisation/get
-Content-Type: application/json
-
-{
-  "org_id" : "b7a516d8a81cda04974d40072f8d3e20",
-  "rdfdf" : "b7a516d8a81cda04974d40072f8d3e20"
-}
-
-<> 2021-06-21T024409.200.json
-
-###
-
-POST http://localhost:8080/organisation/get
-Content-Type: application/json
-
-{
-  "org_id" : "8378a47a5f4a90duhkgjcvbjk,n23222cef70df3203"
-}
-
-<> 2021-06-21T021927.200.json
-
-###
-
-POST http://localhost:8080/organisation/get
-Content-Type: application/json
-
-{
-  "org_id" : "8378a47a5f4a90d23222cef70df3203"
-}
-
-<> 2021-06-21T021917.200.json
-
-###
-
-POST http://localhost:8080/organisation/get
-Content-Type: application/json
-
-{
-  "org_id" : "8378a47a5f4a90d23222cef70df3203"
-}
-
-<> 2021-06-21T021801.500.json
-
-###
-
-POST http://localhost:8080/organisation/get
-Content-Type: application/json
-
-{
-  "org_id" : "8378a47a5f4a901d23222cef70df3203"
-}
-
-<> 2021-06-21T021752.200.json
-
-###
-
-POST http://localhost:8080/organisation/get
-Content-Type: application/json
-
-{
-  "org_id" : "8378a47a5f4a901d23222cef70df3203"
-}
-
-<> 2021-06-21T021713.200.json
-
-###
-
-POST http://localhost:8080/organisation/get
-Content-Type: application/json
-
-{
-  "org_id" : "8378a47a5f4a901d23222cef70df3203"
-}
-
-<> 2021-06-21T021618.500.json
-
-###
-
-POST http://localhost:8080/organisation/get
-Content-Type: application/json
-
-{
-  "org_id" : "vbju"
-}
-
-<> 2021-06-21T021544.500.json
-
-###
-
-POST http://localhost:8080/organisation/get
-Content-Type: application/json
-
-{
-  "org_id" : ""
-}
-
-<> 2021-06-21T021532.500.json
-
-###
-
-POST http://localhost:8080/organisation/get
-Content-Type: application/json
-
-{
-  "org_id" : ""
-}
-
-<> 2021-06-21T021325.500.json
-
-###
-
-POST http://localhost:8080/organisation/get
-Content-Type: application/json
-
-{
-  "org_id" : "8378a47a5f4a901d23222cef70df3203"
-}
-
-<> 2021-06-21T021317.200.json
 
 ###
 

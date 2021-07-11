@@ -5,13 +5,13 @@ public class organisationGetContactDetailsRequest
     private String contactPerson;
     private String contactNumber;
     private String email;
-    private String organisationKey;
 
-    public organisationGetContactDetailsRequest(String contactPerson, String contactNumber, String email, String organisationKey) {
+
+    public organisationGetContactDetailsRequest(String contactPerson, String contactNumber, String email) {
         this.contactPerson = contactPerson;
         this.contactNumber = contactNumber;
         this.email = email;
-        this.organisationKey = organisationKey;
+
     }
 
     public String getContactPerson() {
@@ -38,11 +38,4 @@ public class organisationGetContactDetailsRequest
         this.email = email;
     }
 
-    public String getOrganisationKey() {
-        return organisationKey;
-    }
-
-    public void setOrganisationKey(String organisationKey) {
-        this.organisationKey = organisationKey;
-    }
 }

@@ -145,14 +145,13 @@ public class RegistrationController {
 
             organisationConfirmRegistrationRequest request = new organisationConfirmRegistrationRequest(tempOrganisation);
             organisationConfirmRegistrationResponse response = service.confirmOrganisationRegistration(request);
-            response.getOrganisationRegistrationResponseJSON();
+            return response.getOrganisationRegistrationResponseJSON();
 
         }
         catch (Exception e)
         {
             return new organisationRegistrationResponseJSON(200, e.getMessage());
         }
-        return  null;
     }
 
     @PostMapping("/organisation/user")

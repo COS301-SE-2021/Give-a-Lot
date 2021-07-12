@@ -14,8 +14,8 @@ public class confirmJSON {
 
     public confirmJSON(@JsonProperty("orgName") String orgName,
                        @JsonProperty("orgSlogan") String orgSlogan,
-                       @JsonProperty("orgName") String orgDescription,
-                       @JsonProperty("orgDescription") String orgSector,
+                       @JsonProperty("orgDescription") String orgDescription,
+                       @JsonProperty("orgSector") String orgSector,
                        @JsonProperty("orgEmail") String orgEmail,
                        @JsonProperty("orgPassword") String password,
                        @JsonProperty("contactPerson") String contactPerson,

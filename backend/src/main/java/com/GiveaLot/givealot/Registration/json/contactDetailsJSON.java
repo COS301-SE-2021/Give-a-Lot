@@ -13,7 +13,7 @@ public class contactDetailsJSON {
     public contactDetailsJSON(@JsonProperty("orgName") String previous_step_organisationName,
                               @JsonProperty("orgPassword") String previous_step_organisationPassword,
                               @JsonProperty("contactPerson") String contactPerson,
-                              @JsonProperty("email") String email,
+                              @JsonProperty("orgEmail") String email,
                               @JsonProperty("contactNumber") String contactNumber)
     {
         this.previous_step_organisationName = previous_step_organisationName;

@@ -16,11 +16,11 @@ public class AboutDetailsJSON {
     public AboutDetailsJSON(@JsonProperty("orgName") String previous_step_organisationName,
                             @JsonProperty("orgPassword") String previous_step_organisationPassword,
                             @JsonProperty("contactPerson") String previous_step_contactPerson,
-                            @JsonProperty("email") String previous_step_email,
+                            @JsonProperty("orgEmail") String previous_step_email,
                             @JsonProperty("contactNumber") String previous_step_contactNumber,
-                            @JsonProperty("sector") String organisationSector,
-                            @JsonProperty("description") String organisationDescription,
-                            @JsonProperty("slogan")  String organisationSlogan)
+                            @JsonProperty("orgSector") String organisationSector,
+                            @JsonProperty("orgDescription") String organisationDescription,
+                            @JsonProperty("orgSlogan")  String organisationSlogan)
     {
         this.previous_step_organisationName = previous_step_organisationName;
         this.previous_step_organisationPassword = previous_step_organisationPassword;

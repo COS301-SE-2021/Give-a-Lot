@@ -1,3 +1,101 @@
+POST http://localhost:8080/registration/type/organisation/user
+Content-Type: application/json
+
+{
+  "name" : "Nqobani",
+  "surname" : "Nhlengethwa",
+  "email" : "nqo@bani.com",
+  "password" : "passXccsd@1"
+}
+
+<> 2021-07-12T124432.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/user
+Content-Type: application/json
+
+{
+  "name" : "Nqobani",
+  "surname" : "Nhlengethwa",
+  "email" : "nqo@bani.com",
+  "password" : "passXccsd@1"
+}
+
+<> 2021-07-12T115311.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/user
+Content-Type: application/json
+
+{
+  "name" : "Nqobani",
+  "surname" : "Nhlengethwa",
+  "email" : "nqo@bani.com",
+  "password" : "passXccsd@"
+}
+
+<> 2021-07-12T115307.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/user
+Content-Type: application/json
+
+{
+  "name" : "Nqobani",
+  "surname" : "Nhlengethwa",
+  "email" : "nqo@bani.com",
+  "password" : "passXccsd"
+}
+
+<> 2021-07-12T115256.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/user
+Content-Type: application/json
+
+{
+  "name" : "Nqobani",
+  "surname" : "Nhlengethwa",
+  "email" : "nqo@bani.com",
+  "password" : "pass"
+}
+
+<> 2021-07-12T115247.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/user
+Content-Type: application/json
+
+{
+  "name" : "",
+  "surname" : "",
+  "email" : "email",
+  "password" : "pass"
+}
+
+<> 2021-07-12T115156.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/user
+Content-Type: application/json
+
+{
+  "name" : "dd",
+  "surname" : "dd",
+  "email" : "email",
+  "password" : "pass"
+}
+
+<> 2021-07-12T115145.200.json
+
+###
+
 POST http://localhost:8080/registration/type/organisation/confirm
 Content-Type: application/json
 
@@ -615,55 +713,6 @@ Content-Type: application/json
 }
 
 <> 2021-07-11T213358.200.json
-
-###
-
-POST http://localhost:8080/organisation/get
-Content-Type: application/json
-
-{
-  "org_id" : "b7a516d8a81cda04974d40072f8d3e20"
-}
-
-<> 2021-06-21T075901.200.json
-
-###
-
-POST http://localhost:8080/browse
-Content-Type: application/json
-
-<> 2021-06-21T052036.200.json
-
-###
-
-POST http://localhost:8080/browse
-Content-Type: application/json
-
-###
-
-POST http://localhost:8080/browse
-Content-Type: application/json
-
-<> 2021-06-21T051649.200.json
-
-###
-
-POST http://localhost:8080/browse
-Content-Type: application/json
-
-<> 2021-06-21T050726.200.json
-
-###
-
-POST http://localhost:8080/browse
-Content-Type: application/json
-
-###
-
-POST http://localhost:8080/browse
-Content-Type: application/json
-
-<> 2021-06-21T050108.200.json
 
 ###
 

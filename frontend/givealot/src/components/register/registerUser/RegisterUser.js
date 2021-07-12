@@ -8,6 +8,7 @@ import { Redirect } from "react-router";
 import Login from "../../login/Login"
 import {Switch,Route} from "react-router-dom";
 import PopUp from "./PopUp";
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 
 class RegisterUser extends Component {
@@ -71,6 +72,9 @@ class RegisterUser extends Component {
                         <img id="ID" src={logo} alt=""/>
                     </div>
 
+                </div>
+                <div className="backArrow">
+                    <ArrowBackIcon />
                 </div>
                 <div className="container" >
 

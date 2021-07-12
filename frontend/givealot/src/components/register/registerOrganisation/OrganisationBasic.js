@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import logo from "./imagesRegister/ID2.png";
 import "./RegisterOrganisation.css"
 import Button from '@material-ui/core/Button';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 class OrganisationBasic extends Component {
     proceed = e => {
@@ -22,6 +23,9 @@ class OrganisationBasic extends Component {
                         <img id="ID" src={logo} alt=""/>
                     </div>
 
+                </div>
+                <div className="backArrow">
+                    <ArrowBackIcon />
                 </div>
                 <div className="container" >
 

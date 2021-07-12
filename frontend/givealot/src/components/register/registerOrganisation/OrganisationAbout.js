@@ -58,7 +58,11 @@ class OrganisationAbout extends Component {
                     <div >
                         <label></label>
                         <input type="description"
-                         className="control" 
+                        id="textContract"
+                        multiline
+                        rows="50"
+                        // type="text"
+                         className="formControlMultiline" 
                          placeholder="Description"
                          onChange={handleChange("description")}
                         defaultValue={values.description} 

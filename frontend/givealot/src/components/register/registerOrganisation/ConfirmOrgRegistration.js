@@ -6,6 +6,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import logo from "./imagesRegister/ID2.png";
 import "./RegisterOrganisation.css"
+// import OrgSuceessRegistration from "./OrgSucessRegistration";
 
 export class ConfirmOrgRegistration extends Component {
   proceed = e => {
@@ -97,6 +98,12 @@ export class ConfirmOrgRegistration extends Component {
         >
           Confirm and Continue
         </Button>
+        {/* <div>
+            <div >
+                <button className="button" onClick={this.togglePop}>Confirm and Continue</button>
+            </div>
+            {this.state.seen ? <OrgSuceessRegistration toggle={this.togglePop} /> : null}
+        </div> */}
 
       </Fragment>
     );

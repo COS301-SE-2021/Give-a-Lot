@@ -6,6 +6,7 @@ import "./Register.css"
 import RegisterBack from "./RegisterBack"
 import {Switch,Route} from "react-router-dom";
 import Login from "../login/Login"
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 export class Register extends Component {
     
@@ -17,6 +18,9 @@ export class Register extends Component {
                         <img id="ID" src={logo} alt=""/>
                     </div>
 
+                </div>
+                <div className="backArrow">
+                    <ArrowBackIcon />
                 </div>
                 <div className="container" >
                     <div className="gradientOverlay"></div>

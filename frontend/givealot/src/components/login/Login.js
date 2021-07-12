@@ -5,6 +5,7 @@ import axios from 'axios';
 import Register from "../register/Register"
 import { Redirect } from "react-router";
 import {Switch,Route,Link} from "react-router-dom";
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 class Login extends Component {
     state = {
@@ -52,6 +53,9 @@ class Login extends Component {
                     <div className="Login_image">
                         <img id="Login_ID" src={logo} alt=""/>
                     </div>
+                </div>
+                <div className="backArrow">
+                    <ArrowBackIcon />
                 </div>
                 <div className="Login_container" >
                     <form className="Login_form" onSubmit={this.submitHandler}>

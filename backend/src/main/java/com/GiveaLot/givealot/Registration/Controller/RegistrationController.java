@@ -1,9 +1,6 @@
 package com.GiveaLot.givealot.Registration.Controller;
 import com.GiveaLot.givealot.Registration.RegistrationServiceImp;
-import com.GiveaLot.givealot.Registration.json.AboutDetailsJSON;
-import com.GiveaLot.givealot.Registration.json.contactDetailsJSON;
-import com.GiveaLot.givealot.Registration.json.infoJSON;
-import com.GiveaLot.givealot.Registration.json.tempOrganisation;
+import com.GiveaLot.givealot.Registration.json.*;
 import com.GiveaLot.givealot.Registration.rri.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -119,6 +116,60 @@ public class RegistrationController {
             tempOrganisation.setStatus(200);
             tempOrganisation.setMessage(e.getMessage());
             return tempOrganisation;
+        }
+    }
+
+    @PostMapping("/organisation/confirm")
+    public organisationRegistrationResponseJSON confirmOrganisationRegistration(@RequestBody confirmJSON postBody)
+    {
+        try
+        {
+            String organisationName = postBody.getOrgName();
+            String password = postBody.getPassword();
+            String contactPerson = postBody.getContactPerson();
+            String contactNumber = postBody.getContactNumber();
+            String email = postBody.getOrgEmail();
+            String slogan = postBody.getOrgSlogan();
+            String sector = postBody.getOrgSector();
+            String description = postBody.getOrgDescription();
+
+            tempOrganisation tempOrganisation = new tempOrganisation();
+            tempOrganisation.setOrgName(organisationName);
+            tempOrganisation.setPassword(password);
+            tempOrganisation.setContactPerson(contactPerson);
+            tempOrganisation.setContactNumber(contactNumber);
+            tempOrganisation.setOrgEmail(email);
+            tempOrganisation.setOrgSlogan(slogan);
+            tempOrganisation.setOrgSector(sector);
+            tempOrganisation.setOrgDescription(description);
+
+            organisationConfirmRegistrationRequest request = new organisationConfirmRegistrationRequest(tempOrganisation);
+            organisationConfirmRegistrationResponse response = service.confirmOrganisationRegistration(request);
+            response.getOrganisationRegistrationResponseJSON();
+
+        }
+        catch (Exception e)
+        {
+            return new organisationRegistrationResponseJSON(200, e.getMessage());
+        }
+        return  null;
+    }
+
+    @PostMapping("/organisation/user")
+    public userRegistrationResponseJSON registerBasicUser(@RequestBody userDetailsJSON postBody)
+    {
+        try {
+            String userFirstName = postBody.getUserFirstName();
+            String userLastName = postBody.getUserLastName();
+            String userEmail = postBody.getUserEmail();
+            String userPassword = postBody.getPassword();
+
+            userRegistrationResponse response = service.registerBasicUser(new userRegistrationRequest(userFirstName,userLastName,userEmail,userPassword));
+            return response.getUserRegistrationResponseJSON();
+        }
+        catch(Exception e)
+        {
+            return new userRegistrationResponseJSON(200,e.getMessage());
         }
     }
 }

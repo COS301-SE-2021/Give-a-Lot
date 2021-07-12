@@ -1,18 +1,20 @@
 package com.GiveaLot.givealot.Registration.rri;
 
+import com.GiveaLot.givealot.Registration.json.tempOrganisation;
+
 public class organisationConfirmRegistrationRequest
 {
-    private String organisationKey;
+    private tempOrganisation tempOrganisation;
 
-    public organisationConfirmRegistrationRequest(String organisationKey) {
-        this.organisationKey = organisationKey;
+    public organisationConfirmRegistrationRequest(tempOrganisation tempOrganisation) {
+        this.tempOrganisation = tempOrganisation;
     }
 
-    public String getOrganisationKey() {
-        return organisationKey;
+    public tempOrganisation getTempOrganisation() {
+        return tempOrganisation;
     }
 
-    public void setOrganisationKey(String organisationKey) {
-        this.organisationKey = organisationKey;
+    public void setOrganisationKey(tempOrganisation tempOrganisation) {
+        this.tempOrganisation = tempOrganisation;
     }
 }

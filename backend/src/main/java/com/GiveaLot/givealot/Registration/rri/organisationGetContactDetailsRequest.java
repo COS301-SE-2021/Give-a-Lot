@@ -11,7 +11,6 @@ public class organisationGetContactDetailsRequest
         this.contactPerson = contactPerson;
         this.contactNumber = contactNumber;
         this.email = email;
-
     }
 
     public String getContactPerson() {

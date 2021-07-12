@@ -4,20 +4,11 @@ public class userRegistrationResponseJSON
 {
     private int status;
     private String message;
-    private String organisationKey;
 
-    public userRegistrationResponseJSON(int status, String message, String organisationKey) {
+
+    public userRegistrationResponseJSON(int status, String message) {
         this.status = status;
         this.message = message;
-        this.organisationKey = organisationKey;
-    }
-
-    public String getOrganisationKey() {
-        return organisationKey;
-    }
-
-    public void setOrganisationKey(String organisationKey) {
-        this.organisationKey = organisationKey;
     }
 
     public int getStatus() {

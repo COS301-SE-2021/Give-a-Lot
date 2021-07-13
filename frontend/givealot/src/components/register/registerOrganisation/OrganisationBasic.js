@@ -9,13 +9,19 @@ class OrganisationBasic extends Component {
         e.preventDefault();
         this.props.nextStep();
       };
+    //   submitting = e => {
+        
+    //   };
     
       constructor() {
         super();
-        this.state = {};
+        this.state = {
+            // submitting: true
+        };
       }
     render() {
         const { values, handleChange } = this.props;
+        // const isEnabled = values.orgName.length > 0 && values.password.length > 0;
         return (
             <div >
                 <div className="header">
@@ -30,41 +36,43 @@ class OrganisationBasic extends Component {
                 <div className="container" >
 
                 <form className="form">
-                <div className="top">
-                    <h4> Registration | Organisation | Info</h4>
-                </div>
-                <div >
-                    <label></label>
+                    <div className="top">
+                        <h4> Registration | Organisation | Info</h4>
+                    </div>
+                    <div >
+                        <label></label>
 
-                    <input type="name" 
-                    className="control" 
-                    placeholder="Name of Organisation"
-                    onChange={handleChange("orgName")} 
-                    defaultValue={values.orgName}
-                    />
-                </div>
+                        <input type="name" 
+                        className="control" 
+                        placeholder="Name of Organisation"
+                        onChange={handleChange("orgName")} 
+                        defaultValue={values.orgName}
+                        />
+                    </div>
 
-                <div >
-                    <label></label>
-                    <input type="name" 
-                    className="control" 
-                    placeholder="Password" 
-                    onChange={handleChange("orgPassword")}
-                    defaultValue={values.orgPassword}
-                    />
-                </div>
+                    <div >
+                        <label></label>
+                        <input type="name" 
+                        className="control" 
+                        placeholder="Password" 
+                        onChange={handleChange("orgPassword")}
+                        defaultValue={values.orgPassword}
+                        />
+                    </div>
 
-                <div >
-                    <label></label>
-                    <input type="name" 
-                    className="control" 
-                    placeholder="Confrim Password" 
-                    onChange={handleChange("orgPasswordConfirm")}
-                    defaultValue={values.orgPasswordConfirm}
-                    />
-                </div>
-                <div>
-                <Button
+                    <div >
+                        <label></label>
+                        <input type="name" 
+                        className="control" 
+                        placeholder="Confrim Password" 
+                        onChange={handleChange("orgPasswordConfirm")}
+                        defaultValue={values.orgPasswordConfirm}
+                        />
+                    </div>
+                    <div>
+                    <Button
+                        // disabled={this.state.submitting}
+                        // disabled={!isEnabled}
                         style={{
                             background: "#991A76",
                             color: "#FFFFFF"
@@ -75,10 +83,10 @@ class OrganisationBasic extends Component {
                         {" "}
                         Proceed
                     </Button>
-                </div>
+                    </div>
 
                 </form>
-                    <div className="gradientOverlay"></div>
+                <div className="gradientOverlay"></div>
 </div>
 
             </div>

@@ -10,6 +10,7 @@ class OrganisationAbout extends Component {
       };
       back = e => {
         e.preventDefault();
+        // console.log("here", this.props);
         this.props.prevStep();
       };
       constructor() {
@@ -55,7 +56,7 @@ class OrganisationAbout extends Component {
                         />
                     </div>
 
-                    <div >
+                    {/* <div >
                         <label></label>
                         <input type="description"
                         id="textContract"
@@ -67,7 +68,7 @@ class OrganisationAbout extends Component {
                          onChange={handleChange("description")}
                         defaultValue={values.description} 
                          />
-                    </div>
+                    </div> */}
                     <div>
                     <Button
                         style={{

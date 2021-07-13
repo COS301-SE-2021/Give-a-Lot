@@ -19,7 +19,8 @@ export class RegisterOrganisation extends Component {
     email: "",
     orgName:"",
     orgPassword: "",
-    orgPasswordConfirm: ""
+    orgPasswordConfirm: "",
+    
   };
   // Go to next step
   nextStep = () => {
@@ -43,7 +44,9 @@ export class RegisterOrganisation extends Component {
   };
   // Handle fields change
   handleChange = input => e => {
+    // console.log(e.target.value);
     this.setState({ [input]: e.target.value });
+    console.log(e.target.value);
   };
 
   render() {
@@ -66,6 +69,7 @@ export class RegisterOrganisation extends Component {
         return (
           <OrganisationAbout
             nextStep={this.nextStep}
+            prevStep={this.prevStep}
             handleChange={this.handleChange}
             values={values}
           />

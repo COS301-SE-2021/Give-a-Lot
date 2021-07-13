@@ -32,7 +32,7 @@ export class ConfirmOrgRegistration extends Component {
         </div>
         <AppBar style={{ background: "#098F8F" }} position="sticky">
           <Toolbar title="Enter Personal Information">
-            <Typography color="inherit" variant="title">
+            <Typography color="inherit" variant="h4">
               Confirm Details
             </Typography>
           </Toolbar>

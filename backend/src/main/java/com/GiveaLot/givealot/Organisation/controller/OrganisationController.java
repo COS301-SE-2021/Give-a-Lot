@@ -35,7 +35,6 @@ public class OrganisationController
         {
             addOrganisationResponse addOrganisationResponse;
             addOrganisationResponse = OrganisationServiceImpl.addOrganisation(request);
-            System.out.println("got here in organisation " + request.getOrgName());
 
             if(addOrganisationResponse != null)
                 return addOrganisationResponse.getAddUserResponseJSON();

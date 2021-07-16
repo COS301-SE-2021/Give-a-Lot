@@ -119,8 +119,7 @@ public class RegistrationServiceImp
 
   }
 
-    public userRegistrationResponse registerBasicUser(userRegistrationRequest request) throws PasswordException, NameSurnameException, EmailException
-    {
+    public userRegistrationResponse registerBasicUser(userRegistrationRequest request) throws Exception {
       SignupValidation validation = new SignupValidation();
 
       if(!validation.validateEmail(request.getEmail()))
@@ -139,12 +138,23 @@ public class RegistrationServiceImp
       *  add code to register the user to the db
       * */
 
-      userRegistrationResponseJSON jsonRes = new userRegistrationResponseJSON(200, "registered");
-      userRegistrationResponse response = new userRegistrationResponse(jsonRes);
-      return response;
+      try
+      {
+
+        userRegistrationResponseJSON jsonRes = new userRegistrationResponseJSON(200, "registered");
+        userRegistrationResponse response = new userRegistrationResponse(jsonRes);
+        return response;
+      }
+      catch (Exception e)
+      {
+        throw new Exception(e.getMessage());
+      }
+
+
     }
 
-    public organisationConfirmRegistrationResponse confirmOrganisationRegistration(organisationConfirmRegistrationRequest request) throws Exception {
+    public organisationConfirmRegistrationResponse confirmOrganisationRegistration(organisationConfirmRegistrationRequest request) throws Exception
+    {
       SignupValidation validation = new SignupValidation();
 
       /*

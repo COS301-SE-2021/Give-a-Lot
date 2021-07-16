@@ -15,13 +15,14 @@ import com.GiveaLot.givealot.Certificate.rri.createJSONResponse;
 import com.GiveaLot.givealot.Certificate.rri.createPDFCertificateRequest;
 import com.GiveaLot.givealot.Certificate.rri.createPDFCertificateResponse;
 import com.itextpdf.text.Document;
-import jdk.jfr.Description;
+//import jdk.jfr.Description;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.context.annotation.Description;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

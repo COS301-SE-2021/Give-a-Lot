@@ -16,11 +16,11 @@ public class SignupValidation {
     /** Makes sure names conform to database constraints **/
     public boolean validateNames(String FName, String LName){
 
-        if (FName.length()>100){
+        if (FName.length()>100 || FName.length()==0){
             return false;
         }
 
-        if (LName.length()>100){
+        if (LName.length()>100 || LName.length()==0){
             return false;
         }
 
@@ -30,7 +30,7 @@ public class SignupValidation {
     /** Makes sure organisation names conform to database constraints **/
     public boolean validateOrgNames(String orgName){
 
-        if (orgName.length()>150){
+        if (orgName.length()>150 || orgName.length()==0){
             return false;
         }
 
@@ -40,7 +40,7 @@ public class SignupValidation {
     /** Makes sure contact person names conform to database constraints **/
     public boolean validateContactPerson(String contact){
 
-        if (contact.length()>150){
+        if (contact.length()>150 || contact.length()==0){
             return false;
         }
 
@@ -67,7 +67,7 @@ public class SignupValidation {
     /** Makes sure organisation slogans conform to database constraints **/
     public boolean validateOrgSlogan(String slogan){
 
-        if (slogan.length()>200){
+        if (slogan.length()>200 || slogan.length()==0){
             return false;
         }
 
@@ -77,7 +77,7 @@ public class SignupValidation {
     /** Makes sure descriptions conform to database constraints **/
     public boolean validateOrgDescription(String description){
 
-        if (description.length()>500){
+        if (description.length()>500 || description.length()==0){
             return false;
         }
         return true;

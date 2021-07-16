@@ -185,7 +185,7 @@ public class SignupValidation {
             //Create statement
             Statement state = connection.createStatement();
 
-            String query = "select * from public.\"Organisations\" where email = '" + email + "';";
+            String query = "select * from public.\"Organisations\" where orgEmail = '" + email + "';";
 
             ResultSet rs = state.executeQuery(query);
 

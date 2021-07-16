@@ -165,7 +165,7 @@ public class SignupValidation {
             return true;
         }
         catch (Exception e){
-            throw new SQLException("Exception: Select from database could not be fulfilled \n" + e.getMessage());
+            throw new SQLException("Exception-user: Select from database could not be fulfilled \n" + e.getMessage());
         }
 
     }
@@ -194,7 +194,7 @@ public class SignupValidation {
             int x = 0;
 
             while (rs.next()) {
-                emails.add(rs.getString("email"));
+                emails.add(rs.getString("orgEmail"));
                 x++;
             }
 
@@ -206,7 +206,7 @@ public class SignupValidation {
             return true;
         }
         catch (Exception e){
-            throw new SQLException("Exception: Select from database could not be fulfilled" + e.getMessage());
+            throw new SQLException("Exception-organisation: Select from database could not be fulfilled" + e.getMessage());
         }
 
     }

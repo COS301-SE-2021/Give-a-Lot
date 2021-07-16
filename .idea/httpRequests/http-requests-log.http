@@ -1,3 +1,108 @@
+POST http://localhost:8080/registration/type/organisation/contact
+Content-Type: application/json
+
+{
+  "orgName" : "the givers of hop",
+  "orgPassword" : "@assassinsCreed2",
+  "contactPerson" : "Nqobani",
+  "orgEmail" : "ion@shide.com",
+  "contactNumber" : "0988343434"
+}
+
+<> 2021-07-16T190626.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/contact
+Content-Type: application/json
+
+{
+  "orgName" : "the givers of hop",
+  "orgPassword" : "@assassinsCreed2",
+  "contactPerson" : "Nqobani",
+  "orgEmail" : "ion@shide.com",
+  "contactNumber" : "09934fhf44"
+}
+
+<> 2021-07-16T190605.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/contact
+Content-Type: application/json
+
+{
+  "orgName" : "the givers of hop",
+  "orgPassword" : "@assassinsCreed2",
+  "contactPerson" : "Nqobani",
+  "orgEmail" : "ion@side.com",
+  "contactNumber" : "09934fhf44"
+}
+
+<> 2021-07-16T190547.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/contact
+Content-Type: application/json
+
+{
+  "orgName" : "the givers of hop",
+  "orgPassword" : "@assassinsCreed2",
+  "contactPerson" : "Nqobani",
+  "orgEmail" : "ion@side.com",
+  "contactNumber" : "09934fhf44"
+}
+
+<> 2021-07-16T190410.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/contact
+Content-Type: application/json
+
+{
+  "orgName" : "the givers of hop",
+  "orgPassword" : "@assassinsCreed2",
+  "contactPerson" : "Nqobani",
+  "orgEmail" : "ion@side.com",
+  "contactNumber" : "09934fhf44"
+}
+
+<> 2021-07-16T190313.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/contact
+Content-Type: application/json
+
+{
+  "orgName" : "the givers of hop",
+  "orgPassword" : "@assassinsCreed2",
+  "contactPerson" : "Nqobani",
+  "orgEmail" : "ion@side.com",
+  "contactNumber" : "09934fhf44"
+}
+
+<> 2021-07-16T190119.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/contact
+Content-Type: application/json
+
+{
+  "orgName" : "the givers of hop",
+  "orgPassword" : "@assassinsCreed2",
+  "contactPerson" : "Nqobani",
+  "orgEmail" : "ion@side.com",
+  "contactNumber" : "09934fhf44"
+}
+
+<> 2021-07-16T190057.200.json
+
+###
+
 POST http://localhost:8080/registration/type/organisation/confirm
 Content-Type: application/json
 
@@ -633,130 +738,6 @@ Content-Type: application/json
 }
 
 <> 2021-07-16T153137.200.json
-
-###
-
-POST http://localhost:8080/registration/type/organisation/confirm
-Content-Type: application/json
-
-{
-  "orgName" : "the givers of hop",
-  "orgPassword" : "@assassinsCreed2",
-  "contactPerson" : "Nqobani",
-  "orgEmail" : "ion@side.com",
-  "contactNumber" : "01123477854",
-  "orgSector" : "Children",
-  "orgDescription" : "about organisation",
-  "orgSlogan" : "new slogan"
-}
-
-<> 2021-07-16T152736.200.json
-
-###
-
-POST http://localhost:8080/registration/type/organisation/confirm
-Content-Type: application/json
-
-{
-  "orgName" : "the givers of hop",
-  "orgPassword" : "@assassinsCreed2",
-  "contactPerson" : "Nqobani",
-  "orgEmail" : "ion@side.com",
-  "contactNumber" : "01123477854",
-  "orgSector" : "Children",
-  "orgDescription" : "about organisation",
-  "orgSlogan" : "new slogan"
-}
-
-<> 2021-07-16T152645.200.json
-
-###
-
-POST http://localhost:8080/registration/type/organisation/confirm
-Content-Type: application/json
-
-{
-  "orgName" : "the givers of hop",
-  "orgPassword" : "@assassinsCreed2",
-  "contactPerson" : "Nqobani",
-  "orgEmail" : "ion@side.com",
-  "contactNumber" : "01123477854",
-  "orgSector" : "Children",
-  "orgDescription" : "about organisation",
-  "orgSlogan" : "new slogan"
-}
-
-<> 2021-07-16T151901.200.json
-
-###
-
-POST http://localhost:8080/registration/type/organisation/confirm
-Content-Type: application/json
-
-{
-  "orgName" : "the givers of hop",
-  "orgPassword" : "@assassinsCreed2",
-  "contactPerson" : "Nqobani",
-  "orgEmail" : "ion@side.com",
-  "contactNumber" : "01123477854",
-  "orgSector" : "Children",
-  "orgDescription" : "about organisation",
-  "orgSlogan" : "new slogan"
-}
-
-<> 2021-07-16T151738.200.json
-
-###
-
-POST http://localhost:8080/registration/type/organisation/confirm
-Content-Type: application/json
-
-{
-  "orgName" : "the givers of hop",
-  "orgPassword" : "@assassinsCreed2",
-  "contactPerson" : "Nqobani",
-  "orgEmail" : "ion@side.com",
-  "contactNumber" : "01123477854",
-  "orgSector" : "Children",
-  "orgDescription" : "about organisation",
-  "orgSlogan" : "new slogan"
-}
-
-###
-
-POST http://localhost:8080/registration/type/organisation/confirm
-Content-Type: application/json
-
-{
-  "orgName" : "the givers of hop",
-  "orgPassword" : "@assassinsCreed2",
-  "contactPerson" : "Nqobani",
-  "orgEmail" : "ion@side.com",
-  "contactNumber" : "01123477854",
-  "orgSector" : "Children",
-  "orgDescription" : "about organisation",
-  "orgSlogan" : "new slogan"
-}
-
-<> 2021-07-16T151633.200.json
-
-###
-
-POST http://localhost:8080/registration/type/organisation/confirm
-Content-Type: application/json
-
-{
-  "orgName" : "the givers of hop",
-  "orgPassword" : "@assassinsCreed2",
-  "contactPerson" : "Nqobani",
-  "orgEmail" : "ion@side.com",
-  "contactNumber" : "01123477854",
-  "orgSector" : "Children",
-  "orgDescription" : "about organisation",
-  "orgSlogan" : "new slogan"
-}
-
-<> 2021-07-16T151447.200.json
 
 ###
 

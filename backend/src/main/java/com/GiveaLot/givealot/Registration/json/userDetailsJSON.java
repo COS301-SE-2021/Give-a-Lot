@@ -8,17 +8,22 @@ public class userDetailsJSON
         private String userLastName;
         private String userEmail;
         private String password;
+        private String confirmPassword;
+
+
 
     public userDetailsJSON(
-                           @JsonProperty("name") String userFirstName,
-                           @JsonProperty("surname") String userLastName,
-                           @JsonProperty("email") String userEmail,
-                           @JsonProperty("password") String password)
+            @JsonProperty("name") String userFirstName,
+            @JsonProperty("surname") String userLastName,
+            @JsonProperty("email") String userEmail,
+            @JsonProperty("password") String password,
+            @JsonProperty("passwordConfirm") String confirmPassword)
     {
         this.userFirstName = userFirstName;
         this.userLastName = userLastName;
         this.userEmail = userEmail;
         this.password = password;
+        this.confirmPassword = confirmPassword;
     }
 
     public String getUserFirstName() {
@@ -51,5 +56,13 @@ public class userDetailsJSON
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getConfirmPassword() {
+        return this.confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 }

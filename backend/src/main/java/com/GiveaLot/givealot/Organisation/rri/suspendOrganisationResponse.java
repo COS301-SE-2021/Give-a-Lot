@@ -1,6 +1,6 @@
 package com.GiveaLot.givealot.Organisation.rri;
 
-import com.GiveaLot.givealot.Organisation.OrganisationResponseJSON;
+import com.GiveaLot.givealot.Organisation.json.OrganisationResponseJSON;
 
 import java.util.List;
 

@@ -3,10 +3,7 @@ import com.GiveaLot.givealot.Registration.RegistrationServiceImp;
 import com.GiveaLot.givealot.Registration.json.*;
 import com.GiveaLot.givealot.Registration.rri.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("registration/type")
@@ -20,6 +17,7 @@ public class RegistrationController {
 
     }
 
+    @CrossOrigin
     @PostMapping("/organisation/info")
     public tempOrganisation organisationRegistrationInfoStep(@RequestBody infoJSON postBody)
     {
@@ -53,6 +51,7 @@ public class RegistrationController {
         }
     }
 
+    @CrossOrigin
     @PostMapping("/organisation/contact")
     public tempOrganisation organisationRegistrationInfoStep(@RequestBody contactDetailsJSON postBody)
     {
@@ -81,6 +80,7 @@ public class RegistrationController {
         }
     }
 
+    @CrossOrigin
     @PostMapping("/organisation/about")
     public tempOrganisation organisationRegistrationAboutStep(@RequestBody AboutDetailsJSON postBody)
     {
@@ -119,6 +119,7 @@ public class RegistrationController {
         }
     }
 
+    @CrossOrigin
     @PostMapping("/organisation/confirm")
     public organisationRegistrationResponseJSON confirmOrganisationRegistration(@RequestBody confirmJSON postBody)
     {
@@ -154,6 +155,7 @@ public class RegistrationController {
         }
     }
 
+    @CrossOrigin
     @PostMapping("/organisation/user")
     public userRegistrationResponseJSON registerBasicUser(@RequestBody userDetailsJSON postBody)
     {
@@ -162,6 +164,7 @@ public class RegistrationController {
             String userLastName = postBody.getUserLastName();
             String userEmail = postBody.getUserEmail();
             String userPassword = postBody.getPassword();
+            String confirmPassword = postBody.getConfirmPassword();
 
             userRegistrationResponse response = service.registerBasicUser(new userRegistrationRequest(userFirstName,userLastName,userEmail,userPassword));
             return response.getUserRegistrationResponseJSON();

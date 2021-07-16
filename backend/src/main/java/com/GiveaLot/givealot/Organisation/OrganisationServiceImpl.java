@@ -1,6 +1,8 @@
 package com.GiveaLot.givealot.Organisation;
 
 import com.GiveaLot.givealot.Organisation.dataclass.Organisation;
+import com.GiveaLot.givealot.Organisation.json.OrganisationResponseJSON;
+import com.GiveaLot.givealot.Organisation.json.get_OrganisationResponseJSON;
 import com.GiveaLot.givealot.Organisation.rri.*;
 import com.GiveaLot.givealot.Organisation.exceptions.*;
 import org.springframework.stereotype.Service;
@@ -38,6 +40,7 @@ public class OrganisationServiceImpl
 
     public addOrganisationResponse addOrganisation(addOrganisationRequest request) throws OrgException, NoSuchAlgorithmException, SQLException, MessagingException, IOException {
 
+
         if(request == null)
         {
             throw new InvalidRequestException("Exception: Organisation could not be added because the request object is null");
@@ -59,6 +62,7 @@ public class OrganisationServiceImpl
         }
 
         Organisation org = new Organisation(request.getOrgName(),request.getOrgSlogan(),request.getOrgDescription(),request.getOrgSector(),request.getOrgEmail(),request.getPassword(),request.getContactPerson(),request.getContactNumber());
+
 
         help.orgExists(org);
         try

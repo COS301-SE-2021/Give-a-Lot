@@ -1,3 +1,29 @@
+POST http://localhost:8080/registration/type/organisation/info
+Content-Type: application/json
+
+{
+  "orgName" : "the givers of hope",
+  "OrgPassword" : "@assassinsCreed2",
+  "orgPasswordConfirm" : "@assassinsCreed2"
+}
+
+<> 2021-07-16T170857.200.json
+
+###
+
+POST http://localhost:8080/registration/type/organisation/info
+Content-Type: application/json
+
+{
+  "orgName" : "the givers of hope",
+  "orgPassword" : "@assassinsCreed2",
+  "orgPasswordConfirm" : "@assassinsCreed2"
+}
+
+<> 2021-07-16T170828.200.json
+
+###
+
 POST http://localhost:8080/registration/type/organisation/confirm
 Content-Type: application/json
 
@@ -769,39 +795,6 @@ Content-Type: application/json
   "description" : "about organisation",
   "slogan" : "new slogan"
 }
-
-###
-
-POST http://localhost:8080/registration/type/organisation/about
-Content-Type: application/json
-
-{
-  "orgName" : "the givers of hop",
-  "orgPassword" : "@assassinsCreed2",
-  "contactPerson" : "Nqobani",
-  "email" : "ion@side.com",
-  "contactNumber" : "01123477854",
-  "sector" : "Children",
-  "description" : "avout organisation",
-  "slogan" : "new slogan"
-}
-
-<> 2021-07-12T004230.200.json
-
-###
-
-POST http://localhost:8080/registration/type/organisation/contact
-Content-Type: application/json
-
-{
-  "orgName" : "the givers of hop",
-  "orgPassword" : "@assassinsCreed2",
-  "contactPerson" : "Nqobani",
-  "email" : "ion@side.com",
-  "contactNumber" : "01123477854"
-}
-
-<> 2021-07-12T004223.200.json
 
 ###
 

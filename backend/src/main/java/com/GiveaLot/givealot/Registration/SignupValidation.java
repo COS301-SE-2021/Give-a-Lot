@@ -50,7 +50,7 @@ public class SignupValidation {
     /** Makes sure contact person numbers are valid **/
     public boolean validateContactNumber(String contact){
 
-        String regex = "^(?=.*[0-9]).{10}$";
+        String regex = "^[0-9]{10,10}$";
 
         Pattern regexCheck = Pattern.compile(regex);
 
@@ -165,7 +165,7 @@ public class SignupValidation {
             return true;
         }
         catch (Exception e){
-            throw new SQLException("Exception: Select from database could not be fulfilled \n" + e.getMessage());
+            throw new SQLException("Exception-user: Select from database could not be fulfilled \n" + e.getMessage());
         }
 
     }
@@ -185,7 +185,7 @@ public class SignupValidation {
             //Create statement
             Statement state = connection.createStatement();
 
-            String query = "select * from public.\"Organisations\" where email = '" + email + "';";
+            String query = "select * from public.\"Organisations\" where \"orgEmail\" = '" + email + "';";
 
             ResultSet rs = state.executeQuery(query);
 
@@ -194,7 +194,7 @@ public class SignupValidation {
             int x = 0;
 
             while (rs.next()) {
-                emails.add(rs.getString("email"));
+                emails.add(rs.getString("orgEmail"));
                 x++;
             }
 
@@ -206,8 +206,16 @@ public class SignupValidation {
             return true;
         }
         catch (Exception e){
-            throw new SQLException("Exception: Select from database could not be fulfilled");
+            throw new SQLException("Exception-organisation: Select from database could not be fulfilled" + e.getMessage());
         }
 
+    }
+
+    public static void main(String[] args) {
+        SignupValidation test = new SignupValidation();
+
+        Boolean result = test.validateContactNumber("0823322397");
+
+        System.out.println(result);
     }
 }

@@ -67,7 +67,7 @@ public class RegistrationServiceImp
 
       if (!validation.validateEmail(request.getEmail())) {
         throw new EmailException("invalid imail provided");
-      } else if (!validation.validateEmailAvailable(request.getEmail())) {
+      } else if (!validation.validateOrgEmailAvailable(request.getEmail())) {
         throw new EmailException("email already exists");
       } else if (!validation.validateContactNumber(request.getContactNumber())) {
         throw new NumberException("invalid number");
@@ -172,7 +172,7 @@ public class RegistrationServiceImp
       {
         throw new EmailException("invalid imail provided");
       }
-      else if (!validation.validateEmailAvailable(request.getTempOrganisation().getOrgEmail())) {
+      else if (!validation.validateOrgEmailAvailable(request.getTempOrganisation().getOrgEmail())) {
         throw new EmailException("email already exists");
       }
       else if (!validation.validateContactNumber(request.getTempOrganisation().getContactNumber()))

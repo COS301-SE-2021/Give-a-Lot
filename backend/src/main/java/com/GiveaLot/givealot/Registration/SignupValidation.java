@@ -143,7 +143,7 @@ public class SignupValidation {
             //Create statement
             Statement state = connection.createStatement();
 
-            String query = "select * from public.\"Users\" where email = '" + email + "';";
+            String query = "select * from public.\"Users\" where orgEmail = '" + email + "';";
 
             ResultSet rs = state.executeQuery(query);
 
@@ -206,7 +206,7 @@ public class SignupValidation {
             return true;
         }
         catch (Exception e){
-            throw new SQLException("Exception: Select from database could not be fulfilled");
+            throw new SQLException("Exception: Select from database could not be fulfilled" + e.getMessage());
         }
 
     }

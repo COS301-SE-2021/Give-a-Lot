@@ -1,6 +1,9 @@
 package com.GiveaLot.givealot.Registration;
 
 
+import com.GiveaLot.givealot.Organisation.json.OrganisationResponseJSON;
+import com.GiveaLot.givealot.Organisation.controller.OrganisationController;
+import com.GiveaLot.givealot.Organisation.rri.addOrganisationRequest;
 import com.GiveaLot.givealot.Registration.Exceptions.*;
 import com.GiveaLot.givealot.Registration.json.organisationRegistrationResponseJSON;
 import com.GiveaLot.givealot.Registration.json.tempOrganisation;
@@ -9,6 +12,7 @@ import com.GiveaLot.givealot.Registration.rri.*;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 @Service
 public class RegistrationServiceImp
@@ -63,9 +67,9 @@ public class RegistrationServiceImp
 
       if (!validation.validateEmail(request.getEmail())) {
         throw new EmailException("invalid imail provided");
-      } /*else if (!validation.validateEmailAvailable(request.getEmail())) {
+      } else if (!validation.validateEmailAvailable(request.getEmail())) {
         throw new EmailException("email already exists");
-      }*/ else if (!validation.validateContactNumber(request.getContactNumber())) {
+      } else if (!validation.validateContactNumber(request.getContactNumber())) {
         throw new NumberException("invalid number");
       } else if(!validation.validateContactPerson(request.getContactPerson())){
         throw new NameSurnameException("name invalid");
@@ -140,7 +144,7 @@ public class RegistrationServiceImp
       return response;
     }
 
-    public organisationConfirmRegistrationResponse confirmOrganisationRegistration(organisationConfirmRegistrationRequest request) throws PasswordException, OrganisationException, EmailException, NumberException, NameSurnameException {
+    public organisationConfirmRegistrationResponse confirmOrganisationRegistration(organisationConfirmRegistrationRequest request) throws Exception {
       SignupValidation validation = new SignupValidation();
 
       /*
@@ -158,9 +162,9 @@ public class RegistrationServiceImp
       {
         throw new EmailException("invalid imail provided");
       }
-      /*else if (!validation.validateEmailAvailable(request.getEmail())) {
+      else if (!validation.validateEmailAvailable(request.getTempOrganisation().getOrgEmail())) {
         throw new EmailException("email already exists");
-      }*/
+      }
       else if (!validation.validateContactNumber(request.getTempOrganisation().getContactNumber()))
       {
         throw new NumberException("invalid number");
@@ -179,11 +183,39 @@ public class RegistrationServiceImp
       }
 
       /*
-       *  add code to register the user to the db
+       *  register the user to the db
        * */
 
-      organisationRegistrationResponseJSON json = new organisationRegistrationResponseJSON(200, "registered successfully");
-      organisationConfirmRegistrationResponse response = new organisationConfirmRegistrationResponse(json);
-      return response;
+      addOrganisationRequest  new_org  = new addOrganisationRequest(request.getTempOrganisation().getOrgName(),
+                                                                    request.getTempOrganisation().getOrgSlogan(),
+                                                                    request.getTempOrganisation().getOrgDescription(),
+                                                                    request.getTempOrganisation().getOrgSector(),
+                                                                    request.getTempOrganisation().getOrgEmail(),
+                                                                    request.getTempOrganisation().getPassword(),
+                                                                    request.getTempOrganisation().getContactPerson(),
+                                                                    request.getTempOrganisation().getContactNumber());
+      try
+      {
+        OrganisationController organisationController = new OrganisationController();
+        List<OrganisationResponseJSON> res = organisationController.add_organisation(new_org);
+
+        if(res != null)
+        {
+          System.out.println("got response from controller");
+          System.out.println(res.get(0).getCode() + "\n" + res.get(0).getStatus());
+        }
+        else
+        {
+          System.out.println("possible errors in the controller");
+        }
+
+        organisationRegistrationResponseJSON json = new organisationRegistrationResponseJSON(200, "registered successfully");
+        organisationConfirmRegistrationResponse response = new organisationConfirmRegistrationResponse(json);
+        return response;
+      }
+      catch (Exception e)
+      {
+        throw new Exception(e.getMessage());
+      }
     }
 }

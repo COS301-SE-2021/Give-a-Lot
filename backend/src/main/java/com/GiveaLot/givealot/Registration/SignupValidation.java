@@ -1,8 +1,5 @@
 package com.GiveaLot.givealot.Registration;
 
-import com.GiveaLot.givealot.Organisation.exceptions.OrgException;
-import com.GiveaLot.givealot.Organisation.get_OrganisationResponseJSON;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -172,7 +169,7 @@ public class SignupValidation {
             return true;
         }
         catch (Exception e){
-            throw new SQLException("Exception: Select from database could not be fulfilled");
+            throw new SQLException("Exception: Select from database could not be fulfilled \n" + e.getMessage());
         }
 
     }

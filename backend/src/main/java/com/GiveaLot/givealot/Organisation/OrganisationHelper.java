@@ -3,6 +3,7 @@ package com.GiveaLot.givealot.Organisation;
 import com.GiveaLot.givealot.Organisation.dataclass.Organisation;
 import com.GiveaLot.givealot.Organisation.dataclass.Status;
 import com.GiveaLot.givealot.Organisation.exceptions.OrgException;
+import com.GiveaLot.givealot.Organisation.json.get_OrganisationResponseJSON;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
@@ -235,39 +236,39 @@ public class OrganisationHelper {
 
     /** Gets the json data from database **/
 
-        public get_OrganisationResponseJSON getOrganisation(Organisation org) throws SQLException, ClassNotFoundException, NoSuchAlgorithmException, OrgException
+    public get_OrganisationResponseJSON getOrganisation(Organisation org) throws SQLException, ClassNotFoundException, NoSuchAlgorithmException, OrgException
+    {
+        try
         {
-            try
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
+            String username = "iqvyaozz";
+            String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement state = connection.createStatement();
+
+            String sql_query = "select * from public.\"Organisations\"  where \"orgId\" = '" + org.getOrgId() + "';";
+            ResultSet rs = state.executeQuery(sql_query);
+
+            if(!rs.next())
             {
-                String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
-                String username = "iqvyaozz";
-                String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
-                Connection connection = DriverManager.getConnection(url, username, password);
-                Statement state = connection.createStatement();
-
-                String sql_query = "select * from public.\"Organisations\"  where \"orgId\" = '" + org.getOrgId() + "';";
-                ResultSet rs = state.executeQuery(sql_query);
-
-                if(!rs.next())
-                {
-                    System.out.println("organisation not found");
-                    connection.close();
-                    return null;
-                }
-                else
-                {
-                    System.out.println("organisation found");
-                    connection.close();
-                    return new get_OrganisationResponseJSON("200", "ok", rs.getString("orgId"),rs.getString("orgName"),rs.getString("orgDescription"));
-                }
+                System.out.println("organisation not found");
+                connection.close();
+                return null;
             }
-            catch (Exception e)
+            else
             {
-                System.out.println("get_org: problems executing query\n" + e.getMessage());
-                return  null;
+                System.out.println("organisation found");
+                connection.close();
+                return new get_OrganisationResponseJSON("200", "ok", rs.getString("orgId"),rs.getString("orgName"),rs.getString("orgDescription"));
             }
-
         }
+        catch (Exception e)
+        {
+            System.out.println("get_org: problems executing query\n" + e.getMessage());
+            return  null;
+        }
+
+    }
 
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException, NoSuchAlgorithmException, OrgException {

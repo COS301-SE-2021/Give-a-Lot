@@ -1,4 +1,4 @@
-package com.GiveaLot.givealot.Organisation;
+package com.GiveaLot.givealot.Organisation.json;
 
 public class OrganisationResponseJSON
 {

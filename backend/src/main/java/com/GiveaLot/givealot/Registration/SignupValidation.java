@@ -143,7 +143,7 @@ public class SignupValidation {
             //Create statement
             Statement state = connection.createStatement();
 
-            String query = "select * from public.\"Users\" where orgEmail = '" + email + "';";
+            String query = "select * from public.\"Users\" where email = '" + email + "';";
 
             ResultSet rs = state.executeQuery(query);
 
@@ -185,7 +185,7 @@ public class SignupValidation {
             //Create statement
             Statement state = connection.createStatement();
 
-            String query = "select * from public.\"Organisations\" where orgEmail = '" + email + "';";
+            String query = "select * from public.\"Organisations\" where \"orgEmail\" = '" + email + "';";
 
             ResultSet rs = state.executeQuery(query);
 

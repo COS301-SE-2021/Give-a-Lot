@@ -2,5 +2,8 @@ package com.GiveaLot.givealot.Registration;
 
 public enum RegisterType {
     User,
-    Organisation
+    Organisation;
+
+    public static class registrationRegistrationResponseJSON {
+    }
 }

@@ -1,40 +1,58 @@
-package com.GiveaLot.givealot.Organisation.rri;
+package com.GiveaLot.givealot.Registration.json;
 
-import com.GiveaLot.givealot.Organisation.dataclass.Organisation;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class addOrganisationRequest {
-    String orgName;
-    String orgSlogan;
-    String orgDescription;
-    String orgSector;
-    String orgEmail;
-    String password;
-    String contactPerson;
-    String contactNumber;
 
-    public addOrganisationRequest(
-            @JsonProperty("orgName") String orgName,
-            @JsonProperty("orgSlogan") String orgSlogan,
-            @JsonProperty("orgDescription") String orgDescription,
-            @JsonProperty("orgSector") String orgSector,
-            @JsonProperty("orgEmail") String orgEmail,
-            @JsonProperty("password") String password,
-            @JsonProperty("contactPerson") String contactPerson,
-            @JsonProperty("contactNumber") String contactNumber) {
-        this.orgName = orgName;
-        this.orgSlogan = orgSlogan;
-        this.orgDescription = orgDescription;
-        this.orgSector = orgSector;
-        this.orgEmail = orgEmail;
-        this.password = password;
-        this.contactPerson = contactPerson;
-        this.contactNumber = contactNumber;
+/*
+*  this object will be returned by the controller
+*  during organisation registration
+* */
+
+
+public class tempOrganisation {
+    private Integer status;
+    private String message;
+    private String orgName;
+    private String orgSlogan;
+    private String orgDescription;
+    private String orgSector;
+    private String orgEmail;
+    private String password;
+    private String contactPerson;
+    private String contactNumber;
+
+    public tempOrganisation() {
+        this.status = null;
+        this.message = null;
+        this.orgName = null;
+        this.orgSlogan = null;
+        this.orgDescription = null;
+        this.orgSector = null;
+        this.orgEmail = null;
+        this.password = null;
+        this.contactPerson = null;
+        this.contactNumber = null;
     }
 
     /**
      * Getters
      **/
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
     public String getContactPerson() {
         return contactPerson;

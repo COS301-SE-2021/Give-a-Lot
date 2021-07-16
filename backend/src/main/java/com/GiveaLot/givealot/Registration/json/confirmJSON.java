@@ -1,27 +1,26 @@
-package com.GiveaLot.givealot.Organisation.rri;
+package com.GiveaLot.givealot.Registration.json;
 
-import com.GiveaLot.givealot.Organisation.dataclass.Organisation;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class addOrganisationRequest {
-    String orgName;
-    String orgSlogan;
-    String orgDescription;
-    String orgSector;
-    String orgEmail;
-    String password;
-    String contactPerson;
-    String contactNumber;
+public class confirmJSON {
+    private String orgName;
+    private String orgSlogan;
+    private String orgDescription;
+    private String orgSector;
+    private String orgEmail;
+    private String password;
+    private String contactPerson;
+    private String contactNumber;
 
-    public addOrganisationRequest(
-            @JsonProperty("orgName") String orgName,
-            @JsonProperty("orgSlogan") String orgSlogan,
-            @JsonProperty("orgDescription") String orgDescription,
-            @JsonProperty("orgSector") String orgSector,
-            @JsonProperty("orgEmail") String orgEmail,
-            @JsonProperty("password") String password,
-            @JsonProperty("contactPerson") String contactPerson,
-            @JsonProperty("contactNumber") String contactNumber) {
+    public confirmJSON(@JsonProperty("orgName") String orgName,
+                       @JsonProperty("orgSlogan") String orgSlogan,
+                       @JsonProperty("orgDescription") String orgDescription,
+                       @JsonProperty("orgSector") String orgSector,
+                       @JsonProperty("orgEmail") String orgEmail,
+                       @JsonProperty("orgPassword") String password,
+                       @JsonProperty("contactPerson") String contactPerson,
+                       @JsonProperty("contactNumber") String contactNumber)
+    {
         this.orgName = orgName;
         this.orgSlogan = orgSlogan;
         this.orgDescription = orgDescription;

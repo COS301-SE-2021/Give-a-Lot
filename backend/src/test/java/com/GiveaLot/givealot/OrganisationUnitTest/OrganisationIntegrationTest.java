@@ -26,7 +26,7 @@ public class OrganisationIntegrationTest {
     void TEST_ADD() throws OrgException, SQLException, MessagingException, NoSuchAlgorithmException, IOException {
         OrganisationServiceImpl service = new OrganisationServiceImpl();
 
-        addOrganisationRequest request = new addOrganisationRequest("This Organisation is Unique", "Some Description", "Disease", "unique@gmail.com", "password", "Mr. Unique", "0823355000");
+        addOrganisationRequest request = new addOrganisationRequest("This Organisation is Unique", "Some slogan", "Some Description", "Disease", "unique@gmail.com", "password", "Mr. Unique", "0823355000");
 
         service.addOrganisation(request);
     }
@@ -65,7 +65,7 @@ public class OrganisationIntegrationTest {
 
         //Initialization
 
-        addOrganisationRequest request = new addOrganisationRequest("Integration Org", "Some Description", "Disease", "integration@gmail.com", "password", "Mr. Integration", "0823320000");
+        addOrganisationRequest request = new addOrganisationRequest("Integration Org", "Some slogan", "Some Description", "Disease", "integration@gmail.com", "password", "Mr. Integration", "0823320000");
 
         investigateOrganisationRequest requestInv = new investigateOrganisationRequest("8378a47a5f4a901d23222cef70df3203","");
 

@@ -3,24 +3,56 @@ import logo from "./imagesRegister/ID2.png";
 import "./RegisterOrganisation.css"
 import Button from '@material-ui/core/Button';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import axios from "axios";
 
 class OrganisationBasic extends Component {
     proceed = e => {
-        e.preventDefault();
+        e.preventDefault()
+        console.log(this.state)
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        console.log(this.state)
+        axios.post('http://localhost:8080/registration/type/organisation/info', { "orgName" : "the givers of hop","orgPassword" : "@assassinsCreed2", "orgPasswordConfirm" : "@assassinsCreed2"}, config)
+            .then(response =>{
+                console.log(response)
+                // console.log(response.data[0].org_name)
+                // this.setState({users: response.data[0].org_name})
+
+            })
+            .catch(error =>{
+                console.log(error)
+                this.setState({error : 'Error Retrieving data'})
+            })
         this.props.nextStep();
       };
     //   submitting = e => {
         
     //   };
-    
-      constructor() {
-        super();
+
+    constructor(props) {
+        super(props)
+
         this.state = {
-            // submitting: true
-        };
-      }
+            orgName: "",
+            // surname : "",
+            // email: "",
+            orgPassword: "",
+            orgPasswordConfirm: ""
+
+        }
+    }
+
+    changeHandler = (e) =>{
+        this.setState({[e.target.name] : e.target.value})
+    }
+
     render() {
-        const { values, handleChange } = this.props;
+        const {orgName,orgPassword, orgPasswordConfirm} = this.state
+        // const { values, handleChange } = this.props;
         // const isEnabled = values.orgName.length > 0 && values.password.length > 0;
         return (
             <div >
@@ -45,8 +77,12 @@ class OrganisationBasic extends Component {
                         <input type="name" 
                         className="control" 
                         placeholder="Name of Organisation"
-                        onChange={handleChange("orgName")} 
-                        defaultValue={values.orgName}
+                        // onChange={handleChange("orgName")}
+                        // defaultValue={values.orgName}
+                               name="orgName"
+                               value={orgName}
+                               onChange={this.changeHandler}
+
                         />
                     </div>
 
@@ -55,8 +91,11 @@ class OrganisationBasic extends Component {
                         <input type="name" 
                         className="control" 
                         placeholder="Password" 
-                        onChange={handleChange("orgPassword")}
-                        defaultValue={values.orgPassword}
+                        // onChange={handleChange("orgPassword")}
+                        // defaultValue={values.orgPassword}
+                               name="orgPassword"
+                               value={orgPassword}
+                               onChange={this.changeHandler}
                         />
                     </div>
 
@@ -64,9 +103,12 @@ class OrganisationBasic extends Component {
                         <label></label>
                         <input type="name" 
                         className="control" 
-                        placeholder="Confrim Password" 
-                        onChange={handleChange("orgPasswordConfirm")}
-                        defaultValue={values.orgPasswordConfirm}
+                        placeholder="Confirm Password"
+                        // onChange={handleChange("orgPasswordConfirm")}
+                        // defaultValue={values.orgPasswordConfirm}
+                               name="orgPasswordConfirm"
+                               value={orgPasswordConfirm}
+                               onChange={this.changeHandler}
                         />
                     </div>
                     <div>

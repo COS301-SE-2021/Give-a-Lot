@@ -65,16 +65,8 @@ export class RegisterOrganisation extends Component {
             values={values}
           />
         );
-        case 2:
-        return (
-          <OrganisationAbout
-            nextStep={this.nextStep}
-            prevStep={this.prevStep}
-            handleChange={this.handleChange}
-            values={values}
-          />
-        );
-      case 3:
+
+      case 2:
         return (
           <OrganisationContact
             nextStep={this.nextStep}
@@ -83,6 +75,15 @@ export class RegisterOrganisation extends Component {
             values={values}
           />
         );
+        case 3:
+            return (
+                <OrganisationAbout
+                    nextStep={this.nextStep}
+                    prevStep={this.prevStep}
+                    handleChange={this.handleChange}
+                    values={values}
+                />
+            );
         case 4:
         return (
           <OrganisationMedia

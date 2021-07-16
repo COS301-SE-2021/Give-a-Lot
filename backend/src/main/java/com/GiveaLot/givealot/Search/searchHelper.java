@@ -63,21 +63,16 @@ public class searchHelper {
 
     public static void main(String[] args)
     {
-        System.out.println("search test");
+        /*System.out.println("search test");
         try
         {
             boolean test_db = false;
             if(test_db)
             {
                 List<Organisation> organisationsList = new LinkedList<>();
-                organisationsList.add(new Organisation("givers of hope", "the givers of hope short description word limited", "youth", "givers@hope.com", "123password", "Ragnar Lothbrok", "0723456789"));
-                organisationsList.add(new Organisation("Access Isreal", "Giving you the freedom", "embassador", "Isreal@Access.com", "123password", "Peter Mohammed", "0223456789"));
-                organisationsList.add(new Organisation("AIDS-Free World", "living your best life with your status", "health", "AIDSFree@World.com", "123password", "Michelle Cole", "0123456789"));
-                organisationsList.add(new Organisation("Global Deaf Connection", "we at the organisation will always hear you shame", "youth", "Global@Connection.com", "123password", "Rudock Miller", "0323456789"));
-                organisationsList.add(new Organisation("G3ict – Global Initiative for Inclusive Technologies", "We at the gobal nton we are about technology and empowering the digital age", "tehonolgy", "G3ict@Initiative.com", "123password", "Bill Doors", "0733456789"));
-                organisationsList.add(new Organisation("Save The Children", "We at save the children we provide children with the safety and care their fragile minds deserve.", "children", "Children@Save.com", "123password", "Christine Miller", "0223456789"));
-                organisationsList.add(new Organisation("International Paralympic Committee", "we ensure equal rights to the physically limited in olympics", "sports", "Paralympic@International.com", "123password", "Joyce Maradona", "0743456789"));
-                organisationsList.add(new Organisation("Society for Mental Health Care", "the society for mental health care helps tackle depression in our society", "health", "Mental@Society.com", "123password", "Agnes Muranga", "0793456789"));
+                organisationsList.add(new Organisation("slogan1","givers of hope", "the givers of hope short description word limited", "youth", "givers@hope.com", "123password", "Ragnar Lothbrok", "0723456789"));
+                organisationsList.add(new Organisation("slogan2","Access Isreal", "Giving you the freedom", "embassador", "Isreal@Access.com", "123password", "Peter Mohammed", "0223456789"));
+                organisationsList.add(new Organisation("slogan4","AIDS-Free World", "living your best life with your status", "health", "AIDSFree@World.com", "123password", "Michelle Cole", "0123456789"));
 
                 OrganisationHelper OrganisationHelper = new OrganisationHelper();
                 OrganisationHelper.addOrg(organisationsList.get(6));
@@ -93,6 +88,6 @@ public class searchHelper {
             System.out.println("Test failed " + e);
         }
 
-        System.out.println("Test ended");
+        System.out.println("Test ended");*/
     }
 }

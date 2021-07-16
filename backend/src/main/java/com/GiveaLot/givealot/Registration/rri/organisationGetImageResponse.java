@@ -1,10 +1,10 @@
 package com.GiveaLot.givealot.Registration.rri;
 
-import com.GiveaLot.givealot.Registration.organisationRegistrationResponseJSON;
+import com.GiveaLot.givealot.Registration.json.organisationRegistrationResponseJSON;
 
 public class organisationGetImageResponse {
 
-    com.GiveaLot.givealot.Registration.organisationRegistrationResponseJSON organisationRegistrationResponseJSON;
+    com.GiveaLot.givealot.Registration.json.organisationRegistrationResponseJSON organisationRegistrationResponseJSON;
 
     public organisationGetImageResponse(organisationRegistrationResponseJSON organisationRegistrationResponseJSON) {
         this.organisationRegistrationResponseJSON = organisationRegistrationResponseJSON;

@@ -1,8 +1,5 @@
 package com.GiveaLot.givealot.Registration;
 
-import com.GiveaLot.givealot.Organisation.exceptions.OrgException;
-import com.GiveaLot.givealot.Organisation.get_OrganisationResponseJSON;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -98,7 +95,8 @@ public class SignupValidation {
         if (validator.matches()){
             return true;
         }
-        else{
+        else
+        {
             return false;
         }
     }
@@ -106,7 +104,7 @@ public class SignupValidation {
     /** Makes sure passwords match one another **/
     public boolean validateMatchingPasswords(String password, String passwordRep){
 
-        if (!password.equals(password)){
+        if (!password.equals(passwordRep)){
             return false;
         }
         return true;
@@ -121,7 +119,8 @@ public class SignupValidation {
 
         Matcher validator = regexCheck.matcher(email);
 
-        if (validator.matches()){
+        if(validator.matches())
+        {
             return true;
         }
         else{
@@ -152,7 +151,8 @@ public class SignupValidation {
 
             int x = 0;
 
-            while (rs.next()) {
+            while (rs.next())
+            {
                 emails.add(rs.getString("email"));
                 x++;
             }
@@ -165,7 +165,7 @@ public class SignupValidation {
             return true;
         }
         catch (Exception e){
-            throw new SQLException("Exception: Select from database could not be fulfilled");
+            throw new SQLException("Exception: Select from database could not be fulfilled \n" + e.getMessage());
         }
 
     }

@@ -1,19 +1,20 @@
 package com.GiveaLot.givealot.Registration.rri;
-import com.GiveaLot.givealot.Registration.organisationRegistrationResponseJSON;
+import com.GiveaLot.givealot.Registration.json.organisationRegistrationResponseJSON;
+import com.GiveaLot.givealot.Registration.json.tempOrganisation;
 
 public class organisationGetInfoResponse
 {
-    organisationRegistrationResponseJSON organisationRegistrationResponseJSON;
+    tempOrganisation tempOrganisation;
 
-    public organisationGetInfoResponse(organisationRegistrationResponseJSON organisationRegistrationResponseJSON) {
-        this.organisationRegistrationResponseJSON = organisationRegistrationResponseJSON;
+    public organisationGetInfoResponse(tempOrganisation tempOrganisation) {
+        this.tempOrganisation = tempOrganisation;
     }
 
-    public organisationRegistrationResponseJSON getOrganisationRegistrationResponseJSON() {
-        return organisationRegistrationResponseJSON;
+    public com.GiveaLot.givealot.Registration.json.tempOrganisation getTempOrganisation() {
+        return tempOrganisation;
     }
 
-    public void setOrganisationRegistrationResponseJSON(organisationRegistrationResponseJSON organisationRegistrationResponseJSON) {
-        this.organisationRegistrationResponseJSON = organisationRegistrationResponseJSON;
+    public void setTempOrganisation(com.GiveaLot.givealot.Registration.json.tempOrganisation tempOrganisation) {
+        this.tempOrganisation = tempOrganisation;
     }
 }

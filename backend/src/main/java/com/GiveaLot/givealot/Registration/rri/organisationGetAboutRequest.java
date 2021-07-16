@@ -4,14 +4,13 @@ public class organisationGetAboutRequest
 {
     private String organisationSlogan;
     private String organisationDescription;
-    private String organisationShortDescription;
-    private String organisationKey;
+    private String organisationSector;
 
-    public organisationGetAboutRequest(String organisationSlogan, String organisationDescription, String organisationShortDescription, String organisationKey) {
+
+    public organisationGetAboutRequest(String organisationSlogan, String organisationDescription, String organisationSector) {
         this.organisationSlogan = organisationSlogan;
         this.organisationDescription = organisationDescription;
-        this.organisationShortDescription = organisationShortDescription;
-        this.organisationKey = organisationKey;
+        this.organisationSector = organisationSector;
     }
 
     public String getOrganisationSlogan() {
@@ -30,19 +29,11 @@ public class organisationGetAboutRequest
         this.organisationDescription = organisationDescription;
     }
 
-    public String getOrganisationShortDescription() {
-        return organisationShortDescription;
+    public String getOrganisationSector() {
+        return organisationSector;
     }
 
-    public void setOrganisationShortDescription(String organisationShortDescription) {
-        this.organisationShortDescription = organisationShortDescription;
-    }
-
-    public void setOrganisationKey(String organisationKey) {
-        this.organisationKey = organisationKey;
-    }
-
-    public String getOrganisationKey() {
-        return organisationKey;
+    public void setOrganisationSector(String organisationSector) {
+        this.organisationSector = organisationSector;
     }
 }

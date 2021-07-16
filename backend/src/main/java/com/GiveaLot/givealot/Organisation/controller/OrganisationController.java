@@ -1,9 +1,9 @@
 package com.GiveaLot.givealot.Organisation.controller;
 
-import com.GiveaLot.givealot.Organisation.OrganisationResponseJSON;
+import com.GiveaLot.givealot.Organisation.json.OrganisationResponseJSON;
 import com.GiveaLot.givealot.Organisation.OrganisationServiceImpl;
 import com.GiveaLot.givealot.Organisation.getOrganisationResponse;
-import com.GiveaLot.givealot.Organisation.get_OrganisationResponseJSON;
+import com.GiveaLot.givealot.Organisation.json.get_OrganisationResponseJSON;
 import com.GiveaLot.givealot.Organisation.rri.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,17 +14,22 @@ import java.util.List;
 @RequestMapping("/organisation")
 public class OrganisationController
 {
+
     OrganisationServiceImpl OrganisationServiceImpl;
 
     @Autowired
-    OrganisationController(OrganisationServiceImpl OrganisationServiceImpl)
+    public OrganisationController(OrganisationServiceImpl OrganisationServiceImpl)
     {
         this.OrganisationServiceImpl = OrganisationServiceImpl;
     }
 
+    public OrganisationController() {
+        this.OrganisationServiceImpl = new OrganisationServiceImpl();
+    }
+
     @CrossOrigin
     @PostMapping("/register")
-    List<OrganisationResponseJSON>add_organisation(@RequestBody addOrganisationRequest request)
+    public List<OrganisationResponseJSON>add_organisation(@RequestBody addOrganisationRequest request)
     {
         try
         {

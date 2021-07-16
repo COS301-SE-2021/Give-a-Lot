@@ -1,10 +1,12 @@
 package com.GiveaLot.givealot.Organisation;
 
+import com.GiveaLot.givealot.Organisation.json.get_OrganisationResponseJSON;
+
 import java.util.List;
 
 public class getOrganisationResponse
 {
-    List<get_OrganisationResponseJSON> get_OrganisationResponseJSON;
+    List<com.GiveaLot.givealot.Organisation.json.get_OrganisationResponseJSON> get_OrganisationResponseJSON;
 
 
     public getOrganisationResponse() {

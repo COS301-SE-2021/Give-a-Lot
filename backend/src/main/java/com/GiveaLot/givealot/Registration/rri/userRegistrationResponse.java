@@ -1,6 +1,6 @@
 package com.GiveaLot.givealot.Registration.rri;
 
-import com.GiveaLot.givealot.Registration.userRegistrationResponseJSON;
+import com.GiveaLot.givealot.Registration.json.userRegistrationResponseJSON;
 
 public class userRegistrationResponse
 {

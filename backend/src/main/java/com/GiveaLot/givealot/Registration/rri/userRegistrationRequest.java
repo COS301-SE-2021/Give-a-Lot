@@ -6,14 +6,13 @@ public class userRegistrationRequest
     private String lastName;
     private String email;
     private String password;
-    private String user_id;
 
-    public userRegistrationRequest(String firstName, String lastName, String email, String password, String user_id) {
+
+    public userRegistrationRequest(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.user_id = user_id;
     }
 
     public String getFirstName() {
@@ -48,11 +47,4 @@ public class userRegistrationRequest
         this.password = password;
     }
 
-    public String getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
-    }
 }

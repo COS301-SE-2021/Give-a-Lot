@@ -65,4 +65,6 @@ public class userDetailsJSON
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
     }
+
+
 }

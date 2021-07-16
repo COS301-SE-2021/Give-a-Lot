@@ -14,7 +14,7 @@ public class infoJSON
     private String confirmPassword;
 
     public infoJSON(@JsonProperty("orgName") String organisationName,
-                    @JsonProperty("OrgPassword") String organisationPassword,
+                    @JsonProperty("orgPassword") String organisationPassword,
                     @JsonProperty("orgPasswordConfirm") String confirmPassword)
     {
 

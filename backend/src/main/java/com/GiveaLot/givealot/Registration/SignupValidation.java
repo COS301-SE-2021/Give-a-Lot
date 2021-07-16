@@ -50,7 +50,7 @@ public class SignupValidation {
     /** Makes sure contact person numbers are valid **/
     public boolean validateContactNumber(String contact){
 
-        String regex = "^(?=.*[0-9]).{10}$";
+        String regex = "^[0-9]{10,10}$";
 
         Pattern regexCheck = Pattern.compile(regex);
 
@@ -209,5 +209,13 @@ public class SignupValidation {
             throw new SQLException("Exception: Select from database could not be fulfilled" + e.getMessage());
         }
 
+    }
+
+    public static void main(String[] args) {
+        SignupValidation test = new SignupValidation();
+
+        Boolean result = test.validateContactNumber("0823322397");
+
+        System.out.println(result);
     }
 }

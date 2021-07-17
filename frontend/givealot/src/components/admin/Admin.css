@@ -1,6 +1,21 @@
-/*.mainBody{*/
-/*    display: flex;*/
-/*}*/
-.sidebar{
-    margin: 10px 20px 10px 10px;
+.Adminheader{
+    width: 100% ;
+    height: 70px;
+    margin-top: 0;
 }
+.mainBody{
+    display: flex;
+}
+.Adminsidebar{
+    position: absolute;
+    top: 110px;
+    left: 0;
+}
+.sidebar{
+    background-color: #2d9499;
+    border: solid 1px black;
+    height: 100%;
+    padding: 25px 10px;
+    flex: 0.35;
+}
+

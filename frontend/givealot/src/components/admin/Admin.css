@@ -18,4 +18,15 @@
     padding: 25px 10px;
     flex: 0.35;
 }
+.Adminbody{
+    position: absolute;
+    left: 280px;
+    top: 110px;
+    background-color: #2d9499;
+}
+.cards{
+    display: flex;
+    padding: 5px 30px;
+    flex: 0.35;
+}
 

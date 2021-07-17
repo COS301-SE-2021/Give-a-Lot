@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import logo from "./imagesRegister/ID2.png"
 import AdminSidebar from "./AdminSidebar"
+import AdminDashboard from "./AdminDashboard";
 import "./Admin.css"
 
 export class Admin extends Component {
@@ -17,8 +18,8 @@ export class Admin extends Component {
                     <div className="Adminsidebar">
                         <AdminSidebar />
                     </div>
-                    <div className="body">
-                        body
+                    <div className="Adminbody">
+                        <AdminDashboard />
                     </div>
                    
                 </div>

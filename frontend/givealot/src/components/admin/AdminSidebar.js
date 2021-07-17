@@ -18,7 +18,7 @@ export class Admin extends Component {
     render() {
         return (
         <div className="sidebar">
-            <Link to={'/dashboard'}>
+            <Link to={'/dashboard'} style={{ textDecoration: 'none' }}>
                 <ListItem button>
                     <ListItemIcon>
                         <DashboardIcon />
@@ -26,7 +26,7 @@ export class Admin extends Component {
                     <ListItemText primary="Dashboard" />
                 </ListItem>
             </Link>
-            <Link to={'/adminUser'}>
+            <Link to={'/adminUser'} style={{ textDecoration: 'none' }}>
                 <ListItem button>
                     <ListItemIcon>
                         <PeopleIcon />
@@ -35,7 +35,7 @@ export class Admin extends Component {
                 </ListItem>
             </Link>
 
-            <Link to={'/adminOrgs'}>
+            <Link to={'/adminOrgs'} style={{ textDecoration: 'none' }}>
                 <ListItem button>
                     <ListItemIcon>
                         <PeopleIcon />
@@ -44,7 +44,7 @@ export class Admin extends Component {
                 </ListItem>
             </Link>
 
-            <Link to={'/email'}>
+            <Link to={'/email'} style={{ textDecoration: 'none' }}>
                 <ListItem button>
                     <ListItemIcon>
                         <MailOutlineIcon />
@@ -53,7 +53,7 @@ export class Admin extends Component {
                 </ListItem>
             </Link>
 
-            <Link to={'/calendar'}>
+            <Link to={'/calendar'} style={{ textDecoration: 'none' }}>
                 <ListItem button>
                     <ListItemIcon>
                         <CalendarTodayIcon />
@@ -62,7 +62,7 @@ export class Admin extends Component {
                 </ListItem>
             </Link>
 
-            <Link to={'/todos'}>
+            <Link to={'/todos'} style={{ textDecoration: 'none' }}>
                 <ListItem button>
                     <ListItemIcon>
                         <AssignmentIcon />
@@ -71,7 +71,7 @@ export class Admin extends Component {
                 </ListItem>
             </Link>
 
-            <Link to={'/documentation'}>
+            <Link to={'/documentation'} style={{ textDecoration: 'none' }}>
                 <ListItem button>
                     <ListItemIcon>
                         <DescriptionIcon />
@@ -80,7 +80,7 @@ export class Admin extends Component {
                 </ListItem>
             </Link>
 
-            <Link to={'/stats'}>
+            <Link to={'/stats'} style={{ textDecoration: 'none' }}>
                 <ListItem button>
                     <ListItemIcon>
                         <BarChartIcon />
@@ -89,7 +89,7 @@ export class Admin extends Component {
                 </ListItem>
             </Link>
 
-            <Link to={'/logout'}>
+            <Link to={'/logout'} style={{ textDecoration: 'none' }}>
                 <ListItem button>
                     <ListItemIcon>
                         <AccountCircleIcon />

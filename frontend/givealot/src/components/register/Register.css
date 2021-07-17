@@ -26,7 +26,7 @@
     top: 180px;
     width: 300px;
     border-radius: 10px;
-    
+    text-decoration: none;
 }
 .icon{
     margin-right: 15px;
@@ -40,6 +40,7 @@
     top: 250px;
     width: 300px;
     border-radius: 10px;
+    text-decoration: none;
 }
 
 #Already_have_an_account_Log_in {

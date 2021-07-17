@@ -12,7 +12,7 @@ export class RegisterBack extends Component {
             <div>
                 <div className="buttons">
                     <div>
-                    <Link to={'/registerOrgs'} className="orgs">
+                    <Link to={'/registerOrgs'} className="orgs" >
                         <ListItem button>
                         <PeopleIcon className="icon"/>
                         <ListItemText primary="signup  as organization" />

@@ -12,19 +12,22 @@ export class Admin extends Component {
         return (
             <div className="admin">
                 <div className="Adminheader">
-                    <div >
-                        <img src={logo} alt="" className="image"/>
+                    <div className="imageDiv">
+                        <img src={logo} alt="" className="imageAdmin"/>
                     </div>
                 </div>
-                <div className="mainBody">
-                    <AdminSidebar />
-                    <AdminDashboard />
+                <div className="mainBodyAdmin" >
+                    <div>
+                        <AdminSidebar style={{width: "30%"}}/>
+                    </div>
+                    <div>
+                        <Switch>
+                            <Route exact path="/adminUsers" component={AdminUsers} />
+                            <Route exact path="/" component={AdminDashboard} />
+                        </Switch>
+                    </div>
+                    
                 </div>
-                <Switch>
-                    <Route exact path="/adminUsers" component={AdminUsers} />
-                    <Route exact path="/dashboard" component={AdminDashboard} />
-                </Switch>
-
             </div>
         )
     }

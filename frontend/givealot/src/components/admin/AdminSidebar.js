@@ -18,7 +18,7 @@ export class Admin extends Component {
     render() {
         return (
         <div className="sidebar">
-            <Link to={'/dashbaord'} className='text-link active'>
+            <Link to={'/'} className='text-link active'>
                 <ListItem button>
                     <ListItemIcon>
                         <DashboardIcon className="icon"/>

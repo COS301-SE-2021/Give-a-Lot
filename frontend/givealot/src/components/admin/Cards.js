@@ -8,8 +8,8 @@ function Cards ({number, Icon, title}) {
 
    
         return (
-            <div className="cards">
-                <Card>
+            <div className="card">
+                <Card >
                     <CardContent>
                         <Grid container justify="space-between" alignItems="center" className="cardItems">
                             <Grid item>

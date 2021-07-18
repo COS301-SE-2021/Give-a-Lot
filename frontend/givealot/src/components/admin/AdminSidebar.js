@@ -18,7 +18,7 @@ export class Admin extends Component {
     render() {
         return (
         <div className="sidebar">
-            <Link to={'/dashboard'} style={{ textDecoration: 'none' }}>
+            <Link to={'/'} style={{ textDecoration: 'none' }}>
                 <ListItem button>
                     <ListItemIcon>
                         <DashboardIcon />
@@ -26,7 +26,7 @@ export class Admin extends Component {
                     <ListItemText primary="Dashboard" />
                 </ListItem>
             </Link>
-            <Link to={'/adminUser'} style={{ textDecoration: 'none' }}>
+            <Link to={'/adminUsers'} style={{ textDecoration: 'none' }}>
                 <ListItem button>
                     <ListItemIcon>
                         <PeopleIcon />

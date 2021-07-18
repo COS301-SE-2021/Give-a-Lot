@@ -14,19 +14,44 @@
 .sidebar{
     background-color: #2d9499;
     border: solid 1px black;
-    height: 100%;
-    padding: 25px 10px;
-    flex: 0.35;
-}
-.Adminbody{
-    position: absolute;
-    left: 280px;
-    top: 110px;
-    background-color: lightgrey;
+    height: 83vh;
+    position: sticky;
 }
 .cards{
-    display: flex;
-    padding: 5px 30px;
-    flex: 0.35;
+    width: 100px !important;
+    height: 90px;
+    padding: 10px 50px;
+    width: 200px !important;
+    height: 70px;
 }
+
+.Cards{
+    display: flex;
+}
+.cardItems{
+    display: flex;
+}
+.chartArea{
+    width: 700px ;
+    height: 60vh !important;
+    position: absolute;
+    left: 200px;
+    top: 140px;
+}
+.adminDashboard{
+    position: absolute;
+    left: 230px;
+    top: 100px;
+    width: 82vw;
+    height: 83vh;
+    background-color: lightgrey;
+}
+/* .paper{
+    height: 350px;
+    width: 700px ;
+    flex: 0.30;
+}
+.chart{
+    height: 280px;
+} */
 

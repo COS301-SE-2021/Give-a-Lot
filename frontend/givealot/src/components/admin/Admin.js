@@ -3,6 +3,8 @@ import logo from "./imagesRegister/ID2.png"
 import AdminSidebar from "./AdminSidebar"
 import AdminDashboard from "./AdminDashboard";
 import "./Admin.css"
+import {Switch,Route} from "react-router-dom";
+import AdminUsers from "./adminUsers/AdminUsers"
 
 export class Admin extends Component {
 
@@ -19,10 +21,15 @@ export class Admin extends Component {
                         <AdminSidebar />
                     </div>
                     <div className="Adminbody">
-                        <AdminDashboard />
+                        {/* <AdminDashboard /> */}
                     </div>
                    
                 </div>
+                <Switch>
+                    <Route exact path="/adminUsers" component={AdminUsers} />
+                    <Route exact path="/" component={AdminDashboard} />
+                </Switch>
+
             </div>
         )
     }

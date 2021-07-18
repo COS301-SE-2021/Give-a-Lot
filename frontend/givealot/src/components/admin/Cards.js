@@ -11,14 +11,14 @@ function Cards ({number, Icon, title}) {
             <div className="card">
                 <Card >
                     <CardContent>
-                        <Grid container justify="space-between" alignItems="center" className="cardItems">
+                        <Grid className="cardItems">
                             <Grid item>
-                                <Typography variant="h2" >
-                                    {Icon && <Icon style={{fontSize: "xx-large"}}/> }
+                                <Typography variant="h2" style={{fontSize: "xx-large"}}>
+                                    {Icon && <Icon /> }
                                 </Typography>
                             </Grid>
                             <Grid item>
-                                <Typography variant="h4" >
+                                <Typography variant="h6" >
                                     {number}
                                 </Typography>
                                 <Typography variant="subtitle1" >

@@ -14,8 +14,7 @@ function Cards ({number, Icon, title}) {
                         <Grid container justify="space-between" alignItems="center" className="cardItems">
                             <Grid item>
                                 <Typography variant="h2" >
-                                    {/* <PeopleIcon /> */}
-                                    {Icon && <Icon /> }
+                                    {Icon && <Icon style={{fontSize: "xx-large"}}/> }
                                 </Typography>
                             </Grid>
                             <Grid item>

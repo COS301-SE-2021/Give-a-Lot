@@ -6,23 +6,19 @@
 .mainBody{
     display: flex;
 }
-.Adminsidebar{
-    position: absolute;
-    top: 110px;
-    left: 0;
-}
+
 .sidebar{
     background-color: #2d9499;
     border: solid 1px black;
-    height: 83vh;
-    position: sticky;
+    padding: 58px 5px;
+    flex: 0.15;
 }
 .cards{
-    width: 100px !important;
-    height: 90px;
-    padding: 10px 50px;
+    width: 150px !important;
+    height: 50px;
+    padding: 10px 30px;
     width: 200px !important;
-    height: 70px;
+    height: 50px;
 }
 
 .Cards{
@@ -31,27 +27,28 @@
 .cardItems{
     display: flex;
 }
+.adminDashboard{
+    background-color: lightgrey;
+    width: 100%;
+}
+.image{
+    height: 65px;
+}
+.text-link {
+    text-decoration: none;
+    color:  white;
+}
+
+.icon{
+    font-size: xx-large;
+    color: white;
+} 
+
 .chartArea{
     width: 700px ;
-    height: 60vh !important;
+    /* height: 500px !important; */
     position: absolute;
-    left: 200px;
-    top: 140px;
+    left: 400px;
+    top: 220px;
 }
-.adminDashboard{
-    position: absolute;
-    left: 230px;
-    top: 100px;
-    width: 82vw;
-    height: 83vh;
-    background-color: lightgrey;
-}
-/* .paper{
-    height: 350px;
-    width: 700px ;
-    flex: 0.30;
-}
-.chart{
-    height: 280px;
-} */
 

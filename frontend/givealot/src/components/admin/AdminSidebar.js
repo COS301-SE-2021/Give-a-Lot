@@ -18,81 +18,81 @@ export class Admin extends Component {
     render() {
         return (
         <div className="sidebar">
-            <Link to={'/'} style={{ textDecoration: 'none' }}>
+            <Link to={'/dashbaord'} className='text-link active'>
                 <ListItem button>
                     <ListItemIcon>
-                        <DashboardIcon />
+                        <DashboardIcon className="icon"/>
                     </ListItemIcon>
                     <ListItemText primary="Dashboard" />
                 </ListItem>
             </Link>
-            <Link to={'/adminUsers'} style={{ textDecoration: 'none' }}>
+            <Link to={'/adminUsers'} className='text-link' >
                 <ListItem button>
                     <ListItemIcon>
-                        <PeopleIcon />
+                        <PeopleIcon className="icon"/>
                     </ListItemIcon>
                     <ListItemText primary="View Users" />
                 </ListItem>
             </Link>
 
-            <Link to={'/adminOrgs'} style={{ textDecoration: 'none' }}>
+            <Link to={'/adminOrgs'} className='text-link' >
                 <ListItem button>
                     <ListItemIcon>
-                        <PeopleIcon />
+                        <PeopleIcon className="icon"/>
                     </ListItemIcon>
                     <ListItemText primary="View Organisations" />
                 </ListItem>
             </Link>
 
-            <Link to={'/email'} style={{ textDecoration: 'none' }}>
+            <Link to={'/email'} className='text-link' >
                 <ListItem button>
                     <ListItemIcon>
-                        <MailOutlineIcon />
+                        <MailOutlineIcon className="icon"/>
                     </ListItemIcon>
                     <ListItemText primary="Emails" />
                 </ListItem>
             </Link>
 
-            <Link to={'/calendar'} style={{ textDecoration: 'none' }}>
+            <Link to={'/calendar'} className='text-link'>
                 <ListItem button>
                     <ListItemIcon>
-                        <CalendarTodayIcon />
+                        <CalendarTodayIcon className="icon"/>
                     </ListItemIcon>
                     <ListItemText primary="Calendar" />
                 </ListItem>
             </Link>
 
-            <Link to={'/todos'} style={{ textDecoration: 'none' }}>
+            <Link to={'/todos'} className='text-link'>
                 <ListItem button>
                     <ListItemIcon>
-                        <AssignmentIcon />
+                        <AssignmentIcon className="icon"/>
                     </ListItemIcon>
                     <ListItemText primary="TO-DO's" />
                 </ListItem>
             </Link>
 
-            <Link to={'/documentation'} style={{ textDecoration: 'none' }}>
+            <Link to={'/documentation'} className='text-link' >
                 <ListItem button>
                     <ListItemIcon>
-                        <DescriptionIcon />
-                    </ListItemIcon>
+                        <DescriptionIcon className="icon"/>
+                    </ListItemIcon >
                     <ListItemText primary="Documentation" />
                 </ListItem>
             </Link>
 
-            <Link to={'/stats'} style={{ textDecoration: 'none' }}>
+            <Link to={'/stats'} className='text-link'>
                 <ListItem button>
                     <ListItemIcon>
-                        <BarChartIcon />
+                        <BarChartIcon className="icon"/>
                     </ListItemIcon>
                     <ListItemText primary="Statistics" />
                 </ListItem>
             </Link>
 
-            <Link to={'/logout'} style={{ textDecoration: 'none' }}>
+            <Link to={'/logout'} className='text-link'>
                 <ListItem button>
                     <ListItemIcon>
-                        <AccountCircleIcon />
+                        <AccountCircleIcon className="icon"/>
                     </ListItemIcon>
                     <ListItemText primary="Logout" />
                 </ListItem>

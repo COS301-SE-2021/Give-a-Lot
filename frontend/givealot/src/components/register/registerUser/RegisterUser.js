@@ -67,12 +67,10 @@ class RegisterUser extends Component {
         const {name, surname, email, password, confirmPassword} = this.state
         return (
             <div >
-                <div className="header">
-                    <div style={{width: "220px",height: "70px"}}>
-                        <img id="ID" src={logo} alt=""/>
-                    </div>
-
+                <div>
+                    <img id="ID" src={logo} alt="" style={{width: "220px ",height: "70px"}}/>
                 </div>
+
                 <div className="backArrow">
                     <ArrowBackIcon />
                 </div>

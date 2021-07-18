@@ -34,10 +34,10 @@ export class Home extends Component {
                         <FaBars size="1.9em" color="#767676" className="menu"/>
                     </div>
 
-                    <div className="home_image">
-                        <img id="home_ID" src={logo} alt=""/>
+                    <div >
+                        <img src={logo} alt="" className="home_image"/>
                     </div>
-
+                    
                 </div>
 
                 <div className="ribbon">
@@ -46,7 +46,7 @@ export class Home extends Component {
 
                 <div className="mainBody">
 
-                  <div className="image">
+                  <div className="images">
                         <img id="body_ID" src={bodyImage} alt=""/>
                     </div>
 

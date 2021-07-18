@@ -51,8 +51,9 @@ class Login extends Component {
             <div>
                 <div className="Login_header">
                     <div className="Login_image">
-                        <img id="Login_ID" src={logo} alt=""/>
+                        <img src={logo} alt="" className="Login_image"/>
                     </div>
+                    
                 </div>
                 <div className="backArrow">
                     <ArrowBackIcon />

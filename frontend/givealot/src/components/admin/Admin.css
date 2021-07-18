@@ -1,24 +1,31 @@
 .Adminheader{
     width: 100% ;
-    height: 70px;
+    height: 65px;
     margin-top: 0;
 }
-.mainBody{
+/* .imageDiv{
+    height: 65px;
+    margin-top: 0;
+} */
+.imageAdmin{
+    height: 65px;
+}
+.mainBodyAdmin{
     display: flex;
+    background-color: lightgrey;
+    width: 100%;
 }
 
 .sidebar{
     background-color: #2d9499;
     border: solid 1px black;
     padding: 58px 5px;
-    flex: 0.15;
+    flex: 0.1;
 }
-.cards{
-    width: 150px !important;
-    height: 50px;
-    padding: 10px 30px;
+.card{
+    height: 50px !important;
     width: 200px !important;
-    height: 50px;
+    padding: 10px 30px;
 }
 
 .Cards{
@@ -31,9 +38,7 @@
     background-color: lightgrey;
     width: 100%;
 }
-.image{
-    height: 65px;
-}
+
 .text-link {
     text-decoration: none;
     color:  white;

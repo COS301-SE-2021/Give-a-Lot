@@ -26,20 +26,13 @@ body{
 }
 .home_image{
     width: 220px;
-    height: 70px;
-
-
+    height: 65px;
 }
 .list{
-
-
     float: right;
     margin-top: 15px;
     position: absolute;
     right: 30px;
-
-
-
 }
 .home_button {
     background-color: white;
@@ -95,7 +88,7 @@ body{
     display: flex;
 
 }
-.image{
+.images{
 
     height: 394px;
     width: 504px;

@@ -26,8 +26,8 @@ export class ConfirmOrgRegistration extends Component {
     return (
       <Fragment>
         <div className="header">
-          <div style={{width: "220px",height: "70px"}}>
-              <img id="ID" src={logo} alt=""/>
+          <div >
+              <img id="ID" src={logo} alt="" style={{width: "220px ",height: "70px"}}/>
           </div>
         </div>
         <AppBar style={{ background: "#098F8F" }} position="sticky">
@@ -68,7 +68,7 @@ export class ConfirmOrgRegistration extends Component {
           <ListItem>
             <ListItemText primary="Slogan" secondary={slogan} />
             <ListItem>
-            <ListItemText primary="Image" secondary={image} />
+            <ListItemText primary="ImageO" secondary={image} />
           </ListItem>
           </ListItem>
         </List>

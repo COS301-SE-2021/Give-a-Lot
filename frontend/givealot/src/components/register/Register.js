@@ -13,12 +13,12 @@ export class Register extends Component {
     render() {
         return (
             <div className="register">
-                <div className="header">
-                    <div style={{width: "220px ",height: "70px"}}>
-                        <img id="ID" src={logo} alt=""/>
+                {/* <div className="header"> */}
+                    <div >
+                        <img id="ID" src={logo} alt="" style={{width: "220px ",height: "65px"}}/>
                     </div>
 
-                </div>
+                {/* </div> */}
                 <div className="backArrow">
                     <ArrowBackIcon />
                 </div>
@@ -29,9 +29,9 @@ export class Register extends Component {
                     </div>
                     <RegisterBack />
                     <Switch>
-                            <Route exact path="/registerOrgs" component={RegisterOrganisation} />
-                            <Route exact path="/registeruser" component={RegisterUser} />
-                            <Route exact path="/login" component={Login} />
+                        <Route exact path="/registerOrgs" component={RegisterOrganisation} />
+                        <Route exact path="/registeruser" component={RegisterUser} />
+                        <Route exact path="/login" component={Login} />
                     </Switch>
 
                 </div>

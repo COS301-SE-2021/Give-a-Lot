@@ -57,8 +57,8 @@ class OrganisationBasic extends Component {
         return (
             <div >
                 <div className="header">
-                    <div style={{width: "220px",height: "70px"}}>
-                        <img id="ID" src={logo} alt=""/>
+                    <div >
+                        <img id="ID" src={logo} alt="" style={{width: "220px ",height: "70px"}}/>
                     </div>
 
                 </div>

@@ -16,13 +16,13 @@
 .mainBodyAdmin{
     display: flex;
     background-color: lightgrey;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .sidebar{
     background-color: #2d9499;
     border: solid 1px black;
-    padding: 50px 5px;
+    padding: 70px 5px;
     flex: 0.35
 }
 .card{
@@ -35,7 +35,7 @@
 
 .adminDashboard{
     background-color: lightgrey;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .text-link {

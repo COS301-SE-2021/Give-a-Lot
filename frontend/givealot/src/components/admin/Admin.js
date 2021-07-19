@@ -18,7 +18,7 @@ export class Admin extends Component {
                 </div>
                 <div className="mainBodyAdmin" >
                     <div>
-                        <AdminSidebar style={{width: "30%"}}/>
+                        <AdminSidebar />
                     </div>
                     <div>
                         <Switch>

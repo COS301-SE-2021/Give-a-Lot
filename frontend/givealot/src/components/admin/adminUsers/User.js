@@ -28,7 +28,7 @@ export default function User(props) {
             // <div className="adminUsers" >
             //     here is the users
             // </div>
-            <List title="All users" {...props} style={{width: "1000px"}}>
+            <List title="All users" {...props} style={{width: "100%"}}>
                 <Datagrid style={{width: "1000px"}}>
                     <TextField source="id" />
                     <TextField source="name" />

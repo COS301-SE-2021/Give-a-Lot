@@ -16,9 +16,9 @@ function AdminDashboard (){
                     <Cards Icon={NotificationsIcon} title="Notifications" number="1245"/>
                     <Cards Icon={LibraryBooksIcon} title="Reports" number="45"/>
                 </div>
-                {/* <div className="chartArea">
+                <div className="chartArea">
                     <Charts />
-                </div> */}
+                </div>
             </div>
         )
 }

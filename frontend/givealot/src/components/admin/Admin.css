@@ -3,7 +3,8 @@
     height: 65px;
     margin-top: 0;
     /* z-index: 1034; */
-    /* position: fixed; */
+    position: absolute;
+    left: 240px;
 }
 .cardItems{
     /*justify-items: space-between;*/
@@ -28,7 +29,7 @@
     height: 100%;
     padding: 70px 5px;
     flex: 0.35;
-    /* position: fixed; */
+    position: fixed;
     /* flex-direction: column; */
 }
 .cards{
@@ -44,6 +45,9 @@
 .adminDashboard{
     background-color: lightgrey;
     height: 100%;
+    position: absolute;
+    left: 238px;
+    top: 60px;
 }
 
 .text-link {
@@ -60,7 +64,7 @@
     width: 700px ;
     height: 300px !important;
     position: absolute;
-    left: 400px;
+    left: 250px;
     top: 200px;
 }
 

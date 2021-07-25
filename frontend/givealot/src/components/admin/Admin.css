@@ -9,6 +9,7 @@
     width: 200px !important;
     height: 70px;
     display: flex;
+
 }
 .imageAdmin{
     height: 65px;
@@ -27,10 +28,12 @@
 }
 .card{
     padding: 10px 25px;
+
 }
 
 .Cards{
     display: flex;
+
 }
 
 .adminDashboard{

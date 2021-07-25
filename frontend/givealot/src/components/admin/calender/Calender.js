@@ -8,7 +8,7 @@ function Calender() {
 
     return (
         <div className="calendar">
-            <Calendar
+             <Calendar
                 onChange={onChange}
                 value={value}
             />

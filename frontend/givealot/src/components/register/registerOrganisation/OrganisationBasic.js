@@ -65,7 +65,7 @@ class OrganisationBasic extends Component {
                 <div className="backArrow">
                     <ArrowBackIcon />
                 </div>
-                <div className="container" >
+                <div className="containerO" >
 
                 <form className="form">
                     <div className="top">

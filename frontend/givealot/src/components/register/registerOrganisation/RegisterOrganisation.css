@@ -5,9 +5,9 @@
     border: none;
 
 }
-body{
+/* body{
     overflow: hidden;
-}
+} */
 
 .header{
     text-align: left;
@@ -23,7 +23,7 @@ body{
     height: 70px;
 
 }
-.container {
+.containerO {
 
     align-content: center;
     background-image: url("imagesRegister/back.png");

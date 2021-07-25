@@ -37,9 +37,11 @@
   }
 } */
 
-/* body{
+body{
   margin: 0;
-} */
+  height: 100% !important;
+  margin-left: 0;
+}
 
 /* .App {
   text-align: center;
@@ -66,3 +68,7 @@
  */
 
 
+ @media (min-width: 1200px) {
+  /* This part is only read by viewports wider than 1200 pixels */
+  body{ font-size: 16px;}
+}

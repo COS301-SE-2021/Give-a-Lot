@@ -5,9 +5,9 @@
     border: none;
 
 }
-body{
+/* body{
     overflow: hidden;
-}
+} */
 
 
 
@@ -25,7 +25,7 @@ body{
     height: 70px;
 
 } */
-.container{
+.containerU{
 
     align-content: center;
     background-image: url("imagesRegister/back.png");

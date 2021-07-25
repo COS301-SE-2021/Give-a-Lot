@@ -74,7 +74,7 @@ class RegisterUser extends Component {
                 <div className="backArrow">
                     <ArrowBackIcon />
                 </div>
-                <div className="container" >
+                <div className="containerU" >
 
                     <form className="form" onSubmit={this.submitHandler}>
                         <div className="top">

@@ -417,7 +417,7 @@ public class OrganisationHelper {
     /** Adds and Removes the data and points for the organisations audit document **/
     public void addOrgAuditDoc(String orgid,File audit){
 
-        String filepath;
+        String filepath = null;
 
         //Upload to server and save filepath
 
@@ -428,7 +428,7 @@ public class OrganisationHelper {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement state = connection.createStatement();
 
-            String query = "update public.\"OrganisationInfo\" set auditDocument = '" + audit + "' where \"orgId\" = '" + orgid + "';";
+            String query = "update public.\"OrganisationInfo\" set auditDocument = '" + filepath + "' where \"orgId\" = '" + orgid + "';";
 
             state.executeUpdate(query);
 

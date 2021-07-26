@@ -35,7 +35,7 @@ export class Admin extends Component {
                 </ListItem>
             </Link>
 
-            <Link to={'/adminOrgs'} className='text-link' >
+            <Link to={'/adminOrganisaions'} className='text-link' >
                 <ListItem button>
                     <ListItemIcon>
                         <PeopleIcon className="icon"/>

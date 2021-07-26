@@ -713,7 +713,7 @@ public class OrganisationHelper {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement state = connection.createStatement();
 
-            String query1 = "update public.\"OrganisationInfo\" set ngoNumber = '" + ngoNumber + "' where \"orgId\" = '" + orgid + "';";
+            String query1 = "update public.\"OrganisationInfo\" set ngoNumber = null where \"orgId\" = '" + orgid + "';";
             state.executeUpdate(query1);
             String query2 = "update public.\"OrganisationInfo\" set ngoDate = '" + ngoDate + "' where \"orgId\" = '" + orgid + "';";
             state.executeUpdate(query2);

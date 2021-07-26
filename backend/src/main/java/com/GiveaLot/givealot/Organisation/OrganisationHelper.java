@@ -649,7 +649,7 @@ public class OrganisationHelper {
         }
 
     }
-    public void removeOrgSocials(String orgid, String type){
+    public boolean removeOrgSocials(String orgid, String type){
 
         try {
             String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";

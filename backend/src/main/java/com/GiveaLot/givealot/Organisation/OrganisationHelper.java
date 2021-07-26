@@ -281,10 +281,10 @@ public class OrganisationHelper {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement state = connection.createStatement();
 
-            String query = "update public.\"OrganisationInfo\" set \"website\" = '" +website + "' where \"orgId\" = '" + orgid + "';";
-            System.out.println("works");
-            state.executeQuery(query);
-            System.out.println("works");
+            String query = "update public.\"OrganisationInfo\" set website = '" + website + "' where \"orgId\" = '" + orgid + "';";
+
+            state.executeUpdate(query);
+
             connection.close();
             System.out.println("Successfully Executed Update");
             return true;
@@ -294,22 +294,21 @@ public class OrganisationHelper {
         }
     }
     public boolean adminValidateWebsite(String orgid) throws SQLException {
-        try {
+
             String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
             String username = "iqvyaozz";
             String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement state = connection.createStatement();
 
-            String query1 = "update public.\"OrganisationPoints\" set \"websiteIsValid\" = true, set \"points\" = \"points\" + 10 where \"orgId\" = '" + orgid + "';";
-            state.executeQuery(query1);
+            String query1 = "update public.\"OrganisationPoints\" set \"websiteIsValid\" = true where \"orgId\" = '" + orgid + "';";
+            state.executeUpdate(query1);
+            String query2 = "update public.\"OrganisationPoints\" set \"points\" = points + 10 where \"orgId\" = '" + orgid + "';";
+            state.executeUpdate(query2);
             connection.close();
             System.out.println("Successfully Executed Update");
             return true;
-        }
-        catch (Exception e){
-            return false;
-        }
+
     }
     public boolean removeOrgWebsite(String orgid){
         try {
@@ -319,10 +318,12 @@ public class OrganisationHelper {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement state = connection.createStatement();
 
-            String query = "update public.\"OrganisationInfo\" set \"website\" = \"\" where \"orgId\" = '" + orgid + "';";
-            state.executeQuery(query);
-            String query1 = "update public.\"OrganisationPoints\" set \"websiteIsValid\" = false, set \"points\" = \"points\" - 10 where \"orgId\" = '" + orgid + "';";
-            state.executeQuery(query1);
+            String query = "update public.\"OrganisationInfo\" set \"website\" = null where \"orgId\" = '" + orgid + "';";
+            state.executeUpdate(query);
+            String query1 = "update public.\"OrganisationPoints\" set \"websiteIsValid\" = false where \"orgId\" = '" + orgid + "';";
+            state.executeUpdate(query1);
+            String query2 = "update public.\"OrganisationPoints\" set \"points\" = points - 10 where \"orgId\" = '" + orgid + "';";
+            state.executeUpdate(query2);
             connection.close();
             System.out.println("Successfully Executed Update");
             return true;
@@ -421,6 +422,7 @@ public class OrganisationHelper {
 
         System.out.println(help.addOrgWebsite("0470a7f6fb734ee2ce562d09170b0b85","https://works"));
         System.out.println(help.adminValidateWebsite("0470a7f6fb734ee2ce562d09170b0b85"));
+        System.out.println(help.removeOrgWebsite("0470a7f6fb734ee2ce562d09170b0b85"));
 //        String serverName = "hansken.db.elephantsql.com";
 //        String mydatabase = "Givealot";
 //        String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";

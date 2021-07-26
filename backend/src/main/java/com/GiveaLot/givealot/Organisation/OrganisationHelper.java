@@ -502,6 +502,9 @@ public class OrganisationHelper {
 
     /** Adds and Removes the data and points for for the members that form the organisations committee **/
     public boolean addOrgCommittee(String orgid,JSON committee){
+
+        String committeeInfo = committee.toString();
+
         try {
             String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
             String username = "iqvyaozz";

@@ -575,7 +575,7 @@ public class OrganisationHelper {
     }
 
     /** Adds and Removes the data and points for the organisations NGO number and registration date **/
-    public void addOrgNGO(String orgid,String ngoNumber, Date ngoDate){
+    public boolean addOrgNGO(String orgid,String ngoNumber, Date ngoDate){
         try {
             String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
             String username = "iqvyaozz";

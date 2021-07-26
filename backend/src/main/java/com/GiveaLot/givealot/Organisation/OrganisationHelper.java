@@ -715,7 +715,7 @@ public class OrganisationHelper {
 
             String query1 = "update public.\"OrganisationInfo\" set ngoNumber = null where \"orgId\" = '" + orgid + "';";
             state.executeUpdate(query1);
-            String query2 = "update public.\"OrganisationInfo\" set ngoDate = '" + ngoDate + "' where \"orgId\" = '" + orgid + "';";
+            String query2 = "update public.\"OrganisationInfo\" set ngoDate = null where \"orgId\" = '" + orgid + "';";
             state.executeUpdate(query2);
 
             connection.close();

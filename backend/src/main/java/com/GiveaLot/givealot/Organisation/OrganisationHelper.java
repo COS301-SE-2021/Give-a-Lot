@@ -295,6 +295,8 @@ public class OrganisationHelper {
     }
     public boolean adminValidateWebsite(String orgid) throws SQLException {
 
+        try{
+
             String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
             String username = "iqvyaozz";
             String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
@@ -308,6 +310,11 @@ public class OrganisationHelper {
             connection.close();
             System.out.println("Successfully Executed Update");
             return true;
+        }
+        catch (Exception e){
+            return false;
+        }
+
 
     }
     public boolean removeOrgWebsite(String orgid){

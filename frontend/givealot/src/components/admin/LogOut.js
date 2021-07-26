@@ -1,8 +1,4 @@
 import React, { Component } from 'react'
-// import ListItem from '@material-ui/core/ListItem';
-// import ListItemIcon from '@material-ui/core/ListItemIcon';
-// import ListItemText from '@material-ui/core/ListItemText';
-// import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { withStyles } from "@material-ui/core/styles";
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -11,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-// import profile from "./imagesRegister/profile.jpg";
+import profile from "./imagesRegister/profile.jpg";
 import "./Admin.css"
 import {Redirect} from "react-router-dom";
 
@@ -41,8 +37,7 @@ export class LogOut extends Component {
         const { navigate}=this.state;
         const {classes} = this.props;
         if(navigate){
-            return <Redirect to="/" push={true} />; //It should be redirected to home but since we only have admin on app, we cant
-            // redirect to home yet since we don't have home in history but when we've linked home we'll have to redirect to home
+            return <Redirect to="/" push={true} />;
         }
         return (
                 <div className="logout">

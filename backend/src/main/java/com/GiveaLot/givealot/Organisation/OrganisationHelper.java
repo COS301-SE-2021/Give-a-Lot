@@ -1,10 +1,12 @@
 package com.GiveaLot.givealot.Organisation;
 
+import com.GiveaLot.givealot.Certificate.dataclass.JSON;
 import com.GiveaLot.givealot.Organisation.dataclass.Organisation;
 import com.GiveaLot.givealot.Organisation.dataclass.Status;
 import com.GiveaLot.givealot.Organisation.exceptions.OrgException;
 import com.GiveaLot.givealot.Organisation.json.get_OrganisationResponseJSON;
 
+import java.io.File;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.text.DateFormat;
@@ -267,6 +269,95 @@ public class OrganisationHelper {
             System.out.println("get_org: problems executing query\n" + e.getMessage());
             return  null;
         }
+
+    }
+
+    /** Adds and Removes the data and points for the organisation website **/
+    public void addOrgWebsite(String orgid,String website){
+
+    }
+    public void removeOrgWebsite(String orgid){
+
+    }
+
+    /** Adds and Removes the data and points for the organisation address **/
+    public void addOrgAddress(String orgid,String address){
+
+    }
+    public void removeOrgAddress(String orgid){
+
+    }
+
+    /** Adds and Removes the data and points for each image added for that organisation (1 points each time, max 10) **/
+    public void addOrgImage(String orgid, File image){
+
+    }
+    public void removeOrgImage(String orgid){
+
+    }
+
+    /** Adds and Removes the data and points for the organisations audit document **/
+    public void addOrgAuditDoc(String orgid,File audit){
+
+    }
+    public void removeOrgAuditDoc(String orgid){
+
+    }
+
+    /** Adds and Removes the data and points for the organisations tax reference number **/
+    public void addOrgTaxRef(String orgid,String reference){
+
+    }
+    public void removeOrgTaxRef(String orgid){
+
+    }
+
+    /** Adds and Removes the data and points for the specific information for the auditor who audited the organisation**/
+    public void addOrgAuditor(String orgid, JSON auditor){
+
+    }
+    public void removeOrgAuditor(String orgid){
+
+    }
+
+    /** Adds and Removes the data and points for for the members that form the organisations committee **/
+    public void addOrgCommittee(String orgid,JSON committee){
+
+    }
+    public void removeOrgCommittee(String orgid){
+
+    }
+
+    /** Adds and Removes the data and points for the donation information provided by that organisation **/
+    //Needs fleshing out
+    public void addOrgDonationInfo(String orgid,JSON info){
+
+    }
+    public void removeOrgDonationInfo(String orgid){
+
+    }
+
+    /** Adds and Removes the data and points for the organisations social media **/
+    public void addOrgSocials(String orgid,String type, String website){
+
+    }
+    public void removeOrgSocials(String orgid, String type){
+
+    }
+
+    /** Adds and Removes the data and points for the organisations NGO number and registration date **/
+    public void addOrgNGO(String orgid,String ngoNumber, Date ngoDate){
+
+    }
+    public void removeOrgNGO(String orgid){
+
+    }
+
+    /** Adds and Removes the data and points for the organisations establishment date **/
+    public void addOrgEstDate(String orgid,Date date){
+
+    }
+    public void removeOrgEstDate(String orgid){
 
     }
 

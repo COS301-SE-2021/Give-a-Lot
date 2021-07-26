@@ -587,7 +587,7 @@ public class OrganisationHelper {
         }
 
     }
-    public void removeOrgCommittee(String orgid){
+    public boolean removeOrgCommittee(String orgid){
 
         try {
             String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";

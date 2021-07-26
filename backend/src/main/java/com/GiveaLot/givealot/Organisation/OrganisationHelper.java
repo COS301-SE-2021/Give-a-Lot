@@ -341,11 +341,47 @@ public class OrganisationHelper {
     }
 
     /** Adds and Removes the data and points for the organisation address **/
-    public void addOrgAddress(String orgid,String address){
+    public boolean addOrgAddress(String orgid,String address){
+        try {
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
+            String username = "iqvyaozz";
+            String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement state = connection.createStatement();
 
+            String query = "update public.\"OrganisationInfo\" set address = '" + address + "' where \"orgId\" = '" + orgid + "';";
+
+            state.executeUpdate(query);
+
+            connection.close();
+            System.out.println("Successfully Executed Update");
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
     }
-    public void removeOrgAddress(String orgid){
+    public boolean removeOrgAddress(String orgid){
+        try {
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
+            String username = "iqvyaozz";
+            String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement state = connection.createStatement();
 
+            String query = "update public.\"OrganisationInfo\" set \"address\" = null where \"orgId\" = '" + orgid + "';";
+            state.executeUpdate(query);
+            String query1 = "update public.\"OrganisationPoints\" set \"addressIsValid\" = false where \"orgId\" = '" + orgid + "';";
+            state.executeUpdate(query1);
+            String query2 = "update public.\"OrganisationPoints\" set \"points\" = points - 10 where \"orgId\" = '" + orgid + "';";
+            state.executeUpdate(query2);
+            connection.close();
+            System.out.println("Successfully Executed Update");
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
     }
 
     /** Adds and Removes the data and points for each image added for that organisation (1 points each time, max 10) **/

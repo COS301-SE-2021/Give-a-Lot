@@ -552,6 +552,14 @@ public class OrganisationHelper {
                 String query = "update public.\"OrganisationInfo\" set twitter = '" + account + "' where \"orgId\" = '" + orgid + "';";
                 state.executeUpdate(query);
             }
+            if(type.equals("facebook")) {
+                String query = "update public.\"OrganisationInfo\" set twitter = '" + account + "' where \"orgId\" = '" + orgid + "';";
+                state.executeUpdate(query);
+            }
+            if(type.equals("instagram")) {
+                String query = "update public.\"OrganisationInfo\" set twitter = '" + account + "' where \"orgId\" = '" + orgid + "';";
+                state.executeUpdate(query);
+            }
 
             connection.close();
             System.out.println("Successfully Executed Update");

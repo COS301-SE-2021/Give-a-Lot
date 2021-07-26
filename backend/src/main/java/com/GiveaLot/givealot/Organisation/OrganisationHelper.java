@@ -415,7 +415,7 @@ public class OrganisationHelper {
     }
 
     /** Adds and Removes the data and points for the organisations audit document **/
-    public void addOrgAuditDoc(String orgid,File audit){
+    public boolean addOrgAuditDoc(String orgid,File audit){
 
         String filepath = null;
 

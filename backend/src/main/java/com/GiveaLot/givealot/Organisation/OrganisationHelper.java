@@ -472,7 +472,7 @@ public class OrganisationHelper {
     }
 
     /** Adds and Removes the data and points for the specific information for the auditor who audited the organisation**/
-    public void addOrgAuditor(String orgid, JSON auditor){
+    public boolean addOrgAuditor(String orgid, JSON auditor){
 
         String auditorInfo = auditor.toString();
 

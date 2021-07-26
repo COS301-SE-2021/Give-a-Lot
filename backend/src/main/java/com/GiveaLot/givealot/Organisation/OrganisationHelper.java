@@ -385,8 +385,29 @@ public class OrganisationHelper {
     }
 
     /** Adds and Removes the data and points for each image added for that organisation (1 points each time, max 10) **/
-    public void addOrgImage(String orgid, File image){
+    public boolean addOrgImage(String orgid, File image){
         //increment image number and rename image to unique id and upload to server directory
+
+
+        //Upload image to server first
+        try {
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
+            String username = "iqvyaozz";
+            String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement state = connection.createStatement();
+
+            String query = "update public.\"OrganisationInfo\" set \"numberOfImages\" = numberOfImages + 1 where \"orgId\" = '" + orgid + "';";
+
+            state.executeUpdate(query);
+
+            connection.close();
+            System.out.println("Successfully Executed Update");
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
 
     }
     public void removeOrgImage(String orgid, String imageid){
@@ -396,6 +417,29 @@ public class OrganisationHelper {
     /** Adds and Removes the data and points for the organisations audit document **/
     public void addOrgAuditDoc(String orgid,File audit){
 
+        String filepath;
+
+        //Upload to server
+
+        try {
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
+            String username = "iqvyaozz";
+            String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement state = connection.createStatement();
+
+            String query = "update public.\"OrganisationInfo\" set auditDocument = '" + audit + "' where \"orgId\" = '" + orgid + "';";
+
+            state.executeUpdate(query);
+
+            connection.close();
+            System.out.println("Successfully Executed Update");
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
+
     }
     public void removeOrgAuditDoc(String orgid){
 
@@ -403,6 +447,24 @@ public class OrganisationHelper {
 
     /** Adds and Removes the data and points for the organisations tax reference number **/
     public void addOrgTaxRef(String orgid,String reference){
+        try {
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
+            String username = "iqvyaozz";
+            String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement state = connection.createStatement();
+
+            String query = "update public.\"OrganisationInfo\" set address = '" + address + "' where \"orgId\" = '" + orgid + "';";
+
+            state.executeUpdate(query);
+
+            connection.close();
+            System.out.println("Successfully Executed Update");
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
 
     }
     public void removeOrgTaxRef(String orgid){
@@ -411,6 +473,24 @@ public class OrganisationHelper {
 
     /** Adds and Removes the data and points for the specific information for the auditor who audited the organisation**/
     public void addOrgAuditor(String orgid, JSON auditor){
+        try {
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
+            String username = "iqvyaozz";
+            String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement state = connection.createStatement();
+
+            String query = "update public.\"OrganisationInfo\" set address = '" + address + "' where \"orgId\" = '" + orgid + "';";
+
+            state.executeUpdate(query);
+
+            connection.close();
+            System.out.println("Successfully Executed Update");
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
 
     }
     public void removeOrgAuditor(String orgid){
@@ -419,6 +499,24 @@ public class OrganisationHelper {
 
     /** Adds and Removes the data and points for for the members that form the organisations committee **/
     public void addOrgCommittee(String orgid,JSON committee){
+        try {
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
+            String username = "iqvyaozz";
+            String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement state = connection.createStatement();
+
+            String query = "update public.\"OrganisationInfo\" set address = '" + address + "' where \"orgId\" = '" + orgid + "';";
+
+            state.executeUpdate(query);
+
+            connection.close();
+            System.out.println("Successfully Executed Update");
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
 
     }
     public void removeOrgCommittee(String orgid){
@@ -436,6 +534,24 @@ public class OrganisationHelper {
 
     /** Adds and Removes the data and points for the organisations social media **/
     public void addOrgSocials(String orgid,String type, String account){
+        try {
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
+            String username = "iqvyaozz";
+            String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement state = connection.createStatement();
+
+            String query = "update public.\"OrganisationInfo\" set address = '" + address + "' where \"orgId\" = '" + orgid + "';";
+
+            state.executeUpdate(query);
+
+            connection.close();
+            System.out.println("Successfully Executed Update");
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
 
     }
     public void removeOrgSocials(String orgid, String type){
@@ -444,6 +560,24 @@ public class OrganisationHelper {
 
     /** Adds and Removes the data and points for the organisations NGO number and registration date **/
     public void addOrgNGO(String orgid,String ngoNumber, Date ngoDate){
+        try {
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
+            String username = "iqvyaozz";
+            String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement state = connection.createStatement();
+
+            String query = "update public.\"OrganisationInfo\" set address = '" + address + "' where \"orgId\" = '" + orgid + "';";
+
+            state.executeUpdate(query);
+
+            connection.close();
+            System.out.println("Successfully Executed Update");
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
 
     }
     public void removeOrgNGO(String orgid){
@@ -452,6 +586,24 @@ public class OrganisationHelper {
 
     /** Adds and Removes the data and points for the organisations establishment date **/
     public void addOrgEstDate(String orgid,Date date){
+        try {
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
+            String username = "iqvyaozz";
+            String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement state = connection.createStatement();
+
+            String query = "update public.\"OrganisationInfo\" set address = '" + address + "' where \"orgId\" = '" + orgid + "';";
+
+            state.executeUpdate(query);
+
+            connection.close();
+            System.out.println("Successfully Executed Update");
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
 
     }
     public void removeOrgEstDate(String orgid){

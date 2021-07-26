@@ -48,6 +48,7 @@ import AdminUsers from "./adminUsers/AdminUsers"
 import Calender from "./calender/Calender";
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import LogOut from "./LogOut";
 
 export class Admin extends Component {
 
@@ -71,6 +72,7 @@ export class Admin extends Component {
                                 <Route exact path="/adminUsers" component={AdminUsers} />
                                 <Route exact path="/calendar" component={Calender} />
                                 <Route exact path="/" component={AdminDashboard} />
+                                <Route exact path="/logout" component={LogOut} />
                             </Switch>
                         </Paper>
                     </Grid>

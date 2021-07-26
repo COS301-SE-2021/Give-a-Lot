@@ -90,13 +90,14 @@ export class Admin extends Component {
             </Link>
 
             <Link to={'/logout'} className='text-link'>
-                <ListItem button>
+                <ListItem button >
                     <ListItemIcon>
                         <AccountCircleIcon className="icon"/>
                     </ListItemIcon>
                     <ListItemText primary="Logout" />
                 </ListItem>
-            </Link>
+             </Link>
+
 
         </div>
         )

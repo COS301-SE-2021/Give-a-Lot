@@ -6,6 +6,8 @@ import "./Admin.css"
 import {Switch,Route} from "react-router-dom";
 import AdminUsers from "./adminUsers/AdminUsers"
 import Calender from "./calender/Calender"
+import ViewOrganisations from "./viewOrganisations/ViewOrganisations";
+import LogOut from "./LogOut";
 
 export class Admin extends Component {
 
@@ -26,6 +28,7 @@ export class Admin extends Component {
                            <Route exact path="/adminUsers" component={AdminUsers} />
                             <Route exact path="/" component={AdminDashboard} />
                             <Route exact path="/calendar" component={Calender} />
+                            <Route exact path="/logout" component={LogOut} />
                         </Switch>
                     </div>
                     

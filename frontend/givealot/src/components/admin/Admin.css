@@ -59,4 +59,17 @@
     top: 200px;
 }
 
+.logout{
+    background-color: #e8e8e8;
+
+    position: absolute;
+    top: 65px;
+    bottom: 17px;
+    left: 240px;
+    width: 100%;
+
+}
+
+
+
 

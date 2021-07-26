@@ -547,9 +547,11 @@ public class OrganisationHelper {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement state = connection.createStatement();
 
-            String query = "update public.\"OrganisationInfo\" set address = '" + address + "' where \"orgId\" = '" + orgid + "';";
 
-            state.executeUpdate(query);
+            if(type.equals("twitter")) {
+                String query = "update public.\"OrganisationInfo\" set twitter = '" + account + "' where \"orgId\" = '" + orgid + "';";
+                state.executeUpdate(query);
+            }
 
             connection.close();
             System.out.println("Successfully Executed Update");

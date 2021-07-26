@@ -610,7 +610,7 @@ public class OrganisationHelper {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement state = connection.createStatement();
 
-            String query = "update public.\"OrganisationInfo\" set address = '" + address + "' where \"orgId\" = '" + orgid + "';";
+            String query = "update public.\"OrganisationInfo\" set establishmentDate = '" + date + "' where \"orgId\" = '" + orgid + "';";
 
             state.executeUpdate(query);
 

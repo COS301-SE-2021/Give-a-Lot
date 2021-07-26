@@ -282,7 +282,9 @@ public class OrganisationHelper {
             Statement state = connection.createStatement();
 
             String query = "update public.\"OrganisationInfo\" set \"website\" = '" +website + "' where \"orgId\" = '" + orgid + "';";
+            System.out.println("works");
             state.executeQuery(query);
+            System.out.println("works");
             connection.close();
             System.out.println("Successfully Executed Update");
             return true;
@@ -415,6 +417,10 @@ public class OrganisationHelper {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException, NoSuchAlgorithmException, OrgException {
 
+        OrganisationHelper help = new OrganisationHelper();
+
+        System.out.println(help.addOrgWebsite("0470a7f6fb734ee2ce562d09170b0b85","https://works"));
+        System.out.println(help.adminValidateWebsite("0470a7f6fb734ee2ce562d09170b0b85"));
 //        String serverName = "hansken.db.elephantsql.com";
 //        String mydatabase = "Givealot";
 //        String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";

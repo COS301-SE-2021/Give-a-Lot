@@ -22,7 +22,7 @@ export class Register extends Component {
                 <div className="backArrow">
                     <ArrowBackIcon />
                 </div>
-                <div className="container" >
+                <div className="containers" >
                     <div className="gradientOverlay"></div>
                     <div className="NGOs_made_safer_for_you">
                         <span>NGOs made safer for you</span>

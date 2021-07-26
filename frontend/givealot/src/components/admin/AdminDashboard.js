@@ -8,11 +8,9 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 
 function AdminDashboard (){
-
-   
         return (
             <div className="adminDashboard">
-                <div className="Cards">
+                <div className="Cardss">
                     <Cards Icon={PeopleIcon} title="Organisations" number="123"/>
                     <Cards Icon={PersonIcon} title="Users" number="1245"/>
                     <Cards Icon={NotificationsIcon} title="Notifications" number="1245"/>
@@ -21,10 +19,8 @@ function AdminDashboard (){
                 <div className="chartArea">
                     <Charts />
                 </div>
-
             </div>
         )
-    
 }
 
 export default AdminDashboard

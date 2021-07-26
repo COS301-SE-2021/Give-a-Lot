@@ -8,7 +8,7 @@ function Cards ({number, Icon, title}) {
 
    
         return (
-            <div className="card">
+            <div className="cards">
                 <Card >
                     <CardContent>
                         <Grid className="cardItems">

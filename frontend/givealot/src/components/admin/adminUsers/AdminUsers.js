@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-// import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
-// import User  from './User';
 import { MDBDataTable, Row, Col, Card, CardBody } from 'mdbreact';
 import axios from "axios";
 

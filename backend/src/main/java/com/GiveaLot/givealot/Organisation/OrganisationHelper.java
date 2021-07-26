@@ -658,12 +658,20 @@ public class OrganisationHelper {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement state = connection.createStatement();
 
-            String query = "update public.\"OrganisationInfo\" set \"address\" = null where \"orgId\" = '" + orgid + "';";
-            state.executeUpdate(query);
-            String query1 = "update public.\"OrganisationPoints\" set \"addressIsValid\" = false where \"orgId\" = '" + orgid + "';";
-            state.executeUpdate(query1);
-            String query2 = "update public.\"OrganisationPoints\" set \"points\" = points - 10 where \"orgId\" = '" + orgid + "';";
-            state.executeUpdate(query2);
+            if(type.equals("twitter")) {
+                String query = "update public.\"OrganisationInfo\" set twitter = null where \"orgId\" = '" + orgid + "';";
+                state.executeUpdate(query);
+            }
+            if(type.equals("facebook")) {
+                String query = "update public.\"OrganisationInfo\" set facebook = null where \"orgId\" = '" + orgid + "';";
+                state.executeUpdate(query);
+            }
+            if(type.equals("instagram")) {
+                String query = "update public.\"OrganisationInfo\" set instagram = null where \"orgId\" = '" + orgid + "';";
+                state.executeUpdate(query);
+            }
+
+
             connection.close();
             System.out.println("Successfully Executed Update");
             return true;

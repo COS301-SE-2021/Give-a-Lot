@@ -446,7 +446,7 @@ public class OrganisationHelper {
     }
 
     /** Adds and Removes the data and points for the organisations tax reference number **/
-    public void addOrgTaxRef(String orgid,String reference){
+    public boolean addOrgTaxRef(String orgid,String reference){
         try {
             String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
             String username = "iqvyaozz";

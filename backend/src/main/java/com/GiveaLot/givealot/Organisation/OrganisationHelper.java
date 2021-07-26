@@ -419,7 +419,7 @@ public class OrganisationHelper {
 
         String filepath;
 
-        //Upload to server
+        //Upload to server and save filepath
 
         try {
             String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";

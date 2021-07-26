@@ -67,19 +67,24 @@ export class AdminUsers extends Component {
 
         // const { posts } = this.state
         return (
-            <div style={{position: "absolute", top: "65px", left: "240px", width: "1050px", height: "100%"}} >
+            <div style={{position: "absolute", top: "70px", left: "260px", width: "1050px", height: "100%"}}>
                 {/*<MDBDataTable striped bordered hover data={posts} />*/}
                 <Row className="mb-4">
                     <Col md="12">
                         <Card>
                             <CardBody>
                                 <MDBDataTable
+                                    paging={true}
                                     striped
                                     bordered
-                                    paging={true}
+                                    // scrollY
                                     hover
+                                    entriesOptions={[5, 20, 25]}
+                                    entries={5}
+                                    maxHeight="250px"
+                                    // pagesAmount={4}
                                     data={data}
-                                />
+                                    />
                             </CardBody>
                         </Card>
                     </Col>

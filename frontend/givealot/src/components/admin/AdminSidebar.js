@@ -12,94 +12,99 @@ import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import DescriptionIcon from '@material-ui/icons/Description';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import "./Admin.css"
+import logo from "./imagesRegister/ID2.png"
 
 export class Admin extends Component {
 
     render() {
         return (
-        <div className="sidebar">
-            <Link to={'/'} className='text-link active'>
-                <ListItem button>
-                    <ListItemIcon>
-                        <DashboardIcon className="icon"/>
-                    </ListItemIcon>
-                    <ListItemText primary="Dashboard" />
-                </ListItem>
-            </Link>
-            <Link to={'/adminUsers'} className='text-link' >
-                <ListItem button>
-                    <ListItemIcon>
-                        <PeopleIcon className="icon"/>
-                    </ListItemIcon>
-                    <ListItemText primary="View Users" />
-                </ListItem>
-            </Link>
+            <div>
+                <div className="HeaderA" id="myHeader">
+                    <img src={logo} alt="" className="imageAdmin"/>
+                </div>
+                <div className="sidebar">
+                    <Link to={'/'} className='text-link active'>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <DashboardIcon className="icon"/>
+                            </ListItemIcon>
+                            <ListItemText primary="Dashboard" />
+                        </ListItem>
+                    </Link>
+                    <Link to={'/adminUsers'} className='text-link' >
+                        <ListItem button>
+                            <ListItemIcon>
+                                <PeopleIcon className="icon"/>
+                            </ListItemIcon>
+                            <ListItemText primary="View Users" />
+                        </ListItem>
+                    </Link>
 
-            <Link to={'/adminOrganisaions'} className='text-link' >
-                <ListItem button>
-                    <ListItemIcon>
-                        <PeopleIcon className="icon"/>
-                    </ListItemIcon>
-                    <ListItemText primary="View Organisations" />
-                </ListItem>
-            </Link>
+                    <Link to={'/adminOrganisaions'} className='text-link' >
+                        <ListItem button>
+                            <ListItemIcon>
+                                <PeopleIcon className="icon"/>
+                            </ListItemIcon>
+                            <ListItemText primary="View Organisations" />
+                        </ListItem>
+                    </Link>
 
-            <Link to={'/email'} className='text-link' >
-                <ListItem button>
-                    <ListItemIcon>
-                        <MailOutlineIcon className="icon"/>
-                    </ListItemIcon>
-                    <ListItemText primary="Emails" />
-                </ListItem>
-            </Link>
+                    <Link to={'/emails'} className='text-link' >
+                        <ListItem button>
+                            <ListItemIcon>
+                                <MailOutlineIcon className="icon"/>
+                            </ListItemIcon>
+                            <ListItemText primary="Emails" />
+                        </ListItem>
+                    </Link>
 
-            <Link to={'/calendar'} className='text-link'>
-                <ListItem button>
-                    <ListItemIcon>
-                        <CalendarTodayIcon className="icon"/>
-                    </ListItemIcon>
-                    <ListItemText primary="Calendar" />
-                </ListItem>
-            </Link>
+                    <Link to={'/calendar'} className='text-link'>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <CalendarTodayIcon className="icon"/>
+                            </ListItemIcon>
+                            <ListItemText primary="Calendar" />
+                        </ListItem>
+                    </Link>
 
-            <Link to={'/todos'} className='text-link'>
-                <ListItem button>
-                    <ListItemIcon>
-                        <AssignmentIcon className="icon"/>
-                    </ListItemIcon>
-                    <ListItemText primary="TO-DO's" />
-                </ListItem>
-            </Link>
+                    <Link to={'/todos'} className='text-link'>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <AssignmentIcon className="icon"/>
+                            </ListItemIcon>
+                            <ListItemText primary="TO-DO's" />
+                        </ListItem>
+                    </Link>
 
-            <Link to={'/documentation'} className='text-link' >
-                <ListItem button>
-                    <ListItemIcon>
-                        <DescriptionIcon className="icon"/>
-                    </ListItemIcon >
-                    <ListItemText primary="Documentation" />
-                </ListItem>
-            </Link>
+                    <Link to={'/documentation'} className='text-link' >
+                        <ListItem button>
+                            <ListItemIcon>
+                                <DescriptionIcon className="icon"/>
+                            </ListItemIcon >
+                            <ListItemText primary="Documentation" />
+                        </ListItem>
+                    </Link>
 
-            <Link to={'/stats'} className='text-link'>
-                <ListItem button>
-                    <ListItemIcon>
-                        <BarChartIcon className="icon"/>
-                    </ListItemIcon>
-                    <ListItemText primary="Statistics" />
-                </ListItem>
-            </Link>
+                    <Link to={'/stats'} className='text-link'>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <BarChartIcon className="icon"/>
+                            </ListItemIcon>
+                            <ListItemText primary="Statistics" />
+                        </ListItem>
+                    </Link>
 
-            <Link to={'/logout'} className='text-link'>
-                <ListItem button >
-                    <ListItemIcon>
-                        <AccountCircleIcon className="icon"/>
-                    </ListItemIcon>
-                    <ListItemText primary="Logout" />
-                </ListItem>
-             </Link>
-
-
+                    <Link to={'/logout'} className='text-link'>
+                        <ListItem button >
+                            <ListItemIcon>
+                                <AccountCircleIcon className="icon"/>
+                            </ListItemIcon>
+                            <ListItemText primary="Logout" />
+                        </ListItem>
+                    </Link>
+            </div>
         </div>
+        
         )
     }
 }

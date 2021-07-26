@@ -273,10 +273,43 @@ public class OrganisationHelper {
     }
 
     /** Adds and Removes the data and points for the organisation website **/
-    public void addOrgWebsite(String orgid,String website){
+    public boolean addOrgWebsite(String orgid,String website) throws SQLException {
+        try {
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
+            String username = "iqvyaozz";
+            String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement state = connection.createStatement();
 
+            String query = "update public.\"OrganisationInfo\" set \"website\" where \"orgId\" = '" + orgid + "';";
+            state.executeQuery(query);
+            connection.close();
+            System.out.println("Successfully Executed Update");
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
     }
-    public void removeOrgWebsite(String orgid){
+    public boolean adminValidateWebsite(String orgid) throws SQLException {
+        try {
+            String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
+            String username = "iqvyaozz";
+            String password = "JMDPprQmLVegi673UQgH93aNEOSvt2K1";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement state = connection.createStatement();
+
+            String query1 = "update public.\"OrganisationPoints\" set \"websiteIsValid\" = true, set \"points\" = \"points\" + 10 where \"orgId\" = '" + orgid + "';";
+            state.executeQuery(query1);
+            connection.close();
+            System.out.println("Successfully Executed Update");
+            return true;
+        }
+        catch (Exception e){
+        return false;
+    }
+    }
+    public boolean removeOrgWebsite(String orgid){
 
     }
 
@@ -290,9 +323,10 @@ public class OrganisationHelper {
 
     /** Adds and Removes the data and points for each image added for that organisation (1 points each time, max 10) **/
     public void addOrgImage(String orgid, File image){
+        //increment image number and rename image to unique id and upload to server directory
 
     }
-    public void removeOrgImage(String orgid){
+    public void removeOrgImage(String orgid, String imageid){
 
     }
 
@@ -338,7 +372,7 @@ public class OrganisationHelper {
     }
 
     /** Adds and Removes the data and points for the organisations social media **/
-    public void addOrgSocials(String orgid,String type, String website){
+    public void addOrgSocials(String orgid,String type, String account){
 
     }
     public void removeOrgSocials(String orgid, String type){

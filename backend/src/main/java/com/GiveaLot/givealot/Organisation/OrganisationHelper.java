@@ -497,7 +497,7 @@ public class OrganisationHelper {
         }
 
     }
-    public void removeOrgTaxRef(String orgid){
+    public boolean removeOrgTaxRef(String orgid){
 
         try {
             String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";

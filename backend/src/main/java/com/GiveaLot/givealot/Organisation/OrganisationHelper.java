@@ -704,7 +704,7 @@ public class OrganisationHelper {
         }
 
     }
-    public void removeOrgNGO(String orgid){
+    public boolean removeOrgNGO(String orgid){
 
         try {
             String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";

@@ -473,6 +473,9 @@ public class OrganisationHelper {
 
     /** Adds and Removes the data and points for the specific information for the auditor who audited the organisation**/
     public void addOrgAuditor(String orgid, JSON auditor){
+
+        String auditorInfo = auditor.toString();
+
         try {
             String url = "jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz";
             String username = "iqvyaozz";
@@ -480,7 +483,7 @@ public class OrganisationHelper {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement state = connection.createStatement();
 
-            String query = "update public.\"OrganisationInfo\" set address = '" + address + "' where \"orgId\" = '" + orgid + "';";
+            String query = "update public.\"OrganisationInfo\" set auditorDetails = '" + auditorInfo + "' where \"orgId\" = '" + orgid + "';";
 
             state.executeUpdate(query);
 

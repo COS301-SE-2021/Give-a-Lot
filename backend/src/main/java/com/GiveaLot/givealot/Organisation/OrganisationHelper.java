@@ -553,11 +553,11 @@ public class OrganisationHelper {
                 state.executeUpdate(query);
             }
             if(type.equals("facebook")) {
-                String query = "update public.\"OrganisationInfo\" set twitter = '" + account + "' where \"orgId\" = '" + orgid + "';";
+                String query = "update public.\"OrganisationInfo\" set facebook = '" + account + "' where \"orgId\" = '" + orgid + "';";
                 state.executeUpdate(query);
             }
             if(type.equals("instagram")) {
-                String query = "update public.\"OrganisationInfo\" set twitter = '" + account + "' where \"orgId\" = '" + orgid + "';";
+                String query = "update public.\"OrganisationInfo\" set instagram = '" + account + "' where \"orgId\" = '" + orgid + "';";
                 state.executeUpdate(query);
             }
 

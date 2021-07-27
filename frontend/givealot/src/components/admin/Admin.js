@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import logo from "./imagesRegister/ID2.png"
+import Todo from "./todo/Todo"
 import AdminSidebar from "./AdminSidebar"
 import AdminDashboard from "./AdminDashboard";
 import "./Admin.css"
@@ -28,6 +28,8 @@ export class Admin extends Component {
                             <Route exact path="/logout" component={LogOut} />
                             <Route exact path="/adminOrganisaions" component={AdminOrganisations} />
                             <Route exact path="/emails" component={Emails} />
+                            <Route exact path="/todos" component={Todo} />
+
                         </Switch>
                         
                     </div>

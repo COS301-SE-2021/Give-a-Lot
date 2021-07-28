@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import { MDBDataTable, Row, Col, Card, CardBody } from 'mdbreact';
 import axios from "axios";
+import DialogTitle from '@material-ui/core/DialogTitle'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 export class AdminOrganisations extends Component {
 
@@ -13,6 +19,7 @@ export class AdminOrganisations extends Component {
             error: "",
             tableRows: [],
             isLoading:true,
+            open: false,
         }
 
     }
@@ -68,8 +75,15 @@ export class AdminOrganisations extends Component {
 
         return (
             <div>
-                <div style={{paddingBottom: "35px"}}>
-                    <Button variant="outlined" style={{color: "white", backgroundColor: "black"}} >Add Organisation</Button>
+                <div style={{paddingBottom: "50px"}}>
+                    <Button
+                        variant="outlined"
+                        style={{color: "white", backgroundColor: "black"}}
+                        onClick={() => this.setState({ open: !this.state.open })}
+                    >
+                        Add Organisation
+                    </Button>
+
                 </div>
                 <div >
                     <Row className="mb-4">
@@ -93,6 +107,67 @@ export class AdminOrganisations extends Component {
                         </Col>
                     </Row>
                 </div>
+                <Dialog open={this.state.open}  aria-labelledby="form-dialog-title">
+                    <DialogTitle id="form-dialog-title">Add Organisation</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                            Add Organisation
+                        </DialogContentText>
+                        <TextField
+                            autoFocus
+                            margin="dense"
+                            id="name"
+                            label="Email Address"
+                            type="email"
+                            fullWidth
+                        />
+                        <TextField
+                            autoFocus
+                            margin="dense"
+                            id="name"
+                            label="Email Address"
+                            type="email"
+                            fullWidth
+                        />
+                        <TextField
+                            autoFocus
+                            margin="dense"
+                            id="name"
+                            label="Email Address"
+                            type="email"
+                            fullWidth
+                        />
+                        <TextField
+                            autoFocus
+                            margin="dense"
+                            id="name"
+                            label="Email Address"
+                            type="email"
+                            fullWidth
+                        />
+                        <TextField
+                            autoFocus
+                            margin="dense"
+                            id="name"
+                            label="Email Address"
+                            type="email"
+                            fullWidth
+                        />
+                        <TextField
+                            autoFocus
+                            margin="dense"
+                            id="name"
+                            label="Email Address"
+                            type="email"
+                            fullWidth
+                        />
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={() => this.setState({ open: !this.state.open })}  color="primary">
+                            Subscribe
+                        </Button>
+                    </DialogActions>
+                </Dialog>
             </div>
         )
     }

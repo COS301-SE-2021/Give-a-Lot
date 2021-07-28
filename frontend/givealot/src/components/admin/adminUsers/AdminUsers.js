@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { MDBDataTable, Row, Col, Card, CardBody } from 'mdbreact';
 import axios from "axios";
+import "./AdminUsers.css"
 
 export class AdminUsers extends Component {
 
@@ -67,7 +68,7 @@ export class AdminUsers extends Component {
 
         // const { posts } = this.state
         return (
-            <div style={{position: "absolute", top: "70px", left: "260px", width: "1050px", height: "100%"}}>
+            <div style={{width: "100%"}}>
                 {/*<MDBDataTable striped bordered hover data={posts} />*/}
                 <Row className="mb-4">
                     <Col md="12">

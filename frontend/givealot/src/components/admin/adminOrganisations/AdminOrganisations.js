@@ -67,11 +67,11 @@ export class AdminOrganisations extends Component {
         }
 
         return (
-            <div >
-                <div style={{paddingBottom: "20px",position: "absolute", top: "70px", left: "260px"}}>
+            <div>
+                <div style={{paddingBottom: "50px"}}>
                     <Button variant="outlined" style={{color: "white", backgroundColor: "black"}} >Add Organisation</Button>
                 </div>
-                <div style={{position: "absolute", top: "130px", left: "260px", width: "1050px", height: "100%"}}>
+                <div >
                     <Row className="mb-4">
                         <Col md="12">
                             <Card>

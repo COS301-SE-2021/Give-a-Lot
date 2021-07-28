@@ -14,15 +14,16 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import "./Admin.css"
 import logo from "./imagesRegister/ID2.png"
 
-export class Admin extends Component {
+export class AdminSidebar extends Component {
 
     render() {
         return (
             <div>
-                <div className="HeaderA" id="myHeader">
-                    <img src={logo} alt="" className="imageAdmin"/>
-                </div>
                 <div className="sidebar">
+                    <div>
+                        <img src={logo} alt="" className="imageAdmin"/>
+                    </div>
+
                     <Link to={'/'} className='text-link active'>
                         <ListItem button>
                             <ListItemIcon>
@@ -102,11 +103,11 @@ export class Admin extends Component {
                             <ListItemText primary="Logout" />
                         </ListItem>
                     </Link>
+                </div>
             </div>
-        </div>
-        
+
         )
     }
 }
 
-export default Admin
+export default AdminSidebar

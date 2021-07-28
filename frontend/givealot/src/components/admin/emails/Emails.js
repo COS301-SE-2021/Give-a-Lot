@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
+import Mailer from "./Mailer"
+import "./Email.css"
+
 
 export class Emails extends Component {
 
     render() {
         return (
-            <div>Emails</div>
+            <div className="email">
+                <Mailer/>
+            </div>
         )
     }
 }

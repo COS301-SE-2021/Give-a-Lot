@@ -16,6 +16,7 @@
 .AdminBody{
     display: flex;
     background-color: white;
+    /*overflow: hidden;*/
 }
 
 .sidebar{

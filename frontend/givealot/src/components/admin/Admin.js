@@ -26,7 +26,7 @@ export class Admin extends Component {
                             <Route exact path="/calendar" component={Calender} />
                             <Route exact path="/" component={AdminDashboard} />
                             <Route exact path="/logout" component={LogOut} />
-                            <Route exact path="/adminOrganisaions" component={AdminOrganisations} />
+                            <Route exact path="/adminOrganisations" component={AdminOrganisations} />
                             <Route exact path="/emails" component={Emails} />
                             <Route exact path="/todos" component={Todo} />
 

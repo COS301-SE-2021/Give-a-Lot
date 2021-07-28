@@ -37,37 +37,29 @@
   }
 } */
 
-body{
-  margin: 0;
-  height: 100% !important;
-}
-
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
-}
- */
 
 
- @media (min-width: 1200px) {
-  /* This part is only read by viewports wider than 1200 pixels */
-  body{ font-size: 16px;}
+/*.App-logo {*/
+/*  height: 40vmin;*/
+/*}*/
+
+/*.App-header {*/
+/*  background-color: #282c34;*/
+/*  min-height: 100vh;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  align-items: center;*/
+/*  justify-content: center;*/
+/*  font-size: calc(10px + 2vmin);*/
+/*  color: white;*/
+/*}*/
+
+/*.App-link {*/
+/*  color: #09d3ac;*/
+/*}*/
+
+.AppContainer{
+    height: 50vh;
+    /*overflow-x: hidden;*/
+    /*overflow-y: hidden;*/
 }

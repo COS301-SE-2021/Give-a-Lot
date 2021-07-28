@@ -1,0 +1,31 @@
+.email{
+    margin-top: 90px;
+    margin-left: 150px;
+}
+
+.container{
+    border: 1px solid black;
+    background-color: #e8e8e8;
+    background-position: center;
+    background-size: cover;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea, select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}

@@ -1,8 +1,10 @@
 import React from "react";
+import "./Email.css"
 
 const Mailer=()=>{
     return(
-        <div>
+        <div className="container">
+
             <h1>Send an Email</h1>
             <form>
                 <label>name</label>

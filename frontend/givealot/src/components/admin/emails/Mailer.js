@@ -5,7 +5,7 @@ const Mailer=()=>{
     return(
         <div className="container">
 
-            <h1>Send an Email</h1>
+            <h2 className="heading">Send an Email</h2>
             <form>
                 <label>name</label>
                 <input type="text" name="name"/>
@@ -14,7 +14,7 @@ const Mailer=()=>{
                 <input type="email" name="user_email"/>
 
                 <label>Message</label>
-                <textarea name="message" rows='4' />
+                <textarea name="message" rows='7' />
                 <input type="submit" value="send"/>
             </form>
         </div>

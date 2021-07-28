@@ -1,16 +1,16 @@
-// import Register from "./components/register/Register";
-// import Login from "./components/login/Login";
-// import Home from "./components/basicUser/home/Home"
-// import {Switch,Route} from "react-router-dom";
-// import RegisterOrganisation from "./components/register/registerOrganisation/RegisterOrganisation";
-// import RegisterUser from "./components/register/registerUser/RegisterUser";
-import Admin from "./components/admin/Admin"
+import Register from "./components/register/Register";
+import Login from "./components/login/Login";
+import Home from "./components/basicUser/home/Home"
+import {Switch,Route} from "react-router-dom";
+import RegisterOrganisation from "./components/register/registerOrganisation/RegisterOrganisation";
+import RegisterUser from "./components/register/registerUser/RegisterUser";
+// import Admin from "./components/admin/Admin"
 import './App.css';
 
 function App() {
     return (
       <div className="AppContainer">
-        {/* <Switch>
+        <Switch>
          <Route exact path="/">
            <Home />
          </Route>
@@ -26,9 +26,9 @@ function App() {
          <Route path="/registeruser">
            <RegisterUser />
          </Route>
-        </Switch> */}
+        </Switch>
         
-         <Admin />
+         {/*<Admin />*/}
       </div>
    );
   

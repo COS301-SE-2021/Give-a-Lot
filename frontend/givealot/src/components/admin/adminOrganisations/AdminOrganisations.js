@@ -68,7 +68,7 @@ export class AdminOrganisations extends Component {
 
         return (
             <div>
-                <div style={{paddingBottom: "50px"}}>
+                <div style={{paddingBottom: "35px"}}>
                     <Button variant="outlined" style={{color: "white", backgroundColor: "black"}} >Add Organisation</Button>
                 </div>
                 <div >

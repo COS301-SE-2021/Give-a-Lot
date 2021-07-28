@@ -1,29 +1,19 @@
 import React, { Component } from "react";
-// import "../Register.css";
 import "./RegisterUser.css"
-// import {FaGithub } from "react-icons/fa";
 import logo from "../imagesRegister/ID2.png";
 import axios from 'axios';
-import { Redirect } from "react-router";
 import Login from "../../login/Login"
 import {Switch,Route} from "react-router-dom";
-import PopUp from "./PopUp";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import DialogTitle from '@material-ui/core/DialogTitle'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import Button from '@material-ui/core/Button';
 
 
 class RegisterUser extends Component {
-    state = {
-        redirect: false
-    }
-    redirectHandler = () => {
-        this.setState({ redirect: true })
-        this.renderRedirect();
-    }
-    renderRedirect = () => {
-        if (this.state.redirect) {
-            return <Redirect to='/login' />
-        }
-    }
 
     constructor(props) {
         super(props)
@@ -33,21 +23,11 @@ class RegisterUser extends Component {
             surname : "",
             email: "",
             password: "",
-            confirmPassword: ""
+            confirmPassword: "",
+            open: false,
 
         }
     }
-    state = {
-        seen: false
-      };
-    
-      togglePop = () => {
-        this.setState({
-          seen: !this.state.seen
-        });
-      };
-    
-
     changeHandler = (e) =>{
         this.setState({[e.target.name] : e.target.value})
     }
@@ -104,17 +84,27 @@ class RegisterUser extends Component {
                             <label></label>
                             <input type="password" name="confirmPassword" value={confirmPassword} onChange={this.changeHandler} className="control" placeholder="Confirm Password" />
                         </div>
-                        {/* <div>
-                            <button type="submit" className="button" onClick={this.redirectHandler}>
-                                Sign Up
-                                {this.renderRedirect()}
-                            </button>
-                        </div> */}
                         <div>
-                            <div >
-                                <button className="button" onClick={this.togglePop}>Sign Up</button>
-                            </div>
-                            {this.state.seen ? <PopUp toggle={this.togglePop} /> : null}
+                            <button className="button" onClick={() => this.setState({ open: !this.state.open })}>
+                                Sign Up
+                            </button>
+
+                            <header className='App-header'>
+                                <Dialog open={this.state.open}>
+
+                                    <DialogTitle id="alert-dialog-title">{"Login to GiveAlot?"}</DialogTitle>
+                                    <DialogContent>
+                                        <DialogContentText id="alert-dialog-description">
+                                            Thank you for Registering
+                                        </DialogContentText>
+                                    </DialogContent>
+                                    <DialogActions>
+                                        <Button onClick={() => this.setState({ open: !this.state.open })} color="primary" autoFocus>
+                                            Click to Login
+                                        </Button>
+                                    </DialogActions>
+                                </Dialog>
+                            </header>
                         </div>
 
                     </form>

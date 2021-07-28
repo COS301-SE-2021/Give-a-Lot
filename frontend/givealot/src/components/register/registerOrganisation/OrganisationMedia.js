@@ -71,7 +71,7 @@ class OrganisationMedia extends Component {
                             color: "#FFFFFF"
                         }}
                         label="Continue"
-                        onClick={this.proceed}
+                        // onClick={this.proceed}
                         onClick={() => this.setState({ open: !this.state.open })}
                         >
                         {" "}

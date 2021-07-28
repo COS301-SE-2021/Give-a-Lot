@@ -3,8 +3,8 @@ import OrganisationAbout from "./OrganisationAbout";
 import OrganisationContact from "./OrganisationContact";
 import OrganisationMedia from "./OrganisationMedia";
 import OrganisationBasic from "./OrganisationBasic"
-import ConfirmOrgRegistration from "./ConfirmOrgRegistration";
-import OrgSuceessRegistration from "./OrgSucessRegistration";
+// import ConfirmOrgRegistration from "./ConfirmOrgRegistration";
+// import OrgSuceessRegistration from "./OrgSucessRegistration";
 // import Confirm from "./components/Confirm";
 // import Success from "./components/Success";
 export class RegisterOrganisation extends Component {

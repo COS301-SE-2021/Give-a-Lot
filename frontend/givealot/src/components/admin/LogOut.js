@@ -15,6 +15,7 @@ import {Redirect} from "react-router-dom";
 const styles = theme =>({
     root: {
         maxWidth: 345,
+        backgroundColor: '#e8e8e8',
     },
     media: {
         height: 140,
@@ -47,13 +48,15 @@ export class LogOut extends Component {
                             <CardMedia
                                 className={classes.media}
                                 image="/imagesRegister/profile.jpg"
-                                title="Contemplative Reptile"
+                                title="profile"
+
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="h2">
                                     User name
+
                                 </Typography>
-                                <Typography variant="body2" color="textSecondary" component="p">
+                                <Typography variant="body2" color="textPrimary" component="p">
                                    Are you sure you want to log out?,
                                     You can always log back in at any time.
                                 </Typography>

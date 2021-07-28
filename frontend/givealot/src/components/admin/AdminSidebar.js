@@ -77,21 +77,12 @@ export class AdminSidebar extends Component {
                         </ListItem>
                     </Link>
 
-                    <Link to={'/documentation'} className='text-link' >
+                    <Link to={'/settings'} className='text-link' >
                         <ListItem button>
                             <ListItemIcon>
                                 <DescriptionIcon className="icon"/>
                             </ListItemIcon >
-                            <ListItemText primary="Documentation" />
-                        </ListItem>
-                    </Link>
-
-                    <Link to={'/stats'} className='text-link'>
-                        <ListItem button>
-                            <ListItemIcon>
-                                <BarChartIcon className="icon"/>
-                            </ListItemIcon>
-                            <ListItemText primary="Statistics" />
+                            <ListItemText primary="Settings" />
                         </ListItem>
                     </Link>
 

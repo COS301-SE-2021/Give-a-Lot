@@ -164,7 +164,7 @@ export class AdminOrganisations extends Component {
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={() => this.setState({ open: !this.state.open })}  color="primary">
-                            Subscribe
+                            Submit
                         </Button>
                     </DialogActions>
                 </Dialog>

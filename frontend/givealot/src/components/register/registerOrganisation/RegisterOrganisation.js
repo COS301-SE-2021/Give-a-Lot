@@ -93,18 +93,18 @@ export class RegisterOrganisation extends Component {
             values={values}
           />
         );
-      case 5:
-        return (
-          <ConfirmOrgRegistration
-            nextStep={this.nextStep}
-            prevStep={this.prevStep}
-            values={values}
-          />
-        );
-        
+      // case 5:
+      //   return (
+      //     <ConfirmOrgRegistration
+      //       nextStep={this.nextStep}
+      //       prevStep={this.prevStep}
+      //       values={values}
+      //     />
+      //   );
       //
-      case 6:
-        return <OrgSuceessRegistration firstStep={this.firstStep} />;
+      // //
+      // case 6:
+      //   return <OrgSuceessRegistration firstStep={this.firstStep} />;
     }
   }
 }

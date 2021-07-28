@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import Button from '@material-ui/core/Button';
 import "./RegisterOrganisation.css"
 import logo from "./imagesRegister/ID2.png";
+import DialogTitle from '@material-ui/core/DialogTitle'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
 
 class OrganisationMedia extends Component {
     proceed = e => {
@@ -15,7 +20,8 @@ class OrganisationMedia extends Component {
       constructor() {
         super();
         this.state = {
-          disabled: false
+          disabled: false,
+            open: false,
         };
       }
     render() {
@@ -66,11 +72,28 @@ class OrganisationMedia extends Component {
                         }}
                         label="Continue"
                         onClick={this.proceed}
+                        onClick={() => this.setState({ open: !this.state.open })}
                         >
                         {" "}
                         Proceed
                     </Button>
-                        {/* <button type="submit" className="button">Register</button> */}
+                        <header className='App-header'>
+                            <Dialog open={this.state.open}>
+
+                                <DialogTitle id="alert-dialog-title">{"Login to GiveAlot?"}</DialogTitle>
+                                <DialogContent>
+                                    <DialogContentText id="alert-dialog-description">
+                                        Thank you for Registering
+                                    </DialogContentText>
+                                </DialogContent>
+                                <DialogActions>
+                                    <Button onClick={() => this.setState({ open: !this.state.open })} color="primary" autoFocus>
+                                        Click to Login
+                                    </Button>
+                                </DialogActions>
+                            </Dialog>
+                        </header>
+
                     </div>
 
                 </form>

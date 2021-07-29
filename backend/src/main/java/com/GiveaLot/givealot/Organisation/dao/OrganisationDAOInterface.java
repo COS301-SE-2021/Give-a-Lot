@@ -27,7 +27,11 @@ public interface OrganisationDAOInterface {
     /** Additional functions **/
 
 
-    public boolean addOrgWebsite(String orgId,String website);
+    public boolean addOrgWebsite(String orgId, String website);
+
+    public boolean removeOrgWebsite(String orgId);
+
+    public boolean addOrgAddress(String orgId, String address);
 
     public boolean removeOrgAddress(String orgId);
 

@@ -55,6 +55,16 @@ public class OrganisationDASPostgre implements OrganisationDAOInterface{
     }
 
     @Override
+    public boolean removeOrgWebsite(String orgId) {
+        return false;
+    }
+
+    @Override
+    public boolean addOrgAddress(String orgId, String address) {
+        return false;
+    }
+
+    @Override
     public boolean removeOrgAddress(String orgId) {
         return false;
     }

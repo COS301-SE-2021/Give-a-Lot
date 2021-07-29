@@ -7,7 +7,7 @@ public class OrganisationPoints {
 
     private String orgId;
     private String website;
-    private File image;
+    private String address;
     private File audit;
     private String reference;
     private String auditor;
@@ -17,10 +17,9 @@ public class OrganisationPoints {
     private Date ngoDate;
     private Date estDate;
 
-    public OrganisationPoints(String orgId, String website, File image, File audit, String reference, String auditor, String committee, String info, String type, Date ngoDate, Date estDate) {
+    public OrganisationPoints(String orgId, String website, File audit, String reference, String auditor, String committee, String info, String type, Date ngoDate, Date estDate) {
         this.orgId = orgId;
         this.website = website;
-        this.image = image;
         this.audit = audit;
         this.reference = reference;
         this.auditor = auditor;
@@ -33,7 +32,6 @@ public class OrganisationPoints {
     public OrganisationPoints() {
         this.orgId = null;
         this.website = null;
-        this.image = null;
         this.audit = null;
         this.reference = null;
         this.auditor = null;
@@ -60,14 +58,6 @@ public class OrganisationPoints {
 
     public void setWebsite(String website) {
         this.website = website;
-    }
-
-    public File getImage() {
-        return image;
-    }
-
-    public void setImage(File image) {
-        this.image = image;
     }
 
     public File getAudit() {

@@ -76,14 +76,13 @@
 }
 .dash{
     margin-top: 50px;
-    margin-left: 260px;
+    margin-left: 170px;
     height: 70vh;
     width: 80% !important;
     /*background-color: #d10000;*/
 }
-/**{*/
-/*    overflow: hidden;*/
-/*}*/
-
+.profile{
+   margin-bottom: 20px;
+}
 
 

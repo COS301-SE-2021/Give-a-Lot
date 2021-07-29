@@ -1,7 +1,6 @@
-package com.givealot.givealot.Organisation.dao;
+package com.giveaLot.givealot.Organisation.dao;
 
-import com.givealot.givealot.Organisation.model.Organisation;
-
+import com.GiveaLot.givealot.Organisation.model.Organisation;
 import java.io.File;
 import java.util.Date;
 
@@ -12,7 +11,6 @@ public interface OrganisationDAOInterface {
     public Organisation selectOrganisationInfo(String orgId);
 
     public Organisation selectOrganisationPoints(String orgId);
-
 
 
     public boolean organisationExists(Organisation organisation);

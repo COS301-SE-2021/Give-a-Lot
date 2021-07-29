@@ -1,4 +1,4 @@
-package com.givealot.givealot.Organisation.dao;
+package com.giveaLot.givealot.Organisation.dao;
 
 public class OrganisationDASPostgre {
 }

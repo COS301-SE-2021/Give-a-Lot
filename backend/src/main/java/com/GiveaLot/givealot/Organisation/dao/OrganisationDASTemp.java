@@ -7,7 +7,7 @@ import java.io.File;
 import java.util.Date;
 
 
-@Repository("Temp")
+@Repository("temp")
 public class OrganisationDASTemp implements OrganisationDAOInterface{
     @Override
     public Organisation selectOrganisation(String orgId) {

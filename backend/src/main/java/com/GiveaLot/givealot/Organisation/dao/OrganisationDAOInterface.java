@@ -45,15 +45,15 @@ public interface OrganisationDAOInterface {
 
     public boolean removeOrgTaxRef(String orgId);
 
-    public boolean addOrgAuditor(String orgId, JSON auditor);
+    public boolean addOrgAuditor(String orgId, String auditor);
 
     public boolean removeOrgAuditor(String orgId);
 
-    public boolean addOrgCommittee(String orgId, JSON committee);
+    public boolean addOrgCommittee(String orgId, String committee);
 
     public boolean removeOrgCommittee(String orgId);
 
-    public boolean addOrgDonationInfo(String orgId, JSON info);
+    public boolean addOrgDonationInfo(String orgId, String info);
 
     public boolean removeOrgDonationInfo(String orgId);
 

@@ -1,4 +1,4 @@
-package com.givealot.givealot.Organisation.controller;
+package com.GiveaLot.givealot.Organisation.controller;
 
 public class OrganisationController {
 }

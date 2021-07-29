@@ -7,7 +7,7 @@ import java.io.File;
 import java.util.Date;
 
 
-@Repository("Temp")
+@Repository("Postgres")
 public class OrganisationDASPostgre implements OrganisationDAOInterface{
     @Override
     public Organisation selectOrganisation(String orgId) {

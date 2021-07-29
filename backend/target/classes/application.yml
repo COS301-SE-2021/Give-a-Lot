@@ -1,0 +1,6 @@
+app:
+  datasource:
+    jdbc-url: jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz
+    username: iqvyaozz
+    password: JMDPprQmLVegi673UQgH93aNEOSvt2K1
+    pool-size: 30

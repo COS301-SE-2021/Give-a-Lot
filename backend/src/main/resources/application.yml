@@ -4,3 +4,9 @@ app:
     username: iqvyaozz
     password: JMDPprQmLVegi673UQgH93aNEOSvt2K1
     pool-size: 30
+
+  dspostgres:
+    jdbc-url: jdbc:postgresql://
+      username:
+      password:
+      pool-size: 30

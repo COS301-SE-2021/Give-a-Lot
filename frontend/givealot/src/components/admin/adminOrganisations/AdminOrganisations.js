@@ -8,6 +8,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import "./AdminOrganisations.css"
 
 export class AdminOrganisations extends Component {
 
@@ -85,7 +86,7 @@ export class AdminOrganisations extends Component {
                     </Button>
 
                 </div>
-                <div >
+                <div>
                     <Row className="mb-4">
                         <Col md="12">
                             <Card>

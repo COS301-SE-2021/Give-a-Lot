@@ -69,27 +69,28 @@ export class AdminUsers extends Component {
         // const { posts } = this.state
         return (
             <div style={{width: "100%"}}>
-                {/*<MDBDataTable striped bordered hover data={posts} />*/}
-                <Row className="mb-4">
-                    <Col md="12">
-                        <Card>
-                            <CardBody>
-                                <MDBDataTable
-                                    paging={true}
-                                    striped
-                                    bordered
-                                    // scrollY
-                                    hover
-                                    entriesOptions={[5, 20, 25]}
-                                    entries={5}
-                                    maxHeight="250px"
-                                    // pagesAmount={4}
-                                    data={data}
+                <div>
+                    <Row className="mb-4">
+                        <Col md="12">
+                            <Card>
+                                <CardBody>
+                                    <MDBDataTable
+                                        paging={true}
+                                        striped
+                                        bordered
+                                        scrollY
+                                        hover
+                                        entriesOptions={[5, 20, 25]}
+                                        entries={5}
+                                        maxHeight="250px"
+                                        // pagesAmount={4}
+                                        data={data}
                                     />
-                            </CardBody>
-                        </Card>
-                    </Col>
-                </Row>
+                                </CardBody>
+                            </Card>
+                        </Col>
+                    </Row>
+                </div>
             </div>
         )
     }

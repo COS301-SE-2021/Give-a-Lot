@@ -1,6 +1,6 @@
-package com.givealot.givealot.Organisation.dao;
+package com.GiveaLot.givealot.Organisation.dao;
 
-import com.givealot.givealot.Organisation.model.Organisation;
+import com.GiveaLot.givealot.Organisation.model.Organisation;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;

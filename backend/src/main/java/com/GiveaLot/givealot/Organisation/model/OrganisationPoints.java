@@ -1,4 +1,4 @@
-package com.giveaLot.givealot.Organisation.model;
+package com.GiveaLot.givealot.Organisation.model;
 
 import java.io.File;
 import java.util.Date;

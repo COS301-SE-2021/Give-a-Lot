@@ -1,4 +1,4 @@
-package com.giveaLot.givealot.Organisation.dao;
+package com.GiveaLot.givealot.Organisation.dao;
 
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import java.io.File;

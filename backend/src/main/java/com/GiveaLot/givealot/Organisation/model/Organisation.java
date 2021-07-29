@@ -1,4 +1,4 @@
-package com.giveaLot.givealot.Organisation.model;
+package com.GiveaLot.givealot.Organisation.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

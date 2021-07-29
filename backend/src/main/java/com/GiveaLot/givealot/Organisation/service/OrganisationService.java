@@ -1,4 +1,4 @@
-package com.giveaLot.givealot.Organisation.service;
+package com.GiveaLot.givealot.Organisation.service;
 
 import com.GiveaLot.givealot.Organisation.dao.OrganisationDAOInterface;
 import com.GiveaLot.givealot.Organisation.model.Organisation;

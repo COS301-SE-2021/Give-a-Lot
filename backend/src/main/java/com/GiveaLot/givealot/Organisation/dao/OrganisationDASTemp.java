@@ -1,26 +1,39 @@
 package com.GiveaLot.givealot.Organisation.dao;
 
 import com.GiveaLot.givealot.Organisation.model.Organisation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
 import java.util.Date;
+import java.util.Optional;
 
 
 @Repository("temp")
 public class OrganisationDASTemp implements OrganisationDAOInterface{
+
+    private final JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    public OrganisationDASTemp(JdbcTemplate jdbcTemplate){
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
     @Override
-    public Organisation selectOrganisation(String orgId) {
+    public Optional<Organisation> selectOrganisation(String orgId) {
+        String query = "";
+
         return null;
     }
 
     @Override
-    public Organisation selectOrganisationInfo(String orgId) {
+    public Optional<Organisation> selectOrganisationInfo(String orgId) {
         return null;
     }
 
     @Override
-    public Organisation selectOrganisationPoints(String orgId) {
+    public Optional<Organisation> selectOrganisationPoints(String orgId) {
         return null;
     }
 

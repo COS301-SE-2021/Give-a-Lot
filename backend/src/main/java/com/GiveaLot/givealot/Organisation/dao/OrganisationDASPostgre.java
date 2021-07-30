@@ -13,17 +13,17 @@ import java.util.Optional;
 @Repository("postgres")
 public class OrganisationDASPostgre implements OrganisationDAOInterface{
     @Override
-    public Optional<Organisation> selectOrganisation(String orgId) {
+    public Organisation selectOrganisation(String orgId) {
         return null;
     }
 
     @Override
-    public Optional<OrganisationInfo> selectOrganisationInfo(String orgId) {
+    public OrganisationInfo selectOrganisationInfo(String orgId) {
         return null;
     }
 
     @Override
-    public Optional<OrganisationPoints> selectOrganisationPoints(String orgId) {
+    public OrganisationPoints selectOrganisationPoints(String orgId) {
         return null;
     }
 

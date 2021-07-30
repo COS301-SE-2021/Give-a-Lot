@@ -10,11 +10,11 @@ import java.util.Optional;
 
 public interface OrganisationDAOInterface {
 
-    public Optional<Organisation> selectOrganisation(String orgId);
+    public Organisation selectOrganisation(String orgId);
 
-    public Optional<OrganisationInfo> selectOrganisationInfo(String orgId);
+    public OrganisationInfo selectOrganisationInfo(String orgId);
 
-    public Optional<OrganisationPoints> selectOrganisationPoints(String orgId);
+    public OrganisationPoints selectOrganisationPoints(String orgId);
 
 
     public boolean organisationExists(Organisation organisation);

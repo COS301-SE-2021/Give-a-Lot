@@ -24,8 +24,8 @@ public class OrganisationPointsRowMapper implements RowMapper<OrganisationPoints
                 rs.getBoolean("ngoDateIsValid"),
                 rs.getBoolean("instagramIsValid"),
                 rs.getBoolean("facebookIsValid"),
-                rs.getBoolean("socialMediaType"),
-                rs.getBoolean(""),
-                rs.getInt(""));
+                rs.getBoolean("twitterIsValid"),
+                rs.getBoolean("estDateIsValid"),
+                rs.getInt("numberOfImages"));
     }
 }

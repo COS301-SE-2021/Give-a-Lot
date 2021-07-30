@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class OrganisationInfoRowMapper implements RowMapper<OrganisationInfo> {
     @Override
     public OrganisationInfo mapRow(ResultSet rs, int i) throws SQLException {
-        OrganisationInfo organisationInfo = new OrganisationInfo(
+        return new OrganisationInfo(
                 rs.getString("orgId"),
                 rs.getString("address"),
                 rs.getInt("numberOfImages"),
@@ -26,6 +26,5 @@ public class OrganisationInfoRowMapper implements RowMapper<OrganisationInfo> {
                 rs.getString("facebook"),
                 rs.getString("instagram"),
                 rs.getDate("establishmentDate"));
-        return organisationInfo;
     }
 }

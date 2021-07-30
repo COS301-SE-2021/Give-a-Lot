@@ -177,7 +177,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public boolean addOrgWebsite(String orgId, String website) {
-        final String sql="update public.\"OrganisationInfo\" set website=? WHERE orgId=?";
+        final String sql="update public.\"OrganisationInfo\" set website=? WHERE \"orgId\"=?";
         jdbcTemplate.update(sql,website,orgId);
 
         return true;
@@ -196,7 +196,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public boolean addOrgAddress(String orgId, String address) {
-        final String sql="update public.\"OrganisationInfo\" set address=? WHERE orgId=?";
+        final String sql="update public.\"OrganisationInfo\" set address=? WHERE \"orgId\"=?";
         jdbcTemplate.update(sql,address,orgId);
         return true;
     }
@@ -220,7 +220,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public boolean removeOrgImage(String orgId) {
-        String query = "update public.\"OrganisationInfo\" set \"numberOfImages\" = numberOfImages - 1 where \"orgId\" = ?";
+        String query = "update public.\"OrganisationInfo\" set \"numberOfImages\" = \"numberOfImages\" - 1 where \"orgId\" = ?";
         jdbcTemplate.update(query,orgId);
         String query1 = "update public.\"OrganisationPoints\" set \"numberOfImages\" = false where \"orgId\" = ?";
         jdbcTemplate.update(query1,orgId);
@@ -239,7 +239,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public boolean removeOrgAuditDoc(String orgId) {
-        String query = "update public.\"OrganisationInfo\" set auditDocument = null where \"orgId\" = ?";
+        String query = "update public.\"OrganisationInfo\" set \"auditDocument\" = null where \"orgId\" = ?";
         jdbcTemplate.update(query,orgId);
         String query1 = "update public.\"OrganisationPoints\" set \"auditIsValid\" = false where \"orgId\" = ?";
         jdbcTemplate.update(query1,orgId);
@@ -251,7 +251,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
     @Override
     public boolean addOrgTaxRef(String orgId, String reference) {
 
-    final String sql="update public.\"OrganisationInfo\" set taxReference=? WHERE orgId=?";
+    final String sql="update public.\"OrganisationInfo\" set \"taxReference\"=? WHERE \"orgId\"=?";
     jdbcTemplate.update(sql,reference,orgId);
 
         return true;
@@ -259,7 +259,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public boolean removeOrgTaxRef(String orgId) {
-        String query = "update public.\"OrganisationInfo\" set taxReference = null where \"orgId\" = ?";
+        String query = "update public.\"OrganisationInfo\" set \"taxReference\" = null where \"orgId\" = ?";
         jdbcTemplate.update(query,orgId);
         String query1 = "update public.\"OrganisationPoints\" set \"taxRefIsValid\" = false where \"orgId\" = ?";
         jdbcTemplate.update(query1,orgId);
@@ -271,7 +271,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
     @Override
     public boolean addOrgAuditor(String orgId, String auditor) {
 
-        final String sql="update public.\"OrganisationInfo\" set auditorDetails = ? where orgId=?";
+        final String sql="update public.\"OrganisationInfo\" set \"auditorDetails\" = ? where \"orgId\"=?";
 
         jdbcTemplate.update(sql,auditor,orgId);
         return true;
@@ -280,7 +280,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
     @Override
     public boolean removeOrgAuditor(String orgId) {
 
-        String query = "update public.\"OrganisationInfo\" set auditorDetails = null where \"orgId\" = ?";
+        String query = "update public.\"OrganisationInfo\" set \"auditorDetails\" = null where \"orgId\" = ?";
         jdbcTemplate.update(query,orgId);
 
         String query1 = "update public.\"OrganisationPoints\" set \"auditorIsValid\" = false where \"orgId\" = ?";
@@ -292,7 +292,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public boolean addOrgCommittee(String orgId, String committee) {
-        final String sql="update public.\"OrganisationInfo\"  set commiteeDetails = ? where orgId=?";
+        final String sql="update public.\"OrganisationInfo\"  set \"committeeDetails\" = ? where \"orgId\"=?";
 
         jdbcTemplate.update(sql,committee,orgId);
         return true;
@@ -300,7 +300,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public boolean removeOrgCommittee(String orgId) {
-        String query = "update public.\"OrganisationInfo\" set commiteeDetails = null where \"orgId\" =?";
+        String query = "update public.\"OrganisationInfo\" set \"committeeDetails\" = null where \"orgId\" =?";
         jdbcTemplate.update(query,orgId);
 
         String query1 = "update public.\"OrganisationPoints\" set \"committeeIsValid\" = false where \"orgId\" = ?";
@@ -323,26 +323,26 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
     @Override
     public boolean addOrgSocials(String orgId, String type, String website) {
 
-        final String sql1="update public.\"OrganisationInfo\"  set website = ? where orgId=?";
+        final String sql1="update public.\"OrganisationInfo\"  set website = ? where \"orgId\"=?";
 
         jdbcTemplate.update(sql1,website,orgId);
 
 
         if(type.equals("facebook"))
         {
-            final String sql="update public.\"OrganisationInfo\"  set facebook = ? where orgId=?";
+            final String sql="update public.\"OrganisationInfo\"  set facebook = ? where \"orgId\"=?";
 
             jdbcTemplate.update(sql,type,orgId);
         }
         else if(type.equals("twitter"))
         {
-            final String sql="update public.\"OrganisationInfo\" set twitter = ? where orgId=?";
+            final String sql="update public.\"OrganisationInfo\" set twitter = ? where \"orgId\"=?";
 
             jdbcTemplate.update(sql,type,orgId);
         }
         else
         {
-            final String sql="update public.\"OrganisationInfo\"  set instagram = ? where orgId=?";
+            final String sql="update public.\"OrganisationInfo\"  set instagram = ? where \"orgId\"=?";
 
             jdbcTemplate.update(sql,type,orgId);
         }
@@ -385,10 +385,10 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
     @Override
     public boolean addOrgNGO(String orgId, String ngoNumber, Date ngoDate) {
 
-        final String sql="update public.\"OrganisationInfo\"  set ngoNumber =? where orgId=?";
+        final String sql="update public.\"OrganisationInfo\"  set \"ngoNumber\" =? where \"orgId\"=?";
         jdbcTemplate.update(sql,ngoNumber,orgId);
 
-        final String sql2="update public.\"OrganisationInfo\"  set ngoDate=? where orgId=?";
+        final String sql2="update public.\"OrganisationInfo\"  set \"ngoDate\"=? where \"orgId\"=?";
 
         jdbcTemplate.update(sql2,ngoDate,orgId);
         return false;
@@ -396,12 +396,12 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public boolean removeOrgNGO(String orgId) {
-        String query1 = "update public.\"OrganisationInfo\" set ngoNumber = null where \"orgId\" = ?";
+        String query1 = "update public.\"OrganisationInfo\" set \"ngoNumber\" = null where \"orgId\" = ?";
         jdbcTemplate.update(query1,orgId);
-        String query2 = "update public.\"OrganisationInfo\" set ngoDate = null where \"orgId\" = ?";
+        String query2 = "update public.\"OrganisationInfo\" set \"ngoDate\" = null where \"orgId\" = ?";
         jdbcTemplate.update(query2,orgId);
 
-        String query4 = "update public.\"OrganisationPoints\" set \"ngoIsValid\" = false where \"orgId\" = ?";
+        String query4 = "update public.\"OrganisationPoints\" set \"ngoNoIsValid\" = false where \"orgId\" = ?";
         jdbcTemplate.update(query4,orgId);
 
         String query5 = "update public.\"OrganisationPoints\" set \"points\" = points - 15 where \"orgId\" = ?";
@@ -411,7 +411,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public boolean addOrgEstDate(String orgId, Date date) {
-        final String sql="update public.\"OrganisationInfo\"  set establishmentDate =? where orgId=?";
+        final String sql="update public.\"OrganisationInfo\"  set \"establishmentDate\" =? where \"orgId\"=?";
         jdbcTemplate.update(sql,date,orgId);
         return true;
     }
@@ -419,7 +419,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
     @Override
     public boolean removeOrgEstDate(String orgId) {
 
-        String query = "update public.\"OrganisationInfo\" set establishmentDate = null where \"orgId\" = ?";
+        String query = "update public.\"OrganisationInfo\" set \"establishmentDate\" = null where \"orgId\" = ?";
         jdbcTemplate.update(query,orgId);
         String query1 = "update public.\"OrganisationPoints\" set \"estDateIsValid\" = false where \"orgId\" = ?";
         jdbcTemplate.update(query1,orgId);

@@ -1,5 +1,7 @@
 package com.GiveaLot.givealot.Organisation.dao;
 
+import com.GiveaLot.givealot.Organisation.datasource.TempDataSource;
+import com.GiveaLot.givealot.Organisation.exceptions.OrganisationException;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
@@ -8,9 +10,12 @@ import com.GiveaLot.givealot.Organisation.model.mappers.OrganisationPointsRowMap
 import com.GiveaLot.givealot.Organisation.model.mappers.OrganisationRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Optional;
 
@@ -25,67 +30,149 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
     }
 
     @Override
-    public Optional<Organisation> selectOrganisation(String orgId) {
+    public Organisation selectOrganisation(String orgId) {
         String query = "SELECT * FROM \"Organisations\" WHERE \"orgId\" = " + orgId + ";";
 
         Organisation organisation = jdbcTemplate.queryForObject(query, new OrganisationRowMapper());
 
         if(organisation.getOrgName().isEmpty()){
-            return Optional.empty();
+            return null;
         }
 
-        return Optional.of(organisation);
+        return organisation;
     }
 
     @Override
-    public Optional<OrganisationInfo> selectOrganisationInfo(String orgId) {
+    public OrganisationInfo selectOrganisationInfo(String orgId) {
         String query = "SELECT * FROM \"OrganisationInfo\" WHERE \"orgId\" = " + orgId + ";";
 
         OrganisationInfo organisationInfo = jdbcTemplate.queryForObject(query, new OrganisationInfoRowMapper());
 
         if(organisationInfo.getOrgId().isEmpty()){
-            return Optional.empty();
+            return null;
         }
 
-        return Optional.of(organisationInfo);
+        return organisationInfo;
     }
 
     @Override
-    public Optional<OrganisationPoints> selectOrganisationPoints(String orgId) {
+    public OrganisationPoints selectOrganisationPoints(String orgId) {
         String query = "SELECT * FROM \"OrganisationPoints\" WHERE \"orgId\" = " + orgId + ";";
 
         OrganisationPoints organisationPoints = jdbcTemplate.queryForObject(query, new OrganisationPointsRowMapper());
 
         if(organisationPoints.getOrgId().isEmpty()){
-            return Optional.empty();
+            return null;
         }
 
-        return Optional.of(organisationPoints);
+        return organisationPoints;
     }
 
     @Override
     public boolean organisationExists(Organisation organisation) {
+        String query = "select \"orgId\" from public.\"Organisations\";";
+
+        Organisation org = jdbcTemplate.queryForObject(query,new OrganisationRowMapper());
+
+        if (organisation.getOrgId().equals(org.getOrgId())){
+            return true;
+        }
         return false;
     }
 
     @Override
     public boolean addOrganisation(Organisation organisation) {
-        return false;
+
+        /** Sets up Dates for certificate **/
+
+        java.util.Date dateCurrent = new Date();
+        java.util.Date dateEx = new Date();
+
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+        String dateCreated = format.format(dateCurrent);
+
+        int year = dateCurrent.getYear();
+        dateEx.setYear(year+1);
+        String dateExpiry = format.format(dateEx);
+
+        Organisation.MD5 md5 = new Organisation.MD5();
+
+        /** Salts and hashes password **/
+
+        String salt = md5.getMd5(organisation.getOrgEmail());
+
+        String salted = md5.getMd5(organisation.getPassword() + salt);
+
+        /** Create server directory **/
+
+        String filepath = "";
+
+        organisation.setDirectory(filepath);
+
+
+        /** Adds the organisation to all the respective tables **/
+
+        jdbcTemplate.update(
+                "insert into public.\"Organisations\"(\"orgName\", \"orgSlogan\", \"orgDescription\", \"orgSector\", \"orgEmail\", \"orgId\", \"status\", \"password\", \"contactPerson\", \"contactNumber\", \"directory\") values (?,?,?,?,?,?,?,?,?,?,?)",
+                organisation.getOrgName(),organisation.getSlogan(),organisation.getOrgDescription(),organisation.getOrgSector(),organisation.getOrgEmail(),organisation.getOrgId(),organisation.getStatus().toString(),salted,organisation.getContactPerson(),organisation.getContactNumber(),organisation.getDirectory()
+        );
+        jdbcTemplate.update(
+                "insert into public.\"OrganisationPoints\"(\"orgId\") values (?)",
+                organisation.getOrgId()
+        );
+        jdbcTemplate.update(
+                "insert into public.\"OrganisationInfo\"(\"orgId\") values (?)",
+                organisation.getOrgId()
+        );
+        jdbcTemplate.update(
+                "insert into public.\"Certificate\"(\"orgId\", \"dateCreated\", \"dateExpiry\") values (?,?,?)",
+                organisation.getOrgId(),dateCreated,dateExpiry
+        );
+
+        return true;
     }
 
     @Override
     public boolean reactivateOrganisation(String orgId) {
-        return false;
+        Organisation org = selectOrganisation(orgId);
+
+        if (org.getStatus().equals("Active")){
+            return false;
+        }
+        jdbcTemplate.update(
+                "update public.\"Organisations\" set status = 'Active' where \"orgId\" = (?)",
+                orgId
+                );
+        return true;
     }
 
     @Override
     public boolean investigateOrganisation(String orgId) {
-        return false;
+        Organisation org = selectOrganisation(orgId);
+
+        if (org.getStatus().equals("UnderInvestigation")){
+            return false;
+        }
+        jdbcTemplate.update(
+                "update public.\"Organisations\" set status = 'UnderInvestigation' where \"orgId\" = (?)",
+                orgId
+        );
+        return true;
     }
 
     @Override
     public boolean suspendOrganisation(String orgId) {
-        return false;
+        Organisation org = selectOrganisation(orgId);
+
+        if (org.getStatus().equals("Suspended")){
+            return false;
+        }
+        jdbcTemplate.update(
+                "update public.\"Organisations\" set status = 'Suspended' where \"orgId\" = (?)",
+                orgId
+        );
+        return true;
     }
 
     @Override

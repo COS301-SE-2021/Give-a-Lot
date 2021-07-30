@@ -23,17 +23,17 @@ public class OrganisationService {
         this.organisationDAOInterface = organisationDAOInterface;
     }
 
-    public Optional<Organisation> selectOrganisation(String orgId)
+    public Organisation selectOrganisation(String orgId)
     {
        return organisationDAOInterface.selectOrganisation(orgId);
     }
-    public Optional<OrganisationInfo> selectOrganisationInfo(String orgId)
+    public OrganisationInfo selectOrganisationInfo(String orgId)
     {
         return organisationDAOInterface.selectOrganisationInfo(orgId);
     }
 
 
-    public Optional<OrganisationPoints> selectOrganisationPoints(String orgId)
+    public OrganisationPoints selectOrganisationPoints(String orgId)
     {
         return organisationDAOInterface.selectOrganisationPoints(orgId);
     }

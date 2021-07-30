@@ -1,5 +1,6 @@
 package com.GiveaLot.givealot.Organisation.dao;
 
+import com.GiveaLot.givealot.Organisation.datasource.TempDataSource;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
@@ -8,9 +9,12 @@ import com.GiveaLot.givealot.Organisation.model.mappers.OrganisationPointsRowMap
 import com.GiveaLot.givealot.Organisation.model.mappers.OrganisationRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Optional;
 
@@ -66,12 +70,65 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public boolean organisationExists(Organisation organisation) {
+        String query = "select \"orgId\" from public.\"Organisations\";";
+
+        Organisation org = jdbcTemplate.queryForObject(query,new OrganisationRowMapper());
+
+        if (organisation.getOrgId().equals(org.getOrgId())){
+            return true;
+        }
         return false;
     }
 
     @Override
     public boolean addOrganisation(Organisation organisation) {
-        return false;
+
+        /** Sets up Dates for certificate **/
+
+        java.util.Date dateCurrent = new Date();
+        java.util.Date dateEx = new Date();
+
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+        String dateCreated = format.format(dateCurrent);
+
+        int year = dateCurrent.getYear();
+        dateEx.setYear(year+1);
+        String dateExpiry = format.format(dateEx);
+
+        Organisation.MD5 md5 = new Organisation.MD5();
+
+        /** Salts and hashes password **/
+
+        String salt = md5.getMd5(organisation.getOrgEmail());
+
+        String salted = md5.getMd5(organisation.getPassword() + salt);
+
+        /** Create server directory **/
+
+        String filepath = "";
+
+        organisation.setDirectory(filepath);
+
+
+        /** Adds the organisation to all the respective tables **/
+
+        jdbcTemplate.update(
+                "insert into public.\"Organisations\"(\"orgName\", \"orgSlogan\", \"orgDescription\", \"orgSector\", \"orgEmail\", \"orgId\", \"status\", \"password\", \"contactPerson\", \"contactNumber\", \"directory\") values (?,?,?,?,?,?,?,?,?,?,?)",
+                organisation.getOrgName(),organisation.getSlogan(),organisation.getOrgDescription(),organisation.getOrgSector(),organisation.getOrgEmail(),organisation.getOrgId(),organisation.getStatus().toString(),salted,organisation.getContactPerson(),organisation.getContactNumber(),organisation.getDirectory()
+        );
+        jdbcTemplate.update(
+                "insert into public.\"OrganisationPoints\"(\"orgId\") values (?)",
+                organisation.getOrgId()
+        );
+        jdbcTemplate.update(
+                "insert into public.\"OrganisationInfo\"(\"orgId\") values (?)",
+                organisation.getOrgId()
+        );
+        jdbcTemplate.update(
+                "insert into public.\"Certificate\"(\"orgId\", \"dateCreated\", \"dateExpiry\") values (?,?,?)",
+                organisation.getOrgId(),dateCreated,dateExpiry
+        );
     }
 
     @Override

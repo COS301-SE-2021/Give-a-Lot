@@ -4,6 +4,8 @@ import "./RegisterOrganisation.css"
 import Button from '@material-ui/core/Button';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import axios from "axios";
+import {Switch, Route, Link} from "react-router-dom";
+import Register from "../Register";
 
 class OrganisationBasic extends Component {
     proceed = e => {
@@ -63,7 +65,9 @@ class OrganisationBasic extends Component {
 
                 </div>
                 <div className="backArrow">
-                    <ArrowBackIcon />
+                    <Link to={'/register'} >
+                        <ArrowBackIcon className="iconLogin"/>
+                    </Link>
                 </div>
                 <div className="containerO" >
 
@@ -129,7 +133,10 @@ class OrganisationBasic extends Component {
 
                 </form>
                 <div className="gradientOverlay"></div>
-</div>
+                </div>
+                <Switch>
+                    <Route exact path="/register" component={Register} />
+                </Switch>
 
             </div>
         );

@@ -93,14 +93,6 @@
 
 }
 
-/* #By_signing_up_you_agree_to_Giv {
-    left: 900px;
-    top: 450px;
-    position: absolute;
-    overflow: visible;
-    width: 529px;
-    color: rgba(255,255,255,1);
-} */
 .backArrow{
     position: absolute;
     top: 100px;
@@ -112,6 +104,10 @@
     color: white;
     cursor: pointer;
     font-size: 3em;
+}
+.iconLogin{
+    font-size: xx-large;
+    color: white;
 }
 
 

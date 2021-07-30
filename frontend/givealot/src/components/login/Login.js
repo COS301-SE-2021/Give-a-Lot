@@ -6,6 +6,7 @@ import Register from "../register/Register"
 import { Redirect } from "react-router";
 import {Switch,Route,Link} from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import Home from "../basicUser/home/Home"
 
 class Login extends Component {
     state = {
@@ -55,9 +56,13 @@ class Login extends Component {
                     </div>
                     
                 </div>
+
                 <div className="backArrow">
-                    <ArrowBackIcon />
+                    <Link to={'/'} >
+                        <ArrowBackIcon className="iconLogin"/>
+                    </Link>
                 </div>
+
                 <div className="Login_container" >
                     <form className="Login_form" onSubmit={this.submitHandler}>
                         <div className="topline">
@@ -90,6 +95,7 @@ class Login extends Component {
                 </div>
                 <Switch>       
                     <Route exact path="/register" component={Register} />
+                    <Route exact path="/" component={Home} />
                 </Switch>
             </div>
         );

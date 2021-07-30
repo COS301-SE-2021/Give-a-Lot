@@ -3,7 +3,7 @@ import "./RegisterUser.css"
 import logo from "../imagesRegister/ID2.png";
 import axios from 'axios';
 import Login from "../../login/Login"
-import {Switch,Route} from "react-router-dom";
+import {Switch,Route, Link} from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Dialog from '@material-ui/core/Dialog'
@@ -11,6 +11,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import Button from '@material-ui/core/Button';
+import Register from "../Register"
 
 
 class RegisterUser extends Component {
@@ -52,7 +53,9 @@ class RegisterUser extends Component {
                 </div>
 
                 <div className="backArrow">
-                    <ArrowBackIcon />
+                    <Link to={'/register'} >
+                        <ArrowBackIcon className="iconLogin"/>
+                    </Link>
                 </div>
                 <div className="containerU" >
 
@@ -111,6 +114,7 @@ class RegisterUser extends Component {
                     <div className="gradientOverlay"></div>
                     <Switch>       
                         <Route exact path="/login" component={Login} />
+                        <Route exact path="/register" component={Register} />
                     </Switch>
                 </div>
             </div>

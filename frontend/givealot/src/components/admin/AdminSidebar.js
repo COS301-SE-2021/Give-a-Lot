@@ -10,8 +10,6 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import "./Admin.css"
 import logo from "./imagesRegister/ID2.png"
-import Divider from '@material-ui/core/Divider';
-import SettingsIcon from '@material-ui/icons/Settings';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Dialog from '@material-ui/core/Dialog'
@@ -19,6 +17,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import Button from "@material-ui/core/Button";
+import Login from "../login/Login"
+import {Switch,Route} from "react-router-dom";
 
 export class AdminSidebar extends Component {
     constructor(props) {
@@ -90,14 +90,6 @@ export class AdminSidebar extends Component {
                         </ListItem>
                     </Link>
 
-                    <Link to={'/settings'} className='text-link' >
-                        <ListItem button>
-                            <ListItemIcon>
-                                <SettingsIcon className="icon"/>
-                            </ListItemIcon >
-                            <ListItemText primary="Settings" />
-                        </ListItem>
-                    </Link>
                     <Link className='text-link' >
                         <ListItem button
                           onClick={() => this.setState({ open: !this.state.open })}
@@ -116,17 +108,21 @@ export class AdminSidebar extends Component {
                             </DialogContentText>
                         </DialogContent>
                         <DialogActions>
-                            <Button onClick={() => this.setState({ open: !this.state.open })}  color="primary">
-                                Yes
-                            </Button>
+                            <Link to={'/login'} className='text-link' >
+                                <Button onClick={() => this.setState({ open: !this.state.open })}  color="primary">
+                                    Yes
+                                </Button>
+                            </Link>
                             <Button onClick={() => this.setState({ open: !this.state.open })}  color="primary">
                                 No
                             </Button>
                         </DialogActions>
                     </Dialog>
-                    <Divider />
 
                 </div>
+                <Switch>
+                    <Route exact path="/login" component={Login} />
+                </Switch>
 
             </div>
 

@@ -9,7 +9,6 @@ import java.io.File;
 import java.util.Date;
 import java.util.Optional;
 
-
 @Repository("temp")
 public class OrganisationDASTemp implements OrganisationDAOInterface{
 
@@ -95,6 +94,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
     //-------------
     @Override
     public boolean addOrgAuditDoc(String orgId, File audit) {
+
         return false;
     }
 
@@ -105,37 +105,56 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public boolean addOrgTaxRef(String orgId, String reference) {
-        return false;
+    final String sql="UPDATE public.OrganisationInfo set taxReference=? WHERE orgId=?";
+    jdbcTemplate.update(sql,reference,orgId);
+
+        return true;
     }
 
     @Override
     public boolean removeOrgTaxRef(String orgId) {
-        return false;
+        final String sql="update public.OrganisationInfo set taxReference = null where orgId=?";
+        jdbcTemplate.update(sql,orgId);
+        return true;
     }
 
     @Override
     public boolean addOrgAuditor(String orgId, String auditor) {
-        return false;
+
+        final String sql="update public.OrganisationInfo set auditorDetails = ? where orgId=?";
+
+        jdbcTemplate.update(sql,auditor,orgId);
+        return true;
     }
 
     @Override
     public boolean removeOrgAuditor(String orgId) {
-        return false;
+
+        final String sql="update public.OrganisationInfo set auditorDetails = null where orgId=?";
+
+        jdbcTemplate.update(sql,orgId);
+        return true;
     }
 
     @Override
     public boolean addOrgCommittee(String orgId, String committee) {
-        return false;
+        final String sql="update public.OrganisationInfo set commiteeDetails = ? where orgId=?";
+
+        jdbcTemplate.update(sql,committee,orgId);
+        return true;
     }
 
     @Override
     public boolean removeOrgCommittee(String orgId) {
-        return false;
+        final String sql="update public.OrganisationInfo set commiteeDetails = null where orgId=?";
+
+        jdbcTemplate.update(sql,orgId);
+        return true;
     }
 
     @Override
     public boolean addOrgDonationInfo(String orgId, String info) {
-        return false;
+        return true;
     }
 
     @Override
@@ -145,31 +164,92 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public boolean addOrgSocials(String orgId, String type, String website) {
-        return false;
+
+        final String sql1="update public.OrganisationInfo set website = ? where orgId=?";
+
+        jdbcTemplate.update(sql1,website,orgId);
+
+
+        if(type.equals("facebook"))
+        {
+            final String sql="update public.OrganisationInfo set facebook = ? where orgId=?";
+
+            jdbcTemplate.update(sql,type,orgId);
+        }
+        else if(type.equals("twitter"))
+        {
+            final String sql="update public.OrganisationInfo set twitter = ? where orgId=?";
+
+            jdbcTemplate.update(sql,type,orgId);
+        }
+        else
+        {
+            final String sql="update public.OrganisationInfo set instagram = ? where orgId=?";
+
+            jdbcTemplate.update(sql,type,orgId);
+        }
+        return true;
     }
 
     @Override
     public boolean removeOrgSocials(String orgId, String type) {
-        return false;
+
+        if(type.equals("facebook"))
+        {
+            final String sql="update public.OrganisationInfo set facebook = null where orgId=?";
+
+            jdbcTemplate.update(sql,orgId);
+        }
+        else if(type.equals("twitter"))
+        {
+            final String sql="update public.OrganisationInfo set twitter = null where orgId=?";
+
+            jdbcTemplate.update(sql,orgId);
+        }
+        else
+        {
+            final String sql="update public.OrganisationInfo set instagram = null where orgId=?";
+
+            jdbcTemplate.update(sql,orgId);
+        }
+        return true;
     }
 
     @Override
     public boolean addOrgNGO(String orgId, String ngoNumber, Date ngoDate) {
+
+        final String sql="update public.OrganisationInfo set ngoNumber =? where orgId=?";
+        jdbcTemplate.update(sql,ngoNumber,orgId);
+
+        final String sql2="update public.OrganisationInfo set ngoDate=? where orgId=?";
+
+        jdbcTemplate.update(sql2,ngoDate,orgId);
         return false;
     }
 
     @Override
     public boolean removeOrgNGO(String orgId) {
-        return false;
+        final String sql="update public.OrganisationInfo set ngoNumber =null where orgId=?";
+        jdbcTemplate.update(sql,orgId);
+
+        final String sql2="update public.OrganisationInfo set ngoDate=null where orgId=?";
+
+        jdbcTemplate.update(sql2,orgId);
+        return true;
     }
 
     @Override
     public boolean addOrgEstDate(String orgId, Date date) {
-        return false;
+        final String sql="update public.OrganisationInfo set establishmentDate =? where orgId=?";
+        jdbcTemplate.update(sql,date,orgId);
+        return true;
     }
 
     @Override
     public boolean removeOrgEstDate(String orgId) {
-        return false;
+
+        final String sql="update public.OrganisationInfo set establishmentDate =null where orgId=?";
+        jdbcTemplate.update(sql,orgId);
+        return true;
     }
 }

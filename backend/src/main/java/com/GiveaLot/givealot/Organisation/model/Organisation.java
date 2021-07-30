@@ -15,6 +15,8 @@ public class Organisation {
     private String status;
     private String contactPerson;
     private String contactNumber;
+    private String directory;
+    private String passworrd;
 
 
     public Organisation(@JsonProperty String orgId,
@@ -25,7 +27,10 @@ public class Organisation {
                         @JsonProperty String orgEmail,
                         @JsonProperty String status,
                         @JsonProperty String contactPerson,
-                        @JsonProperty String contactNumber)
+                        @JsonProperty String contactNumber,
+                        @JsonProperty String directory,
+                        @JsonProperty String passworrd
+                        )
     {
         this.orgName = orgName;
         this.slogan = slogan;
@@ -36,6 +41,8 @@ public class Organisation {
         this.status = status;
         this.contactNumber = contactNumber;
         this.contactPerson = contactPerson;
+        this.directory = directory;
+        this.passworrd =passworrd;
     }
     public String getOrgName() {
         return orgName;
@@ -107,5 +114,21 @@ public class Organisation {
 
     public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
+    }
+
+    public String getDirectory() {
+        return directory;
+    }
+
+    public void setDirectory(String directory) {
+        this.directory = directory;
+    }
+
+    public String getPassworrd() {
+        return passworrd;
+    }
+
+    public void setPassworrd(String passworrd) {
+        this.passworrd = passworrd;
     }
 }

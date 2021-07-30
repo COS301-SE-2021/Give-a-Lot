@@ -6,45 +6,38 @@ import java.util.Date;
 public class OrganisationPoints {
 
     private String orgId;
-    private String website;
-    private File image;
-    private File audit;
-    private String reference;
-    private String auditor;
-    private String committee;
-    private String info;
-    private String type;
-    private Date ngoDate;
-    private Date estDate;
+    private int points;
+    private boolean addressIsValid;
+    private boolean websiteIsValid;
+    private boolean auditIsValid;
+    private boolean taxRefIsValid;
+    private boolean auditorIsValid;
+    private boolean committeeIsValid;
+    private boolean ngoNoIsValid;
+    private boolean ngoDateIsValid;
+    private boolean twitterIsValid;
+    private boolean facebookIsValid;
+    private boolean instagramIsValid;
+    private boolean estDateIsValid;
+    private int numberOfImages;
+    private String socialMediaType;
 
-    public OrganisationPoints(String orgId, String website, File image, File audit, String reference, String auditor, String committee, String info, String type, Date ngoDate, Date estDate) {
+
+    public OrganisationPoints(String orgId, int points, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean taxRefIsValid, boolean auditorIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, String socialMediaType, boolean estDateIsValid, int numberOfImages) {
         this.orgId = orgId;
-        this.website = website;
-        this.image = image;
-        this.audit = audit;
-        this.reference = reference;
-        this.auditor = auditor;
-        this.committee = committee;
-        this.info = info;
-        this.type = type;
-        this.ngoDate = ngoDate;
-        this.estDate = estDate;
+        this.points = points;
+        this.addressIsValid = addressIsValid;
+        this.websiteIsValid = websiteIsValid;
+        this.auditIsValid = auditIsValid;
+        this.taxRefIsValid = taxRefIsValid;
+        this.auditorIsValid = auditorIsValid;
+        this.committeeIsValid = committeeIsValid;
+        this.ngoNoIsValid = ngoNoIsValid;
+        this.ngoDateIsValid = ngoDateIsValid;
+        this.estDateIsValid = estDateIsValid;
+        this.numberOfImages = numberOfImages;
+        this.socialMediaType = socialMediaType;
     }
-    public OrganisationPoints() {
-        this.orgId = null;
-        this.website = null;
-        this.image = null;
-        this.audit = null;
-        this.reference = null;
-        this.auditor = null;
-        this.committee = null;
-        this.info = null;
-        this.type = null;
-        this.ngoDate = null;
-        this.estDate = null;
-    }
-
-
 
     public String getOrgId() {
         return orgId;
@@ -54,83 +47,123 @@ public class OrganisationPoints {
         this.orgId = orgId;
     }
 
-    public String getWebsite() {
-        return website;
+    public int getPoints() {
+        return points;
     }
 
-    public void setWebsite(String website) {
-        this.website = website;
+    public void setPoints(int points) {
+        this.points = points;
     }
 
-    public File getImage() {
-        return image;
+    public boolean isAddressIsValid() {
+        return addressIsValid;
     }
 
-    public void setImage(File image) {
-        this.image = image;
+    public void setAddressIsValid(boolean addressIsValid) {
+        this.addressIsValid = addressIsValid;
     }
 
-    public File getAudit() {
-        return audit;
+    public boolean isWebsiteIsValid() {
+        return websiteIsValid;
     }
 
-    public void setAudit(File audit) {
-        this.audit = audit;
+    public void setWebsiteIsValid(boolean websiteIsValid) {
+        this.websiteIsValid = websiteIsValid;
     }
 
-    public String getReference() {
-        return reference;
+    public boolean isAuditIsValid() {
+        return auditIsValid;
     }
 
-    public void setReference(String reference) {
-        this.reference = reference;
+    public void setAuditIsValid(boolean auditIsValid) {
+        this.auditIsValid = auditIsValid;
     }
 
-    public String getAuditor() {
-        return auditor;
+    public boolean isTaxRefIsValid() {
+        return taxRefIsValid;
     }
 
-    public void setAuditor(String auditor) {
-        this.auditor = auditor;
+    public void setTaxRefIsValid(boolean taxRefIsValid) {
+        this.taxRefIsValid = taxRefIsValid;
     }
 
-    public String getCommittee() {
-        return committee;
+    public boolean isAuditorIsValid() {
+        return auditorIsValid;
     }
 
-    public void setCommittee(String committee) {
-        this.committee = committee;
+    public void setAuditorIsValid(boolean auditorIsValid) {
+        this.auditorIsValid = auditorIsValid;
     }
 
-    public String getInfo() {
-        return info;
+    public boolean isCommitteeIsValid() {
+        return committeeIsValid;
     }
 
-    public void setInfo(String info) {
-        this.info = info;
+    public void setCommitteeIsValid(boolean committeeIsValid) {
+        this.committeeIsValid = committeeIsValid;
     }
 
-    public String getType() {
-        return type;
+    public boolean isNgoNoIsValid() {
+        return ngoNoIsValid;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setNgoNoIsValid(boolean ngoNoIsValid) {
+        this.ngoNoIsValid = ngoNoIsValid;
     }
 
-    public Date getNgoDate() {
-        return ngoDate;
+    public boolean isNgoDateIsValid() {
+        return ngoDateIsValid;
     }
 
-    public void setNgoDate(Date ngoDate) {
-        this.ngoDate = ngoDate;
+    public void setNgoDateIsValid(boolean ngoDateIsValid) {
+        this.ngoDateIsValid = ngoDateIsValid;
     }
 
-    public Date getEstDate() {
-        return estDate;
+    public boolean isTwitterIsValid() {
+        return twitterIsValid;
     }
 
-    public void setEstDate(Date estDate) {
-        this.estDate = estDate;
+    public void setTwitterIsValid(boolean twitterIsValid) {
+        this.twitterIsValid = twitterIsValid;
+    }
+
+    public boolean isFacebookIsValid() {
+        return facebookIsValid;
+    }
+
+    public void setFacebookIsValid(boolean facebookIsValid) {
+        this.facebookIsValid = facebookIsValid;
+    }
+
+    public boolean isInstagramIsValid() {
+        return instagramIsValid;
+    }
+
+    public void setInstagramIsValid(boolean instagramIsValid) {
+        this.instagramIsValid = instagramIsValid;
+    }
+
+    public boolean isEstDateIsValid() {
+        return estDateIsValid;
+    }
+
+    public void setEstDateIsValid(boolean estDateIsValid) {
+        this.estDateIsValid = estDateIsValid;
+    }
+
+    public int getNumberOfImages() {
+        return numberOfImages;
+    }
+
+    public void setNumberOfImages(int numberOfImages) {
+        this.numberOfImages = numberOfImages;
+    }
+
+    public String getSocialMediaType() {
+        return socialMediaType;
+    }
+
+    public void setSocialMediaType(String socialMediaType) {
+        this.socialMediaType = socialMediaType;
     }
 }

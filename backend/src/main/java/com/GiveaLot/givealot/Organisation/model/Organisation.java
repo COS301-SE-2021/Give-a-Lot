@@ -2,6 +2,9 @@ package com.GiveaLot.givealot.Organisation.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
 
 public class Organisation {
@@ -15,6 +18,8 @@ public class Organisation {
     private String status;
     private String contactPerson;
     private String contactNumber;
+    private String directory;
+    private String password;
 
 
     public Organisation(@JsonProperty String orgId,
@@ -25,7 +30,10 @@ public class Organisation {
                         @JsonProperty String orgEmail,
                         @JsonProperty String status,
                         @JsonProperty String contactPerson,
-                        @JsonProperty String contactNumber)
+                        @JsonProperty String contactNumber,
+                        @JsonProperty String directory,
+                        @JsonProperty String password
+                        )
     {
         this.orgName = orgName;
         this.slogan = slogan;
@@ -36,6 +44,8 @@ public class Organisation {
         this.status = status;
         this.contactNumber = contactNumber;
         this.contactPerson = contactPerson;
+        this.directory = directory;
+        this.password =password;
     }
     public String getOrgName() {
         return orgName;
@@ -107,5 +117,44 @@ public class Organisation {
 
     public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
+    }
+
+    public String getDirectory() {
+        return directory;
+    }
+
+    public void setDirectory(String directory) {
+        this.directory = directory;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassworrd(String password) {
+        this.password = password;
+    }
+
+    public static class MD5 {
+        public String getMd5(String input)
+        {
+            try {
+                MessageDigest md = MessageDigest.getInstance("MD5");
+
+                byte[] messageDigest = md.digest(input.getBytes());
+
+                BigInteger no = new BigInteger(1, messageDigest);
+
+                String hashtext = no.toString(16);
+                while (hashtext.length() < 32) {
+                    hashtext = "0" + hashtext;
+                }
+                return hashtext;
+            }
+            catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
     }
 }

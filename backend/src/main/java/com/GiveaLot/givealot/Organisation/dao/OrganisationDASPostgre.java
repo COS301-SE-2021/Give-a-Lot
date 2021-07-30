@@ -1,10 +1,13 @@
 package com.GiveaLot.givealot.Organisation.dao;
 
 import com.GiveaLot.givealot.Organisation.model.Organisation;
+import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
+import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
 import java.util.Date;
+import java.util.Optional;
 
 
 @Repository("postgres")
@@ -15,12 +18,12 @@ public class OrganisationDASPostgre implements OrganisationDAOInterface{
     }
 
     @Override
-    public Organisation selectOrganisationInfo(String orgId) {
+    public OrganisationInfo selectOrganisationInfo(String orgId) {
         return null;
     }
 
     @Override
-    public Organisation selectOrganisationPoints(String orgId) {
+    public OrganisationPoints selectOrganisationPoints(String orgId) {
         return null;
     }
 

@@ -2,12 +2,15 @@ package com.GiveaLot.givealot.Organisation.service;
 
 import com.GiveaLot.givealot.Organisation.dao.OrganisationDAOInterface;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
+import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
+import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.util.Date;
+import java.util.Optional;
 
 @Service
 public class OrganisationService {
@@ -24,13 +27,13 @@ public class OrganisationService {
     {
        return organisationDAOInterface.selectOrganisation(orgId);
     }
-    public Organisation selectOrganisationInfo(String orgId)
+    public OrganisationInfo selectOrganisationInfo(String orgId)
     {
         return organisationDAOInterface.selectOrganisationInfo(orgId);
     }
 
 
-    public Organisation selectOrganisationPoints(String orgId)
+    public OrganisationPoints selectOrganisationPoints(String orgId)
     {
         return organisationDAOInterface.selectOrganisationPoints(orgId);
     }

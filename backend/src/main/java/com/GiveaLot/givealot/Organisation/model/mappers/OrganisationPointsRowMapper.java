@@ -10,7 +10,8 @@ public class OrganisationPointsRowMapper implements RowMapper<OrganisationPoints
 
     @Override
     public OrganisationPoints mapRow(ResultSet rs, int i) throws SQLException {
-        OrganisationPoints organisationPoints = new OrganisationPoints(
+
+        return new OrganisationPoints(
                 rs.getString("orgId"),
                 rs.getInt("points"),
                 rs.getBoolean("addressIsValid"),
@@ -24,7 +25,5 @@ public class OrganisationPointsRowMapper implements RowMapper<OrganisationPoints
                 rs.getString(""),
                 rs.getBoolean(""),
                 rs.getInt(""));
-
-        return organisationPoints;
     }
 }

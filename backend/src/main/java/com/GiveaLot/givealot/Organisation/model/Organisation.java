@@ -2,6 +2,9 @@ package com.GiveaLot.givealot.Organisation.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
 
 public class Organisation {
@@ -130,5 +133,28 @@ public class Organisation {
 
     public void setPassworrd(String password) {
         this.password = password;
+    }
+
+    public static class MD5 {
+        public String getMd5(String input)
+        {
+            try {
+                MessageDigest md = MessageDigest.getInstance("MD5");
+
+                byte[] messageDigest = md.digest(input.getBytes());
+
+                BigInteger no = new BigInteger(1, messageDigest);
+
+                String hashtext = no.toString(16);
+                while (hashtext.length() < 32) {
+                    hashtext = "0" + hashtext;
+                }
+                return hashtext;
+            }
+            catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
     }
 }

@@ -161,4 +161,59 @@ public class OrganisationDASPostgre implements OrganisationDAOInterface{
     public boolean removeOrgEstDate(String orgId) {
         return false;
     }
+
+    @Override
+    public boolean adminValidateOrgEstDate(String orgid) {
+        return false;
+    }
+
+    @Override
+    public boolean adminValidateOrgNGO(String orgid) {
+        return false;
+    }
+
+    @Override
+    public boolean adminValidatOrgSocials(String orgid, String type) {
+        return false;
+    }
+
+    @Override
+    public boolean adminValidateOrgDonationInfo(String orgid) {
+        return false;
+    }
+
+    @Override
+    public boolean adminValidateOrgCommittee(String orgid) {
+        return false;
+    }
+
+    @Override
+    public boolean adminValidateAuditor(String orgid) {
+        return false;
+    }
+
+    @Override
+    public boolean adminValidateOrgTaxRef(String orgid) {
+        return false;
+    }
+
+    @Override
+    public boolean adminValidateAuditDoc(String orgid) {
+        return false;
+    }
+
+    @Override
+    public boolean adminValidateNoOfImages(String orgid) {
+        return false;
+    }
+
+    @Override
+    public boolean adminValidateAdress(String orgid) {
+        return false;
+    }
+
+    @Override
+    public boolean adminValidateWebsite(String orgid) {
+        return false;
+    }
 }

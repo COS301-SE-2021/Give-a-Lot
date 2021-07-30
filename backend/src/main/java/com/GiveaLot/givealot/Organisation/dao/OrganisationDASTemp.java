@@ -1,6 +1,11 @@
 package com.GiveaLot.givealot.Organisation.dao;
 
 import com.GiveaLot.givealot.Organisation.model.Organisation;
+import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
+import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
+import com.GiveaLot.givealot.Organisation.model.mappers.OrganisationInfoRowMapper;
+import com.GiveaLot.givealot.Organisation.model.mappers.OrganisationPointsRowMapper;
+import com.GiveaLot.givealot.Organisation.model.mappers.OrganisationRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -21,19 +26,41 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public Optional<Organisation> selectOrganisation(String orgId) {
-        String query = "";
+        String query = "SELECT * FROM \"Organisations\" WHERE \"orgId\" = " + orgId + ";";
 
-        return null;
+        Organisation organisation = jdbcTemplate.queryForObject(query, new OrganisationRowMapper());
+
+        if(organisation.getOrgName().isEmpty()){
+            return Optional.empty();
+        }
+
+        return Optional.of(organisation);
     }
 
     @Override
-    public Optional<Organisation> selectOrganisationInfo(String orgId) {
-        return null;
+    public Optional<OrganisationInfo> selectOrganisationInfo(String orgId) {
+        String query = "SELECT * FROM \"OrganisationInfo\" WHERE \"orgId\" = " + orgId + ";";
+
+        OrganisationInfo organisationInfo = jdbcTemplate.queryForObject(query, new OrganisationInfoRowMapper());
+
+        if(organisationInfo.getOrgId().isEmpty()){
+            return Optional.empty();
+        }
+
+        return Optional.of(organisationInfo);
     }
 
     @Override
-    public Optional<Organisation> selectOrganisationPoints(String orgId) {
-        return null;
+    public Optional<OrganisationPoints> selectOrganisationPoints(String orgId) {
+        String query = "SELECT * FROM \"OrganisationPoints\" WHERE \"orgId\" = " + orgId + ";";
+
+        OrganisationPoints organisationPoints = jdbcTemplate.queryForObject(query, new OrganisationPointsRowMapper());
+
+        if(organisationPoints.getOrgId().isEmpty()){
+            return Optional.empty();
+        }
+
+        return Optional.of(organisationPoints);
     }
 
     @Override
@@ -252,4 +279,5 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
         jdbcTemplate.update(sql,orgId);
         return true;
     }
+
 }

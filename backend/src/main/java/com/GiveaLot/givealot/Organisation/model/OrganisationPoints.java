@@ -39,6 +39,25 @@ public class OrganisationPoints {
         this.socialMediaType = socialMediaType;
     }
 
+    public OrganisationPoints(String orgId, int points, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean taxRefIsValid, boolean auditorIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, boolean instagramIsValid, boolean facebookIsValid, boolean twitterIsValid, boolean estDateIsValid, int numberOfImages) {
+        this.orgId = orgId;
+        this.points = points;
+        this.addressIsValid = addressIsValid;
+        this.websiteIsValid = websiteIsValid;
+        this.auditIsValid = auditIsValid;
+        this.taxRefIsValid = taxRefIsValid;
+        this.auditorIsValid = auditorIsValid;
+        this.committeeIsValid = committeeIsValid;
+        this.ngoNoIsValid = ngoNoIsValid;
+        this.ngoDateIsValid = ngoDateIsValid;
+        this.estDateIsValid = estDateIsValid;
+        this.instagramIsValid = instagramIsValid;
+        this.facebookIsValid = facebookIsValid;
+        this.twitterIsValid = twitterIsValid;
+        this.numberOfImages = numberOfImages;
+
+    }
+
     public String getOrgId() {
         return orgId;
     }

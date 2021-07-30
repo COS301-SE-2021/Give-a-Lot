@@ -17,9 +17,9 @@ public class OrganisationInfo {
     private String twitter;
     private String facebook;
     private String instagram;
-    private String establishmentDate;
+    private Date establishmentDate;
 
-    public OrganisationInfo(String orgId, String address, int numberOfImages, int numberOfReports, String website, String auditDocument, String taxReference, String auditorDetails, String committeeDetails, String ngoNumber, Date ngoDate, String twitter, String facebook, String instagram, String establishmentDate) {
+    public OrganisationInfo(String orgId, String address, int numberOfImages, int numberOfReports, String website, String auditDocument, String taxReference, String auditorDetails, String committeeDetails, String ngoNumber, Date ngoDate, String twitter, String facebook, String instagram, Date establishmentDate) {
         this.orgId = orgId;
         this.address = address;
         this.numberOfImages = numberOfImages;
@@ -149,11 +149,11 @@ public class OrganisationInfo {
         this.instagram = instagram;
     }
 
-    public String getEstablishmentDate() {
+    public Date getEstablishmentDate() {
         return establishmentDate;
     }
 
-    public void setEstablishmentDate(String establishmentDate) {
+    public void setEstablishmentDate(Date establishmentDate) {
         this.establishmentDate = establishmentDate;
     }
 

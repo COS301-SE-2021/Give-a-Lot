@@ -5,22 +5,23 @@ import org.springframework.stereotype.Repository;
 
 import java.io.File;
 import java.util.Date;
+import java.util.Optional;
 
 
 @Repository("postgres")
 public class OrganisationDASPostgre implements OrganisationDAOInterface{
     @Override
-    public Organisation selectOrganisation(String orgId) {
+    public Optional<Organisation> selectOrganisation(String orgId) {
         return null;
     }
 
     @Override
-    public Organisation selectOrganisationInfo(String orgId) {
+    public Optional<Organisation> selectOrganisationInfo(String orgId) {
         return null;
     }
 
     @Override
-    public Organisation selectOrganisationPoints(String orgId) {
+    public Optional<Organisation> selectOrganisationPoints(String orgId) {
         return null;
     }
 

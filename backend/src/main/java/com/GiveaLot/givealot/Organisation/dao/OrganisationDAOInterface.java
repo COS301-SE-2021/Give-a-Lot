@@ -3,14 +3,15 @@ package com.GiveaLot.givealot.Organisation.dao;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import java.io.File;
 import java.util.Date;
+import java.util.Optional;
 
 public interface OrganisationDAOInterface {
 
-    public Organisation selectOrganisation(String orgId);
+    public Optional<Organisation> selectOrganisation(String orgId);
 
-    public Organisation selectOrganisationInfo(String orgId);
+    public Optional<Organisation> selectOrganisationInfo(String orgId);
 
-    public Organisation selectOrganisationPoints(String orgId);
+    public Optional<Organisation> selectOrganisationPoints(String orgId);
 
 
     public boolean organisationExists(Organisation organisation);

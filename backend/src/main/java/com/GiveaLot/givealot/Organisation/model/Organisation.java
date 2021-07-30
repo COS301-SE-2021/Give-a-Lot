@@ -16,7 +16,7 @@ public class Organisation {
     private String contactPerson;
     private String contactNumber;
     private String directory;
-    private String passworrd;
+    private String password;
 
 
     public Organisation(@JsonProperty String orgId,
@@ -29,7 +29,7 @@ public class Organisation {
                         @JsonProperty String contactPerson,
                         @JsonProperty String contactNumber,
                         @JsonProperty String directory,
-                        @JsonProperty String passworrd
+                        @JsonProperty String password
                         )
     {
         this.orgName = orgName;
@@ -42,7 +42,7 @@ public class Organisation {
         this.contactNumber = contactNumber;
         this.contactPerson = contactPerson;
         this.directory = directory;
-        this.passworrd =passworrd;
+        this.password =password;
     }
     public String getOrgName() {
         return orgName;
@@ -124,11 +124,11 @@ public class Organisation {
         this.directory = directory;
     }
 
-    public String getPassworrd() {
-        return passworrd;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPassworrd(String passworrd) {
-        this.passworrd = passworrd;
+    public void setPassworrd(String password) {
+        this.password = password;
     }
 }

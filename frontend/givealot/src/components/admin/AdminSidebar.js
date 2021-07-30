@@ -13,8 +13,22 @@ import logo from "./imagesRegister/ID2.png"
 import Divider from '@material-ui/core/Divider';
 import SettingsIcon from '@material-ui/icons/Settings';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import DialogTitle from '@material-ui/core/DialogTitle'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import Button from "@material-ui/core/Button";
 
 export class AdminSidebar extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            open: false,
+        }
+
+    }
     render() {
         return (
             <div>
@@ -85,13 +99,31 @@ export class AdminSidebar extends Component {
                         </ListItem>
                     </Link>
                     <Link className='text-link' >
-                        <ListItem button>
+                        <ListItem button
+                          onClick={() => this.setState({ open: !this.state.open })}
+                        >
                             <ListItemIcon>
                                 <ExitToAppIcon className="icon"/>
                             </ListItemIcon >
                             <ListItemText primary="Logout" />
                         </ListItem>
                     </Link>
+                    <Dialog open={this.state.open}  aria-labelledby="form-dialog-title">
+                        <DialogTitle id="form-dialog-title">LogOut</DialogTitle>
+                        <DialogContent>
+                            <DialogContentText>
+                                Are you Sure?
+                            </DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={() => this.setState({ open: !this.state.open })}  color="primary">
+                                Yes
+                            </Button>
+                            <Button onClick={() => this.setState({ open: !this.state.open })}  color="primary">
+                                No
+                            </Button>
+                        </DialogActions>
+                    </Dialog>
                     <Divider />
 
                 </div>

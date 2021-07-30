@@ -12,7 +12,7 @@ public class OrganisationRowMapper implements RowMapper<Organisation> {
 
     @Override
     public Organisation mapRow(ResultSet rs, int i) throws SQLException {
-        Organisation organisation = new Organisation(
+        return new Organisation(
                 rs.getString("orgId"),
                 rs.getString("orgName"),
                 rs.getString("orgSlogan"),
@@ -24,6 +24,5 @@ public class OrganisationRowMapper implements RowMapper<Organisation> {
                 rs.getString("contactNumber"),
                 rs.getString("directory"),
                 rs.getString(""));
-        return organisation;
     }
 }

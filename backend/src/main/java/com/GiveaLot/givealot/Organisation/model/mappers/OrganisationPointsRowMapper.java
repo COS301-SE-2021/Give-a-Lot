@@ -13,7 +13,7 @@ public class OrganisationPointsRowMapper implements RowMapper<OrganisationPoints
         OrganisationPoints organisationPoints = new OrganisationPoints(
                 rs.getString("orgId"),
                 rs.getInt("points"),
-                rs.getBoolean(""),
+                rs.getBoolean("addressIsValid"),
                 rs.getBoolean(""),
                 rs.getBoolean(""),
                 rs.getBoolean(""),

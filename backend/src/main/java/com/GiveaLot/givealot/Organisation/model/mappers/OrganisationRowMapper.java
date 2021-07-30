@@ -1,6 +1,7 @@
-package com.GiveaLot.givealot.Organisation.model;
+package com.GiveaLot.givealot.Organisation.model.mappers;
 
 
+import com.GiveaLot.givealot.Organisation.model.Organisation;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

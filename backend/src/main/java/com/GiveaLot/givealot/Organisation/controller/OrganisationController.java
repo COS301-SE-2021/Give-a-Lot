@@ -36,12 +36,12 @@ public class OrganisationController
             if(service.addOrganisation(body))
             {
                 response.setCode("org_add_ok_200");
-                response.setMessage("added");
+                response.setMessage("success");
             }
             else
             {
                 response.setCode("org_add_bad_500");
-                response.setMessage("organisation not added");
+                response.setMessage("unsuccessful");
                 /* but why was the organisation not added??? */
             }
             return response;
@@ -55,7 +55,7 @@ public class OrganisationController
     }
 
     @GetMapping("/points/{orgId}")
-    public void selectOrganisationPoints(@PathVariable("orgId") @NonNull String orgId)
+    public responseJSON selectOrganisationPoints(@PathVariable("orgId") @NonNull String orgId)
     {
         try
         {
@@ -63,19 +63,21 @@ public class OrganisationController
             if(res != null)
             {
                 response.setCode("org_sel_ok_200");
-                //return List.of();
+                response.setMessage("success");
             }
             else
             {
-
+                response.setCode("org_sel_bad_200");
+                response.setMessage("unsuccessful");
             }
+            return response;
         }
         catch (Exception e)
         {
-
+            response.setCode("org_sel_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
         }
-
-
     }
 
     @GetMapping("/select/{orgId}")

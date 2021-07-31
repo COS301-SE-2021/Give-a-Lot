@@ -81,8 +81,8 @@ export class AdminUsers extends Component {
                                         scrollY
                                         hover
                                         entriesOptions={[5, 20, 25]}
-                                        entries={5}
-                                        maxHeight="250px"
+                                        entries={10}
+                                        // maxHeight="250px"
                                         // pagesAmount={4}
                                         data={data}
                                     />

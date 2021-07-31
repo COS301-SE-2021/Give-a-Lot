@@ -8,14 +8,17 @@ import AdminUsers from "./adminUsers/AdminUsers"
 import Calender from "./calender/Calender";
 import LogOut from "./LogOut";
 import AdminOrganisations from './adminOrganisations/AdminOrganisations';
-import Emails from "./emails/Emails" 
+import Emails from "./emails/Emails"
+import Header from "./Header"
 
 export class Admin extends Component {
 
     render() {
         return (
-            <div>
-                
+            <div className="Admin">
+                <div className="headerAdmin">
+                    <Header />
+                </div>
                 <div className="AdminBody">
                     <div>
                         <AdminSidebar />

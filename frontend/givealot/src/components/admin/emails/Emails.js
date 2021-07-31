@@ -90,7 +90,7 @@ class Emails extends React.Component {
                                 id="sendTo"
                                 className="form-control"
                                 required=""
-                                value={this.props.sendTo}
+                                // value={this.props.sendTo}
                             />
                         </div>
                     </div>

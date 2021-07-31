@@ -14,6 +14,8 @@ import java.io.File;
 import java.util.Date;
 import java.util.List;
 
+import static java.util.List.of;
+
 @RequestMapping("v1/organisation")
 @RestController
 public class OrganisationController
@@ -108,11 +110,11 @@ public class OrganisationController
 
 
     @GetMapping("/info/{orgId}")
-    public responseJSON selectOrganisationInfo(@PathVariable("orgId")  @NonNull String orgId)
+    public List<Object> selectOrganisationInfo(@PathVariable("orgId")  @NonNull String orgId)
     {
+        OrganisationInfo res = service.selectOrganisationInfo(orgId);
         try
         {
-            Object res = service.selectOrganisationInfo(orgId);
             if(res != null)
             {
                 response.setCode("org_sel_ok_200");
@@ -123,14 +125,15 @@ public class OrganisationController
                 response.setCode("org_sel_bad_200");
                 response.setMessage("unsuccessful");
             }
-            return response;
         }
         catch (Exception e)
         {
             response.setCode("org_sel_bad_500");
             response.setMessage("unsuccessful");
-            return response;
         }
+
+        assert res != null;
+        return List.of(response,res);
     }
 
     @PutMapping("/activate/{orgId}")

@@ -95,12 +95,12 @@ export class AdminOrganisations extends Component {
                                         paging={true}
                                         striped
                                         bordered
-                                        scrollY
+                                        // scrollY
                                         hover
                                         entriesOptions={[5, 20, 25]}
                                         entries={10}
-                                        // maxHeight="250px"
-                                        // pagesAmount={4}
+                                        maxHeight="500px"
+                                        pagesAmount={4}
                                         data={data}
                                     />
                                 </CardBody>

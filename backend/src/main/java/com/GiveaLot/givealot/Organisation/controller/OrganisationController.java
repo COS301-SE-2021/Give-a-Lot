@@ -2,10 +2,7 @@ package com.GiveaLot.givealot.Organisation.controller;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
-import com.GiveaLot.givealot.Organisation.rri.AddOrgAuditInfoRequest;
-import com.GiveaLot.givealot.Organisation.rri.AddOrgEstDateRequest;
-import com.GiveaLot.givealot.Organisation.rri.AddOrgImageRequest;
-import com.GiveaLot.givealot.Organisation.rri.AddOrgWebsiteRequest;
+import com.GiveaLot.givealot.Organisation.rri.*;
 import com.GiveaLot.givealot.Organisation.service.OrganisationService;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -591,9 +588,30 @@ public class OrganisationController
         }
     }
 
-    public void addOrgTaxRef(@PathVariable("orgId") String orgId, String reference)
+    @PostMapping("/add/taxref")
+    public responseJSON addOrgTaxRef(@RequestBody AddOrgTaxRefRequest body)
     {
-
+        try
+        {
+            boolean res = service.addOrgTaxRef(body);
+            if(res)
+            {
+                response.setCode("org_add_ok_218");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_add_bad_218");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_add_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
     public void addOrgAuditor(@PathVariable("orgId") String orgId, String auditor)

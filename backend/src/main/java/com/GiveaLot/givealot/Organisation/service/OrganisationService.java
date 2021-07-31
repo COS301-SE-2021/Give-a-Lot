@@ -124,10 +124,16 @@ public class OrganisationService {
 
     }
 
-    public boolean addOrgTaxRef(String orgId, String reference)
+    public boolean addOrgTaxRef(AddOrgTaxRefRequest request)
     {
-        return organisationDAOInterface.addOrgTaxRef(orgId,reference);
+        if(request != null)
+        {
+            String orgId = request.getOrgId();
+            String reference = request.getReference();
 
+            return organisationDAOInterface.addOrgTaxRef(orgId, reference);
+        }
+        return false;
     }
 
     public boolean removeOrgTaxRef(String orgId)

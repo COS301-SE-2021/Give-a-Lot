@@ -68,9 +68,11 @@ public class OrganisationService {
 
 
     //Additional classes
-    public boolean addOrgWebsite(String orgId,String website)
+    public boolean addOrgWebsite()
     {
-        return organisationDAOInterface.addOrgWebsite(orgId,website);
+        if(request != null) {
+            return organisationDAOInterface.addOrgWebsite(orgId, website);
+        }
     }
 
     public boolean removeOrgAddress(String orgId)
@@ -79,12 +81,16 @@ public class OrganisationService {
 
     }
 
-    public boolean addOrgImage()
+    public boolean addOrgImage(AddOrgImageRequest request)
     {
-        if(request != null) {
-            String orgId, File image = 
+        if(request != null)
+        {
+            String orgId = request.getOrgId();
+            File image = request.getImage();
+
             return organisationDAOInterface.addOrgImage(orgId, image);
         }
+        return false;
     }
 
 

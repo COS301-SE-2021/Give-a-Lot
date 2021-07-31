@@ -240,15 +240,55 @@ public class OrganisationController
     }
 
     @DeleteMapping("/delete/address/{orgId}")
-    public void removeOrgAddress(@PathVariable("orgId") @NonNull String orgId)
+    public responseJSON removeOrgAddress(@PathVariable("orgId") @NonNull String orgId)
     {
-        Object response = service.removeOrgAddress(orgId);
+        try
+        {
+            boolean res = service.removeOrgAddress(orgId);
+            if(res)
+            {
+                response.setCode("org_rm_ok_205");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_rm_bad_205");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_rm_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
     @DeleteMapping("/delete/images/{orgId}")
-    public void removeOrgImage(@PathVariable("orgId") @NonNull String orgId)
+    public responseJSON removeOrgImage(@PathVariable("orgId") @NonNull String orgId)
     {
-        Object response = service.removeOrgImage(orgId);
+        try
+        {
+            boolean res = service.removeOrgImage(orgId);
+            if(res)
+            {
+                response.setCode("org_rm_ok_206");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_rm_bad_206");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_rm_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
     @DeleteMapping("/delete/taxref/{orgId}")

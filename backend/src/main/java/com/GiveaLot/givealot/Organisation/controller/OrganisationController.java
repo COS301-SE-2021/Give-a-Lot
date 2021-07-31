@@ -41,7 +41,8 @@ public class OrganisationController
             else
             {
                 response.setCode("org_add_bad_500");
-                response.setMessage("organisation not added"); /* why was it not added??? */
+                response.setMessage("organisation not added");
+                /* but why was the organisation not added??? */
             }
             return response;
         }

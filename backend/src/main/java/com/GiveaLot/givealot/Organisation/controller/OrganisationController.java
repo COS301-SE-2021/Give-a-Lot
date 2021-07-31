@@ -689,18 +689,55 @@ public class OrganisationController
         }
     }
 
-    @GetMapping("/{orgId}/{type}/{website}")
-    public void addOrgSocials(@PathVariable("orgId")  String orgId,
-                              @PathVariable("type")String type,
-                              @PathVariable("website") String website)
+    @GetMapping("/add/socials")
+    public responseJSON addOrgSocials(@RequestBody AddSocialsRequest body)
     {
-        System.out.println(orgId + "\n " + type + " \n " );
+        try
+        {
+            boolean res = service.addOrgSocials(body);
+            if(res)
+            {
+                response.setCode("org_add_ok_222");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_add_bad_222");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_add_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
-    public void addOrgNGO(String orgId, String ngoNumber, Date ngoDate)
+    @GetMapping("/add/ngo")
+    public responseJSON addOrgNGO(@RequestBody AddOrgNGORequest body)
     {
-        System.out.println(orgId);
-        System.out.println(ngoNumber);
-        System.out.println(ngoDate);
+        try
+        {
+            boolean res = service.addOrgNGO(body);
+            if(res)
+            {
+                response.setCode("org_add_ok_223");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_add_bad_223");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_add_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 }

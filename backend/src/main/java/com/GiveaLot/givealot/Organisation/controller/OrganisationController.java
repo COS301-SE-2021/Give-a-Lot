@@ -448,15 +448,55 @@ public class OrganisationController
     }
 
     @DeleteMapping("/delete/committee/{orgId}")
-    public void removeOrgCommittee(@PathVariable("orgId") @NonNull String orgId)
+    public responseJSON removeOrgCommittee(@PathVariable("orgId") @NonNull String orgId)
     {
-        Object response = service.removeOrgCommittee(orgId);
+        try
+        {
+            boolean res = service.removeOrgCommittee(orgId);
+            if(res)
+            {
+                response.setCode("org_rm_ok_213");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_rm_bad_213");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_rm_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
     @DeleteMapping("/delete/socials/{orgId}")
-    public void removeOrgSocials(@PathVariable("orgId") @NonNull String orgId,@PathVariable("type") @NonNull String type)
+    public responseJSON removeOrgSocials(@PathVariable("orgId") @NonNull String orgId,@PathVariable("type") @NonNull String type)
     {
-        Object response = service.removeOrgSocials(orgId,type);
+        try
+        {
+            boolean res = service.removeOrgSocials(orgId,type);
+            if(res)
+            {
+                response.setCode("org_rm_ok_215");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_rm_bad_215");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_rm_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
 

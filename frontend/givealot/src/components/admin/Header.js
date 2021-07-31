@@ -14,7 +14,6 @@ export class Header extends Component {
                     <div className="adminHeader">
                         <img src={logo} alt="" className="imageAdmin"/>
                     </div>
-
                 </div>
             </div>
         )

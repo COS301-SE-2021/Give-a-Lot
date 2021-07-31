@@ -139,7 +139,7 @@ public class OrganisationController
         try
         {
             boolean res = service.reactivateOrganisation(orgId);
-            if(res == true)
+            if(res)
             {
                 response.setCode("org_act_ok_200");
                 response.setMessage("success");

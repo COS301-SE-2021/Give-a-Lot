@@ -145,6 +145,7 @@ public class OrganisationController
         return response;
     }
 
+    /* tested - works */
     @PutMapping("/activate/{orgId}")
     public responseJSON reactivateOrganisation(@PathVariable("orgId") @NonNull String orgId)
     {

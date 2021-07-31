@@ -236,7 +236,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
             return true;
         }catch (Exception e)
         {
-            throw new Exception("add_org_excp " + e.toString());
+            throw new Exception("add_web_excp " + e.toString());
         }
     }
 

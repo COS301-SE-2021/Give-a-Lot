@@ -1,3 +1,25 @@
+PUT http://localhost:8080/v1/organisation/suspend/someorgid
+
+<> 2021-07-31T233556.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/suspend/someorgid
+
+<> 2021-07-31T233420.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/investigate/someorgId
+
+<> 2021-07-31T233218.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/investigate/someorgId
+
+###
+
 PUT http://localhost:8080/v1/organisation/investigate/someordid
 
 <> 2021-07-31T232019.200.json
@@ -316,69 +338,6 @@ PUT http://localhost:8080/v1/organisation/website/org143234/www.oogle.com
 GET http://localhost:8080/v1/organisation/points/peterPan%20jdj%20%20vj
 
 
-
-###
-
-GET http://localhost:8080/v1/organisation/points/peterPan
-
-
-
-###
-
-POST http://localhost:8080/addOrganisation
-Content-Type: application/json
-
-{
-   "orgId" : "orgid2",
-   "orgName" : "orgName",
-   "slogan" : "slogan",
-   "orgDescription" : "orgDescription",
-   "orgSector" : "orgSector",
-   "orgEmail" : "orgEmail",
-   "status" : "status",
-   "contactPerson" : "contactPerson",
-   "contactNumber" : "contactNumber",
-   "directory" : "directory",
-   "password" : "password"
-}
-
-###
-
-POST http://localhost:8080/addOrganisation
-Content-Type: application/json
-
-{
-   "orgId" : "orgid2",
-   "orgName" : "orgName",
-   "slogan" : "slogan",
-   "orgDescription" : "orgDescription",
-   "orgSector" : "orgSector",
-   "orgEmail" : "orgEmail",
-   "status" : "status",
-   "contactPerson" : "contactPerson",
-   "contactNumber" : "contactNumber",
-   "directory" : "directory",
-   "password" : "password"
-}
-
-###
-
-POST http://localhost:8080/addOrganisation
-Content-Type: application/json
-
-{
-   "orgId" : "orgid",
-   "orgName" : "orgName",
-   "slogan" : "slogan",
-   "orgDescription" : "orgDescription",
-   "orgSector" : "orgSector",
-   "orgEmail" : "orgEmail",
-   "status" : "status",
-   "contactPerson" : "contactPerson",
-   "contactNumber" : "contactNumber",
-   "directory" : "directory",
-   "password" : "password"
-}
 
 ###
 

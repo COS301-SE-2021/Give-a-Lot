@@ -172,6 +172,7 @@ public class OrganisationController
         }
     }
 
+    /* tested - works */
     @PutMapping("/investigate/{orgId}")
     public responseJSON investigateOrganisation(@PathVariable("orgId") @NonNull String orgId)
     {
@@ -198,6 +199,7 @@ public class OrganisationController
         }
     }
 
+    /* tested - works */
     @PutMapping("/suspend/{orgId}")
     public responseJSON suspendOrganisation(@PathVariable("orgId") @NonNull String orgId)
     {
@@ -219,7 +221,7 @@ public class OrganisationController
         catch (Exception e)
         {
             response.setCode("org_sus_bad_500");
-            response.setMessage("unsuccessful");
+            response.setMessage("unsuccessful " + e.toString());
             return response;
         }
     }

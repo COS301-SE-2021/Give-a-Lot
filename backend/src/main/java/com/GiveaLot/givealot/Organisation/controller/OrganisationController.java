@@ -370,21 +370,81 @@ public class OrganisationController
     }
 
     @DeleteMapping("/delete/donationinfo/{orgId}")
-    public void removeOrgDonationInfo(@PathVariable("orgId") @NonNull String orgId)
+    public responseJSON removeOrgDonationInfo(@PathVariable("orgId") @NonNull String orgId)
     {
-        Object response = service.removeOrgDonationInfo(orgId);
+        try
+        {
+            boolean res = service.removeOrgDonationInfo(orgId);
+            if(res)
+            {
+                response.setCode("org_rm_ok_210");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_rm_bad_210");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_rm_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
     @DeleteMapping("/delete/audit/{orgId}")
-    public void removeOrgAuditDoc(@PathVariable("orgId") @NonNull String orgId)
+    public responseJSON removeOrgAuditDoc(@PathVariable("orgId") @NonNull String orgId)
     {
-        Object response = service.removeOrgAuditDoc(orgId);
+        try
+        {
+            boolean res = service.removeOrgAuditDoc(orgId);
+            if(res)
+            {
+                response.setCode("org_rm_ok_211");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_rm_bad_211");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_rm_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
     @DeleteMapping("/delete/auditor/{orgId}")
-    public void removeOrgAuditor(@PathVariable("orgId") @NonNull String orgId)
+    public responseJSON removeOrgAuditor(@PathVariable("orgId") @NonNull String orgId)
     {
-        Object response = service.removeOrgAuditor(orgId);
+        try
+        {
+            boolean res = service.removeOrgAuditor(orgId);
+            if(res)
+            {
+                response.setCode("org_rm_ok_212");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_rm_bad_212");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_rm_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
     @DeleteMapping("/delete/committee/{orgId}")

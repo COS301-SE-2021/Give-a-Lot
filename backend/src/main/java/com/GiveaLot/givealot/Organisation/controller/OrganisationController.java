@@ -83,11 +83,11 @@ public class OrganisationController
     }
 
     @GetMapping("/select/{orgId}")
-    public responseJSON selectOrganisation(@PathVariable("orgId") @NonNull String orgId)
+    public List<Object> selectOrganisation(@PathVariable("orgId") @NonNull String orgId)
     {
+        Organisation res = service.selectOrganisation(orgId);
         try
         {
-            Object res = service.selectOrganisation(orgId);
             if(res != null)
             {
                 response.setCode("org_sel_ok_200");
@@ -98,13 +98,16 @@ public class OrganisationController
                 response.setCode("org_sel_bad_200");
                 response.setMessage("unsuccessful");
             }
-            return response;
+
+            assert res != null;
+            return List.of(response, res);
         }
         catch (Exception e)
         {
             response.setCode("org_sel_bad_500");
             response.setMessage("unsuccessful");
-            return response;
+            assert res != null;
+            return List.of(response, res);
         }
     }
 

@@ -68,7 +68,7 @@ export class AdminUsers extends Component {
 
         // const { posts } = this.state
         return (
-            <div style={{width: "100%"}}>
+            <div >
                 <div>
                     <Row className="mb-4">
                         <Col md="12">

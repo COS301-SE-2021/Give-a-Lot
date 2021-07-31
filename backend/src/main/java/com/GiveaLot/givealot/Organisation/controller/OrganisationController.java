@@ -1,6 +1,7 @@
 package com.GiveaLot.givealot.Organisation.controller;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
+import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.rri.*;
 import com.GiveaLot.givealot.Organisation.service.OrganisationService;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
@@ -54,11 +55,11 @@ public class OrganisationController
     }
 
     @GetMapping("/points/{orgId}")
-    public responseJSON selectOrganisationPoints(@PathVariable("orgId") @NonNull String orgId)
+    public List<Object> selectOrganisationPoints(@PathVariable("orgId") @NonNull String orgId)
     {
+        OrganisationPoints res = service.selectOrganisationPoints(orgId);
         try
         {
-            Object res = service.selectOrganisationPoints(orgId);
             if(res != null)
             {
                 response.setCode("org_sel_ok_200");
@@ -69,13 +70,15 @@ public class OrganisationController
                 response.setCode("org_sel_bad_200");
                 response.setMessage("unsuccessful");
             }
-            return response;
+            assert res != null;
+            return List.of(response,res);
         }
         catch (Exception e)
         {
             response.setCode("org_sel_bad_500");
             response.setMessage("unsuccessful");
-            return response;
+            assert res != null;
+            return List.of(response,res);
         }
     }
 
@@ -496,15 +499,6 @@ public class OrganisationController
         }
     }
 
-
-    /*
-    * backend
-    * */
-    public void organisationExists(Organisation organisation)
-    {
-
-    }
-
     @PostMapping("/add/estdate")
     public responseJSON addOrgEstDate(@RequestBody @NonNull AddOrgEstDateRequest body)
     {
@@ -530,8 +524,6 @@ public class OrganisationController
             return response;
         }
     }
-
-
 
     @PostMapping("/add/image")
     public responseJSON addOrgImage(@RequestBody @NonNull AddOrgImageRequest body)

@@ -4,10 +4,7 @@ import com.GiveaLot.givealot.Organisation.dao.OrganisationDAOInterface;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
-import com.GiveaLot.givealot.Organisation.rri.AddOrgCommitteeRequest;
-import com.GiveaLot.givealot.Organisation.rri.AddOrgEstDateRequest;
-import com.GiveaLot.givealot.Organisation.rri.AddOrgNGORequest;
-import com.GiveaLot.givealot.Organisation.rri.AddSocialsRequest;
+import com.GiveaLot.givealot.Organisation.rri.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -96,10 +93,15 @@ public class OrganisationService {
     }
 
 
-    public boolean addOrgAuditDoc(String orgId, File audit)
+    public boolean addOrgAuditDoc(AddOrgAuditInfoRequest request)
     {
-        return organisationDAOInterface.addOrgAuditDoc(orgId,audit);
-
+        if(request != null)
+        {
+            String orgId = request.getOrgId();
+            File audit = request.getAudit();
+            return organisationDAOInterface.addOrgAuditDoc(orgId, audit);
+        }
+        return false;
     }
 
 
@@ -162,7 +164,6 @@ public class OrganisationService {
         return organisationDAOInterface.removeOrgDonationInfo(orgId);
 
     }
-
 
     public boolean addOrgSocials(AddSocialsRequest request)
     {

@@ -32,8 +32,7 @@ public class OrganisationService {
     }
 
 
-    public OrganisationPoints selectOrganisationPoints(String orgId)
-    {
+    public OrganisationPoints selectOrganisationPoints(String orgId) throws Exception {
         return organisationDAOInterface.selectOrganisationPoints(orgId);
     }
 

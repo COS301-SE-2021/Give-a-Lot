@@ -14,7 +14,7 @@ public interface OrganisationDAOInterface {
 
     public OrganisationInfo selectOrganisationInfo(String orgId) throws Exception;
 
-    public OrganisationPoints selectOrganisationPoints(String orgId);
+    public OrganisationPoints selectOrganisationPoints(String orgId) throws Exception;
 
 
     public boolean organisationExists(Organisation organisation);

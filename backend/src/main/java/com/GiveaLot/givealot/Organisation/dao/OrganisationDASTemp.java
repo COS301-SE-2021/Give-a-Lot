@@ -69,16 +69,22 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
     }
 
     @Override
-    public OrganisationPoints selectOrganisationPoints(String orgId) {
+    public OrganisationPoints selectOrganisationPoints(String orgId) throws Exception {
         String query = "SELECT * FROM \"OrganisationPoints\" WHERE \"orgId\" = " + orgId + ";";
 
-        OrganisationPoints organisationPoints = jdbcTemplate.queryForObject(query, new OrganisationPointsRowMapper());
+        try {
+            OrganisationPoints organisationPoints = jdbcTemplate.queryForObject(query, new OrganisationPointsRowMapper());
 
-        if(organisationPoints.getOrgId().isEmpty()){
-            return null;
+            if (organisationPoints.getOrgId().isEmpty()) {
+                return null;
+            }
+
+            return organisationPoints;
         }
-
-        return organisationPoints;
+        catch(Exception e)
+        {
+            throw new Exception("sel_org_pts " + e.toString());
+        }
     }
 
     @Override

@@ -10,9 +10,9 @@ import java.util.Optional;
 
 public interface OrganisationDAOInterface {
 
-    public Organisation selectOrganisation(String orgId);
+    public Organisation selectOrganisation(String orgId) throws Exception;
 
-    public OrganisationInfo selectOrganisationInfo(String orgId);
+    public OrganisationInfo selectOrganisationInfo(String orgId) throws Exception;
 
     public OrganisationPoints selectOrganisationPoints(String orgId);
 
@@ -21,11 +21,11 @@ public interface OrganisationDAOInterface {
 
     public boolean addOrganisation(Organisation organisation);
 
-    public boolean reactivateOrganisation(String orgId);
+    public boolean reactivateOrganisation(String orgId) throws Exception;
 
-    public boolean investigateOrganisation(String orgId);
+    public boolean investigateOrganisation(String orgId) throws Exception;
 
-    public boolean suspendOrganisation(String orgId);
+    public boolean suspendOrganisation(String orgId) throws Exception;
 
 
     /** OrganisationInfo functions **/

@@ -30,29 +30,42 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
     }
 
     @Override
-    public Organisation selectOrganisation(String orgId) {
+    public Organisation selectOrganisation(String orgId) throws Exception {
         String query = "SELECT * FROM \"Organisations\" WHERE \"orgId\" = " + orgId + ";";
 
-        Organisation organisation = jdbcTemplate.queryForObject(query, new OrganisationRowMapper());
+        try {
+            Organisation organisation = jdbcTemplate.queryForObject(query, new OrganisationRowMapper());
 
-        if(organisation.getOrgName().isEmpty()){
-            return null;
+            if (organisation.getOrgName().isEmpty()) {
+                return null;
+            }
+
+            return organisation;
         }
-
-        return organisation;
+        catch (Exception e)
+        {
+            throw new Exception(e.toString());
+        }
     }
 
     @Override
-    public OrganisationInfo selectOrganisationInfo(String orgId) {
+    public OrganisationInfo selectOrganisationInfo(String orgId) throws Exception {
         String query = "SELECT * FROM \"OrganisationInfo\" WHERE \"orgId\" = " + orgId + ";";
 
-        OrganisationInfo organisationInfo = jdbcTemplate.queryForObject(query, new OrganisationInfoRowMapper());
+        try {
+            OrganisationInfo organisationInfo = jdbcTemplate.queryForObject(query, new OrganisationInfoRowMapper());
 
-        if(organisationInfo.getOrgId().isEmpty()){
-            return null;
+            if (organisationInfo.getOrgId().isEmpty())
+            {
+                return null;
+            }
+
+            return organisationInfo;
         }
-
-        return organisationInfo;
+        catch (Exception e)
+        {
+            throw new Exception("sel_org_info " + e.toString());
+        }
     }
 
     @Override
@@ -134,7 +147,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
     }
 
     @Override
-    public boolean reactivateOrganisation(String orgId) {
+    public boolean reactivateOrganisation(String orgId) throws Exception {
         Organisation org = selectOrganisation(orgId);
 
         if (org.getStatus().equals("Active")){
@@ -148,7 +161,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
     }
 
     @Override
-    public boolean investigateOrganisation(String orgId) {
+    public boolean investigateOrganisation(String orgId) throws Exception {
         Organisation org = selectOrganisation(orgId);
 
         if (org.getStatus().equals("UnderInvestigation")){
@@ -162,7 +175,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
     }
 
     @Override
-    public boolean suspendOrganisation(String orgId) {
+    public boolean suspendOrganisation(String orgId) throws Exception {
         Organisation org = selectOrganisation(orgId);
 
         if (org.getStatus().equals("Suspended")){

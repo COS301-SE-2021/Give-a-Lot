@@ -28,9 +28,15 @@ public class OrganisationController
         this.response = response;
     }
 
+    /*
+     * tested, works well
+     *
+     * To-do: fix addOrganisation from the dao
+     * */
     @PostMapping("/add/org")
     public responseJSON addOrganisation(@RequestBody @NonNull Organisation body)
     {
+        System.out.println(body);
         try
         {
             if(service.addOrganisation(body))
@@ -54,40 +60,49 @@ public class OrganisationController
         }
     }
 
+    /*
+    * tested, works well
+    *
+    * To-do: fix selectOrganisationPoints from the dao
+    * */
     @GetMapping("/points/{orgId}")
-    public List<Object> selectOrganisationPoints(@PathVariable("orgId") @NonNull String orgId)
+    public responseJSON selectOrganisationPoints(@PathVariable("orgId") @NonNull String orgId)
     {
+        System.out.println("hello there " + orgId);
+
         OrganisationPoints res = service.selectOrganisationPoints(orgId);
+        //OrganisationPoints res = new OrganisationPoints();
         try
         {
             if(res != null)
             {
                 response.setCode("org_sel_ok_200");
                 response.setMessage("success");
+                response.setObject(res);
             }
             else
             {
                 response.setCode("org_sel_bad_200");
                 response.setMessage("unsuccessful");
+                response.setObject(null);
             }
-            assert res != null;
-            return List.of(response,res);
         }
         catch (Exception e)
         {
             response.setCode("org_sel_bad_500");
-            response.setMessage("unsuccessful");
-            assert res == null;
-            return List.of(response,res);
+            response.setMessage("unsuccessful " + e.toString());
+            return response;
         }
+        return response;
     }
 
     @GetMapping("/select/{orgId}")
     public List<Object> selectOrganisation(@PathVariable("orgId") @NonNull String orgId)
     {
-        Organisation res = service.selectOrganisation(orgId);
+
         try
         {
+            Organisation res = service.selectOrganisation(orgId);
             if(res != null)
             {
                 response.setCode("org_sel_ok_200");
@@ -106,27 +121,30 @@ public class OrganisationController
         {
             response.setCode("org_sel_bad_500");
             response.setMessage("unsuccessful");
-            assert res == null;
-            return List.of(response, res);
+            return null;
         }
     }
 
 
+    /* tested - works */
     @GetMapping("/info/{orgId}")
-    public List<Object> selectOrganisationInfo(@PathVariable("orgId")  @NonNull String orgId)
+    public responseJSON selectOrganisationInfo(@PathVariable("orgId")  @NonNull String orgId)
     {
-        OrganisationInfo res = service.selectOrganisationInfo(orgId);
+
         try
         {
+            OrganisationInfo res = service.selectOrganisationInfo(orgId);
             if(res != null)
             {
                 response.setCode("org_sel_ok_200");
                 response.setMessage("success");
+                response.setObject(res);
             }
             else
             {
                 response.setCode("org_sel_bad_200");
                 response.setMessage("unsuccessful");
+                response.setObject(null);
             }
         }
         catch (Exception e)
@@ -135,8 +153,7 @@ public class OrganisationController
             response.setMessage("unsuccessful");
         }
 
-        assert res != null;
-        return List.of(response,res);
+        return response;
     }
 
     @PutMapping("/activate/{orgId}")

@@ -23,13 +23,11 @@ public class OrganisationService {
         this.organisationDAOInterface = organisationDAOInterface;
     }
 
-    public Organisation selectOrganisation(String orgId)
-    {
+    public Organisation selectOrganisation(String orgId) throws Exception {
         return organisationDAOInterface.selectOrganisation(orgId);
     }
 
-    public OrganisationInfo selectOrganisationInfo(String orgId)
-    {
+    public OrganisationInfo selectOrganisationInfo(String orgId) throws Exception {
         return organisationDAOInterface.selectOrganisationInfo(orgId);
     }
 
@@ -52,16 +50,15 @@ public class OrganisationService {
     }
 
 
-    public boolean reactivateOrganisation(String orgId)
-    {
+    public boolean reactivateOrganisation(String orgId) throws Exception {
         return organisationDAOInterface.reactivateOrganisation(orgId);
     }
 
-    public boolean investigateOrganisation(String orgId){
+    public boolean investigateOrganisation(String orgId) throws Exception {
        return organisationDAOInterface.investigateOrganisation(orgId);
     }
 
-    public boolean suspendOrganisation(String orgId){
+    public boolean suspendOrganisation(String orgId) throws Exception {
 
        return organisationDAOInterface.suspendOrganisation(orgId);
     }
@@ -191,7 +188,6 @@ public class OrganisationService {
     public boolean removeOrgDonationInfo(String orgId)
     {
         return organisationDAOInterface.removeOrgDonationInfo(orgId);
-
     }
 
     public boolean addOrgSocials(AddSocialsRequest request)

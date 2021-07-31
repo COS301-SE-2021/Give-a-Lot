@@ -23,6 +23,10 @@ public class OrganisationPoints {
     private String socialMediaType;
 
 
+    public OrganisationPoints()
+    {
+
+    }
     public OrganisationPoints(String orgId, int points, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean taxRefIsValid, boolean auditorIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, String socialMediaType, boolean estDateIsValid, int numberOfImages) {
         this.orgId = orgId;
         this.points = points;

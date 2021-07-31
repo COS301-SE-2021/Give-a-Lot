@@ -71,8 +71,12 @@ public class OrganisationService {
     public boolean addOrgWebsite()
     {
         if(request != null) {
+            String orgId = request.getOrgId();
+            String website = request.getWebsite();
+
             return organisationDAOInterface.addOrgWebsite(orgId, website);
         }
+        return false;
     }
 
     public boolean removeOrgAddress(String orgId)

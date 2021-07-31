@@ -4,13 +4,16 @@ import com.GiveaLot.givealot.Organisation.dao.OrganisationDAOInterface;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
+import com.GiveaLot.givealot.Organisation.rri.AddOrgCommitteeRequest;
+import com.GiveaLot.givealot.Organisation.rri.AddOrgEstDateRequest;
+import com.GiveaLot.givealot.Organisation.rri.AddOrgNGORequest;
+import com.GiveaLot.givealot.Organisation.rri.AddSocialsRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.util.Date;
-import java.util.Optional;
 
 @Service
 public class OrganisationService {
@@ -25,8 +28,9 @@ public class OrganisationService {
 
     public Organisation selectOrganisation(String orgId)
     {
-       return organisationDAOInterface.selectOrganisation(orgId);
+        return organisationDAOInterface.selectOrganisation(orgId);
     }
+
     public OrganisationInfo selectOrganisationInfo(String orgId)
     {
         return organisationDAOInterface.selectOrganisationInfo(orgId);
@@ -49,6 +53,7 @@ public class OrganisationService {
     {
        return organisationDAOInterface.addOrganisation(organisation);
     }
+
 
     public boolean reactivateOrganisation(String orgId)
     {
@@ -129,10 +134,15 @@ public class OrganisationService {
 
     }
 
-    public boolean addOrgCommittee(String orgId, String committee)
+    public boolean addOrgCommittee(AddOrgCommitteeRequest request)
     {
-        return organisationDAOInterface.addOrgCommittee(orgId,committee);
-
+        if(request != null)
+        {
+            String orgId = request.getOrgId();
+            String committee = request.getCommittee();
+            return organisationDAOInterface.addOrgCommittee(orgId, committee);
+        }
+        return false;
     }
 
     public boolean removeOrgCommittee(String orgId)
@@ -154,45 +164,71 @@ public class OrganisationService {
     }
 
 
-    public boolean addOrgSocials(String orgId, String type, String website)
+    public boolean addOrgSocials(AddSocialsRequest request)
     {
-        return organisationDAOInterface.addOrgSocials(orgId,type,website);
+        if(request != null)
+        {
+            String orgId = request.getOrgId();
+            String type = request.getType();
+            String website = request.getWebsite();
 
+            /*
+                data not validated
+            */
+
+            return organisationDAOInterface.addOrgSocials(orgId,type,website);
+        }
+        /* maybe throw an exception indicating that an
+             incorrect object state was used?
+        */
+        return false;
     }
 
     public boolean removeOrgSocials(String orgId, String type)
     {
-        return organisationDAOInterface.removeOrgSocials(orgId,type);
-
+        /*
+        * not validated yet
+        */
+        return organisationDAOInterface.removeOrgSocials(orgId, type);
     }
 
-    public boolean addOrgNGO(String orgId, String ngoNumber, Date ngoDate)
+    public boolean addOrgNGO(AddOrgNGORequest request)
     {
-        return organisationDAOInterface.addOrgNGO(orgId,ngoNumber,ngoDate);
-
+        if(request != null) {
+            String orgId = request.getOrgId();
+            String ngoNumber = request.getNgoNumber();
+            Date ngoDate = request.getNgoDate();
+            /*
+             * not validated yet
+             */
+            return organisationDAOInterface.addOrgNGO(orgId, ngoNumber, ngoDate);
+        }
+        return false;
     }
 
     public boolean removeOrgNGO(String orgId)
     {
         return organisationDAOInterface.removeOrgNGO(orgId);
-
     }
 
-
-    public boolean addOrgEstDate(String orgId, Date date)
+    public boolean addOrgEstDate(AddOrgEstDateRequest request)
     {
-        return organisationDAOInterface.addOrgEstDate(orgId,date);
+        if(request != null)
+        {
+            String orgId = request.getOrgId();
+            Date date = request.getDate();
 
+            /*
+             * not validated yet
+             */
+            return organisationDAOInterface.addOrgEstDate(orgId, date);
+        }
+        return false;
     }
-
 
     public boolean removeOrgEstDate(String orgId)
     {
         return organisationDAOInterface.removeOrgEstDate(orgId);
 
     }
-
-
-
-
 }

@@ -9,6 +9,7 @@ import java.util.UUID;
 
 public class Organisation {
 
+
     private String orgName;
     private String slogan;
     private String orgDescription;
@@ -47,7 +48,7 @@ public class Organisation {
         this.directory = directory;
         this.password =password;
     }
-    public String getOrgName() {
+    public String getOrgName(){
         return orgName;
     }
 
@@ -133,6 +134,23 @@ public class Organisation {
 
     public void setPassworrd(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "Organisation{" +
+                "orgName='" + orgName + '\'' +
+                ", slogan='" + slogan + '\'' +
+                ", orgDescription='" + orgDescription + '\'' +
+                ", orgSector='" + orgSector + '\'' +
+                ", orgEmail='" + orgEmail + '\'' +
+                ", orgId='" + orgId + '\'' +
+                ", status='" + status + '\'' +
+                ", contactPerson='" + contactPerson + '\'' +
+                ", contactNumber='" + contactNumber + '\'' +
+                ", directory='" + directory + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 
     public static class MD5 {

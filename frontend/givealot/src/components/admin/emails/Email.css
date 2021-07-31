@@ -1,53 +1,57 @@
-.email{
-    margin-top: 90px;
-    margin-left: 100px;
-}
+/*.email{*/
+/*    margin-top: 90px;*/
+/*    margin-left: 100px;*/
+/*}*/
 
-.container{
-    border: 1px solid #b0b0b0;
-    background-color: #e8e8e8;
-    background-position: center;
-    background-size: cover;
-}
+/*.container{*/
+/*    border: 1px solid #b0b0b0;*/
+/*    background-color: #e8e8e8;*/
+/*    background-position: center;*/
+/*    background-size: cover;*/
+/*}*/
 
-.heading{
-    font-family: sans-serif;
-    text-align: center;
-    margin-top: 10px;
-    color: #4d4d4d;
-}
+/*.heading{*/
+/*    font-family: sans-serif;*/
+/*    text-align: center;*/
+/*    margin-top: 10px;*/
+/*    color: #4d4d4d;*/
+/*}*/
 
-input, select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
+/*input, select {*/
+/*    width: 100%;*/
+/*    padding: 12px 20px;*/
+/*    margin: 8px 0;*/
+/*    display: inline-block;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 4px;*/
+/*    box-sizing: border-box;*/
+/*}*/
 
-textarea, select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
+/*textarea, select {*/
+/*    width: 100%;*/
+/*    padding: 12px 20px;*/
+/*    margin: 8px 0;*/
+/*    display: inline-block;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 4px;*/
+/*    box-sizing: border-box;*/
+/*}*/
 
-input[type=submit] {
-    width: 100%;
-    background-color: #2d9499;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
+/*input[type=submit] {*/
+/*    width: 100%;*/
+/*    background-color: #2d9499;*/
+/*    color: white;*/
+/*    padding: 14px 20px;*/
+/*    margin: 8px 0;*/
+/*    border: none;*/
+/*    border-radius: 4px;*/
+/*    cursor: pointer;*/
+/*}*/
 
-input[type=submit]:hover {
-    background-color: #52aeb3;
+/*input[type=submit]:hover {*/
+/*    background-color: #52aeb3;*/
+/*}*/
+
+.modal-body{
+
 }

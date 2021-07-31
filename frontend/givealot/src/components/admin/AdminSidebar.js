@@ -91,7 +91,7 @@ export class AdminSidebar extends Component {
                     </Link>
 
                     <Link className='text-link' >
-                        <ListItem button
+                        <ListItem button className='text-link'
                           onClick={() => this.setState({ open: !this.state.open })}
                         >
                             <ListItemIcon>

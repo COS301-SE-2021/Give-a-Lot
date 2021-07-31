@@ -266,15 +266,26 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
     }
 
     @Override
-    public boolean removeOrgAddress(String orgId) {
-        String query = "update public.\"OrganisationInfo\" set \"address\" = null where \"orgId\" = ?";
-        jdbcTemplate.update(query,orgId);
-        String query1 = "update public.\"OrganisationPoints\" set \"addressIsValid\" = false where \"orgId\" = ?";
-        jdbcTemplate.update(query1,orgId);
-        String query2 = "update public.\"OrganisationPoints\" set \"points\" = points - 10 where \"orgId\" =  ?";
-        jdbcTemplate.update(query2,orgId);
+    public boolean removeOrgAddress(String orgId) throws Exception {
+        try
+        {
+            /*
+            * always returns true even the organisation id doesnt exist.
+            * please check this
+            */
 
-        return true;
+            String query = "update public.\"OrganisationInfo\" set \"address\" = null where \"orgId\" = ?";
+            jdbcTemplate.update(query, orgId);
+            String query1 = "update public.\"OrganisationPoints\" set \"addressIsValid\" = false where \"orgId\" = ?";
+            jdbcTemplate.update(query1, orgId);
+            String query2 = "update public.\"OrganisationPoints\" set \"points\" = points - 10 where \"orgId\" =  ?";
+            jdbcTemplate.update(query2, orgId);
+            return true;
+        }
+        catch (Exception e)
+        {
+            throw new Exception("rem_addr_excp " + e.toString());
+        }
     }
 
     @Override

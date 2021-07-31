@@ -37,7 +37,7 @@ public interface OrganisationDAOInterface {
 
     public boolean addOrgAddress(String orgId, String address);
 
-    public boolean removeOrgAddress(String orgId);
+    public boolean removeOrgAddress(String orgId) throws Exception;
 
     public boolean addOrgImage(String orgId, File image);
 

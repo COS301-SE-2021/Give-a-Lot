@@ -74,8 +74,7 @@ public class OrganisationService {
         return false;
     }
 
-    public boolean removeOrgAddress(String orgId)
-    {
+    public boolean removeOrgAddress(String orgId) throws Exception {
         return organisationDAOInterface.removeOrgAddress(orgId);
 
     }

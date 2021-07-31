@@ -1,3 +1,27 @@
+DELETE http://localhost:8080/v1/organisation/delete/address/someorgkjjhhgkjid
+
+<> 2021-07-31T234250.200.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/address/someorgid
+
+<> 2021-07-31T234225.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/add/website
+Content-Type: application/json
+
+{
+ "orgId": "someId4",
+  "website": "www.givealot.com"
+}
+
+<> 2021-07-31T234203.200.json
+
+###
+
 PUT http://localhost:8080/v1/organisation/add/website
 Content-Type: application/json
 
@@ -336,22 +360,6 @@ DELETE http://localhost:8080/v1/organisation/delete/images/rtrrtt
 ###
 
 DELETE http://localhost:8080/v1/organisation/delete/address/hfghjbhhghv
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/images/deletingImages/orgskjdfd12
-
-<> 2021-07-31T102235.404.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/images/deletingImages
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/images/deletingImages
-
-<> 2021-07-31T101924.404.json
 
 ###
 

@@ -142,10 +142,15 @@ public class OrganisationService {
 
     }
 
-    public boolean addOrgAuditor(String orgId, String auditor)
+    public boolean addOrgAuditor(AddOrgAuditorRequest request)
     {
-        return organisationDAOInterface.addOrgAuditor(orgId,auditor);
-
+        if(request != null)
+        {
+            String orgId = request.getOrgId();
+            String auditor = request.getAuditor();
+            return organisationDAOInterface.addOrgAuditor(orgId, auditor);
+        }
+        return false;
     }
 
 

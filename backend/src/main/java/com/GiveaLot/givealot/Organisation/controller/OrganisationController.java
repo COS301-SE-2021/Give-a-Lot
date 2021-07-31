@@ -614,17 +614,59 @@ public class OrganisationController
         }
     }
 
-    public void addOrgAuditor(@PathVariable("orgId") String orgId, String auditor)
+    @PostMapping("/add/auditor")
+    public responseJSON addOrgAuditor(@RequestBody @NonNull AddOrgAuditorRequest body)
     {
-
+        try
+        {
+            boolean res = service.addOrgAuditor(body);
+            if(res)
+            {
+                response.setCode("org_add_ok_219");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_add_bad_219");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_add_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
-    public void addOrgCommittee(@PathVariable("orgId") String orgId, @PathVariable("committee")  String committee)
+    @PostMapping("/add/committee")
+    public responseJSON addOrgCommittee(@RequestBody @NonNull AddOrgCommitteeRequest body)
     {
-        System.out.println(orgId);
+        try
+        {
+            boolean res = service.addOrgCommittee(body);
+            if(res)
+            {
+                response.setCode("org_add_ok_220");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_add_bad_220");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_add_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
-    @GetMapping()
+    @PostMapping("/add/donation/info")
     public void addOrgDonationInfo(@PathVariable("orgId") String orgId,@PathVariable("info") String info)
     {
 

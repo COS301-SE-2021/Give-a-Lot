@@ -160,64 +160,103 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public boolean reactivateOrganisation(String orgId) throws Exception {
-        Organisation org = selectOrganisation(orgId);
 
-        if (org.getStatus().equals("Active")){
-            return false;
+        try {
+            Organisation org = selectOrganisation(orgId);
+
+            if (org.getStatus().equals("Active")) {
+                return false;
+            }
+            jdbcTemplate.update(
+                    "update public.\"Organisations\" set status = 'Active' where \"orgId\" = (?)",
+                    orgId
+            );
+            return true;
         }
-        jdbcTemplate.update(
-                "update public.\"Organisations\" set status = 'Active' where \"orgId\" = (?)",
-                orgId
-                );
-        return true;
+        catch (Exception e)
+        {
+            throw new Exception("rct_org_excp: " + e.toString());
+        }
     }
 
     @Override
     public boolean investigateOrganisation(String orgId) throws Exception {
-        Organisation org = selectOrganisation(orgId);
+        try
+        {
+            Organisation org = selectOrganisation(orgId);
 
-        if (org.getStatus().equals("UnderInvestigation")){
-            return false;
+            if (org != null && org.getStatus().equals("UnderInvestigation")) {
+                return false;
+            }
+            jdbcTemplate.update(
+                    "update public.\"Organisations\" set status = 'UnderInvestigation' where \"orgId\" = (?)",
+                    orgId
+            );
+            return true;
         }
-        jdbcTemplate.update(
-                "update public.\"Organisations\" set status = 'UnderInvestigation' where \"orgId\" = (?)",
-                orgId
-        );
-        return true;
+        catch(Exception e)
+        {
+            throw new Exception("inv_org_excp " + e.toString());
+        }
     }
 
     @Override
     public boolean suspendOrganisation(String orgId) throws Exception {
-        Organisation org = selectOrganisation(orgId);
+        try {
+            Organisation org = selectOrganisation(orgId);
 
-        if (org.getStatus().equals("Suspended")){
-            return false;
+            if (org == null) {
+                return false;
+            }
+            jdbcTemplate.update(
+                    "update public.\"Organisations\" set status = 'Suspended' where \"orgId\" = (?)",
+                    orgId
+            );
+            return true;
         }
-        jdbcTemplate.update(
-                "update public.\"Organisations\" set status = 'Suspended' where \"orgId\" = (?)",
-                orgId
-        );
-        return true;
+        catch(Exception e)
+        {
+            throw new Exception("sus_org_excp " + e.toString());
+        }
     }
 
     @Override
-    public boolean addOrgWebsite(String orgId, String website) {
-        final String sql="update public.\"OrganisationInfo\" set website=? WHERE \"orgId\"=?";
-        jdbcTemplate.update(sql,website,orgId);
+    public boolean addOrgWebsite(String orgId, String website) throws Exception {
 
-        return true;
+        try {
+            Organisation org = selectOrganisation(orgId);
+
+            if (org.getStatus().equals("Suspended")) {
+                return false;
+            }
+
+            final String sql = "update public.\"OrganisationInfo\" set website=? WHERE \"orgId\"=?";
+            jdbcTemplate.update(sql, website, orgId);
+
+            return true;
+        }catch (Exception e)
+        {
+            throw new Exception("add_org_excp " + e.toString());
+        }
     }
 
     @Override
-    public boolean removeOrgWebsite(String orgId) {
-        String query = "update public.\"OrganisationInfo\" set \"website\" = null where \"orgId\" = ?";
-        jdbcTemplate.update(query,orgId);
-        String query1 = "update public.\"OrganisationPoints\" set \"websiteIsValid\" = false where \"orgId\" = ?";
-        jdbcTemplate.update(query1,orgId);
-        String query2 = "update public.\"OrganisationPoints\" set \"points\" = points - 10 where \"orgId\" = ?";
-        jdbcTemplate.update(query2,orgId);
+    public boolean removeOrgWebsite(String orgId) throws Exception{
 
-        return true;    }
+        try {
+            String query = "update public.\"OrganisationInfo\" set \"website\" = null where \"orgId\" = ?";
+            jdbcTemplate.update(query, orgId);
+            String query1 = "update public.\"OrganisationPoints\" set \"websiteIsValid\" = false where \"orgId\" = ?";
+            jdbcTemplate.update(query1, orgId);
+            String query2 = "update public.\"OrganisationPoints\" set \"points\" = points - 10 where \"orgId\" = ?";
+            jdbcTemplate.update(query2, orgId);
+
+            return true;
+        }catch (Exception e)
+        {
+            throw new Exception("rem_web_excp " + e.toString());
+        }
+    }
 
     @Override
     public boolean addOrgAddress(String orgId, String address) {

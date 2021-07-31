@@ -31,9 +31,9 @@ public interface OrganisationDAOInterface {
     /** OrganisationInfo functions **/
 
 
-    public boolean addOrgWebsite(String orgId, String website);
+    public boolean addOrgWebsite(String orgId, String website) throws Exception;
 
-    public boolean removeOrgWebsite(String orgId);
+    public boolean removeOrgWebsite(String orgId) throws Exception;
 
     public boolean addOrgAddress(String orgId, String address);
 

@@ -1,3 +1,27 @@
+PUT http://localhost:8080/v1/organisation/investigate/someordid
+
+<> 2021-07-31T232019.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/activate/someordid
+
+<> 2021-07-31T231959.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/activate/someordid
+
+<> 2021-07-31T231857.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/activate/someordid
+
+<> 2021-07-31T231730.200.json
+
+###
+
 GET http://localhost:8080/v1/organisation/points/someOrg
 
 <> 2021-07-31T230538.200.json
@@ -336,81 +360,6 @@ Content-Type: application/json
    "directory" : "directory",
    "password" : "password"
 }
-
-###
-
-POST http://localhost:8080/addOrganisation
-Content-Type: application/json
-
-{
-   "orgId" : "orgid",
-   "orgName" : "orgName",
-   "slogan" : "slogan",
-   "orgDescription" : "orgDescription",
-   "orgSector" : "orgSector",
-   "orgEmail" : "orgEmail",
-   "status" : "status",
-   "contactPerson" : "contactPerson",
-   "contactNumber" : "contactNumber",
-   "directory" : "directory",
-   "password" : "password"
-}
-
-###
-
-POST http://localhost:8080/addOrganisation
-Content-Type: application/json
-
-{
-   "orgId" : "orgid",
-   "orgName" : "orgName",
-   "slogan" : "slogan",
-   "orgDescription" : "orgDescription",
-   "orgSector" : "orgSector",
-   "orgEmail" : "orgEmail",
-   "status" : "status",
-   "contactPerson" : "contactPerson",
-   "contactNumber" : "contactNumber",
-   "directory" : "directory",
-   "password" : "password"
-}
-
-###
-
-POST http://localhost:8080/addOrganisation
-Content-Type: application/json
-
-{
-   "orgId" : "orgid",
-   "orgName" : "orgName",
-   "slogan" : "slogan",
-   "orgDescription" : "orgDescription",
-   "orgSector" : "orgSector",
-   "orgEmail" : "orgEmail",
-   "status" : "status",
-   "contactPerson" : "contactPerson",
-   "contactNumber" : "contactNumber",
-   "directory" : "directory",
-   "password" : "password"
-}
-
-###
-
-POST http://localhost:8080/registration/type/organisation/about
-Content-Type: application/json
-
-{
-  "orgName" : "the givers of hop",
-  "orgPassword" : "@assassinsCreed2",
-  "contactPerson" : "Nqobani",
-  "orgEmail" : "ion@side.com",
-  "contactNumber" : "01123477854",
-  "orgSector" : "Children",
-  "orgDescription" : "about organisation",
-  "orgSlogan" : "new slogan"
-}
-
-<> 2021-07-30T235316.404.json
 
 ###
 

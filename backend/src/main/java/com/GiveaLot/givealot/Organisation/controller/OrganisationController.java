@@ -52,7 +52,7 @@ public class OrganisationController
         catch (Exception e)
         {
             response.setCode("org_add_err_501");
-            response.setMessage(e.getMessage());
+            response.setMessage("unsuccessful " + e.getMessage());
             return response;
         }
     }
@@ -110,7 +110,7 @@ public class OrganisationController
         catch (Exception e)
         {
             response.setCode("org_sel_bad_500");
-            response.setMessage("unsuccessful");
+            response.setMessage("unsuccessful " + e.toString());
         }
         return response;
     }
@@ -139,7 +139,7 @@ public class OrganisationController
         catch (Exception e)
         {
             response.setCode("org_sel_bad_500");
-            response.setMessage("unsuccessful");
+            response.setMessage("unsuccessful " + e.toString());
         }
 
         return response;
@@ -166,7 +166,7 @@ public class OrganisationController
         catch (Exception e)
         {
             response.setCode("org_act_bad_500");
-            response.setMessage("unsuccessful");
+            response.setMessage("unsuccessful " + e.toString());
             return response;
         }
     }
@@ -192,7 +192,7 @@ public class OrganisationController
         catch (Exception e)
         {
             response.setCode("org_inv_bad_500");
-            response.setMessage("unsuccessful");
+            response.setMessage("unsuccessful: " + e.toString());
             return response;
         }
     }

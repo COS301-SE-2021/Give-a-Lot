@@ -19,7 +19,7 @@ public interface OrganisationDAOInterface {
 
     public boolean organisationExists(Organisation organisation);
 
-    public boolean addOrganisation(Organisation organisation);
+    public boolean addOrganisation(Organisation organisation) throws Exception;
 
     public boolean reactivateOrganisation(String orgId) throws Exception;
 

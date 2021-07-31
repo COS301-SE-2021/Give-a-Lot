@@ -30,13 +30,10 @@ public class OrganisationController
 
     /*
      * tested, works well
-     *
-     * To-do: fix addOrganisation from the dao
-     * */
+     */
     @PostMapping("/add/org")
     public responseJSON addOrganisation(@RequestBody @NonNull Organisation body)
     {
-        System.out.println(body);
         try
         {
             if(service.addOrganisation(body))
@@ -62,9 +59,7 @@ public class OrganisationController
 
     /*
     * tested, works well
-    *
-    * To-do: fix selectOrganisationPoints from the dao
-    * */
+    */
     @GetMapping("/points/{orgId}")
     public responseJSON selectOrganisationPoints(@PathVariable("orgId") @NonNull String orgId)
     {

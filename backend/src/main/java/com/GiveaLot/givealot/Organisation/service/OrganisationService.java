@@ -43,8 +43,7 @@ public class OrganisationService {
     }
 
 
-    public boolean addOrganisation(Organisation organisation)
-    {
+    public boolean addOrganisation(Organisation organisation) throws Exception {
        return organisationDAOInterface.addOrganisation(organisation);
     }
 

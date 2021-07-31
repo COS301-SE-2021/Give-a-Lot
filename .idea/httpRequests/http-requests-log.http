@@ -1,3 +1,27 @@
+PUT http://localhost:8080/v1/organisation/add/website
+Content-Type: application/json
+
+{
+ "orgId": "someId4",
+  "website": "www.givealot.com"
+}
+
+<> 2021-07-31T233845.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/add/website
+Content-Type: application/json
+
+{
+ "orgId": "someId",
+  "website": "www.givealot.com"
+}
+
+<> 2021-07-31T233824.200.json
+
+###
+
 PUT http://localhost:8080/v1/organisation/suspend/someorgid
 
 <> 2021-07-31T233556.200.json
@@ -328,16 +352,6 @@ DELETE http://localhost:8080/v1/organisation/delete/images/deletingImages
 DELETE http://localhost:8080/v1/organisation/delete/images/deletingImages
 
 <> 2021-07-31T101924.404.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/website/org143234/www.oogle.com
-
-###
-
-GET http://localhost:8080/v1/organisation/points/peterPan%20jdj%20%20vj
-
-
 
 ###
 

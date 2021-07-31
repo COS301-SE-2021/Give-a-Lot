@@ -2,6 +2,7 @@ package com.GiveaLot.givealot.Organisation.controller;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
+import com.GiveaLot.givealot.Organisation.rri.AddOrgWebsiteRequest;
 import com.GiveaLot.givealot.Organisation.service.OrganisationService;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -107,11 +108,29 @@ public class OrganisationController
         Object response = service.suspendOrganisation(orgId);
     }
 
-    @PutMapping("/website/{orgId}/{website}")
-    public void addOrgWebsite(@PathVariable("orgId") @NonNull String orgId,
-                              @PathVariable("website") @NonNull String website)
+    @PutMapping("/add/website")
+    public responseJSON addOrgWebsite(@RequestBody @NonNull AddOrgWebsiteRequest body)
     {
-        Object response = service.addOrgWebsite(orgId,website);
+        try
+        {
+            if(service.addOrgWebsite(body))
+            {
+                response.setCode("add_ok_201");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("add_bad_201");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("add_bad_500");
+            response.setMessage("unsuccessful " + e.getMessage());
+            return response;
+        }
     }
 
     @DeleteMapping("/delete/address/{orgId}")

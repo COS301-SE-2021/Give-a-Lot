@@ -68,9 +68,10 @@ public class OrganisationService {
 
 
     //Additional classes
-    public boolean addOrgWebsite()
+    public boolean addOrgWebsite(AddOrgWebsiteRequest request)
     {
-        if(request != null) {
+        if(request != null)
+        {
             String orgId = request.getOrgId();
             String website = request.getWebsite();
 

@@ -160,19 +160,58 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-
     }
 
     @PutMapping("/investigate/{orgId}")
-    public void investigateOrganisation(@PathVariable("orgId") @NonNull String orgId)
+    public responseJSON investigateOrganisation(@PathVariable("orgId") @NonNull String orgId)
     {
-        Object response = service.investigateOrganisation(orgId);
+        try
+        {
+            boolean res = service.investigateOrganisation(orgId);
+            if(res)
+            {
+                response.setCode("org_inv_ok_203");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_inv_bad_203");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_inv_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
     @PutMapping("/suspend/{orgId}")
-    public void suspendOrganisation(@PathVariable("orgId") @NonNull String orgId)
+    public responseJSON suspendOrganisation(@PathVariable("orgId") @NonNull String orgId)
     {
-        Object response = service.suspendOrganisation(orgId);
+        try
+        {
+            boolean res = service.suspendOrganisation(orgId);
+            if(res)
+            {
+                response.setCode("org_sus_ok_204");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_sus_bad_204");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_sus_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
     @PutMapping("/add/website")

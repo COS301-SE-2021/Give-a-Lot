@@ -108,15 +108,56 @@ public class OrganisationController
 
 
     @GetMapping("/info/{orgId}")
-    public void selectOrganisationInfo(@PathVariable("orgId")  @NonNull String orgId)
+    public responseJSON selectOrganisationInfo(@PathVariable("orgId")  @NonNull String orgId)
     {
-        Object response = service.selectOrganisationInfo(orgId);
+        try
+        {
+            Object res = service.selectOrganisationInfo(orgId);
+            if(res != null)
+            {
+                response.setCode("org_sel_ok_200");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_sel_bad_200");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_sel_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
     @PutMapping("/activate/{orgId}")
-    public void reactivateOrganisation(@PathVariable("orgId") @NonNull String orgId)
+    public responseJSON reactivateOrganisation(@PathVariable("orgId") @NonNull String orgId)
     {
-        Object response = service.reactivateOrganisation(orgId);
+        try
+        {
+            boolean res = service.reactivateOrganisation(orgId);
+            if(res == true)
+            {
+                response.setCode("org_act_ok_200");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_act_bad_200");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_act_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
+
     }
 
     @PutMapping("/investigate/{orgId}")

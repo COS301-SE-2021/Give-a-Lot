@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 import logo from "../../login/images/logo.png";
 import bodyImage from "./imagesHome/bodyImage.png";
 import "./Home.css";
-import {FaBars } from "react-icons/fa";
-import {FaSearch } from "react-icons/fa";
+// import {FaBars } from "react-icons/fa";
+// import {FaSearch } from "react-icons/fa";
 import { Redirect } from "react-router";
 import {Switch,Route} from "react-router-dom";
 import Login from "../../login/Login"
+import MenuIcon from '@material-ui/icons/Menu';
+import SearchIcon from '@material-ui/icons/Search';
+import Button from '@material-ui/core/Button';
 
 export class Home extends Component {
     state = {
@@ -28,10 +31,17 @@ export class Home extends Component {
                 <div className="home_header">
 
                     <div className="list">
-                        <FaSearch size="1.9em" color="#767676" className="menu" />
-                        <button type="submit" className="home_button" onClick={this.redirectHandler} >Login</button>
-                        {this.renderRedirect()}
-                        <FaBars size="1.9em" color="#767676" className="menu"/>
+                        <div className="searchIconHome">
+                            <SearchIcon />
+                        </div>
+                       <div>
+                           <Button variant="outlined" type="submit" className="home_button" onClick={this.redirectHandler} >Login</Button>
+                           {this.renderRedirect()}
+                       </div>
+                        <div className="menuIconHome">
+                            <MenuIcon/>
+                        </div>
+
                     </div>
 
                     <div >

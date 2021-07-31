@@ -115,52 +115,85 @@ export class AdminOrganisations extends Component {
                             Add Organisation
                         </DialogContentText>
                         <TextField
-                            autoFocus
-                            margin="dense"
-                            id="name"
-                            label="Email Address"
-                            type="email"
+                            variant="outlined"
+                            margin="normal"
+                            required
                             fullWidth
+                            id="orgName"
+                            label="Organisation Name"
+                            name="orgName"
+                            // autoFocus
+                            // value={orgName} onChange={this.changeHandler}
+                        />
+
+                        <TextField
+                            id="orgDescription"
+                            label="Description"
+                            multiline
+                            rows={5}
+                            fullWidth
+                            name="orgDescription"
+                            variant="outlined"
+                            // value={orgDescription} onChange={this.changeHandler}
+                        />
+
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="orgSector"
+                            label="Sector"
+                            name="orgSector"
+                            // autoFocus
+                            // value={orgSector} onChange={this.changeHandler}
+                        />
+
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="orgEmail"
+                            label="orgEmail"
+                            name="orgEmail"
+                            // autoFocus
+                            // value={orgEmail} onChange={this.changeHandler}
+                        />
+
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="password"
+                            label="password"
+                            name="password"
+                            // autoFocus
+                            // value={password} onChange={this.changeHandler}
+                        />
+
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="contactPerson"
+                            label="contactPerson"
+                            name="contactPerson"
+                            // autoFocus
+                            // value={contactPerson} onChange={this.changeHandler}
                         />
                         <TextField
-                            autoFocus
-                            margin="dense"
-                            id="name"
-                            label="Email Address"
-                            type="email"
+                            variant="outlined"
+                            margin="normal"
+                            required
                             fullWidth
-                        />
-                        <TextField
-                            autoFocus
-                            margin="dense"
-                            id="name"
-                            label="Email Address"
-                            type="email"
-                            fullWidth
-                        />
-                        <TextField
-                            autoFocus
-                            margin="dense"
-                            id="name"
-                            label="Email Address"
-                            type="email"
-                            fullWidth
-                        />
-                        <TextField
-                            autoFocus
-                            margin="dense"
-                            id="name"
-                            label="Email Address"
-                            type="email"
-                            fullWidth
-                        />
-                        <TextField
-                            autoFocus
-                            margin="dense"
-                            id="name"
-                            label="Email Address"
-                            type="email"
-                            fullWidth
+                            id="contactNumber"
+                            label="contactNumber"
+                            name="contactNumber"
+                            // autoFocus
+                            // value={contactNumber} onChange={this.changeHandler}
                         />
                     </DialogContent>
                     <DialogActions>

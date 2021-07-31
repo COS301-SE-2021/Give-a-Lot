@@ -2,6 +2,8 @@ package com.GiveaLot.givealot.Organisation.controller;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
+import com.GiveaLot.givealot.Organisation.rri.AddOrgEstDateRequest;
+import com.GiveaLot.givealot.Organisation.rri.AddOrgImageRequest;
 import com.GiveaLot.givealot.Organisation.rri.AddOrgWebsiteRequest;
 import com.GiveaLot.givealot.Organisation.service.OrganisationService;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
@@ -508,18 +510,61 @@ public class OrganisationController
 
     }
 
-    public void addOrgEstDate(@PathVariable("orgId") String orgId,@PathVariable("date") Date date)
+    @PostMapping("/add/estdate")
+    public responseJSON addOrgEstDate(@RequestBody @NonNull AddOrgEstDateRequest body)
     {
-        Object response = service.removeOrgEstDate(orgId);
+        try
+        {
+            boolean res = service.addOrgEstDate(body);
+            if(res)
+            {
+                response.setCode("org_add_ok_216");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_add_bad_216");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_add_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
 
 
-    public void addOrgImage(String orgId, File image)
+    @PostMapping("/add/image")
+    public responseJSON addOrgImage(@RequestBody @NonNull AddOrgImageRequest body)
     {
-
+        try
+        {
+            boolean res = service.addOrgImage(body);
+            if(res)
+            {
+                response.setCode("org_add_ok_216");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_add_bad_216");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_add_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
+    @PostMapping("")
     public void addOrgAuditDoc(String orgId, File audit)
     {
 

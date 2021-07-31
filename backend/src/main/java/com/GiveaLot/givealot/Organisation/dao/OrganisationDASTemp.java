@@ -19,7 +19,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Optional;
 
-
 @Repository("temp")
 public class OrganisationDASTemp implements OrganisationDAOInterface{
 
@@ -178,22 +177,40 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public boolean addOrgWebsite(String orgId, String website) {
-        return false;
+        final String sql="update public.\"OrganisationInfo\" set website=? WHERE \"orgId\"=?";
+        jdbcTemplate.update(sql,website,orgId);
+
+        return true;
     }
 
     @Override
     public boolean removeOrgWebsite(String orgId) {
-        return false;
-    }
+        String query = "update public.\"OrganisationInfo\" set \"website\" = null where \"orgId\" = ?";
+        jdbcTemplate.update(query,orgId);
+        String query1 = "update public.\"OrganisationPoints\" set \"websiteIsValid\" = false where \"orgId\" = ?";
+        jdbcTemplate.update(query1,orgId);
+        String query2 = "update public.\"OrganisationPoints\" set \"points\" = points - 10 where \"orgId\" = ?";
+        jdbcTemplate.update(query2,orgId);
+
+        return true;    }
 
     @Override
     public boolean addOrgAddress(String orgId, String address) {
-        return false;
+        final String sql="update public.\"OrganisationInfo\" set address=? WHERE \"orgId\"=?";
+        jdbcTemplate.update(sql,address,orgId);
+        return true;
     }
 
     @Override
     public boolean removeOrgAddress(String orgId) {
-        return false;
+        String query = "update public.\"OrganisationInfo\" set \"address\" = null where \"orgId\" = ?";
+        jdbcTemplate.update(query,orgId);
+        String query1 = "update public.\"OrganisationPoints\" set \"addressIsValid\" = false where \"orgId\" = ?";
+        jdbcTemplate.update(query1,orgId);
+        String query2 = "update public.\"OrganisationPoints\" set \"points\" = points - 10 where \"orgId\" =  ?";
+        jdbcTemplate.update(query2,orgId);
+
+        return true;
     }
 
     @Override
@@ -203,52 +220,99 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public boolean removeOrgImage(String orgId) {
+        String query = "update public.\"OrganisationInfo\" set \"numberOfImages\" = \"numberOfImages\" - 1 where \"orgId\" = ?";
+        jdbcTemplate.update(query,orgId);
+        String query1 = "update public.\"OrganisationPoints\" set \"numberOfImages\" = false where \"orgId\" = ?";
+        jdbcTemplate.update(query1,orgId);
+        String query2 = "update public.\"OrganisationPoints\" set \"points\" = points - 10 where \"orgId\" =?";
+        jdbcTemplate.update(query2,orgId);
         return false;
+
     }
 
+    //-------------
     @Override
     public boolean addOrgAuditDoc(String orgId, File audit) {
+
         return false;
     }
 
     @Override
     public boolean removeOrgAuditDoc(String orgId) {
-        return false;
-    }
+        String query = "update public.\"OrganisationInfo\" set \"auditDocument\" = null where \"orgId\" = ?";
+        jdbcTemplate.update(query,orgId);
+        String query1 = "update public.\"OrganisationPoints\" set \"auditIsValid\" = false where \"orgId\" = ?";
+        jdbcTemplate.update(query1,orgId);
+        String query2 = "update public.\"OrganisationPoints\" set \"points\" = points - 15 where \"orgId\" = ?";
+        jdbcTemplate.update(query2,orgId);
+
+        return true;    }
 
     @Override
     public boolean addOrgTaxRef(String orgId, String reference) {
-        return false;
+
+    final String sql="update public.\"OrganisationInfo\" set \"taxReference\"=? WHERE \"orgId\"=?";
+    jdbcTemplate.update(sql,reference,orgId);
+
+        return true;
     }
 
     @Override
     public boolean removeOrgTaxRef(String orgId) {
-        return false;
+        String query = "update public.\"OrganisationInfo\" set \"taxReference\" = null where \"orgId\" = ?";
+        jdbcTemplate.update(query,orgId);
+        String query1 = "update public.\"OrganisationPoints\" set \"taxRefIsValid\" = false where \"orgId\" = ?";
+        jdbcTemplate.update(query1,orgId);
+        String query2 = "update public.\"OrganisationPoints\" set \"points\" = points - 5 where \"orgId\" = ?";
+        jdbcTemplate.update(query2,orgId);
+        return true;
     }
 
     @Override
     public boolean addOrgAuditor(String orgId, String auditor) {
-        return false;
+
+        final String sql="update public.\"OrganisationInfo\" set \"auditorDetails\" = ? where \"orgId\"=?";
+
+        jdbcTemplate.update(sql,auditor,orgId);
+        return true;
     }
 
     @Override
     public boolean removeOrgAuditor(String orgId) {
-        return false;
+
+        String query = "update public.\"OrganisationInfo\" set \"auditorDetails\" = null where \"orgId\" = ?";
+        jdbcTemplate.update(query,orgId);
+
+        String query1 = "update public.\"OrganisationPoints\" set \"auditorIsValid\" = false where \"orgId\" = ?";
+        jdbcTemplate.update(query1,orgId);
+        String query2 = "update public.\"OrganisationPoints\" set \"points\" = points - 10 where \"orgId\" = ?";
+        jdbcTemplate.update(query2,orgId);
+        return true;
     }
 
     @Override
     public boolean addOrgCommittee(String orgId, String committee) {
-        return false;
+        final String sql="update public.\"OrganisationInfo\"  set \"committeeDetails\" = ? where \"orgId\"=?";
+
+        jdbcTemplate.update(sql,committee,orgId);
+        return true;
     }
 
     @Override
     public boolean removeOrgCommittee(String orgId) {
-        return false;
+        String query = "update public.\"OrganisationInfo\" set \"committeeDetails\" = null where \"orgId\" =?";
+        jdbcTemplate.update(query,orgId);
+
+        String query1 = "update public.\"OrganisationPoints\" set \"committeeIsValid\" = false where \"orgId\" = ?";
+        jdbcTemplate.update(query1,orgId);
+        String query2 = "update public.\"OrganisationPoints\" set \"points\" = points - 5 where \"orgId\" = ?";
+        jdbcTemplate.update(query2,orgId);
+        return true;
     }
 
     @Override
     public boolean addOrgDonationInfo(String orgId, String info) {
-        return false;
+        return true;
     }
 
     @Override
@@ -258,32 +322,222 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public boolean addOrgSocials(String orgId, String type, String website) {
-        return false;
+
+        final String sql1="update public.\"OrganisationInfo\"  set website = ? where \"orgId\"=?";
+
+        jdbcTemplate.update(sql1,website,orgId);
+
+
+        if(type.equals("facebook"))
+        {
+            final String sql="update public.\"OrganisationInfo\"  set facebook = ? where \"orgId\"=?";
+
+            jdbcTemplate.update(sql,type,orgId);
+        }
+        else if(type.equals("twitter"))
+        {
+            final String sql="update public.\"OrganisationInfo\" set twitter = ? where \"orgId\"=?";
+
+            jdbcTemplate.update(sql,type,orgId);
+        }
+        else
+        {
+            final String sql="update public.\"OrganisationInfo\"  set instagram = ? where \"orgId\"=?";
+
+            jdbcTemplate.update(sql,type,orgId);
+        }
+        return true;
     }
 
     @Override
     public boolean removeOrgSocials(String orgId, String type) {
-        return false;
+
+        if(type.equals("twitter")) {
+            String query = "update public.\"OrganisationInfo\" set twitter = null where \"orgId\" = ?";
+            jdbcTemplate.update(query,orgId);
+            String query1 = "update public.\"OrganisationPoints\" set \"points\" = points-5 where \"orgId\" =?";
+
+            jdbcTemplate.update(query1,orgId);
+            String query2 = "update public.\"OrganisationPoints\" set \"twitterIsValid\" = false where \"orgId\" = ?";
+            jdbcTemplate.update(query2,orgId);
+        }
+        if(type.equals("facebook")) {
+            String query = "update public.\"OrganisationInfo\" set facebook = null where \"orgId\" = ?";
+            jdbcTemplate.update(query,orgId);
+            String query1 = "update public.\"OrganisationPoints\" set \"points\" = points-5 where \"orgId\" = ?";
+
+            jdbcTemplate.update(query1,orgId);
+            String query2 = "update public.\"OrganisationPoints\" set \"facebookIsValid\" = false where \"orgId\" = ?";
+            jdbcTemplate.update(query2,orgId);
+        }
+        if(type.equals("instagram")) {
+            String query = "update public.\"OrganisationInfo\" set instagram = null where \"orgId\" = ?";
+            jdbcTemplate.update(query,orgId);
+            String query1 = "update public.\"OrganisationPoints\" set \"points\" = points-5 where \"orgId\" = ?";
+
+            jdbcTemplate.update(query1,orgId);
+            String query2 = "update public.\"OrganisationPoints\" set \"instagramIsValid\" = false where \"orgId\" = ?";
+            jdbcTemplate.update(query2,orgId);
+        }
+        return true;
     }
 
     @Override
     public boolean addOrgNGO(String orgId, String ngoNumber, Date ngoDate) {
+
+        final String sql="update public.\"OrganisationInfo\"  set \"ngoNumber\" =? where \"orgId\"=?";
+        jdbcTemplate.update(sql,ngoNumber,orgId);
+
+        final String sql2="update public.\"OrganisationInfo\"  set \"ngoDate\"=? where \"orgId\"=?";
+
+        jdbcTemplate.update(sql2,ngoDate,orgId);
         return false;
     }
 
     @Override
     public boolean removeOrgNGO(String orgId) {
-        return false;
+        String query1 = "update public.\"OrganisationInfo\" set \"ngoNumber\" = null where \"orgId\" = ?";
+        jdbcTemplate.update(query1,orgId);
+        String query2 = "update public.\"OrganisationInfo\" set \"ngoDate\" = null where \"orgId\" = ?";
+        jdbcTemplate.update(query2,orgId);
+
+        String query4 = "update public.\"OrganisationPoints\" set \"ngoNoIsValid\" = false where \"orgId\" = ?";
+        jdbcTemplate.update(query4,orgId);
+
+        String query5 = "update public.\"OrganisationPoints\" set \"points\" = points - 15 where \"orgId\" = ?";
+        jdbcTemplate.update(query5,orgId);
+        return true;
     }
 
     @Override
     public boolean addOrgEstDate(String orgId, Date date) {
-        return false;
+        final String sql="update public.\"OrganisationInfo\"  set \"establishmentDate\" =? where \"orgId\"=?";
+        jdbcTemplate.update(sql,date,orgId);
+        return true;
     }
 
     @Override
     public boolean removeOrgEstDate(String orgId) {
+
+        String query = "update public.\"OrganisationInfo\" set \"establishmentDate\" = null where \"orgId\" = ?";
+        jdbcTemplate.update(query,orgId);
+        String query1 = "update public.\"OrganisationPoints\" set \"estDateIsValid\" = false where \"orgId\" = ?";
+        jdbcTemplate.update(query1,orgId);
+        String query2 = "update public.\"OrganisationPoints\" set \"points\" = points - 5 where \"orgId\" = ?";
+        jdbcTemplate.update(query2,orgId);
+        return true;
+    }
+
+    @Override
+    public boolean adminValidateOrgEstDate(String orgid) {
+        String query1 = "update public.\"OrganisationPoints\" set \"estDateIsValid\" = true where \"orgId\" = '" + orgid + "';";
+        String query2 = "update public.\"OrganisationPoints\" set \"points\" = points + 5 where \"orgId\" = '" + orgid + "';";
+        jdbcTemplate.update(query1,orgid);
+        jdbcTemplate.update(query2,orgid);
+
+        return true;
+    }
+
+    @Override
+    public boolean adminValidateOrgNGO(String orgid) {
+        String query1 = "update public.\"OrganisationPoints\" set \"ngoNoIsValid\" = true where \"orgId\" = ?";
+        String query3 = "update public.\"OrganisationPoints\" set \"points\" = points + 15 where \"orgId\" = ?";
+        jdbcTemplate.update(query1,orgid);
+        jdbcTemplate.update(query3,orgid);
+        return true;
+    }
+
+    @Override
+    public boolean adminValidatOrgSocials(String orgid, String type) {
+        if(type.equals("twitter")) {
+            String query = "update public.\"OrganisationPoints\" set \"points\" = points+5 where \"orgId\" = ?";
+
+            String query1 = "update public.\"OrganisationPoints\" set \"twitterIsValid\" = true where \"orgId\" = ?";
+            jdbcTemplate.update(query,orgid);
+            jdbcTemplate.update(query1,orgid);
+        }
+        if(type.equals("facebook")) {
+            String query = "update public.\"OrganisationPoints\" set \"points\" = points+5 where \"orgId\" = ?";
+            String query1 = "update public.\"OrganisationPoints\" set \"facebookIsValid\" = true where \"orgId\" = ?";
+            jdbcTemplate.update(query,orgid);
+            jdbcTemplate.update(query1,orgid);
+        }
+        if(type.equals("instagram")) {
+            String query = "update public.\"OrganisationPoints\" set \"points\" = points+5 where \"orgId\" = ?";
+            String query1 = "update public.\"OrganisationPoints\" set \"instagramIsValid\" = true where \"orgId\" =?";
+            jdbcTemplate.update(query,orgid);
+            jdbcTemplate.update(query1,orgid);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean adminValidateOrgDonationInfo(String orgid) {
+
         return false;
+    }
+
+    @Override
+    public boolean adminValidateOrgCommittee(String orgid) {
+        String query1 = "update public.\"OrganisationPoints\" set \"committeeIsValid\" = true where \"orgId\" = ?";
+        String query2 = "update public.\"OrganisationPoints\" set \"points\" = points + 5 where \"orgId\" = ?";
+        jdbcTemplate.update(query1,orgid);
+        jdbcTemplate.update(query2,orgid);
+        return true;
+    }
+
+    @Override
+    public boolean adminValidateAuditor(String orgid) {
+        String query1 = "update public.\"OrganisationPoints\" set \"auditorIsValid\" = true where \"orgId\" =?";
+        String query2 = "update public.\"OrganisationPoints\" set \"points\" = points + 10 where \"orgId\" = ?";
+        jdbcTemplate.update(query1,orgid);
+        jdbcTemplate.update(query2,orgid);
+        return true;
+    }
+
+    @Override
+    public boolean adminValidateOrgTaxRef(String orgid) {
+        String query1 = "update public.\"OrganisationPoints\" set \"taxRefIsValid\" = true where \"orgId\" = ?";
+        String query2 = "update public.\"OrganisationPoints\" set \"points\" = points + 5 where \"orgId\" = ?";
+        jdbcTemplate.update(query1,orgid);
+        jdbcTemplate.update(query2,orgid);
+        return true;
+    }
+
+    @Override
+    public boolean adminValidateAuditDoc(String orgid) {
+        String query1 = "update public.\"OrganisationPoints\" set \"auditIsValid\" = true where \"orgId\" =?";
+        String query2 = "update public.\"OrganisationPoints\" set \"points\" = points + 15 where \"orgId\" = ?";
+        jdbcTemplate.update(query1,orgid);
+        jdbcTemplate.update(query2,orgid);
+        return true;
+    }
+
+    @Override
+    public boolean adminValidateNoOfImages(String orgid) {
+        String query1 = "update public.\"OrganisationPoints\" set \"addressIsValid\" = true where \"orgId\" = ?";
+        String query2 = "update public.\"OrganisationPoints\" set \"points\" = points + 10 where \"orgId\" = ?";
+        jdbcTemplate.update(query1,orgid);
+        jdbcTemplate.update(query2,orgid);
+        return true;
+    }
+
+    @Override
+    public boolean adminValidateAdress(String orgid) {
+        String query1 = "update public.\"OrganisationPoints\" set \"addressIsValid\" = true where \"orgId\" = ?";
+        String query2 = "update public.\"OrganisationPoints\" set \"points\" = points + 10 where \"orgId\" =?";
+        jdbcTemplate.update(query1,orgid);
+        jdbcTemplate.update(query2,orgid);
+        return true;
+    }
+
+    @Override
+    public boolean adminValidateWebsite(String orgid) {
+        String query1 = "update public.\"OrganisationPoints\" set \"websiteIsValid\" = true where \"orgId\" = ?";
+        String query2 = "update public.\"OrganisationPoints\" set \"points\" = points + 10 where \"orgId\" = ?";
+        jdbcTemplate.update(query1,orgid);
+        jdbcTemplate.update(query2,orgid);
+        return true;
     }
 
 }

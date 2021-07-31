@@ -28,7 +28,7 @@ public interface OrganisationDAOInterface {
     public boolean suspendOrganisation(String orgId);
 
 
-    /** Additional functions **/
+    /** OrganisationInfo functions **/
 
 
     public boolean addOrgWebsite(String orgId, String website);
@@ -58,6 +58,7 @@ public interface OrganisationDAOInterface {
     public boolean addOrgCommittee(String orgId, String committee);
 
     public boolean removeOrgCommittee(String orgId);
+;
 
     public boolean addOrgDonationInfo(String orgId, String info);
 
@@ -75,5 +76,17 @@ public interface OrganisationDAOInterface {
 
     public boolean removeOrgEstDate(String orgId);
 
+    /** OrganisationPoints functions **/
+    public boolean adminValidateOrgEstDate(String orgid);
+    public boolean adminValidateOrgNGO(String orgid);
+    public boolean adminValidatOrgSocials(String orgid,String type);
+    public boolean adminValidateOrgDonationInfo(String orgid);
+    public boolean adminValidateOrgCommittee(String orgid);
+    public boolean adminValidateAuditor(String orgid);
+    public boolean adminValidateOrgTaxRef(String orgid);
+    public boolean adminValidateAuditDoc(String orgid);
+    public boolean adminValidateNoOfImages(String orgid);
+    public boolean adminValidateAdress(String orgid);
+    public boolean adminValidateWebsite(String orgid);
 
 }

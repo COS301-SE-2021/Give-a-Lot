@@ -2,6 +2,7 @@ package com.GiveaLot.givealot.Organisation.controller;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
+import com.GiveaLot.givealot.Organisation.rri.AddOrgAuditInfoRequest;
 import com.GiveaLot.givealot.Organisation.rri.AddOrgEstDateRequest;
 import com.GiveaLot.givealot.Organisation.rri.AddOrgImageRequest;
 import com.GiveaLot.givealot.Organisation.rri.AddOrgWebsiteRequest;
@@ -546,12 +547,12 @@ public class OrganisationController
             boolean res = service.addOrgImage(body);
             if(res)
             {
-                response.setCode("org_add_ok_216");
+                response.setCode("org_add_ok_217");
                 response.setMessage("success");
             }
             else
             {
-                response.setCode("org_add_bad_216");
+                response.setCode("org_add_bad_217");
                 response.setMessage("unsuccessful");
             }
             return response;
@@ -564,10 +565,30 @@ public class OrganisationController
         }
     }
 
-    @PostMapping("")
-    public void addOrgAuditDoc(String orgId, File audit)
+    @PostMapping("/add/audit")
+    public responseJSON addOrgAuditDoc(AddOrgAuditInfoRequest body)
     {
-
+        try
+        {
+            boolean res = service.addOrgAuditDoc(body);
+            if(res)
+            {
+                response.setCode("org_add_ok_217");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_add_bad_217");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_add_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
     public void addOrgTaxRef(@PathVariable("orgId") String orgId, String reference)

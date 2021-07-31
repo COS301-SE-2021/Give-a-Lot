@@ -19,7 +19,7 @@ export class Header extends Component {
                     </div>
                     <div className="generate-pdf">
                         <PrintIcon />
-                        Generate pdf
+                        <h6>Generate pdf</h6>
                     </div>
                 </div>
             </div>

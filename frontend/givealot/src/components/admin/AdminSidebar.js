@@ -33,9 +33,9 @@ export class AdminSidebar extends Component {
         return (
             <div>
                 <div className="sidebar">
-                    <div>
-                        <img src={logo} alt="" className="imageAdmin"/>
-                    </div>
+                    {/*<div>*/}
+                    {/*    <img src={logo} alt="" className="imageAdmin"/>*/}
+                    {/*</div>*/}
 
                     <Link to={'/'} className='text-link active'>
                         <ListItem button>

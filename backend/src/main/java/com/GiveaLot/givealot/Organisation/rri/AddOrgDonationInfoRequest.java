@@ -2,13 +2,13 @@ package com.GiveaLot.givealot.Organisation.rri;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class AddOrgDonationInfo {
+public class AddOrgDonationInfoRequest {
 
     private String orgId;
     private String orgInfo;
 
-    public AddOrgDonationInfo(@JsonProperty String orgId,
-                              @JsonProperty String orgInfo) {
+    public AddOrgDonationInfoRequest(@JsonProperty String orgId,
+                                     @JsonProperty String orgInfo) {
         this.orgId = orgId;
         this.orgInfo = orgInfo;
     }

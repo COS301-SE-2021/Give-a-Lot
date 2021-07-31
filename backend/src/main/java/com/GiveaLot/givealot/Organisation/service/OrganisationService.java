@@ -177,10 +177,15 @@ public class OrganisationService {
 
     }
 
-    public boolean addOrgDonationInfo(String orgId, String info)
+    public boolean addOrgDonationInfo(AddOrgDonationInfoRequest request)
     {
-        return organisationDAOInterface.addOrgDonationInfo(orgId,info);
-
+        if(request != null)
+        {
+            String orgId = request.getOrgId();
+            String info = request.getOrgInfo();
+            return organisationDAOInterface.addOrgDonationInfo(orgId, info);
+        }
+        return false;
     }
 
     public boolean removeOrgDonationInfo(String orgId)

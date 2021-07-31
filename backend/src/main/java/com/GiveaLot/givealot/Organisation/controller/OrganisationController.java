@@ -1,16 +1,13 @@
 package com.GiveaLot.givealot.Organisation.controller;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
-import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.rri.*;
 import com.GiveaLot.givealot.Organisation.service.OrganisationService;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
-import org.springframework.lang.NonNullFields;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.File;
 import java.util.Date;
 import java.util.List;
 
@@ -667,9 +664,29 @@ public class OrganisationController
     }
 
     @PostMapping("/add/donation/info")
-    public void addOrgDonationInfo(@PathVariable("orgId") String orgId,@PathVariable("info") String info)
+    public responseJSON addOrgDonationInfo(@RequestBody @NonNull AddOrgDonationInfoRequest body)
     {
-
+        try
+        {
+            boolean res = service.addOrgDonationInfo(body);
+            if(res)
+            {
+                response.setCode("org_add_ok_221");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_add_bad_221");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_add_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
     @GetMapping("/{orgId}/{type}/{website}")

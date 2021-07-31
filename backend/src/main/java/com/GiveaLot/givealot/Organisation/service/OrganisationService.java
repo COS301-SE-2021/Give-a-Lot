@@ -79,10 +79,12 @@ public class OrganisationService {
 
     }
 
-    public boolean addOrgImage(String orgId, File image)
+    public boolean addOrgImage()
     {
-        return organisationDAOInterface.addOrgImage(orgId,image);
-
+        if(request != null) {
+            String orgId, File image = 
+            return organisationDAOInterface.addOrgImage(orgId, image);
+        }
     }
 
 

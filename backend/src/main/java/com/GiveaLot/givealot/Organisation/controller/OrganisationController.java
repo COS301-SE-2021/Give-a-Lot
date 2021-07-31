@@ -77,7 +77,7 @@ public class OrganisationController
         {
             response.setCode("org_sel_bad_500");
             response.setMessage("unsuccessful");
-            assert res != null;
+            assert res == null;
             return List.of(response,res);
         }
     }
@@ -106,7 +106,7 @@ public class OrganisationController
         {
             response.setCode("org_sel_bad_500");
             response.setMessage("unsuccessful");
-            assert res != null;
+            assert res == null;
             return List.of(response, res);
         }
     }

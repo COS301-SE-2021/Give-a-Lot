@@ -81,9 +81,29 @@ public class OrganisationController
     }
 
     @GetMapping("/select/{orgId}")
-    public void selectOrganisation(@PathVariable("orgId") @NonNull String orgId)
+    public responseJSON selectOrganisation(@PathVariable("orgId") @NonNull String orgId)
     {
-        Object response = service.selectOrganisation(orgId);
+        try
+        {
+            Object res = service.selectOrganisation(orgId);
+            if(res != null)
+            {
+                response.setCode("org_sel_ok_200");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_sel_bad_200");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_sel_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
 

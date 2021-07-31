@@ -292,21 +292,81 @@ public class OrganisationController
     }
 
     @DeleteMapping("/delete/taxref/{orgId}")
-    public void removeOrgTaxRef(@PathVariable("orgId")@NonNull String orgId)
+    public responseJSON removeOrgTaxRef(@PathVariable("orgId")@NonNull String orgId)
     {
-        Object response = service.removeOrgTaxRef(orgId);
+        try
+        {
+            boolean res = service.removeOrgTaxRef(orgId);
+            if(res)
+            {
+                response.setCode("org_rm_ok_207");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_rm_bad_207");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_rm_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
     @DeleteMapping("/delete/ngo/{orgId}")
-    public void removeOrgNGO(@PathVariable("orgId") @NonNull String orgId)
+    public responseJSON removeOrgNGO(@PathVariable("orgId") @NonNull String orgId)
     {
-        Object response = service.removeOrgNGO(orgId);
+        try
+        {
+            boolean res = service.removeOrgNGO(orgId);
+            if(res)
+            {
+                response.setCode("org_rm_ok_208");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_rm_bad_208");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_rm_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
     @DeleteMapping("/delete/estdate/{orgId}")
-    public void removeOrgEstDate(@PathVariable("orgId") @NonNull String orgId)
+    public responseJSON removeOrgEstDate(@PathVariable("orgId") @NonNull String orgId)
     {
-        Object response = service.removeOrgEstDate(orgId);
+        try
+        {
+            boolean res = service.removeOrgEstDate(orgId);
+            if(res)
+            {
+                response.setCode("org_rm_ok_209");
+                response.setMessage("success");
+            }
+            else
+            {
+                response.setCode("org_rm_bad_209");
+                response.setMessage("unsuccessful");
+            }
+            return response;
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_rm_bad_500");
+            response.setMessage("unsuccessful");
+            return response;
+        }
     }
 
     @DeleteMapping("/delete/donationinfo/{orgId}")

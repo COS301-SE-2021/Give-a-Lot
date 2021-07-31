@@ -253,6 +253,10 @@ public class OrganisationController
     }
 
 
+    /* tested - works - left comment for OrganisationDASTemp
+       on the removeOrgAddress
+    */
+
     @DeleteMapping("/delete/address/{orgId}")
     public responseJSON removeOrgAddress(@PathVariable("orgId") @NonNull String orgId)
     {

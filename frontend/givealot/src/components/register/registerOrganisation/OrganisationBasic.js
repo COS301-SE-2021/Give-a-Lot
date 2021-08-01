@@ -7,6 +7,10 @@ import axios from "axios";
 import {Switch, Route, Link} from "react-router-dom";
 import Register from "../Register";
 import HeaderBack from "../../HeaderBack/HeaderBack"
+import InputAdornment from '@material-ui/core/InputAdornment';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import LockOpenIcon from "@material-ui/icons/LockOpen";
+import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
 
 class OrganisationBasic extends Component {
     proceed = e => {
@@ -41,8 +45,6 @@ class OrganisationBasic extends Component {
 
         this.state = {
             orgName: "",
-            // surname : "",
-            // email: "",
             orgPassword: "",
             orgPasswordConfirm: ""
 
@@ -64,7 +66,7 @@ class OrganisationBasic extends Component {
                 </div>
                 <div className="backArrow">
                     <Link to={'/register'} >
-                        <ArrowBackIcon className="iconLogin"/>
+                        <ArrowBackIcon style={{color: "white"}}/>
                     </Link>
                 </div>
                 <div className="containerO" >
@@ -73,44 +75,45 @@ class OrganisationBasic extends Component {
                     <div className="top">
                         <h4> Registration | Organisation | Info</h4>
                     </div>
+
                     <div >
-                        <label></label>
-
-                        <input type="name" 
-                        className="control" 
-                        placeholder="Name of Organisation"
-                        // onChange={handleChange("orgName")}
-                        // defaultValue={values.orgName}
-                               name="orgName"
-                               value={orgName}
-                               onChange={this.changeHandler}
-
+                        <OutlinedInput type="type"
+                           name="orgName" value={orgName}
+                           onChange={this.changeHandler}
+                           className="input" placeholder=" Name"
+                           startAdornment={
+                               <InputAdornment position="start">
+                                   <PersonOutlineIcon style={{color:"#4f9ccf"}} />
+                               </InputAdornment>
+                           }
                         />
                     </div>
 
                     <div >
-                        <label></label>
-                        <input type="name" 
-                        className="control" 
-                        placeholder="Password" 
-                        // onChange={handleChange("orgPassword")}
-                        // defaultValue={values.orgPassword}
-                               name="orgPassword"
-                               value={orgPassword}
-                               onChange={this.changeHandler}
+                        <OutlinedInput type="type"
+                           name="orgPassword"
+                           value={orgPassword}
+                           onChange={this.changeHandler} className="input"
+                           placeholder="Password"
+                           startAdornment={
+                               <InputAdornment position="start">
+                                   <LockOpenIcon className="loginIcon"/>
+                               </InputAdornment>
+                           }
                         />
                     </div>
 
                     <div >
-                        <label></label>
-                        <input type="name" 
-                        className="control" 
-                        placeholder="Confirm Password"
-                        // onChange={handleChange("orgPasswordConfirm")}
-                        // defaultValue={values.orgPasswordConfirm}
-                               name="orgPasswordConfirm"
-                               value={orgPasswordConfirm}
-                               onChange={this.changeHandler}
+                        <OutlinedInput type="type"
+                           name="orgPasswordConfirm"
+                           value={orgPasswordConfirm}
+                           onChange={this.changeHandler} className="input"
+                           placeholder="Confirm Password"
+                           startAdornment={
+                               <InputAdornment position="start">
+                                   <LockOpenIcon className="loginIcon"/>
+                               </InputAdornment>
+                           }
                         />
                     </div>
                     <div>
@@ -131,7 +134,7 @@ class OrganisationBasic extends Component {
                     </div>
 
                 </form>
-                <div className="gradientOverlay"></div>
+                <div className="gradientOverlay" />
                 </div>
                 <Switch>
                     <Route exact path="/register" component={Register} />

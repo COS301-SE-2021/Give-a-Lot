@@ -69,7 +69,8 @@
     position: relative;
     left: 50%;
     transform: translate(-50%,0);
-
+    background-color: white;
+    height: 50px
 
 }
 
@@ -85,9 +86,9 @@
     cursor: pointer;
     font-size: 3em;
 }
-.iconLogin{
-    font-size: xx-large;
-    color: white;
+
+.loginIcon{
+    color: #4f9ccf;
 }
 
 

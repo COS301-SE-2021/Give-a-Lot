@@ -3,6 +3,10 @@ import React, { Component } from "react";
 import Button from '@material-ui/core/Button';
 import "./RegisterOrganisation.css"
 import HeaderBack from "../../HeaderBack/HeaderBack"
+import OutlinedInput from "@material-ui/core/OutlinedInput";
+import InputAdornment from "@material-ui/core/InputAdornment";
+// import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
+import DescriptionIcon from '@material-ui/icons/Description';
 
 class OrganisationAbout extends Component {
     proceed = e => {
@@ -33,40 +37,50 @@ class OrganisationAbout extends Component {
                      <div className="top">
                          <h4> Registration | Organisation | About</h4>
                      </div>
-                    <div >
-                        <label></label>
 
-                        <input type="slogan"
-                        className="control" 
-                        placeholder="Slogan" 
-                        onChange={handleChange("slogan")}
-                        defaultValue={values.slogan}
-                        />
-                    </div>
-
-                    <div >
-                        <label></label>
-                        <input type="sector" 
-                        className="control" 
-                        placeholder="Sector" 
-                        onChange={handleChange("sector")}
-                        defaultValue={values.sector}
-                        />
-                    </div>
-
-                    {/* <div >
-                        <label></label>
-                        <input type="description"
-                        id="textContract"
-                        multiline
-                        rows="50"
-                        // type="text"
-                         className="formControlMultiline" 
-                         placeholder="Description"
-                         onChange={handleChange("description")}
-                        defaultValue={values.description} 
+                     <div >
+                         <OutlinedInput type="type"
+                            name="slogan"
+                            value={values.slogan}
+                            onChange={this.changeHandler}
+                            className="input" placeholder="Slogan"
+                            startAdornment={
+                                <InputAdornment position="start">
+                                    <DescriptionIcon style={{color:"#4f9ccf"}} />
+                                </InputAdornment>
+                            }
                          />
-                    </div> */}
+                     </div>
+                     <div >
+                         <OutlinedInput type="type"
+                            name="sector"
+                            value={values.sector}
+                            onChange={this.changeHandler}
+                            className="input" placeholder="Sector"
+                            startAdornment={
+                                <InputAdornment position="start">
+                                    <DescriptionIcon style={{color:"#4f9ccf"}} />
+                                </InputAdornment>
+                            }
+                         />
+                     </div>
+
+                     <div >
+                         <OutlinedInput type="type"
+                            // label="Multiline"
+                            multiline
+                            maxRows={50}
+                            value={values.description}
+                            onChange={this.changeHandler}
+                            className="input" placeholder="Description"
+                            startAdornment={
+                                <InputAdornment position="start">
+                                    <DescriptionIcon style={{color:"#4f9ccf"}} />
+                                </InputAdornment>
+                            }
+                         />
+                     </div>
+
                     <div >
                     <Button
                         style={{
@@ -95,7 +109,7 @@ class OrganisationAbout extends Component {
                     </div>
 
                 </form>
-                    <div className="gradientOverlay"></div>
+                    <div className="gradientOverlay" />
                 </div>
             </div>
         );

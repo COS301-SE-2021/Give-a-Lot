@@ -45,30 +45,30 @@ export class OrgSidebar extends Component {
                             <ListItemText primary="Dashboard" />
                         </ListItem>
                     </Link>
-                    <Link to={'/adminUsers'} className='text-link' >
+                    <Link to={'/profile'} className='text-link' >
                         <ListItem button>
                             <ListItemIcon>
                                 <PeopleIcon className="icon"/>
                             </ListItemIcon>
-                            <ListItemText primary="View Users" />
+                            <ListItemText primary="Profile" />
                         </ListItem>
                     </Link>
 
-                    <Link to={'/adminOrganisations'} className='text-link' >
+                    <Link to={'/timeline'} className='text-link' >
                         <ListItem button>
                             <ListItemIcon>
                                 <PeopleIcon className="icon"/>
                             </ListItemIcon>
-                            <ListItemText primary="View Organisations" />
+                            <ListItemText primary="Timeline" />
                         </ListItem>
                     </Link>
 
-                    <Link to={'/emails'} className='text-link' >
+                    <Link to={'/gallery'} className='text-link' >
                         <ListItem button>
                             <ListItemIcon>
                                 <MailOutlineIcon className="icon"/>
                             </ListItemIcon>
-                            <ListItemText primary="Emails" />
+                            <ListItemText primary="gallery" />
                         </ListItem>
                     </Link>
 
@@ -87,6 +87,24 @@ export class OrgSidebar extends Component {
                                 <AssignmentIcon className="icon"/>
                             </ListItemIcon>
                             <ListItemText primary="TO-DO's" />
+                        </ListItem>
+                    </Link>
+
+                    <Link to={'/reports'} className='text-link'>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <AssignmentIcon className="icon"/>
+                            </ListItemIcon>
+                            <ListItemText primary="reports" />
+                        </ListItem>
+                    </Link>
+
+                    <Link to={'/settings'} className='text-link'>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <AssignmentIcon className="icon"/>
+                            </ListItemIcon>
+                            <ListItemText primary="settings" />
                         </ListItem>
                     </Link>
 

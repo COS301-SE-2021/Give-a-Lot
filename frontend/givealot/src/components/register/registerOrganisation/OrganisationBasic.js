@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "./imagesRegister/ID2.png";
+// import logo from "./imagesRegister/ID2.png";
 import "./RegisterOrganisation.css"
 import Button from '@material-ui/core/Button';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
@@ -119,7 +119,8 @@ class OrganisationBasic extends Component {
                         // disabled={!isEnabled}
                         style={{
                             background: "#991A76",
-                            color: "#FFFFFF"
+                            color: "#FFFFFF",
+                            marginLeft: "150px"
                         }}
                         label="Continue"
                         onClick={this.proceed}

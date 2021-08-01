@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "./imagesRegister/ID2.png";
+// import logo from "./imagesRegister/ID2.png";
 import Button from '@material-ui/core/Button';
 import "./RegisterOrganisation.css"
 import HeaderBack from "../../HeaderBack/HeaderBack"
@@ -67,7 +67,7 @@ class OrganisationContact extends Component {
                         style={{
                             background: "#EE3B55",
                             color: "#FFFFFF",
-                            marginRight: "1em"
+                            marginLeft: "120px"
                         }}
                         label="Back"
                         onClick={this.back}
@@ -77,7 +77,8 @@ class OrganisationContact extends Component {
                     <Button
                         style={{
                             background: "#991A76",
-                            color: "#FFFFFF"
+                            color: "#FFFFFF",
+                            marginLeft: "40px"
                         }}
                         label="Continue"
                         onClick={this.proceed}

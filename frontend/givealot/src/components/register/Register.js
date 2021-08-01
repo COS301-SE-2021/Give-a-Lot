@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import RegisterUser from './registerUser/RegisterUser'
 import RegisterOrganisation from './registerOrganisation/RegisterOrganisation'
-import logo from "./imagesRegister/ID2.png";
+// import logo from "./imagesRegister/ID2.png";
 import "./Register.css"
 import RegisterBack from "./RegisterBack"
 import {Switch, Route, Link} from "react-router-dom";

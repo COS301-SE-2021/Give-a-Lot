@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Button from '@material-ui/core/Button';
 import "./RegisterOrganisation.css"
-import logo from "./imagesRegister/ID2.png";
+// import logo from "./imagesRegister/ID2.png";
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions';

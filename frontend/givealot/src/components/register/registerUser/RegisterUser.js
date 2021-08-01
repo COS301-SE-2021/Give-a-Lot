@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./RegisterUser.css"
-import logo from "../imagesRegister/ID2.png";
+// import logo from "../imagesRegister/ID2.png";
 import axios from 'axios';
 import Login from "../../login/Login"
 import {Switch,Route, Link} from "react-router-dom";

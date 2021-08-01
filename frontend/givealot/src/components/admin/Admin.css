@@ -13,8 +13,8 @@
 
 .AdminBody{
     display: flex;
-    background-color: white;
-    /*overflow: hidden;*/
+    /*background-color: white;*/
+    background-color: #fafafa;
 }
 
 .sidebar{

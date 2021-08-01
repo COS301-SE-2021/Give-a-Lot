@@ -7,6 +7,7 @@ import OutlinedInput from "@material-ui/core/OutlinedInput";
 import InputAdornment from "@material-ui/core/InputAdornment";
 // import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
 import DescriptionIcon from '@material-ui/icons/Description';
+import {TextField} from "@material-ui/core";
 
 class OrganisationAbout extends Component {
     proceed = e => {

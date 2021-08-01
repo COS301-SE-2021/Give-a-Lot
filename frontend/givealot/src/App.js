@@ -1,13 +1,12 @@
-import Register from "./components/register/Register";
-import Login from "./components/login/Login";
-import Home from "./components/basicUser/home/Home"
-import {Switch,Route} from "react-router-dom";
-import RegisterOrganisation from "./components/register/registerOrganisation/RegisterOrganisation";
-import RegisterUser from "./components/register/registerUser/RegisterUser";
-// import Organisation from "./components/organisation/Organisation"
- import Admin from "./components/admin/Admin"
+// import Register from "./components/register/Register";
+// import Login from "./components/login/Login";
+// import Home from "./components/basicUser/home/Home"
+// import {Switch,Route} from "react-router-dom";
+// import RegisterOrganisation from "./components/register/registerOrganisation/RegisterOrganisation";
+// import RegisterUser from "./components/register/registerUser/RegisterUser";
+import Admin from "./components/admin/Admin"
 import './App.css';
-import Organisation from "./components/organisation/Organisation";
+// import Organisation from "./components/organisation/Organisation";
 
 function App() {
     return (

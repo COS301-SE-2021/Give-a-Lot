@@ -37,65 +37,65 @@ export class AdminSidebar extends Component {
                         <img src={logo} alt="" className="imageAdmin"/>
                     </div>
 
-                    <Link to={'/'} className='text-link active'>
+                    <Link to={'/'} className='text-links active'>
                         <ListItem button>
                             <ListItemIcon>
-                                <DashboardIcon className="icon"/>
+                                <DashboardIcon className="icondash"/>
                             </ListItemIcon>
                             <ListItemText primary="Dashboard" />
                         </ListItem>
                     </Link>
-                    <Link to={'/adminUsers'} className='text-link' >
+                    <Link to={'/adminUsers'} className='text-links' >
                         <ListItem button>
                             <ListItemIcon>
-                                <PeopleIcon className="icon"/>
+                                <PeopleIcon className="icondash"/>
                             </ListItemIcon>
                             <ListItemText primary="View Users" />
                         </ListItem>
                     </Link>
 
-                    <Link to={'/adminOrganisations'} className='text-link' >
+                    <Link to={'/adminOrganisations'} className='text-links' >
                         <ListItem button>
                             <ListItemIcon>
-                                <PeopleIcon className="icon"/>
+                                <PeopleIcon className="icondash"/>
                             </ListItemIcon>
                             <ListItemText primary="View Organisations" />
                         </ListItem>
                     </Link>
 
-                    <Link to={'/emails'} className='text-link' >
+                    <Link to={'/emails'} className='text-links' >
                         <ListItem button>
                             <ListItemIcon>
-                                <MailOutlineIcon className="icon"/>
+                                <MailOutlineIcon className="icondash"/>
                             </ListItemIcon>
                             <ListItemText primary="Emails" />
                         </ListItem>
                     </Link>
 
-                    <Link to={'/calendar'} className='text-link'>
+                    <Link to={'/calendar'} className='text-links'>
                         <ListItem button>
                             <ListItemIcon>
-                                <CalendarTodayIcon className="icon"/>
+                                <CalendarTodayIcon className="icondash"/>
                             </ListItemIcon>
                             <ListItemText primary="Calendar" />
                         </ListItem>
                     </Link>
 
-                    <Link to={'/todos'} className='text-link'>
+                    <Link to={'/todos'} className='text-links'>
                         <ListItem button>
                             <ListItemIcon>
-                                <AssignmentIcon className="icon"/>
+                                <AssignmentIcon className="icondash"/>
                             </ListItemIcon>
                             <ListItemText primary="TO-DO's" />
                         </ListItem>
                     </Link>
 
-                    <Link className='text-link' >
-                        <ListItem button className='text-link'
+                    <Link className='text-links' >
+                        <ListItem button className='text-links'
                           onClick={() => this.setState({ open: !this.state.open })}
                         >
                             <ListItemIcon>
-                                <ExitToAppIcon className="icon"/>
+                                <ExitToAppIcon className="icondash"/>
                             </ListItemIcon >
                             <ListItemText primary="Logout" />
                         </ListItem>

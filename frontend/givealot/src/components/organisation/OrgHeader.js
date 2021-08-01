@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import "./Organisation.css.css"
+import "./Organisation.css"
 // import logo from "./imagesRegister/ID2.png";
 // import logo from "./imagesRegister/ID2.png"
 // import ListItemIcon from "@material-ui/core/ListItemIcon";

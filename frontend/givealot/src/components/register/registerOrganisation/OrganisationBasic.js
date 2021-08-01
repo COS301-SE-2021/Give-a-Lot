@@ -74,7 +74,7 @@ class OrganisationBasic extends Component {
                         <h4> Registration | Organisation | Info</h4>
                     </div>
                     <div >
-                        <label></label>
+                        {/*<label></label>*/}
 
                         <input type="name" 
                         className="control" 
@@ -89,7 +89,7 @@ class OrganisationBasic extends Component {
                     </div>
 
                     <div >
-                        <label></label>
+                        {/*<label></label>*/}
                         <input type="name" 
                         className="control" 
                         placeholder="Password" 
@@ -102,7 +102,7 @@ class OrganisationBasic extends Component {
                     </div>
 
                     <div >
-                        <label></label>
+                        {/*<label></label>*/}
                         <input type="name" 
                         className="control" 
                         placeholder="Confirm Password"

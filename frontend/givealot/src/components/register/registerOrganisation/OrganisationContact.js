@@ -33,7 +33,7 @@ class OrganisationContact extends Component {
                          <h4> Registration | Organisation | Contact</h4>
                      </div>
                     <div >
-                        <label></label>
+                        {/*<label></label>*/}
 
                         <input type="contactPerson"
                          className="control" 
@@ -44,7 +44,7 @@ class OrganisationContact extends Component {
                     </div>
 
                     <div >
-                        <label></label>
+                        {/*<label></label>*/}
                         <input type="contactNumber"
                          className="control" 
                          placeholder="Contact Number" 
@@ -54,7 +54,7 @@ class OrganisationContact extends Component {
                     </div>
 
                     <div >
-                        <label></label>
+                        {/*<label></label>*/}
                         <input type="email"
                          className="control" 
                          placeholder="Email Address" 
@@ -73,6 +73,7 @@ class OrganisationContact extends Component {
                         onClick={this.back}
                         >
                         Back
+
                     </Button>
                     <Button
                         style={{

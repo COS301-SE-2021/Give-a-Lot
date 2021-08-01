@@ -34,7 +34,7 @@ class OrganisationAbout extends Component {
                          <h4> Registration | Organisation | About</h4>
                      </div>
                     <div >
-                        <label></label>
+                        {/*<label></label>*/}
 
                         <input type="slogan"
                         className="control" 
@@ -45,7 +45,7 @@ class OrganisationAbout extends Component {
                     </div>
 
                     <div >
-                        <label></label>
+                        {/*<label></label>*/}
                         <input type="sector" 
                         className="control" 
                         placeholder="Sector" 
@@ -54,19 +54,16 @@ class OrganisationAbout extends Component {
                         />
                     </div>
 
-                    {/* <div >
-                        <label></label>
+                    <div >
                         <input type="description"
                         id="textContract"
-                        multiline
-                        rows="50"
                         // type="text"
-                         className="formControlMultiline" 
+                         className="formControlMultiline"
                          placeholder="Description"
                          onChange={handleChange("description")}
-                        defaultValue={values.description} 
+                        defaultValue={values.description}
                          />
-                    </div> */}
+                    </div>
                     <div >
                     <Button
                         style={{

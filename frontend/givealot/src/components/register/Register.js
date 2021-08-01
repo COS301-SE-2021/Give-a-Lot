@@ -19,7 +19,7 @@ export class Register extends Component {
                 </div>
                 <div className="backArrow">
                     <Link to={'/login'} >
-                        <ArrowBackIcon className="iconLogin"/>
+                        <ArrowBackIcon style={{color: "white"}}/>
                     </Link>
                 </div>
                 <div className="containers" >

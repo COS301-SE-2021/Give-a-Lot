@@ -8,6 +8,10 @@ import {Switch,Route,Link} from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Home from "../basicUser/home/Home"
 import HeaderBack from "../HeaderBack/HeaderBack"
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
 
 class Login extends Component {
     state = {
@@ -57,7 +61,7 @@ class Login extends Component {
 
                 <div className="backArrow">
                     <Link to={'/'} >
-                        <ArrowBackIcon className="iconLogin"/>
+                        <ArrowBackIcon style={{color: "white"}}/>
                     </Link>
                 </div>
 
@@ -67,20 +71,37 @@ class Login extends Component {
                             <p> Login </p>
                         </div>
 
-                        <div>
-                            <label></label>
-                            {/* <FaBeer /> */}
-                            <input type="type" name="email" value={email} onChange={this.changeHandler}className="input" placeholder="Email" />
+                        <div >
+                            <OutlinedInput type="type" name="email"
+                               value={email} onChange={this.changeHandler}
+                               className="input" placeholder="Email"
+                                   startAdornment={
+                                       <InputAdornment position="start">
+                                           <MailOutlineIcon className="loginIcon"/>
+                                       </InputAdornment>
+                                   }
+                            />
                         </div>
 
-                        <div>
-                            <label></label>
-                            <input type="type" name="password" value={password} onChange={this.changeHandler} className="input" placeholder="Password" />
+                        <div >
+                            <OutlinedInput type="type"
+                               name="password" value={password}
+                               onChange={this.changeHandler} className="input"
+                               placeholder="Password"
+                               startAdornment={
+                                   <InputAdornment position="start">
+                                       <LockOpenIcon className="loginIcon"/>
+                                   </InputAdornment>
+                               }
+                            />
                         </div>
+
+                        {/*<div>*/}
+                        {/*    <input type="type" name="password" value={password} onChange={this.changeHandler} className="input" placeholder="Password" />*/}
+                        {/*</div>*/}
                         <div style={{color: "white"}}>
                             <div id="createAccount">
                                 <span>Create Account? <span style={{textDecoration:"underline", color: "white", cursor: "pointer"}} ><Link to="/register">Sign Up</Link></span> {this.renderRedirect()}</span>
-                                {/* <Link to="/register">Sign Up</Link> */}
                             </div>
 
                         </div>  
@@ -89,7 +110,7 @@ class Login extends Component {
                         </div>
 
                     </form>
-                    <div className="gradientOverlay"></div>
+                    <div className="gradientOverlay" />
                 </div>
                 <Switch>       
                     <Route exact path="/register" component={Register} />

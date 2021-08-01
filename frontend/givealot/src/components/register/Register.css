@@ -26,9 +26,11 @@
     width: 300px;
     border-radius: 10px;
     text-decoration: none;
+    color: #4f9ccf;
 }
 .icon{
     margin-right: 15px;
+    color: #4f9ccf;
 }
 
 
@@ -40,6 +42,7 @@
     width: 300px;
     border-radius: 10px;
     text-decoration: none;
+    color: #4f9ccf;
 }
 
 #Already_have_an_account_Log_in {

@@ -13,7 +13,11 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import Button from '@material-ui/core/Button';
 import Register from "../Register"
 import HeaderBack from "../../HeaderBack/HeaderBack"
-
+import InputAdornment from '@material-ui/core/InputAdornment';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import MailOutlineIcon from "@material-ui/icons/MailOutline";
+import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
+import LockOpenIcon from "@material-ui/icons/LockOpen";
 
 class RegisterUser extends Component {
 
@@ -55,7 +59,7 @@ class RegisterUser extends Component {
 
                 <div className="backArrow">
                     <Link to={'/register'} >
-                        <ArrowBackIcon className="iconLogin"/>
+                        <ArrowBackIcon style={{color: "white"}} />
                     </Link>
                 </div>
                 <div className="containerU" >
@@ -64,30 +68,70 @@ class RegisterUser extends Component {
                         <div className="top">
                             <p> Registration | USER</p>
                         </div>
-                        <div >
-                            <label></label>
+                            <div >
+                                <OutlinedInput type="type"
+                                   name="name" value={name}
+                                   onChange={this.changeHandler}
+                                   className="input" placeholder=" Name"
+                                   startAdornment={
+                                       <InputAdornment position="start">
+                                           <PersonOutlineIcon style={{color:"#4f9ccf"}} />
+                                       </InputAdornment>
+                                   }
+                                />
+                            </div>
 
-                            <input type="type" name="name" value={name} onChange={this.changeHandler}className="control" placeholder=" Name" />
+                            <div >
+                                <OutlinedInput type="type"
+                                   name="surname" value={surname}
+                                   onChange={this.changeHandler}
+                                   className="input" placeholder="Surname"
+                                   startAdornment={
+                                       <InputAdornment position="start">
+                                           <PersonOutlineIcon style={{color:"#4f9ccf"}} />
+                                       </InputAdornment>
+                                   }
+                                />
+                            </div>
+
+                        <div >
+                            <OutlinedInput type="type" name="email"
+                               value={email} onChange={this.changeHandler}
+                               className="input" placeholder="Email"
+                               startAdornment={
+                                   <InputAdornment position="start">
+                                       <MailOutlineIcon className="loginIcon"/>
+                                   </InputAdornment>
+                               }
+                            />
                         </div>
 
                         <div >
-                            <label></label>
-                            <input type="type" name="surname" value={surname} onChange={this.changeHandler}className="control" placeholder="Surname" />
+                            <OutlinedInput type="type"
+                               name="password" value={password}
+                               onChange={this.changeHandler} className="input"
+                               placeholder="Password"
+                               startAdornment={
+                                   <InputAdornment position="start">
+                                       <LockOpenIcon className="loginIcon"/>
+                                   </InputAdornment>
+                               }
+                            />
                         </div>
 
                         <div >
-                            <label></label>
-                            <input type="type" name="email" value={email} onChange={this.changeHandler}className="control" placeholder="Email" />
+                            <OutlinedInput type="type"
+                               name="confirmPassword" value={confirmPassword}
+                               onChange={this.changeHandler} className="input"
+                               placeholder="Confirm Password"
+                               startAdornment={
+                                   <InputAdornment position="start">
+                                       <LockOpenIcon className="loginIcon"/>
+                                   </InputAdornment>
+                               }
+                            />
                         </div>
 
-                        <div >
-                            <label></label>
-                            <input type="password" name="password" value={password} onChange={this.changeHandler}className="control" placeholder="Password" />
-                        </div>
-                        <div >
-                            <label></label>
-                            <input type="password" name="confirmPassword" value={confirmPassword} onChange={this.changeHandler} className="control" placeholder="Confirm Password" />
-                        </div>
                         <div>
                             <button className="button" onClick={() => this.setState({ open: !this.state.open })}>
                                 Sign Up

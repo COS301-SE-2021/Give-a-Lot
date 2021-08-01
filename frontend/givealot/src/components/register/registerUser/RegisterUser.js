@@ -12,6 +12,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import Button from '@material-ui/core/Button';
 import Register from "../Register"
+import HeaderBack from "../../HeaderBack/HeaderBack"
 
 
 class RegisterUser extends Component {
@@ -49,7 +50,7 @@ class RegisterUser extends Component {
         return (
             <div >
                 <div>
-                    <img id="ID" src={logo} alt="" style={{width: "220px ",height: "70px"}}/>
+                    <HeaderBack />
                 </div>
 
                 <div className="backArrow">
@@ -102,9 +103,12 @@ class RegisterUser extends Component {
                                         </DialogContentText>
                                     </DialogContent>
                                     <DialogActions>
-                                        <Button onClick={() => this.setState({ open: !this.state.open })} color="primary" autoFocus>
-                                            Click to Login
-                                        </Button>
+                                        <Link to={'/login'} >
+                                            <Button onClick={() => this.setState({ open: !this.state.open })} color="primary" autoFocus>
+                                                Click to Login
+                                            </Button>
+                                        </Link>
+
                                     </DialogActions>
                                 </Dialog>
                             </header>

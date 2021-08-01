@@ -5,26 +5,6 @@
     border: none;
 
 }
-/* body{
-    overflow: hidden;
-} */
-
-
-
-.Login_header{
-    text-align: left;
-    background-color: white;
-}
-
-#Login_ID{
-    width: 100%;
-    height: auto;
-}
-.Login_image{
-    width: 220px;
-    height: 65px;
-
-}
 .Login_container {
 
     align-content: center;

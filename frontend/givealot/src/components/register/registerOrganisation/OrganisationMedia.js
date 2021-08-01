@@ -7,6 +7,9 @@ import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
+import {Switch,Route, Link} from "react-router-dom";
+import Login from "../../login/Login";
+import HeaderBack from "../../HeaderBack/HeaderBack"
 
 class OrganisationMedia extends Component {
     proceed = e => {
@@ -29,10 +32,7 @@ class OrganisationMedia extends Component {
         return (
             <div >
                 <div className="header">
-                    <div >
-                        <img id="ID" src={logo} alt="" style={{width: "220px ",height: "70px"}}/>
-                    </div>
-
+                    <HeaderBack />
                 </div>
                 <div className="containerO" >
 
@@ -87,9 +87,11 @@ class OrganisationMedia extends Component {
                                     </DialogContentText>
                                 </DialogContent>
                                 <DialogActions>
-                                    <Button onClick={() => this.setState({ open: !this.state.open })} color="primary" autoFocus>
-                                        Click to Login
-                                    </Button>
+                                    <Link to={'/login'} >
+                                        <Button onClick={() => this.setState({ open: !this.state.open })} color="primary" autoFocus>
+                                            Click to Login
+                                        </Button>
+                                    </Link>
                                 </DialogActions>
                             </Dialog>
                         </header>
@@ -98,7 +100,12 @@ class OrganisationMedia extends Component {
 
                 </form>
                     <div className="gradientOverlay"></div>
+                    <Switch>
+                        <Route exact path="/login" component={Login} />
+                    </Switch>
                 </div>
+
+
             </div>
         );
     }

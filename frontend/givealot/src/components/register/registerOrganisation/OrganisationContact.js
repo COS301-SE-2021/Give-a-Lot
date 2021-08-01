@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import logo from "./imagesRegister/ID2.png";
 import Button from '@material-ui/core/Button';
 import "./RegisterOrganisation.css"
+import HeaderBack from "../../HeaderBack/HeaderBack"
 
 class OrganisationContact extends Component {
     proceed = e => {
@@ -23,10 +24,7 @@ class OrganisationContact extends Component {
         return (
             <div >
                <div className="header">
-                    <div >
-                        <img id="ID" src={logo} alt="" style={{width: "220px ",height: "70px"}}/>
-                    </div>
-
+                   <HeaderBack />
                 </div>
                 <div className="containerO" >
 

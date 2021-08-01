@@ -7,18 +7,16 @@ import RegisterBack from "./RegisterBack"
 import {Switch, Route, Link} from "react-router-dom";
 import Login from "../login/Login"
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import HeaderBack from "../HeaderBack/HeaderBack"
 
 export class Register extends Component {
     
     render() {
         return (
             <div className="register">
-                {/* <div className="header"> */}
-                    <div >
-                        <img id="ID" src={logo} alt="" style={{width: "220px ",height: "65px"}}/>
-                    </div>
-
-                {/* </div> */}
+                <div>
+                    <HeaderBack />
+                </div>
                 <div className="backArrow">
                     <Link to={'/login'} >
                         <ArrowBackIcon className="iconLogin"/>

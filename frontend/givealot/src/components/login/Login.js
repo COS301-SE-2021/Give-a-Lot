@@ -7,6 +7,7 @@ import { Redirect } from "react-router";
 import {Switch,Route,Link} from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Home from "../basicUser/home/Home"
+import HeaderBack from "../HeaderBack/HeaderBack"
 
 class Login extends Component {
     state = {
@@ -51,10 +52,7 @@ class Login extends Component {
         return (
             <div>
                 <div className="Login_header">
-                    <div className="Login_image">
-                        <img src={logo} alt="" className="Login_image"/>
-                    </div>
-                    
+                    <HeaderBack />
                 </div>
 
                 <div className="backArrow">

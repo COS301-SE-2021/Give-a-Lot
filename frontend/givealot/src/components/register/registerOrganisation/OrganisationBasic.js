@@ -6,6 +6,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import axios from "axios";
 import {Switch, Route, Link} from "react-router-dom";
 import Register from "../Register";
+import HeaderBack from "../../HeaderBack/HeaderBack"
 
 class OrganisationBasic extends Component {
     proceed = e => {
@@ -59,10 +60,7 @@ class OrganisationBasic extends Component {
         return (
             <div >
                 <div className="header">
-                    <div >
-                        <img id="ID" src={logo} alt="" style={{width: "220px ",height: "70px"}}/>
-                    </div>
-
+                   <HeaderBack />
                 </div>
                 <div className="backArrow">
                     <Link to={'/register'} >

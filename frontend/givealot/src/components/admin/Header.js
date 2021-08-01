@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import "./Admin.css"
-import logo from "./imagesRegister/ID2.png";
+// import logo from "./imagesRegister/ID2.png";
 // import logo from "./imagesRegister/ID2.png"
 // import ListItemIcon from "@material-ui/core/ListItemIcon";
 // import DashboardIcon from "@material-ui/icons/Dashboard";
@@ -14,9 +14,9 @@ export class Header extends Component {
         return (
             <div>
                 <div className="headerAdmin">
-                    <div>
-                        <img src={logo} alt="" className="imageAdmin"/>
-                    </div>
+                    {/*<div>*/}
+                    {/*    <img src={logo} alt="" className="imageAdmin"/>*/}
+                    {/*</div>*/}
                     <div className="generate-pdf">
                         <PrintIcon />
                         <h6>Generate pdf</h6>

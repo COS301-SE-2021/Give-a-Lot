@@ -82,6 +82,7 @@
     background-color: white;
     height: 65px;
     display: flex;
+    width: 100% !important;
 }
 .generate-pdf{
     display:flex;
@@ -104,12 +105,12 @@
 .Admin{
     background-color: #fafafa;
 }
-@media only screen and (min-width:768px) {
-    /* For mobile phones: */
-    .headerAdmin, .AdminBody, .dash, .Admin {
-        width: 100%;
-    }
-}
+/*@media only screen and (min-width:768px) {*/
+/*    !* For mobile phones: *!*/
+/*    .headerAdmin, .AdminBody, .dash, .Admin {*/
+/*        width: 100%;*/
+/*    }*/
+/*}*/
 
 
 

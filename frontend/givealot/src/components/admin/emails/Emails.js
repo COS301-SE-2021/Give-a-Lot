@@ -78,7 +78,7 @@ class Emails extends React.Component {
                 {/*>*/}
 
             <div className="modal-body">
-                <form className="form" role="form" autoComplete="off">
+                <form className="form" autoComplete="off">
                     <div className="form-row py-2">
                         <label htmlFor="sendTo" className="col-sm-2 mb-0">
                             To

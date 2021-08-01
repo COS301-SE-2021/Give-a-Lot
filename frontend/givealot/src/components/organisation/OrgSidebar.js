@@ -3,10 +3,13 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import PeopleIcon from '@material-ui/icons/People';
+import TimelineIcon from '@material-ui/icons/Timeline';
+import PersonIcon from '@material-ui/icons/Person';
+import ImageIcon from '@material-ui/icons/Image';
+import ReportIcon from '@material-ui/icons/Report';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import { Link } from 'react-router-dom';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import SettingsIcon from '@material-ui/icons/Settings';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import "./Organisation.css"
 import log from "./images/ID2.png"
@@ -48,7 +51,7 @@ export class OrgSidebar extends Component {
                     <Link to={'/profile'} className='text-link' >
                         <ListItem button>
                             <ListItemIcon>
-                                <PeopleIcon className="icon"/>
+                                <PersonIcon className="icon"/>
                             </ListItemIcon>
                             <ListItemText primary="Profile" />
                         </ListItem>
@@ -57,7 +60,7 @@ export class OrgSidebar extends Component {
                     <Link to={'/timeline'} className='text-link' >
                         <ListItem button>
                             <ListItemIcon>
-                                <PeopleIcon className="icon"/>
+                                <TimelineIcon className="icon"/>
                             </ListItemIcon>
                             <ListItemText primary="Timeline" />
                         </ListItem>
@@ -66,13 +69,13 @@ export class OrgSidebar extends Component {
                     <Link to={'/gallery'} className='text-link' >
                         <ListItem button>
                             <ListItemIcon>
-                                <MailOutlineIcon className="icon"/>
+                                <ImageIcon className="icon"/>
                             </ListItemIcon>
                             <ListItemText primary="gallery" />
                         </ListItem>
                     </Link>
 
-                    <Link to={'/calendar'} className='text-link'>
+                    <Link to={'/OrgCalendar'} className='text-link'>
                         <ListItem button>
                             <ListItemIcon>
                                 <CalendarTodayIcon className="icon"/>
@@ -81,7 +84,7 @@ export class OrgSidebar extends Component {
                         </ListItem>
                     </Link>
 
-                    <Link to={'/todos'} className='text-link'>
+                    <Link to={'/todo'} className='text-link'>
                         <ListItem button>
                             <ListItemIcon>
                                 <AssignmentIcon className="icon"/>
@@ -93,7 +96,7 @@ export class OrgSidebar extends Component {
                     <Link to={'/reports'} className='text-link'>
                         <ListItem button>
                             <ListItemIcon>
-                                <AssignmentIcon className="icon"/>
+                                <ReportIcon className="icon"/>
                             </ListItemIcon>
                             <ListItemText primary="reports" />
                         </ListItem>
@@ -102,7 +105,7 @@ export class OrgSidebar extends Component {
                     <Link to={'/settings'} className='text-link'>
                         <ListItem button>
                             <ListItemIcon>
-                                <AssignmentIcon className="icon"/>
+                                <SettingsIcon className="icon"/>
                             </ListItemIcon>
                             <ListItemText primary="settings" />
                         </ListItem>
@@ -115,14 +118,14 @@ export class OrgSidebar extends Component {
                             <ListItemIcon>
                                 <ExitToAppIcon className="icon"/>
                             </ListItemIcon >
-                            <ListItemText primary="Logout" />
+                            <ListItemText primary="LogOut" />
                         </ListItem>
                     </Link>
                     <Dialog open={this.state.open}  aria-labelledby="form-dialog-title">
-                        <DialogTitle id="form-dialog-title">LogOut</DialogTitle>
+                        <DialogTitle id="form-dialog-title">Log Out</DialogTitle>
                         <DialogContent>
                             <DialogContentText>
-                                Are you Sure?
+                                Are you sure?
                             </DialogContentText>
                         </DialogContent>
                         <DialogActions>

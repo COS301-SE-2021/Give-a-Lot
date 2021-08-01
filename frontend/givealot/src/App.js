@@ -30,7 +30,7 @@ function App() {
          </Route>
         </Switch>*/}
         
-         <Organisation />
+         <Admin/>
       </div>
    );
   

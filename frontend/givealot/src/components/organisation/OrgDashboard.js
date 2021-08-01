@@ -10,7 +10,7 @@ import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 function OrgDashboard (){
     return (
         <div className="OrgDashboard">
-            <div className="Cardss">
+            <div className="orgCards">
                 <OrgCards Icon={PeopleIcon} title="Organisations" number="123"/>
                 <OrgCards Icon={PersonIcon} title="Users" number="1245"/>
                 <OrgCards Icon={NotificationsIcon} title="Notifications" number="1245"/>

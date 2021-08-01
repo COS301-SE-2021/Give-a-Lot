@@ -87,11 +87,10 @@ class OrganisationContact extends Component {
                         {" "}
                         Proceed
                     </Button>
-                        {/* <button type="submit" className="button">Prcoceed</button> */}
                     </div>
 
                 </form>
-                    <div className="gradientOverlay"></div>
+                    <div className="gradientOverlay" />
                 </div>
             </div>
         );

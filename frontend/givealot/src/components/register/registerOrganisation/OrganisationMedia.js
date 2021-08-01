@@ -99,7 +99,7 @@ class OrganisationMedia extends Component {
                     </div>
 
                 </form>
-                    <div className="gradientOverlay"></div>
+                    <div className="gradientOverlay" />
                     <Switch>
                         <Route exact path="/login" component={Login} />
                     </Switch>

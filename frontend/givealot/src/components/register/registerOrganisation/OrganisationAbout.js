@@ -92,7 +92,7 @@ class OrganisationAbout extends Component {
                     </div>
 
                 </form>
-                    <div className="gradientOverlay"></div>
+                    <div className="gradientOverlay" />
                 </div>
             </div>
         );

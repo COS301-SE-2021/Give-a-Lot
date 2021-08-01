@@ -131,7 +131,7 @@ class OrganisationBasic extends Component {
                     </div>
 
                 </form>
-                <div className="gradientOverlay"></div>
+                <div className="gradientOverlay" />
                 </div>
                 <Switch>
                     <Route exact path="/register" component={Register} />

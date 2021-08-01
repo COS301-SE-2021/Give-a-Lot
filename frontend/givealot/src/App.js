@@ -5,13 +5,14 @@ import {Switch,Route} from "react-router-dom";
 import RegisterOrganisation from "./components/register/registerOrganisation/RegisterOrganisation";
 import RegisterUser from "./components/register/registerUser/RegisterUser";
 // import Organisation from "./components/organisation/Organisation"
-// import Admin from "./components/admin/Admin"
+ import Admin from "./components/admin/Admin"
 import './App.css';
+import Organisation from "./components/organisation/Organisation";
 
 function App() {
     return (
       <div className="AppContainer">
-        <Switch>
+          {/*} <Switch>
          <Route exact path="/">
            <Home />
          </Route>
@@ -27,9 +28,9 @@ function App() {
          <Route path="/registeruser">
            <RegisterUser />
          </Route>
-        </Switch>
+        </Switch>*/}
         
-         {/*<Admin />*/}
+         <Organisation />
       </div>
    );
   

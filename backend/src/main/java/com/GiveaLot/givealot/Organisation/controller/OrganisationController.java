@@ -578,6 +578,9 @@ public class OrganisationController
         }
     }
 
+    /* tested - status not confirmed: not entirely sure how to get the image
+     object from a json object, we should look into the multipart attribute
+     */
     @PostMapping("/add/image")
     public responseJSON addOrgImage(@RequestBody @NonNull AddOrgImageRequest body)
     {
@@ -604,6 +607,8 @@ public class OrganisationController
         }
     }
 
+    /* tested - status not confirmed: not entirely sure how handle the file type
+    */
     @PostMapping("/add/audit")
     public responseJSON addOrgAuditDoc(AddOrgAuditInfoRequest body)
     {

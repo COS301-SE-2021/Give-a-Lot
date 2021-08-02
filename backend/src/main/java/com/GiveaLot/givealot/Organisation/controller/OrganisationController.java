@@ -459,6 +459,10 @@ public class OrganisationController
         }
     }
 
+    /* tested - works
+     *  removeOrgAuditor from OrganisationDASTemp always returns true
+     *  even if an organisation id doesn't exist
+     * */
     @DeleteMapping("/delete/auditor/{orgId}")
     public responseJSON removeOrgAuditor(@PathVariable("orgId") @NonNull String orgId)
     {

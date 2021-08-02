@@ -74,9 +74,17 @@ public class OrganisationService {
         return false;
     }
 
+    public boolean removeOrgWebsite(String orgId) throws Exception {
+        return organisationDAOInterface.removeOrgWebsite(orgId);
+    }
+
+    public boolean addOrgAddress(String orgId,String address)
+    {
+        return organisationDAOInterface.addOrgAddress(orgId,address);
+    }
+
     public boolean removeOrgAddress(String orgId) throws Exception {
         return organisationDAOInterface.removeOrgAddress(orgId);
-
     }
 
     public boolean addOrgImage(AddOrgImageRequest request)
@@ -198,7 +206,7 @@ public class OrganisationService {
                 data not validated
             */
 
-            return organisationDAOInterface.addOrgSocials(orgId,type,website);
+            return organisationDAOInterface.addOrgSocials(orgId,type);
         }
         /* maybe throw an exception indicating that an
              incorrect object state was used?

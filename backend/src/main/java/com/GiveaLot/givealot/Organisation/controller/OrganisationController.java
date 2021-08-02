@@ -401,9 +401,11 @@ public class OrganisationController
         }
     }
 
+    /* tested - works */
     @DeleteMapping("/delete/donationinfo/{orgId}")
     public responseJSON removeOrgDonationInfo(@PathVariable("orgId") @NonNull String orgId)
     {
+        System.out.println(orgId);
         try
         {
             boolean res = service.removeOrgDonationInfo(orgId);

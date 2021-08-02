@@ -1,3 +1,9 @@
+DELETE http://localhost:8080/v1/organisation/delete/audit/dldkfjnv
+
+<> 2021-08-02T034128.200.json
+
+###
+
 DELETE http://localhost:8080/v1/organisation/delete/donationinfo/xxdfdf
 
 <> 2021-08-02T034018.200.json
@@ -314,10 +320,6 @@ GET http://localhost:8080/v1/organisation/points/someOrg
 GET http://localhost:8080/v1/organisation/points/someOrg
 
 <> 2021-07-31T205520.500.json
-
-###
-
-GET http://localhost:8080/v1/organisation/points/someOrg
 
 ###
 

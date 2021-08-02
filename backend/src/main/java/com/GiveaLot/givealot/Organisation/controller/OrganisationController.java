@@ -785,7 +785,7 @@ public class OrganisationController
         }
     }
 
-    @GetMapping("/add/ngo")
+    @PostMapping("/add/ngo")
     public responseJSON addOrgNGO(@RequestBody AddOrgNGORequest body)
     {
         try

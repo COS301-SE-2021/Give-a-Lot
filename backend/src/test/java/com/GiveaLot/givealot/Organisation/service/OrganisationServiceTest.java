@@ -564,41 +564,41 @@ public class OrganisationServiceTest {
     }
 
     @Test
-    public void testRemoveOrgSocials() {
+    public void testRemoveOrgSocialsTrue() {
         when(this.organisationDAOInterface.removeOrgSocials(anyString(), anyString())).thenReturn(true);
         assertTrue(this.organisationService.removeOrgSocials("42", "Type"));
         verify(this.organisationDAOInterface).removeOrgSocials(anyString(), anyString());
     }
 
     @Test
-    public void testRemoveOrgSocials2() {
+    public void testRemoveOrgSocialsFalse() {
         when(this.organisationDAOInterface.removeOrgSocials(anyString(), anyString())).thenReturn(false);
         assertFalse(this.organisationService.removeOrgSocials("42", "Type"));
         verify(this.organisationDAOInterface).removeOrgSocials(anyString(), anyString());
     }
 
     @Test
-    public void testAddOrgNGO() {
+    public void testAddOrgNGOTrue() {
         when(this.organisationDAOInterface.addOrgNGO(anyString(), anyString(), (Date) any())).thenReturn(true);
         assertTrue(this.organisationService.addOrgNGO(new AddOrgNGORequest("42", "Ngo Number", new Date(1L))));
         verify(this.organisationDAOInterface).addOrgNGO(anyString(), anyString(), (Date) any());
     }
 
     @Test
-    public void testAddOrgNGO2() {
+    public void testAddOrgNGOFalse() {
         when(this.organisationDAOInterface.addOrgNGO(anyString(), anyString(), (Date) any())).thenReturn(false);
         assertFalse(this.organisationService.addOrgNGO(new AddOrgNGORequest("42", "Ngo Number", new Date(1L))));
         verify(this.organisationDAOInterface).addOrgNGO(anyString(), anyString(), (Date) any());
     }
 
     @Test
-    public void testAddOrgNGO3() {
+    public void testAddOrgNGONull() {
         when(this.organisationDAOInterface.addOrgNGO(anyString(), anyString(), (java.util.Date) any())).thenReturn(true);
         assertFalse(this.organisationService.addOrgNGO(null));
     }
 
     @Test
-    public void testAddOrgNGO4() {
+    public void testAddOrgNGOComplete() {
         when(this.organisationDAOInterface.addOrgNGO(anyString(), anyString(), (Date) any())).thenReturn(true);
         AddOrgNGORequest addOrgNGORequest = mock(AddOrgNGORequest.class);
         LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
@@ -614,41 +614,41 @@ public class OrganisationServiceTest {
     }
 
     @Test
-    public void testRemoveOrgNGO() {
+    public void testRemoveOrgNGOTrue() {
         when(this.organisationDAOInterface.removeOrgNGO(anyString())).thenReturn(true);
         assertTrue(this.organisationService.removeOrgNGO("42"));
         verify(this.organisationDAOInterface).removeOrgNGO(anyString());
     }
 
     @Test
-    public void testRemoveOrgNGO2() {
+    public void testRemoveOrgNGOFalse() {
         when(this.organisationDAOInterface.removeOrgNGO(anyString())).thenReturn(false);
         assertFalse(this.organisationService.removeOrgNGO("42"));
         verify(this.organisationDAOInterface).removeOrgNGO(anyString());
     }
 
     @Test
-    public void testAddOrgEstDate() {
+    public void testAddOrgEstDateTrue() {
         when(this.organisationDAOInterface.addOrgEstDate(anyString(), (Date) any())).thenReturn(true);
         assertTrue(this.organisationService.addOrgEstDate(new AddOrgEstDateRequest(new Date(1L), "42")));
         verify(this.organisationDAOInterface).addOrgEstDate(anyString(), (Date) any());
     }
 
     @Test
-    public void testAddOrgEstDate2() {
+    public void testAddOrgEstDateFalse() {
         when(this.organisationDAOInterface.addOrgEstDate(anyString(), (Date) any())).thenReturn(false);
         assertFalse(this.organisationService.addOrgEstDate(new AddOrgEstDateRequest(new Date(1L), "42")));
         verify(this.organisationDAOInterface).addOrgEstDate(anyString(), (Date) any());
     }
 
     @Test
-    public void testAddOrgEstDate3() {
+    public void testAddOrgEstDateNull() {
         when(this.organisationDAOInterface.addOrgEstDate(anyString(), (java.util.Date) any())).thenReturn(true);
         assertFalse(this.organisationService.addOrgEstDate(null));
     }
 
     @Test
-    public void testAddOrgEstDate4() {
+    public void testAddOrgEstDateComplete() {
         when(this.organisationDAOInterface.addOrgEstDate(anyString(), (Date) any())).thenReturn(true);
         AddOrgEstDateRequest addOrgEstDateRequest = mock(AddOrgEstDateRequest.class);
         LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
@@ -662,14 +662,14 @@ public class OrganisationServiceTest {
     }
 
     @Test
-    public void testRemoveOrgEstDate() {
+    public void testRemoveOrgEstDateTrue() {
         when(this.organisationDAOInterface.removeOrgEstDate(anyString())).thenReturn(true);
         assertTrue(this.organisationService.removeOrgEstDate("42"));
         verify(this.organisationDAOInterface).removeOrgEstDate(anyString());
     }
 
     @Test
-    public void testRemoveOrgEstDate2() {
+    public void testRemoveOrgEstDateFalse() {
         when(this.organisationDAOInterface.removeOrgEstDate(anyString())).thenReturn(false);
         assertFalse(this.organisationService.removeOrgEstDate("42"));
         verify(this.organisationDAOInterface).removeOrgEstDate(anyString());

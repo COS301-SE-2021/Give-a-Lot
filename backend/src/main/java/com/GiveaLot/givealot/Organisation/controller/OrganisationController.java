@@ -489,6 +489,10 @@ public class OrganisationController
         }
     }
 
+    /* tested - works
+     *  removeOrgCommittee from OrganisationDASTemp always returns true
+     *  even if an organisation id doesn't exist
+     * */
     @DeleteMapping("/delete/committee/{orgId}")
     public responseJSON removeOrgCommittee(@PathVariable("orgId") @NonNull String orgId)
     {

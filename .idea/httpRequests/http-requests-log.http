@@ -1,3 +1,27 @@
+POST http://localhost:8080/v1/organisation/add/estdate
+Content-Type: application/json
+
+{
+  "date": "",
+  "orgId": "3443ffffd"
+}
+
+<> 2021-08-02T035251.500.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/estdate
+Content-Type: application/json
+
+{
+  "date": "",
+  "orgId": "3443ffffd"
+}
+
+<> 2021-08-02T035144.200.json
+
+###
+
 DELETE http://localhost:8080/v1/organisation/delete/socials/oegIsHwew/typehere
 
 <> 2021-08-02T034653.200.json
@@ -308,18 +332,6 @@ GET http://localhost:8080/v1/organisation/points/someOrg
 GET http://localhost:8080/v1/organisation/points/someOrg
 
 <> 2021-07-31T215426.500.json
-
-###
-
-GET http://localhost:8080/v1/organisation/points/someOrg
-
-<> 2021-07-31T214948.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/points/someOrg
-
-<> 2021-07-31T214739.200.json
 
 ###
 

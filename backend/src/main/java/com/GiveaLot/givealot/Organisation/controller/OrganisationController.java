@@ -550,9 +550,11 @@ public class OrganisationController
         }
     }
 
+    /* tested - status not confirmed: not entirely sure how to get the date object from a json object*/
     @PostMapping("/add/estdate")
     public responseJSON addOrgEstDate(@RequestBody @NonNull AddOrgEstDateRequest body)
     {
+        //System.out.println(body.getDate().toString());
         try
         {
             boolean res = service.addOrgEstDate(body);

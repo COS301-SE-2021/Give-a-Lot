@@ -396,11 +396,11 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
     }
 
     @Override
-    public boolean addOrgSocials(String orgId, String type, String website) {
+    public boolean addOrgSocials(String orgId, String type) {
 
-        final String sql1="update public.\"OrganisationInfo\"  set website = ? where \"orgId\"=?";
-
-        jdbcTemplate.update(sql1,website,orgId);
+//        final String sql1="update public.\"OrganisationInfo\"  set website = ? where \"orgId\"=?";
+//
+//        jdbcTemplate.update(sql1,website,orgId);
 
 
         if(type.equals("facebook"))

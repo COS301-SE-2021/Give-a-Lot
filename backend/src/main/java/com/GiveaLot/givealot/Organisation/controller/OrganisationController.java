@@ -760,7 +760,7 @@ public class OrganisationController
     @PostMapping("/add/socials")
     public responseJSON addOrgSocials(@RequestBody AddSocialsRequest body)
     {
-        System.out.println(body.getOrgId() + " " + body.getWebsite() + " " + body.getType());
+        System.out.println(body.getOrgId()  + " " + body.getType());
         try
         {
             boolean res = service.addOrgSocials(body);

@@ -725,10 +725,13 @@ public class OrganisationController
         }
     }
 
-
+    /* tested - works, addOrgDonationInfo from OrganisationDASTemp returns true
+       even if org Id doesn't exist
+    */
     @PostMapping("/add/donation/info")
     public responseJSON addOrgDonationInfo(@RequestBody @NonNull AddOrgDonationInfoRequest body)
     {
+        System.out.println(body.getOrgInfo() + " " + body.getOrgId());
         try
         {
             boolean res = service.addOrgDonationInfo(body);
@@ -752,9 +755,13 @@ public class OrganisationController
         }
     }
 
-    @GetMapping("/add/socials")
+    /* tested - works, addOrgSocials from OrganisationDASTemp returns true
+       even if org Id doesn't exist
+    */
+    @PostMapping("/add/socials")
     public responseJSON addOrgSocials(@RequestBody AddSocialsRequest body)
     {
+        System.out.println(body.getOrgId() + " " + body.getWebsite() + " " + body.getType());
         try
         {
             boolean res = service.addOrgSocials(body);

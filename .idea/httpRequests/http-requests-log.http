@@ -1,3 +1,28 @@
+POST http://localhost:8080/v1/organisation/add/socials
+Content-Type: application/json
+
+{
+ "orgId": "orgId_idf",
+  "type": "type+dd",
+  "website": "website_sd2"
+}
+
+<> 2021-08-02T041522.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/donation/info
+Content-Type: application/json
+
+{
+  "orgId": "dfd",
+  "orgInfo" : "orgInfo"
+}
+
+<> 2021-08-02T041131.200.json
+
+###
+
 POST http://localhost:8080/v1/organisation/add/committee
 Content-Type: application/json
 
@@ -345,16 +370,6 @@ GET http://localhost:8080/v1/organisation/points/someOrg
 GET http://localhost:8080/v1/organisation/select/someorgid
 
 <> 2021-07-31T230044.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/someorgid
-
-###
-
-GET http://localhost:8080/v1/organisation/info/kjrjkdkkfg
-
-<> 2021-07-31T224238.200.json
 
 ###
 

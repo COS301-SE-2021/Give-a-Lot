@@ -621,6 +621,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgNGOFalse() {
         when(this.organisationDAOInterface.removeOrgNGO(anyString())).thenReturn(false);
         assertFalse(this.organisationService.removeOrgNGO("42"));
@@ -628,6 +629,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgEstDateTrue() {
         when(this.organisationDAOInterface.addOrgEstDate(anyString(), (Date) any())).thenReturn(true);
         assertTrue(this.organisationService.addOrgEstDate(new AddOrgEstDateRequest(new Date(1L), "42")));
@@ -635,6 +637,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgEstDateFalse() {
         when(this.organisationDAOInterface.addOrgEstDate(anyString(), (Date) any())).thenReturn(false);
         assertFalse(this.organisationService.addOrgEstDate(new AddOrgEstDateRequest(new Date(1L), "42")));
@@ -642,6 +645,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgEstDateNull() {
         when(this.organisationDAOInterface.addOrgEstDate(anyString(), (java.util.Date) any())).thenReturn(true);
         assertFalse(this.organisationService.addOrgEstDate(null));

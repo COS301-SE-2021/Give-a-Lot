@@ -1,3 +1,27 @@
+POST http://localhost:8080/v1/organisation/add/auditor
+Content-Type: application/json
+
+{
+  "orgId": "dfgdgd",
+  "auditor" : "auditor"
+}
+
+<> 2021-08-02T040550.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/auditor
+Content-Type: application/json
+
+{
+  "orgId": "dfgdgd",
+  "auditor" : "auditor"
+}
+
+<> 2021-08-02T040459.200.json
+
+###
+
 POST http://localhost:8080/v1/organisation/add/taxref
 Content-Type: application/json
 
@@ -317,33 +341,6 @@ GET http://localhost:8080/v1/organisation/info/kjrjkdkkfg
 GET http://localhost:8080/v1/organisation/info/kjrjkdkkfg
 
 <> 2021-07-31T221740.500.json
-
-###
-
-GET http://localhost:8080/v1/organisation/info/kjrjkdkkfg
-
-<> 2021-07-31T221100.500.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgId" : "orgid2",
-  "orgName" : "orgName",
-  "slogan" : "slogan",
-  "orgDescription" : "orgDescription",
-  "orgSector" : "orgSector",
-  "orgEmail" : "orgEmail",
-  "status" : "status",
-  "contactPerson" : "contactPerson",
-  "contactNumber" : "contactNumber",
-  "directory" : "directory",
-  "password" : "password"
-}
-
-<> 2021-07-31T221004.200.json
 
 ###
 

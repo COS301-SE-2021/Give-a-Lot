@@ -665,9 +665,13 @@ public class OrganisationController
         }
     }
 
+    /* tested - works, addOrgAuditor from OrganisationDASTemp returns true
+       even if org Id doesn't exist
+    */
     @PostMapping("/add/auditor")
     public responseJSON addOrgAuditor(@RequestBody @NonNull AddOrgAuditorRequest body)
     {
+        System.out.println(body.getAuditor() + " " + body.getOrgId());
         try
         {
             boolean res = service.addOrgAuditor(body);

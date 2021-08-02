@@ -282,6 +282,7 @@ public class OrganisationController
         }
     }
 
+    /* tested - works */
     @DeleteMapping("/delete/images/{orgId}")
     public responseJSON removeOrgImage(@PathVariable("orgId") @NonNull String orgId)
     {
@@ -308,6 +309,10 @@ public class OrganisationController
         }
     }
 
+    /* tested - works
+    *  removeOrgTaxRef from OrganisationDASTemp always returns true
+    *  even if an organisation id doesn't exist
+    * */
     @DeleteMapping("/delete/taxref/{orgId}")
     public responseJSON removeOrgTaxRef(@PathVariable("orgId")@NonNull String orgId)
     {

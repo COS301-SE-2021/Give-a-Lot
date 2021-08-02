@@ -1,3 +1,33 @@
+DELETE http://localhost:8080/v1/organisation/delete/taxref/someorgkjjhhgkjid
+
+<> 2021-08-02T033031.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/points/someOrg
+
+<> 2021-08-02T032931.200.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/address/someorgkjjhhgkjid
+
+<> 2021-08-02T032852.200.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/images/someorgkjjhhgkjid
+
+<> 2021-08-02T032842.200.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/address/someorgkjjhhgkjid
+
+<> 2021-08-02T032744.200.json
+
+###
+
 DELETE http://localhost:8080/v1/organisation/delete/address/someorgkjjhhgkjid
 
 <> 2021-07-31T234250.200.json
@@ -340,26 +370,6 @@ Content-Type: application/json
 ###
 
 GET http://localhost:8080/v1/organisation/thisisid/thisistype/www.google.com
-
-###
-
-GET http://localhost:8080/v1/organisation/thisisid/thisistype/www.google.com
-
-###
-
-GET http://localhost:8080/v1/organisation/thisisid/thisistype/www.google.com
-
-###
-
-GET http://localhost:8080/v1/organisation/thisisid/thisistype/www.google.com
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/images/rtrrtt
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/address/hfghjbhhghv
 
 ###
 

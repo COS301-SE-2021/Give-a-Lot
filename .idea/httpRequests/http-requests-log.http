@@ -1,3 +1,15 @@
+DELETE http://localhost:8080/v1/organisation/delete/socials/oegIsHwew/typehere
+
+<> 2021-08-02T034653.200.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/socials/mkhbvd
+
+<> 2021-08-02T034440.500.json
+
+###
+
 DELETE http://localhost:8080/v1/organisation/delete/committee/llkjgrtu
 
 <> 2021-08-02T034343.200.json
@@ -308,18 +320,6 @@ GET http://localhost:8080/v1/organisation/points/someOrg
 GET http://localhost:8080/v1/organisation/points/someOrg
 
 <> 2021-07-31T214739.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/points/someOrg
-
-<> 2021-07-31T211022.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/points/someOrg
-
-<> 2021-07-31T211017.200.json
 
 ###
 

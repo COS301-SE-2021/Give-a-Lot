@@ -519,9 +519,14 @@ public class OrganisationController
         }
     }
 
-    @DeleteMapping("/delete/socials/{orgId}")
+    /* tested - works
+     *  removeOrgSocials from OrganisationDASTemp always returns true
+     *  even if an organisation id doesn't exist
+     * */
+    @DeleteMapping("/delete/socials/{orgId}/{type}")
     public responseJSON removeOrgSocials(@PathVariable("orgId") @NonNull String orgId,@PathVariable("type") @NonNull String type)
     {
+        System.out.println(orgId + "  " + type);
         try
         {
             boolean res = service.removeOrgSocials(orgId,type);

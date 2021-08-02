@@ -243,6 +243,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgAddressFalse() throws Exception {
         when(this.organisationDAOInterface.removeOrgAddress(anyString())).thenReturn(false);
         assertFalse(this.organisationService.removeOrgAddress("42"));
@@ -250,6 +251,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgImageTrue() {
         when(this.organisationDAOInterface.addOrgImage(anyString(), (File) any())).thenReturn(true);
         assertTrue(this.organisationService.addOrgImage(
@@ -258,6 +260,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgImageFalse() {
         when(this.organisationDAOInterface.addOrgImage(anyString(), (File) any())).thenReturn(false);
         assertFalse(this.organisationService.addOrgImage(
@@ -266,12 +269,14 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgImageNull() {
         when(this.organisationDAOInterface.addOrgImage(anyString(), (java.io.File) any())).thenReturn(true);
         assertFalse(this.organisationService.addOrgImage(null));
     }
 
     @Test
+    @Description("")
     public void testAddOrgImageComplete() {
         when(this.organisationDAOInterface.addOrgImage(anyString(), (File) any())).thenReturn(true);
         AddOrgImageRequest addOrgImageRequest = mock(AddOrgImageRequest.class);
@@ -285,6 +290,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgImageTrue() {
         when(this.organisationDAOInterface.removeOrgImage(anyString())).thenReturn(true);
         assertTrue(this.organisationService.removeOrgImage("42"));
@@ -292,6 +298,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgImageFalse() {
         when(this.organisationDAOInterface.removeOrgImage(anyString())).thenReturn(false);
         assertFalse(this.organisationService.removeOrgImage("42"));
@@ -299,6 +306,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgAuditDocTrue() {
         when(this.organisationDAOInterface.addOrgAuditDoc(anyString(), (File) any())).thenReturn(true);
         assertTrue(this.organisationService.addOrgAuditDoc(
@@ -307,6 +315,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgAuditDocFalse() {
         when(this.organisationDAOInterface.addOrgAuditDoc(anyString(), (File) any())).thenReturn(false);
         assertFalse(this.organisationService.addOrgAuditDoc(
@@ -315,12 +324,14 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgAuditDocNull() {
         when(this.organisationDAOInterface.addOrgAuditDoc(anyString(), (java.io.File) any())).thenReturn(true);
         assertFalse(this.organisationService.addOrgAuditDoc(null));
     }
 
     @Test
+    @Description("")
     public void testAddOrgAuditDocComplete() {
         when(this.organisationDAOInterface.addOrgAuditDoc(anyString(), (File) any())).thenReturn(true);
         AddOrgAuditInfoRequest addOrgAuditInfoRequest = mock(AddOrgAuditInfoRequest.class);
@@ -334,6 +345,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgAuditDocTrue() {
         when(this.organisationDAOInterface.removeOrgAuditDoc(anyString())).thenReturn(true);
         assertTrue(this.organisationService.removeOrgAuditDoc("42"));
@@ -341,6 +353,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgAuditDocFalse() {
         when(this.organisationDAOInterface.removeOrgAuditDoc(anyString())).thenReturn(false);
         assertFalse(this.organisationService.removeOrgAuditDoc("42"));
@@ -348,6 +361,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgTaxRefTrue() {
         when(this.organisationDAOInterface.addOrgTaxRef(anyString(), anyString())).thenReturn(true);
         assertTrue(this.organisationService.addOrgTaxRef(new AddOrgTaxRefRequest("42", "Reference")));
@@ -355,6 +369,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgTaxRefFalse() {
         when(this.organisationDAOInterface.addOrgTaxRef(anyString(), anyString())).thenReturn(false);
         assertFalse(this.organisationService.addOrgTaxRef(new AddOrgTaxRefRequest("42", "Reference")));
@@ -362,12 +377,14 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgTaxRefNull() {
         when(this.organisationDAOInterface.addOrgTaxRef(anyString(), anyString())).thenReturn(true);
         assertFalse(this.organisationService.addOrgTaxRef(null));
     }
 
     @Test
+    @Description("")
     public void testAddOrgTaxRefComplete() {
         when(this.organisationDAOInterface.addOrgTaxRef(anyString(), anyString())).thenReturn(true);
         AddOrgTaxRefRequest addOrgTaxRefRequest = mock(AddOrgTaxRefRequest.class);
@@ -380,6 +397,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgTaxRefTrue() {
         when(this.organisationDAOInterface.removeOrgTaxRef(anyString())).thenReturn(true);
         assertTrue(this.organisationService.removeOrgTaxRef("42"));
@@ -387,6 +405,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgTaxRefFalse() {
         when(this.organisationDAOInterface.removeOrgTaxRef(anyString())).thenReturn(false);
         assertFalse(this.organisationService.removeOrgTaxRef("42"));
@@ -394,6 +413,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgAuditorTrue() {
         when(this.organisationDAOInterface.addOrgAuditor(anyString(), anyString())).thenReturn(true);
         assertTrue(this.organisationService.addOrgAuditor(new AddOrgAuditorRequest("42", "Auditor")));
@@ -401,6 +421,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgAuditorFalse() {
         when(this.organisationDAOInterface.addOrgAuditor(anyString(), anyString())).thenReturn(false);
         assertFalse(this.organisationService.addOrgAuditor(new AddOrgAuditorRequest("42", "Auditor")));
@@ -408,12 +429,14 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgAuditorNull() {
         when(this.organisationDAOInterface.addOrgAuditor(anyString(), anyString())).thenReturn(true);
         assertFalse(this.organisationService.addOrgAuditor(null));
     }
 
     @Test
+    @Description("")
     public void testAddOrgAuditorComplete() {
         when(this.organisationDAOInterface.addOrgAuditor(anyString(), anyString())).thenReturn(true);
         AddOrgAuditorRequest addOrgAuditorRequest = mock(AddOrgAuditorRequest.class);
@@ -426,6 +449,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgAuditorTrue() {
         when(this.organisationDAOInterface.removeOrgAuditor(anyString())).thenReturn(true);
         assertTrue(this.organisationService.removeOrgAuditor("42"));
@@ -433,6 +457,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgAuditorFalse() {
         when(this.organisationDAOInterface.removeOrgAuditor(anyString())).thenReturn(false);
         assertFalse(this.organisationService.removeOrgAuditor("42"));
@@ -440,6 +465,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgCommitteeTrue() {
         when(this.organisationDAOInterface.addOrgCommittee(anyString(), anyString())).thenReturn(true);
         assertTrue(this.organisationService.addOrgCommittee(new AddOrgCommitteeRequest("42", "Committee")));
@@ -447,6 +473,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgCommitteeFalse() {
         when(this.organisationDAOInterface.addOrgCommittee(anyString(), anyString())).thenReturn(false);
         assertFalse(this.organisationService.addOrgCommittee(new AddOrgCommitteeRequest("42", "Committee")));
@@ -454,12 +481,14 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgCommitteeNull() {
         when(this.organisationDAOInterface.addOrgCommittee(anyString(), anyString())).thenReturn(true);
         assertFalse(this.organisationService.addOrgCommittee(null));
     }
 
     @Test
+    @Description("")
     public void testAddOrgCommitteeComplete() {
         when(this.organisationDAOInterface.addOrgCommittee(anyString(), anyString())).thenReturn(true);
         AddOrgCommitteeRequest addOrgCommitteeRequest = mock(AddOrgCommitteeRequest.class);
@@ -472,6 +501,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgCommitteeTrue() {
         when(this.organisationDAOInterface.removeOrgCommittee(anyString())).thenReturn(true);
         assertTrue(this.organisationService.removeOrgCommittee("42"));
@@ -479,6 +509,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgCommitteeFalse() {
         when(this.organisationDAOInterface.removeOrgCommittee(anyString())).thenReturn(false);
         assertFalse(this.organisationService.removeOrgCommittee("42"));
@@ -486,6 +517,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgDonationInfoTrue() {
         when(this.organisationDAOInterface.addOrgDonationInfo(anyString(), anyString())).thenReturn(true);
         assertTrue(this.organisationService.addOrgDonationInfo(new AddOrgDonationInfoRequest("42", "Org Info")));
@@ -493,6 +525,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgDonationInfoFalse() {
         when(this.organisationDAOInterface.addOrgDonationInfo(anyString(), anyString())).thenReturn(false);
         assertFalse(this.organisationService.addOrgDonationInfo(new AddOrgDonationInfoRequest("42", "Org Info")));
@@ -500,12 +533,14 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgDonationInfoNull() {
         when(this.organisationDAOInterface.addOrgDonationInfo(anyString(), anyString())).thenReturn(true);
         assertFalse(this.organisationService.addOrgDonationInfo(null));
     }
 
     @Test
+    @Description("")
     public void testAddOrgDonationInfoComplete() {
         when(this.organisationDAOInterface.addOrgDonationInfo(anyString(), anyString())).thenReturn(true);
         AddOrgDonationInfoRequest addOrgDonationInfoRequest = mock(AddOrgDonationInfoRequest.class);
@@ -518,6 +553,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgDonationInfoTrue() {
         when(this.organisationDAOInterface.removeOrgDonationInfo(anyString())).thenReturn(true);
         assertTrue(this.organisationService.removeOrgDonationInfo("42"));
@@ -525,6 +561,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgDonationInfoFalse() {
         when(this.organisationDAOInterface.removeOrgDonationInfo(anyString())).thenReturn(false);
         assertFalse(this.organisationService.removeOrgDonationInfo("42"));
@@ -532,6 +569,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgSocialsTrue() {
         when(this.organisationDAOInterface.addOrgSocials(anyString(), anyString())).thenReturn(true);
         assertTrue(this.organisationService.addOrgSocials(new AddSocialsRequest( "Type", "42")));
@@ -539,6 +577,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgSocialsFalse() {
         when(this.organisationDAOInterface.addOrgSocials(anyString(), anyString())).thenReturn(false);
         assertFalse(this.organisationService.addOrgSocials(new AddSocialsRequest( "Type", "42")));
@@ -546,12 +585,14 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgSocialsNull() {
         when(this.organisationDAOInterface.addOrgSocials(anyString(), anyString())).thenReturn(true);
         assertFalse(this.organisationService.addOrgSocials(null));
     }
 
     @Test
+    @Description("")
     public void testAddOrgSocialsComplete() {
         when(this.organisationDAOInterface.addOrgSocials(anyString(), anyString())).thenReturn(true);
         AddSocialsRequest addSocialsRequest = mock(AddSocialsRequest.class);
@@ -564,6 +605,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgSocialsTrue() {
         when(this.organisationDAOInterface.removeOrgSocials(anyString(), anyString())).thenReturn(true);
         assertTrue(this.organisationService.removeOrgSocials("42", "Type"));
@@ -571,6 +613,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgSocialsFalse() {
         when(this.organisationDAOInterface.removeOrgSocials(anyString(), anyString())).thenReturn(false);
         assertFalse(this.organisationService.removeOrgSocials("42", "Type"));
@@ -578,6 +621,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgNGOTrue() {
         when(this.organisationDAOInterface.addOrgNGO(anyString(), anyString(), (Date) any())).thenReturn(true);
         assertTrue(this.organisationService.addOrgNGO(new AddOrgNGORequest("42", "Ngo Number", new Date(1L))));
@@ -585,6 +629,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgNGOFalse() {
         when(this.organisationDAOInterface.addOrgNGO(anyString(), anyString(), (Date) any())).thenReturn(false);
         assertFalse(this.organisationService.addOrgNGO(new AddOrgNGORequest("42", "Ngo Number", new Date(1L))));
@@ -592,12 +637,14 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgNGONull() {
         when(this.organisationDAOInterface.addOrgNGO(anyString(), anyString(), (java.util.Date) any())).thenReturn(true);
         assertFalse(this.organisationService.addOrgNGO(null));
     }
 
     @Test
+    @Description("")
     public void testAddOrgNGOComplete() {
         when(this.organisationDAOInterface.addOrgNGO(anyString(), anyString(), (Date) any())).thenReturn(true);
         AddOrgNGORequest addOrgNGORequest = mock(AddOrgNGORequest.class);
@@ -614,6 +661,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgNGOTrue() {
         when(this.organisationDAOInterface.removeOrgNGO(anyString())).thenReturn(true);
         assertTrue(this.organisationService.removeOrgNGO("42"));

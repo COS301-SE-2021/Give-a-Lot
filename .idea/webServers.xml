@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4216fffc-2c2a-46ca-8c17-3da49a63a045" name="givealot" url="http://209.97.142.151">
+        <fileTransfer rootFolder="/home/ubuntu" accessType="SFTP" host="209.97.142.151" port="22" sshConfigId="5b017e2a-a1cf-49ba-b297-388080217756" sshConfig="ubuntu@209.97.142.151:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -346,6 +346,7 @@ public class OrganisationController
     @DeleteMapping("/delete/ngo/{orgId}")
     public responseJSON removeOrgNGO(@PathVariable("orgId") @NonNull String orgId)
     {
+        System.out.println(orgId);
         try
         {
             boolean res = service.removeOrgNGO(orgId);
@@ -368,6 +369,7 @@ public class OrganisationController
             return response;
         }
     }
+
 
     @DeleteMapping("/delete/estdate/{orgId}")
     public responseJSON removeOrgEstDate(@PathVariable("orgId") @NonNull String orgId)

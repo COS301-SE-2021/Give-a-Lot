@@ -1,3 +1,27 @@
+POST http://localhost:8080/v1/organisation/add/taxref
+Content-Type: application/json
+
+{
+  "orgId": "dfgdgd",
+  "reference" : "reference"
+}
+
+<> 2021-08-02T040223.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/
+Content-Type: application/json
+
+{
+  "orgId": "dfgdgd",
+  "reference" : "reference"
+}
+
+<> 2021-08-02T040129.404.json
+
+###
+
 POST http://localhost:8080/v1/organisation/add/estdate
 Content-Type: application/json
 
@@ -320,18 +344,6 @@ Content-Type: application/json
 }
 
 <> 2021-07-31T221004.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/points/someOrg
-
-<> 2021-07-31T220714.500.json
-
-###
-
-GET http://localhost:8080/v1/organisation/points/someOrg
-
-<> 2021-07-31T215426.500.json
 
 ###
 

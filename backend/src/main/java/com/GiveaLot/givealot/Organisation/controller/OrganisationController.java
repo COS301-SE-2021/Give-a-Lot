@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
-
 import static java.util.List.of;
 
 @RequestMapping("v1/organisation")

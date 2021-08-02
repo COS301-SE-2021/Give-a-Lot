@@ -133,7 +133,7 @@ public class OrganisationDASPostgre implements OrganisationDAOInterface{
     }
 
     @Override
-    public boolean addOrgSocials(String orgId, String type, String website) {
+    public boolean addOrgSocials(String orgId, String type) {
         return false;
     }
 

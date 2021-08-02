@@ -176,6 +176,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgWebsiteTrue() throws Exception {
         when(this.organisationDAOInterface.addOrgWebsite(anyString(), anyString())).thenReturn(true);
         assertTrue(this.organisationService.addOrgWebsite(new AddOrgWebsiteRequest("42", "Website")));
@@ -183,6 +184,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgWebsiteFalse() throws Exception {
         when(this.organisationDAOInterface.addOrgWebsite(anyString(), anyString())).thenReturn(false);
         assertFalse(this.organisationService.addOrgWebsite(new AddOrgWebsiteRequest("42", "Website")));
@@ -190,12 +192,14 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgWebsiteNull() throws Exception {
         when(this.organisationDAOInterface.addOrgWebsite(anyString(), anyString())).thenReturn(true);
         assertFalse(this.organisationService.addOrgWebsite(null));
     }
 
     @Test
+    @Description("")
     public void testAddOrgWebsiteComplete() throws Exception {
         when(this.organisationDAOInterface.addOrgWebsite(anyString(), anyString())).thenReturn(true);
         AddOrgWebsiteRequest addOrgWebsiteRequest = mock(AddOrgWebsiteRequest.class);
@@ -208,6 +212,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgWebsiteTrue() throws Exception {
         when(this.organisationDAOInterface.removeOrgWebsite(anyString())).thenReturn(true);
         assertTrue(this.organisationService.removeOrgWebsite("42"));
@@ -215,6 +220,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgWebsiteFalse() throws Exception {
         when(this.organisationDAOInterface.removeOrgWebsite(anyString())).thenReturn(false);
         assertFalse(this.organisationService.removeOrgWebsite("42"));
@@ -222,6 +228,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgAddressTrue() {
         when(this.organisationDAOInterface.addOrgAddress(anyString(), anyString())).thenReturn(true);
         assertTrue(this.organisationService.addOrgAddress("42", "42 Main St"));
@@ -229,6 +236,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgAddressFalse() {
         when(this.organisationDAOInterface.addOrgAddress(anyString(), anyString())).thenReturn(false);
         assertFalse(this.organisationService.addOrgAddress("42", "42 Main St"));
@@ -236,6 +244,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgAddressTrue() throws Exception {
         when(this.organisationDAOInterface.removeOrgAddress(anyString())).thenReturn(true);
         assertTrue(this.organisationService.removeOrgAddress("42"));

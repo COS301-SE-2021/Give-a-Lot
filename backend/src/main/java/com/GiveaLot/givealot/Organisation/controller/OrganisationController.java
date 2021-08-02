@@ -695,9 +695,13 @@ public class OrganisationController
         }
     }
 
+    /* tested - works, addOrgCommittee from OrganisationDASTemp returns true
+       even if org Id doesn't exist
+    */
     @PostMapping("/add/committee")
     public responseJSON addOrgCommittee(@RequestBody @NonNull AddOrgCommitteeRequest body)
     {
+        System.out.println(body.getCommittee() + " " + body.getOrgId());
         try
         {
             boolean res = service.addOrgCommittee(body);
@@ -720,6 +724,7 @@ public class OrganisationController
             return response;
         }
     }
+
 
     @PostMapping("/add/donation/info")
     public responseJSON addOrgDonationInfo(@RequestBody @NonNull AddOrgDonationInfoRequest body)

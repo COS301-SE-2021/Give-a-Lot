@@ -648,6 +648,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testAddOrgEstDateComplete() {
         when(this.organisationDAOInterface.addOrgEstDate(anyString(), (Date) any())).thenReturn(true);
         AddOrgEstDateRequest addOrgEstDateRequest = mock(AddOrgEstDateRequest.class);
@@ -662,6 +663,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgEstDateTrue() {
         when(this.organisationDAOInterface.removeOrgEstDate(anyString())).thenReturn(true);
         assertTrue(this.organisationService.removeOrgEstDate("42"));
@@ -669,6 +671,7 @@ public class OrganisationServiceTest {
     }
 
     @Test
+    @Description("")
     public void testRemoveOrgEstDateFalse() {
         when(this.organisationDAOInterface.removeOrgEstDate(anyString())).thenReturn(false);
         assertFalse(this.organisationService.removeOrgEstDate("42"));

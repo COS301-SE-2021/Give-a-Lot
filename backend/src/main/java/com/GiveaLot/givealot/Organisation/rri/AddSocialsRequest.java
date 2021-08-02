@@ -4,14 +4,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AddSocialsRequest
 {
-    private String website;
+
     private String type;
     private String orgId;
 
-    public AddSocialsRequest(@JsonProperty String website,
+    public AddSocialsRequest(
                              @JsonProperty String type,
                              @JsonProperty String orgId) {
-        this.website = website;
         this.type = type;
         this.orgId = orgId;
     }
@@ -22,14 +21,6 @@ public class AddSocialsRequest
 
     public void setOrgId(String orgId) {
         this.orgId = orgId;
-    }
-
-    public String getWebsite() {
-        return website;
-    }
-
-    public void setWebsite(String website) {
-        this.website = website;
     }
 
     public String getType() {

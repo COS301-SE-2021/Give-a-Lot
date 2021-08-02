@@ -785,6 +785,9 @@ public class OrganisationController
         }
     }
 
+    /*
+    * not sure how to handle the date object
+    * */
     @PostMapping("/add/ngo")
     public responseJSON addOrgNGO(@RequestBody AddOrgNGORequest body)
     {

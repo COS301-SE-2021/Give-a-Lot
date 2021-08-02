@@ -1,3 +1,27 @@
+DELETE http://localhost:8080/v1/organisation/delete/ngo/fhnbvg
+
+<> 2021-08-02T033251.200.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/ngo/
+
+<> 2021-08-02T033242.404.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/ngo
+
+<> 2021-08-02T033231.404.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/ngo/someorgkjjhhgkjid
+
+<> 2021-08-02T033221.200.json
+
+###
+
 DELETE http://localhost:8080/v1/organisation/delete/taxref/someorgkjjhhgkjid
 
 <> 2021-08-02T033031.200.json
@@ -303,73 +327,6 @@ Content-Type: application/json
 }
 
 <> 2021-07-31T204401.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgId" : "orgid2",
-  "orgName" : "orgName",
-  "slogan" : "slogan",
-  "orgDescription" : "orgDescription",
-  "orgSector" : "orgSector",
-  "orgEmail" : "orgEmail",
-  "status" : "status",
-  "contactPerson" : "contactPerson",
-  "contactNumber" : "contactNumber",
-  "directory" : "directory",
-  "password" : "password"
-}
-
-<> 2021-07-31T204319.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgId" : "orgid2",
-  "orgName" : "orgName",
-  "slogan" : "slogan",
-  "orgDescription" : "orgDescription",
-  "orgSector" : "orgSector",
-  "orgEmail" : "orgEmail",
-  "status" : "status",
-  "contactPerson" : "contactPerson",
-  "contactNumber" : "contactNumber",
-  "directory" : "directory",
-  "password" : "password"
-}
-
-<> 2021-07-31T204238.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgId" : "orgid2",
-  "orgName" : "orgName",
-  "slogan" : "slogan",
-  "orgDescription" : "orgDescription",
-  "orgSector" : "orgSector",
-  "orgEmail" : "orgEmail",
-  "status" : "status",
-  "contactPerson" : "contactPerson",
-  "contactNumber" : "contactNumber",
-  "directory" : "directory",
-  "password" : "password"
-}
-
-<> 2021-07-31T203252.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/thisisid/thisistype/www.google.com
 
 ###
 

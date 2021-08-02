@@ -339,6 +339,10 @@ public class OrganisationController
         }
     }
 
+    /* tested - works
+     *  removeOrgNGO from OrganisationDASTemp always returns true
+     *  even if an organisation id doesn't exist
+     * */
     @DeleteMapping("/delete/ngo/{orgId}")
     public responseJSON removeOrgNGO(@PathVariable("orgId") @NonNull String orgId)
     {

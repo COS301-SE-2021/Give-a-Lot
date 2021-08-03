@@ -23,6 +23,7 @@ import Button from "@material-ui/core/Button";
 import Login from "../login/Login"
 import {Switch,Route} from "react-router-dom";
 import { BiCertification } from 'react-icons/bi';
+import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 
 
 export class OrgSidebar extends Component {
@@ -107,7 +108,7 @@ export class OrgSidebar extends Component {
                     <Link to={'/certificate'} className='text-linkOrg'>
                         <ListItem button>
                             <ListItemIcon>
-                                <BiCertification className="iconOrg"/>
+                                <VerifiedUserIcon className="iconOrg"/>
                             </ListItemIcon>
                             <ListItemText primary="Certificate" />
                         </ListItem>

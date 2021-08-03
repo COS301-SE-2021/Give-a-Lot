@@ -18,7 +18,7 @@ public class OrganisationService {
     private final OrganisationDAOInterface organisationDAOInterface;
 
     @Autowired
-    OrganisationService(@Qualifier("temp") OrganisationDAOInterface organisationDAOInterface)
+    OrganisationService(@Qualifier("OrganisationTemp") OrganisationDAOInterface organisationDAOInterface)
     {
         this.organisationDAOInterface = organisationDAOInterface;
     }

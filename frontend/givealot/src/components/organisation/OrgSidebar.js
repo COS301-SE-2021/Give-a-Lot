@@ -22,6 +22,8 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import Button from "@material-ui/core/Button";
 import Login from "../login/Login"
 import {Switch,Route} from "react-router-dom";
+import { BiCertification } from 'react-icons/bi';
+
 
 export class OrgSidebar extends Component {
     constructor(props) {
@@ -99,6 +101,15 @@ export class OrgSidebar extends Component {
                                 <ReportIcon className="iconOrg"/>
                             </ListItemIcon>
                             <ListItemText primary="reports" />
+                        </ListItem>
+                    </Link>
+
+                    <Link to={'/certificate'} className='text-linkOrg'>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <BiCertification className="iconOrg"/>
+                            </ListItemIcon>
+                            <ListItemText primary="Certificate" />
                         </ListItem>
                     </Link>
 

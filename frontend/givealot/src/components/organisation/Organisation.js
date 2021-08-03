@@ -5,10 +5,9 @@ import "./Organisation.css"
 import {Switch,Route} from "react-router-dom";
 import OrgHeader from "./OrgHeader"
 import OrgCalender from "../organisation/orgCalender/OrgCalender";
-
 import Logout from "../organisation/Logout";
-
 import OrgTodo from "../organisation/orgTodo/OrgTodo";
+import Profile from "./profile/Profile";
 
 export class Organisation extends Component {
 
@@ -24,14 +23,11 @@ export class Organisation extends Component {
                     </div>
                     <div className="dash">
                         <Switch>
-
-
                             <Route exact path="/" component={OrgDashboard} />
                             <Route exact path="/OrgCalendar" component={OrgCalender} />
                             <Route exact path="/logout" component={Logout} />
                             <Route exact path="/todo" component={OrgTodo} />
-
-
+                            <Route exact path="/profile" component={Profile} />
                         </Switch>
 
                     </div>

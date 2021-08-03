@@ -1,6 +1,6 @@
-package com.GiveaLot.givealot.Organisation.datasource;
+package com.GiveaLot.givealot.datasource;
 
-import com.zaxxer.hikari.*;
+import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;

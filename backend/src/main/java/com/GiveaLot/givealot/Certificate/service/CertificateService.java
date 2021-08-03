@@ -16,7 +16,7 @@ public class CertificateService {
     private final CertificateDAOInterface certificateDAOInterface;
 
     @Autowired
-    CertificateService(@Qualifier("temp") CertificateDAOInterface certificateDAOInterface){
+    CertificateService(@Qualifier("CertificateTemp") CertificateDAOInterface certificateDAOInterface){
         this.certificateDAOInterface = certificateDAOInterface;
     }
 

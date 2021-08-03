@@ -58,7 +58,7 @@ public class OrganisationServiceTest {
     @Description("Tests that an organisation can be retrieved")
     public void testSelectOrganisation() throws Exception {
         Organisation organisation = new Organisation("42", "Org Name", "Slogan", "Org Description", "Org Sector",
-                "jane.doe@example.org", "Status", "Contact Person", "Contact Number", "/tmp", "password");
+                "jane.doe@example.org", "Active", "Contact Person", "Contact Number", "/tmp", "password");
 
         when(this.organisationDAOInterface.selectOrganisation(anyString())).thenReturn(organisation);
         assertSame(organisation, this.organisationService.selectOrganisation("42"));
@@ -95,7 +95,7 @@ public class OrganisationServiceTest {
         when(this.organisationDAOInterface.organisationExists((Organisation) any())).thenReturn(true);
         assertTrue(
                 this.organisationService.organisationExists(new Organisation("42", "Org Name", "Slogan", "Org Description",
-                        "Org Sector", "jane.doe@example.org", "Status", "Contact Person", "Contact Number", "/tmp", "iloveyou")));
+                        "Org Sector", "jane.doe@example.org", "Active", "Contact Person", "Contact Number", "/tmp", "iloveyou")));
         verify(this.organisationDAOInterface).organisationExists((Organisation) any());
     }
 
@@ -105,7 +105,7 @@ public class OrganisationServiceTest {
         when(this.organisationDAOInterface.organisationExists((Organisation) any())).thenReturn(false);
         assertFalse(
                 this.organisationService.organisationExists(new Organisation("42", "Org Name", "Slogan", "Org Description",
-                        "Org Sector", "jane.doe@example.org", "Status", "Contact Person", "Contact Number", "/tmp", "iloveyou")));
+                        "Org Sector", "jane.doe@example.org", "Active", "Contact Person", "Contact Number", "/tmp", "iloveyou")));
         verify(this.organisationDAOInterface).organisationExists((Organisation) any());
     }
 
@@ -114,7 +114,7 @@ public class OrganisationServiceTest {
     public void testAddOrganisationTrue() throws Exception {
         when(this.organisationDAOInterface.addOrganisation((Organisation) any())).thenReturn(true);
         assertTrue(this.organisationService.addOrganisation(new Organisation("42", "Org Name", "Slogan", "Org Description",
-                "Org Sector", "jane.doe@example.org", "Status", "Contact Person", "Contact Number", "/tmp", "iloveyou")));
+                "Org Sector", "jane.doe@example.org", "Active", "Contact Person", "Contact Number", "/tmp", "iloveyou")));
         verify(this.organisationDAOInterface).addOrganisation((Organisation) any());
     }
 
@@ -123,7 +123,7 @@ public class OrganisationServiceTest {
     public void testAddOrganisationFalse() throws Exception {
         when(this.organisationDAOInterface.addOrganisation((Organisation) any())).thenReturn(false);
         assertFalse(this.organisationService.addOrganisation(new Organisation("42", "Org Name", "Slogan", "Org Description",
-                "Org Sector", "jane.doe@example.org", "Status", "Contact Person", "Contact Number", "/tmp", "iloveyou")));
+                "Org Sector", "jane.doe@example.org", "Active", "Contact Person", "Contact Number", "/tmp", "iloveyou")));
         verify(this.organisationDAOInterface).addOrganisation((Organisation) any());
     }
 

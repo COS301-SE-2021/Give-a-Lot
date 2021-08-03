@@ -200,8 +200,6 @@ public class OrganisationService {
         {
             String orgId = request.getOrgId();
             String type = request.getType();
-            String website = request.getWebsite();
-
             /*
                 data not validated
             */

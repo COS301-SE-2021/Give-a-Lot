@@ -16,7 +16,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@Repository("temp")
+@Repository("OrganisationTemp")
 public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     private final JdbcTemplate jdbcTemplate;

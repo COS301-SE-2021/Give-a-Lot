@@ -4,9 +4,10 @@
 // import {Switch,Route} from "react-router-dom";
 // import RegisterOrganisation from "./components/register/registerOrganisation/RegisterOrganisation";
 // import RegisterUser from "./components/register/registerUser/RegisterUser";
-import Admin from "./components/admin/Admin"
+// import Admin from "./components/admin/Admin"
 import './App.css';
-// import Organisation from "./components/organisation/Organisation";
+import Organisation from "./components/organisation/Organisation";
+// import Browse from "./components/basicUser/browse/Browse"
 
 function App() {
     return (
@@ -29,7 +30,7 @@ function App() {
          </Route>
         </Switch>*/}
         
-         <Admin/>
+         <Organisation/>
       </div>
    );
   

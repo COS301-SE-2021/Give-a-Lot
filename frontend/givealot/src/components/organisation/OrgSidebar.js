@@ -40,83 +40,83 @@ export class OrgSidebar extends Component {
                         <img src={log} alt="" className="imageOrg"/>
                     </div>
 
-                    <Link to={'/'} className='text-link active'>
+                    <Link to={'/'} className='text-linkOrg active'>
                         <ListItem button>
                             <ListItemIcon>
-                                <DashboardIcon className="icon"/>
+                                <DashboardIcon className="iconOrg"/>
                             </ListItemIcon>
                             <ListItemText primary="Dashboard" />
                         </ListItem>
                     </Link>
-                    <Link to={'/profile'} className='text-link' >
+                    <Link to={'/profile'} className='text-linkOrg' >
                         <ListItem button>
                             <ListItemIcon>
-                                <PersonIcon className="icon"/>
+                                <PersonIcon className="iconOrg"/>
                             </ListItemIcon>
                             <ListItemText primary="Profile" />
                         </ListItem>
                     </Link>
 
-                    <Link to={'/timeline'} className='text-link' >
+                    <Link to={'/timeline'} className='text-linkOrg' >
                         <ListItem button>
                             <ListItemIcon>
-                                <TimelineIcon className="icon"/>
+                                <TimelineIcon className="iconOrg"/>
                             </ListItemIcon>
                             <ListItemText primary="Timeline" />
                         </ListItem>
                     </Link>
 
-                    <Link to={'/gallery'} className='text-link' >
+                    <Link to={'/gallery'} className='text-linkOrg' >
                         <ListItem button>
                             <ListItemIcon>
-                                <ImageIcon className="icon"/>
+                                <ImageIcon className="iconOrg"/>
                             </ListItemIcon>
                             <ListItemText primary="gallery" />
                         </ListItem>
                     </Link>
 
-                    <Link to={'/OrgCalendar'} className='text-link'>
+                    <Link to={'/OrgCalendar'} className='text-linkOrg'>
                         <ListItem button>
                             <ListItemIcon>
-                                <CalendarTodayIcon className="icon"/>
+                                <CalendarTodayIcon className="iconOrg"/>
                             </ListItemIcon>
                             <ListItemText primary="Calendar" />
                         </ListItem>
                     </Link>
 
-                    <Link to={'/todo'} className='text-link'>
+                    <Link to={'/todo'} className='text-linkOrg'>
                         <ListItem button>
                             <ListItemIcon>
-                                <AssignmentIcon className="icon"/>
+                                <AssignmentIcon className="iconOrg"/>
                             </ListItemIcon>
                             <ListItemText primary="TO-DO's" />
                         </ListItem>
                     </Link>
 
-                    <Link to={'/reports'} className='text-link'>
+                    <Link to={'/reports'} className='text-linkOrg'>
                         <ListItem button>
                             <ListItemIcon>
-                                <ReportIcon className="icon"/>
+                                <ReportIcon className="iconOrg"/>
                             </ListItemIcon>
                             <ListItemText primary="reports" />
                         </ListItem>
                     </Link>
 
-                    <Link to={'/settings'} className='text-link'>
+                    <Link to={'/settings'} className='text-linkOrg'>
                         <ListItem button>
                             <ListItemIcon>
-                                <SettingsIcon className="icon"/>
+                                <SettingsIcon className="iconOrg"/>
                             </ListItemIcon>
                             <ListItemText primary="settings" />
                         </ListItem>
                     </Link>
 
-                    <Link className='text-link' >
-                        <ListItem button className='text-link'
+                    <Link className='text-linkOrg' >
+                        <ListItem button className='text-linkOrg'
                                   onClick={() => this.setState({ open: !this.state.open })}
                         >
                             <ListItemIcon>
-                                <ExitToAppIcon className="icon"/>
+                                <ExitToAppIcon className="iconOrg"/>
                             </ListItemIcon >
                             <ListItemText primary="LogOut" />
                         </ListItem>
@@ -129,7 +129,7 @@ export class OrgSidebar extends Component {
                             </DialogContentText>
                         </DialogContent>
                         <DialogActions>
-                            <Link to={'/login'} className='text-link' >
+                            <Link to={'/login'} className='text-linkOrg' >
                                 <Button onClick={() => this.setState({ open: !this.state.open })}  color="primary">
                                     Yes
                                 </Button>

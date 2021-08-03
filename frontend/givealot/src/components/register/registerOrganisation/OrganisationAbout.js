@@ -7,7 +7,7 @@ import OutlinedInput from "@material-ui/core/OutlinedInput";
 import InputAdornment from "@material-ui/core/InputAdornment";
 // import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
 import DescriptionIcon from '@material-ui/icons/Description';
-import {TextField} from "@material-ui/core";
+// import {TextField} from "@material-ui/core";
 
 class OrganisationAbout extends Component {
     proceed = e => {
@@ -43,7 +43,7 @@ class OrganisationAbout extends Component {
                          <OutlinedInput type="type"
                             name="slogan"
                             value={values.slogan}
-                            onChange={this.changeHandler}
+                            onChange={this.handleChange}
                             className="input" placeholder="Slogan"
                             startAdornment={
                                 <InputAdornment position="start">
@@ -56,7 +56,7 @@ class OrganisationAbout extends Component {
                          <OutlinedInput type="type"
                             name="sector"
                             value={values.sector}
-                            onChange={this.changeHandler}
+                            onChange={this.handleChange}
                             className="input" placeholder="Sector"
                             startAdornment={
                                 <InputAdornment position="start">
@@ -72,7 +72,7 @@ class OrganisationAbout extends Component {
                             multiline
                             maxRows={50}
                             value={values.description}
-                            onChange={this.changeHandler}
+                            onChange={this.handleChange}
                             className="input" placeholder="Description"
                             startAdornment={
                                 <InputAdornment position="start">

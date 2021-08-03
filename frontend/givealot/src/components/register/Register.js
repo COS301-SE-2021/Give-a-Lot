@@ -23,7 +23,7 @@ export class Register extends Component {
                     </Link>
                 </div>
                 <div className="containers" >
-                    <div className="gradientOverlay"></div>
+                    <div className="gradientOverlay" />
                     <div className="NGOs_made_safer_for_you">
                         <span>NGOs made safer for you</span>
                     </div>

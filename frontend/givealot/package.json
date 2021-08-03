@@ -34,7 +34,8 @@
     "react-scripts": "4.0.3",
     "react-trello": "^2.2.11",
     "recharts": "^2.0.9",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "font-awesome": "^4.7.0"
   },
   "scripts": {
     "start": "react-scripts start",

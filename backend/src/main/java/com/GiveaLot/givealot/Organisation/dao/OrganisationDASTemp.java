@@ -1,7 +1,6 @@
 package com.GiveaLot.givealot.Organisation.dao;
 
-import com.GiveaLot.givealot.Organisation.datasource.TempDataSource;
-import com.GiveaLot.givealot.Organisation.exceptions.OrganisationException;
+import com.GiveaLot.givealot.datasource.TempDataSource;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
@@ -10,14 +9,12 @@ import com.GiveaLot.givealot.Organisation.model.mappers.OrganisationPointsRowMap
 import com.GiveaLot.givealot.Organisation.model.mappers.OrganisationRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Optional;
 
 @Repository("temp")
 public class OrganisationDASTemp implements OrganisationDAOInterface{
@@ -397,11 +394,6 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public boolean addOrgSocials(String orgId, String type) {
-
-//        final String sql1="update public.\"OrganisationInfo\"  set website = ? where \"orgId\"=?";
-//
-//        jdbcTemplate.update(sql1,website,orgId);
-
 
         if(type.equals("facebook"))
         {

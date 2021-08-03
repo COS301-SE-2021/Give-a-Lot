@@ -6,11 +6,11 @@ class ToolbarComponent extends Component {
         const {
             messages,
             toggleCompose,
-            toggleSelectAll,
-            markReadStatus,
-            deleteMessages,
-            applyLabel,
-            removeLabel
+            // toggleSelectAll,
+            // markReadStatus,
+            // deleteMessages,
+            // applyLabel,
+            // removeLabel
         } = this.props;
 
         let unreadCount = messages.filter(message => !message.read).length;

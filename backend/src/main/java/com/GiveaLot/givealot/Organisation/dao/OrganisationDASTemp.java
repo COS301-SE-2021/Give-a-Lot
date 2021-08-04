@@ -28,21 +28,23 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public Organisation selectOrganisation(String orgId) throws Exception {
-        String query = "SELECT * FROM \"Organisations\" WHERE \"orgId\" = ?";
+        String query = "SELECT * FROM \"Organisations\" WHERE \"orgId\" = '" + orgId + "';";
 
-        String preparedID = "'" + orgId + "'";
+        try {
+            Organisation organisation = jdbcTemplate.queryForObject(query, new OrganisationRowMapper());
 
+            assert organisation != null;
+            if (organisation.getOrgId().isEmpty())
+            {
+                return null;
+            }
 
-        return jdbcTemplate.queryForObject(query, new OrganisationRowMapper(), preparedID);
-
-//            Organisation organisation = jdbcTemplate.queryForObject(query, new OrganisationRowMapper(), orgId);
-//
-//            assert organisation != null;
-//            if (organisation.getOrgName().isEmpty()) {
-//                return null;
-//            }
-
-            //return organisation;
+            return organisation;
+        }
+        catch (Exception e)
+        {
+            throw new Exception("sel_org_info " + e.toString());
+        }
 
     }
 
@@ -53,6 +55,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
         try {
             OrganisationInfo organisationInfo = jdbcTemplate.queryForObject(query, new OrganisationInfoRowMapper());
 
+            assert organisationInfo != null;
             if (organisationInfo.getOrgId().isEmpty())
             {
                 return null;
@@ -68,11 +71,12 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public OrganisationPoints selectOrganisationPoints(String orgId) throws Exception {
-        String query = "SELECT * FROM \"OrganisationPoints\" WHERE \"orgId\" = " + orgId + ";";
+        String query = "SELECT * FROM \"OrganisationPoints\" WHERE \"orgId\" = '" + orgId + "';";
 
         try {
             OrganisationPoints organisationPoints = jdbcTemplate.queryForObject(query, new OrganisationPointsRowMapper());
 
+            assert organisationPoints != null;
             if (organisationPoints.getOrgId().isEmpty()) {
                 return null;
             }

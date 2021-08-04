@@ -14,6 +14,86 @@ Content-Type: application/json
   "password" : "password"
 }
 
+<> 2021-08-04T195051.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "nqobani's test add",
+  "slogan" : "nqobani's slogan",
+  "orgDescription" : " nqobani's orgDescription",
+  "orgSector" : "nqobani's orgSector",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "nqobani's status",
+  "contactPerson" : "nqobani's contactPerson",
+  "contactNumber" : "0909787329",
+  "directory" : "directory",
+  "password" : "password"
+}
+
+<> 2021-08-04T194801.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "nqobani's test add",
+  "slogan" : "nqobani's slogan",
+  "orgDescription" : " nqobani's orgDescription",
+  "orgSector" : "nqobani's orgSector",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "nqobani's status",
+  "contactPerson" : "nqobani's contactPerson",
+  "contactNumber" : "0909787329",
+  "directory" : "directory",
+  "password" : "password"
+}
+
+<> 2021-08-04T194109.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "nqobani's test add",
+  "slogan" : "nqobani's slogan",
+  "orgDescription" : " nqobani's orgDescription",
+  "orgSector" : "nqobani's orgSector",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "nqobani's status",
+  "contactPerson" : "nqobani's contactPerson",
+  "contactNumber" : "0909787329",
+  "directory" : "directory",
+  "password" : "password"
+}
+
+<> 2021-08-04T193835.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "nqobani's test add",
+  "slogan" : "nqobani's slogan",
+  "orgDescription" : " nqobani's orgDescription",
+  "orgSector" : "nqobani's orgSector",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "nqobani's status",
+  "contactPerson" : "nqobani's contactPerson",
+  "contactNumber" : "0909787329",
+  "directory" : "directory",
+  "password" : "password"
+}
+
 <> 2021-08-04T193202.200.json
 
 ###
@@ -528,42 +608,6 @@ DELETE http://localhost:8080/v1/organisation/delete/images/someorgkjjhhgkjid
 DELETE http://localhost:8080/v1/organisation/delete/address/someorgkjjhhgkjid
 
 <> 2021-08-02T032744.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/address/someorgkjjhhgkjid
-
-<> 2021-07-31T234250.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/address/someorgid
-
-<> 2021-07-31T234225.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/add/website
-Content-Type: application/json
-
-{
- "orgId": "someId4",
-  "website": "www.givealot.com"
-}
-
-<> 2021-07-31T234203.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/add/website
-Content-Type: application/json
-
-{
- "orgId": "someId4",
-  "website": "www.givealot.com"
-}
-
-<> 2021-07-31T233845.200.json
 
 ###
 

@@ -108,6 +108,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
             DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
             String dateCreated = format.format(dateCurrent);
+            System.out.println(dateCreated);
 
             int year = dateCurrent.getYear();
             dateEx.setYear(year + 1);

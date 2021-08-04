@@ -31,6 +31,7 @@ public class OrganisationController
     @PostMapping("/add/org")
     public responseJSON addOrganisation(@RequestBody @NonNull Organisation body)
     {
+        response.setObject(null);
         try
         {
             if(service.addOrganisation(body))
@@ -60,6 +61,7 @@ public class OrganisationController
     @GetMapping("/points/{orgId}")
     public responseJSON selectOrganisationPoints(@PathVariable("orgId") @NonNull String orgId)
     {
+        response.setObject(null);
         try
         {
             OrganisationPoints res = service.selectOrganisationPoints(orgId);
@@ -89,6 +91,8 @@ public class OrganisationController
     @GetMapping("/select/{orgId}")
     public responseJSON selectOrganisation(@PathVariable("orgId") @NonNull String orgId)
     {
+        System.out.println(orgId);
+        response.setObject(null);
         try
         {
             Organisation res = service.selectOrganisation(orgId);
@@ -117,6 +121,7 @@ public class OrganisationController
     @GetMapping("/info/{orgId}")
     public responseJSON selectOrganisationInfo(@PathVariable("orgId")  @NonNull String orgId)
     {
+        response.setObject(null);
         try
         {
             OrganisationInfo res = service.selectOrganisationInfo(orgId);
@@ -130,7 +135,6 @@ public class OrganisationController
             {
                 response.setCode("org_sel_bad_200");
                 response.setMessage("unsuccessful");
-                response.setObject(null);
             }
         }
         catch (Exception e)
@@ -146,6 +150,7 @@ public class OrganisationController
     @PutMapping("/activate/{orgId}")
     public responseJSON reactivateOrganisation(@PathVariable("orgId") @NonNull String orgId)
     {
+        response.setObject(null);
         try
         {
             boolean res = service.reactivateOrganisation(orgId);
@@ -165,6 +170,7 @@ public class OrganisationController
         {
             response.setCode("org_act_bad_500");
             response.setMessage("unsuccessful " + e.toString());
+            response.setObject(null);
             return response;
         }
     }
@@ -173,6 +179,7 @@ public class OrganisationController
     @PutMapping("/investigate/{orgId}")
     public responseJSON investigateOrganisation(@PathVariable("orgId") @NonNull String orgId)
     {
+        response.setObject(null);
         try
         {
             boolean res = service.investigateOrganisation(orgId);
@@ -200,6 +207,7 @@ public class OrganisationController
     @PutMapping("/suspend/{orgId}")
     public responseJSON suspendOrganisation(@PathVariable("orgId") @NonNull String orgId)
     {
+        response.setObject(null);
         try
         {
             boolean res = service.suspendOrganisation(orgId);
@@ -227,6 +235,7 @@ public class OrganisationController
     @PutMapping("/add/website")
     public responseJSON addOrgWebsite(@RequestBody @NonNull AddOrgWebsiteRequest body)
     {
+        response.setObject(null);
         try
         {
             if(service.addOrgWebsite(body))
@@ -256,6 +265,7 @@ public class OrganisationController
     @DeleteMapping("/delete/address/{orgId}")
     public responseJSON removeOrgAddress(@PathVariable("orgId") @NonNull String orgId)
     {
+        response.setObject(null);
         try
         {
             boolean res = service.removeOrgAddress(orgId);
@@ -283,6 +293,7 @@ public class OrganisationController
     @DeleteMapping("/delete/images/{orgId}")
     public responseJSON removeOrgImage(@PathVariable("orgId") @NonNull String orgId)
     {
+        response.setObject(null);
         try
         {
             boolean res = service.removeOrgImage(orgId);
@@ -313,6 +324,7 @@ public class OrganisationController
     @DeleteMapping("/delete/taxref/{orgId}")
     public responseJSON removeOrgTaxRef(@PathVariable("orgId")@NonNull String orgId)
     {
+        response.setObject(null);
         try
         {
             boolean res = service.removeOrgTaxRef(orgId);
@@ -343,6 +355,7 @@ public class OrganisationController
     @DeleteMapping("/delete/ngo/{orgId}")
     public responseJSON removeOrgNGO(@PathVariable("orgId") @NonNull String orgId)
     {
+        response.setObject(null);
         System.out.println(orgId);
         try
         {
@@ -375,6 +388,7 @@ public class OrganisationController
     @DeleteMapping("/delete/estdate/{orgId}")
     public responseJSON removeOrgEstDate(@PathVariable("orgId") @NonNull String orgId)
     {
+        response.setObject(null);
         try
         {
             boolean res = service.removeOrgEstDate(orgId);
@@ -402,6 +416,7 @@ public class OrganisationController
     @DeleteMapping("/delete/donationinfo/{orgId}")
     public responseJSON removeOrgDonationInfo(@PathVariable("orgId") @NonNull String orgId)
     {
+        response.setObject(null);
         System.out.println(orgId);
         try
         {
@@ -433,6 +448,7 @@ public class OrganisationController
     @DeleteMapping("/delete/audit/{orgId}")
     public responseJSON removeOrgAuditDoc(@PathVariable("orgId") @NonNull String orgId)
     {
+        response.setObject(null);
         try
         {
             boolean res = service.removeOrgAuditDoc(orgId);
@@ -463,6 +479,7 @@ public class OrganisationController
     @DeleteMapping("/delete/auditor/{orgId}")
     public responseJSON removeOrgAuditor(@PathVariable("orgId") @NonNull String orgId)
     {
+        response.setObject(null);
         try
         {
             boolean res = service.removeOrgAuditor(orgId);
@@ -493,6 +510,7 @@ public class OrganisationController
     @DeleteMapping("/delete/committee/{orgId}")
     public responseJSON removeOrgCommittee(@PathVariable("orgId") @NonNull String orgId)
     {
+        response.setObject(null);
         try
         {
             boolean res = service.removeOrgCommittee(orgId);
@@ -523,6 +541,7 @@ public class OrganisationController
     @DeleteMapping("/delete/socials/{orgId}/{type}")
     public responseJSON removeOrgSocials(@PathVariable("orgId") @NonNull String orgId,@PathVariable("type") @NonNull String type)
     {
+        response.setObject(null);
         System.out.println(orgId + "  " + type);
         try
         {
@@ -551,6 +570,7 @@ public class OrganisationController
     @PostMapping("/add/estdate")
     public responseJSON addOrgEstDate(@RequestBody @NonNull AddOrgEstDateRequest body)
     {
+        response.setObject(null);
         //System.out.println(body.getDate().toString());
         try
         {
@@ -581,6 +601,7 @@ public class OrganisationController
     @PostMapping("/add/image")
     public responseJSON addOrgImage(@RequestBody @NonNull AddOrgImageRequest body)
     {
+        response.setObject(null);
         try
         {
             boolean res = service.addOrgImage(body);
@@ -609,6 +630,7 @@ public class OrganisationController
     @PostMapping("/add/audit")
     public responseJSON addOrgAuditDoc(AddOrgAuditInfoRequest body)
     {
+        response.setObject(null);
         try
         {
             boolean res = service.addOrgAuditDoc(body);
@@ -639,6 +661,7 @@ public class OrganisationController
     @PostMapping("/add/taxref")
     public responseJSON addOrgTaxRef(@RequestBody AddOrgTaxRefRequest body)
     {
+        response.setObject(null);
         try
         {
             boolean res = service.addOrgTaxRef(body);
@@ -668,6 +691,7 @@ public class OrganisationController
     @PostMapping("/add/auditor")
     public responseJSON addOrgAuditor(@RequestBody @NonNull AddOrgAuditorRequest body)
     {
+        response.setObject(null);
         System.out.println(body.getAuditor() + " " + body.getOrgId());
         try
         {
@@ -698,6 +722,7 @@ public class OrganisationController
     @PostMapping("/add/committee")
     public responseJSON addOrgCommittee(@RequestBody @NonNull AddOrgCommitteeRequest body)
     {
+        response.setObject(null);
         System.out.println(body.getCommittee() + " " + body.getOrgId());
         try
         {
@@ -728,6 +753,7 @@ public class OrganisationController
     @PostMapping("/add/donation/info")
     public responseJSON addOrgDonationInfo(@RequestBody @NonNull AddOrgDonationInfoRequest body)
     {
+        response.setObject(null);
         System.out.println(body.getOrgInfo() + " " + body.getOrgId());
         try
         {
@@ -758,6 +784,7 @@ public class OrganisationController
     @PostMapping("/add/socials")
     public responseJSON addOrgSocials(@RequestBody AddSocialsRequest body)
     {
+        response.setObject(null);
         System.out.println(body.getOrgId()  + " " + body.getType());
         try
         {
@@ -788,6 +815,7 @@ public class OrganisationController
     @PostMapping("/add/ngo")
     public responseJSON addOrgNGO(@RequestBody AddOrgNGORequest body)
     {
+        response.setObject(null);
         try
         {
             boolean res = service.addOrgNGO(body);

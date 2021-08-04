@@ -1,41 +1,3 @@
-/*import React from 'react'
-import "./Organisation.css"
-import Card from '@material-ui/core/Card';
-import {CardContent, Grid, Typography} from '@material-ui/core';
-
-
-function  ({number, Icon, title}) {
-
-
-    return (
-        <div className="cards">
-            <Card >
-                <CardContent>
-                    <Grid className="cardItems">
-                        <Grid item>
-                            <Typography variant="h2" style={{fontSize: "xx-large"}}>
-                                {Icon && <Icon /> }
-                            </Typography>
-                        </Grid>
-                        <Grid item>
-                            <Typography variant="h6" >
-                                {number}
-                            </Typography>
-                            <Typography variant="subtitle1" >
-                                {title}
-                            </Typography>
-                        </Grid>
-
-                    </Grid>
-                </CardContent>
-            </Card>
-        </div>
-    )
-
-}
-
-export default */
-
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
@@ -43,6 +5,9 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
+import AccordionActions from '@material-ui/core/AccordionActions';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -70,25 +35,35 @@ export default function Accordions() {
     return (
         <div className={classes.root}>
 
-            <Accordions expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+
+            <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2bh-content"
                     id="panel2bh-header"
                 >
-                    <Typography className={classes.heading}>Users</Typography>
+                    <Typography className={classes.heading}>Report #1</Typography>
                     <Typography className={classes.secondaryHeading}>
-                        You are currently not an owner
+                        Report on Fraud
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
                         Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar
                         diam eros in elit. Pellentesque convallis laoreet laoreet.
+
+                        Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar
+                        diam eros in elit. Pellentesque convallis laoreet laoreet.
                     </Typography>
                 </AccordionDetails>
-            </Accordions>
-
+                <Divider />
+                <AccordionActions>
+                    <Button size="small">Cancel</Button>
+                    <Button size="small" color="primary">
+                        Appeal
+                    </Button>
+                </AccordionActions>
+            </Accordion>
         </div>
     );
 }

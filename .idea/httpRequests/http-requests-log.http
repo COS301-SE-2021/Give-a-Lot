@@ -14,6 +14,26 @@ Content-Type: application/json
   "password" : "password"
 }
 
+<> 2021-08-04T193202.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "nqobani's test add",
+  "slogan" : "nqobani's slogan",
+  "orgDescription" : " nqobani's orgDescription",
+  "orgSector" : "nqobani's orgSector",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "nqobani's status",
+  "contactPerson" : "nqobani's contactPerson",
+  "contactNumber" : "0909787329",
+  "directory" : "directory",
+  "password" : "password"
+}
+
 <> 2021-08-04T192435.200.json
 
 ###
@@ -544,18 +564,6 @@ Content-Type: application/json
 }
 
 <> 2021-07-31T233845.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/add/website
-Content-Type: application/json
-
-{
- "orgId": "someId",
-  "website": "www.givealot.com"
-}
-
-<> 2021-07-31T233824.200.json
 
 ###
 

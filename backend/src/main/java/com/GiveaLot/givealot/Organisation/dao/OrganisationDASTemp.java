@@ -28,7 +28,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public Organisation selectOrganisation(String orgId) throws Exception {
-        String query = "SELECT * FROM \"Organisations\" WHERE \"orgId\" = " + orgId + ";";
+        String query = "SELECT * FROM \"Organisations\" WHERE \"orgId\" = '" + orgId + "';";
 
         try {
             Organisation organisation = jdbcTemplate.queryForObject(query, new OrganisationRowMapper());
@@ -47,7 +47,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public OrganisationInfo selectOrganisationInfo(String orgId) throws Exception {
-        String query = "SELECT * FROM \"OrganisationInfo\" WHERE \"orgId\" = " + orgId + ";";
+        String query = "SELECT * FROM \"OrganisationInfo\" WHERE \"orgId\" = '" + orgId + "';";
 
         try {
             OrganisationInfo organisationInfo = jdbcTemplate.queryForObject(query, new OrganisationInfoRowMapper());
@@ -67,7 +67,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public OrganisationPoints selectOrganisationPoints(String orgId) throws Exception {
-        String query = "SELECT * FROM \"OrganisationPoints\" WHERE \"orgId\" = " + orgId + ";";
+        String query = "SELECT * FROM \"OrganisationPoints\" WHERE \"orgId\" = '" + orgId + "';";
 
         try {
             OrganisationPoints organisationPoints = jdbcTemplate.queryForObject(query, new OrganisationPointsRowMapper());

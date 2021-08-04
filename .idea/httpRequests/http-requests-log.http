@@ -1,3 +1,66 @@
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgId" : "someIduniqueHere",
+  "orgName" : "nqobani's test add",
+  "slogan" : "nqobani's slogan",
+  "orgDescription" : " nqobani's orgDescription",
+  "orgSector" : "nqobani's orgSector",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "nqobani's status",
+  "contactPerson" : "nqobani's contactPerson",
+  "contactNumber" : "0909787329",
+  "directory" : "directory",
+  "password" : "password"
+}
+
+<> 2021-08-04T120609.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgId" : "someIduniqueHere",
+  "orgName" : "nqobani's test add",
+  "slogan" : "nqobani's slogan",
+  "orgDescription" : " nqobani's orgDescription",
+  "orgSector" : "nqobani's orgSector",
+  "orgEmail" : "orgEmail",
+  "status" : "nqobani's status",
+  "contactPerson" : "nqobani's contactPerson",
+  "contactNumber" : "0909787329",
+  "directory" : "directory",
+  "password" : "password"
+}
+
+<> 2021-08-04T120544.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgId" : "orgid2",
+  "orgName" : "orgName",
+  "slogan" : "slogan",
+  "orgDescription" : "orgDescription",
+  "orgSector" : "orgSector",
+  "orgEmail" : "orgEmail",
+  "status" : "status",
+  "contactPerson" : "contactPerson",
+  "contactNumber" : "contactNumber",
+  "directory" : "directory",
+  "password" : "password"
+}
+
+<> 2021-08-04T120317.200.json
+
+###
+
 POST http://localhost:8080/v1/organisation/add/socials
 Content-Type: application/json
 
@@ -352,24 +415,6 @@ GET http://localhost:8080/v1/organisation/points/someOrg
 ###
 
 GET http://localhost:8080/v1/organisation/points/someOrg
-
-###
-
-GET http://localhost:8080/v1/organisation/points/someOrg
-
-<> 2021-07-31T230253.500.json
-
-###
-
-GET http://localhost:8080/v1/organisation/points/someOrg
-
-<> 2021-07-31T230130.500.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/someorgid
-
-<> 2021-07-31T230044.200.json
 
 ###
 

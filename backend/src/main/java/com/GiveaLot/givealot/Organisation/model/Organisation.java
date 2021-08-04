@@ -22,6 +22,7 @@ public class Organisation {
     private String directory;
     private String password;
 
+    //Adding Organisations to the database
     public Organisation(@JsonProperty("orgName") String orgName,
                         @JsonProperty("slogan") String slogan,
                         @JsonProperty("orgDescription") String orgDescription,
@@ -47,6 +48,8 @@ public class Organisation {
         this.password =password;
     }
 
+
+    //Retrieving organisations from the database
     public Organisation(String orgId,
                         String orgName,
                         String slogan,

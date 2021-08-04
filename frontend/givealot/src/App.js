@@ -35,7 +35,7 @@ function App() {
          </Route>
         </Switch>*/}
         
-         <Browse/>
+         <Organisation/>
       </div>
    );
   

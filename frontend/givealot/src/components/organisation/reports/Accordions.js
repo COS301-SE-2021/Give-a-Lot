@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card';
 import {CardContent, Grid, Typography} from '@material-ui/core';
 
 
-function Accordion ({number, Icon, title}) {
+function  ({number, Icon, title}) {
 
 
     return (
@@ -34,7 +34,7 @@ function Accordion ({number, Icon, title}) {
 
 }
 
-export default According*/
+export default */
 
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Accordion() {
+export default function Accordions() {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
 
@@ -70,7 +70,7 @@ export default function Accordion() {
     return (
         <div className={classes.root}>
 
-            <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+            <Accordions expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2bh-content"
@@ -87,7 +87,7 @@ export default function Accordion() {
                         diam eros in elit. Pellentesque convallis laoreet laoreet.
                     </Typography>
                 </AccordionDetails>
-            </Accordion>
+            </Accordions>
 
         </div>
     );

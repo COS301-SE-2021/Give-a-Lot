@@ -8,7 +8,8 @@ import OrgCalender from "../organisation/orgCalender/OrgCalender";
 import Logout from "../organisation/Logout";
 import OrgTodo from "../organisation/orgTodo/OrgTodo";
 import Profile from "./profile/Profile";
-import Gallery from "./gallery/Gallery"
+import Gallery from "./gallery/Gallery";
+import Reports from "./reports/Reports";
 
 export class Organisation extends Component {
 
@@ -30,6 +31,7 @@ export class Organisation extends Component {
                             <Route exact path="/todo" component={OrgTodo} />
                             <Route exact path="/profile" component={Profile} />
                             <Route exact path="/gallery" component={Gallery} />
+                            <Route exact path="/reports" component={Reports} />
                         </Switch>
 
                     </div>

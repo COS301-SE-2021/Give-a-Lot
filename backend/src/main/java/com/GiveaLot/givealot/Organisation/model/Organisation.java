@@ -22,18 +22,42 @@ public class Organisation {
     private String directory;
     private String password;
 
+    public Organisation(@JsonProperty("orgName") String orgName,
+                        @JsonProperty("slogan") String slogan,
+                        @JsonProperty("orgDescription") String orgDescription,
+                        @JsonProperty("orgSector") String orgSector,
+                        @JsonProperty("orgEmail") String orgEmail,
+                        @JsonProperty("status") String status,
+                        @JsonProperty("contactPerson") String contactPerson,
+                        @JsonProperty("contactNumber") String contactNumber,
+                        @JsonProperty("directory") String directory,
+                        @JsonProperty("password") String password
+    )
+    {
+        this.orgName = orgName;
+        this.slogan = slogan;
+        this.orgDescription = orgDescription;
+        this.orgSector = orgSector;
+        this.orgEmail = orgEmail;
+        this.orgId = new MD5().getMd5(orgEmail);
+        this.status = status;
+        this.contactNumber = contactNumber;
+        this.contactPerson = contactPerson;
+        this.directory = directory;
+        this.password =password;
+    }
 
-    public Organisation(@JsonProperty String orgId,
-                        @JsonProperty String orgName,
-                        @JsonProperty String slogan,
-                        @JsonProperty String orgDescription,
-                        @JsonProperty String orgSector,
-                        @JsonProperty String orgEmail,
-                        @JsonProperty String status,
-                        @JsonProperty String contactPerson,
-                        @JsonProperty String contactNumber,
-                        @JsonProperty String directory,
-                        @JsonProperty String password
+    public Organisation(String orgId,
+                        String orgName,
+                        String slogan,
+                        String orgDescription,
+                        String orgSector,
+                        String orgEmail,
+                        String status,
+                        String contactPerson,
+                        String contactNumber,
+                        String directory,
+                        String password
                         )
     {
         this.orgName = orgName;
@@ -49,30 +73,7 @@ public class Organisation {
         this.password =password;
     }
 
-    public Organisation(@JsonProperty String orgName,
-                        @JsonProperty String slogan,
-                        @JsonProperty String orgDescription,
-                        @JsonProperty String orgSector,
-                        @JsonProperty String orgEmail,
-                        @JsonProperty String status,
-                        @JsonProperty String contactPerson,
-                        @JsonProperty String contactNumber,
-                        @JsonProperty String directory,
-                        @JsonProperty String password
-    )
-    {
-        this.orgName = orgName;
-        this.slogan = slogan;
-        this.orgDescription = orgDescription;
-        this.orgSector = orgSector;
-        this.orgEmail = orgEmail;
-        this.orgId = new MD5().getMd5(orgEmail);
-        this.status = status;
-        this.contactNumber = contactNumber;
-        this.contactPerson = contactPerson;
-        this.directory = directory;
-        this.password =password;
-    }
+
 
     public String getOrgName(){
         return orgName;

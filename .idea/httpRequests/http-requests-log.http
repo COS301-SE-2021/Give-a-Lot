@@ -2,6 +2,203 @@ POST http://localhost:8080/v1/organisation/add/org
 Content-Type: application/json
 
 {
+  "orgName" : "nqobani's test add",
+  "slogan" : "nqobani's slogan",
+  "orgDescription" : " nqobani's orgDescription",
+  "orgSector" : "nqobani's orgSector",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "nqobani's status",
+  "contactPerson" : "nqobani's contactPerson",
+  "contactNumber" : "0909787329",
+  "directory" : "directory",
+  "password" : "password"
+}
+
+<> 2021-08-04T192435.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "nqobani's test add",
+  "slogan" : "nqobani's slogan",
+  "orgDescription" : " nqobani's orgDescription",
+  "orgSector" : "nqobani's orgSector",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "nqobani's status",
+  "contactPerson" : "nqobani's contactPerson",
+  "contactNumber" : "0909787329",
+  "directory" : "directory",
+  "password" : "password"
+}
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "nqobani's test add",
+  "slogan" : "nqobani's slogan",
+  "orgDescription" : " nqobani's orgDescription",
+  "orgSector" : "nqobani's orgSector",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "nqobani's status",
+  "contactPerson" : "nqobani's contactPerson",
+  "contactNumber" : "0909787329",
+  "directory" : "directory",
+  "password" : "password"
+}
+
+<> 2021-08-04T192126.500.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "nqobani's test add",
+  "slogan" : "nqobani's slogan",
+  "orgDescription" : " nqobani's orgDescription",
+  "orgSector" : "nqobani's orgSector",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "nqobani's status",
+  "contactPerson" : "nqobani's contactPerson",
+  "contactNumber" : "0909787329",
+  "directory" : "directory",
+  "password" : "password"
+}
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "nqobani's test add",
+  "slogan" : "nqobani's slogan",
+  "orgDescription" : " nqobani's orgDescription",
+  "orgSector" : "nqobani's orgSector",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "nqobani's status",
+  "contactPerson" : "nqobani's contactPerson",
+  "contactNumber" : "0909787329",
+  "directory" : "directory",
+  "password" : "password"
+}
+
+<> 2021-08-04T191606.500.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "nqobani's test add",
+  "slogan" : "nqobani's slogan",
+  "orgDescription" : " nqobani's orgDescription",
+  "orgSector" : "nqobani's orgSector",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "nqobani's status",
+  "contactPerson" : "nqobani's contactPerson",
+  "contactNumber" : "0909787329",
+  "directory" : "directory",
+  "password" : "password"
+}
+
+<> 2021-08-04T162741.500.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "nqobani's test add",
+  "slogan" : "nqobani's slogan",
+  "orgDescription" : " nqobani's orgDescription",
+  "orgSector" : "nqobani's orgSector",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "nqobani's status",
+  "contactPerson" : "nqobani's contactPerson",
+  "contactNumber" : "0909787329",
+  "directory" : "directory",
+  "password" : "password"
+}
+
+<> 2021-08-04T162735.500.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgId" : "dfdd",
+  "orgName" : "nqobani's test add",
+  "slogan" : "nqobani's slogan",
+  "orgDescription" : " nqobani's orgDescription",
+  "orgSector" : "nqobani's orgSector",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "nqobani's status",
+  "contactPerson" : "nqobani's contactPerson",
+  "contactNumber" : "0909787329",
+  "directory" : "directory",
+  "password" : "password"
+}
+
+<> 2021-08-04T162547.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "nqobani's test add",
+  "slogan" : "nqobani's slogan",
+  "orgDescription" : " nqobani's orgDescription",
+  "orgSector" : "nqobani's orgSector",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "nqobani's status",
+  "contactPerson" : "nqobani's contactPerson",
+  "contactNumber" : "0909787329",
+  "directory" : "directory",
+  "password" : "password"
+}
+
+<> 2021-08-04T162334.500.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "nqobani's test add",
+  "slogan" : "nqobani's slogan",
+  "orgDescription" : " nqobani's orgDescription",
+  "orgSector" : "nqobani's orgSector",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "nqobani's status",
+  "contactPerson" : "nqobani's contactPerson",
+  "contactNumber" : "0909787329",
+  "directory" : "directory",
+  "password" : "password"
+}
+
+<> 2021-08-04T162114.500.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
   "orgId" : "someIduniqueHere",
   "orgName" : "nqobani's test add",
   "slogan" : "nqobani's slogan",
@@ -359,62 +556,6 @@ Content-Type: application/json
 }
 
 <> 2021-07-31T233824.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/suspend/someorgid
-
-<> 2021-07-31T233556.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/suspend/someorgid
-
-<> 2021-07-31T233420.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/investigate/someorgId
-
-<> 2021-07-31T233218.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/investigate/someorgId
-
-###
-
-PUT http://localhost:8080/v1/organisation/investigate/someordid
-
-<> 2021-07-31T232019.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/activate/someordid
-
-<> 2021-07-31T231959.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/activate/someordid
-
-<> 2021-07-31T231857.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/activate/someordid
-
-<> 2021-07-31T231730.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/points/someOrg
-
-<> 2021-07-31T230538.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/points/someOrg
 
 ###
 

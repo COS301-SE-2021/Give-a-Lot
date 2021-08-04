@@ -1,3 +1,57 @@
+GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T204903.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/points/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T204848.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T204247.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T204154.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/points/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T204124.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/points/0c0585b5fd5b5be2d0127028727fa784
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "nqobani's test add",
+  "slogan" : "nqobani's slogan",
+  "orgDescription" : " nqobani's orgDescription",
+  "orgSector" : "nqobani's orgSector",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "nqobani's status",
+  "contactPerson" : "nqobani's contactPerson",
+  "contactNumber" : "0909787329",
+  "directory" : "directory",
+  "password" : "password"
+}
+
+<> 2021-08-04T203927.200.json
+
+###
+
 PUT http://localhost:8080/v1/organisation/investigate/0c0585b5fd5b5be2d0127028727fa784
 
 <> 2021-08-04T203200.200.json
@@ -594,48 +648,6 @@ DELETE http://localhost:8080/v1/organisation/delete/donationinfo/xxdfdf
 DELETE http://localhost:8080/v1/organisation/delete/estdate/ghghhj
 
 <> 2021-08-02T033750.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/ngo/fhnbvg
-
-<> 2021-08-02T033729.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/ngo/fhnbvg
-
-<> 2021-08-02T033714.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/ngo/fhnbvg
-
-<> 2021-08-02T033700.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/estdate/ghghhj
-
-<> 2021-08-02T033404.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/ngo/fhnbvg
-
-<> 2021-08-02T033251.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/ngo/
-
-<> 2021-08-02T033242.404.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/ngo
-
-<> 2021-08-02T033231.404.json
 
 ###
 

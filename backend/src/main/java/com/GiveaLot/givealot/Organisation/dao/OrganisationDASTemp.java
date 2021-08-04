@@ -28,10 +28,11 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public Organisation selectOrganisation(String orgId) throws Exception {
-        String query = "SELECT * FROM \"Organisations\" WHERE \"orgId\" = '" + orgId + "';";
+        String query = "SELECT * FROM \"Organisations\" WHERE \"orgId\" = ?;";
+        System.out.println(query);
 
         try {
-            Organisation organisation = jdbcTemplate.queryForObject(query, new OrganisationRowMapper());
+            Organisation organisation = jdbcTemplate.queryForObject(query, new OrganisationRowMapper(), orgId);
 
             if (organisation.getOrgName().isEmpty()) {
                 return null;
@@ -47,7 +48,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public OrganisationInfo selectOrganisationInfo(String orgId) throws Exception {
-        String query = "SELECT * FROM \"OrganisationInfo\" WHERE \"orgId\" = '" + orgId + "';";
+        String query = "SELECT * FROM \"OrganisationInfo\" WHERE \"orgId\" = " + orgId + ";";
 
         try {
             OrganisationInfo organisationInfo = jdbcTemplate.queryForObject(query, new OrganisationInfoRowMapper());
@@ -67,7 +68,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public OrganisationPoints selectOrganisationPoints(String orgId) throws Exception {
-        String query = "SELECT * FROM \"OrganisationPoints\" WHERE \"orgId\" = '" + orgId + "';";
+        String query = "SELECT * FROM \"OrganisationPoints\" WHERE \"orgId\" = " + orgId + ";";
 
         try {
             OrganisationPoints organisationPoints = jdbcTemplate.queryForObject(query, new OrganisationPointsRowMapper());
@@ -605,6 +606,12 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
         jdbcTemplate.update(query1,orgid);
         jdbcTemplate.update(query2,orgid);
         return true;
+    }
+
+    public static void main(String[] args) {
+        String orgId = "works";
+        String query = "SELECT * FROM \"Organisations\" WHERE \"orgId\" = \"" + orgId + "\";";
+        System.out.println(query);
     }
 
 }

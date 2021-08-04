@@ -48,6 +48,32 @@ public class Organisation {
         this.directory = directory;
         this.password =password;
     }
+
+    public Organisation(@JsonProperty String orgName,
+                        @JsonProperty String slogan,
+                        @JsonProperty String orgDescription,
+                        @JsonProperty String orgSector,
+                        @JsonProperty String orgEmail,
+                        @JsonProperty String status,
+                        @JsonProperty String contactPerson,
+                        @JsonProperty String contactNumber,
+                        @JsonProperty String directory,
+                        @JsonProperty String password
+    )
+    {
+        this.orgName = orgName;
+        this.slogan = slogan;
+        this.orgDescription = orgDescription;
+        this.orgSector = orgSector;
+        this.orgEmail = orgEmail;
+        this.orgId = new MD5().getMd5(orgEmail);
+        this.status = status;
+        this.contactNumber = contactNumber;
+        this.contactPerson = contactPerson;
+        this.directory = directory;
+        this.password =password;
+    }
+
     public String getOrgName(){
         return orgName;
     }

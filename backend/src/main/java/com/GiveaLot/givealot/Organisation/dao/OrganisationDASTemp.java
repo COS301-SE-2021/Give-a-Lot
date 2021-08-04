@@ -31,8 +31,9 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
         String query = "SELECT * FROM \"Organisations\" WHERE \"orgId\" = ?;";
 
         try {
-            Organisation organisation = jdbcTemplate.queryForObject(query, new Object[] {orgId}, new OrganisationRowMapper());
+            Organisation organisation = jdbcTemplate.queryForObject(query, new OrganisationRowMapper(), orgId);
 
+            assert organisation != null;
             if (organisation.getOrgName().isEmpty()) {
                 return null;
             }
@@ -85,6 +86,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
     }
 
     @Override
+    //Check
     public boolean organisationExists(Organisation organisation) {
         String query = "select \"orgId\" from public.\"Organisations\";";
 

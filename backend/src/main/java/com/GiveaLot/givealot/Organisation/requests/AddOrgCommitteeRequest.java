@@ -1,4 +1,4 @@
-package com.GiveaLot.givealot.Organisation.rri;
+package com.GiveaLot.givealot.Organisation.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

@@ -29,10 +29,9 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
     @Override
     public Organisation selectOrganisation(String orgId) throws Exception {
         String query = "SELECT * FROM \"Organisations\" WHERE \"orgId\" = ?;";
-        System.out.println(query);
 
         try {
-            Organisation organisation = jdbcTemplate.queryForObject(query, new OrganisationRowMapper(), orgId);
+            Organisation organisation = jdbcTemplate.queryForObject(query, new Object[] {orgId}, new OrganisationRowMapper());
 
             if (organisation.getOrgName().isEmpty()) {
                 return null;

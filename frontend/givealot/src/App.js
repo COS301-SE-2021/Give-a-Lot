@@ -12,7 +12,7 @@ import "./components/basicUser/browse/css/overlay.css";
 import "./components/basicUser/browse/css/search.css";
 import './App.css';
 import Organisation from "./components/organisation/Organisation";
-import Browse from "./components/basicUser/browse/Browse"
+// import Browse from "./components/basicUser/browse/Browse"
 
 function App() {
     return (

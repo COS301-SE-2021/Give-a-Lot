@@ -91,6 +91,7 @@ public class OrganisationController
     @GetMapping("/select/{orgId}")
     public responseJSON selectOrganisation(@PathVariable("orgId") @NonNull String orgId)
     {
+        System.out.println(orgId);
         response.setObject(null);
         try
         {

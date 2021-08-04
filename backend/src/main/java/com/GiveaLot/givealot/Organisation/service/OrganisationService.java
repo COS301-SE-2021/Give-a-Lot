@@ -4,7 +4,7 @@ import com.GiveaLot.givealot.Organisation.dao.OrganisationDAOInterface;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
-import com.GiveaLot.givealot.Organisation.rri.*;
+import com.GiveaLot.givealot.Organisation.requests.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;

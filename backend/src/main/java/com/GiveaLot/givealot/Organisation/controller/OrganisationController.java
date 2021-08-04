@@ -2,15 +2,13 @@ package com.GiveaLot.givealot.Organisation.controller;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
-import com.GiveaLot.givealot.Organisation.rri.*;
+import com.GiveaLot.givealot.Organisation.requests.*;
 import com.GiveaLot.givealot.Organisation.service.OrganisationService;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
-import java.util.List;
 import static java.util.List.of;
 
 @RequestMapping("v1/organisation")

@@ -23,6 +23,6 @@ public class OrganisationRowMapper implements RowMapper<Organisation> {
                 rs.getString("contactPerson"),
                 rs.getString("contactNumber"),
                 rs.getString("directory"),
-                rs.getString(""));
+                "");
     }
 }

@@ -28,27 +28,27 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public Organisation selectOrganisation(String orgId) throws Exception {
-        String query = "SELECT * FROM \"Organisations\" WHERE \"orgId\" = ?;";
+        String query = "SELECT * FROM \"Organisations\" WHERE \"orgId\" = ?";
 
-        try {
-            Organisation organisation = jdbcTemplate.queryForObject(query, new OrganisationRowMapper(), orgId);
+        String preparedID = "'" + orgId + "'";
 
-            assert organisation != null;
-            if (organisation.getOrgName().isEmpty()) {
-                return null;
-            }
 
-            return organisation;
-        }
-        catch (Exception e)
-        {
-            throw new Exception(e.toString());
-        }
+        return jdbcTemplate.queryForObject(query, new OrganisationRowMapper(), preparedID);
+
+//            Organisation organisation = jdbcTemplate.queryForObject(query, new OrganisationRowMapper(), orgId);
+//
+//            assert organisation != null;
+//            if (organisation.getOrgName().isEmpty()) {
+//                return null;
+//            }
+
+            //return organisation;
+
     }
 
     @Override
     public OrganisationInfo selectOrganisationInfo(String orgId) throws Exception {
-        String query = "SELECT * FROM \"OrganisationInfo\" WHERE \"orgId\" = " + orgId + ";";
+        String query = "SELECT * FROM \"OrganisationInfo\" WHERE \"orgId\" = '" + orgId + "';";
 
         try {
             OrganisationInfo organisationInfo = jdbcTemplate.queryForObject(query, new OrganisationInfoRowMapper());
@@ -609,10 +609,11 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
         return true;
     }
 
-    public static void main(String[] args) {
-        String orgId = "works";
-        String query = "SELECT * FROM \"Organisations\" WHERE \"orgId\" = \"" + orgId + "\";";
-        System.out.println(query);
+    public static void main(String[] args) throws Exception {
+        JdbcTemplate jdbcTemplate = new JdbcTemplate();
+        OrganisationDASTemp temp = new OrganisationDASTemp(jdbcTemplate);
+        Organisation org = temp.selectOrganisation("0c0585b5fd5b5be2d0127028727fa784");
+        System.out.println(org.getOrgName());
     }
 
 }

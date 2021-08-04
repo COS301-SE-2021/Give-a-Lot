@@ -43,7 +43,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration(classes = {OrganisationService.class})
 @ExtendWith(SpringExtension.class)
 public class OrganisationServiceTest {
-    @MockBean(name = "temp")
+    @MockBean(name = "OrganisationTemp")
     private OrganisationDAOInterface organisationDAOInterface;
 
     @Autowired

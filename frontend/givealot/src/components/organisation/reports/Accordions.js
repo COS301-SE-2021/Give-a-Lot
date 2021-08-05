@@ -7,16 +7,19 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
+import ReportIcon from '@material-ui/icons/Report';
 import AccordionActions from '@material-ui/core/AccordionActions';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
+        padding:  '7px 20px',
     },
     heading: {
         fontSize: theme.typography.pxToRem(15),
         flexBasis: '33.33%',
         flexShrink: 0,
+
     },
     secondaryHeading: {
         fontSize: theme.typography.pxToRem(15),
@@ -24,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Accordions() {
+export default function Accordions({id,title, description}) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
 
@@ -42,26 +45,26 @@ export default function Accordions() {
                     aria-controls="panel2bh-content"
                     id="panel2bh-header"
                 >
-                    <Typography className={classes.heading}>Report #1</Typography>
+                    <Typography className={classes.heading}>
+                        <ReportIcon className="iconReport"/>
+                        {id}
+                    </Typography>
+
                     <Typography className={classes.secondaryHeading}>
-                        Report on Fraud
+                        {title}
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar
-                        diam eros in elit. Pellentesque convallis laoreet laoreet.
-
-                        Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar
-                        diam eros in elit. Pellentesque convallis laoreet laoreet.
+                        {description}
                     </Typography>
                 </AccordionDetails>
                 <Divider />
                 <AccordionActions>
                     <Button size="small">Cancel</Button>
-                    <Button size="small" color="primary">
+                    <button size="small" className="AppealButton">
                         Appeal
-                    </Button>
+                    </button>
                 </AccordionActions>
             </Accordion>
         </div>

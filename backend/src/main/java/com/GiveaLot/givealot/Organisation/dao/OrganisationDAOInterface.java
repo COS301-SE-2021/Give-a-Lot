@@ -64,7 +64,7 @@ public interface OrganisationDAOInterface {
 
     public boolean removeOrgDonationInfo(String orgId);
 
-    public boolean addOrgSocials(String orgId, String type);
+    public boolean addOrgSocials(String orgId, String type, String url);
 
     public boolean removeOrgSocials(String orgId, String type);
 

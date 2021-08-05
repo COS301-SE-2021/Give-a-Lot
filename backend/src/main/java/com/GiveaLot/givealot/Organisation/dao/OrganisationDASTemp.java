@@ -1,6 +1,5 @@
 package com.GiveaLot.givealot.Organisation.dao;
 
-import com.GiveaLot.givealot.datasource.TempDataSource;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
@@ -8,6 +7,11 @@ import com.GiveaLot.givealot.Organisation.model.mappers.OrganisationInfoRowMappe
 import com.GiveaLot.givealot.Organisation.model.mappers.OrganisationPointsRowMapper;
 import com.GiveaLot.givealot.Organisation.model.mappers.OrganisationRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -304,7 +308,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
         jdbcTemplate.update(query1,orgId);
         String query2 = "update public.\"OrganisationPoints\" set \"points\" = points - 10 where \"orgId\" =?";
         jdbcTemplate.update(query2,orgId);
-        return false;
+        return true;
 
     }
 
@@ -324,7 +328,8 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
         String query2 = "update public.\"OrganisationPoints\" set \"points\" = points - 15 where \"orgId\" = ?";
         jdbcTemplate.update(query2,orgId);
 
-        return true;    }
+        return true;
+    }
 
     @Override
     public boolean addOrgTaxRef(String orgId, String reference) {
@@ -395,17 +400,17 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
 
     @Override
     public boolean removeOrgDonationInfo(String orgId) {
-        return false;
+        return true;
     }
 
     @Override
-    public boolean addOrgSocials(String orgId, String type) {
+    public boolean addOrgSocials(String orgId, String type, String url) {
 
         if(type.equals("facebook"))
         {
             final String sql="update public.\"OrganisationInfo\"  set facebook = ? where \"orgId\"=?";
 
-            jdbcTemplate.update(sql,type,orgId);
+            jdbcTemplate.update(sql,url,orgId);
         }
         else if(type.equals("twitter"))
         {
@@ -462,9 +467,9 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
         jdbcTemplate.update(sql,ngoNumber,orgId);
 
         final String sql2="update public.\"OrganisationInfo\"  set \"ngoDate\"=? where \"orgId\"=?";
-
         jdbcTemplate.update(sql2,ngoDate,orgId);
-        return false;
+
+        return true;
     }
 
     @Override
@@ -507,7 +512,6 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
         String query2 = "update public.\"OrganisationPoints\" set \"points\" = points + 5 where \"orgId\" = '" + orgid + "';";
         jdbcTemplate.update(query1,orgid);
         jdbcTemplate.update(query2,orgid);
-
         return true;
     }
 
@@ -611,13 +615,6 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
         jdbcTemplate.update(query1,orgid);
         jdbcTemplate.update(query2,orgid);
         return true;
-    }
-
-    public static void main(String[] args) throws Exception {
-        JdbcTemplate jdbcTemplate = new JdbcTemplate();
-        OrganisationDASTemp temp = new OrganisationDASTemp(jdbcTemplate);
-        Organisation org = temp.selectOrganisation("0c0585b5fd5b5be2d0127028727fa784");
-        System.out.println(org.getOrgName());
     }
 
 }

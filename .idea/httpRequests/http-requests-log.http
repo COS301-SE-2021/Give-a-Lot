@@ -1,3 +1,183 @@
+GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+
+<> 2021-08-05T175037.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-05T174945.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-05T174808.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-05T174731.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-05T174625.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-05T174616.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-05T174545.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-05T173143.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/
+
+###
+
+GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-05T104528.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/points/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T221353.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T221347.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T221224.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T221221.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/points/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T221212.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T220919.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/points/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T220916.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T220901.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T220819.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T220737.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T220642.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T220612.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T220512.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T220421.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T220201.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T220059.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T215951.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T215648.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
+
+<> 2021-08-04T215108.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/{{0c0585b5fd5b5be2d0127028727fa784}}
+
+###
+
+GET http://localhost:8080/v1/organisation/select/{{0c0585b5fd5b5be2d0127028727fa784}}
+
+###
+
 GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
 
 <> 2021-08-04T210301.200.json
@@ -191,463 +371,6 @@ Content-Type: application/json
 }
 
 <> 2021-08-04T194109.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "nqobani's test add",
-  "slogan" : "nqobani's slogan",
-  "orgDescription" : " nqobani's orgDescription",
-  "orgSector" : "nqobani's orgSector",
-  "orgEmail" : "orgEmail@gmail.com",
-  "status" : "nqobani's status",
-  "contactPerson" : "nqobani's contactPerson",
-  "contactNumber" : "0909787329",
-  "directory" : "directory",
-  "password" : "password"
-}
-
-<> 2021-08-04T193835.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "nqobani's test add",
-  "slogan" : "nqobani's slogan",
-  "orgDescription" : " nqobani's orgDescription",
-  "orgSector" : "nqobani's orgSector",
-  "orgEmail" : "orgEmail@gmail.com",
-  "status" : "nqobani's status",
-  "contactPerson" : "nqobani's contactPerson",
-  "contactNumber" : "0909787329",
-  "directory" : "directory",
-  "password" : "password"
-}
-
-<> 2021-08-04T193202.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "nqobani's test add",
-  "slogan" : "nqobani's slogan",
-  "orgDescription" : " nqobani's orgDescription",
-  "orgSector" : "nqobani's orgSector",
-  "orgEmail" : "orgEmail@gmail.com",
-  "status" : "nqobani's status",
-  "contactPerson" : "nqobani's contactPerson",
-  "contactNumber" : "0909787329",
-  "directory" : "directory",
-  "password" : "password"
-}
-
-<> 2021-08-04T192435.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "nqobani's test add",
-  "slogan" : "nqobani's slogan",
-  "orgDescription" : " nqobani's orgDescription",
-  "orgSector" : "nqobani's orgSector",
-  "orgEmail" : "orgEmail@gmail.com",
-  "status" : "nqobani's status",
-  "contactPerson" : "nqobani's contactPerson",
-  "contactNumber" : "0909787329",
-  "directory" : "directory",
-  "password" : "password"
-}
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "nqobani's test add",
-  "slogan" : "nqobani's slogan",
-  "orgDescription" : " nqobani's orgDescription",
-  "orgSector" : "nqobani's orgSector",
-  "orgEmail" : "orgEmail@gmail.com",
-  "status" : "nqobani's status",
-  "contactPerson" : "nqobani's contactPerson",
-  "contactNumber" : "0909787329",
-  "directory" : "directory",
-  "password" : "password"
-}
-
-<> 2021-08-04T192126.500.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "nqobani's test add",
-  "slogan" : "nqobani's slogan",
-  "orgDescription" : " nqobani's orgDescription",
-  "orgSector" : "nqobani's orgSector",
-  "orgEmail" : "orgEmail@gmail.com",
-  "status" : "nqobani's status",
-  "contactPerson" : "nqobani's contactPerson",
-  "contactNumber" : "0909787329",
-  "directory" : "directory",
-  "password" : "password"
-}
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "nqobani's test add",
-  "slogan" : "nqobani's slogan",
-  "orgDescription" : " nqobani's orgDescription",
-  "orgSector" : "nqobani's orgSector",
-  "orgEmail" : "orgEmail@gmail.com",
-  "status" : "nqobani's status",
-  "contactPerson" : "nqobani's contactPerson",
-  "contactNumber" : "0909787329",
-  "directory" : "directory",
-  "password" : "password"
-}
-
-<> 2021-08-04T191606.500.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "nqobani's test add",
-  "slogan" : "nqobani's slogan",
-  "orgDescription" : " nqobani's orgDescription",
-  "orgSector" : "nqobani's orgSector",
-  "orgEmail" : "orgEmail@gmail.com",
-  "status" : "nqobani's status",
-  "contactPerson" : "nqobani's contactPerson",
-  "contactNumber" : "0909787329",
-  "directory" : "directory",
-  "password" : "password"
-}
-
-<> 2021-08-04T162741.500.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "nqobani's test add",
-  "slogan" : "nqobani's slogan",
-  "orgDescription" : " nqobani's orgDescription",
-  "orgSector" : "nqobani's orgSector",
-  "orgEmail" : "orgEmail@gmail.com",
-  "status" : "nqobani's status",
-  "contactPerson" : "nqobani's contactPerson",
-  "contactNumber" : "0909787329",
-  "directory" : "directory",
-  "password" : "password"
-}
-
-<> 2021-08-04T162735.500.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgId" : "dfdd",
-  "orgName" : "nqobani's test add",
-  "slogan" : "nqobani's slogan",
-  "orgDescription" : " nqobani's orgDescription",
-  "orgSector" : "nqobani's orgSector",
-  "orgEmail" : "orgEmail@gmail.com",
-  "status" : "nqobani's status",
-  "contactPerson" : "nqobani's contactPerson",
-  "contactNumber" : "0909787329",
-  "directory" : "directory",
-  "password" : "password"
-}
-
-<> 2021-08-04T162547.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "nqobani's test add",
-  "slogan" : "nqobani's slogan",
-  "orgDescription" : " nqobani's orgDescription",
-  "orgSector" : "nqobani's orgSector",
-  "orgEmail" : "orgEmail@gmail.com",
-  "status" : "nqobani's status",
-  "contactPerson" : "nqobani's contactPerson",
-  "contactNumber" : "0909787329",
-  "directory" : "directory",
-  "password" : "password"
-}
-
-<> 2021-08-04T162334.500.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "nqobani's test add",
-  "slogan" : "nqobani's slogan",
-  "orgDescription" : " nqobani's orgDescription",
-  "orgSector" : "nqobani's orgSector",
-  "orgEmail" : "orgEmail@gmail.com",
-  "status" : "nqobani's status",
-  "contactPerson" : "nqobani's contactPerson",
-  "contactNumber" : "0909787329",
-  "directory" : "directory",
-  "password" : "password"
-}
-
-<> 2021-08-04T162114.500.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgId" : "someIduniqueHere",
-  "orgName" : "nqobani's test add",
-  "slogan" : "nqobani's slogan",
-  "orgDescription" : " nqobani's orgDescription",
-  "orgSector" : "nqobani's orgSector",
-  "orgEmail" : "orgEmail@gmail.com",
-  "status" : "nqobani's status",
-  "contactPerson" : "nqobani's contactPerson",
-  "contactNumber" : "0909787329",
-  "directory" : "directory",
-  "password" : "password"
-}
-
-<> 2021-08-04T120609.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgId" : "someIduniqueHere",
-  "orgName" : "nqobani's test add",
-  "slogan" : "nqobani's slogan",
-  "orgDescription" : " nqobani's orgDescription",
-  "orgSector" : "nqobani's orgSector",
-  "orgEmail" : "orgEmail",
-  "status" : "nqobani's status",
-  "contactPerson" : "nqobani's contactPerson",
-  "contactNumber" : "0909787329",
-  "directory" : "directory",
-  "password" : "password"
-}
-
-<> 2021-08-04T120544.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgId" : "orgid2",
-  "orgName" : "orgName",
-  "slogan" : "slogan",
-  "orgDescription" : "orgDescription",
-  "orgSector" : "orgSector",
-  "orgEmail" : "orgEmail",
-  "status" : "status",
-  "contactPerson" : "contactPerson",
-  "contactNumber" : "contactNumber",
-  "directory" : "directory",
-  "password" : "password"
-}
-
-<> 2021-08-04T120317.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/socials
-Content-Type: application/json
-
-{
- "orgId": "orgId_idf",
-  "type": "type+dd",
-  "website": "website_sd2"
-}
-
-<> 2021-08-02T041522.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/donation/info
-Content-Type: application/json
-
-{
-  "orgId": "dfd",
-  "orgInfo" : "orgInfo"
-}
-
-<> 2021-08-02T041131.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/committee
-Content-Type: application/json
-
-{
-  "orgId": "vff",
-  "committee" : "committee"
-}
-
-<> 2021-08-02T040900.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/committee
-Content-Type: application/json
-
-{
-  "orgId": "vff",
-  "committee" : "committee"
-}
-
-<> 2021-08-02T040813.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/auditor
-Content-Type: application/json
-
-{
-  "orgId": "dfgdgd",
-  "auditor" : "auditor"
-}
-
-<> 2021-08-02T040550.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/auditor
-Content-Type: application/json
-
-{
-  "orgId": "dfgdgd",
-  "auditor" : "auditor"
-}
-
-<> 2021-08-02T040459.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/taxref
-Content-Type: application/json
-
-{
-  "orgId": "dfgdgd",
-  "reference" : "reference"
-}
-
-<> 2021-08-02T040223.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/
-Content-Type: application/json
-
-{
-  "orgId": "dfgdgd",
-  "reference" : "reference"
-}
-
-<> 2021-08-02T040129.404.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/estdate
-Content-Type: application/json
-
-{
-  "date": "",
-  "orgId": "3443ffffd"
-}
-
-<> 2021-08-02T035251.500.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/estdate
-Content-Type: application/json
-
-{
-  "date": "",
-  "orgId": "3443ffffd"
-}
-
-<> 2021-08-02T035144.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/socials/oegIsHwew/typehere
-
-<> 2021-08-02T034653.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/socials/mkhbvd
-
-<> 2021-08-02T034440.500.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/committee/llkjgrtu
-
-<> 2021-08-02T034343.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/auditor/hbbnhgv
-
-<> 2021-08-02T034239.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/audit/dldkfjnv
-
-<> 2021-08-02T034128.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/donationinfo/xxdfdf
-
-<> 2021-08-02T034018.200.json
 
 ###
 

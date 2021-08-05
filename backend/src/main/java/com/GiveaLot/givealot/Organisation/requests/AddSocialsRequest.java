@@ -7,10 +7,13 @@ public class AddSocialsRequest
 
     private String type;
     private String orgId;
+    private String url;
 
     public AddSocialsRequest(
                              @JsonProperty String type,
-                             @JsonProperty String orgId) {
+                             @JsonProperty String orgId,
+                             @JsonProperty String url) {
+        this.url = url;
         this.type = type;
         this.orgId = orgId;
     }
@@ -29,5 +32,13 @@ public class AddSocialsRequest
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

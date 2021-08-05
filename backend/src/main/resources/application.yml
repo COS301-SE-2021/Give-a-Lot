@@ -4,5 +4,7 @@ app:
     username: iqvyaozz
     password: JMDPprQmLVegi673UQgH93aNEOSvt2K1
     pool-size: 30
-
-    #should hopefully work
+validators:
+  emailRegex: "^(.+)@(.+)$"
+  passwordRegex: "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$"
+  contactRegex: "^[0-9]{10,10}$"

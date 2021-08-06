@@ -9,6 +9,12 @@ import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import ReportIcon from '@material-ui/icons/Report';
 import AccordionActions from '@material-ui/core/AccordionActions';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -33,6 +39,16 @@ export default function Accordions({id,title, description}) {
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
+    };
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
     };
 
     return (
@@ -62,11 +78,36 @@ export default function Accordions({id,title, description}) {
                 <Divider />
                 <AccordionActions>
                     <Button size="small">Cancel</Button>
-                    <button size="small" className="AppealButton">
+                    <button size="small" className="AppealButton" onClick={handleClickOpen}>
                         Appeal
                     </button>
                 </AccordionActions>
             </Accordion>
+            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        To subscribe to this website, please enter your email address here. We will send updates
+                        occasionally.
+                    </DialogContentText>
+                    <TextField
+                        autoFocus
+                        margin="dense"
+                        id="name"
+                        label="Email Address"
+                        type="email"
+                        fullWidth
+                    />
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose} color="primary">
+                        Cancel
+                    </Button>
+                    <Button onClick={handleClose} color="primary">
+                        Subscribe
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </div>
     );
 }

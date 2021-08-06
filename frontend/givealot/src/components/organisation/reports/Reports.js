@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
 import "./Reports.css"
 import Accordions from "./Accordions"
-import NotInterestedIcon from '@material-ui/icons/NotInterested';
+
 
 
 export class Reports extends Component {
     state={
-        count: 1
+        count: 3
     };
 
     render()

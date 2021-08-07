@@ -19,6 +19,9 @@
     color: #515151;
     display: flex;
 }
+.hidden{
+    color: white;
+}
 
 
 

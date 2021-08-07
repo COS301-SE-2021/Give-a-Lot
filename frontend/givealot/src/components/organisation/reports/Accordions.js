@@ -15,6 +15,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import axios from 'axios';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -31,6 +33,9 @@ const useStyles = makeStyles((theme) => ({
         fontSize: theme.typography.pxToRem(15),
         color: theme.palette.text.secondary,
     },
+    hidden:{
+        color: "white",
+    }
 }));
 
 export default function Accordions({id,title, description}) {
@@ -50,6 +55,8 @@ export default function Accordions({id,title, description}) {
     const handleClose = () => {
         setOpen(false);
     };
+
+    
 
     return (
         <div className={classes.root}>
@@ -84,18 +91,19 @@ export default function Accordions({id,title, description}) {
                 </AccordionActions>
             </Accordion>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+                <DialogTitle id="form-dialog-title">Make an appeal</DialogTitle>
                 <DialogContent>
-                    <DialogContentText>
-                        To subscribe to this website, please enter your email address here. We will send updates
-                        occasionally.
+                    <DialogContentText className={classes.hidden}>
+                       Do not remove this line , it is very important.Do not remove this line , it is .
                     </DialogContentText>
                     <TextField
                         autoFocus
-                        margin="dense"
-                        id="name"
-                        label="Email Address"
-                        type="email"
+                        id="appeal"
+                        label="Description"
+                        multiline
+                        rows={5}
+                        name="reportAppeal"
+                        variant="outlined"
                         fullWidth
                     />
                 </DialogContent>
@@ -103,8 +111,8 @@ export default function Accordions({id,title, description}) {
                     <Button onClick={handleClose} color="primary">
                         Cancel
                     </Button>
-                    <Button onClick={handleClose} color="primary">
-                        Subscribe
+                    <Button  color="primary">
+                        Submit
                     </Button>
                 </DialogActions>
             </Dialog>

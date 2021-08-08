@@ -1,67 +1,108 @@
 package com.GiveaLot.givealot.Organisation.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.annotations.GenericGenerator;
 
+import javax.persistence.*;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
 
+@Entity(name="Organisations")
+@Table(
+        name="organisations",
+        uniqueConstraints = {
+                @UniqueConstraint(name="organisation_email_unique",columnNames = "orgEmail")
+        }
+
+)
 public class Organisation {
 
-
+    @Column(
+            name="orgName",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String orgName;
+    @Column(
+            name="orgSlogan",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String slogan;
+    @Column(
+            name="orgDescription",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String orgDescription;
+
+    @Column(
+            name="orgSector",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String orgSector;
+    @Column(
+            name="orgEmail",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String orgEmail;
-    private String orgId;
+
+    @Id
+    @Column(
+            name = "orgId",
+            updatable = false,
+            nullable = false
+    )
+    private Long orgId;
+
+    @Column(
+            name="status",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String status;
+    @Column(
+            name="contactPerson",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String contactPerson;
+    @Column(
+            name="contactNumber",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String contactNumber;
+    @Column(
+            name="directory",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String directory;
+    @Column(
+            name="password",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String password;
 
-    //Adding Organisations to the database
-    public Organisation(@JsonProperty("orgName") String orgName,
-                        @JsonProperty("slogan") String slogan,
-                        @JsonProperty("orgDescription") String orgDescription,
-                        @JsonProperty("orgSector") String orgSector,
-                        @JsonProperty("orgEmail") String orgEmail,
-                        @JsonProperty("status") String status,
-                        @JsonProperty("contactPerson") String contactPerson,
-                        @JsonProperty("contactNumber") String contactNumber,
-                        @JsonProperty("directory") String directory,
-                        @JsonProperty("password") String password
+
+    public Organisation(@JsonProperty Long orgId,
+                        @JsonProperty String orgName,
+                        @JsonProperty String slogan,
+                        @JsonProperty String orgDescription,
+                        @JsonProperty String orgSector,
+                        @JsonProperty String orgEmail,
+                        @JsonProperty String status,
+                        @JsonProperty String contactPerson,
+                        @JsonProperty String contactNumber,
+                        @JsonProperty String directory,
+                        @JsonProperty String password
     )
-    {
-        this.orgName = orgName;
-        this.slogan = slogan;
-        this.orgDescription = orgDescription;
-        this.orgSector = orgSector;
-        this.orgEmail = orgEmail;
-        this.orgId = new MD5().getMd5(orgEmail);
-        this.status = status;
-        this.contactNumber = contactNumber;
-        this.contactPerson = contactPerson;
-        this.directory = directory;
-        this.password =password;
-    }
-
-
-    //Retrieving organisations from the database
-    public Organisation(String orgId,
-                        String orgName,
-                        String slogan,
-                        String orgDescription,
-                        String orgSector,
-                        String orgEmail,
-                        String status,
-                        String contactPerson,
-                        String contactNumber,
-                        String directory,
-                        String password
-                        )
     {
         this.orgName = orgName;
         this.slogan = slogan;
@@ -76,7 +117,9 @@ public class Organisation {
         this.password =password;
     }
 
+    public Organisation() {
 
+    }
 
     public String getOrgName(){
         return orgName;
@@ -118,11 +161,11 @@ public class Organisation {
         this.orgEmail = orgEmail;
     }
 
-    public String getOrgId() {
+    public Long getOrgId() {
         return orgId;
     }
 
-    public void setOrgId(String orgId) {
+    public void setOrgId(Long orgId) {
         this.orgId = orgId;
     }
 

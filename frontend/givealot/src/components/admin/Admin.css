@@ -90,7 +90,7 @@
     cursor: pointer;
     position: absolute;
     top: 10px;
-    left: 1000px;
+    /*right: 500px;*/
     width: 150px !important;
     padding: 4px;
 }
@@ -101,16 +101,17 @@
 .generate-pdf > h6{
     margin-left: 20px;
     font-weight: 100;
+    padding: 2px;
 }
 .Admin{
     background-color: #fafafa;
 }
-/*@media only screen and (min-width:768px) {*/
-/*    !* For mobile phones: *!*/
-/*    .headerAdmin, .AdminBody, .dash, .Admin {*/
-/*        width: 100%;*/
-/*    }*/
-/*}*/
+.settings{
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    /*left: 1170px;*/
+}
 
 
 

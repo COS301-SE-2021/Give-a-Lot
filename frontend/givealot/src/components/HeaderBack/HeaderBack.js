@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import logo from "../login/images/logo.png";
 import "./HeaderBack.css"
-import SettingsIcon from '@material-ui/icons/Settings';
 
 class HeaderBack extends Component {
 
@@ -18,7 +17,6 @@ class HeaderBack extends Component {
             <div>
                 <div className="logoImageBack">
                     <img src={logo} alt="" style={{height: "65px"}}/>
-                    <SettingsIcon />
                 </div>
             </div>
         );

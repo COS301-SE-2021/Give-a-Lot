@@ -4,15 +4,15 @@
 // import {Switch,Route} from "react-router-dom";
 // import RegisterOrganisation from "./components/register/registerOrganisation/RegisterOrganisation";
 // import RegisterUser from "./components/register/registerUser/RegisterUser";
-// import Admin from "./components/admin/Admin"
-import "./components/basicUser/browse/css/browse.css";
-import "./components/basicUser/browse/css/recommended.css";
-import "./components/basicUser/browse/css/navbar.css";
-import "./components/basicUser/browse/css/overlay.css";
-import "./components/basicUser/browse/css/search.css";
+import Admin from "./components/admin/Admin"
+// import "./components/basicUser/browse/css/browse.css";
+// import "./components/basicUser/browse/css/recommended.css";
+// import "./components/basicUser/browse/css/navbar.css";
+// import "./components/basicUser/browse/css/overlay.css";
+// import "./components/basicUser/browse/css/search.css";
 import './App.css';
 import Organisation from "./components/organisation/Organisation";
-// import Browse from "./components/basicUser/browse/Browse"
+import Browse from "./components/basicUser/browse/Browse"
 
 function App() {
     return (

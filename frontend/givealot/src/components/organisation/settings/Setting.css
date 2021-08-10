@@ -11,6 +11,12 @@
     color: white;
     width: 110px;
 
+}
+.Dbutton{
+    position: relative;
+    border-radius: 5px;
 
-
+    background-color: dodgerblue;
+    color: white;
+    width: 115px;
 }

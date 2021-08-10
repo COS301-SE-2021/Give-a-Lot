@@ -1,12 +1,14 @@
 package com.GiveaLot.givealot.Organisation.requests;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class AddOrgAddressRequest {
 
 
     private String orgId;
     private String address;
 
-    public AddOrgAddressRequest(String orgId, String address) {
+    public AddOrgAddressRequest(@JsonProperty String orgId,@JsonProperty String address) {
         this.orgId = orgId;
         this.address = address;
     }

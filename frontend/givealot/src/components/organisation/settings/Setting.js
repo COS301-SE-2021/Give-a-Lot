@@ -23,9 +23,12 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import LockIcon from "@material-ui/icons/Lock";
 import ListItemText from "@material-ui/core/ListItemText";
+import { toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 
 
+toast.configure()
 const useStyles = makeStyles({
     root: {
         minWidth: 275,
@@ -52,6 +55,7 @@ export default function Setting() {
         enableDonation: true,
         darkMode: false,
         shareLocation: true,
+        deactivate: false,
     });
 
     const handleChange = (event) => {
@@ -68,11 +72,17 @@ export default function Setting() {
         setOpen(false);
     };
 
+    const notify=() => {
+        toast.success('Changes successfully saved!',
+            {position: toast.POSITION.TOP_CENTER,
+                autoClose:3000
+            })
+    }
     return (
 
         <div className="container">
 
-        <Card className={classes.root} variant="outlined">
+        <Card className={classes.root} variant="outlined" >
             <CardContent>
 
                 <FormControl component="fieldset">
@@ -89,6 +99,11 @@ export default function Setting() {
                         <FormControlLabel
                             control={<Switch checked={state.shareLocation} onChange={handleChange} name="shareLocation" />}
                             label="Share Location"
+                        />
+
+                        <FormControlLabel
+                            control={<Switch checked={state.deactivate} onChange={handleChange} name="deactivate" />}
+                            label="Deactivate account"
                         />
 
 
@@ -112,7 +127,7 @@ export default function Setting() {
                 <button size="extra-small" className="Dbutton" onClick={handleClickOpen}>
                     Delete account
                 </button>
-                <button size="small" className="Sbutton" >
+                <button size="small" onClick={notify} className="Sbutton" >
                     Save changes
                 </button>
             </CardActions>
@@ -140,6 +155,7 @@ export default function Setting() {
                     </Button>
                 </DialogActions>
             </Dialog>
+
         </div>
     );
 }

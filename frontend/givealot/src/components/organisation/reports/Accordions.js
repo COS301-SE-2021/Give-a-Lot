@@ -56,7 +56,7 @@ export default function Accordions({id,title, description}) {
         setOpen(false);
     };
 
-    
+
 
     return (
         <div className={classes.root}>

@@ -3,7 +3,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import TimelineIcon from '@material-ui/icons/Timeline';
 import PersonIcon from '@material-ui/icons/Person';
 import ImageIcon from '@material-ui/icons/Image';
 import ReportIcon from '@material-ui/icons/Report';
@@ -24,7 +23,30 @@ import Login from "../login/Login"
 import {Switch,Route} from "react-router-dom";
 import { BiCertification } from 'react-icons/bi';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
+import { withStyles } from "@material-ui/core/styles";
+import Divider from "@material-ui/core/Divider";
+import FormControl from '@material-ui/core/FormControl';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
+
+
+
+const styles = theme => ({
+    root: {
+        margin: 0,
+        padding: theme.spacing(2),
+    },
+    closeButton: {
+        position: 'absolute',
+        right: theme.spacing(1),
+        top: theme.spacing(1),
+        color: theme.palette.grey[500],
+    },
+    hidden:{
+        color: "white",
+    }
+});
 
 export class OrgSidebar extends Component {
     constructor(props) {
@@ -32,10 +54,18 @@ export class OrgSidebar extends Component {
 
         this.state = {
             open: false,
+            openSettings: false,
+            donations: false,
+            darkmode: false
         }
 
     }
+
+    handleChange = (e) =>{
+        this.setState({ [e.target.name] : e.target.checked})
+    }
     render() {
+        const { classes } = this.props;
         return (
             <div>
                 <div className="sidebar">
@@ -60,21 +90,13 @@ export class OrgSidebar extends Component {
                         </ListItem>
                     </Link>
 
-                    <Link to={'/timeline'} className='text-linkOrg' >
-                        <ListItem button>
-                            <ListItemIcon>
-                                <TimelineIcon className="iconOrg"/>
-                            </ListItemIcon>
-                            <ListItemText primary="Timeline" />
-                        </ListItem>
-                    </Link>
 
                     <Link to={'/gallery'} className='text-linkOrg' >
                         <ListItem button>
                             <ListItemIcon>
                                 <ImageIcon className="iconOrg"/>
                             </ListItemIcon>
-                            <ListItemText primary="gallery" />
+                            <ListItemText primary="Gallery" />
                         </ListItem>
                     </Link>
 
@@ -101,7 +123,7 @@ export class OrgSidebar extends Component {
                             <ListItemIcon>
                                 <ReportIcon className="iconOrg"/>
                             </ListItemIcon>
-                            <ListItemText primary="reports" />
+                            <ListItemText primary="Reports" />
                         </ListItem>
                     </Link>
 
@@ -113,15 +135,15 @@ export class OrgSidebar extends Component {
                             <ListItemText primary="Certificate" />
                         </ListItem>
                     </Link>
-
                     <Link to={'/settings'} className='text-linkOrg'>
                         <ListItem button>
                             <ListItemIcon>
                                 <SettingsIcon className="iconOrg"/>
                             </ListItemIcon>
-                            <ListItemText primary="settings" />
+                            <ListItemText primary="Settings" />
                         </ListItem>
                     </Link>
+
 
                     <Link className='text-linkOrg' >
                         <ListItem button className='text-linkOrg'
@@ -141,14 +163,15 @@ export class OrgSidebar extends Component {
                             </DialogContentText>
                         </DialogContent>
                         <DialogActions>
+                            <Button onClick={() => this.setState({ open: !this.state.open })}  color="primary">
+                                No
+                            </Button>
                             <Link to={'/login'} className='text-linkOrg' >
                                 <Button onClick={() => this.setState({ open: !this.state.open })}  color="primary">
                                     Yes
                                 </Button>
                             </Link>
-                            <Button onClick={() => this.setState({ open: !this.state.open })}  color="primary">
-                                No
-                            </Button>
+
                         </DialogActions>
                     </Dialog>
 
@@ -163,4 +186,4 @@ export class OrgSidebar extends Component {
     }
 }
 
-export default OrgSidebar
+export default withStyles(styles, { withTheme: true })(OrgSidebar);

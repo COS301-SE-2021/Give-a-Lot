@@ -10,6 +10,7 @@ import OrgTodo from "../organisation/orgTodo/OrgTodo";
 import Profile from "./profile/Profile";
 import Gallery from "./gallery/Gallery";
 import Reports from "./reports/Reports";
+import Setting from "./settings/Setting";
 
 export class Organisation extends Component {
 
@@ -32,6 +33,7 @@ export class Organisation extends Component {
                             <Route exact path="/profile" component={Profile} />
                             <Route exact path="/gallery" component={Gallery} />
                             <Route exact path="/reports" component={Reports} />
+                            <Route exact path="/setting" component={Setting} />
                         </Switch>
 
                     </div>

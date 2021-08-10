@@ -21,7 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Repository("OrganisationTemp")
-public class OrganisationDASTemp implements OrganisationDAOInterface{
+public class OrganisationDASTemp implements OrganisationDAOInterface {
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -38,7 +38,7 @@ public class OrganisationDASTemp implements OrganisationDAOInterface{
             Organisation organisation = jdbcTemplate.queryForObject(query, new OrganisationRowMapper());
 
             assert organisation != null;
-            if (organisation.getOrgId().isEmpty())
+            if (organisation.getOrgId() == null)
             {
                 return null;
             }

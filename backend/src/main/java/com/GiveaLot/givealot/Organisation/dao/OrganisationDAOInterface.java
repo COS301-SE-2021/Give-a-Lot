@@ -3,6 +3,7 @@ package com.GiveaLot.givealot.Organisation.dao;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.io.File;
 import java.util.Date;

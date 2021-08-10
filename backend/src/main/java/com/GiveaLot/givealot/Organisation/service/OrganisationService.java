@@ -47,7 +47,7 @@ public class OrganisationService {
 
 
     public boolean organisationExists(Organisation organisation) throws Exception {
-        if (organisation.getOrgId().length()==0 || organisation.getOrgId().length()>50){
+        if (organisation.getOrgId().toString().length()==0 || organisation.getOrgId().toString().length()>50){
             throw new Exception("Exception: orgId does not satisfy the database constraints");
         }
         if (organisation.getOrgName().length()==0 || organisation.getOrgName().length()>255){
@@ -85,7 +85,7 @@ public class OrganisationService {
 
 
     public boolean addOrganisation(Organisation organisation) throws Exception {
-        if (organisation.getOrgId().length()==0 || organisation.getOrgId().length()>50){
+        if (organisation.getOrgId().toString().length() ==0 || organisation.getOrgId().toString().length()>50){
             throw new Exception("Exception: orgId does not satisfy the database constraints");
         }
         if (organisation.getOrgName().length()==0 || organisation.getOrgName().length()>255){

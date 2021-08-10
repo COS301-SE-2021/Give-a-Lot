@@ -20,3 +20,15 @@
     color: white;
     width: 115px;
 }
+
+.text-linkOrg1 {
+    text-decoration: none;
+    color: black;
+    margin-left: 0px;
+}
+
+.iconOrg1{
+    font-size: xx-large;
+
+    color: slategrey;
+}

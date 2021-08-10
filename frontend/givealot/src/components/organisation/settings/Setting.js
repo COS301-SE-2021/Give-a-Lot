@@ -18,6 +18,11 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
+import {Link} from "react-router-dom";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import LockIcon from "@material-ui/icons/Lock";
+import ListItemText from "@material-ui/core/ListItemText";
 
 
 
@@ -85,6 +90,17 @@ export default function Setting() {
                             control={<Switch checked={state.shareLocation} onChange={handleChange} name="shareLocation" />}
                             label="Share Location"
                         />
+
+
+                        <Link to={'/login'} className='text-linkOrg1'>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <LockIcon className="iconOrg1"/>
+                                </ListItemIcon>
+                                <ListItemText primary="Change password" />
+                            </ListItem>
+                        </Link>
+
                     </FormGroup>
                     <FormHelperText>Be careful</FormHelperText>
                 </FormControl>

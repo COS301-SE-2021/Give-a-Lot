@@ -135,6 +135,7 @@ export class OrgSidebar extends Component {
                             <ListItemText primary="Certificate" />
                         </ListItem>
                     </Link>
+
                     <Link to={'/settings'} className='text-linkOrg'>
                         <ListItem button>
                             <ListItemIcon>

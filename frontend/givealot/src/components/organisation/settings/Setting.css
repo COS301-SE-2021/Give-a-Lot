@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+
+
+}
+.Sbutton{
+    position: relative;
+    border-radius: 5px;
+
+    background-color: #f6650b;
+    color: white;
+    width: 110px;
+
+
+
+}

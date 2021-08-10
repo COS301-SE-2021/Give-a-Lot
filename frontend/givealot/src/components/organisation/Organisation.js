@@ -33,7 +33,7 @@ export class Organisation extends Component {
                             <Route exact path="/profile" component={Profile} />
                             <Route exact path="/gallery" component={Gallery} />
                             <Route exact path="/reports" component={Reports} />
-                            <Route exact path="/setting" component={Setting} />
+                            <Route exact path="/settings" component={Setting} />
                         </Switch>
 
                     </div>

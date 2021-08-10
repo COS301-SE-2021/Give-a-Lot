@@ -6,6 +6,8 @@ import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Random;
+import java.util.UUID;
 
 public class OrganisationRowMapper implements RowMapper<Organisation> {
 
@@ -13,7 +15,8 @@ public class OrganisationRowMapper implements RowMapper<Organisation> {
     @Override
     public Organisation mapRow(ResultSet rs, int i) throws SQLException {
         return new Organisation(
-                rs.getString("orgId"),
+
+                rs.getLong("orgId"),
                 rs.getString("orgName"),
                 rs.getString("orgSlogan"),
                 rs.getString("orgDescription"),
@@ -23,6 +26,6 @@ public class OrganisationRowMapper implements RowMapper<Organisation> {
                 rs.getString("contactPerson"),
                 rs.getString("contactNumber"),
                 rs.getString("directory"),
-                "");
+                rs.getString(""));
     }
 }

@@ -1,44 +1,39 @@
-// import Register from "./components/register/Register";
-// import Login from "./components/login/Login";
-// import Home from "./components/basicUser/home/Home"
-// import {Switch,Route} from "react-router-dom";
-// import RegisterOrganisation from "./components/register/registerOrganisation/RegisterOrganisation";
-// import RegisterUser from "./components/register/registerUser/RegisterUser";
-import Admin from "./components/admin/Admin"
-// import "./components/basicUser/browse/css/browse.css";
-// import "./components/basicUser/browse/css/recommended.css";
-// import "./components/basicUser/browse/css/navbar.css";
-// import "./components/basicUser/browse/css/overlay.css";
-// import "./components/basicUser/browse/css/search.css";
 import './App.css';
-import Organisation from "./components/organisation/Organisation";
-import Browse from "./components/basicUser/browse/Browse"
+import Topbar from './components/admin/topbar/Topbar';
+import Sidebar from "./components/admin/sidebar/Sidebar"
+import Dashboard from './components/admin/adminPages/dashboard/Dashboard';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import AdminUsers from './components/admin/adminPages/adminUsers/AdminUsers';
+import User from './components/admin/adminPages/user/User';
 
 function App() {
-    return (
-      <div className="AppContainer">
-          {/*} <Switch>
-         <Route exact path="/">
-           <Home />
-         </Route>
-         <Route path="/login">
-           <Login />
-         </Route>
-         <Route path="/register">
-           <Register />
-         </Route>
-         <Route path="/registerOrgs">
-           <RegisterOrganisation />
-         </Route>
-         <Route path="/registeruser">
-           <RegisterUser />
-         </Route>
-        </Switch>*/}
+  return (
+    <Router>
+      <div className="App">
+      <Topbar />
+      <div className="container">
+        <Sidebar />
+        <Switch>
+          <Route exact path="/">
+            <Dashboard />
+          </Route>
+          <Route path="/adminUsers">
+            <AdminUsers />
+          </Route>
+          <Route path="/user/:userId">
+            <User />
+          </Route>
+        </Switch>
         
-         <Organisation/>
       </div>
-   );
-  
+    </div>
+    </Router>
+    
+  );
 }
 
 export default App;

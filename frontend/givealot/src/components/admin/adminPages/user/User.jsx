@@ -11,6 +11,7 @@ import {
   import { Link } from "react-router-dom";
 
 export class User extends Component {
+
     render() {
         return (
             <div className="user">

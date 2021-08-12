@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import AdminUsers from './components/admin/adminPages/adminUsers/AdminUsers';
 import User from './components/admin/adminPages/user/User';
+import NewUser from "./components/admin/adminPages/newUser/NewUser"
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route path="/user/:userId">
             <User />
+          </Route>
+          <Route path="/newUser">
+            <NewUser />
           </Route>
         </Switch>
         

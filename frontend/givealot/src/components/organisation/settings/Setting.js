@@ -80,7 +80,7 @@ export default function Setting() {
     }
     return (
 
-        <div className="container">
+        <div className="container1">
 
         <Card className={classes.root} variant="outlined" >
             <CardContent>

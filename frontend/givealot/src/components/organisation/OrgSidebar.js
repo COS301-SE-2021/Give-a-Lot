@@ -24,10 +24,7 @@ import {Switch,Route} from "react-router-dom";
 import { BiCertification } from 'react-icons/bi';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import { withStyles } from "@material-ui/core/styles";
-import Divider from "@material-ui/core/Divider";
-import FormControl from '@material-ui/core/FormControl';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+
 
 
 

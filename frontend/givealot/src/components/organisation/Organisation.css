@@ -48,6 +48,10 @@
     font-size: xx-large;
     color: white;
 }
+.Sicon{
+    font-size: xx-large;
+    color: black;
+}
 
 .chartArea{
     width: 70% ;
@@ -94,6 +98,9 @@
     width: 150px !important;
     padding: 4px;
 }
+
+
+
 .generate-pdf:hover{
     background-color: lightgray;
     border-radius: 10px;
@@ -104,4 +111,47 @@
 }
 .Admin{
     background-color: #fafafa;
+}
+
+/*-----------------header---------*/
+
+.printer{
+    display:flex;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 1030px;
+    width: 32px !important;
+    padding: 4px;
+}
+
+
+.printer:hover{
+    background-color: lightgray;
+    border-radius: 10px;
+}
+.printer > h6{
+    margin-left: 20px;
+    font-weight: 100;
+}
+
+.setting{
+    display:flex;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 1080px;
+    width: 32px !important;
+    padding: 4px;
+}
+
+.setting:hover{
+    background-color: lightgray;
+    border-radius: 10px;
+}
+.setting > h6{
+    margin-left: 20px;
+    font-weight: 100;
 }

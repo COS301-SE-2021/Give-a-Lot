@@ -7,6 +7,7 @@ import "./Organisation.css"
 // import ListItemText from "@material-ui/core/ListItemText";
 // import ListItem from "@material-ui/core/ListItem";
 import PrintIcon from '@material-ui/icons/Print';
+import SettingsIcon from '@material-ui/icons/Settings';
 
 export class Header extends Component {
 
@@ -16,10 +17,18 @@ export class Header extends Component {
                 <div className="headerOrg">
                     {/*<div>*/}
                     {/*    <img src={logo} alt="" className="imageAdmin"/>*/}
-                    {/*</div>*/}
+                    {/*</div>
                     <div className="generate-pdf">
                         <PrintIcon />
                         <h6>Generate pdf</h6>
+                    </div>*/}
+
+                    <div className="printer">
+                        <PrintIcon />
+                    </div>
+                    <div className="setting">
+                        <SettingsIcon />
+
                     </div>
                 </div>
             </div>

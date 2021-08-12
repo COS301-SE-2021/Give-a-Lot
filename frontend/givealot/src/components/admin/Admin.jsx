@@ -12,6 +12,9 @@ import User from './adminPages/user/User';
 import NewUser from "./adminPages/newUser/NewUser"
 import AdminOrgs from "./adminPages/adminOrgs/AdminOrgs"
 import Orgs from "./adminPages/orgs/Orgs"
+import Emails from "./adminPages/emails/Emails";
+import Calendar from "./adminPages/calendar/Calendar";
+import Todo from "./adminPages/todo/Todo";
 
 function Admin() {
     return (
@@ -40,13 +43,13 @@ function Admin() {
                             <Orgs />
                         </Route>
                         <Route path="/emails">
-                            <NewUser />
+                            <Emails />
                         </Route>
                         <Route path="/calendar">
-                            <NewUser />
+                            <Calendar />
                         </Route>
                         <Route path="/todos">
-                            <NewUser />
+                            <Todo />
                         </Route>
                         <Route path="/logout">
                             <NewUser />

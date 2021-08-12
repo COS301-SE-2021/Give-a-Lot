@@ -10,6 +10,8 @@ import {
 import AdminUsers from './adminPages/adminUsers/AdminUsers';
 import User from './adminPages/user/User';
 import NewUser from "./adminPages/newUser/NewUser"
+import AdminOrgs from "./adminPages/adminOrgs/AdminOrgs"
+import Orgs from "./adminPages/orgs/Orgs"
 
 function Admin() {
     return (
@@ -32,7 +34,10 @@ function Admin() {
                             <NewUser />
                         </Route>
                         <Route path="/adminOrgs">
-                            <NewUser />
+                            <AdminOrgs />
+                        </Route>
+                        <Route path="/orgs/:orgsId">
+                            <Orgs />
                         </Route>
                         <Route path="/emails">
                             <NewUser />

@@ -1,4 +1,5 @@
 package com.GiveaLot.givealot.Organisation.controller;
+import com.GiveaLot.givealot.Organisation.dao.OrganisationDAOInterface;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
@@ -17,12 +18,14 @@ public class OrganisationController
 {
     private OrganisationService service;
     private responseJSON response;
+    private com.GiveaLot.givealot.Organisation.dao.OrganisationDAOInterface repository;
 
     @Autowired
-    public OrganisationController(OrganisationService service, responseJSON response)
+    public OrganisationController(OrganisationService service,OrganisationDAOInterface repository ,responseJSON response)
     {
         this.service = service;
         this.response = response;
+        this.repository = repository;
     }
 
     /*

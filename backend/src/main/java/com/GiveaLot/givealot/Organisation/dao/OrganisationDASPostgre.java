@@ -1,17 +1,24 @@
+/*
 package com.GiveaLot.givealot.Organisation.dao;
 
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 
-@Repository("postgres")
-public class OrganisationDASPostgre implements OrganisationDAOInterface{
+@Repository("OrganisationDAOInterface")
+public class OrganisationDASPostgre implements OrganisationDAOInterface {
     @Override
     public Organisation selectOrganisation(String orgId) {
         return null;
@@ -216,4 +223,146 @@ public class OrganisationDASPostgre implements OrganisationDAOInterface{
     public boolean adminValidateWebsite(String orgid) {
         return false;
     }
+
+    @Override
+    public List<Organisation> findAll() {
+        return null;
+    }
+
+    @Override
+    public List<Organisation> findAll(Sort sort) {
+        return null;
+    }
+
+    @Override
+    public Page<Organisation> findAll(Pageable pageable) {
+        return null;
+    }
+
+    @Override
+    public List<Organisation> findAllById(Iterable<Long> iterable) {
+        return null;
+    }
+
+    @Override
+    public long count() {
+        return 0;
+    }
+
+    @Override
+    public void deleteById(Long aLong) {
+
+    }
+
+    @Override
+    public void delete(Organisation organisation) {
+
+    }
+
+    @Override
+    public void deleteAllById(Iterable<? extends Long> iterable) {
+
+    }
+
+    @Override
+    public void deleteAll(Iterable<? extends Organisation> iterable) {
+
+    }
+
+    @Override
+    public void deleteAll() {
+
+    }
+
+    @Override
+    public <S extends Organisation> S save(S s) {
+
+        return null;
+    }
+
+    @Override
+    public <S extends Organisation> List<S> saveAll(Iterable<S> iterable) {
+        return null;
+    }
+
+    @Override
+    public Optional<Organisation> findById(Long aLong) {
+        return Optional.empty();
+    }
+
+    @Override
+    public boolean existsById(Long aLong) {
+        return false;
+    }
+
+    @Override
+    public void flush() {
+
+    }
+
+    @Override
+    public <S extends Organisation> S saveAndFlush(S s) {
+        return null;
+    }
+
+    @Override
+    public <S extends Organisation> List<S> saveAllAndFlush(Iterable<S> iterable) {
+        return null;
+    }
+
+    @Override
+    public void deleteAllInBatch(Iterable<Organisation> iterable) {
+
+    }
+
+    @Override
+    public void deleteAllByIdInBatch(Iterable<Long> iterable) {
+
+    }
+
+    @Override
+    public void deleteAllInBatch() {
+
+    }
+
+    @Override
+    public Organisation getOne(Long aLong) {
+        return null;
+    }
+
+    @Override
+    public Organisation getById(Long aLong) {
+        return null;
+    }
+
+    @Override
+    public <S extends Organisation> Optional<S> findOne(Example<S> example) {
+        return Optional.empty();
+    }
+
+    @Override
+    public <S extends Organisation> List<S> findAll(Example<S> example) {
+        return null;
+    }
+
+    @Override
+    public <S extends Organisation> List<S> findAll(Example<S> example, Sort sort) {
+        return null;
+    }
+
+    @Override
+    public <S extends Organisation> Page<S> findAll(Example<S> example, Pageable pageable) {
+        return null;
+    }
+
+    @Override
+    public <S extends Organisation> long count(Example<S> example) {
+        return 0;
+    }
+
+    @Override
+    public <S extends Organisation> boolean exists(Example<S> example) {
+        return false;
+    }
 }
+*/

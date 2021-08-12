@@ -4,12 +4,15 @@ import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.io.File;
 import java.util.Date;
 import java.util.Optional;
 
-public interface OrganisationDAOInterface {
+
+@Repository("OrganisationTemp")
+public interface OrganisationDAOInterface extends JpaRepository<Organisation,Long>{
 
     public Organisation selectOrganisation(String orgId) throws Exception;
 

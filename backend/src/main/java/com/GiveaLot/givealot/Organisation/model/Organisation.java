@@ -1,21 +1,22 @@
 package com.GiveaLot.givealot.Organisation.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.hibernate.annotations.GenericGenerator;
-
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.UUID;
 
+
+@Data
+@AllArgsConstructor
 @Entity(name="Organisations")
 @Table(
         name="organisations",
         uniqueConstraints = {
                 @UniqueConstraint(name="organisation_email_unique",columnNames = "orgEmail")
         }
-
 )
 public class Organisation {
 
@@ -56,6 +57,16 @@ public class Organisation {
             name = "orgId",
             updatable = false,
             nullable = false
+    )
+    @SequenceGenerator(
+            name = "organisation_sequence",
+            sequenceName = "organisation_sequence",
+            allocationSize = 1
+    )
+
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "organisation_sequence"
     )
     private Long orgId;
 

@@ -1,3 +1,4 @@
+/*
 package com.GiveaLot.givealot.Organisation.dao;
 
 import com.GiveaLot.givealot.Organisation.model.Organisation;
@@ -109,7 +110,9 @@ public class OrganisationDASTemp implements OrganisationDAOInterface {
     @Override
     public boolean addOrganisation(Organisation organisation) throws Exception {
 
-        /** Sets up Dates for certificate **/
+        */
+/** Sets up Dates for certificate **//*
+
 
         try {
             java.util.Date dateCurrent = new Date();
@@ -125,20 +128,26 @@ public class OrganisationDASTemp implements OrganisationDAOInterface {
 
             Organisation.MD5 md5 = new Organisation.MD5();
 
-            /** Salts and hashes password **/
+            */
+/** Salts and hashes password **//*
+
 
             String salt = md5.getMd5(organisation.getOrgEmail());
 
             String salted = md5.getMd5(organisation.getPassword() + salt);
 
-            /** Create server directory **/
+            */
+/** Create server directory **//*
+
 
             String filepath = "";
 
             organisation.setDirectory(filepath);
 
 
-            /** Adds the organisation to all the respective tables **/
+            */
+/** Adds the organisation to all the respective tables **//*
+
 
             jdbcTemplate.update(
                     "insert into public.\"Organisations\"(\"orgName\", \"orgSlogan\", \"orgDescription\", \"orgSector\", \"orgEmail\", \"orgId\", \"status\", \"password\", \"contactPerson\", \"contactNumber\", \"directory\") values (?,?,?,?,?,?,?,?,?,?,?)",
@@ -276,10 +285,12 @@ public class OrganisationDASTemp implements OrganisationDAOInterface {
     public boolean removeOrgAddress(String orgId) throws Exception {
         try
         {
-            /*
+            */
+/*
             * always returns true even the organisation id doesnt exist.
             * please check this
-            */
+            *//*
+
 
             String query = "update public.\"OrganisationInfo\" set \"address\" = null where \"orgId\" = ?";
             jdbcTemplate.update(query, orgId);
@@ -618,3 +629,4 @@ public class OrganisationDASTemp implements OrganisationDAOInterface {
     }
 
 }
+*/

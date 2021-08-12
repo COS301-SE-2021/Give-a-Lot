@@ -32,26 +32,41 @@ export class Sidebar extends Component {
                                     Users
                                 </li>
                             </Link>
-                            <li className="sidebarListItem">
-                                <PeopleOutlineIcon className="sidebarIcon"/>
-                                Organisations
-                            </li>
-                            <li className="sidebarListItem">
-                                <MailOutlineIcon className="sidebarIcon"/>
-                                Emails
-                            </li>
-                            <li className="sidebarListItem">
-                                <CalendarTodayIcon className="sidebarIcon"/>
-                                Calendar
-                            </li>
-                            <li className="sidebarListItem">
-                                <AssignmentIcon className="sidebarIcon"/>
-                                TO-DO's
-                            </li>
-                            <li className="sidebarListItem">
-                                <ExitToAppIcon className="sidebarIcon"/>
-                                Logout
-                            </li>
+
+                            <Link to="/adminOrgs" className="link">
+                                <li className="sidebarListItem">
+                                    <PeopleOutlineIcon className="sidebarIcon"/>
+                                    Organisations
+                                </li>
+                            </Link>
+
+                            <Link to="/emails" className="link">
+                                <li className="sidebarListItem">
+                                    <MailOutlineIcon className="sidebarIcon"/>
+                                    Emails
+                                </li>
+                            </Link>
+
+                            <Link to="/calendar" className="link">
+                                <li className="sidebarListItem">
+                                    <CalendarTodayIcon className="sidebarIcon"/>
+                                    Calendar
+                                </li>
+                            </Link>
+
+                            <Link to="/todos" className="link">
+                                <li className="sidebarListItem">
+                                    <AssignmentIcon className="sidebarIcon"/>
+                                    TO-DO's
+                                </li>
+                            </Link>
+
+                            <Link to="/logout" className="link">
+                                <li className="sidebarListItem">
+                                    <ExitToAppIcon className="sidebarIcon"/>
+                                    Logout
+                                </li>
+                            </Link>
                         </ul>
                     </div>
                 </div>

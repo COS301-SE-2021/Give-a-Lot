@@ -34,7 +34,6 @@ function App() {
            <RegisterUser />
          </Route>
         </Switch>*/}
-        
          <Admin/>
       </div>
    );

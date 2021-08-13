@@ -9,8 +9,10 @@ import java.time.LocalDate;
 
 @SpringBootTest
 class OrganisationRepositoryTest {
+
     @Autowired
     private OrganisationRepository repository;
+
     @Autowired
     private OrganisationInfoRepository OrganisationInfoRepository;
 
@@ -42,7 +44,7 @@ class OrganisationRepositoryTest {
         organisationInfo organisationInfo = new organisationInfo();
         organisationInfo.setOrgId("uniqueId1");
         LocalDate date = LocalDate.now();
-        organisationInfo.setEstablishmentDate(date.toString());
+        //organisationInfo.setEstablishmentDate(date.toString());
         OrganisationInfoRepository.save(organisationInfo);
     }
 

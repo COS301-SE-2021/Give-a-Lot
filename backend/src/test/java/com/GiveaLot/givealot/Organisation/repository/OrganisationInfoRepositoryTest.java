@@ -18,4 +18,10 @@ class OrganisationInfoRepositoryTest {
         organisationInfo organisationInfo = repository.selectOrganisationInfo("uniqueId1");
         System.out.println(organisationInfo);
     }
+
+    @Test
+    void addOrgWebsite() {
+        Integer res = repository.addOrgWebsite("uniqueId1", "www.test.org");
+        System.out.println(res);
+    }
 }

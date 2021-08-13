@@ -35,7 +35,36 @@ public class OrganisationServiceImp implements OrganisationService {
     @Override
     public organisationInfo selectOrganisationInfo(String orgId) throws Exception
     {
-        return null;
+        if(orgId == null)
+            throw new Exception("Exception: Organisation ID is not set");
+        else if(OrganisationRepository.selectOrganisation(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        organisationInfo organisationInfo = OrganisationInfoRepository.selectOrganisationInfo(orgId);
+
+        if(organisationInfo == null)
+        {
+            /*
+            * Because organisation already exists, set the field
+            * */
+            organisationInfo = new organisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            OrganisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun " +
+                    "the contract");
+        }
+        else return organisationInfo;
+    }
+
+    @Override
+    public boolean addOrgWebsite(AddOrgWebsiteRequest request) throws Exception {
+        return false;
+    }
+
+    @Override
+    public boolean removeOrgWebsite(String orgId) throws Exception {
+        return false;
     }
 
     @Override
@@ -51,6 +80,9 @@ public class OrganisationServiceImp implements OrganisationService {
 
         else if(organisation.getOrgId() == null || organisation.getOrgName() == null || organisation.getOrgDescription() == null|| organisation.getPassword() == null|| organisation.getOrgSector() == null|| organisation.getStatus() == null|| organisation.getOrgEmail() == null|| organisation.getDirectory() == null|| organisation.getContactNumber() == null|| organisation.getContactPerson() == null|| organisation.getSlogan() == null)
             throw new Exception("invalid field provided: null");
+
+        else if(OrganisationRepository.selectOrganisation(organisation.getOrgId()) != null)
+            throw new Exception("This organisation already exists");
 
         else if (organisation.getOrgId().isEmpty() || organisation.getOrgId().length() > 50)
             throw new Exception("Exception: orgId does not satisfy the database constraints");
@@ -141,16 +173,6 @@ public class OrganisationServiceImp implements OrganisationService {
                 throw new Exception("status not updated");
             else return true;
         }
-    }
-
-    @Override
-    public boolean addOrgWebsite(AddOrgWebsiteRequest request) throws Exception {
-        return false;
-    }
-
-    @Override
-    public boolean removeOrgWebsite(String orgId) throws Exception {
-        return false;
     }
 
     @Override

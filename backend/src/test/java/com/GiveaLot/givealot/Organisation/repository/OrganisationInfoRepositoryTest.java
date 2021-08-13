@@ -24,4 +24,10 @@ class OrganisationInfoRepositoryTest {
         Integer res = repository.addOrgWebsite("uniqueId1", "www.test.org");
         System.out.println(res);
     }
+
+    @Test
+    void removeOrgWebsite() {
+        Integer res = repository.removeOrgWebsite("uniqueId1");
+        System.out.println(res);
+    }
 }

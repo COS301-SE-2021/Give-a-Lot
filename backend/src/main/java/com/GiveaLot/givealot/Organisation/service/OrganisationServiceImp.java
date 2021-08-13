@@ -59,12 +59,50 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Override
     public boolean addOrgWebsite(AddOrgWebsiteRequest request) throws Exception {
-        return false;
+        if(request == null)
+            throw new Exception("Exception: request not set");
+        else if(request.getOrgId() == null)
+            throw new Exception("Exception: ID not set");
+        else if(request.getWebsite() == null)
+            throw new Exception("Exception: website not set");
+        else if(OrganisationRepository.selectOrganisation(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        /*
+        *  Todo:
+        *   validate the website
+        * */
+
+        if(OrganisationInfoRepository.addOrgWebsite(request.getOrgId(),request.getWebsite()) != 1)
+            throw new Exception("Exception: website field not updated");
+
+        return true;
     }
 
     @Override
     public boolean removeOrgWebsite(String orgId) throws Exception {
-        return false;
+        if(orgId == null)
+            throw new Exception("Exception: Organisation ID is not set");
+        else if(OrganisationRepository.selectOrganisation(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if(OrganisationInfoRepository.selectOrganisationInfo(orgId) == null)
+        {
+            /*
+             * Because organisation already exists, set the field
+             * */
+            organisationInfo organisationInfo = new organisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            OrganisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun " +
+                    "the contract");
+        }
+
+        if(OrganisationInfoRepository.removeOrgWebsite(orgId) != 1)
+            throw new Exception("Exception: website field not updated");
+
+        return true;
     }
 
     @Override

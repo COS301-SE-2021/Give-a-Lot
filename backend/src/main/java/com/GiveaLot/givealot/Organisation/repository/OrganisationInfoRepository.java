@@ -11,7 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 *  Todo:
 *   1) select organisation info - done
 *   2) create organisation points field for an organisation - done
-*   3)
+*   3) add organisation website - done
+*   4) remove organisation website - done
+*   5)
 * */
 @Repository
 public interface OrganisationInfoRepository extends JpaRepository<organisationInfo,String>
@@ -23,4 +25,9 @@ public interface OrganisationInfoRepository extends JpaRepository<organisationIn
     @Transactional
     @Query("UPDATE organisationInfo i SET i.orgWebsite = ?2 WHERE i.orgId = ?1")
     Integer addOrgWebsite(String orgId, String url);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE organisationInfo i SET i.orgWebsite = null WHERE i.orgId = ?1")
+    Integer removeOrgWebsite(String orgId);
 }

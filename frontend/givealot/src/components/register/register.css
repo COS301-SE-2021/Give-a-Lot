@@ -1,0 +1,33 @@
+.register{
+    display: flex;
+    flex-direction: column;
+}
+.containerRegister{
+    background-image: url("Register.png");
+    height: calc(100vh - 65px);
+    background-size: cover;
+    background-position: center;
+    object-fit: fill;
+}
+.RegisterContent{
+    float: right;
+    padding: 150px 150px;
+}
+.topLine{
+    color: white;
+    font-size: large;
+    padding-bottom: 10px;
+}
+.tabs{
+    width: 300px;
+    padding: 17px 25px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 7px;
+    /*position: relative;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%,0);*/
+    background-color: white;
+    height: 15px;
+    display: flex;
+}

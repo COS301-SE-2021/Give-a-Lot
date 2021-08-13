@@ -106,6 +106,49 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
+    public boolean addOrgAddress(AddOrgAddressRequest request) throws Exception {
+        if(request == null)
+            throw new Exception("Exception: request not set");
+        else if(request.getOrgId() == null)
+            throw new Exception("Exception: ID not set");
+        else if(request.getAddress() == null)
+            throw new Exception("Exception: address not set");
+        else if(OrganisationRepository.selectOrganisation(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if(OrganisationInfoRepository.addOrgAddress(request.getOrgId(),request.getAddress()) != 1)
+            throw new Exception("Exception: address field not updated");
+
+        return true;
+    }
+
+    @Override
+    public boolean removeOrgAddress(String orgId) throws Exception {
+        if(orgId == null)
+            throw new Exception("Exception: Organisation ID is not set");
+        else if(OrganisationRepository.selectOrganisation(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if(OrganisationInfoRepository.selectOrganisationInfo(orgId) == null)
+        {
+            /*
+             * Because organisation already exists, set the field
+             * */
+            organisationInfo organisationInfo = new organisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            OrganisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun " +
+                    "the contract");
+        }
+
+        if(OrganisationInfoRepository.removeOrgAddress(orgId) != 1)
+            throw new Exception("Exception: address field not updated");
+
+        return true;
+    }
+
+    @Override
     public OrganisationPoints selectOrganisationPoints(String orgId) throws Exception {
         return null;
     }
@@ -213,15 +256,6 @@ public class OrganisationServiceImp implements OrganisationService {
         }
     }
 
-    @Override
-    public boolean addOrgAddress(AddOrgAddressRequest request) throws Exception {
-        return false;
-    }
-
-    @Override
-    public boolean removeOrgAddress(String orgId) throws Exception {
-        return false;
-    }
 
     @Override
     public boolean addOrgImage(AddOrgImageRequest request) throws Exception {

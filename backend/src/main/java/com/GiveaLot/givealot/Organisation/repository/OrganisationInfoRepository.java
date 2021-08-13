@@ -14,7 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 *   2) create organisation points field for an organisation - done
 *   3) add organisation website - done
 *   4) remove organisation website - done
-*   5)
+*   5) add org address - done
+*   6) remove org address - done
 * */
 @Repository
 public interface OrganisationInfoRepository extends JpaRepository<organisationInfo,String>

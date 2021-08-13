@@ -24,6 +24,8 @@ import React, { Component } from "react";
 // import OrganisationMedia from "./OrganisationMedia";
 import OrganisationBasic from "./registerOrgPages/OrganisationBasic"
 import OrganisationContact from "./registerOrgPages/OrganisationContact";
+import OrganisationAbout from "./registerOrgPages/OrganisationAbout";
+import OrganisationMedia from "./registerOrgPages/OrganisationMedia"
 
 export class RegisterOrganisation extends Component {
     state = {
@@ -93,24 +95,24 @@ export class RegisterOrganisation extends Component {
                         values={values}
                     />
                 );
-            // case 3:
-            //     return (
-            //         <OrganisationAbout
-            //             nextStep={this.nextStep}
-            //             prevStep={this.prevStep}
-            //             handleChange={this.handleChange}
-            //             values={values}
-            //         />
-            //     );
-            // case 4:
-            //     return (
-            //         <OrganisationMedia
-            //             nextStep={this.nextStep}
-            //             prevStep={this.prevStep}
-            //             handleChange={this.handleChange}
-            //             values={values}
-            //         />
-            //     );
+            case 3:
+                return (
+                    <OrganisationAbout
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                    />
+                );
+            case 4:
+                return (
+                    <OrganisationMedia
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                    />
+                );
             // case 5:
             //   return (
             //     <ConfirmOrgRegistration

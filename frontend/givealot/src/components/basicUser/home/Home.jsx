@@ -14,7 +14,7 @@ export class Home extends Component {
                     <div className="ribbon">
                         <p>Your platform for safe organizations</p>
                     </div>
-                    <div>
+                    <div className="bodyHome">
                         <div className="mainBody">
 
                             <div className="images">

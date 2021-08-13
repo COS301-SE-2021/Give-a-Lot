@@ -97,6 +97,8 @@
 }
 .mainBody{
     display: flex;
+    align-content: center;
+    justify-content: space-around;
 }
 .images{
     height: 394px;
@@ -108,8 +110,9 @@
     height: auto;
 }
 .words{
-    width: 904px;
-    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
 }
 
 .bigWord{
@@ -131,3 +134,10 @@
     color: #2d9499;
     font-size: xx-large;
 }
+
+/*.bodyHome{*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-content: center;*/
+/*    justify-content: space-between;*/
+/*}*/

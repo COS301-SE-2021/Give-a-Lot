@@ -1,12 +1,14 @@
 package com.GiveaLot.givealot.Certificate.dao;
 
 import com.GiveaLot.givealot.Certificate.model.Certificate;
+import com.GiveaLot.givealot.Organisation.model.Organisation;
+import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.itextpdf.text.Document;
 
 import javax.mail.internet.MimeMessage;
 
 public interface CertificateDAOInterface {
-    public Document createPDFDocument(Certificate cert) throws Exception;
+    public boolean createPDFDocument(Certificate cert, Organisation organisation, OrganisationPoints organisationPoints, String templateDirectory) throws Exception;
 
     public boolean checkRenewal() throws Exception;
 

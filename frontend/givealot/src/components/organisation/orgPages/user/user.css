@@ -1,5 +1,6 @@
-.user{
+.userOrg{
     flex: 4;
+    padding: 5px;
 }
 .userTitleContainer {
     display: flex;
@@ -18,7 +19,7 @@
     font-size: 16px;
   }
   
-  .userContainer {
+  .userOrgContainer {
     display: flex;
     margin-top: 20px;
   }

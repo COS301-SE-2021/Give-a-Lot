@@ -11,6 +11,7 @@ import OrgUsers from "./orgPages/orgUsers/OrgUsers";
 import User from './orgPages/user/User';
 import NewUser from "./orgPages/newUser/NewUser"
 import OrgCalendar from "./orgPages/orgCalendar/OrgCalendar";
+import Profile from "./orgPages/profile/Profile"
 
 function Organisation() {
     return (
@@ -37,6 +38,9 @@ function Organisation() {
                         </Route>
                         <Route path="/logout">
                             <NewUser />
+                        </Route>
+                        <Route path="/profile">
+                            <Profile />
                         </Route>
                     </Switch>
 

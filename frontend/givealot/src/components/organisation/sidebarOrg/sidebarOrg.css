@@ -1,4 +1,4 @@
-.sidebar{
+.sidebarOrg{
     flex: 1;
     height: calc(100vh - 65px);
     background-color: #2d9499;
@@ -6,30 +6,30 @@
     position: sticky;
     top: 65px;
 }
-.sidebarWrapper{
+.sidebarWrapperOrg{
     padding: 20px;
     color: white;
 }
-.sidebarMenu{
+.sidebarMenuOrg{
     margin-bottom: 10px;
 }
-.sidebarList{
+.sidebarListOrg{
     list-style: none;
     padding: 5px;
 }
-.sidebarListItem{
+.sidebarListItemOrg{
     padding: 10px;
     cursor: pointer;
     display: flex;
     align-items: center;
     border-radius: 10px;
 }
-.sidebarListItem.active,
-.sidebarListItem:hover {
+.sidebarListItemOrg.active,
+.sidebarListItemOrg:hover {
   background-color: #4fa0a3;
 }
 
-.sidebarIcon{
+.sidebarIconOrg{
     margin-right: 5px;
     font-size: 20px !important;
 }

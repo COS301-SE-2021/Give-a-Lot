@@ -14,14 +14,14 @@ export class User extends Component {
 
     render() {
         return (
-            <div className="user">
+            <div className="userOrg">
                <div className="userTitleContainer">
         <h1 className="userTitle">Edit User</h1>
         <Link to="/newUser">
           <button className="userAddButton">Create</button>
         </Link>
       </div>
-      <div className="userContainer">
+      <div className="userOrgContainer">
         <div className="userShow">
           <div className="userShowTop">
             <img

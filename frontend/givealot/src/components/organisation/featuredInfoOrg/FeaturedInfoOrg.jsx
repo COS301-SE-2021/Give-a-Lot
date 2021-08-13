@@ -5,13 +5,13 @@ import PeopleIcon from '@material-ui/icons/People';
 export class FeaturedInfoOrg extends Component {
     render() {
         return (
-            <div className="featured">
-                <div className="featuredItem">
-                   <span className="featuredTitle"> Users</span>
-                   <div className="featuredMoneyContainer">
-                       <span className="featuredMoney">1234</span>
-                       <span className="featuredMoneyRate">
-                           <PeopleIcon className="featuredIcon"/>
+            <div className="featuredOrg">
+                <div className="featuredItemOrg">
+                   <span className="featuredTitleOrg"> Users</span>
+                   <div className="featuredMoneyContainerOrg">
+                       <span className="featuredMoneyOrg">1234</span>
+                       <span className="featuredMoneyRateOrg">
+                           <PeopleIcon className="featuredIconOrg"/>
                        </span>
                     </div> 
                     {/* <span className="featureSub">
@@ -19,12 +19,12 @@ export class FeaturedInfoOrg extends Component {
                     </span> */}
                 </div>
 
-                <div className="featuredItem">
-                   <span className="featuredTitle"> Organisations</span>
-                   <div className="featuredMoneyContainer">
-                       <span className="featuredMoney">1234</span>
-                       <span className="featuredMoneyRate">
-                           <PeopleIcon className="featuredIcon"/>
+                <div className="featuredItemOrg">
+                   <span className="featuredTitleOrg"> Organisations</span>
+                   <div className="featuredMoneyContainerOrg">
+                       <span className="featuredMoneyOrg">1234</span>
+                       <span className="featuredMoneyRateOrg">
+                           <PeopleIcon className="featuredIconOrg"/>
                        </span>
                     </div> 
                     {/* <span className="featuredSub">
@@ -32,12 +32,12 @@ export class FeaturedInfoOrg extends Component {
                     </span> */}
                 </div>
 
-                <div className="featuredItem">
-                   <span className="featuredTitle"> Notifications</span>
-                   <div className="featuredMoneyContainer">
-                       <span className="featuredMoney">1234</span>
-                       <span className="featuredMoneyRate">
-                           <PeopleIcon className="featuredIcon"/>
+                <div className="featuredItemOrg">
+                   <span className="featuredTitleOrg"> Notifications</span>
+                   <div className="featuredMoneyContainerOrg">
+                       <span className="featuredMoneyOrg">1234</span>
+                       <span className="featuredMoneyRateOrg">
+                           <PeopleIcon className="featuredIconOrg"/>
                        </span>
                     </div> 
                     {/* <span className="featureSub">

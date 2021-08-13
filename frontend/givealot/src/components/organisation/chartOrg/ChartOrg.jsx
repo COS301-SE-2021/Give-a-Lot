@@ -13,8 +13,8 @@ import {
   export default function ChartOrg ({ title, data, dataKey, grid }) {
     // render() {
         return (
-            <div className="chart">
-                 <h3 className="chartTitle">{title}</h3>
+            <div className="charts">
+                 <h3 className="chartTitleOrg">{title}</h3>
                 <ResponsiveContainer width="100%" aspect={4 / 1}>
                     <LineChart data={data}>
                         <XAxis dataKey="name" stroke="#5550bd" />

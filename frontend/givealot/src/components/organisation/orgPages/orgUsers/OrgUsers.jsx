@@ -60,7 +60,7 @@ export default function OrgUsers() {
   ];
 
   return (
-    <div className="adminUsers">
+    <div className="orgUsers">
       <DataGrid
         rows={data}
         disableSelectionOnClick

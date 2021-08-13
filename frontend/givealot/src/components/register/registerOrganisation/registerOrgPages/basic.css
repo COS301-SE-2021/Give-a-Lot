@@ -1,0 +1,31 @@
+.RegisterOrganisation{
+    background-image: url("../RegisterOrg.png");
+    height: calc(100vh - 65px);
+    background-size: cover;
+    background-position: center;
+    object-fit: fill;
+}
+.regOrgContent{
+    float: right;
+    padding: 150px 150px;
+}
+.inputBasic {
+    width: 300px;
+    padding: 17px 25px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 7px;
+    /*position: relative;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%,0);*/
+    background-color: white;
+    height: 50px
+}
+.orgIcon{
+    color: #4f9ccf;
+}
+.basicTopLine{
+    color: white;
+    font-size: large;
+    padding-bottom: 10px;
+}

@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import "./register.css"
 import PeopleIcon from '@material-ui/icons/People';
 import PersonIcon from '@material-ui/icons/Person';
-import {Link, Route, Switch} from "react-router-dom";
+import {Link} from "react-router-dom";
 // import RegisterUser from "./registerUser/RegisterUser";
 // import RegisterOrganisation from "./registerOrganisation/RegisterOrganisation";
 // import ListItem from '@material-ui/core/ListItem';
 // import ListItemText from '@material-ui/core/ListItemText';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+// import ListItem from '@material-ui/core/ListItem';
+// import ListItemText from '@material-ui/core/ListItemText';
 
 export class RegisterBody extends Component {
 

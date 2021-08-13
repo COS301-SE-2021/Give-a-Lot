@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import "./login.css"
 import FeaturedHeader from "../featuredHeader/FeaturedHeader"
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route
+    BrowserRouter as Router
 } from "react-router-dom";
 import LoginBody from "./loginBody/LoginBody"
 

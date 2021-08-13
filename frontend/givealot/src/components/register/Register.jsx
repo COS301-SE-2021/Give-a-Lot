@@ -28,7 +28,6 @@
 import "./register.css"
 import FeaturedHeader from "../featuredHeader/FeaturedHeader"
 import {
-    BrowserRouter as Router,
     Switch,
     Route
 } from "react-router-dom";

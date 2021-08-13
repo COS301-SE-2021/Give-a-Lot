@@ -1,10 +1,6 @@
 package com.GiveaLot.givealot.Organisation.controller;
-import com.GiveaLot.givealot.Organisation.dao.OrganisationDAOInterface;
-import com.GiveaLot.givealot.Organisation.model.Organisation;
-import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
-import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
-import com.GiveaLot.givealot.Organisation.requests.*;
-import com.GiveaLot.givealot.Organisation.service.OrganisationService;
+import com.GiveaLot.givealot.Organisation.dataclass.OrganisationRepo;
+import com.GiveaLot.givealot.Organisation.service.OrganisationServiceImp;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
@@ -13,25 +9,24 @@ import org.springframework.web.bind.annotation.*;
 import static java.util.List.of;
 
 @RequestMapping("v1/organisation")
+@CrossOrigin("*")
 @RestController
 public class OrganisationController
 {
-    private OrganisationService service;
+    private OrganisationServiceImp service;
     private responseJSON response;
-    private com.GiveaLot.givealot.Organisation.dao.OrganisationDAOInterface repository;
 
     @Autowired
-    public OrganisationController(OrganisationService service,OrganisationDAOInterface repository ,responseJSON response)
+    public OrganisationController(OrganisationServiceImp service, responseJSON response)
     {
         this.service = service;
         this.response = response;
-        this.repository = repository;
     }
 
     /*
      * tested, works well
      */
-    @PostMapping("/add/org")
+    /*@PostMapping("/add/org")
     public responseJSON addOrganisation(@RequestBody @NonNull Organisation body)
     {
         response.setObject(null);
@@ -46,7 +41,7 @@ public class OrganisationController
             {
                 response.setCode("org_add_bad_500");
                 response.setMessage("unsuccessful");
-                /* but why was the organisation not added??? */
+                *//* but why was the organisation not added??? *//*
             }
             return response;
         }
@@ -56,12 +51,12 @@ public class OrganisationController
             response.setMessage("unsuccessful " + e.getMessage());
             return response;
         }
-    }
+    }*/
 
     /*
     * tested, works well
     */
-    @GetMapping("/points/{orgId}")
+    /*@GetMapping("/points/{orgId}")
     public responseJSON selectOrganisationPoints(@PathVariable("orgId") @NonNull String orgId)
     {
         response.setObject(null);
@@ -86,7 +81,7 @@ public class OrganisationController
             response.setMessage("unsuccessful " + e.toString());
         }
         return response;
-    }
+    }*/
 
     /*
     * tested
@@ -94,21 +89,18 @@ public class OrganisationController
     @GetMapping("/select/{orgId}")
     public responseJSON selectOrganisation(@PathVariable("orgId") @NonNull String orgId)
     {
-        System.out.println(orgId);
+        System.out.println("selecting " + orgId);
         response.setObject(null);
         try
         {
-            Organisation res = service.selectOrganisation(orgId);
+            OrganisationRepo res = service.selectOrganisation(orgId);
             if(res != null)
             {
                 response.setCode("org_sel_ok_200");
                 response.setMessage("success");
+                System.out.println(res);
             }
-            else
-            {
-                response.setCode("org_sel_bad_200");
-                response.setMessage("unsuccessful");
-            }
+
             response.setObject(res);
         }
         catch (Exception e)
@@ -121,7 +113,7 @@ public class OrganisationController
 
 
     /* tested - works */
-    @GetMapping("/info/{orgId}")
+    /*@GetMapping("/info/{orgId}")
     public responseJSON selectOrganisationInfo(@PathVariable("orgId")  @NonNull String orgId)
     {
         response.setObject(null);
@@ -147,10 +139,10 @@ public class OrganisationController
         }
 
         return response;
-    }
+    }*/
 
     /* tested - works */
-    @PutMapping("/activate/{orgId}")
+    /*@PutMapping("/activate/{orgId}")
     public responseJSON reactivateOrganisation(@PathVariable("orgId") @NonNull String orgId)
     {
         response.setObject(null);
@@ -176,10 +168,10 @@ public class OrganisationController
             response.setObject(null);
             return response;
         }
-    }
+    }*/
 
     /* tested - works */
-    @PutMapping("/investigate/{orgId}")
+    /*@PutMapping("/investigate/{orgId}")
     public responseJSON investigateOrganisation(@PathVariable("orgId") @NonNull String orgId)
     {
         response.setObject(null);
@@ -204,10 +196,10 @@ public class OrganisationController
             response.setMessage("unsuccessful: " + e.toString());
             return response;
         }
-    }
+    }*/
 
     /* tested - works */
-    @PutMapping("/suspend/{orgId}")
+    /*@PutMapping("/suspend/{orgId}")
     public responseJSON suspendOrganisation(@PathVariable("orgId") @NonNull String orgId)
     {
         response.setObject(null);
@@ -232,10 +224,10 @@ public class OrganisationController
             response.setMessage("unsuccessful " + e.toString());
             return response;
         }
-    }
+    }*/
 
     /* tested - works */
-    @PutMapping("/add/website")
+    /*@PutMapping("/add/website")
     public responseJSON addOrgWebsite(@RequestBody @NonNull AddOrgWebsiteRequest body)
     {
         response.setObject(null);
@@ -259,13 +251,13 @@ public class OrganisationController
             response.setMessage("unsuccessful " + e.getMessage());
             return response;
         }
-    }
+    }*/
 
 
     /* tested - works - left comment for OrganisationDASTemp
        on the removeOrgAddress
     */
-    @DeleteMapping("/delete/address/{orgId}")
+    /*@DeleteMapping("/delete/address/{orgId}")
     public responseJSON removeOrgAddress(@PathVariable("orgId") @NonNull String orgId)
     {
         response.setObject(null);
@@ -290,10 +282,10 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }
+    }*/
 
     /* tested - works */
-    @DeleteMapping("/delete/images/{orgId}")
+    /*@DeleteMapping("/delete/images/{orgId}")
     public responseJSON removeOrgImage(@PathVariable("orgId") @NonNull String orgId)
     {
         response.setObject(null);
@@ -318,13 +310,13 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }
+    }*/
 
     /* tested - works
     *  removeOrgTaxRef from OrganisationDASTemp always returns true
     *  even if an organisation id doesn't exist
     * */
-    @DeleteMapping("/delete/taxref/{orgId}")
+    /*@DeleteMapping("/delete/taxref/{orgId}")
     public responseJSON removeOrgTaxRef(@PathVariable("orgId")@NonNull String orgId)
     {
         response.setObject(null);
@@ -349,13 +341,13 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }
+    }*/
 
     /* tested - works
      *  removeOrgNGO from OrganisationDASTemp always returns true
      *  even if an organisation id doesn't exist
      * */
-    @DeleteMapping("/delete/ngo/{orgId}")
+    /*@DeleteMapping("/delete/ngo/{orgId}")
     public responseJSON removeOrgNGO(@PathVariable("orgId") @NonNull String orgId)
     {
         response.setObject(null);
@@ -381,14 +373,14 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }
+    }*/
 
 
     /* tested - works
      *  removeOrgEstDate from OrganisationDASTemp always returns true
      *  even if an organisation id doesn't exist
      * */
-    @DeleteMapping("/delete/estdate/{orgId}")
+    /*@DeleteMapping("/delete/estdate/{orgId}")
     public responseJSON removeOrgEstDate(@PathVariable("orgId") @NonNull String orgId)
     {
         response.setObject(null);
@@ -413,10 +405,10 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }
+    }*/
 
     /* tested - works */
-    @DeleteMapping("/delete/donationinfo/{orgId}")
+    /*@DeleteMapping("/delete/donationinfo/{orgId}")
     public responseJSON removeOrgDonationInfo(@PathVariable("orgId") @NonNull String orgId)
     {
         response.setObject(null);
@@ -442,13 +434,13 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }
+    }*/
 
     /* tested - works
      *  removeOrgAuditDoc from OrganisationDASTemp always returns true
      *  even if an organisation id doesn't exist
      * */
-    @DeleteMapping("/delete/audit/{orgId}")
+    /*@DeleteMapping("/delete/audit/{orgId}")
     public responseJSON removeOrgAuditDoc(@PathVariable("orgId") @NonNull String orgId)
     {
         response.setObject(null);
@@ -473,13 +465,13 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }
+    }*/
 
     /* tested - works
      *  removeOrgAuditor from OrganisationDASTemp always returns true
      *  even if an organisation id doesn't exist
      * */
-    @DeleteMapping("/delete/auditor/{orgId}")
+    /*@DeleteMapping("/delete/auditor/{orgId}")
     public responseJSON removeOrgAuditor(@PathVariable("orgId") @NonNull String orgId)
     {
         response.setObject(null);
@@ -504,13 +496,13 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }
+    }*/
 
     /* tested - works
      *  removeOrgCommittee from OrganisationDASTemp always returns true
      *  even if an organisation id doesn't exist
      * */
-    @DeleteMapping("/delete/committee/{orgId}")
+    /*@DeleteMapping("/delete/committee/{orgId}")
     public responseJSON removeOrgCommittee(@PathVariable("orgId") @NonNull String orgId)
     {
         response.setObject(null);
@@ -535,13 +527,13 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }
+    }*/
 
     /* tested - works
      *  removeOrgSocials from OrganisationDASTemp always returns true
      *  even if an organisation id doesn't exist
      * */
-    @DeleteMapping("/delete/socials/{orgId}/{type}")
+    /*@DeleteMapping("/delete/socials/{orgId}/{type}")
     public responseJSON removeOrgSocials(@PathVariable("orgId") @NonNull String orgId,@PathVariable("type") @NonNull String type)
     {
         response.setObject(null);
@@ -567,10 +559,10 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }
+    }*/
 
     /* tested - status not confirmed: not entirely sure how to get the date object from a json object*/
-    @PostMapping("/add/estdate")
+    /*@PostMapping("/add/estdate")
     public responseJSON addOrgEstDate(@RequestBody @NonNull AddOrgEstDateRequest body)
     {
         response.setObject(null);
@@ -596,12 +588,12 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }
+    }*/
 
     /* tested - status not confirmed: not entirely sure how to get the image
      object from a json object, we should look into the multipart attribute
      */
-    @PostMapping("/add/image")
+    /*@PostMapping("/add/image")
     public responseJSON addOrgImage(@RequestBody @NonNull AddOrgImageRequest body)
     {
         response.setObject(null);
@@ -626,11 +618,11 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }
+    }*/
 
     /* tested - status not confirmed: not entirely sure how handle the file type
     */
-    @PostMapping("/add/audit")
+    /*@PostMapping("/add/audit")
     public responseJSON addOrgAuditDoc(AddOrgAuditInfoRequest body)
     {
         response.setObject(null);
@@ -655,13 +647,13 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }
+    }*/
 
 
      /* tested - works, addOrgTaxRef from OrganisationDASTemp returns true
         even if org Id doesn't exist
       */
-    @PostMapping("/add/taxref")
+   /* @PostMapping("/add/taxref")
     public responseJSON addOrgTaxRef(@RequestBody AddOrgTaxRefRequest body)
     {
         response.setObject(null);
@@ -686,12 +678,12 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }
+    }*/
 
     /* tested - works, addOrgAuditor from OrganisationDASTemp returns true
        even if org Id doesn't exist
     */
-    @PostMapping("/add/auditor")
+    /*@PostMapping("/add/auditor")
     public responseJSON addOrgAuditor(@RequestBody @NonNull AddOrgAuditorRequest body)
     {
         response.setObject(null);
@@ -717,12 +709,12 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }
+    }*/
 
     /* tested - works, addOrgCommittee from OrganisationDASTemp returns true
        even if org Id doesn't exist
     */
-    @PostMapping("/add/committee")
+    /*@PostMapping("/add/committee")
     public responseJSON addOrgCommittee(@RequestBody @NonNull AddOrgCommitteeRequest body)
     {
         response.setObject(null);
@@ -748,12 +740,12 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }
+    }*/
 
     /* tested - works, addOrgDonationInfo from OrganisationDASTemp returns true
        even if org Id doesn't exist
     */
-    @PostMapping("/add/donation/info")
+    /*@PostMapping("/add/donation/info")
     public responseJSON addOrgDonationInfo(@RequestBody @NonNull AddOrgDonationInfoRequest body)
     {
         response.setObject(null);
@@ -779,12 +771,12 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }
+    }*/
 
     /* tested - works, addOrgSocials from OrganisationDASTemp returns true
        even if org Id doesn't exist
     */
-    @PostMapping("/add/socials")
+    /*@PostMapping("/add/socials")
     public responseJSON addOrgSocials(@RequestBody AddSocialsRequest body)
     {
         response.setObject(null);
@@ -810,12 +802,12 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }
+    }*/
 
     /*
     * not sure how to handle the date object
     * */
-    @PostMapping("/add/ngo")
+    /*@PostMapping("/add/ngo")
     public responseJSON addOrgNGO(@RequestBody AddOrgNGORequest body)
     {
         response.setObject(null);
@@ -840,5 +832,5 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }
+    }*/
 }

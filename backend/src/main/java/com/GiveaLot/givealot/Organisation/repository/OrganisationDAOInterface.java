@@ -1,41 +1,29 @@
-package com.GiveaLot.givealot.Organisation.dao;
-
-import com.GiveaLot.givealot.Organisation.model.Organisation;
-import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
-import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
-import java.io.File;
-import java.util.Date;
-import java.util.Optional;
+package com.GiveaLot.givealot.Organisation.repository;
 
 
-@Repository("OrganisationTemp")
-public interface OrganisationDAOInterface extends JpaRepository<Organisation,Long>{
+public interface OrganisationDAOInterface{
 
-    public Organisation selectOrganisation(String orgId) throws Exception;
+    //@Query("SELECT o FROM OrganisationRepo o WHERE o.orgId = ?1")
+    //OrganisationRepo selectOrganisation(String orgId);
 
-    public OrganisationInfo selectOrganisationInfo(String orgId) throws Exception;
+    /*public OrganisationInfo selectOrganisationInfo(String orgId) throws Exception;
 
     public OrganisationPoints selectOrganisationPoints(String orgId) throws Exception;
 
 
     public boolean organisationExists(Organisation organisation);
 
-    public boolean addOrganisation(Organisation organisation) throws Exception;
-
     public boolean reactivateOrganisation(String orgId) throws Exception;
 
     public boolean investigateOrganisation(String orgId) throws Exception;
 
-    public boolean suspendOrganisation(String orgId) throws Exception;
+    public boolean suspendOrganisation(String orgId) throws Exception;*/
 
 
     /** OrganisationInfo functions **/
 
 
-    public boolean addOrgWebsite(String orgId, String website) throws Exception;
+    /*public boolean addOrgWebsite(String orgId, String website) throws Exception;
 
     public boolean removeOrgWebsite(String orgId) throws Exception;
 
@@ -62,7 +50,6 @@ public interface OrganisationDAOInterface extends JpaRepository<Organisation,Lon
     public boolean addOrgCommittee(String orgId, String committee);
 
     public boolean removeOrgCommittee(String orgId);
-;
 
     public boolean addOrgDonationInfo(String orgId, String info);
 
@@ -78,10 +65,10 @@ public interface OrganisationDAOInterface extends JpaRepository<Organisation,Lon
 
     public boolean addOrgEstDate(String orgId, Date date);
 
-    public boolean removeOrgEstDate(String orgId);
+    public boolean removeOrgEstDate(String orgId);*/
 
     /** OrganisationPoints functions **/
-    public boolean adminValidateOrgEstDate(String orgid);
+    /*public boolean adminValidateOrgEstDate(String orgid);
     public boolean adminValidateOrgNGO(String orgid);
     public boolean adminValidatOrgSocials(String orgid,String type);
     public boolean adminValidateOrgDonationInfo(String orgid);
@@ -91,6 +78,6 @@ public interface OrganisationDAOInterface extends JpaRepository<Organisation,Lon
     public boolean adminValidateAuditDoc(String orgid);
     public boolean adminValidateNoOfImages(String orgid);
     public boolean adminValidateAdress(String orgid);
-    public boolean adminValidateWebsite(String orgid);
+    public boolean adminValidateWebsite(String orgid);*/
 
 }

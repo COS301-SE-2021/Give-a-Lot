@@ -1,13 +1,11 @@
 package com.GiveaLot.givealot.Organisation.model.mappers;
 
 
-import com.GiveaLot.givealot.Organisation.model.Organisation;
+import com.GiveaLot.givealot.Organisation.requests.Organisation;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Random;
-import java.util.UUID;
 
 public class OrganisationRowMapper implements RowMapper<Organisation> {
 

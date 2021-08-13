@@ -1,30 +1,19 @@
-package com.GiveaLot.givealot.Organisation.model;
+package com.GiveaLot.givealot.Organisation.dataclass;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Builder;
+
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-
-@Data
+@Builder
 @AllArgsConstructor
-@Entity(name="Organisations")
-@Table(
-        name="organisations",
-        uniqueConstraints = {
-                @UniqueConstraint(name="organisation_email_unique",columnNames = "orgEmail")
-        }
-)
-public class Organisation {
+@Entity
+@Table(name="Organisations1")
+public class OrganisationRepo {
 
-    @Column(
-            name="orgName",
-            nullable = false,
-            columnDefinition = "TEXT"
-    )
     private String orgName;
     @Column(
             name="orgSlogan",
@@ -58,17 +47,7 @@ public class Organisation {
             updatable = false,
             nullable = false
     )
-    @SequenceGenerator(
-            name = "organisation_sequence",
-            sequenceName = "organisation_sequence",
-            allocationSize = 1
-    )
-
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "organisation_sequence"
-    )
-    private Long orgId;
+    private String orgId;
 
     @Column(
             name="status",
@@ -101,36 +80,7 @@ public class Organisation {
     )
     private String password;
 
-
-    public Organisation(@JsonProperty Long orgId,
-                        @JsonProperty String orgName,
-                        @JsonProperty String slogan,
-                        @JsonProperty String orgDescription,
-                        @JsonProperty String orgSector,
-                        @JsonProperty String orgEmail,
-                        @JsonProperty String status,
-                        @JsonProperty String contactPerson,
-                        @JsonProperty String contactNumber,
-                        @JsonProperty String directory,
-                        @JsonProperty String password
-    )
-    {
-        this.orgName = orgName;
-        this.slogan = slogan;
-        this.orgDescription = orgDescription;
-        this.orgSector = orgSector;
-        this.orgEmail = orgEmail;
-        this.orgId = orgId;
-        this.status = status;
-        this.contactNumber = contactNumber;
-        this.contactPerson = contactPerson;
-        this.directory = directory;
-        this.password =password;
-    }
-
-    public Organisation() {
-
-    }
+    public OrganisationRepo(){}
 
     public String getOrgName(){
         return orgName;
@@ -172,11 +122,11 @@ public class Organisation {
         this.orgEmail = orgEmail;
     }
 
-    public Long getOrgId() {
+    public String getOrgId() {
         return orgId;
     }
 
-    public void setOrgId(Long orgId) {
+    public void setOrgId(String orgId) {
         this.orgId = orgId;
     }
 
@@ -257,6 +207,5 @@ public class Organisation {
                 throw new RuntimeException(e);
             }
         }
-
     }
 }

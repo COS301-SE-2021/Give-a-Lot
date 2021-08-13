@@ -1,3 +1,4 @@
+/*
 package com.GiveaLot.givealot.Organisation.model;
 
 import java.util.Date;
@@ -153,9 +154,10 @@ public class OrganisationInfo {
         return establishmentDate;
     }
 
-    public void setEstablishmentDate(Date establishmentDate) {
+    public void setEstablishmentDate(String establishmentDate) {
         this.establishmentDate = establishmentDate;
     }
 
 
 }
+*/

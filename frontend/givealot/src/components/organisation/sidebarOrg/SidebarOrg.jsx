@@ -43,7 +43,7 @@ export class SidebarOrg extends Component {
                                 </li>
                             </Link>
 
-                            <Link to="/adminUsers" className="link">
+                            <Link to="/gallery" className="link">
                                 <li className="sidebarListItemOrg">
                                     <ImageIcon className="sidebarIconOrg"/>
                                     Gallery

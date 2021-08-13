@@ -9,7 +9,7 @@ export class Gallery extends Component {
         return (
             <div className="gallery">
                 <div className="GalOrgContainer">
-                    <div className="userUpdateRight">
+                    <div className="OrgUpdateRight">
                         <div className="userUpdateUpload">
                             <img
                                 className="userUpdateImg"

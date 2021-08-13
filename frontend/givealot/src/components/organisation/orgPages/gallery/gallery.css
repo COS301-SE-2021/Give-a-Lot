@@ -1,7 +1,7 @@
 .gallery{
     flex: 4;
 }
-.userUpdateRight{
+.OrgUpdateRight{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -10,6 +10,7 @@
 .userUpdateUpload{
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .userUpdateImg{

@@ -169,23 +169,23 @@ public class OrganisationService {
         return organisationDAOInterface.removeOrgWebsite(orgId);
     }
 
-    public boolean addOrgAddress(AddOrgAddressRequest request) throws Exception {
-        if(request != null)
-        {
-            String orgId = request.getOrgId();
-            String address = request.getAddress();
-            if (orgId.length()==0 || orgId.length()>50){
-                throw new Exception("Exception: orgId does not satisfy the database constraints");
-            }
-            if (address.length()==0 || address.length()>255){
-                throw new Exception("Exception: address does not satisfy the database constraints");
-            }
-
-            return organisationDAOInterface.addOrgAddress(orgId,address);
-        }
-        throw new Exception("Exception: request object is null");
-
-    }
+//    public boolean addOrgAddress(AddOrgAddressRequest request) throws Exception {
+//        if(request != null)
+//        {
+//            String orgId = request.getOrgId();
+//            String address = request.getAddress();
+//            if (orgId.length()==0 || orgId.length()>50){
+//                throw new Exception("Exception: orgId does not satisfy the database constraints");
+//            }
+//            if (address.length()==0 || address.length()>255){
+//                throw new Exception("Exception: address does not satisfy the database constraints");
+//            }
+//
+//            return organisationDAOInterface.addOrgAddress(orgId,address);
+//        }
+//        throw new Exception("Exception: request object is null");
+//
+//    }
 
     public boolean removeOrgAddress(String orgId) throws Exception {
         if (orgId.length()==0 || orgId.length()>50){

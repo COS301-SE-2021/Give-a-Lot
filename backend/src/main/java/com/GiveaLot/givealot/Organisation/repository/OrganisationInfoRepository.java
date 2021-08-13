@@ -1,6 +1,7 @@
 package com.GiveaLot.givealot.Organisation.repository;
 
 import com.GiveaLot.givealot.Organisation.dataclass.organisationInfo;
+import com.GiveaLot.givealot.Organisation.requests.AddOrgAddressRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -30,4 +31,15 @@ public interface OrganisationInfoRepository extends JpaRepository<organisationIn
     @Transactional
     @Query("UPDATE organisationInfo i SET i.orgWebsite = null WHERE i.orgId = ?1")
     Integer removeOrgWebsite(String orgId);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE organisationInfo i SET i.address = ?2 WHERE i.orgId = ?1")
+    Integer addOrgAddress(String orgId, String address);
+
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE organisationInfo i SET i.address = null WHERE i.orgId = ?1")
+    Integer removeOrgAddress(String orgId);
 }

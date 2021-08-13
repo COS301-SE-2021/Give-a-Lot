@@ -1,14 +1,14 @@
-.newUser {
+.newUsers {
     flex: 4;
     padding: 10px;
 }
 
-.newUserForm {
+.newUserForms {
     display: flex;
     flex-wrap: wrap;
 }
 
-.newUserItem {
+.newUserItems {
     width: 400px;
     display: flex;
     flex-direction: column;
@@ -16,36 +16,36 @@
     margin-right: 20px;
 }
 
-.newUserItem > label {
+.newUserItems > label {
     margin-bottom: 10px;
     font-size: 14px;
     font-weight: 600;
     color: rgb(151, 150, 150);
 }
 
-.newUserItem > input {
+.newUserItems > input {
     height: 20px;
     padding: 10px;
     border: 1px solid gray;
     border-radius: 5px;
 }
 
-.newUserGender > input {
+.newUserGenders > input {
     margin-top: 15px;
 }
 
-.newUserGender>label{
+.newUserGenders>label{
     margin: 10px;
     font-size: 18px;
     color: #555;
 }
 
-.newUserSelect{
+.newUserSelects{
     height: 40px;
     border-radius: 5px;
 }
 
-.newUserButton{
+.newUserButtons{
     width: 200px;
     border: none;
     background-color: #2d9499;

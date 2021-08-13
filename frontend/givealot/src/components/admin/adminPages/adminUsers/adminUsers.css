@@ -1,14 +1,14 @@
-.adminUsers{
+.adminUserss{
     flex: 4;
     padding: 5px;
 }
 
-.userListUser {
+.userListUsers {
     display: flex;
     align-items: center;
   }
   
-  .userListImg {
+  .userListImgs {
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -16,7 +16,7 @@
     margin-right: 10px;
   }
   
-  .userListEdit{
+  .userListEdits{
       border: none;
       border-radius: 10px;
       padding: 5px 10px;
@@ -26,7 +26,7 @@
       margin-right: 20px;
   }
   
-  .userListDelete{
+  .userListDeletes{
       color: red;
       cursor: pointer;
   }

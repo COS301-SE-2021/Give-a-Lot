@@ -1,13 +1,13 @@
-.adminOrgs{
+.adminOrgss{
     flex: 4;
 }
 
-.OrgsListUser {
+.OrgsListUsers {
     display: flex;
     align-items: center;
 }
 
-.OrgsListImg {
+.OrgsListImgs {
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -15,7 +15,7 @@
     margin-right: 10px;
 }
 
-.OrgsListEdit{
+.OrgsListEdits{
     border: none;
     border-radius: 10px;
     padding: 5px 10px;
@@ -25,7 +25,7 @@
     margin-right: 20px;
 }
 
-.OrgsListDelete{
+.OrgsListDeletes{
     color: red;
     cursor: pointer;
 }

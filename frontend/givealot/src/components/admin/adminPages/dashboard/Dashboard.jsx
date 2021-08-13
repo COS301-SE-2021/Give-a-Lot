@@ -9,10 +9,10 @@ import Widgetlg from "../../widgetlg/Widgetlg"
 export class Dashboard extends Component {
     render() {
         return (
-            <div className="dashboard">
+            <div className="dashboards">
                 <FeaturedInfo />
                 <Chart data={userData} title="Users" grid dataKey="Active User"/>
-                <div className="homeWidgets">
+                <div className="homeWidgetss">
                 <Widgetsm/>
                 <Widgetlg/>
                 </div>

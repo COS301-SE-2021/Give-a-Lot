@@ -21,8 +21,8 @@ export default function UserList() {
             width: 200,
             renderCell: (params) => {
                 return (
-                    <div className="OrgsListUser">
-                        <img className="OrgsListImg" src={params.row.avatar} alt="" />
+                    <div className="OrgsListUsers">
+                        <img className="OrgsListImgs" src={params.row.avatar} alt="" />
                         {params.row.username}
                     </div>
                 );
@@ -47,10 +47,10 @@ export default function UserList() {
                 return (
                     <>
                         <Link to={"/orgs/" + params.row.id}>
-                            <button className="OrgsListEdit">Edit</button>
+                            <button className="OrgsListEdits">Edit</button>
                         </Link>
                         <DeleteOutline
-                            className="OrgsListDelete"
+                            className="OrgsListDeletes"
                             onClick={() => handleDelete(params.row.id)}
                         />
                     </>
@@ -60,7 +60,7 @@ export default function UserList() {
     ];
 
     return (
-        <div className="adminOrgs">
+        <div className="adminOrgss">
             <DataGrid
                 rows={data}
                 disableSelectionOnClick

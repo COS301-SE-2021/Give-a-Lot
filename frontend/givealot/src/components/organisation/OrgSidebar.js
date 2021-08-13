@@ -133,15 +133,6 @@ export class OrgSidebar extends Component {
                         </ListItem>
                     </Link>
 
-                    <Link to={'/settings'} className='text-linkOrg'>
-                        <ListItem button>
-                            <ListItemIcon>
-                                <SettingsIcon className="iconOrg"/>
-                            </ListItemIcon>
-                            <ListItemText primary="Settings" />
-                        </ListItem>
-                    </Link>
-
 
                     <Link className='text-linkOrg' >
                         <ListItem button className='text-linkOrg'

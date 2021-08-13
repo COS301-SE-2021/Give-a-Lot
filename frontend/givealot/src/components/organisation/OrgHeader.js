@@ -111,7 +111,7 @@ export default function OrgHeader()  {
                     <div className="setting">
                         <SettingsIcon onClick={handlerClick}/>
                         <Dialog open={openDialog} onClose={handlerClose} aria-labelledby="form-dialog-title">
-                            
+
 
                                     <Card className={classes.root} variant="outlined" >
                                         <CardContent>

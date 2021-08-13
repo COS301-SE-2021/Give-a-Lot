@@ -4,13 +4,14 @@ import './App.css';
 // import Login from "./components/login/Login"
 // import Register from "./components/register/Register";
 // import RegisterUser from "./components/register/registerUser/RegisterUser";
-import RegisterOrganisation from "./components/register/registerOrganisation/RegisterOrganisation";
+// import RegisterOrganisation from "./components/register/registerOrganisation/RegisterOrganisation";
+import Home from "./components/basicUser/home/Home"
 
 
 function App() {
   return (
    <div>
-     <RegisterOrganisation />
+     <Home />
    </div>
     
   );

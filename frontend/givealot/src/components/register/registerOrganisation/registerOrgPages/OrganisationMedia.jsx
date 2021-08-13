@@ -5,10 +5,10 @@ import FeaturedHeader from "../../../featuredHeader/FeaturedHeader";
 import Button from '@material-ui/core/Button';
 // import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import axios from "axios";
-import OutlinedInput from "@material-ui/core/OutlinedInput";
-import InputAdornment from "@material-ui/core/InputAdornment";
+// import OutlinedInput from "@material-ui/core/OutlinedInput";
+// import InputAdornment from "@material-ui/core/InputAdornment";
 // import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
-import DescriptionIcon from '@material-ui/icons/Description';
+// import DescriptionIcon from '@material-ui/icons/Description';
 
 export class OrganisationMedia extends Component {
 

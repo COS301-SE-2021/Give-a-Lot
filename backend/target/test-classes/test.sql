@@ -1,2 +1,0 @@
-insert into "Organisations"("orgName", "orgSlogan", "orgDescription", "orgSector", "orgEmail", "orgId", "status", "password", "contactPerson", "contactNumber", "directory")
-values ('Name','Slogan','Description','Sector','Email','12345','Active','password','contact','2379823','/tmp')

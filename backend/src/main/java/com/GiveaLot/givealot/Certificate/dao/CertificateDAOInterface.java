@@ -16,7 +16,7 @@ public interface CertificateDAOInterface {
 
     public File retrieveCertificate(long orgId);
 
-    public boolean compare
+//    public boolean compare
 
     public boolean createPDFDocument(Certificate cert, Organisation organisation, OrganisationPoints organisationPoints) throws Exception;
 

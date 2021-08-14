@@ -23,7 +23,7 @@ public class CertificateService {
         this.certificateDAOInterface = certificateDAOInterface;
     }
 
-    public boolean addCertificate(long orgId){
+    public boolean addCertificate(long orgId) throws Exception {
         return certificateDAOInterface.addCertificate(orgId);
     }
 

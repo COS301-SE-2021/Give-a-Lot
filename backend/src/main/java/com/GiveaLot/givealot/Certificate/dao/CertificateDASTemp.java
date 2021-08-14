@@ -7,6 +7,7 @@ import com.GiveaLot.givealot.Certificate.model.Certificate;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 
+import com.GiveaLot.givealot.Server.ServerAccess;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.*;
 import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
@@ -21,7 +22,6 @@ import java.io.File;
 
 @Repository("CertificateTemp")
 public class CertificateDASTemp implements CertificateDAOInterface{
-
 
     @Autowired
     public CertificateDASTemp() {
@@ -39,7 +39,7 @@ public class CertificateDASTemp implements CertificateDAOInterface{
 
         //query organisation, certificate
 
-        boolean certificateCreated = createPDFDocument();
+        boolean certificateCreated = false;
 
         if(!certificateCreated){
             throw new Exception("Exception: Problem creating and storing certificate");
@@ -70,7 +70,7 @@ public class CertificateDASTemp implements CertificateDAOInterface{
 
         //we need to remove points from organisationpoints and add it to certificate, we need to remove certlevel from certificate and add it to blockchain
 
-        boolean certificateCreated = createPDFDocument();
+        boolean certificateCreated = false;
 
         if(!certificateCreated){
             throw new Exception("Exception: Problem creating and storing certificate");
@@ -97,40 +97,17 @@ public class CertificateDASTemp implements CertificateDAOInterface{
 
     @Override
     public boolean createPDFDocument(Certificate cert, Organisation organisation, OrganisationPoints organisationPoints) throws Exception {
+        ServerAccess access = new ServerAccess();
 
         int points = organisationPoints.getPoints();
 
-        String CertificateDestination = organisation.getDirectory() + "certificate/";
 
-        String templateCertificate;
+        access.downloadCertificateTemplate(points);
 
-        if (points<20){
-            //Level 0
-            templateCertificate = "location on the server";
-        }
-        else if (points>=20 && points<40){
-            //Level 1
-            templateCertificate = "location on the server";
-        }
-        else if (points>=40 && points<60){
-            //Level 2
-            templateCertificate = "location on the server";
-        }
-        else if (points>=60 && points<80){
-            //Level 3
-            templateCertificate = "location on the server";
-        }
-        else if (points>=80 && points<100){
-            //Level 4
-            templateCertificate = "location on the server";
-        }
-        else if (points>=100){
-            //Level 5
-            templateCertificate = "location on the server";
-        }
-        else{
-            throw new Exception("Exception: Points Exceed limit");
-        }
+        String templateCertificate = "backend/src/main/resources/TempCertificate/CertificateTemplate.pdf";
+        String completeCertificate = "backend/src/main/resources/TempCertificate/CertificateComplete.pdf";
+
+
 
         /** Setup the pdf file **/
 
@@ -167,8 +144,16 @@ public class CertificateDASTemp implements CertificateDAOInterface{
             throw new Exception("Exception: unable to create certificate");
         }
 
-        document.save(CertificateDestination);
+        document.save(completeCertificate);
         document.close();
+
+        access.uploadCertificate(organisation.getOrgId(), organisation.getOrgName());
+
+        File deletion1 = new File(templateCertificate);
+        File deletion2 = new File(completeCertificate);
+
+        deletion1.delete();
+        deletion2.delete();
 
         return true;
 

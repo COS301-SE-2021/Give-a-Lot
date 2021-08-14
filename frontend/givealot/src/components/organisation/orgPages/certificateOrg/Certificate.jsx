@@ -11,7 +11,6 @@ export class Certificate extends Component {
 
                 <div className="temporary">
                     <img src={cert} alt="cert" style={{width: "220px", height: "60px"}}/>
-
                 </div>
             </div>
         )

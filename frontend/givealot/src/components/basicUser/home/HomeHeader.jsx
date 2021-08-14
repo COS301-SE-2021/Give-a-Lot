@@ -6,6 +6,7 @@ import logo from "../../admin/topbar/ID2.png"
 import SearchIcon from '@material-ui/icons/Search';
 import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
+import { Link } from "react-router-dom";
 
 export default function Topbar() {
     return (
@@ -18,7 +19,9 @@ export default function Topbar() {
                 </div>
                 <div className="Hometopright">
                     <div className="HometopbarIconContainer">
-                        <SearchIcon />
+                        <Link to="/verifyPage" className="link">
+                            <SearchIcon />
+                        </Link>
                     </div>
                     <div className="HometopbarIconContainer">
                         <Button variant="outlined" type="submit" className="home_button" >Login</Button>

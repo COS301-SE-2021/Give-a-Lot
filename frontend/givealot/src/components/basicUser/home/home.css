@@ -178,7 +178,6 @@
     width: 1px !important;
     overflow: hidden;
 }
-
 .DropZone {
     border: 3px dashed #fff !important;
     border-radius: 4px;
@@ -189,4 +188,4 @@
     padding: 2em;
     cursor: pointer;
 }
-/*//////////////////////////////////////////////////////////*/
+

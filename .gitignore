@@ -87,3 +87,16 @@ modules.xml
 *.ipr
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij+iml
+/backend/target/classes/com/GiveaLot/givealot/Organisation/requests/Organisation$MD5.class
+/backend/target/classes/com/GiveaLot/givealot/Organisation/requests/Organisation.class
+/backend/target/classes/com/GiveaLot/givealot/Organisation/repository/OrganisationDAOInterface.class
+/backend/target/classes/com/GiveaLot/givealot/Organisation/dataclass/organisationInfo$organisationInfoBuilder.class
+/backend/target/classes/com/GiveaLot/givealot/Organisation/dataclass/organisationInfo.class
+/backend/target/classes/com/GiveaLot/givealot/Organisation/repository/OrganisationInfoRepository.class
+/backend/target/test-classes/com/givealot/givealot/Organisation/repository/OrganisationInfoRepositoryTest.class
+/backend/target/classes/com/GiveaLot/givealot/Organisation/dataclass/OrganisationRepo$MD5.class
+/backend/target/classes/com/GiveaLot/givealot/Organisation/dataclass/OrganisationRepo$OrganisationRepoBuilder.class
+/backend/target/classes/com/GiveaLot/givealot/Organisation/dataclass/OrganisationRepo.class
+/backend/target/classes/com/GiveaLot/givealot/Organisation/repository/OrganisationRepository.class
+/backend/target/test-classes/com/givealot/givealot/Organisation/repository/OrganisationRepositoryTest.class
+/backend/target/classes/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.class

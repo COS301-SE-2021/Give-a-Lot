@@ -14,7 +14,7 @@ public interface CertificateDAOInterface {
 
     public boolean updateCertificate(long orgId) throws Exception;
 
-    public File retrieveCertificate(long orgId);
+    public File retrieveCertificate(long orgId, String orgName) throws Exception;
 
 //    public boolean compare
 

@@ -57,21 +57,21 @@ export class SidebarOrg extends Component {
                                 </li>
                             </Link>
 
-                            <Link to="/adminUsers" className="link">
+                            <Link to="/todos" className="link">
                                 <li className="sidebarListItemOrg">
                                     <AssignmentIcon className="sidebarIconOrg"/>
                                     To-do's
                                 </li>
                             </Link>
 
-                            <Link to="/adminUsers" className="link">
+                            <Link to="/reports" className="link">
                                 <li className="sidebarListItemOrg">
                                     <ReportIcon className="sidebarIconOrg"/>
                                     Reports
                                 </li>
                             </Link>
 
-                            <Link to="/adminUsers" className="link">
+                            <Link to="/certificate" className="link">
                                 <li className="sidebarListItemOrg">
                                     <VerifiedUserIcon className="sidebarIconOrg"/>
                                     Certificate

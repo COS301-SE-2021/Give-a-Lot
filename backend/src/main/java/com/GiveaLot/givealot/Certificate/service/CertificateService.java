@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.mail.internet.MimeMessage;
+import java.io.File;
 
 @Service
 public class CertificateService {
@@ -22,8 +23,16 @@ public class CertificateService {
         this.certificateDAOInterface = certificateDAOInterface;
     }
 
-    public boolean createPDFDocument(Certificate cert, Organisation organisation, OrganisationPoints organisationPoints, String templateDirectory) throws Exception {
-        return certificateDAOInterface.createPDFDocument(cert,organisation,organisationPoints,templateDirectory);
+    public boolean addCertificate(long orgId){
+        return certificateDAOInterface.addCertificate(orgId);
+    }
+
+    public File retrieveCertificate(long orgId){
+        return certificateDAOInterface.retrieveCertificate(orgId);
+    }
+
+    public boolean createPDFDocument(Certificate cert, Organisation organisation, OrganisationPoints organisationPoints) throws Exception {
+        return certificateDAOInterface.createPDFDocument(cert,organisation,organisationPoints);
     }
 
     public boolean checkRenewal() throws Exception {
@@ -42,11 +51,11 @@ public class CertificateService {
         return certificateDAOInterface.CertificateExpiredEmail(orgName, orgEmail);
     }
 
-    public boolean organisationRenewal(String orgId) throws Exception{
+    public boolean organisationRenewal(long orgId) throws Exception{
         return certificateDAOInterface.organisationRenewal(orgId);
     }
 
-    public boolean adminRenewal(String orgId) throws Exception{
+    public boolean adminRenewal(long orgId) throws Exception{
         return certificateDAOInterface.adminRenewal(orgId);
     }
 }

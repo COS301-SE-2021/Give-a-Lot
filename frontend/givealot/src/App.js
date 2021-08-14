@@ -5,13 +5,14 @@ import './App.css';
 // import Register from "./components/register/Register";
 // import RegisterUser from "./components/register/registerUser/RegisterUser";
 // import RegisterOrganisation from "./components/register/registerOrganisation/RegisterOrganisation";
-import Home from "./components/basicUser/home/Home"
+// import Home from "./components/basicUser/home/Home"
+import VerifyHomePage from "./components/basicUser/home/VerifyHomePage";
 
 
 function App() {
   return (
    <div>
-     <Home />
+     <VerifyHomePage />
    </div>
     
   );

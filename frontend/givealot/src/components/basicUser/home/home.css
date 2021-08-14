@@ -134,10 +134,47 @@
     color: #2d9499;
     font-size: xx-large;
 }
+.verifyHomeContent{
+    padding: 5px;
+    background-image: url("verify.png");
+    height: calc(100vh - 65px);
+    background-size: cover;
+    background-position: center;
+    object-fit: fill;
+}
+.VerifyWord{
+    font-size: xx-large;
+    color: white;
+    text-align: center;
+    padding-top: 150px;
+}
+.header__input{
+    align-items: center;
+    background-color: #eff2f5;
+    padding: 10px;
+    margin-left: 10px;
+    box-sizing: border-box;
+    /*border-radius: 10px;*/
+    width: 900px;
+}
 
-/*.bodyHome{*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    align-content: center;*/
-/*    justify-content: space-between;*/
-/*}*/
+.header__input > input{
+    border: none;
+    background-color: transparent;
+    outline-width: 0;
+}
+.inputVerify{
+    display: flex;
+    padding: 70px 500px;
+}
+
+.buv-u-visually-hidden {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+}

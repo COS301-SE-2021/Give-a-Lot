@@ -1,7 +1,13 @@
 package com.GiveaLot.givealot.Organisation.controller;
 import com.GiveaLot.givealot.Organisation.dataclass.OrganisationRepo;
+import com.GiveaLot.givealot.Organisation.dataclass.organisationInfo;
+import com.GiveaLot.givealot.Organisation.requests.AddOrgWebsiteRequest;
+import com.GiveaLot.givealot.Organisation.requests.Organisation;
 import com.GiveaLot.givealot.Organisation.service.OrganisationServiceImp;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
+import java.util.Random;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
@@ -23,35 +29,98 @@ public class OrganisationController
         this.response = response;
     }
 
-    /*
-     * tested, works well
-     */
-    /*@PostMapping("/add/org")
+    /* tested, works well */
+    @PostMapping("/add/org")
     public responseJSON addOrganisation(@RequestBody @NonNull Organisation body)
     {
         response.setObject(null);
         try
         {
-            if(service.addOrganisation(body))
+            if(service.addOrganisation(new OrganisationRepo(body.getOrgName(),
+                    body.getSlogan(),body.getOrgDescription(),body.getOrgSector(),
+                    body.getOrgEmail(),null,body.getStatus(),body.getContactPerson(),
+                    body.getContactNumber(), "givealot/organisations/", body.getPassword())))
             {
                 response.setCode("org_add_ok_200");
                 response.setMessage("success");
             }
-            else
-            {
-                response.setCode("org_add_bad_500");
-                response.setMessage("unsuccessful");
-                *//* but why was the organisation not added??? *//*
-            }
-            return response;
         }
         catch (Exception e)
         {
             response.setCode("org_add_err_501");
             response.setMessage("unsuccessful " + e.getMessage());
-            return response;
         }
-    }*/
+        return response;
+    }
+
+    /* tested - works */
+    @GetMapping("/select/{orgId}")
+    public responseJSON selectOrganisation(@PathVariable("orgId") @NonNull String orgId)
+    {
+        response.setObject(null);
+        try
+        {
+            OrganisationRepo res = service.selectOrganisation(orgId);
+            if(res != null)
+            {
+                response.setCode("org_sel_ok_200");
+                response.setMessage("success");
+            }
+            response.setObject(res);
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_sel_bad_500");
+            response.setMessage("unsuccessful " + e.toString());
+        }
+        return response;
+    }
+
+    /* tested - works */
+    @GetMapping("/info/{orgId}")
+    public responseJSON selectOrganisationInfo(@PathVariable("orgId") @NonNull String orgId)
+    {
+        response.setObject(null);
+        try
+        {
+            organisationInfo res = service.selectOrganisationInfo(orgId);
+            if(res != null)
+            {
+                response.setCode("org_sel_ok_200");
+                response.setMessage("success");
+                response.setObject(res);
+            }
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_sel_bad_500");
+            response.setMessage("unsuccessful " + e);
+        }
+        return response;
+    }
+
+    /* tested - works */
+    @PutMapping("/add/website")
+    public responseJSON addOrgWebsite(@RequestBody @NonNull AddOrgWebsiteRequest body)
+    {
+        response.setObject(null);
+        try
+        {
+            if(service.addOrgWebsite(body))
+            {
+                response.setCode("add_ok_200");
+                response.setMessage("success");
+            }
+        }
+        catch (Exception e)
+        {
+            response.setCode("add_bad_500");
+            response.setMessage("unsuccessful " + e.getMessage());
+        }
+        return response;
+    }
+
+
 
     /*
     * tested, works well
@@ -86,60 +155,10 @@ public class OrganisationController
     /*
     * tested
     * */
-    @GetMapping("/select/{orgId}")
-    public responseJSON selectOrganisation(@PathVariable("orgId") @NonNull String orgId)
-    {
-        System.out.println("selecting " + orgId);
-        response.setObject(null);
-        try
-        {
-            OrganisationRepo res = service.selectOrganisation(orgId);
-            if(res != null)
-            {
-                response.setCode("org_sel_ok_200");
-                response.setMessage("success");
-                System.out.println(res);
-            }
-
-            response.setObject(res);
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_sel_bad_500");
-            response.setMessage("unsuccessful " + e.toString());
-        }
-        return response;
-    }
 
 
-    /* tested - works */
-    /*@GetMapping("/info/{orgId}")
-    public responseJSON selectOrganisationInfo(@PathVariable("orgId")  @NonNull String orgId)
-    {
-        response.setObject(null);
-        try
-        {
-            OrganisationInfo res = service.selectOrganisationInfo(orgId);
-            if(res != null)
-            {
-                response.setCode("org_sel_ok_200");
-                response.setMessage("success");
-                response.setObject(res);
-            }
-            else
-            {
-                response.setCode("org_sel_bad_200");
-                response.setMessage("unsuccessful");
-            }
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_sel_bad_500");
-            response.setMessage("unsuccessful " + e.toString());
-        }
 
-        return response;
-    }*/
+
 
     /* tested - works */
     /*@PutMapping("/activate/{orgId}")
@@ -226,32 +245,7 @@ public class OrganisationController
         }
     }*/
 
-    /* tested - works */
-    /*@PutMapping("/add/website")
-    public responseJSON addOrgWebsite(@RequestBody @NonNull AddOrgWebsiteRequest body)
-    {
-        response.setObject(null);
-        try
-        {
-            if(service.addOrgWebsite(body))
-            {
-                response.setCode("add_ok_201");
-                response.setMessage("success");
-            }
-            else
-            {
-                response.setCode("add_bad_201");
-                response.setMessage("unsuccessful");
-            }
-            return response;
-        }
-        catch (Exception e)
-        {
-            response.setCode("add_bad_500");
-            response.setMessage("unsuccessful " + e.getMessage());
-            return response;
-        }
-    }*/
+
 
 
     /* tested - works - left comment for OrganisationDASTemp

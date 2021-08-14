@@ -16,14 +16,26 @@ import org.springframework.transaction.annotation.Transactional;
 *
 *
 * */
-public interface OrganisationRepository extends JpaRepository<OrganisationRepo,String> {
+public interface OrganisationRepository extends JpaRepository<OrganisationRepo,Long> {
 
     @Query("select o from OrganisationRepo o where o.orgId = ?1")
-    OrganisationRepo selectOrganisation(String orgId);
+    OrganisationRepo selectOrganisationById(Long orgId);
+
+    @Query("select o from OrganisationRepo o where o.orgEmail = ?1")
+    OrganisationRepo selectOrganisationByEmail(String orgEmail);
 
     @Modifying
     @Transactional
     @Query("UPDATE OrganisationRepo o SET o.status = ?2 WHERE o.orgId = ?1")
-    Integer updateStatus(String orgId, String status);
+    Integer updateStatus(Long orgId, String status);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE OrganisationRepo o SET o.directory = ?2 WHERE o.orgId = ?1")
+    Integer updateRepo(Long orgId, String dir);
+
+
+    @Query("SELECT DISTINCT o.orgId FROM OrganisationRepo AS o WHERE o.orgEmail = ?1")
+    int getOrgId(String orgEmail);
 
 }

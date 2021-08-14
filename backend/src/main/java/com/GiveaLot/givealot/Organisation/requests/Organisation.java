@@ -15,25 +15,21 @@ public class Organisation {
     private String orgDescription;
     private String orgSector;
     private String orgEmail;
-    private Long orgId;
     private String status;
     private String contactPerson;
     private String contactNumber;
-    private String directory;
     private String password;
 
 
-    public Organisation(@JsonProperty Long orgId,
-                        @JsonProperty String orgName,
-                        @JsonProperty String slogan,
-                        @JsonProperty String orgDescription,
-                        @JsonProperty String orgSector,
-                        @JsonProperty String orgEmail,
-                        @JsonProperty String status,
-                        @JsonProperty String contactPerson,
-                        @JsonProperty String contactNumber,
-                        @JsonProperty String directory,
-                        @JsonProperty String password
+    public Organisation(@JsonProperty ("orgName") String orgName,
+                        @JsonProperty ("slogan") String slogan,
+                        @JsonProperty ("orgDescription") String orgDescription,
+                        @JsonProperty ("orgSector") String orgSector,
+                        @JsonProperty ("orgEmail") String orgEmail,
+                        @JsonProperty ("status") String status,
+                        @JsonProperty ("contactPerson") String contactPerson,
+                        @JsonProperty ("contactNumber") String contactNumber,
+                        @JsonProperty ("password") String password
     )
     {
         this.orgName = orgName;
@@ -41,11 +37,9 @@ public class Organisation {
         this.orgDescription = orgDescription;
         this.orgSector = orgSector;
         this.orgEmail = orgEmail;
-        this.orgId = orgId;
         this.status = status;
         this.contactNumber = contactNumber;
         this.contactPerson = contactPerson;
-        this.directory = directory;
         this.password =password;
     }
 
@@ -93,13 +87,7 @@ public class Organisation {
         this.orgEmail = orgEmail;
     }
 
-    public Long getOrgId() {
-        return orgId;
-    }
 
-    public void setOrgId(Long orgId) {
-        this.orgId = orgId;
-    }
 
     public String getStatus() {
         return status;
@@ -125,14 +113,6 @@ public class Organisation {
         this.contactNumber = contactNumber;
     }
 
-    public String getDirectory() {
-        return directory;
-    }
-
-    public void setDirectory(String directory) {
-        this.directory = directory;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -149,11 +129,9 @@ public class Organisation {
                 ", orgDescription='" + orgDescription + '\'' +
                 ", orgSector='" + orgSector + '\'' +
                 ", orgEmail='" + orgEmail + '\'' +
-                ", orgId='" + orgId + '\'' +
                 ", status='" + status + '\'' +
                 ", contactPerson='" + contactPerson + '\'' +
                 ", contactNumber='" + contactNumber + '\'' +
-                ", directory='" + directory + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }

@@ -1,3 +1,399 @@
+PUT http://localhost:8080/v1/organisation/add/website
+Content-Type: application/json
+
+{
+  "orgId" : "9",
+  "website" : "www.myOrganisation.org"
+}
+
+<> 2021-08-14T194242.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/add/website
+Content-Type: application/json
+
+{
+  "orgId" : "9",
+  "website" : "www.myOrganisation.org"
+}
+
+<> 2021-08-14T194235.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/5
+
+<> 2021-08-14T194213.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/add/website
+Content-Type: application/json
+
+{
+  "orgId" : "5",
+  "website" : "www.myOrganisation.org"
+}
+
+<> 2021-08-14T194145.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/5
+
+<> 2021-08-14T191400.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/7
+
+<> 2021-08-14T191331.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/7
+
+<> 2021-08-14T190946.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/5
+
+<> 2021-08-14T190935.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/5
+
+<> 2021-08-14T190607.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/50
+
+<> 2021-08-14T190552.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/5
+
+<> 2021-08-14T190537.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/5
+
+###
+
+GET http://localhost:8080/v1/organisation/info/5
+
+###
+
+GET http://localhost:8080/v1/organisation/info/5
+
+<> 2021-08-14T190314.404.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "controller test",
+  "slogan" : "controller test",
+  "orgDescription" : "controller test",
+  "orgSector" : "controller test",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "controller test",
+  "contactPerson" : "controller test",
+  "contactNumber" : "0909787329",
+  "password" : "password"
+}
+
+<> 2021-08-14T185202.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "controller test",
+  "slogan" : "controller test",
+  "orgDescription" : "controller test",
+  "orgSector" : "controller test",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "controller test",
+  "contactPerson" : "controller test",
+  "contactNumber" : "0909787329",
+  "password" : "password"
+}
+
+<> 2021-08-14T185155.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "controller test",
+  "slogan" : "controller test",
+  "orgDescription" : "controller test",
+  "orgSector" : "controller test",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "controller test",
+  "contactPerson" : "controller test",
+  "contactNumber" : "0909787329",
+  "directory" : "directory/",
+  "password" : "password"
+}
+
+<> 2021-08-14T175255.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "controller test",
+  "slogan" : "controller test",
+  "orgDescription" : "controller test",
+  "orgSector" : "controller test",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "controller test",
+  "contactPerson" : "controller test",
+  "contactNumber" : "0909787329",
+  "directory" : "directory/",
+  "password" : "password"
+}
+
+<> 2021-08-14T175223.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "controller test",
+  "slogan" : "controller test",
+  "orgDescription" : "controller test",
+  "orgSector" : "controller test",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "controller test",
+  "contactPerson" : "controller test",
+  "contactNumber" : "0909787329",
+  "directory" : "directory/",
+  "password" : "password"
+}
+
+<> 2021-08-14T173254.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "controller test",
+  "slogan" : "controller test",
+  "orgDescription" : "controller test",
+  "orgSector" : "controller test",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "controller test",
+  "contactPerson" : "controller test",
+  "contactNumber" : "0909787329",
+  "directory" : "directory/",
+  "password" : "password"
+}
+
+<> 2021-08-14T172547.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "controller test",
+  "slogan" : "controller test",
+  "orgDescription" : "controller test",
+  "orgSector" : "controller test",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "controller test",
+  "contactPerson" : "controller test",
+  "contactNumber" : "0909787329",
+  "directory" : "directory/",
+  "password" : "password"
+}
+
+<> 2021-08-14T172203.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "controller test",
+  "slogan" : "controller test",
+  "orgDescription" : "controller test",
+  "orgSector" : "controller test",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "controller test",
+  "contactPerson" : "controller test",
+  "contactNumber" : "0909787329",
+  "directory" : "directory/",
+  "password" : "password"
+}
+
+<> 2021-08-14T165804.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "controller test",
+  "slogan" : "controller test",
+  "orgDescription" : "controller test",
+  "orgSector" : "controller test",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "controller test",
+  "contactPerson" : "controller test",
+  "contactNumber" : "0909787329",
+  "directory" : "directory/",
+  "password" : "password"
+}
+
+<> 2021-08-14T165752.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "controller test",
+  "slogan" : "controller test",
+  "orgDescription" : "controller test",
+  "orgSector" : "controller test",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "controller test",
+  "contactPerson" : "controller test",
+  "contactNumber" : "0909787329",
+  "directory" : "directory/",
+  "password" : "password"
+}
+
+<> 2021-08-14T165410.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "controller test",
+  "slogan" : "controller test",
+  "orgDescription" : "controller test",
+  "orgSector" : "controller test",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "controller test",
+  "contactPerson" : "controller test",
+  "contactNumber" : "0909787329",
+  "directory" : "directory/",
+  "password" : "password"
+}
+
+<> 2021-08-14T152029.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "controller test",
+  "slogan" : "controller test",
+  "orgDescription" : "controller test",
+  "orgSector" : "controller test",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "controller test",
+  "contactPerson" : "controller test",
+  "contactNumber" : "0909787329",
+  "directory" : "directory/",
+  "password" : "password"
+}
+
+<> 2021-08-14T152013.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "controller test",
+  "slogan" : "controller test",
+  "orgDescription" : "controller test",
+  "orgSector" : "controller test",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "controller test",
+  "contactPerson" : "controller test",
+  "contactNumber" : "0909787329",
+  "directory" : "directory/",
+  "password" : "password"
+}
+
+<> 2021-08-14T151108.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "controller test",
+  "slogan" : "controller test",
+  "orgDescription" : "controller test",
+  "orgSector" : "controller test",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "controller test",
+  "contactPerson" : "controller test",
+  "contactNumber" : "0909787329",
+  "directory" : "directory/",
+  "password" : "password"
+}
+
+<> 2021-08-14T145351.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "controller test",
+  "slogan" : "controller test",
+  "orgDescription" : "controller test",
+  "orgSector" : "controller test",
+  "orgEmail" : "orgEmail@gmail.com",
+  "status" : "controller test",
+  "contactPerson" : "controller test",
+  "contactNumber" : "0909787329",
+  "directory" : "directory/",
+  "password" : "password"
+}
+
+<> 2021-08-14T143709.200.json
+
+###
+
 GET http://localhost:8080/v1/organisation/select/12345
 
 ###
@@ -115,174 +511,6 @@ GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
 GET http://localhost:8080/v1/organisation/points/0c0585b5fd5b5be2d0127028727fa784
 
 <> 2021-08-04T221353.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T221347.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T221224.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T221221.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/points/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T221212.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220919.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/points/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220916.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220901.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220819.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220737.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220642.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220612.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220512.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220421.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220201.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220059.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T215951.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T215648.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T215108.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/{{0c0585b5fd5b5be2d0127028727fa784}}
-
-###
-
-GET http://localhost:8080/v1/organisation/select/{{0c0585b5fd5b5be2d0127028727fa784}}
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T210301.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T210212.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T210128.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T204903.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/points/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T204848.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T204247.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T204154.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/points/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T204124.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/points/0c0585b5fd5b5be2d0127028727fa784
 
 ###
 

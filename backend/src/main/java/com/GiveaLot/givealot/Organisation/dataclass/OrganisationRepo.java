@@ -9,9 +9,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 @Builder
-@AllArgsConstructor
 @Entity
-@Table(name="Organisations1")
+@Table(name = "Organisations")
 public class OrganisationRepo {
 
     private String orgName;
@@ -42,12 +41,9 @@ public class OrganisationRepo {
     private String orgEmail;
 
     @Id
-    @Column(
-            name = "orgId",
-            updatable = false,
-            nullable = false
-    )
-    private String orgId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "orgId", nullable = false, unique = true)
+    public Long orgId;
 
     @Column(
             name="status",
@@ -79,6 +75,20 @@ public class OrganisationRepo {
             columnDefinition = "TEXT"
     )
     private String password;
+
+    public OrganisationRepo(String orgName, String slogan, String orgDescription, String orgSector, String orgEmail, Long orgId, String status, String contactPerson, String contactNumber, String directory, String password) {
+        this.orgName = orgName;
+        this.slogan = slogan;
+        this.orgDescription = orgDescription;
+        this.orgSector = orgSector;
+        this.orgEmail = orgEmail;
+        this.orgId = orgId;
+        this.status = status;
+        this.contactPerson = contactPerson;
+        this.contactNumber = contactNumber;
+        this.directory = directory;
+        this.password = password;
+    }
 
     public OrganisationRepo(){}
 
@@ -122,11 +132,11 @@ public class OrganisationRepo {
         this.orgEmail = orgEmail;
     }
 
-    public String getOrgId() {
+    public Long getOrgId() {
         return orgId;
     }
 
-    public void setOrgId(String orgId) {
+    public void setOrgId(Long orgId) {
         this.orgId = orgId;
     }
 

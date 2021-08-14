@@ -15,31 +15,55 @@ class OrganisationInfoRepositoryTest {
 
     @Test
     void selectOrganisationInfo() {
-        organisationInfo organisationInfo = repository.selectOrganisationInfo("uniqueId1");
+        organisationInfo organisationInfo = repository.selectOrganisationInfo(10L);
         System.out.println(organisationInfo);
     }
 
     @Test
     void addOrgWebsite() {
-        Integer res = repository.addOrgWebsite("uniqueId1", "www.test.org");
+        Integer res = repository.addOrgWebsite(10L, "www.test.org");
         System.out.println(res);
     }
 
     @Test
     void removeOrgWebsite() {
-        Integer res = repository.removeOrgWebsite("uniqueId1");
+        Integer res = repository.removeOrgWebsite(10L);
         System.out.println(res);
     }
 
     @Test
     void addOrgAddress() {
-        Integer res = repository.addOrgAddress("uniqueId1", "82 givealot str, pretoria, 1801, SA");
+        Integer res = repository.addOrgAddress(10L, "82 givealot str, pretoria, 1801, SA");
         System.out.println(res);
     }
 
     @Test
     void removeOrgAddress() {
-        Integer res = repository.removeOrgAddress("uniqueId1");
+        Integer res = repository.removeOrgAddress(10L);
         System.out.println(res);
+    }
+
+    @Test
+    void addTwitter() {
+    }
+
+    @Test
+    void addInstagram() {
+    }
+
+    @Test
+    void addFacebook() {
+    }
+
+    @Test
+    void removeTwitter() {
+    }
+
+    @Test
+    void removeInstagram() {
+    }
+
+    @Test
+    void removeFacebook() {
     }
 }

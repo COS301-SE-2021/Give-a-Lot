@@ -3,10 +3,7 @@ package com.GiveaLot.givealot.Organisation.dataclass;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Builder
@@ -15,12 +12,9 @@ import java.util.Date;
 @Table(name="organisationInfo")
 public class organisationInfo {
     @Id
-    @Column(
-            name = "orgId",
-            updatable = false,
-            nullable = false
-    )
-    private String orgId;
+    /*@GeneratedValue(strategy = GenerationType.IDENTITY)*/
+    @Column(name = "orgId", nullable = false, unique = true)
+    public Long orgId;
 
     private String  address;
     private Integer numberOfImages;
@@ -35,6 +29,10 @@ public class organisationInfo {
     private String instagram;
     private String establishmentDate;
 
+    public organisationInfo(Long orgId)
+    {
+        this.setOrgId(orgId);
+    }
     public organisationInfo() {
         this.address = null;
         this.numberOfImages = null;
@@ -50,11 +48,11 @@ public class organisationInfo {
         this.establishmentDate = null;
     }
 
-    public String getOrgId() {
+    public Long getOrgId() {
         return orgId;
     }
 
-    public void setOrgId(String orgId) {
+    public void setOrgId(Long orgId) {
         this.orgId = orgId;
     }
 

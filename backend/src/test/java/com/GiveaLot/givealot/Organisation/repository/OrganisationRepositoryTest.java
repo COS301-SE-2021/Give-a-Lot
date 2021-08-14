@@ -19,7 +19,7 @@ class OrganisationRepositoryTest {
     @Test
     public void selectOrgTest()
     {
-        OrganisationRepo res = repository.selectOrganisation("9998");
+        OrganisationRepo res = repository.selectOrganisationById(10L);
         System.out.println(res);
     }
 
@@ -27,7 +27,6 @@ class OrganisationRepositoryTest {
     public void registerOrganisationTest()
     {
         OrganisationRepo org = OrganisationRepo.builder()
-                .orgId("uniqueId1")
                 .orgDescription("register test description")
                 .orgEmail("hello@gmail.com")
                 .orgSector("my sector")
@@ -42,7 +41,6 @@ class OrganisationRepositoryTest {
 
         System.out.println(repository.save(org));
         organisationInfo organisationInfo = new organisationInfo();
-        organisationInfo.setOrgId("uniqueId1");
         LocalDate date = LocalDate.now();
         //organisationInfo.setEstablishmentDate(date.toString());
         OrganisationInfoRepository.save(organisationInfo);
@@ -53,11 +51,18 @@ class OrganisationRepositoryTest {
     {
         try {
             System.out.println("change status test");
-            System.out.println(repository.updateStatus("uniqueId1", "suspended".toLowerCase()));
+            System.out.println(repository.updateStatus(10L, "suspended".toLowerCase()));
         }
         catch (Exception e)
         {
             System.out.println(e);
         }
+    }
+
+    @Test
+    void getOrgId()
+    {
+        System.out.println("getting org ID");
+        System.out.println(repository.getOrgId("orgEmail@gmail.com"));
     }
 }

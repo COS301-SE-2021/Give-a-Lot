@@ -27,8 +27,8 @@ public class CertificateService {
         return certificateDAOInterface.addCertificate(orgId);
     }
 
-    public File retrieveCertificate(long orgId){
-        return certificateDAOInterface.retrieveCertificate(orgId);
+    public File retrieveCertificate(long orgId, String orgName) throws Exception {
+        return certificateDAOInterface.retrieveCertificate(orgId, orgName);
     }
 
     public boolean createPDFDocument(Certificate cert, Organisation organisation, OrganisationPoints organisationPoints) throws Exception {

@@ -21,7 +21,7 @@ export default function Topbar() {
                         <SearchIcon />
                     </div>
                     <div className="HometopbarIconContainer">
-                        <Button variant="outlined" type="submit" className="home_button"  >Login</Button>
+                        <Button variant="outlined" type="submit" className="home_button" >Login</Button>
                     </div>
                     <div className="HometopbarIconContainer">
                         <MenuIcon />

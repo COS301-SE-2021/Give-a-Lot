@@ -27,12 +27,13 @@
 
 import "./register.css"
 import FeaturedHeader from "../featuredHeader/FeaturedHeader"
-import {
-    Switch,
-    Route
-} from "react-router-dom";
-import RegisterUser from "./registerUser/RegisterUser"
-import RegisterOrganisation from "./registerOrganisation/RegisterOrganisation";
+// import {
+//     BrowserRouter as Router,
+//     Switch,
+//     Route
+// } from "react-router-dom";
+// import RegisterUser from "./registerUser/RegisterUser"
+// import RegisterOrganisation from "./registerOrganisation/RegisterOrganisation";
 import RegisterBody from "./RegisterBody";
 
 function Register() {
@@ -40,17 +41,8 @@ function Register() {
         // <Router>
             <div className="register">
                 <FeaturedHeader />
-                <RegisterBody />
                 <div>
-                    <Switch>
-                        <Route exact path="/registerUser">
-                            <RegisterUser />
-                        </Route>
-                        <Route path="/registerOrganisations">
-                            <RegisterOrganisation />
-                        </Route>
-                    </Switch>
-
+                    <RegisterBody />
                 </div>
             </div>
         // </Router>

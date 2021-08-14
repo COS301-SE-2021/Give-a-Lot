@@ -3,12 +3,16 @@ import "./register.css"
 import PeopleIcon from '@material-ui/icons/People';
 import PersonIcon from '@material-ui/icons/Person';
 import {Link} from "react-router-dom";
-// import RegisterUser from "./registerUser/RegisterUser";
-// import RegisterOrganisation from "./registerOrganisation/RegisterOrganisation";
+import RegisterUser from "./registerUser/RegisterUser";
+import RegisterOrganisation from "./registerOrganisation/RegisterOrganisation";
 // import ListItem from '@material-ui/core/ListItem';
 // import ListItemText from '@material-ui/core/ListItemText';
 // import ListItem from '@material-ui/core/ListItem';
 // import ListItemText from '@material-ui/core/ListItemText';
+import {
+    Switch,
+    Route
+} from "react-router-dom";
 
 export class RegisterBody extends Component {
 
@@ -35,14 +39,14 @@ export class RegisterBody extends Component {
                             </div>
                         </Link>
                     </div>
-                    {/*<Switch>*/}
-                    {/*    <Route exact path="/registerUser">*/}
-                    {/*        <RegisterUser />*/}
-                    {/*    </Route>*/}
-                    {/*    <Route exact path="/registerOrganisation">*/}
-                    {/*        <RegisterOrganisation />*/}
-                    {/*    </Route>*/}
-                    {/*</Switch>*/}
+                    <Switch>
+                        <Route exact path="/registerUser">
+                            <RegisterUser />
+                        </Route>
+                        <Route exact path="/registerOrganisation">
+                            <RegisterOrganisation />
+                        </Route>
+                    </Switch>
                 </div>
             </div>
 

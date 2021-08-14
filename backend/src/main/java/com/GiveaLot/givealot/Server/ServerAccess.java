@@ -130,12 +130,37 @@ public class ServerAccess {
 
     }
 
+    public File downloadCertificate(long orgId, String orgName) throws Exception {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            channelSftp.connect();
+
+            String orgIdString = String.valueOf(orgId);
+
+            String templateLocation;
+
+            templateLocation = remoteDir + "Organisations/" + orgIdString + "/" + "Certificates" + "/" + orgName.replaceAll("\\s+", "") + "Certificate.pdf";
+
+            File fileLocation = new File(orgName.replaceAll("\\s+", "") + "Certificate.pdf");
+            InputStream stream = channelSftp.get(templateLocation);
+            FileUtils.copyInputStreamToFile(stream, fileLocation);
+
+            return fileLocation;
+
+        }catch (Exception e){
+            throw new Exception("Exception: Failed to download certificate");
+        }
+        finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+
     public void uploadAuditDocument(long orgId, String orgName, File document) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
 
             document.renameTo(new File("backend/src/main/resources/TempCertificate/audit.pdf"));
-
 
             channelSftp.connect();
 
@@ -156,39 +181,24 @@ public class ServerAccess {
     }
 
     public void uploadTaxReference(long orgId, String orgName, File document) throws Exception {
-
         ChannelSftp channelSftp = setupJsch();
-        File file = new File("backend/src/main/resources/taxRef.pdf");
         try {
 
-            System.out.println(file.createNewFile());
+            document.renameTo(new File("backend/src/main/resources/TempCertificate/taxRef.pdf"));
 
-            System.out.println(file.getAbsolutePath());
-
-            if (!file.renameTo(document)){
-                System.out.println("failed to move");
-                throw new Exception("Exception: Failed to recreate the document");
-            }
-
-            System.out.println("works2");
             channelSftp.connect();
 
             String orgIdString = String.valueOf(orgId);
-            String localFile = "./backend/src/main/resources/TempCertificate/taxRef.pdf";
-
-            System.out.println("works3");
+            String localFile = "backend/src/main/resources/TempCertificate/taxRef.pdf";
 
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Documents" + "/" + orgName.replaceAll("\\s+", "") + "TaxReference.pdf");
 
-            System.out.println("works4");
-
-
-
+            File deletion = new File(localFile);
+            deletion.delete();
         }catch (Exception e){
-            e.printStackTrace();
+            throw new Exception("Exception: Failed to interact with the server");
         }
         finally {
-            file.delete();
             channelSftp.exit();
             session.disconnect();
         }
@@ -199,7 +209,9 @@ public class ServerAccess {
 
         File file = new File("C:/auditDoc.pdf");
 
-        access.uploadTaxReference(45,"New Org",file);
+        File doc = access.downloadCertificate(45,"New Org");
+
+        access.uploadAuditDocument(45,"New Org",doc);
     }
 
 

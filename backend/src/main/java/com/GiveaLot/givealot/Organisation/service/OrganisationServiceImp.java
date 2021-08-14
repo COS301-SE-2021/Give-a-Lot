@@ -1,11 +1,13 @@
 package com.GiveaLot.givealot.Organisation.service;
 
+import com.GiveaLot.givealot.Certificate.model.Certificate;
 import com.GiveaLot.givealot.Organisation.dataclass.organisationInfo;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Organisation.dataclass.OrganisationRepo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.requests.*;
+import com.GiveaLot.givealot.Server.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
@@ -14,6 +16,8 @@ import java.util.UUID;
 
 @Service
 public class OrganisationServiceImp implements OrganisationService {
+
+
 
     @Autowired
     private OrganisationRepository OrganisationRepository;
@@ -215,13 +219,7 @@ public class OrganisationServiceImp implements OrganisationService {
         if(organisation.getOrgName() == null || organisation.getOrgDescription() == null|| organisation.getPassword() == null|| organisation.getOrgSector() == null|| organisation.getStatus() == null|| organisation.getOrgEmail() == null|| organisation.getDirectory() == null|| organisation.getContactNumber() == null|| organisation.getContactPerson() == null|| organisation.getSlogan() == null)
             throw new Exception("invalid field provided: null");
 
-        /*UUID uuid = UUID.nameUUIDFromBytes(organisation.getOrgEmail().getBytes());
-        organisation.setOrgId(uuid.toString());*/
-
-
-        //organisation.setDirectory(organisation.getDirectory() + organisation.getOrgId());
-
-        organisation.setDirectory(organisation.getDirectory());
+        organisation.setDirectory("/home/ubuntu/Organisations/" + organisation.getOrgId());
         /*if(OrganisationRepository.selectOrganisationById(organisation.getOrgId()) != null)
             throw new Exception("This organisation id is taken");*/
 
@@ -262,6 +260,16 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("Exception: orgSlogan does not satisfy the database constraints");
 
         OrganisationRepository.save(organisation);
+
+        ServerAccess access = new ServerAccess();
+
+        access.createOrganisationDirectory(organisation.getOrgId(),organisation.getOrgName());
+
+        //create certificate tuple
+
+        //create certificate
+
+
 
         int tmp_id = OrganisationRepository.getOrgId(organisation.getOrgEmail());
         OrganisationRepository.updateRepo((long) tmp_id, "/organisations/"+ Integer.toString(tmp_id));

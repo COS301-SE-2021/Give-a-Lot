@@ -39,21 +39,21 @@ public class CertificateDASTemp implements CertificateDAOInterface{
 
         //query organisation, certificate
 
-        boolean certificateCreated = false;
-
-        if(!certificateCreated){
-            throw new Exception("Exception: Problem creating and storing certificate");
-        }
-
-        File certificate = retrieveCertificate(orgId);
-
-        String[] result = blockchainService
-                .uploadCertificate(orgId, certificate);
-
-        String certificateHash = result[0];
-        String txHash = result[1];
-
-        long index = blockchainService.findCertificateIndex(orgId);
+//        boolean certificateCreated = createPDFDocument(cert,organisation,organisationPoints);
+//
+//        if(!certificateCreated){
+//            throw new Exception("Exception: Problem creating and storing certificate");
+//        }
+//
+//        File certificate = retrieveCertificate(orgId, organisation.getOrgName());
+//
+//        String[] result = blockchainService
+//                .uploadCertificate(orgId, certificate);
+//
+//        String certificateHash = result[0];
+//        String txHash = result[1];
+//
+//        long index = blockchainService.findCertificateIndex(orgId);
 
         //query to add current latest tx hash, index, certificate hash and level to blockchain table;
 
@@ -70,29 +70,30 @@ public class CertificateDASTemp implements CertificateDAOInterface{
 
         //we need to remove points from organisationpoints and add it to certificate, we need to remove certlevel from certificate and add it to blockchain
 
-        boolean certificateCreated = false;
-
-        if(!certificateCreated){
-            throw new Exception("Exception: Problem creating and storing certificate");
-        }
-
-        File certificate = retrieveCertificate(orgId);
-
-        String[] result = blockchainService
-                .upgradeCertificate(0,orgId, certificate,0);
-
-        String certificateHash = result[0];
-        String txHash = result[1];
-
-        //query to add current latest tx hash, certificate hash and level to blockchain table;
+//        boolean certificateCreated = createPDFDocument(cert,organisation,organisationPoints);
+//
+//        if(!certificateCreated){
+//            throw new Exception("Exception: Problem creating and storing certificate");
+//        }
+//
+//        File certificate = retrieveCertificate(orgId, organisation.getOrgName());
+//
+//        String[] result = blockchainService
+//                .upgradeCertificate(0,orgId, certificate,0);
+//
+//        String certificateHash = result[0];
+//        String txHash = result[1];
+//
+//        //query to add current latest tx hash, certificate hash and level to blockchain table;
 
         return true;
     }
 
     @Override
-    public File retrieveCertificate(long orgId) {
+    public File retrieveCertificate(long orgId, String orgName) throws Exception {
+        ServerAccess access = new ServerAccess();
 
-        return null;
+        return access.downloadCertificate(orgId,orgName);
     }
 
     @Override

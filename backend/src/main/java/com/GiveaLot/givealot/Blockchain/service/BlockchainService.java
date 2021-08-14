@@ -1,3 +1,4 @@
+/*
 package com.GiveaLot.givealot.Blockchain.service;
 
 import com.GiveaLot.givealot.Blockchain.contract.CertificateContract;
@@ -41,3 +42,4 @@ public class BlockchainService {
         return blockchainDAOInterface.compareCertificateHash(index,orgId,certificate);
     }
 }
+*/

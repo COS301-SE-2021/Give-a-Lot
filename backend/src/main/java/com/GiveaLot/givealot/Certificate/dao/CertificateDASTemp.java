@@ -1,3 +1,4 @@
+/*
 package com.GiveaLot.givealot.Certificate.dao;
 
 import com.GiveaLot.givealot.Blockchain.dao.BlockchainDAOInterface;
@@ -110,7 +111,9 @@ public class CertificateDASTemp implements CertificateDAOInterface{
 
 
 
-        /** Setup the pdf file **/
+        */
+/** Setup the pdf file **//*
+
 
         File template = new File(templateCertificate);
 
@@ -119,7 +122,9 @@ public class CertificateDASTemp implements CertificateDAOInterface{
 
         PDAcroForm acroForm = catalog.getAcroForm();
 
-        /** Assign acroform fields **/
+        */
+/** Assign acroform fields **//*
+
 
         try {
 
@@ -190,3 +195,4 @@ public class CertificateDASTemp implements CertificateDAOInterface{
         return false;
     }
 }
+*/

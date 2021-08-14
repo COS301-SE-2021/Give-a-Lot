@@ -1,3 +1,4 @@
+/*
 package com.GiveaLot.givealot.Server;
 
 import com.GiveaLot.givealot.Organisation.model.Organisation;
@@ -216,3 +217,4 @@ public class ServerAccess {
 
 
 }
+*/

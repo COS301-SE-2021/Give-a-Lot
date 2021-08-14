@@ -1,3 +1,4 @@
+/*
 package com.GiveaLot.givealot.Blockchain.dao;
 
 import com.GiveaLot.givealot.Blockchain.contract.CertificateContract;
@@ -33,3 +34,4 @@ public interface BlockchainDAOInterface {
     public Credentials getCredentialsFromPrivateKey();
 
 }
+*/

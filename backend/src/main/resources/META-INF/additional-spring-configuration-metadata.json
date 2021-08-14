@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "blockchain.key",
+      "type": "java.lang.String",
+      "description": "Ethereum account private key."
+  }
+] }

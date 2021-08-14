@@ -13,6 +13,7 @@ import NewUser from "./orgPages/newUser/NewUser"
 import OrgCalendar from "./orgPages/orgCalendar/OrgCalendar";
 import Profile from "./orgPages/profile/Profile"
 import Gallery from "./orgPages/gallery/Gallery";
+import Certificate from "./orgPages/certificateOrg/Certificate";
 
 function Organisation() {
     return (
@@ -46,6 +47,9 @@ function Organisation() {
                         </Route>
                         <Route path="/gallery">
                             <Gallery />
+                        </Route>
+                        <Route path="/certificate">
+                            <Certificate />
                         </Route>
                     </Switch>
 

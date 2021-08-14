@@ -4,15 +4,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AddSocialsRequest
 {
-
     private String type;
     private String orgId;
     private String url;
 
     public AddSocialsRequest(
-                             @JsonProperty String type,
-                             @JsonProperty String orgId,
-                             @JsonProperty String url) {
+                             @JsonProperty ("type") String type,
+                             @JsonProperty ("orgId") String orgId,
+                             @JsonProperty ("url") String url) {
         this.url = url;
         this.type = type;
         this.orgId = orgId;

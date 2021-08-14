@@ -6,8 +6,8 @@ public class AddOrgTaxRefRequest {
     private String orgId;
     private String reference;
 
-    public AddOrgTaxRefRequest(@JsonProperty String orgId,
-                               @JsonProperty String reference) {
+    public AddOrgTaxRefRequest(@JsonProperty ("orgId") String orgId,
+                               @JsonProperty ("reference") String reference) {
         this.orgId = orgId;
         this.reference = reference;
     }

@@ -165,6 +165,10 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("Exception: ID not set");
         else if(request.getReference() == null)
             throw new Exception("Exception: tax reference not set");
+        else if(request.getReference().isEmpty())
+            throw new Exception("Exception: tax field is empty");
+        else if(request.getOrgId().isEmpty())
+            throw new Exception("Exception: org ID is empty");
         else if(OrganisationRepository.selectOrganisationById(Long.parseLong(request.getOrgId())) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
@@ -178,6 +182,8 @@ public class OrganisationServiceImp implements OrganisationService {
     public boolean removeOrgTaxRef(String orgId) throws Exception {
         if(orgId == null)
             throw new Exception("Exception: Organisation ID is not set");
+        else if(orgId.isEmpty())
+            throw new Exception("Exception: ID is empty");
         else if(OrganisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
@@ -198,39 +204,6 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("Exception: tax reference field not updated");
 
         return true;
-    }
-
-    @Override
-    public boolean addOrgImage(AddOrgImageRequest request) throws Exception {
-
-        if(request == null)
-            throw new Exception("Exception: request is not set");
-        else if(request.getOrgId() == null)
-            throw new Exception("Exception: request id not set");
-        else if(request.getImage() == null)
-            throw new Exception("Exception: request img url not set");
-        else if(request.getOrgId().isEmpty())
-            throw new Exception("Exception: request id is invalid");
-        else if(request.getImage().isEmpty())
-            throw new Exception("Exception: request img url is invalid");
-        else if(OrganisationRepository.selectOrganisationById(Long.parseLong(request.getOrgId())) == null)
-            throw new Exception("Exception: request id does not exist/invalid");
-
-        return false;
-    }
-
-    @Override
-    public boolean removeOrgImage(String orgId) throws Exception {
-        if(orgId == null)
-            throw new Exception("Exception: Organisation ID is not set");
-        else if(OrganisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
-            throw new Exception("Exception: Organisation ID does not exist");
-
-        return false;
-    }
-    @Override
-    public OrganisationPoints selectOrganisationPoints(String orgId) throws Exception {
-        return null;
     }
 
     @Override
@@ -359,6 +332,12 @@ public class OrganisationServiceImp implements OrganisationService {
         else if(request.getType() == null)
             throw new Exception("Exception: request type is not set");
 
+        else if(request.getUrl().isEmpty())
+            throw new Exception("Exception: url is empty");
+
+        else if(request.getOrgId().isEmpty())
+            throw new Exception("Exception: ID is empty");
+
         else if(OrganisationRepository.selectOrganisationById(Long.parseLong(request.getOrgId())) == null)
             throw new Exception("Exception: request id does not exist");
 
@@ -390,6 +369,12 @@ public class OrganisationServiceImp implements OrganisationService {
 
         else if(type == null)
             throw new Exception("Exception: request type is not set");
+
+        else if(type.isEmpty())
+            throw new Exception("Exception: type is empty");
+
+        else if(orgId.isEmpty())
+            throw new Exception("Exception: ID is empty");
 
         else if(OrganisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
             throw new Exception("Exception: request id does not exist");
@@ -423,8 +408,6 @@ public class OrganisationServiceImp implements OrganisationService {
     public boolean removeOrgAuditDoc(String orgId) throws Exception {
         return false;
     }
-
-
 
     @Override
     public boolean addOrgAuditor(AddOrgAuditorRequest request) throws Exception {
@@ -474,5 +457,38 @@ public class OrganisationServiceImp implements OrganisationService {
     @Override
     public boolean removeOrgEstDate(String orgId) throws Exception {
         return false;
+    }
+
+    @Override
+    public boolean addOrgImage(AddOrgImageRequest request) throws Exception {
+
+        if(request == null)
+            throw new Exception("Exception: request is not set");
+        else if(request.getOrgId() == null)
+            throw new Exception("Exception: request id not set");
+        else if(request.getImage() == null)
+            throw new Exception("Exception: request img url not set");
+        else if(request.getOrgId().isEmpty())
+            throw new Exception("Exception: request id is invalid");
+        else if(request.getImage().isEmpty())
+            throw new Exception("Exception: request img url is invalid");
+        else if(OrganisationRepository.selectOrganisationById(Long.parseLong(request.getOrgId())) == null)
+            throw new Exception("Exception: request id does not exist/invalid");
+
+        return false;
+    }
+
+    @Override
+    public boolean removeOrgImage(String orgId) throws Exception {
+        if(orgId == null)
+            throw new Exception("Exception: Organisation ID is not set");
+        else if(OrganisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        return false;
+    }
+    @Override
+    public OrganisationPoints selectOrganisationPoints(String orgId) throws Exception {
+        return null;
     }
 }

@@ -203,11 +203,13 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     public boolean organisationRenewal(long orgId) throws Exception {
-        return false;
+        certificateRepository.updateOrgRenewal(orgId,true);
+        return true;
     }
 
     @Override
     public boolean adminRenewal(long orgId) throws Exception {
-        return false;
+        certificateRepository.updateAdminRenewal(orgId,true);
+        return true;
     }
 }

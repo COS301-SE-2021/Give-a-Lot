@@ -20,4 +20,8 @@ public class LoginRequest {
     public String getPassword() {
         return this.password;
     }
+
+    public String getRole() {
+        return role;
+    }
 }

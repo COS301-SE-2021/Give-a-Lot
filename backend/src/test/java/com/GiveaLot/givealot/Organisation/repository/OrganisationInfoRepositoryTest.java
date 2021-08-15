@@ -1,6 +1,6 @@
 package com.GiveaLot.givealot.Organisation.repository;
 
-import com.GiveaLot.givealot.Organisation.dataclass.organisationInfo;
+import com.GiveaLot.givealot.Organisation.model.organisationInfo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

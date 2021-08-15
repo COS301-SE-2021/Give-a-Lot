@@ -3,7 +3,6 @@ package com.GiveaLot.givealot.Blockchain.Repository;
 
 import com.GiveaLot.givealot.Blockchain.contract.*;
 import com.GiveaLot.givealot.Blockchain.dataclass.Blockchain;
-import com.GiveaLot.givealot.Organisation.dataclass.OrganisationRepo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

@@ -1,11 +1,11 @@
-package com.GiveaLot.givealot.Organisation.model;
+package com.GiveaLot.givealot.Organisation.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class Organisation {
+public class AddOrganisationRequest {
 
     private long orgId;
     private String orgName;
@@ -19,15 +19,14 @@ public class Organisation {
     private String password;
 
 
-    public Organisation(@JsonProperty ("orgName") String orgName,
-                        @JsonProperty ("slogan") String slogan,
-                        @JsonProperty ("orgDescription") String orgDescription,
-                        @JsonProperty ("orgSector") String orgSector,
-                        @JsonProperty ("orgEmail") String orgEmail,
-                        @JsonProperty ("status") String status,
-                        @JsonProperty ("contactPerson") String contactPerson,
-                        @JsonProperty ("contactNumber") String contactNumber,
-                        @JsonProperty ("password") String password
+    public AddOrganisationRequest(@JsonProperty ("orgName") String orgName,
+                                  @JsonProperty ("slogan") String slogan,
+                                  @JsonProperty ("orgDescription") String orgDescription,
+                                  @JsonProperty ("orgSector") String orgSector,
+                                  @JsonProperty ("orgEmail") String orgEmail,
+                                  @JsonProperty ("contactPerson") String contactPerson,
+                                  @JsonProperty ("contactNumber") String contactNumber,
+                                  @JsonProperty ("password") String password
     )
     {
         this.orgName = orgName;
@@ -35,22 +34,21 @@ public class Organisation {
         this.orgDescription = orgDescription;
         this.orgSector = orgSector;
         this.orgEmail = orgEmail;
-        this.status = status;
         this.contactNumber = contactNumber;
         this.contactPerson = contactPerson;
         this.password =password;
     }
 
-    public Organisation(long orgId,
-                        String orgName,
-                        String slogan,
-                        String orgDescription,
-                        String orgSector,
-                        String orgEmail,
-                        String status,
-                        String contactPerson,
-                        String contactNumber,
-                        String password
+    public AddOrganisationRequest(long orgId,
+                                  String orgName,
+                                  String slogan,
+                                  String orgDescription,
+                                  String orgSector,
+                                  String orgEmail,
+                                  String status,
+                                  String contactPerson,
+                                  String contactNumber,
+                                  String password
     )
     {
         this.orgId = orgId;
@@ -149,7 +147,7 @@ public class Organisation {
 
     @Override
     public String toString() {
-        return "Organisation{" +
+        return "AddOrganisationRequest{" +
                 "orgName='" + orgName + '\'' +
                 ", slogan='" + slogan + '\'' +
                 ", orgDescription='" + orgDescription + '\'' +

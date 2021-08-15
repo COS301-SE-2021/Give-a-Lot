@@ -1,10 +1,20 @@
 package com.GiveaLot.givealot.Organisation.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.File;
 import java.util.Date;
-
+@Builder
+@AllArgsConstructor
+@Entity
+@Table(name="organisation_points")
 public class OrganisationPoints {
 
+    @Id
     private String orgId;
     private int points;
     private boolean addressIsValid;

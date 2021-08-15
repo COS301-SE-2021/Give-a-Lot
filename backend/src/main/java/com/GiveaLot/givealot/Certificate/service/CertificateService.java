@@ -4,7 +4,7 @@ package com.GiveaLot.givealot.Certificate.service;
 
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
-import com.GiveaLot.givealot.Organisation.model.Organisation;
+import com.GiveaLot.givealot.Organisation.requests.AddOrganisationRequest;
 import org.springframework.stereotype.Service;
 
 import javax.mail.internet.MimeMessage;
@@ -21,7 +21,7 @@ public interface CertificateService {
 
     //public boolean compare;
 
-    public boolean createPDFDocument(Certificate cert, Organisation organisation, OrganisationPoints organisationPoints) throws Exception;
+    public boolean createPDFDocument(Certificate cert, AddOrganisationRequest organisation, OrganisationPoints organisationPoints) throws Exception;
 
     public boolean checkRenewal() throws Exception;
 

@@ -1,4 +1,4 @@
-package com.GiveaLot.givealot.Organisation.dataclass;
+package com.GiveaLot.givealot.Organisation.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +11,7 @@ import java.security.NoSuchAlgorithmException;
 @Builder
 @Entity
 @Table(name = "organisations")
-public class OrganisationRepo {
+public class Organisations {
 
     @Column(
             name="org_name",
@@ -88,7 +88,7 @@ public class OrganisationRepo {
     )
     private String password;
 
-    public OrganisationRepo(String orgName, String slogan, String orgDescription, String orgSector, String orgEmail, Long orgId, String status, String contactPerson, String contactNumber, String directory, String password) {
+    public Organisations(String orgName, String slogan, String orgDescription, String orgSector, String orgEmail, Long orgId, String status, String contactPerson, String contactNumber, String directory, String password) {
         this.orgName = orgName;
         this.slogan = slogan;
         this.orgDescription = orgDescription;
@@ -102,7 +102,7 @@ public class OrganisationRepo {
         this.password = password;
     }
 
-    public OrganisationRepo(){}
+    public Organisations(){}
 
     public String getOrgName(){
         return orgName;
@@ -194,7 +194,7 @@ public class OrganisationRepo {
 
     @Override
     public String toString() {
-        return "Organisation{" +
+        return "AddOrganisationRequest{" +
                 "orgName='" + orgName + '\'' +
                 ", slogan='" + slogan + '\'' +
                 ", orgDescription='" + orgDescription + '\'' +

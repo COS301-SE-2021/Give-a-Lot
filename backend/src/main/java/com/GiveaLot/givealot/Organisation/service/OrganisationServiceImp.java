@@ -163,7 +163,8 @@ public class OrganisationServiceImp implements OrganisationService {
 
         organisationRepository.save(organisation);
         organisationInfoRepository.save(new organisationInfo((long) tmp_id));
-        //certificateRepository.save()
+        organisationPointsRepository.save(new organisationPoints((long) tmp_id));
+        certificateRepository.save(certificate);
         return true;
     }
 

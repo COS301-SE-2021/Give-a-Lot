@@ -1,10 +1,10 @@
 import * as React from 'react';
 import "./adminUsers.css"
 import { DataGrid } from '@material-ui/data-grid';
-import { DeleteOutline } from "@material-ui/icons";
+// import { DeleteOutline } from "@material-ui/icons";
 // import { userRows } from "../../dummyData";
 import { userRows } from "../../../../DummyData"
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useState } from "react";
 
 export default function UserList() {
@@ -15,7 +15,7 @@ export default function UserList() {
   };
   
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
+    { field: "id", headerName: "ID", width: 100 },
     {
       field: "user",
       headerName: "User",
@@ -40,24 +40,24 @@ export default function UserList() {
       headerName: "Transaction Volume",
       width: 160,
     },
-    {
-      field: "action",
-      headerName: "Action",
-      width: 150,
-      renderCell: (params) => {
-        return (
-          <>
-            <Link to={"/user/" + params.row.id}>
-              <button className="userListEdits">Edit</button>
-            </Link>
-            <DeleteOutline
-              className="userListDeletes"
-              onClick={() => handleDelete(params.row.id)}
-            />
-          </>
-        );
-      },
-    },
+    // {
+    //   field: "action",
+    //   headerName: "Action",
+    //   width: 150,
+    //   renderCell: (params) => {
+    //     return (
+    //       <>
+    //         <Link to={"/user/" + params.row.id}>
+    //           <button className="userListEdits">Edit</button>
+    //         </Link>
+    //         <DeleteOutline
+    //           className="userListDeletes"
+    //           onClick={() => handleDelete(params.row.id)}
+    //         />
+    //       </>
+    //     );
+    //   },
+    // },
   ];
 
   return (

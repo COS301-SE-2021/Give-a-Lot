@@ -86,7 +86,7 @@ export class OrganisationBasic extends Component {
 
                         <div >
                             <OutlinedInput type="type" name="email"
-                               value={values.email} onChange={this.changeHandler}
+                               value={values.orgEmail} onChange={this.changeHandler}
                                className="inputBasic" placeholder="Email"
                                startAdornment={
                                    <InputAdornment position="start">

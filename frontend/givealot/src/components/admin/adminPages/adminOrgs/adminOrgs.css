@@ -1,5 +1,6 @@
 .adminOrgss{
     flex: 4;
+    padding: 5px;
 }
 
 .OrgsListUsers {
@@ -28,4 +29,14 @@
 .OrgsListDeletes{
     color: red;
     cursor: pointer;
+}
+.AddButton{
+    width: 80px;
+    border: none;
+    padding: 5px;
+    background-color: #2d9499;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
 }

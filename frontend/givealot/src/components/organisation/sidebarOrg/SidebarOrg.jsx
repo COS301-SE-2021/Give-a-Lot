@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import "./sidebarOrg.css"
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+// import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
-import ImageIcon from '@material-ui/icons/Image';
-import AssignmentIcon from '@material-ui/icons/Assignment';
+// import ImageIcon from '@material-ui/icons/Image';
+// import AssignmentIcon from '@material-ui/icons/Assignment';
 import ReportIcon from '@material-ui/icons/Report';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
@@ -43,26 +43,26 @@ export class SidebarOrg extends Component {
                                 </li>
                             </Link>
 
-                            <Link to="/gallery" className="link">
-                                <li className="sidebarListItemOrg">
-                                    <ImageIcon className="sidebarIconOrg"/>
-                                    Gallery
-                                </li>
-                            </Link>
+                            {/*<Link to="/gallery" className="link">*/}
+                            {/*    <li className="sidebarListItemOrg">*/}
+                            {/*        <ImageIcon className="sidebarIconOrg"/>*/}
+                            {/*        Gallery*/}
+                            {/*    </li>*/}
+                            {/*</Link>*/}
 
-                            <Link to="/calendar" className="link">
-                                <li className="sidebarListItemOrg">
-                                    <CalendarTodayIcon className="sidebarIconOrg"/>
-                                    Calendar
-                                </li>
-                            </Link>
+                            {/*<Link to="/calendar" className="link">*/}
+                            {/*    <li className="sidebarListItemOrg">*/}
+                            {/*        <CalendarTodayIcon className="sidebarIconOrg"/>*/}
+                            {/*        Calendar*/}
+                            {/*    </li>*/}
+                            {/*</Link>*/}
 
-                            <Link to="/todos" className="link">
-                                <li className="sidebarListItemOrg">
-                                    <AssignmentIcon className="sidebarIconOrg"/>
-                                    To-do's
-                                </li>
-                            </Link>
+                            {/*<Link to="/todos" className="link">*/}
+                            {/*    <li className="sidebarListItemOrg">*/}
+                            {/*        <AssignmentIcon className="sidebarIconOrg"/>*/}
+                            {/*        To-do's*/}
+                            {/*    </li>*/}
+                            {/*</Link>*/}
 
                             <Link to="/reports" className="link">
                                 <li className="sidebarListItemOrg">

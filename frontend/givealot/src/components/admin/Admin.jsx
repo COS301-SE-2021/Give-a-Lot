@@ -9,13 +9,15 @@ import {
 } from "react-router-dom";
 import AdminUsers from './adminPages/adminUsers/AdminUsers';
 import User from './adminPages/user/User';
-import NewUser from "./adminPages/newUser/NewUser"
+// import NewUser from "./adminPages/newUser/NewUser"
 import AdminOrgs from "./adminPages/adminOrgs/AdminOrgs"
 import Orgs from "./adminPages/orgs/Orgs"
 import Emails from "./adminPages/emails/Emails";
 import Calendar from "./adminPages/calendar/Calendar";
 import Todo from "./adminPages/todo/Todo";
-import InforValidation from "./adminPages/infoValidation/InforValidation";
+import InfoValidation from "./adminPages/infoValidation/InfoValidation";
+import OrgValidate from "./adminPages/infoValidation/OrgValidate"
+import AddOrg from "./adminPages/AddOrg/AddOrg";
 
 function Admin() {
     return (
@@ -34,9 +36,9 @@ function Admin() {
                         <Route path="/user/:userId">
                             <User />
                         </Route>
-                        <Route path="/newUser">
-                            <NewUser />
-                        </Route>
+                        {/*<Route path="/newUser">*/}
+                        {/*    <NewUser />*/}
+                        {/*</Route>*/}
                         <Route path="/adminOrgs">
                             <AdminOrgs />
                         </Route>
@@ -52,11 +54,17 @@ function Admin() {
                         <Route path="/todos">
                             <Todo />
                         </Route>
-                        <Route path="/logout">
-                            <NewUser />
-                        </Route>
+                        {/*<Route path="/logout">*/}
+                        {/*    <NewUser />*/}
+                        {/*</Route>*/}
                         <Route path="/infoValidation">
-                            <InforValidation />
+                            <InfoValidation />
+                        </Route>
+                        <Route path="/orgValidate/:orgsId">
+                            <OrgValidate />
+                        </Route>
+                        <Route path="/addOrg">
+                            <AddOrg />
                         </Route>
                     </Switch>
 

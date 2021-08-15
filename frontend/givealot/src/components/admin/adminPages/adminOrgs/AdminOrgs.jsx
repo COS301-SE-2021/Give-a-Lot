@@ -14,7 +14,7 @@ export default function UserList() {
     };
 
     const columns = [
-        { field: "id", headerName: "ID", width: 90 },
+        { field: "id", headerName: "ID", width: 100 },
         {
             field: "user",
             headerName: "User",
@@ -61,6 +61,11 @@ export default function UserList() {
 
     return (
         <div className="adminOrgss">
+            <Link to="/addOrg">
+                {/*<div style={{paddingBottom: "10px"}}>*/}
+                    <button className="AddButton">Create</button>
+                {/*</div>*/}
+            </Link>
             <DataGrid
                 rows={data}
                 disableSelectionOnClick

@@ -26,20 +26,6 @@ export class OrganisationAbout extends Component {
             disabled: false
         };
     }
-    //   submitting = e => {
-
-    //   };
-
-    // constructor(props) {
-    //     super(props)
-    //
-    //     this.state = {
-    //         orgName: "",
-    //         orgPassword: "",
-    //         orgPasswordConfirm: ""
-    //
-    //     }
-    // }
 
     changeHandler = (e) =>{
         this.setState({[e.target.name] : e.target.value})
@@ -71,7 +57,7 @@ export class OrganisationAbout extends Component {
                         <div >
                             <OutlinedInput type="type"
                                name="sector"
-                               value={values.sector}
+                               value={values.orgSector}
                                onChange={this.handleChange}
                                className="inputBasic" placeholder="Sector"
                                startAdornment={
@@ -87,7 +73,7 @@ export class OrganisationAbout extends Component {
                                 // label="Multiline"
                                multiline
                                maxRows={50}
-                               value={values.description}
+                               value={values.orgDescription}
                                onChange={this.handleChange}
                                className="inputBasic" placeholder="Description"
                                startAdornment={

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import "./certificate.css";
 import CancelIcon from '@material-ui/icons/Cancel';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';

@@ -75,6 +75,8 @@ export class VerifyHomePage extends Component {
             })
             .catch(err => {
                 toast.error('upload fail')
+                // window.location.href = "/";
+                window.open("/");
             })
     }
 
@@ -92,7 +94,7 @@ export class VerifyHomePage extends Component {
                             <input type="file" name="file" onChange={this.onChangeHandler}/>
                         </div>
                         <div style={{paddingTop: "20px"}}>
-                            <Button variant="contained" color="primary" onClick={this.onClickHandler} style={{width: "380px", backgroundColor: "green"}}>
+                            <Button variant="contained" color="primary" onClick={this.onClickHandler} style={{width: "300px", backgroundColor: "green"}}>
                                 Submit
                             </Button>
                         </div>

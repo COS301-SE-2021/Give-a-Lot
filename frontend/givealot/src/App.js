@@ -42,7 +42,7 @@ function App() {
                 <Browse />
             </Route>
        </Switch>
-       {/*<Admin/>*/}
+       {/*<Home/>*/}
    </div>
     
   );

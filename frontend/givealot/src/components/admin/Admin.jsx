@@ -15,6 +15,7 @@ import Orgs from "./adminPages/orgs/Orgs"
 import Emails from "./adminPages/emails/Emails";
 import Calendar from "./adminPages/calendar/Calendar";
 import Todo from "./adminPages/todo/Todo";
+import InforValidation from "./adminPages/infoValidation/InforValidation";
 
 function Admin() {
     return (
@@ -53,6 +54,9 @@ function Admin() {
                         </Route>
                         <Route path="/logout">
                             <NewUser />
+                        </Route>
+                        <Route path="/infoValidation">
+                            <InforValidation />
                         </Route>
                     </Switch>
 

@@ -7,6 +7,7 @@ import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
+import InfoIcon from '@material-ui/icons/Info';
 import { Link } from "react-router-dom";
 
 export class Sidebar extends Component {
@@ -40,26 +41,33 @@ export class Sidebar extends Component {
                                 </li>
                             </Link>
 
-                            <Link to="/emails" className="link">
+                            <Link to="/infoValidation" className="link">
                                 <li className="sidebarListItem">
-                                    <MailOutlineIcon className="sidebarIcon"/>
-                                    Emails
+                                    <InfoIcon className="sidebarIcon"/>
+                                    Information Validation
                                 </li>
                             </Link>
 
-                            <Link to="/calendar" className="link">
-                                <li className="sidebarListItem">
-                                    <CalendarTodayIcon className="sidebarIcon"/>
-                                    Calendar
-                                </li>
-                            </Link>
+                            {/*<Link to="/emails" className="link">*/}
+                            {/*    <li className="sidebarListItem">*/}
+                            {/*        <MailOutlineIcon className="sidebarIcon"/>*/}
+                            {/*        Emails*/}
+                            {/*    </li>*/}
+                            {/*</Link>*/}
 
-                            <Link to="/todos" className="link">
-                                <li className="sidebarListItem">
-                                    <AssignmentIcon className="sidebarIcon"/>
-                                    TO-DO's
-                                </li>
-                            </Link>
+                            {/*<Link to="/calendar" className="link">*/}
+                            {/*    <li className="sidebarListItem">*/}
+                            {/*        <CalendarTodayIcon className="sidebarIcon"/>*/}
+                            {/*        Calendar*/}
+                            {/*    </li>*/}
+                            {/*</Link>*/}
+
+                            {/*<Link to="/todos" className="link">*/}
+                            {/*    <li className="sidebarListItem">*/}
+                            {/*        <AssignmentIcon className="sidebarIcon"/>*/}
+                            {/*        TO-DO's*/}
+                            {/*    </li>*/}
+                            {/*</Link>*/}
 
                             <Link to="/logout" className="link">
                                 <li className="sidebarListItem">

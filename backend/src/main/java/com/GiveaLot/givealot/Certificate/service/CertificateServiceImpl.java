@@ -4,7 +4,7 @@ import com.GiveaLot.givealot.Blockchain.service.BlockchainService;
 import com.GiveaLot.givealot.Blockchain.service.BlockchainServiceImpl;
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
-import com.GiveaLot.givealot.Organisation.requests.Organisation;
+import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Server.ServerAccess;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;

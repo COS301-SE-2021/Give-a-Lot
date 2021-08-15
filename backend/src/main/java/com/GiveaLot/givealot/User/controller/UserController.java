@@ -1,6 +1,5 @@
 package com.GiveaLot.givealot.User.controller;
 
-import com.GiveaLot.givealot.Organisation.dataclass.OrganisationRepo;
 import com.GiveaLot.givealot.Organisation.requests.AddOrgWebsiteRequest;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import com.GiveaLot.givealot.User.dataclass.User;

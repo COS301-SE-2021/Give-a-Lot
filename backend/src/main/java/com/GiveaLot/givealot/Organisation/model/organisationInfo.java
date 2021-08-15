@@ -1,4 +1,4 @@
-package com.GiveaLot.givealot.Organisation.dataclass;
+package com.GiveaLot.givealot.Organisation.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,9 +10,9 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Table(name="organisation_info")
-public class organisationInfo {
+public class organisationInfo
+{
     @Id
-    /*@GeneratedValue(strategy = GenerationType.IDENTITY)*/
     @Column(name = "org_id", nullable = false, unique = true)
     public Long orgId;
 

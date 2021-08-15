@@ -153,11 +153,6 @@
     <orderEntry type="library" name="Maven: info.picocli:picocli:4.6.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.pdfbox:preflight:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.web3j:core:4.8.7" level="project" />
-    <orderEntry type="library" name="Maven: org.web3j:abi:4.8.7" level="project" />
-    <orderEntry type="library" name="Maven: org.web3j:utils:4.8.7" level="project" />
-    <orderEntry type="library" name="Maven: org.web3j:crypto:4.8.7" level="project" />
-    <orderEntry type="library" name="Maven: org.web3j:rlp:4.8.7" level="project" />
-    <orderEntry type="library" name="Maven: org.web3j:tuples:4.8.7" level="project" />
     <orderEntry type="library" name="Maven: com.github.jnr:jnr-unixsocket:0.21" level="project" />
     <orderEntry type="library" name="Maven: com.github.jnr:jnr-ffi:2.1.9" level="project" />
     <orderEntry type="library" name="Maven: com.github.jnr:jffi:1.2.17" level="project" />
@@ -177,6 +172,11 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.12.3" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.12.3" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.12.3" level="project" />
+    <orderEntry type="library" name="Maven: org.web3j:crypto:4.8.7" level="project" />
+    <orderEntry type="library" name="Maven: org.web3j:rlp:4.8.7" level="project" />
+    <orderEntry type="library" name="Maven: org.web3j:tuples:4.8.7" level="project" />
+    <orderEntry type="library" name="Maven: org.web3j:utils:4.8.7" level="project" />
+    <orderEntry type="library" name="Maven: org.web3j:abi:4.8.7" level="project" />
     <orderEntry type="library" name="Maven: org.web3j:codegen:4.8.7" level="project" />
     <orderEntry type="library" name="Maven: com.squareup:kotlinpoet:1.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.0" level="project" />

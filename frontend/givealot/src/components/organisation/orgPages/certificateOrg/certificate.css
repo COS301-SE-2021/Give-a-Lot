@@ -13,6 +13,37 @@
 
 
 }
+.heading{
+    position: relative;
+    left: 250px;
+    display: flex;
+
+    width: 500px;
+    font-size: 30px;
+    font-family: "Segoe UI";
+
+}
+
+.certLink{
+    text-decoration: none;
+    color: white;
+
+}
+.certIcon{
+    margin-right: 5px;
+    font-size: 20px !important;
+}
+.level{
+    position: relative;
+    color: grey;
+
+
+}
+.status{
+    position: relative;
+    left: 10px;
+
+}
 
 .button{
 

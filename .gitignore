@@ -101,3 +101,4 @@ modules.xml
 /backend/target/test-classes/com/givealot/givealot/Organisation/repository/OrganisationRepositoryTest.class
 /backend/target/classes/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.class
 /backend/target/classes/com/GiveaLot/givealot/Blockchain/contract/CertificateContract$5.class
+/backend/target/

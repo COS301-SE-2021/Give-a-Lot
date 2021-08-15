@@ -1,4 +1,4 @@
-/*
+
 package com.GiveaLot.givealot.Blockchain.dao;
 
 import com.GiveaLot.givealot.Blockchain.contract.CertificateContract;

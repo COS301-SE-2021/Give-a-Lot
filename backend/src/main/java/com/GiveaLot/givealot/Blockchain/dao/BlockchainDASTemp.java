@@ -47,7 +47,7 @@ public class BlockchainDASTemp implements BlockchainDAOInterface{
     }
 
     @Override
-    public String[] upgradeCertificate(long index, long orgId, File certificate, long level) throws Exception {
+    public String[] upgradeBlockchainCertificate(long index, long orgId, File certificate, long level) throws Exception {
         CertificateContract certificateContract = loadSmartContract();
 
         String hashedCertificate = hashCertificate(certificate);
@@ -166,4 +166,4 @@ public class BlockchainDASTemp implements BlockchainDAOInterface{
 
 
 }
-*/
+

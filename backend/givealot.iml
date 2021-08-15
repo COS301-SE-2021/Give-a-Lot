@@ -42,8 +42,6 @@
     <orderEntry type="library" name="com.zaxxer:HikariCP:4.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:2.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.5.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.5.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-logging:2.5.0" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.2.3" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.2.3" level="project" />
@@ -100,6 +98,9 @@
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-mail:2.4.4" level="project" />
     <orderEntry type="library" name="Maven: com.sun.mail:jakarta.mail:1.6.7" level="project" />
     <orderEntry type="library" name="Maven: com.sun.activation:jakarta.activation:1.2.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.springframework.boot:spring-boot-devtools:2.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context-support:5.3.9" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.7" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.7" level="project" />

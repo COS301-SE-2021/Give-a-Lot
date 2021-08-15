@@ -9,11 +9,12 @@ import Login from "./components/login/Login";
 import VerifyHomePage from "./components/basicUser/home/VerifyHomePage";
 import RegisterUser from "./components/register/registerUser/RegisterUser";
 import RegisterOrganisation from "./components/register/registerOrganisation/RegisterOrganisation";
+import Organisation from "./components/organisation/Organisaion";
 
 function App() {
   return (
    <div>
-       <Switch>
+       {/* <Switch>
            <Route exact path="/">
                <Home />
            </Route>
@@ -32,7 +33,8 @@ function App() {
            <Route exact path="/registerOrganisations">
                <RegisterOrganisation />
            </Route>
-       </Switch>
+       </Switch>*/}
+       <Organisation/>
    </div>
     
   );

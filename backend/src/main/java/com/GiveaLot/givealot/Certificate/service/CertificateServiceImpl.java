@@ -1,6 +1,7 @@
 package com.GiveaLot.givealot.Certificate.service;
 
 import com.GiveaLot.givealot.Blockchain.Repository.BlockChainRepository;
+import com.GiveaLot.givealot.Blockchain.dataclass.Blockchain;
 import com.GiveaLot.givealot.Blockchain.service.BlockchainService;
 import com.GiveaLot.givealot.Blockchain.service.BlockchainServiceImpl;
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
@@ -32,6 +33,9 @@ public class CertificateServiceImpl implements CertificateService {
     @Autowired
     private CertificateRepository certificateRepository;
 
+    @Autowired
+    private CertificateRepository certificateRepository;
+
 //    @Autowired
 //    CertificateServiceImpl(  BlockchainService blockchainService, OrganisationRepository organisationRepository, CertificateRepository certificateRepository)
 //    {
@@ -47,7 +51,7 @@ public class CertificateServiceImpl implements CertificateService {
 
         organisationPoints.setPoints(0);
 
-        Certificate cert= new Certificate(certificateRepository.selectCertificateById(orgId))
+        Certificate cert= certificateRepository.selectCertificateById(orgId);
 
         Organisations organisation = organisationRepository.selectOrganisationById(orgId);
 
@@ -65,7 +69,7 @@ public class CertificateServiceImpl implements CertificateService {
         String txHash = result[1];
         long index = blockchainService.findCertificateIndex(orgId);
 
-        //query to add current latest tx hash, index, certificate hash and level to blockchain table;
+        Blockchain blockchain = new Blockchain(orgId,index,0,txHash,certificateHash);
 
 
 
@@ -78,6 +82,10 @@ public class CertificateServiceImpl implements CertificateService {
         //query organisation, certificate, org points, blockchain
 
         //we need to remove points from organisationpoints and add it to certificate, we need to remove certlevel from certificate and add it to blockchain
+
+        Organisations organisation = organisationRepository.selectOrganisationById(orgId);
+        OrganisationPoints organisationPoints = organisationPointsRepository(orgId);
+        Certificate cert = certificateRepository.selectCertificateById(orgId);
 
         boolean certificateCreated = createPDFDocument(cert,organisation,organisationPoints);
 
@@ -93,7 +101,7 @@ public class CertificateServiceImpl implements CertificateService {
         String certificateHash = result[0];
         String txHash = result[1];
 
-        //query to add current latest tx hash, certificate hash and level to blockchain table;
+        Blockchain blockchain = new Blockchain(orgId,index,0,txHash,certificateHash);
 
         return true;
     }

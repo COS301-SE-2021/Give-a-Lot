@@ -59,9 +59,6 @@ public class OrganisationServiceImp implements OrganisationService {
         organisationInfo organisationInfo = organisationInfoRepository.selectOrganisationInfo(Long.parseLong(orgId));
 
         if (organisationInfo == null) {
-            /*
-             * Because organisation already exists, set the field
-             * */
             organisationInfo = new organisationInfo();
             organisationInfo.setOrgId(Long.parseLong(orgId));
 

@@ -1,4 +1,4 @@
-package com.GiveaLot.givealot.Organisation.requests;
+package com.GiveaLot.givealot.Organisation.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.math.BigInteger;
@@ -7,6 +7,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class Organisation {
 
+    private long orgId;
     private String orgName;
     private String slogan;
     private String orgDescription;
@@ -40,8 +41,36 @@ public class Organisation {
         this.password =password;
     }
 
-    public Organisation() {
+    public Organisation(long orgId,
+                        String orgName,
+                        String slogan,
+                        String orgDescription,
+                        String orgSector,
+                        String orgEmail,
+                        String status,
+                        String contactPerson,
+                        String contactNumber,
+                        String password
+    )
+    {
+        this.orgId = orgId;
+        this.orgName = orgName;
+        this.slogan = slogan;
+        this.orgDescription = orgDescription;
+        this.orgSector = orgSector;
+        this.orgEmail = orgEmail;
+        this.status = status;
+        this.contactNumber = contactNumber;
+        this.contactPerson = contactPerson;
+        this.password =password;
+    }
 
+    public long getOrgId() {
+        return orgId;
+    }
+
+    public void setOrgId(long orgId) {
+        this.orgId = orgId;
     }
 
     public String getOrgName(){

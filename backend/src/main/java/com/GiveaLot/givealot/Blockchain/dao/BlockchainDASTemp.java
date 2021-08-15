@@ -1,19 +1,18 @@
-/*
+
 package com.GiveaLot.givealot.Blockchain.dao;
 
 import com.GiveaLot.givealot.Blockchain.contract.CertificateContract;
 import com.GiveaLot.givealot.Certificate.model.SmartContractConfig;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
+import org.web3j.protocol.core.RemoteFunctionCall;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.tuples.generated.Tuple3;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -47,7 +46,7 @@ public class BlockchainDASTemp implements BlockchainDAOInterface{
     }
 
     @Override
-    public String[] upgradeCertificate(long index, long orgId, File certificate, long level) throws Exception {
+    public String[] upgradeBlockchainCertificate(long index, long orgId, File certificate, long level) throws Exception {
         CertificateContract certificateContract = loadSmartContract();
 
         String hashedCertificate = hashCertificate(certificate);
@@ -97,12 +96,15 @@ public class BlockchainDASTemp implements BlockchainDAOInterface{
     }
 
     @Override
-    public boolean compareCertificateHash(long index, long orgId, File certificate) throws Exception {
-        String blockchainCertificateHash = retrieveCertificateHash(index, orgId);
+    public boolean compareCertificateHash(File certificate) throws Exception {
+        CertificateContract certificateContract = loadSmartContract();
 
-        String uploadCertificateHash = hashCertificate(certificate);
+        String hashedCertificate = hashCertificate(certificate);
 
-        return blockchainCertificateHash.equals(uploadCertificateHash);
+        String result = certificateContract.compareCertificate(hashedCertificate).toString();
+
+        return Boolean.valueOf(result);
+
 
     }
 
@@ -166,4 +168,4 @@ public class BlockchainDASTemp implements BlockchainDAOInterface{
 
 
 }
-*/
+

@@ -16,9 +16,9 @@ import java.io.File;
 import java.io.InputStream;
 
 public class ServerAccess {
-    private String remoteHost = "";
-    private String username = "";
-    private String password = "";
+    private String remoteHost = "209.97.142.151";
+    private String username = "ubuntu";
+    private String password = "COS301-DsP";
 
     private String remoteDir = "/home/ubuntu/";
 

@@ -371,7 +371,7 @@ public class ServerAccess {
 
         File file = new File("C:/logo.png");
 
-        access.createOrganisationDirectory(28,"Example Organisation");
+        access.createOrganisationDirectory(28,"Example AddOrganisationRequest");
 
         //File doc = access.downloadCertificate(45,"New Org");
 

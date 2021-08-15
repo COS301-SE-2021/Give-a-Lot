@@ -1,7 +1,7 @@
 package com.GiveaLot.givealot.Organisation.controller;
-import com.GiveaLot.givealot.Organisation.dataclass.OrganisationRepo;
-import com.GiveaLot.givealot.Organisation.dataclass.organisationInfo;
-import com.GiveaLot.givealot.Organisation.model.Organisation;
+import com.GiveaLot.givealot.Organisation.model.Organisations;
+import com.GiveaLot.givealot.Organisation.model.organisationInfo;
+import com.GiveaLot.givealot.Organisation.requests.AddOrganisationRequest;
 import com.GiveaLot.givealot.Organisation.requests.*;
 import com.GiveaLot.givealot.Organisation.service.OrganisationServiceImp;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
@@ -29,12 +29,12 @@ public class OrganisationController
 
     /* tested, works well */
     @PostMapping("/add/org")
-    public responseJSON addOrganisation(@RequestBody @NonNull Organisation body)
+    public responseJSON addOrganisation(@RequestBody @NonNull AddOrganisationRequest body)
     {
         response.setObject(null);
         try
         {
-            if(service.addOrganisation(new OrganisationRepo(body.getOrgName(),
+            if(service.addOrganisation(new Organisations(body.getOrgName(),
                     body.getSlogan(),body.getOrgDescription(),body.getOrgSector(),
                     body.getOrgEmail(),null,body.getStatus(),body.getContactPerson(),
                     body.getContactNumber(), "givealot/organisations/", body.getPassword())))
@@ -58,7 +58,7 @@ public class OrganisationController
         response.setObject(null);
         try
         {
-            OrganisationRepo res = service.selectOrganisation(orgId);
+            Organisations res = service.selectOrganisation(orgId);
             if(res != null)
             {
                 response.setCode("org_sel_ok_200");

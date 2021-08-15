@@ -1,20 +1,19 @@
-import React from 'react';
+import React, {Component} from 'react';
 import "./certificate.css";
 import CancelIcon from '@material-ui/icons/Cancel';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import Button from '@material-ui/core/Button';
 import 'date-fns';
-import Grid from '@material-ui/core/Grid';
-import DateFnsUtils from '@date-io/date-fns';
-import { makeStyles } from '@material-ui/core/styles';
-import {
-    MuiPickersUtilsProvider,
-    KeyboardDatePicker,
-} from '@material-ui/pickers';
+
+import DatePicker from 'react-datepicker';
+
+import "react-datepicker/dist/react-datepicker.css";
+//import 'bootstrap/dist/css/bootstrap.min.css';
+import { withStyles } from '@material-ui/core/styles'
 
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = theme => ({
     root: {
         '& > *': {
             margin: theme.spacing(1),
@@ -23,19 +22,32 @@ const useStyles = makeStyles((theme) => ({
     input: {
         display: 'none',
     },
-}));
+});
 
+class Upgrade extends Component {
 
-export default function  Upgrade() {
-    const classes = useStyles();
+    constructor (props) {
+        super(props)
+        this.state = {
+            startDate: new Date()
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.onFormSubmit = this.onFormSubmit.bind(this);
+    }
 
-    const [selectedDate, setSelectedDate] = React.useState(new Date('2021-07-18T21:11:54'));
+    handleChange(date) {
+        this.setState({
+            startDate: date
+        })
+    }
 
-    const handleDateChange = (date) => {
-        setSelectedDate(date);
-    };
+    onFormSubmit(e) {
+        e.preventDefault();
+        console.log(this.state.startDate)
+    }
 
-
+render(){
+    const { classes } = this.props;
     return (
             <div className="upgrade">
                 <div className="upgrade_heading">
@@ -52,7 +64,8 @@ export default function  Upgrade() {
                             placeholder="Enter your website url.."
                             className="input1"
                         />
-                        <input type="submit" value="Submit" className="submit1"/>
+                        <input type="submit" value="Submit" className="submit1" />
+
                         <div className="contain_Icon"><CheckCircleIcon className="tick_Icon"/></div>
 
 
@@ -68,28 +81,29 @@ export default function  Upgrade() {
                        <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
                    </form>
 
+                   <div className="upgrade_form">
+                       <label className="upgrade_sublabel">Enter Establishment date</label>
+                   </div>
 
-                   <div className="date1">
-                       <MuiPickersUtilsProvider utils={DateFnsUtils} >
-                           <Grid container justifyContent="space-around">
-
-                               <KeyboardDatePicker
-                                   margin="normal"
-                                   id="date-picker-dialog"
-                                   label="Organisation Establishment date"
-                                   format="MM/dd/yyyy"
-                                   value={selectedDate}
-                                   onChange={handleDateChange}
-                                   KeyboardButtonProps={{
-                                       'aria-label': 'change date',
-                                   }}
+                      <div className="upgrade_form">
+                       <form onSubmit={ this.onFormSubmit }>
+                           <div >
+                               <DatePicker
+                                   selected={ this.state.startDate }
+                                   onChange={ this.handleChange }
+                                   name="startDate"
+                                   dateFormat="MM/dd/yyyy"
+                                   className="input1"
                                />
 
-                           </Grid>
-                       </MuiPickersUtilsProvider>
-                       <input type="submit" value="Submit" className="submit2"/>
-                       <div className="contain_Icon"><CheckCircleIcon className="tick_Icon"/></div>
+                           </div>
+
+                       </form>
+                          <input type="submit" value="Submit" className="submit1"/>
+                          <div className="contain_Icon"><CheckCircleIcon className="tick_Icon"/></div>
                    </div>
+
+
                    <div className="upgrade_form">
                        <label className="upgrade_label">Social media section</label>
                    </div>
@@ -141,15 +155,6 @@ export default function  Upgrade() {
 
                    </div>
 
-
-
-
-
-
-
-
-
-
                </div>
 
 
@@ -158,10 +163,9 @@ export default function  Upgrade() {
 
                 <div className="contain2">
 
-
                     <form className="upgrade_form">
                         <input
-                            name="address"
+                            name="tax"
                             type="text"
                             placeholder="Enter your Tax reference number"
                             className="input1"
@@ -170,8 +174,42 @@ export default function  Upgrade() {
                         <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
                     </form>
 
+                    <form className="upgrade_form">
+                        <input
+                            name="registered_no"
+                            type="text"
+                            placeholder="Enter your registered NGO number"
+                            className="input1"
+                        />
+                        <input type="submit" value="Submit" className="submit1"/>
+                        <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+                    </form>
+
                     <div className="upgrade_form">
-                        <label className="upgrade_label">Donation details section</label>
+                        <label className="upgrade_sublabel">Date the NGO was registered</label>
+                    </div>
+
+                    <div className="upgrade_form">
+                        <form onSubmit={ this.onFormSubmit }>
+                            <div >
+                                <DatePicker
+                                    selected={ this.state.startDate }
+                                    onChange={ this.handleChange }
+                                    name="startDate"
+                                    dateFormat="MM/dd/yyyy"
+                                    className="input1"
+                                />
+
+                            </div>
+
+                        </form>
+                        <input type="submit" value="Submit" className="submit1"/>
+                        <div className="contain_Icon"><CheckCircleIcon className="tick_Icon"/></div>
+                    </div>
+
+
+                    <div className="upgrade_form">
+                        <label className="upgrade_label">Organisation Auditing section</label>
                     </div>
 
                     <div className="upgrade_form">
@@ -186,8 +224,25 @@ export default function  Upgrade() {
                     </form>
 
 
+
                     <div className="upgrade_form">
                         <label className="upgrade_sublabel">Upload the Auditors certificate</label>
+                    </div>
+
+                    <form className="upgrade_form">
+
+                        <input type="file" name="file"  className="form_file"/>
+                        <input type="submit" value="Upload" className="file_submit"/>
+                        <div className="file_Icon"><CancelIcon className="f_Icon"/></div>
+                    </form>
+
+
+                    <div className="upgrade_form">
+                        <label className="upgrade_label">Organisation Donation section</label>
+                    </div>
+
+                    <div className="upgrade_form">
+                        <label className="upgrade_sublabel">Upload your donation certificate</label>
                     </div>
 
                     <form className="upgrade_form">
@@ -205,5 +260,7 @@ export default function  Upgrade() {
             </div>
             </div>
         )
-
+    }
 }
+
+export default withStyles(useStyles)(Upgrade)

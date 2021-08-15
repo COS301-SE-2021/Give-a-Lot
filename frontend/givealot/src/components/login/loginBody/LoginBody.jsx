@@ -73,11 +73,11 @@ export class Login extends Component {
                                <div style={{color: "white"}}>
                                    <div id="createAccount">
                                        <span>Create Account?
-                                           <span style={{textDecoration:"underline", color: "white", cursor: "pointer"}} >
-                                               <Link to="/register">
+                                           <Link to="/register">
+                                               <span style={{textDecoration:"underline", color: "white", cursor: "pointer", paddingLeft: "8px"}} >
                                                    Sign Up
-                                               </Link>
-                                            </span>
+                                                </span>
+                                            </Link>
                                        </span>
                                    </div>
                                </div>

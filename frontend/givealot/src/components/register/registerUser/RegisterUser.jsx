@@ -99,7 +99,13 @@ export class RegisterUser extends Component {
 
                                     <div style={{color: "white"}}>
                                         <div id="createAccount">
-                                            <span>Login? <span style={{textDecoration:"underline", color: "white", cursor: "pointer"}} ><Link to="/register">Sign in</Link></span></span>
+                                            <span>Login?
+                                               <Link to="/login">
+                                                   <span style={{textDecoration:"underline", color: "white", cursor: "pointer", paddingLeft: "8px"}} >
+                                                       Sign In
+                                                    </span>
+                                                </Link>
+                                            </span>
                                         </div>
 
                                     </div>

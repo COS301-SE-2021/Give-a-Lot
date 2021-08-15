@@ -113,8 +113,8 @@
 
 .contain{
     position: relative;
-    width: 540px;
-    height: 600px;
+    width: 520px;
+    height: 700px;
     top: 40px;
     left: 30px;
     -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
@@ -122,7 +122,7 @@
 }
 .contain2{
     position: relative;
-    width: 450px;
+    width: 460px;
     height: 300px;
     top: 40px;
     -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
@@ -132,8 +132,6 @@
 }
 .upgrade_form{
     display: flex;
-
-
 }
 .input1{
     width: 300px;
@@ -220,14 +218,46 @@
 
 }
 
-.subupgrade_form{
-
+.upgrade_form1{
     position: relative;
     display: flex;
-    left: 40px;
+
+    top: 15px;
+    left: 15px;
+    width: 300px;
+    margin-top: 10px;
+}
+.img_submit {
+
+    width: 60px;
+    height: 30px;
+    background-color: #2d9499;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
 
 
 }
+
+.img_submit:hover {
+    background-color: #1f5759;
+}
+
+
+.img_Icon{
+    width: 40px;
+    margin-left: 10px;
+}
+
+._Icon{
+
+    color: red;
+    font-size: 30px !important;
+}
+
+
 
 
 

@@ -110,6 +110,8 @@ public class CertificateServiceImpl implements CertificateService {
         return access.downloadCertificate(orgId,orgName);
     }
 
+
+
     @Override
     public boolean createPDFDocument(Certificate cert, Organisations organisation, int points) throws Exception {
         ServerAccess access = new ServerAccess();

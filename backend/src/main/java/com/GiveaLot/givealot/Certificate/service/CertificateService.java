@@ -23,7 +23,6 @@ public interface CertificateService {
     //public boolean compare;
 
     public boolean createPDFDocument(Certificate cert, Organisations organisation, int points) throws Exception;
-
     public boolean checkRenewal() throws Exception;
 
     public boolean setupEmailServerProperties();

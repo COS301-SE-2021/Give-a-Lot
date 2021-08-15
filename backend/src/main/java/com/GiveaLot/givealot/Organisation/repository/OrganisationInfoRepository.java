@@ -1,6 +1,5 @@
 package com.GiveaLot.givealot.Organisation.repository;
-
-import com.GiveaLot.givealot.Organisation.dataclass.organisationInfo;
+import com.GiveaLot.givealot.Organisation.model.organisationInfo;
 import com.GiveaLot.givealot.Organisation.requests.AddOrgAddressRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

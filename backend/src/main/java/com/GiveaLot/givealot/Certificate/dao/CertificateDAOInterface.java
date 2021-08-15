@@ -1,9 +1,8 @@
 package com.GiveaLot.givealot.Certificate.dao;
 //
 import com.GiveaLot.givealot.Certificate.model.Certificate;
-import com.GiveaLot.givealot.Organisation.model.Organisation;
+import com.GiveaLot.givealot.Organisation.requests.AddOrganisationRequest;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
-import com.itextpdf.text.Document;
 
 import javax.mail.internet.MimeMessage;
 import java.io.File;
@@ -18,7 +17,7 @@ public interface CertificateDAOInterface {
 //
 ////    public boolean compare
 
-    public boolean createPDFDocument(Certificate cert, Organisation organisation, OrganisationPoints organisationPoints) throws Exception;
+    public boolean createPDFDocument(Certificate cert, AddOrganisationRequest organisation, OrganisationPoints organisationPoints) throws Exception;
 
     public boolean checkRenewal() throws Exception;
 

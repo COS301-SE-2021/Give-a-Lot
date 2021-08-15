@@ -2,12 +2,10 @@
 package com.GiveaLot.givealot.Blockchain.dao;
 
 import com.GiveaLot.givealot.Blockchain.contract.CertificateContract;
-import com.GiveaLot.givealot.Organisation.model.Organisation;
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 

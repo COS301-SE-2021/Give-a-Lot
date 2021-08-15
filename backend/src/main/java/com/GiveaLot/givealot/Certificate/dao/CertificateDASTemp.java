@@ -5,8 +5,8 @@
 //import com.GiveaLot.givealot.Blockchain.dao.BlockchainDASTemp;
 //import com.GiveaLot.givealot.Blockchain.service.BlockchainService;
 //import com.GiveaLot.givealot.Certificate.model.Certificate;
-//import com.GiveaLot.givealot.Organisation.model.Organisation;
-//import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
+//import com.GiveaLot.givealot.AddOrganisationRequest.requests.AddOrganisationRequest;
+//import com.GiveaLot.givealot.AddOrganisationRequest.model.OrganisationPoints;
 //
 //import com.GiveaLot.givealot.Server.ServerAccess;
 //import org.apache.pdfbox.Loader;
@@ -105,7 +105,7 @@
 //
 //
 //    @Override
-//    public boolean createPDFDocument(Certificate cert, Organisation organisation, OrganisationPoints organisationPoints) throws Exception {
+//    public boolean createPDFDocument(Certificate cert, AddOrganisationRequest organisation, OrganisationPoints organisationPoints) throws Exception {
 //        ServerAccess access = new ServerAccess();
 //
 //        int points = organisationPoints.getPoints();
@@ -145,11 +145,9 @@
 
 package com.GiveaLot.givealot.Certificate.dao;
 
-import com.GiveaLot.givealot.Blockchain.dao.BlockchainDAOInterface;
-import com.GiveaLot.givealot.Blockchain.dao.BlockchainDASTemp;
 //import com.GiveaLot.givealot.Blockchain.service.BlockchainService;
 import com.GiveaLot.givealot.Certificate.model.Certificate;
-import com.GiveaLot.givealot.Organisation.model.Organisation;
+import com.GiveaLot.givealot.Organisation.requests.AddOrganisationRequest;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 
 import com.GiveaLot.givealot.Server.ServerAccess;
@@ -284,7 +282,7 @@ public class CertificateDASTemp implements CertificateDAOInterface{
 
 
     @Override
-    public boolean createPDFDocument(Certificate cert, Organisation organisation, OrganisationPoints organisationPoints) throws Exception {
+    public boolean createPDFDocument(Certificate cert, AddOrganisationRequest organisation, OrganisationPoints organisationPoints) throws Exception {
         ServerAccess access = new ServerAccess();
 
         int points = organisationPoints.getPoints();

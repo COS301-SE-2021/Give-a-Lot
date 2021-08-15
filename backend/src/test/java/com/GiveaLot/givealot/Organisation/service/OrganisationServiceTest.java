@@ -1,5 +1,5 @@
 /*
-package com.GiveaLot.givealot.Organisation.service;
+package com.GiveaLot.givealot.AddOrganisationRequest.service;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertSame;
@@ -10,21 +10,21 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.GiveaLot.givealot.Organisation.repository.OrganisationDAOInterface;
-import com.GiveaLot.givealot.Organisation.dao.OrganisationDASPostgre;
-import com.GiveaLot.givealot.Organisation.model.Organisation;
-import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
-import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
-import com.GiveaLot.givealot.Organisation.requests.AddOrgAuditInfoRequest;
-import com.GiveaLot.givealot.Organisation.requests.AddOrgAuditorRequest;
-import com.GiveaLot.givealot.Organisation.requests.AddOrgCommitteeRequest;
-import com.GiveaLot.givealot.Organisation.requests.AddOrgDonationInfoRequest;
-import com.GiveaLot.givealot.Organisation.requests.AddOrgEstDateRequest;
-import com.GiveaLot.givealot.Organisation.requests.AddOrgImageRequest;
-import com.GiveaLot.givealot.Organisation.requests.AddOrgNGORequest;
-import com.GiveaLot.givealot.Organisation.requests.AddOrgTaxRefRequest;
-import com.GiveaLot.givealot.Organisation.requests.AddOrgWebsiteRequest;
-import com.GiveaLot.givealot.Organisation.requests.AddSocialsRequest;
+import com.GiveaLot.givealot.AddOrganisationRequest.repository.OrganisationDAOInterface;
+import com.GiveaLot.givealot.AddOrganisationRequest.dao.OrganisationDASPostgre;
+import com.GiveaLot.givealot.AddOrganisationRequest.requests.AddOrganisationRequest;
+import com.GiveaLot.givealot.AddOrganisationRequest.model.OrganisationInfo;
+import com.GiveaLot.givealot.AddOrganisationRequest.model.OrganisationPoints;
+import com.GiveaLot.givealot.AddOrganisationRequest.requests.AddOrgAuditInfoRequest;
+import com.GiveaLot.givealot.AddOrganisationRequest.requests.AddOrgAuditorRequest;
+import com.GiveaLot.givealot.AddOrganisationRequest.requests.AddOrgCommitteeRequest;
+import com.GiveaLot.givealot.AddOrganisationRequest.requests.AddOrgDonationInfoRequest;
+import com.GiveaLot.givealot.AddOrganisationRequest.requests.AddOrgEstDateRequest;
+import com.GiveaLot.givealot.AddOrganisationRequest.requests.AddOrgImageRequest;
+import com.GiveaLot.givealot.AddOrganisationRequest.requests.AddOrgNGORequest;
+import com.GiveaLot.givealot.AddOrganisationRequest.requests.AddOrgTaxRefRequest;
+import com.GiveaLot.givealot.AddOrganisationRequest.requests.AddOrgWebsiteRequest;
+import com.GiveaLot.givealot.AddOrganisationRequest.requests.AddSocialsRequest;
 
 import java.io.File;
 import java.nio.file.Paths;
@@ -58,7 +58,7 @@ public class OrganisationServiceTest {
     @Test
     @Description("Tests that an organisation can be retrieved")
     public void testSelectOrganisation() throws Exception {
-        Organisation organisation = new Organisation("42", "Org Name", "Slogan", "Org Description", "Org Sector",
+        AddOrganisationRequest organisation = new AddOrganisationRequest("42", "Org Name", "Slogan", "Org Description", "Org Sector",
                 "jane.doe@example.org", "Active", "Contact Person", "Contact Number", "/tmp", "password");
 
         when(this.organisationDAOInterface.selectOrganisation(anyString())).thenReturn(organisation);
@@ -93,39 +93,39 @@ public class OrganisationServiceTest {
     @Test
     @Description("Tests that an organisation exists on the system")
     public void testOrganisationExistsTrue() throws Exception {
-        when(this.organisationDAOInterface.organisationExists((Organisation) any())).thenReturn(true);
+        when(this.organisationDAOInterface.organisationExists((AddOrganisationRequest) any())).thenReturn(true);
         assertTrue(
-                this.organisationService.organisationExists(new Organisation("42", "Org Name", "Slogan", "Org Description",
+                this.organisationService.organisationExists(new AddOrganisationRequest("42", "Org Name", "Slogan", "Org Description",
                         "Org Sector", "jane.doe@example.org", "Active", "Contact Person", "Contact Number", "/tmp", "iloveyou")));
-        verify(this.organisationDAOInterface).organisationExists((Organisation) any());
+        verify(this.organisationDAOInterface).organisationExists((AddOrganisationRequest) any());
     }
 
     @Test
     @Description("Tests that an organisation does not exist on the system")
     public void testOrganisationExistsFalse() throws Exception {
-        when(this.organisationDAOInterface.organisationExists((Organisation) any())).thenReturn(false);
+        when(this.organisationDAOInterface.organisationExists((AddOrganisationRequest) any())).thenReturn(false);
         assertFalse(
-                this.organisationService.organisationExists(new Organisation("42", "Org Name", "Slogan", "Org Description",
+                this.organisationService.organisationExists(new AddOrganisationRequest("42", "Org Name", "Slogan", "Org Description",
                         "Org Sector", "jane.doe@example.org", "Active", "Contact Person", "Contact Number", "/tmp", "iloveyou")));
-        verify(this.organisationDAOInterface).organisationExists((Organisation) any());
+        verify(this.organisationDAOInterface).organisationExists((AddOrganisationRequest) any());
     }
 
     @Test
     @Description("Tests that an organisation succeeds in being added to the system")
     public void testAddOrganisationTrue() throws Exception {
-        when(this.organisationDAOInterface.addOrganisation((Organisation) any())).thenReturn(true);
-        assertTrue(this.organisationService.addOrganisation(new Organisation("42", "Org Name", "Slogan", "Org Description",
+        when(this.organisationDAOInterface.addOrganisation((AddOrganisationRequest) any())).thenReturn(true);
+        assertTrue(this.organisationService.addOrganisation(new AddOrganisationRequest("42", "Org Name", "Slogan", "Org Description",
                 "Org Sector", "jane.doe@example.org", "Active", "Contact Person", "Contact Number", "/tmp", "iloveyou")));
-        verify(this.organisationDAOInterface).addOrganisation((Organisation) any());
+        verify(this.organisationDAOInterface).addOrganisation((AddOrganisationRequest) any());
     }
 
     @Test
     @Description("Tests that an organisation fails in being added to the system")
     public void testAddOrganisationFalse() throws Exception {
-        when(this.organisationDAOInterface.addOrganisation((Organisation) any())).thenReturn(false);
-        assertFalse(this.organisationService.addOrganisation(new Organisation("42", "Org Name", "Slogan", "Org Description",
+        when(this.organisationDAOInterface.addOrganisation((AddOrganisationRequest) any())).thenReturn(false);
+        assertFalse(this.organisationService.addOrganisation(new AddOrganisationRequest("42", "Org Name", "Slogan", "Org Description",
                 "Org Sector", "jane.doe@example.org", "Active", "Contact Person", "Contact Number", "/tmp", "iloveyou")));
-        verify(this.organisationDAOInterface).addOrganisation((Organisation) any());
+        verify(this.organisationDAOInterface).addOrganisation((AddOrganisationRequest) any());
     }
 
     @Test

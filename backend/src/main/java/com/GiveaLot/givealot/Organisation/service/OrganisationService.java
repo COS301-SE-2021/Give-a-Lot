@@ -1,17 +1,17 @@
 package com.GiveaLot.givealot.Organisation.service;
 
-import com.GiveaLot.givealot.Organisation.dataclass.OrganisationRepo;
-import com.GiveaLot.givealot.Organisation.dataclass.organisationInfo;
+import com.GiveaLot.givealot.Organisation.model.Organisations;
+import com.GiveaLot.givealot.Organisation.model.organisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.requests.*;
 import org.springframework.stereotype.Service;
 
 @Service
 public interface OrganisationService {
-    OrganisationRepo selectOrganisation(String orgId) throws Exception;
+    Organisations selectOrganisation(String orgId) throws Exception;
     organisationInfo selectOrganisationInfo(String orgId) throws Exception;
     OrganisationPoints selectOrganisationPoints(String orgId) throws Exception;
-    boolean addOrganisation(OrganisationRepo organisation) throws Exception;
+    boolean addOrganisation(Organisations organisation) throws Exception;
     boolean reactivateOrganisation(String orgId) throws Exception;
     boolean investigateOrganisation(String orgId) throws Exception;
     boolean suspendOrganisation(String orgId) throws Exception;

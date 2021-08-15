@@ -1,7 +1,7 @@
 package com.GiveaLot.givealot.Organisation.repository;
 
-import com.GiveaLot.givealot.Organisation.dataclass.OrganisationRepo;
-import com.GiveaLot.givealot.Organisation.dataclass.organisationInfo;
+import com.GiveaLot.givealot.Organisation.model.Organisations;
+import com.GiveaLot.givealot.Organisation.model.organisationInfo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,14 +19,14 @@ class OrganisationRepositoryTest {
     @Test
     public void selectOrgTest()
     {
-        OrganisationRepo res = repository.selectOrganisationById(10L);
+        Organisations res = repository.selectOrganisationById(10L);
         System.out.println(res);
     }
 
     @Test
     public void registerOrganisationTest()
     {
-        OrganisationRepo org = OrganisationRepo.builder()
+        Organisations org = Organisations.builder()
                 .orgDescription("register test description")
                 .orgEmail("hello@gmail.com")
                 .orgSector("my sector")
@@ -36,7 +36,7 @@ class OrganisationRepositoryTest {
                 .status("active")
                 .contactNumber("0889343234")
                 .password("somestrongpassword")
-                .orgName("my Organisation")
+                .orgName("my AddOrganisationRequest")
                 .build();
 
         System.out.println(repository.save(org));

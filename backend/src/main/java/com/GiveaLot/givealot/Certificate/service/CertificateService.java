@@ -4,8 +4,8 @@ package com.GiveaLot.givealot.Certificate.service;
 
 import com.GiveaLot.givealot.Certificate.dao.CertificateDAOInterface;
 import com.GiveaLot.givealot.Certificate.model.Certificate;
-import com.GiveaLot.givealot.Organisation.model.Organisation;
-import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
+import com.GiveaLot.givealot.AddOrganisationRequest.requests.AddOrganisationRequest;
+import com.GiveaLot.givealot.AddOrganisationRequest.model.OrganisationPoints;
 import com.itextpdf.text.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -32,7 +32,7 @@ public class CertificateService {
         return certificateDAOInterface.retrieveCertificate(orgId, orgName);
     }
 
-    public boolean createPDFDocument(Certificate cert, Organisation organisation, OrganisationPoints organisationPoints) throws Exception {
+    public boolean createPDFDocument(Certificate cert, AddOrganisationRequest organisation, OrganisationPoints organisationPoints) throws Exception {
         return certificateDAOInterface.createPDFDocument(cert,organisation,organisationPoints);
     }
 

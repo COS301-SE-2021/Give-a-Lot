@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
         name = "user",
         uniqueConstraints = {
                 @UniqueConstraint(name = "user_email_unique", columnNames = "email"),
-                @UniqueConstraint(name = "reset_code_unique", columnNames = "reset_code")
         }
 )
 public class User {
@@ -70,7 +69,7 @@ public class User {
     private String password;
 
     @Column(
-            name = "activate_date",
+            name = "activation_date",
             columnDefinition = "TIMESTAMP"
     )
     private LocalDateTime activateDate;

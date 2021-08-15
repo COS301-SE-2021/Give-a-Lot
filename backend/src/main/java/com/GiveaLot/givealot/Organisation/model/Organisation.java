@@ -24,7 +24,6 @@ public class Organisation {
                         @JsonProperty ("orgDescription") String orgDescription,
                         @JsonProperty ("orgSector") String orgSector,
                         @JsonProperty ("orgEmail") String orgEmail,
-                        @JsonProperty ("status") String status,
                         @JsonProperty ("contactPerson") String contactPerson,
                         @JsonProperty ("contactNumber") String contactNumber,
                         @JsonProperty ("password") String password
@@ -35,7 +34,6 @@ public class Organisation {
         this.orgDescription = orgDescription;
         this.orgSector = orgSector;
         this.orgEmail = orgEmail;
-        this.status = status;
         this.contactNumber = contactNumber;
         this.contactPerson = contactPerson;
         this.password =password;

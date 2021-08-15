@@ -7,6 +7,24 @@ Content-Type: application/json
   "orgDescription" : "Thisis is the givers organisations and we give to the people who loot ",
   "orgSector" : "loot",
   "orgEmail" : "the@givers.com",
+  "contactPerson" : "Johanne",
+  "contactNumber" : "0113545443",
+  "password" : "gta5"
+}
+
+<> 2021-08-15T163032.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "The givers",
+  "slogan" : "We give to looters",
+  "orgDescription" : "Thisis is the givers organisations and we give to the people who loot ",
+  "orgSector" : "loot",
+  "orgEmail" : "the@givers.com",
   "status" : "active",
   "contactPerson" : "Johanne",
   "contactNumber" : "0113545443",
@@ -423,12 +441,6 @@ DELETE http://localhost:8080/v1/organisation/delete/address/85
 DELETE http://localhost:8080/v1/organisation/delete/address/5
 
 <> 2021-08-14T200432.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/info/5
-
-<> 2021-08-14T200425.200.json
 
 ###
 

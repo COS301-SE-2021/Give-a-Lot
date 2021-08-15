@@ -17,8 +17,6 @@ import java.util.UUID;
 @Service
 public class OrganisationServiceImp implements OrganisationService {
 
-
-
     @Autowired
     private OrganisationRepository OrganisationRepository;
 
@@ -216,14 +214,17 @@ public class OrganisationServiceImp implements OrganisationService {
         if(organisation == null)
             throw new Exception("invalid organisation object: null");
 
-        if(organisation.getOrgName() == null || organisation.getOrgDescription() == null|| organisation.getPassword() == null|| organisation.getOrgSector() == null|| organisation.getStatus() == null|| organisation.getOrgEmail() == null|| organisation.getDirectory() == null|| organisation.getContactNumber() == null|| organisation.getContactPerson() == null|| organisation.getSlogan() == null)
+        if(organisation.getOrgName() == null || organisation.getOrgDescription() == null||
+                organisation.getPassword() == null|| organisation.getOrgSector() == null ||
+                  organisation.getOrgEmail() == null|| organisation.getContactNumber() == null||
+                    organisation.getContactPerson() == null|| organisation.getSlogan() == null)
             throw new Exception("invalid field provided: null");
 
-        organisation.setDirectory("/home/ubuntu/Organisations/" + organisation.getOrgId());
+        organisation.setDirectory("/home/ubuntu/Organisations/");
+        organisation.setStatus("active");
 
         if(OrganisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()) != null)
             throw new Exception("Email already exists");
-
 
         else if (organisation.getOrgName().isEmpty() || organisation.getOrgName().length()>255)
             throw new Exception("Exception: orgName does not satisfy the database constraints");
@@ -257,22 +258,28 @@ public class OrganisationServiceImp implements OrganisationService {
 
         OrganisationRepository.save(organisation);
 
-        ServerAccess access = new ServerAccess();
-
-        access.createOrganisationDirectory(organisation.getOrgId(),organisation.getOrgName());
-
-        //create certificate tuple
-
-        //create certificate
-
-
-
+        /*
+        get the id of the newly saved organisation and
+        concatenate it with the root directory
+        * */
         int tmp_id = OrganisationRepository.getOrgId(organisation.getOrgEmail());
         OrganisationRepository.updateRepo((long) tmp_id, "/home/ubuntu/Organisations/" + tmp_id);
 
-
         LocalDate date = LocalDate.now(); /* registration date */
         OrganisationInfoRepository.save(new organisationInfo((long) tmp_id));
+
+        try
+        {
+            //create certificate tuple
+            //create certificate
+            ServerAccess access = new ServerAccess();
+            access.createOrganisationDirectory(tmp_id,organisation.getOrgName());
+        }
+        catch(Exception e)
+        {
+            throw new Exception("server access error from add organisation. message: " + e);
+        }
+
         return true;
     }
 

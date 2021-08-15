@@ -1,65 +1,40 @@
-/*
+
 package com.GiveaLot.givealot.Certificate.service;
 
 
-import com.GiveaLot.givealot.Certificate.dao.CertificateDAOInterface;
-import com.GiveaLot.givealot.Certificate.model.Certificate;
-import com.GiveaLot.givealot.AddOrganisationRequest.requests.AddOrganisationRequest;
-import com.GiveaLot.givealot.AddOrganisationRequest.model.OrganisationPoints;
-import com.itextpdf.text.Document;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
+import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
+import com.GiveaLot.givealot.Organisation.model.Organisation;
 import org.springframework.stereotype.Service;
 
 import javax.mail.internet.MimeMessage;
 import java.io.File;
 
 @Service
-public class CertificateService {
+public interface CertificateService {
 
-    private final CertificateDAOInterface certificateDAOInterface;
+  public boolean addCertificate(long orgId) throws Exception;
 
-    @Autowired
-    CertificateService(@Qualifier("CertificateTemp") CertificateDAOInterface certificateDAOInterface){
-        this.certificateDAOInterface = certificateDAOInterface;
-    }
+    public boolean updateCertificate(long orgId) throws Exception;
 
-    public boolean addCertificate(long orgId) throws Exception {
-        return certificateDAOInterface.addCertificate(orgId);
-    }
+    public File retrieveCertificate(long orgId, String orgName) throws Exception;
 
-    public File retrieveCertificate(long orgId, String orgName) throws Exception {
-        return certificateDAOInterface.retrieveCertificate(orgId, orgName);
-    }
+    //public boolean compare;
 
-    public boolean createPDFDocument(Certificate cert, AddOrganisationRequest organisation, OrganisationPoints organisationPoints) throws Exception {
-        return certificateDAOInterface.createPDFDocument(cert,organisation,organisationPoints);
-    }
+    public boolean createPDFDocument(Certificate cert, Organisation organisation, OrganisationPoints organisationPoints) throws Exception;
 
-    public boolean checkRenewal() throws Exception {
-        return certificateDAOInterface.checkRenewal();
-    }
+    public boolean checkRenewal() throws Exception;
 
-    public boolean setupEmailServerProperties() {
-        return certificateDAOInterface.setupEmailServerProperties();
-    }
+    public boolean setupEmailServerProperties();
 
-    public boolean sendEmail() throws Exception {
-        return certificateDAOInterface.sendEmail();
-    }
+    public boolean sendEmail() throws Exception;
 
-    public MimeMessage CertificateExpiredEmail(String orgName, String orgEmail) throws Exception {
-        return certificateDAOInterface.CertificateExpiredEmail(orgName, orgEmail);
-    }
+    public MimeMessage CertificateExpiredEmail(String orgName, String orgEmail) throws Exception;
 
-    public boolean organisationRenewal(long orgId) throws Exception{
-        return certificateDAOInterface.organisationRenewal(orgId);
-    }
+    public boolean organisationRenewal(long orgId) throws Exception;
 
-    public boolean adminRenewal(long orgId) throws Exception{
-        return certificateDAOInterface.adminRenewal(orgId);
-    }
+    public boolean adminRenewal(long orgId) throws Exception;
 }
 
- */
+
 

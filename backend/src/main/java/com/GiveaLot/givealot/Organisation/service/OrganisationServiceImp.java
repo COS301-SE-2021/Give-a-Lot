@@ -25,7 +25,7 @@ public class OrganisationServiceImp implements OrganisationService {
     public Organisations selectOrganisation(String orgId) throws Exception {
 
         if(orgId == null)
-            throw new Exception("Exception: AddOrganisationRequest Id is null");
+            throw new Exception("Exception: Organisation Id is null");
         else if (orgId.isEmpty() || orgId.length()>50){
             throw new Exception("Exception: orgId does not satisfy the database constraints");
         }
@@ -40,9 +40,9 @@ public class OrganisationServiceImp implements OrganisationService {
     public organisationInfo selectOrganisationInfo(String orgId) throws Exception
     {
         if(orgId == null)
-            throw new Exception("Exception: AddOrganisationRequest ID is not set");
+            throw new Exception("Exception: Organisation ID is not set");
         else if(OrganisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
-            throw new Exception("Exception: AddOrganisationRequest ID does not exist");
+            throw new Exception("Exception: Organisation ID does not exist");
 
         organisationInfo organisationInfo = OrganisationInfoRepository.selectOrganisationInfo(Long.parseLong(orgId));
 
@@ -72,7 +72,7 @@ public class OrganisationServiceImp implements OrganisationService {
         else if(request.getWebsite().isEmpty())
             throw new Exception("Exception: invalid website length");
         else if(OrganisationRepository.selectOrganisationById(Long.parseLong(request.getOrgId())) == null)
-            throw new Exception("Exception: AddOrganisationRequest ID does not exist");
+            throw new Exception("Exception: Organisation ID does not exist");
 
         /*
         *  Todo:
@@ -91,9 +91,9 @@ public class OrganisationServiceImp implements OrganisationService {
     @Override
     public boolean removeOrgWebsite(String orgId) throws Exception {
         if(orgId == null)
-            throw new Exception("Exception: AddOrganisationRequest ID is not set");
+            throw new Exception("Exception: Organisation ID is not set");
         else if(OrganisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
-            throw new Exception("Exception: AddOrganisationRequest ID does not exist");
+            throw new Exception("Exception: Organisation ID does not exist");
 
         if(OrganisationInfoRepository.selectOrganisationInfo(Long.parseLong(orgId)) == null)
         {
@@ -123,7 +123,7 @@ public class OrganisationServiceImp implements OrganisationService {
         else if(request.getAddress() == null)
             throw new Exception("Exception: address not set");
         else if(OrganisationRepository.selectOrganisationById(Long.parseLong(request.getOrgId())) == null)
-            throw new Exception("Exception: AddOrganisationRequest ID does not exist");
+            throw new Exception("Exception: Organisation ID does not exist");
 
         if(OrganisationInfoRepository.addOrgAddress(Long.parseLong(request.getOrgId()),request.getAddress()) != 1)
             throw new Exception("Exception: address field not updated");
@@ -134,9 +134,9 @@ public class OrganisationServiceImp implements OrganisationService {
     @Override
     public boolean removeOrgAddress(String orgId) throws Exception {
         if(orgId == null)
-            throw new Exception("Exception: AddOrganisationRequest ID is not set");
+            throw new Exception("Exception: Organisation ID is not set");
         else if(OrganisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
-            throw new Exception("Exception: AddOrganisationRequest ID does not exist");
+            throw new Exception("Exception: Organisation ID does not exist");
 
         if(OrganisationInfoRepository.selectOrganisationInfo(Long.parseLong(orgId)) == null)
         {
@@ -170,7 +170,7 @@ public class OrganisationServiceImp implements OrganisationService {
         else if(request.getOrgId().isEmpty())
             throw new Exception("Exception: org ID is empty");
         else if(OrganisationRepository.selectOrganisationById(Long.parseLong(request.getOrgId())) == null)
-            throw new Exception("Exception: AddOrganisationRequest ID does not exist");
+            throw new Exception("Exception: Organisation ID does not exist");
 
         if(OrganisationInfoRepository.addOrgTaxRef(Long.parseLong(request.getOrgId()),request.getReference()) != 1)
             throw new Exception("Exception: tax reference field not updated");
@@ -181,11 +181,11 @@ public class OrganisationServiceImp implements OrganisationService {
     @Override
     public boolean removeOrgTaxRef(String orgId) throws Exception {
         if(orgId == null)
-            throw new Exception("Exception: AddOrganisationRequest ID is not set");
+            throw new Exception("Exception: Organisation ID is not set");
         else if(orgId.isEmpty())
             throw new Exception("Exception: ID is empty");
         else if(OrganisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
-            throw new Exception("Exception: AddOrganisationRequest ID does not exist");
+            throw new Exception("Exception: Organisation ID does not exist");
 
         if(OrganisationInfoRepository.selectOrganisationInfo(Long.parseLong(orgId)) == null)
         {

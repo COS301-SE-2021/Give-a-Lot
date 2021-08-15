@@ -30,6 +30,7 @@ export default function  Upgrade() {
                     <p className="upgrade_status"> Intermediate</p>
 
                 </div>
+                <div className="upgrade_container">
                <div className="contain">
                     <form className="upgrade_form">
                         <input
@@ -100,10 +101,60 @@ export default function  Upgrade() {
                        <input type="submit" value="Submit" className="submit1"/>
                        <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
                    </form>
+                   <div className="upgrade_form">
+                       <label className="upgrade_label">Donation details section</label>
+                   </div>
 
+                   <form className="subupgrade_form">
+                       <input
+                           name="socialMedia1"
+                           type="text"
+                           placeholder="Enter your social media url"
+                           className="input1"
+                       />
+                       <input type="submit" value="Submit" className="submit1"/>
+                       <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+                   </form>
+                   <form className="subupgrade_form">
+                       <input
+                           name="socialMedia2"
+                           type="text"
+                           placeholder="Enter your social media url"
+                           className="input1"
+                       />
+                       <input type="submit" value="Submit" className="submit1"/>
+                       <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+                   </form>
 
                </div>
 
+                <div className="contain2">
+                    <div className="upgrade_form">
+                        <label className="upgrade_label">Donation details section</label>
+                    </div>
+
+                    <form className="subupgrade_form">
+                        <input
+                            name="socialMedia1"
+                            type="text"
+                            placeholder="Enter your social media url"
+                            className="input1"
+                        />
+                        <input type="submit" value="Submit" className="submit1"/>
+                        <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+                    </form>
+                    <form className="subupgrade_form">
+                        <input
+                            name="socialMedia2"
+                            type="text"
+                            placeholder="Enter your social media url"
+                            className="input1"
+                        />
+                        <input type="submit" value="Submit" className="submit1"/>
+                        <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+                    </form>
+                </div>
+            </div>
             </div>
         )
 

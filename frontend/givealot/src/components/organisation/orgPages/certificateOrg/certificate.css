@@ -5,6 +5,11 @@
 }
 .upgrade{
     flex: 4;
+    padding: 4px;
+}
+.upgrade_container{
+    display: flex;
+
 }
 
 .temporary{
@@ -108,12 +113,22 @@
 
 .contain{
     position: relative;
-    width: 600px;
-    height: 500px;
+    width: 540px;
+    height: 600px;
     top: 40px;
-    left: 80px;
+    left: 30px;
     -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+.contain2{
+    position: relative;
+    width: 450px;
+    height: 300px;
+    top: 40px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+
+    margin: 0 45px;
 }
 .upgrade_form{
     display: flex;

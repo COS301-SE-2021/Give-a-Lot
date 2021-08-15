@@ -1,4 +1,4 @@
-/*
+
 package com.GiveaLot.givealot.Blockchain.dao;
 
 import com.GiveaLot.givealot.Blockchain.contract.CertificateContract;
@@ -21,7 +21,9 @@ public interface BlockchainDAOInterface {
 
     public String retrieveCertificateHash(long index, long orgId) throws Exception;
 
-    public boolean compareCertificateHash(long index, long orgId, File certificate) throws Exception;
+    //public boolean compareCertificateHash(long index, long orgId, File certificate) throws Exception;
+
+    public boolean compareCertificateHash(File certificate) throws Exception;
 
     public String hashCertificate(File certificate) throws IOException, NoSuchAlgorithmException;
 
@@ -33,5 +35,7 @@ public interface BlockchainDAOInterface {
 
     public Credentials getCredentialsFromPrivateKey();
 
+    public String[] upgradeBlockchainCertificate(long index, long orgId, File certificate, long level) throws Exception;
+
 }
-*/
+

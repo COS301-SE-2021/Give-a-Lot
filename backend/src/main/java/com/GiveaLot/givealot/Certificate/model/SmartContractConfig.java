@@ -31,7 +31,4 @@ public class SmartContractConfig {
         return GAS_PRICE;
     }
 
-
-
-
 }

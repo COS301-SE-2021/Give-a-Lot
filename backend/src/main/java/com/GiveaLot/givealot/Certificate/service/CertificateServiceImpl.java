@@ -6,16 +6,16 @@ import com.GiveaLot.givealot.Certificate.model.Certificate;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.requests.Organisation;
 import com.GiveaLot.givealot.Server.ServerAccess;
+import org.apache.pdfbox.Loader;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
+import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
+import org.apache.pdfbox.pdmodel.interactive.form.PDField;
 
 import javax.mail.internet.MimeMessage;
 import java.io.File;
 
 public class CertificateServiceImpl implements CertificateService {
-
-    @Autowired
-    public CertificateDASTemp() {
-
-    }
 
 
     @Override
@@ -51,7 +51,7 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     public boolean updateCertificate(long orgId) throws Exception {
-        B
+
         BlockchainService blockchainService = new BlockchainServiceImpl(new BlockchainDASTemp());
 
         //query organisation, certificate, org points, blockchain

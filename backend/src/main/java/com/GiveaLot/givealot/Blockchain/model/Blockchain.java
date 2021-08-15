@@ -1,5 +1,6 @@
 package com.GiveaLot.givealot.Blockchain.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -10,10 +11,36 @@ import javax.persistence.Table;
 )
 public class Blockchain {
     @Id
+    @Column(
+            name = "orgId",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     long orgId;
+
+    @Column(
+            name = "index",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     long index;
+    @Column(
+            name = "level",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     long level;
+    @Column(
+            name = "transactionHash",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     String transactionHash;
+    @Column(
+            name = "certificateHash",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     String certificateHash;
 
     public Blockchain(long orgId, long index, long level, String transactionHash, String certificateHash) {
@@ -22,6 +49,10 @@ public class Blockchain {
         this.level = level;
         this.transactionHash = transactionHash;
         this.certificateHash = certificateHash;
+    }
+
+    public Blockchain() {
+
     }
 
     public long getOrgId() {
@@ -62,5 +93,16 @@ public class Blockchain {
 
     public void setCertificateHash(String certificateHash) {
         this.certificateHash = certificateHash;
+    }
+
+    @Override
+    public String toString() {
+        return "blockchain{" +
+                "id='" + orgId + '\'' +
+                ",index ='" + index + '\'' +
+                ", level='" + level + '\'' +
+                ", transactionHash='" + transactionHash + '\'' +
+                ", certificateHash='" + certificateHash + '\'' +
+                '}';
     }
 }

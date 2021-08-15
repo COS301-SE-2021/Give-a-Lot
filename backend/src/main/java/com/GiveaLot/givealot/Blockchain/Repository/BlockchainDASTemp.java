@@ -1,5 +1,5 @@
 
-package com.GiveaLot.givealot.Blockchain.dao;
+/*package com.GiveaLot.givealot.Blockchain.dao;
 
 import com.GiveaLot.givealot.Blockchain.contract.CertificateContract;
 import com.GiveaLot.givealot.Certificate.model.SmartContractConfig;
@@ -165,5 +165,5 @@ public class BlockchainDASTemp implements BlockchainDAOInterface{
     }
 
 
-}
+}*/
 

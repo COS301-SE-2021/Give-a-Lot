@@ -1,6 +1,11 @@
 import './App.css';
-import Admin from "./components/admin/Admin"
+// import Admin from "./components/admin/Admin"
 // import Organisation from "./components/organisation/Organisaion"
+import "./components/basicUser/browse/css/browse.css";
+import "./components/basicUser/browse/css/recommended.css";
+import "./components/basicUser/browse/css/navbar.css";
+import "./components/basicUser/browse/css/overlay.css";
+import "./components/basicUser/browse/css/search.css";
 import Register from "./components/register/Register";
 import Home from "./components/basicUser/home/Home"
 import React from "react";
@@ -9,12 +14,12 @@ import Login from "./components/login/Login";
 import VerifyHomePage from "./components/basicUser/home/VerifyHomePage";
 import RegisterUser from "./components/register/registerUser/RegisterUser";
 import RegisterOrganisation from "./components/register/registerOrganisation/RegisterOrganisation";
-import Organisation from "./components/organisation/Organisaion";
+import Browse from "./components/basicUser/browse/Browse"
 
 function App() {
   return (
    <div>
-       {/* <Switch>
+        <Switch>
            <Route exact path="/">
                <Home />
            </Route>
@@ -33,8 +38,11 @@ function App() {
            <Route exact path="/registerOrganisations">
                <RegisterOrganisation />
            </Route>
-       </Switch>*/}
-       <Organisation/>
+            <Route exact path="/browse">
+                <Browse />
+            </Route>
+       </Switch>
+       {/*<Admin/>*/}
    </div>
     
   );

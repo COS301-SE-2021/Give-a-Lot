@@ -1,32 +1,59 @@
 package com.GiveaLot.givealot.Certificate.service;
 
+import com.GiveaLot.givealot.Blockchain.Repository.BlockChainRepository;
+import com.GiveaLot.givealot.Blockchain.dataclass.Blockchain;
 import com.GiveaLot.givealot.Blockchain.service.BlockchainService;
 import com.GiveaLot.givealot.Blockchain.service.BlockchainServiceImpl;
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
+import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
+import com.GiveaLot.givealot.Organisation.dataclass.OrganisationRepo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
+import com.GiveaLot.givealot.Organisation.model.Organisations;
+import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
+import com.GiveaLot.givealot.Organisation.requests.AddOrganisationRequest;
 import com.GiveaLot.givealot.Server.ServerAccess;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
 import org.apache.pdfbox.pdmodel.interactive.form.PDField;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.mail.internet.MimeMessage;
 import java.io.File;
 
 public class CertificateServiceImpl implements CertificateService {
 
+    private BlockchainService blockchainService;
+
+    @Autowired
+    private OrganisationRepository organisationRepository;
+
+    @Autowired
+    private CertificateRepository certificateRepository;
+
+    @Autowired
+    private CertificateRepository certificateRepository;
+
+//    @Autowired
+//    CertificateServiceImpl(  BlockchainService blockchainService, OrganisationRepository organisationRepository, CertificateRepository certificateRepository)
+//    {
+//        this.blockchainService = blockchainService;
+//        this.organisationRepository = organisationRepository;
+//        this.certificateRepository = certificateRepository;
+//    }
 
     @Override
     public boolean addCertificate(long orgId) throws Exception {
-        BlockchainService blockchainService = new BlockchainService(new BlockchainDASTemp());
 
         OrganisationPoints organisationPoints = new OrganisationPoints();
 
         organisationPoints.setPoints(0);
 
-        //query organisation, certificate
+        Certificate cert= certificateRepository.selectCertificateById(orgId);
+
+        Organisations organisation = organisationRepository.selectOrganisationById(orgId);
 
        boolean certificateCreated = createPDFDocument(cert,organisation,organisationPoints);
 
@@ -42,7 +69,7 @@ public class CertificateServiceImpl implements CertificateService {
         String txHash = result[1];
         long index = blockchainService.findCertificateIndex(orgId);
 
-        //query to add current latest tx hash, index, certificate hash and level to blockchain table;
+        Blockchain blockchain = new Blockchain(orgId,index,0,txHash,certificateHash);
 
 
 
@@ -52,11 +79,13 @@ public class CertificateServiceImpl implements CertificateService {
     @Override
     public boolean updateCertificate(long orgId) throws Exception {
 
-        BlockchainService blockchainService = new BlockchainServiceImpl(new BlockchainDASTemp());
-
         //query organisation, certificate, org points, blockchain
 
         //we need to remove points from organisationpoints and add it to certificate, we need to remove certlevel from certificate and add it to blockchain
+
+        Organisations organisation = organisationRepository.selectOrganisationById(orgId);
+        OrganisationPoints organisationPoints = organisationPointsRepository(orgId);
+        Certificate cert = certificateRepository.selectCertificateById(orgId);
 
         boolean certificateCreated = createPDFDocument(cert,organisation,organisationPoints);
 
@@ -72,7 +101,7 @@ public class CertificateServiceImpl implements CertificateService {
         String certificateHash = result[0];
         String txHash = result[1];
 
-        //query to add current latest tx hash, certificate hash and level to blockchain table;
+        Blockchain blockchain = new Blockchain(orgId,index,0,txHash,certificateHash);
 
         return true;
     }
@@ -84,10 +113,8 @@ public class CertificateServiceImpl implements CertificateService {
         return access.downloadCertificate(orgId,orgName);
     }
 
-
-
     @Override
-    public boolean createPDFDocument(Certificate cert, Organisation organisation, OrganisationPoints organisationPoints) throws Exception {
+    public boolean createPDFDocument(Certificate cert, Organisations organisation, OrganisationPoints organisationPoints) throws Exception {
         ServerAccess access = new ServerAccess();
 
         int points = organisationPoints.getPoints();
@@ -98,10 +125,7 @@ public class CertificateServiceImpl implements CertificateService {
         String templateCertificate = "backend/src/main/resources/TempCertificate/CertificateTemplate.pdf";
         String completeCertificate = "backend/src/main/resources/TempCertificate/CertificateComplete.pdf";
 
-
-
-
-/** Setup the pdf file **/
+        /** Setup the pdf file **/
 
 
         File template = new File(templateCertificate);
@@ -111,8 +135,7 @@ public class CertificateServiceImpl implements CertificateService {
 
         PDAcroForm acroForm = catalog.getAcroForm();
 
-
-/** Assign acroform fields **/
+        /** Assign acroform fields **/
 
 
         try {

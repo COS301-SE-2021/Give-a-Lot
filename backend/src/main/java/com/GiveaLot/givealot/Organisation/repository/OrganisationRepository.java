@@ -37,8 +37,7 @@ public interface OrganisationRepository extends JpaRepository<Organisations,Long
     @Query("UPDATE Organisations o SET o.directory = ?2 WHERE o.orgId = ?1")
     Integer updateRepo(Long orgId, String dir);
 
-
     @Query("SELECT DISTINCT o.orgId FROM Organisations AS o WHERE o.orgEmail = ?1")
-    int getOrgId(String orgEmail);
+    long getOrgId(String orgEmail);
 
 }

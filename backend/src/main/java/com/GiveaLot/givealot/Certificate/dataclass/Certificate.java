@@ -1,10 +1,13 @@
 package com.GiveaLot.givealot.Certificate.dataclass;
 
+import lombok.Builder;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Builder
 @Entity
 @Table(
         name = "certificate"
@@ -61,7 +64,9 @@ public class Certificate {
     public Certificate(String dateCreated, String dateExpiry, int level){
         this.dateCreated = dateCreated;
         this.dateExpiry = dateExpiry;
-        this.level = 0;
+        this.level = level;
+        this.adminRenewal = true;
+        this.orgRenewal = true;
     }
 
     public String getDateCreated() {

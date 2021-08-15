@@ -1,4 +1,4 @@
-/*
+
 package com.GiveaLot.givealot.Blockchain.contract;
 
 import java.math.BigInteger;
@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Callable;
+
+import org.jetbrains.annotations.Contract;
 import org.web3j.abi.TypeReference;
 import org.web3j.abi.datatypes.Function;
 import org.web3j.abi.datatypes.Type;
@@ -21,7 +23,6 @@ import org.web3j.tx.Contract;
 import org.web3j.tx.TransactionManager;
 import org.web3j.tx.gas.ContractGasProvider;
 
-*/
 /**
  * <p>Auto generated code.
  * <p><strong>Do not modify!</strong>
@@ -30,7 +31,7 @@ import org.web3j.tx.gas.ContractGasProvider;
  * <a href="https://github.com/web3j/web3j/tree/master/codegen">codegen module</a> to update.
  *
  * <p>Generated with web3j version 1.4.1.
- *//*
+ */
 
 @SuppressWarnings("rawtypes")
 public class CertificateContract extends Contract {
@@ -163,4 +164,4 @@ public class CertificateContract extends Contract {
         return deployRemoteCall(CertificateContract.class, web3j, transactionManager, gasPrice, gasLimit, BINARY, "");
     }
 }
-*/
+

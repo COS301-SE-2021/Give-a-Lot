@@ -1,6 +1,15 @@
 package com.GiveaLot.givealot.Blockchain.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(
+        name="blockchain"
+)
 public class Blockchain {
+    @Id
     long orgId;
     long index;
     long level;

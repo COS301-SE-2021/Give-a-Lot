@@ -46,8 +46,6 @@ public class ServerAccess {
 
             String orgNameSpace = orgName.replaceAll("\\s+", "");
 
-            String remoteDir = "/home/ubuntu/Organisations/";
-
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString);
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Reports");
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Documents");
@@ -56,7 +54,7 @@ public class ServerAccess {
             channelSftp.put( remoteDir + "Organisations/" + orgIdString + "/" + orgNameSpace);
 
         }catch (Exception e){
-            throw new Exception("Exception: Failed to interact with the server");
+            throw new Exception("Exception: Failed to interact with the server: " + e);
         }
         finally {
             channelSftp.exit();
@@ -373,13 +371,15 @@ public class ServerAccess {
 
         File file = new File("C:/logo.png");
 
+        access.createOrganisationDirectory(28,"Example Organisation");
+
         //File doc = access.downloadCertificate(45,"New Org");
 
         //access.uploadTaxReference(45,"New Org",doc);
 
-        File image = access.downloadImagePNG(45,0);
-
-        access.uploadImagePNG(45,"New Org", image);
+//        File image = access.downloadImagePNG(45,0);
+//
+//        access.uploadImagePNG(45,"New Org", image);
     }
 
 

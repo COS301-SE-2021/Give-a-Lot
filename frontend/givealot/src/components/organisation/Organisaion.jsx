@@ -16,6 +16,7 @@ import Gallery from "./orgPages/gallery/Gallery";
 import Certificate from "./orgPages/certificateOrg/Certificate";
 import Reports from "./orgPages/reports/Reports"
 import Todos from "./orgPages/todos/Todos"
+import Upgrade from "./orgPages/certificateOrg/Upgrade";
 
 function Organisation() {
     return (
@@ -58,6 +59,9 @@ function Organisation() {
                         </Route>
                         <Route path="/todos">
                             <Todos />
+                        </Route>
+                        <Route path="/upgrade">
+                            <Upgrade />
                         </Route>
                     </Switch>
 

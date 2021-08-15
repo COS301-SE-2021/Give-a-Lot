@@ -3,6 +3,9 @@
 
 
 }
+.upgrade{
+    flex: 4;
+}
 
 .temporary{
     position: relative;

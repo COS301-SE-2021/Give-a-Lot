@@ -11,12 +11,26 @@ import Home from "./components/basicUser/home/Home"
 // import Login from "./components/login/Login";
 // import Landing from "./components/basicUser/home/Landing"
 import React from "react";
+import {Route, Switch} from "react-router-dom";
+import Login from "./components/login/Login";
+import VerifyHomePage from "./components/basicUser/home/VerifyHomePage";
 
 
 function App() {
   return (
    <div>
-     <Home />
+
+       <Switch>
+           <Route exact path="/">
+               <Home />
+           </Route>
+           <Route exact path="/login">
+               <Login />
+           </Route>
+           <Route exact path="/verifyPage">
+               <VerifyHomePage />
+           </Route>
+       </Switch>
    </div>
     
   );

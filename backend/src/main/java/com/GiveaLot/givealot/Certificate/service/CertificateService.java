@@ -2,13 +2,9 @@
 package com.GiveaLot.givealot.Certificate.service;
 
 
-import com.GiveaLot.givealot.Certificate.model.Certificate;
-import com.GiveaLot.givealot.Organisation.dataclass.OrganisationRepo;
+import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.requests.Organisation;
-import com.itextpdf.text.Document;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.mail.internet.MimeMessage;

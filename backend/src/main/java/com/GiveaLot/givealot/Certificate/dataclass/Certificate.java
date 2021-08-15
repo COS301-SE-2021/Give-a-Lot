@@ -1,4 +1,4 @@
-package com.GiveaLot.givealot.Certificate.model;
+package com.GiveaLot.givealot.Certificate.dataclass;
 
 
 public class Certificate {

@@ -2,7 +2,7 @@ package com.GiveaLot.givealot.Certificate.service;
 
 import com.GiveaLot.givealot.Blockchain.service.BlockchainService;
 import com.GiveaLot.givealot.Blockchain.service.BlockchainServiceImpl;
-import com.GiveaLot.givealot.Certificate.model.Certificate;
+import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.requests.Organisation;
 import com.GiveaLot.givealot.Server.ServerAccess;

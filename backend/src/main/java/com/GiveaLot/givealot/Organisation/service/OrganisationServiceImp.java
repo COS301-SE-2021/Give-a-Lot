@@ -1,6 +1,5 @@
 package com.GiveaLot.givealot.Organisation.service;
 
-import com.GiveaLot.givealot.Certificate.model.Certificate;
 import com.GiveaLot.givealot.Organisation.dataclass.organisationInfo;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
@@ -11,7 +10,6 @@ import com.GiveaLot.givealot.Server.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
-import java.util.UUID;
 
 
 @Service

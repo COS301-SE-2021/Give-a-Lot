@@ -143,12 +143,12 @@
 //                field = (PDField) acroForm.getField("slogan"); // Slogan
 //                field.setValue(organisation.getSlogan());
 
-package com.GiveaLot.givealot.Certificate.dao;
+package com.GiveaLot.givealot.Certificate.repository;
 
 import com.GiveaLot.givealot.Blockchain.dao.BlockchainDAOInterface;
 import com.GiveaLot.givealot.Blockchain.dao.BlockchainDASTemp;
 //import com.GiveaLot.givealot.Blockchain.service.BlockchainService;
-import com.GiveaLot.givealot.Certificate.model.Certificate;
+import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 

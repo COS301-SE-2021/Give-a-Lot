@@ -1,9 +1,8 @@
 package com.GiveaLot.givealot.Blockchain.service;
 import com.GiveaLot.givealot.Blockchain.Repository.*;
-import com.GiveaLot.givealot.Certificate.model.SmartContractConfig;
+import com.GiveaLot.givealot.Certificate.dataclass.SmartContractConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.GiveaLot.givealot.Blockchain.contract.CertificateContract;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
@@ -22,12 +21,12 @@ import java.security.NoSuchAlgorithmException;
 public class BlockchainServiceImpl implements BlockchainService {
 
 
-    public final BlockchainDAOInterface blockchainDAOInterface;
+    public final BlockChainRepository blockChainRepository;
 
     @Autowired
-    BlockchainServiceImpl(  BlockchainDAOInterface blockchainDAOInterface)
+    BlockchainServiceImpl(  BlockChainRepository blockchainDAOInterface)
     {
-        this.blockchainDAOInterface = blockchainDAOInterface;
+        this.blockChainRepository = blockchainDAOInterface;
     }
 
     @Override
@@ -93,7 +92,8 @@ public class BlockchainServiceImpl implements BlockchainService {
     public boolean compareCertificateHash(long index, long orgId, File certificate) throws Exception {
         String blockchainCertificateHash = retrieveCertificateHash(index, orgId);
         String uploadCertificateHash = hashCertificate(certificate);
-        return blockchainCertificateHash.equals(uploadCertificateHash);    }
+        return blockchainCertificateHash.equals(uploadCertificateHash);
+    }
 
     @Override
     public String hashCertificate(File certificate) throws IOException, NoSuchAlgorithmException {

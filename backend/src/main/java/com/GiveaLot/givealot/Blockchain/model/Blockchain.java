@@ -43,6 +43,11 @@ public class Blockchain {
     )
     String certificateHash;
 
+    /** (SELECT * FROM Blockchain WHERE orgId = ?) **/
+    /** (SELECT * FROM Blockchain WHERE certificateHash = ?) **/
+    /** (UPDATE Blockchain SET index = ?, level = ?, transactionHash = ?, certificateHash = ? WHERE orgId = ?) **/
+    /** (INSERT INTO Blockchain (index, level, transactionHash, certificateHash) VALUES (?,?,?,?) P.S. it should go in the blockchain service **/
+
     public Blockchain(long orgId, long index, long level, String transactionHash, String certificateHash) {
         this.orgId = orgId;
         this.index = index;

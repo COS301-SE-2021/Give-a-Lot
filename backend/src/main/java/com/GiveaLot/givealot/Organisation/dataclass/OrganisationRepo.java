@@ -10,31 +10,40 @@ import java.security.NoSuchAlgorithmException;
 
 @Builder
 @Entity
-@Table(name = "Organisations")
+@Table(name = "organisations")
 public class OrganisationRepo {
 
-    private String orgName;
     @Column(
-            name="orgSlogan",
+            name="org_name",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
+    private String orgName;
+
+
+    @Column(
+            name="org_slogan",
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String slogan;
+
     @Column(
-            name="orgDescription",
+            name="org_description",
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String orgDescription;
 
     @Column(
-            name="orgSector",
+            name="org_sector",
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String orgSector;
+
     @Column(
-            name="orgEmail",
+            name="org_email",
             nullable = false,
             columnDefinition = "TEXT"
     )
@@ -42,7 +51,7 @@ public class OrganisationRepo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "orgId", nullable = false, unique = true)
+    @Column(name = "org_id", nullable = false, unique = true)
     public Long orgId;
 
     @Column(
@@ -51,18 +60,21 @@ public class OrganisationRepo {
             columnDefinition = "TEXT"
     )
     private String status;
+
     @Column(
-            name="contactPerson",
+            name="contact_person",
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String contactPerson;
+
     @Column(
-            name="contactNumber",
+            name="contact_number",
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String contactNumber;
+
     @Column(
             name="directory",
             nullable = false,

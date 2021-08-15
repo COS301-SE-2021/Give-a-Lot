@@ -1,0 +1,13 @@
+app:
+  datasource:
+    jdbc-url: jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz
+    username: iqvyaozz
+    password: JMDPprQmLVegi673UQgH93aNEOSvt2K1
+    pool-size: 30
+
+---
+
+validators:
+  emailRegex: "^(.+)@(.+)$"
+  passwordRegex: "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$"
+  contactRegex: "^[0-9]{10,10}$"

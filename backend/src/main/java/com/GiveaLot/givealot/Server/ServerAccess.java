@@ -46,8 +46,6 @@ public class ServerAccess {
 
             String orgNameSpace = orgName.replaceAll("\\s+", "");
 
-            String remoteDir = "/home/ubuntu/Organisations/";
-
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString);
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Reports");
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Documents");
@@ -56,7 +54,7 @@ public class ServerAccess {
             channelSftp.put( remoteDir + "Organisations/" + orgIdString + "/" + orgNameSpace);
 
         }catch (Exception e){
-            throw new Exception("Exception: Failed to interact with the server");
+            throw new Exception("Exception: Failed to interact with the server: " + e);
         }
         finally {
             channelSftp.exit();
@@ -264,12 +262,14 @@ public class ServerAccess {
 
             channelSftp.connect();
 
-            //Query to organisation points for number of images
+            //Query to certificate for number of images
 
-            int imageNumber = 0;
+            int imageNumber = 0; //temp
 
             String orgIdString = String.valueOf(orgId);
-            String localFile = "backend/src/main/resources/TempDocument/image.jpg";
+            String localFile = "C:/Users/joshu/Desktop/Organisations/" + orgId + "/image" + imageNumber + ".jpg";
+
+            FileUtils.copyFile(image, new File(localFile));
 
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery" + imageNumber + ".jpg");
 
@@ -318,17 +318,19 @@ public class ServerAccess {
 
             channelSftp.connect();
 
-            //Query to organisation points for number of images
+            //Query to certificate for number of images
 
-            int imageNumber = 1;
+            int imageNumber = 1; //temp
 
             String orgIdString = String.valueOf(orgId);
-            String localFile = "backend/src/main/resources/TempDocument/image.png";
+            String localFile = "C:/Users/joshu/Desktop/Organisations/" + orgId + "/image" + imageNumber + ".png";
+
+            FileUtils.copyFile(image, new File(localFile));
 
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + imageNumber + ".png");
 
-            File deletion = new File(localFile);
-            deletion.delete();
+//            File deletion = new File(localFile);
+//            deletion.delete();
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -369,13 +371,15 @@ public class ServerAccess {
 
         File file = new File("C:/logo.png");
 
+        access.createOrganisationDirectory(28,"Example Organisation");
+
         //File doc = access.downloadCertificate(45,"New Org");
 
         //access.uploadTaxReference(45,"New Org",doc);
 
-        File image = access.downloadImagePNG(45,0);
-
-        access.uploadImagePNG(45,"New Org", image);
+//        File image = access.downloadImagePNG(45,0);
+//
+//        access.uploadImagePNG(45,"New Org", image);
     }
 
 

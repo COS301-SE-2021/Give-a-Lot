@@ -12,7 +12,7 @@ import static org.mockito.Mockito.when;
 
 import com.GiveaLot.givealot.Organisation.repository.OrganisationDAOInterface;
 import com.GiveaLot.givealot.Organisation.dao.OrganisationDASPostgre;
-import com.GiveaLot.givealot.Organisation.requests.Organisation;
+import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.requests.AddOrgAuditInfoRequest;

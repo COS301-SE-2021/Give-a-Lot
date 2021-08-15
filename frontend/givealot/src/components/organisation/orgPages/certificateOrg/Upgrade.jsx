@@ -39,7 +39,7 @@ export default function  Upgrade() {
                             className="input1"
                         />
                         <input type="submit" value="Submit" className="submit1"/>
-                        <div className="contain_Icon"><CheckCircleIcon className="cross_Icon"/></div>
+                        <div className="contain_Icon"><CheckCircleIcon className="tick_Icon"/></div>
 
 
                     </form>
@@ -51,7 +51,7 @@ export default function  Upgrade() {
                            className="input1"
                        />
                        <input type="submit" value="Submit" className="submit1"/>
-                       <div className="contain_Icon"><CancelIcon className="tick_Icon"/></div>
+                       <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
 
 
                    </form>
@@ -62,7 +62,7 @@ export default function  Upgrade() {
                                <KeyboardDatePicker
                                    margin="normal"
                                    id="date-picker-dialog"
-                                   label="Date picker dialog"
+                                   label="Organisation Establishment date"
                                    format="MM/dd/yyyy"
                                    value={selectedDate}
                                    onChange={handleDateChange}
@@ -74,8 +74,32 @@ export default function  Upgrade() {
                            </Grid>
                        </MuiPickersUtilsProvider>
                        <input type="submit" value="Submit" className="submit2"/>
-                       <div className="contain_Icon"><CancelIcon className="tick_Icon"/></div>
+                       <div className="contain_Icon"><CheckCircleIcon className="tick_Icon"/></div>
                    </div>
+                   <div className="upgrade_form">
+                       <label className="upgrade_label">Social media section</label>
+                   </div>
+
+                   <form className="subupgrade_form">
+                       <input
+                           name="socialMedia1"
+                           type="text"
+                           placeholder="Enter your social media url"
+                           className="input1"
+                       />
+                       <input type="submit" value="Submit" className="submit1"/>
+                       <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+                   </form>
+                   <form className="subupgrade_form">
+                       <input
+                           name="socialMedia2"
+                           type="text"
+                           placeholder="Enter your social media url"
+                           className="input1"
+                       />
+                       <input type="submit" value="Submit" className="submit1"/>
+                       <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+                   </form>
 
 
                </div>

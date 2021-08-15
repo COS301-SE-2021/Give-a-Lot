@@ -118,6 +118,7 @@
 .upgrade_form{
     display: flex;
 
+
 }
 .input1{
     width: 300px;
@@ -150,12 +151,13 @@
 }
 
 .cross_Icon{
-    color: green;
+    color: red;
     font-size: 40px !important;
 }
 
 .tick_Icon{
-    color: red;
+
+    color: green;
     font-size: 40px !important;
 }
 
@@ -175,7 +177,6 @@
 
 
 }
-
 .submit2 {
     width: 80px;
     background-color: #2d9499;
@@ -194,7 +195,24 @@
     background-color: #1f5759;
 }
 
+.upgrade_label{
+    position: relative;
+    color: gray;
+    top: 20px;
+    margin-bottom: 20px;
+    left: 20px;
+    font-size: 20px;
 
+}
+
+.subupgrade_form{
+
+    position: relative;
+    display: flex;
+    left: 40px;
+
+
+}
 
 
 

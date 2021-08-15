@@ -264,12 +264,14 @@ public class ServerAccess {
 
             channelSftp.connect();
 
-            //Query to organisation points for number of images
+            //Query to certificate for number of images
 
-            int imageNumber = 0;
+            int imageNumber = 0; //temp
 
             String orgIdString = String.valueOf(orgId);
-            String localFile = "backend/src/main/resources/TempDocument/image.jpg";
+            String localFile = "C:/Users/joshu/Desktop/Organisations/" + orgId + "/image" + imageNumber + ".jpg";
+
+            FileUtils.copyFile(image, new File(localFile));
 
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery" + imageNumber + ".jpg");
 
@@ -318,17 +320,19 @@ public class ServerAccess {
 
             channelSftp.connect();
 
-            //Query to organisation points for number of images
+            //Query to certificate for number of images
 
-            int imageNumber = 1;
+            int imageNumber = 1; //temp
 
             String orgIdString = String.valueOf(orgId);
-            String localFile = "backend/src/main/resources/TempDocument/image.png";
+            String localFile = "C:/Users/joshu/Desktop/Organisations/" + orgId + "/image" + imageNumber + ".png";
+
+            FileUtils.copyFile(image, new File(localFile));
 
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + imageNumber + ".png");
 
-            File deletion = new File(localFile);
-            deletion.delete();
+//            File deletion = new File(localFile);
+//            deletion.delete();
         }catch (Exception e){
             e.printStackTrace();
         }

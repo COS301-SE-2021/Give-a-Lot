@@ -1,3 +1,97 @@
+GET http://localhost:8080/v1/organisation/select/9
+
+<> 2021-08-15T172345.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/9
+
+<> 2021-08-15T172226.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/8
+
+<> 2021-08-15T172220.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/5
+
+<> 2021-08-15T172111.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "The givers of pizza",
+  "slogan" : "We give to looters",
+  "orgDescription" : "Thisis is the givers organisations and we give to the people who give pizza ",
+  "orgSector" : "loot",
+  "orgEmail" : "the@pizza.com",
+  "contactPerson" : "Johanne",
+  "contactNumber" : "0887575653",
+  "password" : "gta5"
+}
+
+<> 2021-08-15T171844.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "The givers",
+  "slogan" : "We give to looters",
+  "orgDescription" : "Thisis is the givers organisations and we give to the people who loot ",
+  "orgSector" : "loot",
+  "orgEmail" : "the@givers.com",
+  "contactPerson" : "Johanne",
+  "contactNumber" : "0113545443",
+  "password" : "gta5"
+}
+
+<> 2021-08-15T171727.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "The givers",
+  "slogan" : "We give to looters",
+  "orgDescription" : "Thisis is the givers organisations and we give to the people who loot ",
+  "orgSector" : "loot",
+  "orgEmail" : "the@givers.com",
+  "contactPerson" : "Johanne",
+  "contactNumber" : "0113545443",
+  "password" : "gta5"
+}
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "The givers",
+  "slogan" : "We give to looters",
+  "orgDescription" : "Thisis is the givers organisations and we give to the people who loot ",
+  "orgSector" : "loot",
+  "orgEmail" : "the@givers.com",
+  "contactPerson" : "Johanne",
+  "contactNumber" : "0113545443",
+  "password" : "gta5"
+}
+
+<> 2021-08-15T164938.200.json
+
+###
+
 POST http://localhost:8080/v1/organisation/add/org
 Content-Type: application/json
 
@@ -381,66 +475,6 @@ Content-Type: application/json
 }
 
 <> 2021-08-14T201507.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/taxref
-Content-Type: application/json
-
-{
-  "orgId" : "57",
-  "reference" : ""
-}
-
-<> 2021-08-14T201247.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/info/5
-
-<> 2021-08-14T201223.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/taxref
-Content-Type: application/json
-
-{
-  "orgId" : "5",
-  "reference" : "AB449344343"
-}
-
-<> 2021-08-14T201212.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/address/9
-
-<> 2021-08-14T200555.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/address/8khg5
-
-<> 2021-08-14T200538.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/address/8khg5
-
-<> 2021-08-14T200528.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/address/85
-
-<> 2021-08-14T200513.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/address/5
-
-<> 2021-08-14T200432.200.json
 
 ###
 

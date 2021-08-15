@@ -48,7 +48,7 @@ public class Certificate {
     boolean adminRenewal;
 
     @Column(
-            name = "certPoints",
+            name = "points",
             updatable = true,
             nullable = false
     )

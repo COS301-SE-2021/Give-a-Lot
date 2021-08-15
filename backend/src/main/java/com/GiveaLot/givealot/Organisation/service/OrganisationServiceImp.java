@@ -2,7 +2,8 @@ package com.GiveaLot.givealot.Organisation.service;
 
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
-import com.GiveaLot.givealot.Organisation.model.organisationInfo;
+import com.GiveaLot.givealot.Certificate.service.CertificateService;
+import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
@@ -12,6 +13,7 @@ import com.GiveaLot.givealot.Server.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -34,6 +36,9 @@ public class OrganisationServiceImp implements OrganisationService {
     @Autowired
     private CertificateRepository certificateRepository;
 
+    @Autowired
+    private CertificateService certificateService;
+
     @Override
     public Organisations selectOrganisation(String orgId) throws Exception {
 
@@ -50,16 +55,16 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public organisationInfo selectOrganisationInfo(String orgId) throws Exception {
+    public OrganisationInfo selectOrganisationInfo(String orgId) throws Exception {
         if (orgId == null)
             throw new Exception("Exception: Organisation ID is not set");
         else if (organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
-        organisationInfo organisationInfo = organisationInfoRepository.selectOrganisationInfo(Long.parseLong(orgId));
+        OrganisationInfo organisationInfo = organisationInfoRepository.selectOrganisationInfo(Long.parseLong(orgId));
 
         if (organisationInfo == null) {
-            organisationInfo = new organisationInfo();
+            organisationInfo = new OrganisationInfo();
             organisationInfo.setOrgId(Long.parseLong(orgId));
 
             organisationInfoRepository.save(organisationInfo);
@@ -146,25 +151,17 @@ public class OrganisationServiceImp implements OrganisationService {
 
         Certificate certificate = new Certificate(dateCreated,dateExpiry,0);
 
-
-
-
         access.createOrganisationDirectory(organisation.getOrgId(), organisation.getOrgName());
         organisation.setDirectory("/home/ubuntu/Organisations/" + tmp_id);
 
-        //create certificate tuple
-
-        //create certificate
-
-
-
         LocalDate date = LocalDate.now(); /* registration date */
 
-
         organisationRepository.save(organisation);
-        organisationInfoRepository.save(new organisationInfo((long) tmp_id));
+        organisationInfoRepository.save(new OrganisationInfo((long) tmp_id));
         organisationPointsRepository.save(new organisationPoints((long) tmp_id));
         certificateRepository.save(certificate);
+
+        certificateService.addCertificate(organisation.getOrgId());
         return true;
     }
 
@@ -227,14 +224,6 @@ public class OrganisationServiceImp implements OrganisationService {
         else if (organisationRepository.selectOrganisationById(Long.parseLong(request.getOrgId())) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
-        /*
-         *  Todo:
-         *   validate the website
-         *     1) send a request to the website
-         *        1.2) scrape the web and search for signs of ownership
-         *
-         * */
-
         if (organisationInfoRepository.addOrgWebsite(Long.parseLong(request.getOrgId()), request.getWebsite()) != 1)
             throw new Exception("Exception: website field failed to update");
 
@@ -252,7 +241,7 @@ public class OrganisationServiceImp implements OrganisationService {
             /*
              * Because organisation already exists, set the field
              * */
-            organisationInfo organisationInfo = new organisationInfo();
+            OrganisationInfo organisationInfo = new OrganisationInfo();
             organisationInfo.setOrgId(Long.parseLong(orgId));
 
             organisationInfoRepository.save(organisationInfo);
@@ -294,7 +283,7 @@ public class OrganisationServiceImp implements OrganisationService {
             /*
              * Because organisation already exists, set the field
              * */
-            organisationInfo organisationInfo = new organisationInfo();
+            OrganisationInfo organisationInfo = new OrganisationInfo();
             organisationInfo.setOrgId(Long.parseLong(orgId));
 
             organisationInfoRepository.save(organisationInfo);
@@ -342,7 +331,7 @@ public class OrganisationServiceImp implements OrganisationService {
             /*
              * Because organisation already exists, set the field
              * */
-            organisationInfo organisationInfo = new organisationInfo();
+            OrganisationInfo organisationInfo = new OrganisationInfo();
             organisationInfo.setOrgId(Long.parseLong(orgId));
 
             organisationInfoRepository.save(organisationInfo);
@@ -423,12 +412,12 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public boolean addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception {
+    public boolean addOrgAuditDoc(File auditDoc) throws Exception {
         return false;
     }
 
     @Override
-    public boolean removeOrgAuditDoc(String orgId) throws Exception {
+    public boolean removeOrgAuditDoc(long orgId) throws Exception {
         return false;
     }
 
@@ -438,7 +427,7 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public boolean removeOrgAuditor(String orgId) throws Exception {
+    public boolean removeOrgAuditor(long orgId) throws Exception {
         return false;
     }
 
@@ -448,7 +437,7 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public boolean removeOrgCommittee(String orgId) throws Exception {
+    public boolean removeOrgCommittee(long orgId) throws Exception {
         return false;
     }
 
@@ -458,7 +447,7 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public boolean removeOrgDonationInfo(String orgId) throws Exception {
+    public boolean removeOrgDonationInfo(long orgId) throws Exception {
         return false;
     }
 
@@ -468,7 +457,7 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public boolean removeOrgNGO(String orgId) throws Exception {
+    public boolean removeOrgNGO(long orgId) throws Exception {
         return false;
     }
 

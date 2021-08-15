@@ -1,6 +1,6 @@
 package com.GiveaLot.givealot.Organisation.controller;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
-import com.GiveaLot.givealot.Organisation.model.organisationInfo;
+import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.requests.AddOrganisationRequest;
 import com.GiveaLot.givealot.Organisation.requests.*;
 import com.GiveaLot.givealot.Organisation.service.OrganisationServiceImp;
@@ -81,7 +81,7 @@ public class OrganisationController
         response.setObject(null);
         try
         {
-            organisationInfo res = service.selectOrganisationInfo(orgId);
+            OrganisationInfo res = service.selectOrganisationInfo(orgId);
             if(res != null)
             {
                 response.setCode("org_sel_ok_200");

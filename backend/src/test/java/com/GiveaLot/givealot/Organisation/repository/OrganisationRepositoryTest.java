@@ -1,7 +1,7 @@
 package com.GiveaLot.givealot.Organisation.repository;
 
 import com.GiveaLot.givealot.Organisation.model.Organisations;
-import com.GiveaLot.givealot.Organisation.model.organisationInfo;
+import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -40,7 +40,7 @@ class OrganisationRepositoryTest {
                 .build();
 
         System.out.println(repository.save(org));
-        organisationInfo organisationInfo = new organisationInfo();
+        OrganisationInfo organisationInfo = new OrganisationInfo();
         LocalDate date = LocalDate.now();
         //organisationInfo.setEstablishmentDate(date.toString());
         OrganisationInfoRepository.save(organisationInfo);

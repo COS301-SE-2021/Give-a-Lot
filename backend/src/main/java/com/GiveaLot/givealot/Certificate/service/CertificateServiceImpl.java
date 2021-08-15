@@ -34,7 +34,9 @@ public class CertificateServiceImpl implements CertificateService {
     private CertificateRepository certificateRepository;
 
     @Autowired
-    private CertificateRepository certificateRepository;
+    private BlockChainRepository blockChainRepository;
+
+
 
 //    @Autowired
 //    CertificateServiceImpl(  BlockchainService blockchainService, OrganisationRepository organisationRepository, CertificateRepository certificateRepository)
@@ -47,15 +49,11 @@ public class CertificateServiceImpl implements CertificateService {
     @Override
     public boolean addCertificate(long orgId) throws Exception {
 
-        OrganisationPoints organisationPoints = new OrganisationPoints();
-
-        organisationPoints.setPoints(0);
-
         Certificate cert= certificateRepository.selectCertificateById(orgId);
 
         Organisations organisation = organisationRepository.selectOrganisationById(orgId);
 
-       boolean certificateCreated = createPDFDocument(cert,organisation,organisationPoints);
+       boolean certificateCreated = createPDFDocument(cert,organisation,0);
 
         if(!certificateCreated){
             throw new Exception("Exception: Problem creating and storing certificate");
@@ -81,13 +79,15 @@ public class CertificateServiceImpl implements CertificateService {
 
         //query organisation, certificate, org points, blockchain
 
+        Blockchain blockchain = blockChainRepository.selectBlockchainOrgId(orgId);
+
         //we need to remove points from organisationpoints and add it to certificate, we need to remove certlevel from certificate and add it to blockchain
 
         Organisations organisation = organisationRepository.selectOrganisationById(orgId);
         OrganisationPoints organisationPoints = organisationPointsRepository(orgId);
         Certificate cert = certificateRepository.selectCertificateById(orgId);
 
-        boolean certificateCreated = createPDFDocument(cert,organisation,organisationPoints);
+        boolean certificateCreated = createPDFDocument(cert,organisation,cert.getPoints());
 
         if(!certificateCreated){
             throw new Exception("Exception: Problem creating and storing certificate");
@@ -96,12 +96,12 @@ public class CertificateServiceImpl implements CertificateService {
         File certificate = retrieveCertificate(orgId, organisation.getOrgName());
 
         String[] result = blockchainService
-                .upgradeCertificate(0,orgId, certificate,0);
+                .upgradeCertificate(blockchain.getIndex(),orgId, certificate,blockchain.getLevel());
 
         String certificateHash = result[0];
         String txHash = result[1];
 
-        Blockchain blockchain = new Blockchain(orgId,index,0,txHash,certificateHash);
+        blockChainRepository.UpdateBlockchain(blockchain.getIndex(),blockchain.getLevel()+1,txHash,certificateHash,orgId);
 
         return true;
     }
@@ -114,10 +114,8 @@ public class CertificateServiceImpl implements CertificateService {
     }
 
     @Override
-    public boolean createPDFDocument(Certificate cert, Organisations organisation, OrganisationPoints organisationPoints) throws Exception {
+    public boolean createPDFDocument(Certificate cert, Organisations organisation, int points) throws Exception {
         ServerAccess access = new ServerAccess();
-
-        int points = organisationPoints.getPoints();
 
 
         access.downloadCertificateTemplate(points);

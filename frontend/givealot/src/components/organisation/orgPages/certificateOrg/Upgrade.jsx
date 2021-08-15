@@ -1,16 +1,35 @@
-import React, { Component } from 'react'
-import "./certificate.css"
+import React, { Component } from 'react';
+import "./certificate.css";
+import CancelIcon from '@material-ui/icons/Cancel';
 
 
-export class Upgrade extends Component {
+export default function  Upgrade() {
 
-    render() {
+
         return (
             <div className="upgrade">
-                upgrade
+                <div className="upgrade_heading">
+                    <p className="upgrade_level">Current level:</p>
+                    <p className="upgrade_status"> Intermediate</p>
+
+                </div>
+               <div className="contain">
+                    <form className="upgrade_form">
+                        <input
+                            name="website"
+                            type="text"
+                            placeholder="Website"
+                            className="input1"
+
+                        />
+                        <input type="submit" value="Submit" className="submit1"/>
+                        <div className="contain_Icon"><CancelIcon className="formIcon"/></div>
+
+
+                    </form>
+               </div>
+
             </div>
         )
-    }
-}
 
-export default Upgrade
+}

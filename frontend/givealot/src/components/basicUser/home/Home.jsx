@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import "./home.css"
 import HomeHeader from "./HomeHeader"
 import bodyImage from "./bodyImage.png"
-import Login from "../../login/Login";
-import { Switch, Route } from "react-router-dom";
-import VerifyHomePage from "./VerifyHomePage";
 
 export class Home extends Component {
 
@@ -39,14 +36,7 @@ export class Home extends Component {
                     </div>
                     <button type="submit" className="browse_button">Browse Organisations</button>
                 </div>
-                {/*<Switch>*/}
-                {/*    <Route exact path="/login">*/}
-                {/*        <Login />*/}
-                {/*    </Route>*/}
-                {/*    <Route exact path="/verifyPage">*/}
-                {/*        <VerifyHomePage />*/}
-                {/*    </Route>*/}
-                {/*</Switch>*/}
+
             </div>
         )
     }

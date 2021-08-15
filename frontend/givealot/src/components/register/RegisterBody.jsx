@@ -5,10 +5,6 @@ import PersonIcon from '@material-ui/icons/Person';
 import {Link} from "react-router-dom";
 import RegisterUser from "./registerUser/RegisterUser";
 import RegisterOrganisation from "./registerOrganisation/RegisterOrganisation";
-// import ListItem from '@material-ui/core/ListItem';
-// import ListItemText from '@material-ui/core/ListItemText';
-// import ListItem from '@material-ui/core/ListItem';
-// import ListItemText from '@material-ui/core/ListItemText';
 import {
     Switch,
     Route
@@ -19,7 +15,6 @@ export class RegisterBody extends Component {
     render() {
         return (
             <div className="register">
-
                 <div className="containerRegister">
                     <div className="RegisterContent">
                         <div className="topLine">
@@ -38,15 +33,18 @@ export class RegisterBody extends Component {
                                 <p> Register Organisation </p>
                             </div>
                         </Link>
+                        <div style={{color: "white"}}>
+                            <div id="createAccount">
+                               <span>Login?
+                                   <span style={{textDecoration:"underline", color: "white", cursor: "pointer"}} >
+                                       <Link to="/login">
+                                           Sign In
+                                       </Link>
+                                    </span>
+                               </span>
+                            </div>
+                        </div>
                     </div>
-                    <Switch>
-                        <Route exact path="/registerUser">
-                            <RegisterUser />
-                        </Route>
-                        <Route exact path="/registerOrganisation">
-                            <RegisterOrganisation />
-                        </Route>
-                    </Switch>
                 </div>
             </div>
 

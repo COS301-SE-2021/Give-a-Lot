@@ -72,14 +72,18 @@ export class Login extends Component {
 
                                <div style={{color: "white"}}>
                                    <div id="createAccount">
-                                       <span>Create Account? <span style={{textDecoration:"underline", color: "white", cursor: "pointer"}} ><Link to="/register">Sign Up</Link></span></span>
+                                       <span>Create Account?
+                                           <span style={{textDecoration:"underline", color: "white", cursor: "pointer"}} >
+                                               <Link to="/register">
+                                                   Sign Up
+                                               </Link>
+                                            </span>
+                                       </span>
                                    </div>
-
                                </div>
                                <div>
                                    <button type="submit" className="Login_button">Sign In</button>
                                </div>
-
                            </form>
                            <div className="gradientOverlay" />
                        </div>

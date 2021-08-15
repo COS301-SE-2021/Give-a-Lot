@@ -27,26 +27,20 @@
 
 import "./register.css"
 import FeaturedHeader from "../featuredHeader/FeaturedHeader"
-// import {
-//     BrowserRouter as Router,
-//     Switch,
-//     Route
-// } from "react-router-dom";
-// import RegisterUser from "./registerUser/RegisterUser"
-// import RegisterOrganisation from "./registerOrganisation/RegisterOrganisation";
+import {Switch, Route} from "react-router-dom";
+import RegisterUser from "./registerUser/RegisterUser"
+import RegisterOrganisation from "./registerOrganisation/RegisterOrganisation";
 import RegisterBody from "./RegisterBody";
+import React from "react";
 
 function Register() {
     return (
-        // <Router>
-            <div className="register">
-                <FeaturedHeader />
-                <div>
-                    <RegisterBody />
-                </div>
+        <div className="register">
+            <FeaturedHeader />
+            <div>
+                <RegisterBody />
             </div>
-        // </Router>
-
+        </div>
     );
 }
 

@@ -5,9 +5,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from "react-router-dom";
-// import Login from "../../login/Login";
-// import { Redirect } from "react-router";
-// import VerifyHomePage from "./VerifyHomePage"
 
 export class HomeHeader extends Component {
 

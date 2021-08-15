@@ -48,23 +48,23 @@ public class Certificate {
     boolean adminRenewal;
 
     @Column(
-            name = "certLevel",
+            name = "points",
             updatable = true,
             nullable = false
     )
-    int level;
+    int points;
 
     public Certificate(){
         //Dependant on what will be on the certificate
         this.dateCreated = "";
         this.dateExpiry = "";
-        this.level = 0;
+        this.points = 0;
     }
 
     public Certificate(String dateCreated, String dateExpiry, int level){
         this.dateCreated = dateCreated;
         this.dateExpiry = dateExpiry;
-        this.level = level;
+        this.points = level;
         this.adminRenewal = true;
         this.orgRenewal = true;
     }
@@ -85,8 +85,8 @@ public class Certificate {
         this.dateExpiry = dateExpiry;
     }
 
-    public int getLevel() {
-        return level;
+    public int getPoints() {
+        return points;
     }
 
     public long getOrg_id() {
@@ -113,7 +113,7 @@ public class Certificate {
         this.adminRenewal = adminRenewal;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
+    public void setLevel(int points) {
+        this.points = points;
     }
 }

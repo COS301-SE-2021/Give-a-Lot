@@ -218,12 +218,23 @@
 
 }
 
+
+.upgrade_sublabel{
+    position: relative;
+    color: gray;
+    top: 20px;
+    margin-bottom: 20px;
+    left: 20px;
+    font-size: 12px;
+
+}
+
 .upgrade_form1{
     position: relative;
     display: flex;
 
     top: 15px;
-    left: 15px;
+    left: 35px;
     width: 300px;
     margin-top: 10px;
 }
@@ -236,17 +247,40 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-left: 10px;
+    margin-left: 20px;
 
 
 }
+
+.file_submit {
+
+    width: 60px;
+    height: 30px;
+    background-color: #2d9499;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-top: 15px;
+
+
+}
+
 
 .img_submit:hover {
     background-color: #1f5759;
 }
-
+.file_submit:hover {
+    background-color: #1f5759;
+}
 
 .img_Icon{
+    width: 40px;
+    margin-left: 10px;
+}
+
+.file_Icon{
     width: 40px;
     margin-left: 10px;
 }
@@ -255,6 +289,20 @@
 
     color: red;
     font-size: 30px !important;
+}
+.f_Icon{
+    margin-top: 15px;
+    color: red;
+    font-size: 30px !important;
+}
+
+.form_file{
+    width: 180px;
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 15px;
+
+
 }
 
 

@@ -119,6 +119,9 @@ export default function  Upgrade() {
                    <div className="upgrade_form">
                        <label className="upgrade_label">Organisation images section</label>
                    </div>
+                   <div className="upgrade_form">
+                       <label className="upgrade_sublabel">Upload up to 10 images, each image has 1 point</label>
+                   </div>
 
                    <div className="upgrade_form1">
                        <input
@@ -133,82 +136,18 @@ export default function  Upgrade() {
                               <AddAPhotoIcon  color="default"/> Choose a file
                            </Button>
                        </label>
-                       <input type="submit" value="Submit" className="img_submit"/>
+                       <input type="submit" value="Upload" className="img_submit"/>
                        <div className="img_Icon"><CancelIcon className="_Icon"/></div>
 
                    </div>
 
-                   <div className="upgrade_form1">
-                       <input
-                           accept="image/*"
-                           className={classes.input}
-                           id="contained-button-file"
-                           multiple
-                           type="file"
-                       />
-                       <label htmlFor="contained-button-file">
-                           <Button  size="small" variant="contained" color="default" component="span">
-                               <AddAPhotoIcon  color="default"/> Choose a file
-                           </Button>
-                       </label>
-                       <input type="submit" value="Submit" className="img_submit"/>
-                       <div className="img_Icon"><CancelIcon className="_Icon"/></div>
 
-                   </div>
 
-                   <div className="upgrade_form1">
-                       <input
-                           accept="image/*"
-                           className={classes.input}
-                           id="contained-button-file"
-                           multiple
-                           type="file"
-                       />
-                       <label htmlFor="contained-button-file">
-                           <Button  size="small" variant="contained" color="default" component="span">
-                               <AddAPhotoIcon  color="default"/> Choose a file
-                           </Button>
-                       </label>
-                       <input type="submit" value="Submit" className="img_submit"/>
-                       <div className="img_Icon"><CancelIcon className="_Icon"/></div>
 
-                   </div>
 
-                   <div className="upgrade_form1">
-                       <input
-                           accept="image/*"
-                           className={classes.input}
-                           id="contained-button-file"
-                           multiple
-                           type="file"
-                       />
-                       <label htmlFor="contained-button-file">
-                           <Button  size="small" variant="contained" color="default" component="span">
-                               <AddAPhotoIcon  color="default"/> Choose a file
-                           </Button>
-                       </label>
-                       <input type="submit" value="Submit" className="img_submit"/>
-                       <div className="img_Icon"><CancelIcon className="_Icon"/></div>
 
-                   </div>
 
-                   <div className="upgrade_form1">
-                       <input
-                           accept="image/*"
-                           className={classes.input}
-                           id="contained-button-file"
-                           multiple
-                           type="file"
-                       />
-                       <label htmlFor="contained-button-file">
-                           <Button  size="small" variant="contained" color="default" component="span">
-                               <AddAPhotoIcon  color="default"/> Choose a file
-                           </Button>
-                       </label>
-                       <input type="submit" value="Submit" className="img_submit"/>
-                       <div className="img_Icon"><CancelIcon className="_Icon"/></div>
 
-                   </div>
 
 
                </div>
@@ -218,31 +157,50 @@ export default function  Upgrade() {
 
 
                 <div className="contain2">
+
+
+                    <form className="upgrade_form">
+                        <input
+                            name="address"
+                            type="text"
+                            placeholder="Enter your Tax reference number"
+                            className="input1"
+                        />
+                        <input type="submit" value="Submit" className="submit1"/>
+                        <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+                    </form>
+
                     <div className="upgrade_form">
                         <label className="upgrade_label">Donation details section</label>
                     </div>
 
-                    <form className="upgrade_form">
-                        <input
-                            name="address"
-                            type="text"
-                            placeholder="Enter your address.."
-                            className="input1"
-                        />
-                        <input type="submit" value="Submit" className="submit1"/>
-                        <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
-                    </form>
+                    <div className="upgrade_form">
+                        <label className="upgrade_sublabel">Upload your Audit document</label>
+                    </div>
 
                     <form className="upgrade_form">
-                        <input
-                            name="address"
-                            type="text"
-                            placeholder="Enter your address.."
-                            className="input1"
-                        />
-                        <input type="submit" value="Submit" className="submit1"/>
-                        <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+
+                        <input type="file" name="file"  className="form_file"/>
+                        <input type="submit" value="Upload" className="file_submit"/>
+                        <div className="file_Icon"><CancelIcon className="f_Icon"/></div>
                     </form>
+
+
+                    <div className="upgrade_form">
+                        <label className="upgrade_sublabel">Upload the Auditors certificate</label>
+                    </div>
+
+                    <form className="upgrade_form">
+
+                        <input type="file" name="file"  className="form_file"/>
+                        <input type="submit" value="Upload" className="file_submit"/>
+                        <div className="file_Icon"><CancelIcon className="f_Icon"/></div>
+                    </form>
+
+
+
+
+
                 </div>
             </div>
             </div>

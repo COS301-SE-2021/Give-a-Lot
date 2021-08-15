@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import "./login.css"
+import "./Login.css"
 import FeaturedHeader from "../featuredHeader/FeaturedHeader"
 import LoginBody from "./loginBody/LoginBody"
 

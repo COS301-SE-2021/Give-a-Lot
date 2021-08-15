@@ -22,22 +22,19 @@ import React, { Component } from "react";
 import OrganisationBasic from "./registerOrgPages/OrganisationBasic"
 import OrganisationContact from "./registerOrgPages/OrganisationContact";
 import OrganisationAbout from "./registerOrgPages/OrganisationAbout";
-import OrganisationMedia from "./registerOrgPages/OrganisationMedia"
+// import OrganisationMedia from "./registerOrgPages/OrganisationMedia"
 
 export class RegisterOrganisation extends Component {
     state = {
         step: 1,
-        image: "",
-        slogan: "",
-        sector: "",
-        description: "",
-        contactPerson: "",
-        contactName: "",
-        email: "",
-        orgName:"",
-        orgPassword: "",
-        orgPasswordConfirm: "",
-
+        orgName : "",
+        slogan : "",
+        orgDescription : "",
+        orgSector : "",
+        orgEmail : "",
+        contactPerson : "",
+        contactNumber : "",
+        password : ""
     };
     // Go to next step
     nextStep = () => {
@@ -68,8 +65,8 @@ export class RegisterOrganisation extends Component {
 
     render() {
         const { step } = this.state;
-        const { image, slogan, email, sector, description, contactNumber, contactPerson, orgName } = this.state;
-        const values = { image, slogan, email, sector, description, contactNumber, contactPerson, orgName };
+        const { orgName, slogan, orgDescription, sector, orgEmail, contactPerson, contactNumber, password } = this.state;
+        const values = { orgName, slogan, orgDescription, sector, orgEmail, contactPerson, contactNumber, password };
 
         switch (step) {
             default:
@@ -101,15 +98,15 @@ export class RegisterOrganisation extends Component {
                         values={values}
                     />
                 );
-            case 4:
-                return (
-                    <OrganisationMedia
-                        nextStep={this.nextStep}
-                        prevStep={this.prevStep}
-                        handleChange={this.handleChange}
-                        values={values}
-                    />
-                );
+            // case 4:
+            //     return (
+            //         <OrganisationMedia
+            //             nextStep={this.nextStep}
+            //             prevStep={this.prevStep}
+            //             handleChange={this.handleChange}
+            //             values={values}
+            //         />
+            //     );
             // case 5:
             //   return (
             //     <ConfirmOrgRegistration

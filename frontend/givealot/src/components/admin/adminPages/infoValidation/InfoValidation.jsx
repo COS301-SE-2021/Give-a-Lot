@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import "./infoValidation.css"
 import { DataGrid } from '@material-ui/data-grid';
 import {Link} from "react-router-dom";
-import {DeleteOutline} from "@material-ui/icons";
+// import {DeleteOutline} from "@material-ui/icons";
 import { useState } from "react";
 import {orgsRows} from "../../../../DummyData";
 

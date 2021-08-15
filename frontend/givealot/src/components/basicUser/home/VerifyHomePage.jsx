@@ -95,7 +95,7 @@ export class VerifyHomePage extends Component {
                         {/*</button>*/}
                         <div style={{paddingTop: "20px"}}>
                             <Button variant="contained" color="primary" onClick={this.onClickHandler} style={{width: "380px", backgroundColor: "green"}}>
-                                Primary
+                                Submit
                             </Button>
                         </div>
 

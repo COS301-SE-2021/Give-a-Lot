@@ -1,17 +1,14 @@
 import React, { Component } from 'react'
 import "./login.css"
 import FeaturedHeader from "../featuredHeader/FeaturedHeader"
-import {
-    BrowserRouter as Router
-} from "react-router-dom";
+// import {BrowserRouter as Router} from "react-router-dom";
 import LoginBody from "./loginBody/LoginBody"
-
 
 export class Login extends Component {
 
     render() {
         return (
-            <Router>
+            // <Router>
                 <div className="Login">
                     <FeaturedHeader />
                     <div className="containerLogin">
@@ -23,7 +20,7 @@ export class Login extends Component {
                         {/*</Switch>*/}
                     </div>
                 </div>
-            </Router>
+            // </Router>
         )
     }
 }

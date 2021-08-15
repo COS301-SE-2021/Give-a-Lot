@@ -3,17 +3,12 @@ package com.GiveaLot.givealot.Certificate.service;
 import com.GiveaLot.givealot.Blockchain.Repository.BlockChainRepository;
 import com.GiveaLot.givealot.Blockchain.dataclass.Blockchain;
 import com.GiveaLot.givealot.Blockchain.service.BlockchainService;
-import com.GiveaLot.givealot.Blockchain.service.BlockchainServiceImpl;
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
-import com.GiveaLot.givealot.Notification.dataclass.Mail;
-import com.GiveaLot.givealot.Notification.service.SendMailService;
-import com.GiveaLot.givealot.Notification.service.SendMailServiceImpl;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
-import com.GiveaLot.givealot.Organisation.requests.AddOrganisationRequest;
 import com.GiveaLot.givealot.Server.ServerAccess;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -21,10 +16,14 @@ import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
 import org.apache.pdfbox.pdmodel.interactive.form.PDField;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
 
 import javax.mail.internet.MimeMessage;
 import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class CertificateServiceImpl implements CertificateService {
 
@@ -36,28 +35,27 @@ public class CertificateServiceImpl implements CertificateService {
     @Autowired
     private CertificateRepository certificateRepository;
 
-    SendMailService service;
-
-
-
     @Autowired
-    CertificateServiceImpl(SendMailService service)
-   {
-        this.service = service;
-   }
+    private BlockChainRepository blockChainRepository;
+
+
+
+//    @Autowired
+//    CertificateServiceImpl(  BlockchainService blockchainService, OrganisationRepository organisationRepository, CertificateRepository certificateRepository)
+//    {
+//        this.blockchainService = blockchainService;
+//        this.organisationRepository = organisationRepository;
+//        this.certificateRepository = certificateRepository;
+//    }
 
     @Override
     public boolean addCertificate(long orgId) throws Exception {
-
-        OrganisationPoints organisationPoints = new OrganisationPoints();
-
-        organisationPoints.setPoints(0);
 
         Certificate cert= certificateRepository.selectCertificateById(orgId);
 
         Organisations organisation = organisationRepository.selectOrganisationById(orgId);
 
-       boolean certificateCreated = createPDFDocument(cert,organisation,organisationPoints);
+       boolean certificateCreated = createPDFDocument(cert,organisation,0);
 
         if(!certificateCreated){
             throw new Exception("Exception: Problem creating and storing certificate");
@@ -81,15 +79,12 @@ public class CertificateServiceImpl implements CertificateService {
     @Override
     public boolean updateCertificate(long orgId) throws Exception {
 
-        //query organisation, certificate, org points, blockchain
-
-        //we need to remove points from organisationpoints and add it to certificate, we need to remove certlevel from certificate and add it to blockchain
-
+        Blockchain blockchain = blockChainRepository.selectBlockchainOrgId(orgId);
         Organisations organisation = organisationRepository.selectOrganisationById(orgId);
         OrganisationPoints organisationPoints = organisationPointsRepository(orgId);
         Certificate cert = certificateRepository.selectCertificateById(orgId);
 
-        boolean certificateCreated = createPDFDocument(cert,organisation,organisationPoints);
+        boolean certificateCreated = createPDFDocument(cert,organisation,cert.getPoints());
 
         if(!certificateCreated){
             throw new Exception("Exception: Problem creating and storing certificate");
@@ -98,12 +93,12 @@ public class CertificateServiceImpl implements CertificateService {
         File certificate = retrieveCertificate(orgId, organisation.getOrgName());
 
         String[] result = blockchainService
-                .upgradeCertificate(0,orgId, certificate,0);
+                .upgradeCertificate(blockchain.getIndex(),orgId, certificate,blockchain.getLevel());
 
         String certificateHash = result[0];
         String txHash = result[1];
 
-        Blockchain blockchain = new Blockchain(orgId,index,0,txHash,certificateHash);
+        blockChainRepository.UpdateBlockchain(blockchain.getIndex(),blockchain.getLevel()+1,txHash,certificateHash,orgId);
 
         return true;
     }
@@ -115,14 +110,9 @@ public class CertificateServiceImpl implements CertificateService {
         return access.downloadCertificate(orgId,orgName);
     }
 
-
-
     @Override
-    public boolean createPDFDocument(Certificate cert, Organisations organisation, OrganisationPoints organisationPoints) throws Exception {
+    public boolean createPDFDocument(Certificate cert, Organisations organisation, int points) throws Exception {
         ServerAccess access = new ServerAccess();
-
-        int points = organisationPoints.getPoints();
-
 
         access.downloadCertificateTemplate(points);
 
@@ -183,22 +173,47 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     public boolean checkRenewal() throws Exception {
+        List<Certificate> certificateList = certificateRepository.findAll();
+
+        Date dateCurrent = new Date();
+
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+        List<Long> id = new ArrayList<>();
+        List<Date> expiry = new ArrayList<>();
+
+        for (int i = 0; i < certificateList.size(); i++) {
+            id.add(certificateList.get(i).getOrg_id());
+            expiry.add(format.parse(certificateList.get(i).getDateExpiry()));
+        }
+
+        for (int i = 0; i < id.size(); i++) {
+            if(expiry.get(i)==null) {
+                throw new NullPointerException();
+            }
+            Date sqlDate = expiry.get(i);
+            boolean check = dateCurrent.after(sqlDate);
+            if (check) {
+                certificateRepository.updateAdminRenewal(id.get(i),false);
+                certificateRepository.updateOrgRenewal(id.get(i),false);
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public boolean setupEmailServerProperties() {
         return false;
     }
 
     @Override
-    public boolean CertificateExpiredEmail(String orgName, String orgEmail) throws Exception {
-        Mail mail = new Mail();
+    public boolean sendEmail() throws Exception {
+        return false;
+    }
 
-        mail.setRecipient(orgEmail);
-        mail.setSubject("Givealot Certificate Expiried");
-        mail.setMessage("Good day we hope this email finds you well,\n We regret to inform you that your certificate has expired please log in to your portal to renew it" +
-                "\n Kind Regards\n" +
-                "Givalot Team");
-
-        service.sendMail(mail);
-
-        return true;
+    @Override
+    public MimeMessage CertificateExpiredEmail(String orgName, String orgEmail) throws Exception {
+        return null;
     }
 
     @Override

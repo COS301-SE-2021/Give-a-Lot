@@ -1,5 +1,23 @@
 GET http://localhost:8080/v1/organisation/select/9
 
+<> 2021-08-15T230200.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/9
+
+<> 2021-08-15T230154.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/9
+
+<> 2021-08-15T230148.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/select/9
+
 <> 2021-08-15T172345.200.json
 
 ###
@@ -439,42 +457,6 @@ Content-Type: application/json
 }
 
 <> 2021-08-14T201700.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/taxref
-Content-Type: application/json
-
-{
-  "orgId" : "57",
-  "reference" : "7835676BX"
-}
-
-<> 2021-08-14T201649.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/taxref
-Content-Type: application/json
-
-{
-  "orgId" : "57",
-  "reference" : ""
-}
-
-<> 2021-08-14T201629.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/taxref
-Content-Type: application/json
-
-{
-  "orgId" : "57",
-  "reference" : ""
-}
-
-<> 2021-08-14T201507.200.json
 
 ###
 

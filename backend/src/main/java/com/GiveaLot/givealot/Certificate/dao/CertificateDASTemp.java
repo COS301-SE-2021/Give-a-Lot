@@ -1,4 +1,4 @@
-/*
+
 package com.GiveaLot.givealot.Certificate.dao;
 
 import com.GiveaLot.givealot.Blockchain.dao.BlockchainDAOInterface;
@@ -15,7 +15,6 @@ import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
 import org.apache.pdfbox.pdmodel.interactive.form.PDField;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.mail.internet.MimeMessage;
@@ -98,6 +97,14 @@ public class CertificateDASTemp implements CertificateDAOInterface{
     }
 
     @Override
+    public boolean compareUploadedCertificate(File certificate) throws Exception {
+        BlockchainDASTemp blockchainDASTemp = new BlockchainDASTemp();
+
+        return blockchainDASTemp.compareCertificateHash(certificate);
+    }
+
+
+    @Override
     public boolean createPDFDocument(Certificate cert, Organisation organisation, OrganisationPoints organisationPoints) throws Exception {
         ServerAccess access = new ServerAccess();
 
@@ -111,8 +118,8 @@ public class CertificateDASTemp implements CertificateDAOInterface{
 
 
 
-        */
-/** Setup the pdf file **//*
+
+/** Setup the pdf file **/
 
 
         File template = new File(templateCertificate);
@@ -122,8 +129,8 @@ public class CertificateDASTemp implements CertificateDAOInterface{
 
         PDAcroForm acroForm = catalog.getAcroForm();
 
-        */
-/** Assign acroform fields **//*
+
+/** Assign acroform fields **/
 
 
         try {
@@ -195,4 +202,4 @@ public class CertificateDASTemp implements CertificateDAOInterface{
         return false;
     }
 }
-*/
+

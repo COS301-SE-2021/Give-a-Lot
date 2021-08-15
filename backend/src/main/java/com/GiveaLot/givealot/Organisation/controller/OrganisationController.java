@@ -1,11 +1,10 @@
 package com.GiveaLot.givealot.Organisation.controller;
 import com.GiveaLot.givealot.Organisation.dataclass.OrganisationRepo;
 import com.GiveaLot.givealot.Organisation.dataclass.organisationInfo;
+import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.requests.*;
 import com.GiveaLot.givealot.Organisation.service.OrganisationServiceImp;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
-import java.util.Random;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;

@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import OrgUsers from "./orgPages/orgUsers/OrgUsers";
 import User from './orgPages/user/User';
-import NewUser from "./orgPages/newUser/NewUser"
+// import NewUser from "./orgPages/newUser/NewUser"
 import OrgCalendar from "./orgPages/orgCalendar/OrgCalendar";
 import Profile from "./orgPages/profile/Profile"
 import Gallery from "./orgPages/gallery/Gallery";
@@ -35,15 +35,15 @@ function Organisation() {
                         <Route path="/user/:userId">
                             <User />
                         </Route>
-                        <Route path="/newUser">
-                            <NewUser />
-                        </Route>
+                        {/*<Route path="/newUser">*/}
+                        {/*    <NewUser />*/}
+                        {/*</Route>*/}
                         <Route path="/calendar">
                             <OrgCalendar />
                         </Route>
-                        <Route path="/logout">
-                            <NewUser />
-                        </Route>
+                        {/*<Route path="/logout">*/}
+                        {/*    <NewUser />*/}
+                        {/*</Route>*/}
 
                         <Route path="/profile">
                             <Profile />

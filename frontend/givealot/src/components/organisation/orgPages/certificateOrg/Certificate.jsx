@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import "./certificate.css"
 import cert from "./stock.jpg";
 import GetAppIcon from '@material-ui/icons/GetApp';

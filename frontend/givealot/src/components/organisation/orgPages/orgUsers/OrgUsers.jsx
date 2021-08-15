@@ -1,13 +1,14 @@
 import * as React from 'react';
 import "./orgUsers.css"
 import { DataGrid } from '@material-ui/data-grid';
-import { DeleteOutline } from "@material-ui/icons";
+// import { DeleteOutline } from "@material-ui/icons";
 import { userRows } from "../../../../DummyData"
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
 export default function OrgUsers() {
-  const [data, setData] = useState(userRows);
+  // const [data, setData] = useState(userRows);
+  const [data] = useState(userRows);
 
   // const handleDelete = (id) => {
   //   setData(data.filter((item) => item.id !== id));

@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import "./sidebar.css"
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
-import AssignmentIcon from '@material-ui/icons/Assignment';
+// import MailOutlineIcon from '@material-ui/icons/MailOutline';
+// import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+// import AssignmentIcon from '@material-ui/icons/Assignment';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import InfoIcon from '@material-ui/icons/Info';

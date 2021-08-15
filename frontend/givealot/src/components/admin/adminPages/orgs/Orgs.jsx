@@ -8,7 +8,7 @@ import {
     PhoneAndroid,
     Publish,
 } from "@material-ui/icons";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export class Orgs extends Component {
 

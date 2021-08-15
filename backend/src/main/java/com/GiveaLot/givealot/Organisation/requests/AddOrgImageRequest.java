@@ -7,10 +7,10 @@ import java.io.File;
 public class AddOrgImageRequest
 {
     private String orgId;
-    private File image;
+    private String image;
 
     public AddOrgImageRequest(@JsonProperty String orgId,
-                              @JsonProperty File image)
+                              @JsonProperty String image)
     {
         this.orgId = orgId;
         this.image = image;
@@ -24,11 +24,11 @@ public class AddOrgImageRequest
         this.orgId = orgId;
     }
 
-    public File getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(File image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }

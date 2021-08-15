@@ -1,376 +1,388 @@
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+GET http://localhost:8080/v1/organisation/info/5
 
-<> 2021-08-05T175037.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-05T174945.200.json
+<> 2021-08-14T212115.200.json
 
 ###
 
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
+DELETE http://localhost:8080/v1/organisation/delete/socials/5/twitter
 
-<> 2021-08-05T174808.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-05T174731.200.json
+<> 2021-08-14T212107.200.json
 
 ###
 
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
+DELETE http://localhost:8080/v1/organisation/delete/socials/5/instagram
 
-<> 2021-08-05T174625.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-05T174616.200.json
+<> 2021-08-14T212050.200.json
 
 ###
 
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
+DELETE http://localhost:8080/v1/organisation/delete/socials/5/facebook
 
-<> 2021-08-05T174545.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-05T173143.200.json
+<> 2021-08-14T212037.200.json
 
 ###
 
-GET http://localhost:8080/v1/organisation/select/
+GET http://localhost:8080/v1/organisation/info/5
+
+<> 2021-08-14T212019.200.json
 
 ###
 
-GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
+DELETE http://localhost:8080/v1/organisation/delete/socials/5/faceboook
 
-<> 2021-08-05T104528.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/points/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T221353.200.json
+<> 2021-08-14T212009.200.json
 
 ###
 
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T221347.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T221224.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T221221.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/points/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T221212.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220919.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/points/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220916.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220901.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220819.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220737.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220642.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220612.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220512.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220421.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220201.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T220059.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T215951.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T215648.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T215108.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/{{0c0585b5fd5b5be2d0127028727fa784}}
-
-###
-
-GET http://localhost:8080/v1/organisation/select/{{0c0585b5fd5b5be2d0127028727fa784}}
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T210301.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T210212.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T210128.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T204903.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/points/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T204848.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/select/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T204247.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/info/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T204154.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/points/0c0585b5fd5b5be2d0127028727fa784
-
-<> 2021-08-04T204124.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/points/0c0585b5fd5b5be2d0127028727fa784
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
+POST http://localhost:8080/v1/organisation/add/socials
 Content-Type: application/json
 
 {
-  "orgName" : "nqobani's test add",
-  "slogan" : "nqobani's slogan",
-  "orgDescription" : " nqobani's orgDescription",
-  "orgSector" : "nqobani's orgSector",
-  "orgEmail" : "orgEmail@gmail.com",
-  "status" : "nqobani's status",
-  "contactPerson" : "nqobani's contactPerson",
-  "contactNumber" : "0909787329",
-  "directory" : "directory",
-  "password" : "password"
+  "type" : "",
+  "orgId" : "5",
+  "url" : "https://www.facebook.com/ionside47"
 }
 
-<> 2021-08-04T203927.200.json
+<> 2021-08-14T210543.200.json
 
 ###
 
-PUT http://localhost:8080/v1/organisation/investigate/0c0585b5fd5b5be2d0127028727fa784
+GET http://localhost:8080/v1/organisation/info/5
 
-<> 2021-08-04T203200.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/investigate/ea3ae9b33c1223beb4b6bdea4fc87002
-
-<> 2021-08-04T202503.200.json
+<> 2021-08-14T210438.200.json
 
 ###
 
-GET http://localhost:8080/v1/organisation/points/ea3ae9b33c1223beb4b6bdea4fc87002
-
-<> 2021-08-04T202421.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
+POST http://localhost:8080/v1/organisation/add/socials
 Content-Type: application/json
 
 {
-  "orgName" : "nqobani's test add",
-  "slogan" : "nqobani's slogan",
-  "orgDescription" : " nqobani's orgDescription",
-  "orgSector" : "nqobani's orgSector",
-  "orgEmail" : "orgEmail@gmail.com",
-  "status" : "nqobani's status",
-  "contactPerson" : "nqobani's contactPerson",
-  "contactNumber" : "0909787329",
-  "directory" : "directory",
-  "password" : "password"
+  "type" : "facebook",
+  "orgId" : "5",
+  "url" : "https://www.facebook.com/ionside47"
 }
 
-<> 2021-08-04T201125.200.json
+<> 2021-08-14T210429.200.json
 
 ###
 
-POST http://localhost:8080/v1/organisation/add/org
+POST http://localhost:8080/v1/organisation/add/socials
 Content-Type: application/json
 
 {
-  "orgName" : "nqobani's test add",
-  "slogan" : "nqobani's slogan",
-  "orgDescription" : " nqobani's orgDescription",
-  "orgSector" : "nqobani's orgSector",
-  "orgEmail" : "orgEmail@gmail.com",
-  "status" : "nqobani's status",
-  "contactPerson" : "nqobani's contactPerson",
-  "contactNumber" : "0909787329",
-  "directory" : "directory",
-  "password" : "password"
+"type" : "twitter",
+"orgId" : "5",
+"url" : "https://twitter.com/ionside000"
+
 }
 
-<> 2021-08-04T200433.200.json
+<> 2021-08-14T210419.200.json
 
 ###
 
-GET http://localhost:8080/v1/organisation/points/ea3ae9b33c1223beb4b6bdea4fc87002
+GET http://localhost:8080/v1/organisation/info/5
 
-<> 2021-08-04T195946.200.json
+<> 2021-08-14T210258.200.json
 
 ###
 
-POST http://localhost:8080/v1/organisation/add/org
+POST http://localhost:8080/v1/organisation/add/socials
 Content-Type: application/json
 
 {
-  "orgName" : "nqobani's test add",
-  "slogan" : "nqobani's slogan",
-  "orgDescription" : " nqobani's orgDescription",
-  "orgSector" : "nqobani's orgSector",
-  "orgEmail" : "orgEmail@gmail.com",
-  "status" : "nqobani's status",
-  "contactPerson" : "nqobani's contactPerson",
-  "contactNumber" : "0909787329",
-  "directory" : "directory",
-  "password" : "password"
+  "type" : "instagram",
+  "orgId" : "5",
+  "url" : "https://www.instagram.com/ionside000/"
+
 }
 
-<> 2021-08-04T195051.200.json
+<> 2021-08-14T205854.200.json
 
 ###
 
-POST http://localhost:8080/v1/organisation/add/org
+POST http://localhost:8080/v1/organisation/add/socials
 Content-Type: application/json
 
 {
-  "orgName" : "nqobani's test add",
-  "slogan" : "nqobani's slogan",
-  "orgDescription" : " nqobani's orgDescription",
-  "orgSector" : "nqobani's orgSector",
-  "orgEmail" : "orgEmail@gmail.com",
-  "status" : "nqobani's status",
-  "contactPerson" : "nqobani's contactPerson",
-  "contactNumber" : "0909787329",
-  "directory" : "directory",
-  "password" : "password"
+  "type" : "dkkgd",
+  "orgId" : "5",
+  "url" : "https://www.instagram.com/ionside000/"
+
 }
 
-<> 2021-08-04T194801.200.json
+<> 2021-08-14T205841.200.json
 
 ###
 
-POST http://localhost:8080/v1/organisation/add/org
+POST http://localhost:8080/v1/organisation/add/socials
 Content-Type: application/json
 
 {
-  "orgName" : "nqobani's test add",
-  "slogan" : "nqobani's slogan",
-  "orgDescription" : " nqobani's orgDescription",
-  "orgSector" : "nqobani's orgSector",
-  "orgEmail" : "orgEmail@gmail.com",
-  "status" : "nqobani's status",
-  "contactPerson" : "nqobani's contactPerson",
-  "contactNumber" : "0909787329",
-  "directory" : "directory",
-  "password" : "password"
+  "type" : "dkkgd",
+  "orgId" : "5",
+  "url" : "https://www.instagram.com/ionside000/"
+
 }
 
-<> 2021-08-04T194109.200.json
+<> 2021-08-14T205738.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/investigate/59kj
+
+<> 2021-08-14T205012.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/investigate/59
+
+<> 2021-08-14T205001.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/investigate/5
+
+<> 2021-08-14T204953.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/activate/5
+
+<> 2021-08-14T204603.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/activate/8
+
+<> 2021-08-14T204550.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/activate/5d
+
+<> 2021-08-14T204539.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/activate/5
+
+<> 2021-08-14T204530.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/suspend/kjg
+
+<> 2021-08-14T202739.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/suspend/8
+
+<> 2021-08-14T202732.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/suspend/5
+
+<> 2021-08-14T202719.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/5
+
+<> 2021-08-14T202706.200.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/taxref/5
+
+<> 2021-08-14T202302.200.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/taxref/98
+
+<> 2021-08-14T202248.200.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/taxref/98
+
+<> 2021-08-14T202202.200.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/taxref/
+
+<> 2021-08-14T202154.404.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/taxref/
+
+<> 2021-08-14T202149.404.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/5
+
+<> 2021-08-14T202135.200.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/taxref/5
+
+<> 2021-08-14T202126.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/5
+
+<> 2021-08-14T201711.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/taxref
+Content-Type: application/json
+
+{
+  "orgId" : "5",
+  "reference" : "7835676BX"
+}
+
+<> 2021-08-14T201700.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/taxref
+Content-Type: application/json
+
+{
+  "orgId" : "57",
+  "reference" : "7835676BX"
+}
+
+<> 2021-08-14T201649.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/taxref
+Content-Type: application/json
+
+{
+  "orgId" : "57",
+  "reference" : ""
+}
+
+<> 2021-08-14T201629.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/taxref
+Content-Type: application/json
+
+{
+  "orgId" : "57",
+  "reference" : ""
+}
+
+<> 2021-08-14T201507.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/taxref
+Content-Type: application/json
+
+{
+  "orgId" : "57",
+  "reference" : ""
+}
+
+<> 2021-08-14T201247.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/5
+
+<> 2021-08-14T201223.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/taxref
+Content-Type: application/json
+
+{
+  "orgId" : "5",
+  "reference" : "AB449344343"
+}
+
+<> 2021-08-14T201212.200.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/address/9
+
+<> 2021-08-14T200555.200.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/address/8khg5
+
+<> 2021-08-14T200538.200.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/address/8khg5
+
+<> 2021-08-14T200528.200.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/address/85
+
+<> 2021-08-14T200513.200.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/address/5
+
+<> 2021-08-14T200432.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/5
+
+<> 2021-08-14T200425.200.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/address/5
+
+<> 2021-08-14T200419.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/5
+
+<> 2021-08-14T200405.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/info/5
+
+<> 2021-08-14T195858.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/add/address
+Content-Type: application/json
+
+{
+  "orgId" : "5",
+  "address" : "38 Givealot street, Pretoria, 05, SA"
+}
+
+<> 2021-08-14T195852.200.json
 
 ###
 

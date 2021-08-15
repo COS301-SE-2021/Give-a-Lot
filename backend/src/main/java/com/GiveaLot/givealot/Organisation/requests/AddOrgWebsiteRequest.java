@@ -7,8 +7,8 @@ public class AddOrgWebsiteRequest
     private String orgId;
     private String website;
 
-    public AddOrgWebsiteRequest(@JsonProperty String orgId,
-                                @JsonProperty String website)
+    public AddOrgWebsiteRequest(@JsonProperty ("orgId") String orgId,
+                                @JsonProperty ("website") String website)
     {
         this.orgId = orgId;
         this.website = website;

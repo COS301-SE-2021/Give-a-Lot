@@ -143,7 +143,7 @@
 //                field = (PDField) acroForm.getField("slogan"); // Slogan
 //                field.setValue(organisation.getSlogan());
 
-package com.GiveaLot.givealot.Certificate.repository;
+/*package com.GiveaLot.givealot.Certificate.repository;
 
 import com.GiveaLot.givealot.Blockchain.dao.BlockchainDAOInterface;
 import com.GiveaLot.givealot.Blockchain.dao.BlockchainDASTemp;
@@ -281,7 +281,7 @@ public class CertificateDASTemp implements CertificateDAOInterface{
 
         return blockchainDASTemp.compareCertificateHash(certificate);
     }*/
-
+/*
 
     @Override
     public boolean createPDFDocument(Certificate cert, Organisation organisation, OrganisationPoints organisationPoints) throws Exception {
@@ -298,7 +298,7 @@ public class CertificateDASTemp implements CertificateDAOInterface{
 
 
 
-/** Setup the pdf file **/
+/** Setup the pdf file
 
 
         File template = new File(templateCertificate);
@@ -309,7 +309,7 @@ public class CertificateDASTemp implements CertificateDAOInterface{
         PDAcroForm acroForm = catalog.getAcroForm();
 
 
-/** Assign acroform fields **/
+/** Assign acroform fields
 
 
         try {
@@ -382,3 +382,4 @@ public class CertificateDASTemp implements CertificateDAOInterface{
     }
 }
 
+*/

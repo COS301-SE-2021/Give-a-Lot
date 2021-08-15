@@ -5,7 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.GiveaLot.givealot.Blockchain.contract.CertificateContract;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import reactor.util.function.Tuple3;
+import org.web3j.crypto.Credentials;
+import org.web3j.protocol.Web3j;
+import org.web3j.protocol.core.methods.response.TransactionReceipt;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.tuples.generated.Tuple3;
 
 import java.io.File;
 import java.io.FileInputStream;

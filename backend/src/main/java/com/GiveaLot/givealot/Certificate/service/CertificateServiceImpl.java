@@ -77,12 +77,7 @@ public class CertificateServiceImpl implements CertificateService {
     @Override
     public boolean updateCertificate(long orgId) throws Exception {
 
-        //query organisation, certificate, org points, blockchain
-
         Blockchain blockchain = blockChainRepository.selectBlockchainOrgId(orgId);
-
-        //we need to remove points from organisationpoints and add it to certificate, we need to remove certlevel from certificate and add it to blockchain
-
         Organisations organisation = organisationRepository.selectOrganisationById(orgId);
         OrganisationPoints organisationPoints = organisationPointsRepository(orgId);
         Certificate cert = certificateRepository.selectCertificateById(orgId);
@@ -116,7 +111,6 @@ public class CertificateServiceImpl implements CertificateService {
     @Override
     public boolean createPDFDocument(Certificate cert, Organisations organisation, int points) throws Exception {
         ServerAccess access = new ServerAccess();
-
 
         access.downloadCertificateTemplate(points);
 

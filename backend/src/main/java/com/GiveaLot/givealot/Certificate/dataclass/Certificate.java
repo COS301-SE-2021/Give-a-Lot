@@ -113,7 +113,7 @@ public class Certificate {
         this.adminRenewal = adminRenewal;
     }
 
-    public void setLevel(int points) {
+    public void setPoints(int points) {
         this.points = points;
     }
 }

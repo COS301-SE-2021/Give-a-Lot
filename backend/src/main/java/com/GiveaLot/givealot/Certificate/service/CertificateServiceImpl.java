@@ -8,7 +8,9 @@ import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
 import com.GiveaLot.givealot.Organisation.dataclass.OrganisationRepo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
+import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
+import com.GiveaLot.givealot.Organisation.requests.AddOrganisationRequest;
 import com.GiveaLot.givealot.Server.ServerAccess;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -47,7 +49,7 @@ public class CertificateServiceImpl implements CertificateService {
 
         Certificate cert= new Certificate(certificateRepository.selectCertificateById(orgId))
 
-        OrganisationRepo organisation = organisationRepository.selectOrganisationById(orgId);
+        Organisations organisation = organisationRepository.selectOrganisationById(orgId);
 
        boolean certificateCreated = createPDFDocument(cert,organisation,organisationPoints);
 
@@ -103,10 +105,8 @@ public class CertificateServiceImpl implements CertificateService {
         return access.downloadCertificate(orgId,orgName);
     }
 
-
-
     @Override
-    public boolean createPDFDocument(Certificate cert, Organisation organisation, OrganisationPoints organisationPoints) throws Exception {
+    public boolean createPDFDocument(Certificate cert, Organisations organisation, OrganisationPoints organisationPoints) throws Exception {
         ServerAccess access = new ServerAccess();
 
         int points = organisationPoints.getPoints();
@@ -117,10 +117,7 @@ public class CertificateServiceImpl implements CertificateService {
         String templateCertificate = "backend/src/main/resources/TempCertificate/CertificateTemplate.pdf";
         String completeCertificate = "backend/src/main/resources/TempCertificate/CertificateComplete.pdf";
 
-
-
-
-/** Setup the pdf file **/
+        /** Setup the pdf file **/
 
 
         File template = new File(templateCertificate);
@@ -130,8 +127,7 @@ public class CertificateServiceImpl implements CertificateService {
 
         PDAcroForm acroForm = catalog.getAcroForm();
 
-
-/** Assign acroform fields **/
+        /** Assign acroform fields **/
 
 
         try {

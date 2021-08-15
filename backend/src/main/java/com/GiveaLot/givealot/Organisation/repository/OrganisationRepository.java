@@ -32,13 +32,7 @@ public interface OrganisationRepository extends JpaRepository<OrganisationRepo,L
     @Query("UPDATE OrganisationRepo o SET o.status = ?2 WHERE o.orgId = ?1")
     Integer updateStatus(Long orgId, String status);
 
-    @Modifying
-    @Transactional
-    @Query("UPDATE OrganisationRepo o SET o.directory = ?2 WHERE o.orgId = ?1")
-    Integer updateRepo(Long orgId, String dir);
-
-
     @Query("SELECT DISTINCT o.orgId FROM OrganisationRepo AS o WHERE o.orgEmail = ?1")
-    int getOrgId(String orgEmail);
+    long getOrgId(String orgEmail);
 
 }

@@ -42,6 +42,7 @@ public class BlockchainServiceImpl implements BlockchainService {
             String[] result = new String[2];
             result[0] = hashedCertificate;
             result[1] = latestTransaction.getTransactionHash();
+
             return result;
         }catch (Exception e){
             throw new Exception("Exception: Blockchain transaction failed");

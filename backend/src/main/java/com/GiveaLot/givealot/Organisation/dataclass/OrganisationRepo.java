@@ -188,7 +188,7 @@ public class OrganisationRepo {
         return password;
     }
 
-    public void setPassworrd(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -207,27 +207,5 @@ public class OrganisationRepo {
                 ", directory='" + directory + '\'' +
                 ", password='" + password + '\'' +
                 '}';
-    }
-
-    public static class MD5 {
-        public String getMd5(String input)
-        {
-            try {
-                MessageDigest md = MessageDigest.getInstance("MD5");
-
-                byte[] messageDigest = md.digest(input.getBytes());
-
-                BigInteger no = new BigInteger(1, messageDigest);
-
-                String hashtext = no.toString(16);
-                while (hashtext.length() < 32) {
-                    hashtext = "0" + hashtext;
-                }
-                return hashtext;
-            }
-            catch (NoSuchAlgorithmException e) {
-                throw new RuntimeException(e);
-            }
-        }
     }
 }

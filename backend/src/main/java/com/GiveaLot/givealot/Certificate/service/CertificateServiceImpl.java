@@ -1,32 +1,53 @@
 package com.GiveaLot.givealot.Certificate.service;
 
+import com.GiveaLot.givealot.Blockchain.Repository.BlockChainRepository;
 import com.GiveaLot.givealot.Blockchain.service.BlockchainService;
 import com.GiveaLot.givealot.Blockchain.service.BlockchainServiceImpl;
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
+import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
+import com.GiveaLot.givealot.Organisation.dataclass.OrganisationRepo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
+import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Server.ServerAccess;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
 import org.apache.pdfbox.pdmodel.interactive.form.PDField;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.mail.internet.MimeMessage;
 import java.io.File;
 
 public class CertificateServiceImpl implements CertificateService {
 
+    private BlockchainService blockchainService;
+
+    @Autowired
+    private OrganisationRepository organisationRepository;
+
+    @Autowired
+    private CertificateRepository certificateRepository;
+
+//    @Autowired
+//    CertificateServiceImpl(  BlockchainService blockchainService, OrganisationRepository organisationRepository, CertificateRepository certificateRepository)
+//    {
+//        this.blockchainService = blockchainService;
+//        this.organisationRepository = organisationRepository;
+//        this.certificateRepository = certificateRepository;
+//    }
 
     @Override
     public boolean addCertificate(long orgId) throws Exception {
-        BlockchainService blockchainService = new BlockchainService(new BlockchainDASTemp());
 
         OrganisationPoints organisationPoints = new OrganisationPoints();
 
         organisationPoints.setPoints(0);
 
-        //query organisation, certificate
+        Certificate cert= new Certificate(certificateRepository.selectCertificateById(orgId))
+
+        OrganisationRepo organisation = organisationRepository.selectOrganisationById(orgId);
 
        boolean certificateCreated = createPDFDocument(cert,organisation,organisationPoints);
 
@@ -51,8 +72,6 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     public boolean updateCertificate(long orgId) throws Exception {
-
-        BlockchainService blockchainService = new BlockchainServiceImpl(new BlockchainDASTemp());
 
         //query organisation, certificate, org points, blockchain
 

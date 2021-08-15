@@ -143,7 +143,7 @@ public class Organisation {
         return password;
     }
 
-    public void setPassworrd(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 

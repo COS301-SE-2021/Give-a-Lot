@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import "./home.css"
-import FeaturedHeader from "../../featuredHeader/FeaturedHeader";
 import HomeHeader from "./HomeHeader"
 import bodyImage from "./bodyImage.png"
 
 export class Home extends Component {
+
 
     render() {
         return (
@@ -16,11 +16,9 @@ export class Home extends Component {
                     </div>
                     <div className="bodyHome">
                         <div className="mainBody">
-
                             <div className="images">
                                 <img id="body_ID" src={bodyImage} alt=""/>
                             </div>
-
                             <div className="words">
                                 <p className="bigWord">
                                     Where givers live
@@ -38,6 +36,7 @@ export class Home extends Component {
                     </div>
                     <button type="submit" className="browse_button">Browse Organisations</button>
                 </div>
+
             </div>
         )
     }

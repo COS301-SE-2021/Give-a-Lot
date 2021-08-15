@@ -19,9 +19,6 @@
 // export default RegisterOrganisation
 
 import React, { Component } from "react";
-// import OrganisationAbout from "./OrganisationAbout";
-// import OrganisationContact from "./OrganisationContact";
-// import OrganisationMedia from "./OrganisationMedia";
 import OrganisationBasic from "./registerOrgPages/OrganisationBasic"
 import OrganisationContact from "./registerOrgPages/OrganisationContact";
 import OrganisationAbout from "./registerOrgPages/OrganisationAbout";

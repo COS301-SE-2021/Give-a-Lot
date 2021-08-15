@@ -19,15 +19,16 @@
     padding-bottom: 10px;
 }
 .tabs{
-    width: 300px;
+    width: 250px;
     padding: 17px 25px;
     border-radius: 8px;
     border: none;
     margin-bottom: 7px;
-    /*position: relative;*/
-    /*left: 50%;*/
-    /*transform: translate(-50%,0);*/
     background-color: white;
     height: 15px;
     display: flex;
+    color: #767676;
+}
+.registerIcon{
+    color: #2d9499;
 }

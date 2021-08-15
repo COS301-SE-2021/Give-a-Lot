@@ -14,6 +14,8 @@ import OrgCalendar from "./orgPages/orgCalendar/OrgCalendar";
 import Profile from "./orgPages/profile/Profile"
 import Gallery from "./orgPages/gallery/Gallery";
 import Certificate from "./orgPages/certificateOrg/Certificate";
+import Reports from "./orgPages/reports/Reports"
+import Todos from "./orgPages/todos/Todos"
 
 function Organisation() {
     return (
@@ -50,6 +52,12 @@ function Organisation() {
                         </Route>
                         <Route path="/certificate">
                             <Certificate />
+                        </Route>
+                        <Route path="/reports">
+                            <Reports />
+                        </Route>
+                        <Route path="/todos">
+                            <Todos />
                         </Route>
                     </Switch>
 

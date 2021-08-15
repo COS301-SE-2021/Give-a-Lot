@@ -1,7 +1,49 @@
+// import React, { Component } from 'react'
+// import HomeHeader from "./HomeHeader";
+// import "./home.css"
+// import axios from 'axios'
+// import Dropzone from 'react-dropzone'
+//
+// export class VerifyHomePage extends Component {
+//
+//
+//     render() {
+//
+//         return (
+//             <div className="verifyHome">
+//                 <HomeHeader />
+//                 <div className="verifyHomeContent">
+//                     <div className="VerifyWord">
+//                         <p>Verify Certificate</p>
+//                     </div>
+//                     <div className="inputVerify">
+//                         <div className="cardVerify">
+//                             <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
+//                                 {({getRootProps, getInputProps}) => (
+//                                     <section>
+//                                         <div {...getRootProps()}>
+//                                             <input {...getInputProps()} />
+//                                             <p>Drag 'n' drop some files here, or click to select files</p>
+//                                         </div>
+//                                     </section>
+//                                 )}
+//                             </Dropzone>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         )
+//     }
+// }
+//
+// export default VerifyHomePage
+
 import React, { Component } from 'react'
 import HomeHeader from "./HomeHeader";
 import "./home.css"
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Button from '@material-ui/core/Button';
 
 export class VerifyHomePage extends Component {
@@ -9,29 +51,34 @@ export class VerifyHomePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            uploadStatus: false
+            selectedFile: null
         }
-        this.handleUploadImage = this.handleUploadImage.bind(this);
+
     }
 
-
-    handleUploadImage(ev) {
-        ev.preventDefault();
-
-        const data = new FormData();
-        data.append('file', this.uploadInput.files[0]);
-        data.append('filename', this.fileName.value);
-
-        axios.post('http://localhost:8000/upload', data)
-            .then(function (response) {
-                // this.setState({ imageURL: `http://localhost:8000/${body.file}`, uploadStatus: true });
+    onChangeHandler=event=>{
+        this.setState({
+            selectedFile: event.target.files[0],
+            loaded: 0,
+        })
+    }
+    onClickHandler = () => {
+        const data = new FormData()
+        data.append('file', this.state.selectedFile)
+        axios.post("http://localhost:8000/upload", data, {
+            // receive two    parameter endpoint url ,form data
+        })
+            .then(res => { // then print response status
+                console.log(res.statusText)
+                toast.success('upload success')
             })
-            .catch(function (error) {
-                console.log(error);
-            });
+            .catch(err => {
+                toast.error('upload fail')
+            })
     }
 
     render() {
+
         return (
             <div className="verifyHome">
                 <HomeHeader />
@@ -40,22 +87,22 @@ export class VerifyHomePage extends Component {
                         <p>Verify Certificate</p>
                     </div>
                     <div className="inputVerify">
-                        {/*<div className="header__input">*/}
-                        {/*    <input placeholder="Verify Certificate" type="file" />*/}
-                        {/*    /!*<input type="file" onChange={this.onFileChange} />*!/*/}
-                        {/*</div>*/}
-                        {/*<Button variant="outlined" color="primary" style={{backgroundColor:"#2ab27b" }}>*/}
-                        {/*    Verify*/}
-                        {/*</Button>*/}
-                        <div className="row">
-                            <div className="col-md-6">
-                                <div className="form-group files color">
-                                    <label>Upload Certificate </label>
-                                    <input type="file" className="form-control" name="file" />
-                                </div>
-                            </div>
+                        <div className="cardVerify">
+                            <input type="file" name="file" onChange={this.onChangeHandler}/>
                         </div>
+                        {/*<button type="button" className="btn btn-success btn-block" style={{width: "300px", backgroundColor: "green"}}*/}
+                        {/*        onClick={this.onClickHandler}>Upload*/}
+                        {/*</button>*/}
+                        <div style={{paddingTop: "20px"}}>
+                            <Button variant="contained" color="primary" onClick={this.onClickHandler} style={{width: "380px", backgroundColor: "green"}}>
+                                Submit
+                            </Button>
+                        </div>
+
                     </div>
+                </div>
+                <div className="form-group">
+                    <ToastContainer/>
                 </div>
             </div>
         )
@@ -63,3 +110,4 @@ export class VerifyHomePage extends Component {
 }
 
 export default VerifyHomePage
+

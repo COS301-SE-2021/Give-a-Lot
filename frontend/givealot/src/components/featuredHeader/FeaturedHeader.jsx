@@ -6,10 +6,10 @@ export class FeaturedHeader extends Component {
 
     render() {
         return (
-            <div className="featured">
-                <div className="featuredWrapper">
-                    <div className="featuredleft">
-                    <span className="logo">
+            <div className="featuredShare">
+                <div className="featuredWrapperShare">
+                    <div className="featuredLeftShare">
+                    <span className="logoShare">
                         <img src={logo} alt="logo" style={{width: "220px", height: "60px"}}/>
                     </span>
                     </div>

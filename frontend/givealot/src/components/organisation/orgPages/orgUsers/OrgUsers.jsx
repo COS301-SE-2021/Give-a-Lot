@@ -9,20 +9,20 @@ import { useState } from "react";
 export default function OrgUsers() {
   const [data, setData] = useState(userRows);
 
-  const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
-  };
+  // const handleDelete = (id) => {
+  //   setData(data.filter((item) => item.id !== id));
+  // };
   
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
+    { field: "id", headerName: "ID", width: 100 },
     {
       field: "user",
       headerName: "User",
       width: 200,
       renderCell: (params) => {
         return (
-          <div className="userListUser">
-            <img className="userListImg" src={params.row.avatar} alt="" />
+          <div className="OrgListUser">
+            <img className="OrgListImg" src={params.row.avatar} alt="" />
             {params.row.username}
           </div>
         );
@@ -47,12 +47,12 @@ export default function OrgUsers() {
         return (
           <>
             <Link to={"/user/" + params.row.id}>
-              <button className="userListEdit">Edit</button>
+              <button className="OrgListEdit">View User</button>
             </Link>
-            <DeleteOutline
-              className="userListDelete"
-              onClick={() => handleDelete(params.row.id)}
-            />
+            {/*<DeleteOutline*/}
+            {/*  className="OrgListDelete"*/}
+            {/*  onClick={() => handleDelete(params.row.id)}*/}
+            {/*/>*/}
           </>
         );
       },

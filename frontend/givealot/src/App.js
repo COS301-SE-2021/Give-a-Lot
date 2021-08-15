@@ -1,6 +1,6 @@
 import './App.css';
-import Admin from "./components/admin/Admin"
-// import Organisation from "./components/organisation/Organisaion"
+// import Admin from "./components/admin/Admin"
+import Organisation from "./components/organisation/Organisaion"
 import "./components/basicUser/browse/css/browse.css";
 import "./components/basicUser/browse/css/recommended.css";
 import "./components/basicUser/browse/css/navbar.css";
@@ -42,7 +42,7 @@ function App() {
        {/*         <Browse />*/}
        {/*     </Route>*/}
        {/*</Switch>*/}
-       <Admin/>
+       <Organisation/>
    </div>
     
   );

@@ -8,7 +8,7 @@ import {
     PhoneAndroid,
     Publish,
 } from "@material-ui/icons";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export class Profile extends Component {
 
@@ -16,10 +16,10 @@ export class Profile extends Component {
         return (
             <div className="profileOrg">
                 <div className="userTitleContainer">
-                    <h1 className="userTitle">Edit User</h1>
-                    <Link to="/newUser">
-                        <button className="userAddButton">Create</button>
-                    </Link>
+                    <h1 className="userTitle">Edit Information</h1>
+                    {/*<Link to="/newUser">*/}
+                    {/*    <button className="userAddButton">Create</button>*/}
+                    {/*</Link>*/}
                 </div>
                 <div className="userOrgContainer">
                     <div className="userShow">

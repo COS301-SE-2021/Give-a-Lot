@@ -40,24 +40,24 @@ export default function UserList() {
       headerName: "Transaction Volume",
       width: 160,
     },
-    {
-      field: "action",
-      headerName: "Action",
-      width: 150,
-      renderCell: (params) => {
-        return (
-          <>
-            <Link to={"/user/" + params.row.id}>
-              <button className="userListEdits">Edit</button>
-            </Link>
-            <DeleteOutline
-              className="userListDeletes"
-              onClick={() => handleDelete(params.row.id)}
-            />
-          </>
-        );
-      },
-    },
+    // {
+    //   field: "action",
+    //   headerName: "Action",
+    //   width: 150,
+    //   renderCell: (params) => {
+    //     return (
+    //       <>
+    //         <Link to={"/user/" + params.row.id}>
+    //           <button className="userListEdits">Edit</button>
+    //         </Link>
+    //         <DeleteOutline
+    //           className="userListDeletes"
+    //           onClick={() => handleDelete(params.row.id)}
+    //         />
+    //       </>
+    //     );
+    //   },
+    // },
   ];
 
   return (

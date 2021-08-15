@@ -43,26 +43,26 @@ export class SidebarOrg extends Component {
                                 </li>
                             </Link>
 
-                            <Link to="/gallery" className="link">
-                                <li className="sidebarListItemOrg">
-                                    <ImageIcon className="sidebarIconOrg"/>
-                                    Gallery
-                                </li>
-                            </Link>
+                            {/*<Link to="/gallery" className="link">*/}
+                            {/*    <li className="sidebarListItemOrg">*/}
+                            {/*        <ImageIcon className="sidebarIconOrg"/>*/}
+                            {/*        Gallery*/}
+                            {/*    </li>*/}
+                            {/*</Link>*/}
 
-                            <Link to="/calendar" className="link">
-                                <li className="sidebarListItemOrg">
-                                    <CalendarTodayIcon className="sidebarIconOrg"/>
-                                    Calendar
-                                </li>
-                            </Link>
+                            {/*<Link to="/calendar" className="link">*/}
+                            {/*    <li className="sidebarListItemOrg">*/}
+                            {/*        <CalendarTodayIcon className="sidebarIconOrg"/>*/}
+                            {/*        Calendar*/}
+                            {/*    </li>*/}
+                            {/*</Link>*/}
 
-                            <Link to="/todos" className="link">
-                                <li className="sidebarListItemOrg">
-                                    <AssignmentIcon className="sidebarIconOrg"/>
-                                    To-do's
-                                </li>
-                            </Link>
+                            {/*<Link to="/todos" className="link">*/}
+                            {/*    <li className="sidebarListItemOrg">*/}
+                            {/*        <AssignmentIcon className="sidebarIconOrg"/>*/}
+                            {/*        To-do's*/}
+                            {/*    </li>*/}
+                            {/*</Link>*/}
 
                             <Link to="/reports" className="link">
                                 <li className="sidebarListItemOrg">

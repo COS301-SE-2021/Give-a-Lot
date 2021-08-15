@@ -61,6 +61,11 @@ export default function UserList() {
 
     return (
         <div className="adminOrgss">
+            <Link to="/addOrg">
+                {/*<div style={{paddingBottom: "10px"}}>*/}
+                    <button className="AddButton">Create</button>
+                {/*</div>*/}
+            </Link>
             <DataGrid
                 rows={data}
                 disableSelectionOnClick

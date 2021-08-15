@@ -18,9 +18,9 @@ export class Orgs extends Component {
                 <div className="OrgsTitleContainer">
                     {/*<h1>here is some thing else</h1>*/}
                     <h1 className="OrgsTitle">Edit Organisation</h1>
-                    <Link to="/newUser">
-                        <button className="OrgsAddButton">Create</button>
-                    </Link>
+                    {/*<Link to="/newUser">*/}
+                    {/*    <button className="OrgsAddButton">Create</button>*/}
+                    {/*</Link>*/}
                 </div>
                 <div className="OrgsContainer">
                     <div className="OrgsShow">

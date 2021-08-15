@@ -13,39 +13,39 @@ import java.util.UUID;
 @Table(
         name="organisations",
         uniqueConstraints = {
-                @UniqueConstraint(name="organisation_email_unique",columnNames = "orgEmail")
+                @UniqueConstraint(name="organisation_email_unique",columnNames = "org_email")
         }
 
 )
 public class Organisation {
 
     @Column(
-            name="orgName",
+            name="org_name",
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String orgName;
     @Column(
-            name="orgSlogan",
+            name="org_slogan",
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String slogan;
     @Column(
-            name="orgDescription",
+            name="org_description",
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String orgDescription;
 
     @Column(
-            name="orgSector",
+            name="org_sector",
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String orgSector;
     @Column(
-            name="orgEmail",
+            name="org_email",
             nullable = false,
             columnDefinition = "TEXT"
     )
@@ -53,7 +53,7 @@ public class Organisation {
 
     @Id
     @Column(
-            name = "orgId",
+            name = "org_id",
             updatable = false,
             nullable = false
     )
@@ -66,13 +66,13 @@ public class Organisation {
     )
     private String status;
     @Column(
-            name="contactPerson",
+            name="contact_person",
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String contactPerson;
     @Column(
-            name="contactNumber",
+            name="contact_number",
             nullable = false,
             columnDefinition = "TEXT"
     )

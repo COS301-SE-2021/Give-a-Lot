@@ -9,11 +9,11 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @Entity
-@Table(name="organisationInfo")
+@Table(name="organisation_info")
 public class organisationInfo {
     @Id
     /*@GeneratedValue(strategy = GenerationType.IDENTITY)*/
-    @Column(name = "orgId", nullable = false, unique = true)
+    @Column(name = "org_id", nullable = false, unique = true)
     public Long orgId;
 
     private String  address;

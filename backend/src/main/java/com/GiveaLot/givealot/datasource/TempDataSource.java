@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class TempDataSource {
     @Bean
-    @ConfigurationProperties("spring.datasource")
+    @ConfigurationProperties("app.datasource")
     public HikariDataSource dataSource(){
         return DataSourceBuilder
                 .create()

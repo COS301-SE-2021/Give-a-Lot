@@ -3,7 +3,7 @@ package com.GiveaLot.givealot.Certificate.dao;
 
 import com.GiveaLot.givealot.Blockchain.dao.BlockchainDAOInterface;
 import com.GiveaLot.givealot.Blockchain.dao.BlockchainDASTemp;
-import com.GiveaLot.givealot.Blockchain.service.BlockchainService;
+//import com.GiveaLot.givealot.Blockchain.service.BlockchainService;
 import com.GiveaLot.givealot.Certificate.model.Certificate;
 import com.GiveaLot.givealot.Organisation.model.Organisation;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
@@ -31,7 +31,7 @@ public class CertificateDASTemp implements CertificateDAOInterface{
 
     @Override
     public boolean addCertificate(long orgId) throws Exception {
-        BlockchainService blockchainService = new BlockchainService(new BlockchainDASTemp());
+        //BlockchainService blockchainService = new BlockchainService(new BlockchainDASTemp());
 
         OrganisationPoints organisationPoints = new OrganisationPoints();
 
@@ -64,7 +64,7 @@ public class CertificateDASTemp implements CertificateDAOInterface{
 
     @Override
     public boolean updateCertificate(long orgId) throws Exception {
-        BlockchainService blockchainService = new BlockchainService(new BlockchainDASTemp());
+        //BlockchainService blockchainService = new BlockchainService(new BlockchainDASTemp());
 
         //query organisation, certificate, org points, blockchain
 
@@ -96,12 +96,12 @@ public class CertificateDASTemp implements CertificateDAOInterface{
         return access.downloadCertificate(orgId,orgName);
     }
 
-    @Override
+    /*@Override
     public boolean compareUploadedCertificate(File certificate) throws Exception {
         BlockchainDASTemp blockchainDASTemp = new BlockchainDASTemp();
 
         return blockchainDASTemp.compareCertificateHash(certificate);
-    }
+    }*/
 
 
     @Override

@@ -46,6 +46,11 @@ public class BlockchainDASTemp implements BlockchainDAOInterface{
     }
 
     @Override
+    public String[] upgradeCertificate(long index, long orgId, File certificate, long level) throws Exception {
+        return new String[0];
+    }
+
+    @Override
     public String[] upgradeBlockchainCertificate(long index, long orgId, File certificate, long level) throws Exception {
         CertificateContract certificateContract = loadSmartContract();
 
@@ -94,6 +99,7 @@ public class BlockchainDASTemp implements BlockchainDAOInterface{
             throw new Exception("Exception: Blockchain transaction failed");
         }
     }
+
 
     @Override
     public boolean compareCertificateHash(File certificate) throws Exception {

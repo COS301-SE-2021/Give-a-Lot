@@ -220,14 +220,10 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("invalid field provided: null");
 
         organisation.setDirectory("/home/ubuntu/Organisations/" + organisation.getOrgId());
-        /*if(OrganisationRepository.selectOrganisationById(organisation.getOrgId()) != null)
-            throw new Exception("This organisation id is taken");*/
 
         if(OrganisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()) != null)
             throw new Exception("Email already exists");
-/*
-        else if (organisation.getOrgId().isEmpty() || organisation.getOrgId().length() > 50)
-            throw new Exception("Exception: orgId does not satisfy the database constraints");*/
+
 
         else if (organisation.getOrgName().isEmpty() || organisation.getOrgName().length()>255)
             throw new Exception("Exception: orgName does not satisfy the database constraints");
@@ -272,7 +268,7 @@ public class OrganisationServiceImp implements OrganisationService {
 
 
         int tmp_id = OrganisationRepository.getOrgId(organisation.getOrgEmail());
-        OrganisationRepository.updateRepo((long) tmp_id, "/organisations/"+ Integer.toString(tmp_id));
+        OrganisationRepository.updateRepo((long) tmp_id, "/home/ubuntu/Organisations/" + tmp_id);
 
 
         LocalDate date = LocalDate.now(); /* registration date */

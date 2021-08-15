@@ -83,4 +83,22 @@ contract CertificateContract {
     function incrementCount() internal{
         certificateCount += 1;
     }
+
+    function compareCertificate(
+        string memory _certificateHash
+    )
+    public onlyAdmin view
+    returns(bool)
+    {
+
+
+        uint256 i = 0;
+        for (i; i<=certificateCount; i++){
+            if(keccak256(abi.encodePacked(certificates[i].certificateHash)) == keccak256(abi.encodePacked(_certificateHash))){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

@@ -23,7 +23,7 @@ public interface BlockchainDAOInterface {
 
     //public boolean compareCertificateHash(long index, long orgId, File certificate) throws Exception;
 
-    public boolean compareCertificateHash(File certificate) throws Exception;
+    public long compareCertificateHash(File certificate) throws Exception;
 
     public String hashCertificate(File certificate) throws IOException, NoSuchAlgorithmException;
 

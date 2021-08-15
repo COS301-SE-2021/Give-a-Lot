@@ -102,14 +102,21 @@ public class BlockchainDASTemp implements BlockchainDAOInterface{
 
 
     @Override
-    public boolean compareCertificateHash(File certificate) throws Exception {
+    public long compareCertificateHash(File certificate) throws Exception {
         CertificateContract certificateContract = loadSmartContract();
 
         String hashedCertificate = hashCertificate(certificate);
 
         String result = certificateContract.compareCertificate(hashedCertificate).toString();
 
-        return Boolean.valueOf(result);
+        if (Boolean.valueOf(result)){
+            // (SELECT orgId FROM Blockchain WHERE certificateHash = hashedCertificate)
+            long orgId = 0;
+            return orgId;
+        }
+        else {
+            throw new Exception("Exception: Invalid Certificate provided");
+        }
 
 
     }

@@ -14,34 +14,34 @@ import javax.persistence.Table;
 )
 public class Certificate {
     @Column(
-            name = "dateCreated",
+            name = "date_created",
             updatable = true,
             nullable = false
     )
     String dateCreated;
     @Column(
-            name = "dateExpiry",
+            name = "date_expiry",
             updatable = true,
             nullable = false
     )
     String dateExpiry;
     @Id
     @Column(
-            name = "orgId",
+            name = "org_id",
             updatable = false,
             nullable = false
     )
     long org_id;
 
     @Column(
-            name = "orgRenewal",
+            name = "org_renewal",
             updatable = false,
             nullable = false
     )
     boolean orgRenewal;
 
     @Column(
-            name = "adminRenewal",
+            name = "admin_renewal",
             updatable = true,
             nullable = false
     )

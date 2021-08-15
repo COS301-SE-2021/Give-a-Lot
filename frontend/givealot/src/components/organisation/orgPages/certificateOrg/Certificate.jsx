@@ -1,21 +1,25 @@
 import React, { Component } from 'react'
 import "./certificate.css"
-import cert from "./stockk.png";
+import cert from "./stock.jpg";
+import GetAppIcon from '@material-ui/icons/GetApp';
+import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
+import {Link} from "react-router-dom";
+import PeopleOutlineIcon from "@material-ui/icons/PeopleOutline";
 
 
-export class Certificate extends Component {
+export default function Certificate() {
 
-    render() {
+
         return (
             <div className="certificate">
 
                 <div className="temporary">
-                    <img src={cert} alt="cert" style={{width: "220px", height: "60px"}}/>
+                    <img className="image" src={cert} alt="cert" style={{width: "700px", height: "410px"}}/>
 
                 </div>
             </div>
         )
-    }
+
 }
 
-export default Certificate
+//export default Certificate

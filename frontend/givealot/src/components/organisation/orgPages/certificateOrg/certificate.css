@@ -6,16 +6,14 @@
 
 .temporary{
     position: relative;
-
     width: 700px;
-    height: 450px;
+    height: 410px;
     margin: 0 auto;
-    top: 100px;
+    top: 70px;
+
 
 }
 
-img{
-    flex-shrink: 0;
-    min-width: 100%;
-    min-height: 100%
-}
+
+
+

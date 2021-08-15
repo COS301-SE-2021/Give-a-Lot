@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import "./home.css"
 import HomeHeader from "./HomeHeader"
 import bodyImage from "./bodyImage.png"
+import { Link } from "react-router-dom";
 
 export class Home extends Component {
 
@@ -34,7 +35,13 @@ export class Home extends Component {
                             </div>
                         </div>
                     </div>
-                    <button type="submit" className="browse_button">Browse Organisations</button>
+                    <Link to="/browse" className="link">
+                        <button type="submit"
+                            className="browse_button"
+                        >
+                            Browse Organisations
+                        </button>
+                    </Link>
                 </div>
 
             </div>

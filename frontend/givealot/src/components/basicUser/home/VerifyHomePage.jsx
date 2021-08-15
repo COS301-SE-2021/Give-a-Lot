@@ -71,6 +71,7 @@ export class VerifyHomePage extends Component {
             .then(res => { // then print response status
                 console.log(res.statusText)
                 toast.success('upload success')
+                // window.location.href = "/";
             })
             .catch(err => {
                 toast.error('upload fail')
@@ -90,15 +91,11 @@ export class VerifyHomePage extends Component {
                         <div className="cardVerify">
                             <input type="file" name="file" onChange={this.onChangeHandler}/>
                         </div>
-                        {/*<button type="button" className="btn btn-success btn-block" style={{width: "300px", backgroundColor: "green"}}*/}
-                        {/*        onClick={this.onClickHandler}>Upload*/}
-                        {/*</button>*/}
                         <div style={{paddingTop: "20px"}}>
                             <Button variant="contained" color="primary" onClick={this.onClickHandler} style={{width: "380px", backgroundColor: "green"}}>
                                 Submit
                             </Button>
                         </div>
-
                     </div>
                 </div>
                 <div className="form-group">

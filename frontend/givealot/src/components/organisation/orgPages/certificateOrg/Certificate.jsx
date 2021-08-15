@@ -12,7 +12,11 @@ export default function Certificate() {
 
         return (
             <div className="certificate">
+                <div className="heading">
+                    <p className="level">Level:</p>
+                    <p className="status">Intermediate</p>
 
+                </div>
                 <button className="button button1" >
 
                     <Link to="/adminUsers" className="certLink"  >

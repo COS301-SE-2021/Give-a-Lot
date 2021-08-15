@@ -2,7 +2,6 @@ package com.GiveaLot.givealot.Organisation.service;
 
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
-import com.GiveaLot.givealot.Organisation.dataclass.organisationInfo;
 import com.GiveaLot.givealot.Organisation.model.organisationInfo;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
@@ -44,10 +43,8 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("Exception: orgId does not satisfy the database constraints");
         }
 
-        OrganisationRepo res = organisationRepository.selectOrganisationById(Long.parseLong(orgId));
+        Organisations res = organisationRepository.selectOrganisationById(Long.parseLong(orgId));
         if (res != null)
-        Organisations res = OrganisationRepository.selectOrganisationById(Long.parseLong(orgId));
-        if(res != null)
             return res;
         else throw new Exception("Exception: id does not exist, check spelling");
     }
@@ -75,50 +72,51 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public boolean addOrganisation(OrganisationRepo organisation) throws Exception {
-
-        /** Validation checks **/
-
-        if (organisation == null)
+    public boolean addOrganisation(Organisations organisation) throws Exception
+    {
+        if(organisation == null)
             throw new Exception("invalid organisation object: null");
 
-        if (organisation.getOrgName() == null || organisation.getOrgDescription() == null || organisation.getPassword() == null || organisation.getOrgSector() == null || organisation.getStatus() == null || organisation.getOrgEmail() == null || organisation.getDirectory() == null || organisation.getContactNumber() == null || organisation.getContactPerson() == null || organisation.getSlogan() == null)
+        if(organisation.getOrgName() == null || organisation.getOrgDescription() == null||
+                organisation.getPassword() == null|| organisation.getOrgSector() == null ||
+                organisation.getOrgEmail() == null|| organisation.getContactNumber() == null||
+                organisation.getContactPerson() == null|| organisation.getSlogan() == null)
             throw new Exception("invalid field provided: null");
 
-        organisation.setDirectory("/home/ubuntu/Organisations/" + organisation.getOrgId());
+        organisation.setDirectory("/home/ubuntu/Organisations/");
+        organisation.setStatus("active");
 
-        if (organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()) != null)
+        if(organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()) != null)
             throw new Exception("Email already exists");
 
-
-        else if (organisation.getOrgName().isEmpty() || organisation.getOrgName().length() > 255)
+        else if (organisation.getOrgName().isEmpty() || organisation.getOrgName().length()>255)
             throw new Exception("Exception: orgName does not satisfy the database constraints");
 
-        else if (organisation.getOrgDescription().isEmpty() || organisation.getOrgDescription().length() > 65535)
+        else if (organisation.getOrgDescription().isEmpty() || organisation.getOrgDescription().length()>65535)
             throw new Exception("Exception: orgDescription does not satisfy the database constraints");
 
-        else if (organisation.getPassword().isEmpty() || organisation.getPassword().length() > 255)
+        else if (organisation.getPassword().isEmpty() || organisation.getPassword().length()>255)
             throw new Exception("Exception: password does not satisfy the database constraints");
 
-        else if (organisation.getOrgSector().isEmpty() || organisation.getOrgSector().length() > 255)
+        else if (organisation.getOrgSector().isEmpty() || organisation.getOrgSector().length()>255)
             throw new Exception("Exception: orgSector does not satisfy the database constraints");
 
-        else if (organisation.getStatus().isEmpty() || organisation.getStatus().length() > 255)
+        else if (organisation.getStatus().isEmpty() || organisation.getStatus().length()>255)
             throw new Exception("Exception: status does not satisfy the database constraints");
 
-        else if (organisation.getOrgEmail().isEmpty() || organisation.getOrgEmail().length() > 255)
+        else if (organisation.getOrgEmail().isEmpty() || organisation.getOrgEmail().length()>255)
             throw new Exception("Exception: orgEmail does not satisfy the database constraints");
 
-        else if (organisation.getDirectory().isEmpty() || organisation.getDirectory().length() > 255)
+        else if (organisation.getDirectory().isEmpty() || organisation.getDirectory().length()>255)
             throw new Exception("Exception: directory does not satisfy the database constraints");
 
-        else if (organisation.getContactNumber().isEmpty() || organisation.getContactNumber().length() > 255)
+        else if (organisation.getContactNumber().isEmpty() || organisation.getContactNumber().length()>255)
             throw new Exception("Exception: contactNumber does not satisfy the database constraints");
 
-        else if (organisation.getContactPerson().isEmpty() || organisation.getContactPerson().length() > 255)
+        else if (organisation.getContactPerson().isEmpty() || organisation.getContactPerson().length()>255)
             throw new Exception("Exception: contactPerson does not satisfy the database constraints");
 
-        else if (organisation.getSlogan().isEmpty() || organisation.getSlogan().length() > 255)
+        else if (organisation.getSlogan().isEmpty() || organisation.getSlogan().length()>255)
             throw new Exception("Exception: orgSlogan does not satisfy the database constraints");
 
         /** Setup **/
@@ -168,7 +166,7 @@ public class OrganisationServiceImp implements OrganisationService {
 
         organisationRepository.save(organisation);
         organisationInfoRepository.save(new organisationInfo((long) tmp_id));
-        certificateRepository.
+        //certificateRepository.save()
         return true;
     }
 
@@ -361,130 +359,6 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public boolean addOrganisation(Organisations organisation) throws Exception
-    {
-        if(organisation == null)
-            throw new Exception("invalid organisation object: null");
-
-        if(organisation.getOrgName() == null || organisation.getOrgDescription() == null||
-                organisation.getPassword() == null|| organisation.getOrgSector() == null ||
-                  organisation.getOrgEmail() == null|| organisation.getContactNumber() == null||
-                    organisation.getContactPerson() == null|| organisation.getSlogan() == null)
-            throw new Exception("invalid field provided: null");
-
-        organisation.setDirectory("/home/ubuntu/Organisations/");
-        organisation.setStatus("active");
-
-        if(OrganisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()) != null)
-            throw new Exception("Email already exists");
-
-        else if (organisation.getOrgName().isEmpty() || organisation.getOrgName().length()>255)
-            throw new Exception("Exception: orgName does not satisfy the database constraints");
-
-        else if (organisation.getOrgDescription().isEmpty() || organisation.getOrgDescription().length()>65535)
-            throw new Exception("Exception: orgDescription does not satisfy the database constraints");
-
-        else if (organisation.getPassword().isEmpty() || organisation.getPassword().length()>255)
-            throw new Exception("Exception: password does not satisfy the database constraints");
-
-        else if (organisation.getOrgSector().isEmpty() || organisation.getOrgSector().length()>255)
-            throw new Exception("Exception: orgSector does not satisfy the database constraints");
-
-        else if (organisation.getStatus().isEmpty() || organisation.getStatus().length()>255)
-            throw new Exception("Exception: status does not satisfy the database constraints");
-
-        else if (organisation.getOrgEmail().isEmpty() || organisation.getOrgEmail().length()>255)
-            throw new Exception("Exception: orgEmail does not satisfy the database constraints");
-
-        else if (organisation.getDirectory().isEmpty() || organisation.getDirectory().length()>255)
-            throw new Exception("Exception: directory does not satisfy the database constraints");
-
-        else if (organisation.getContactNumber().isEmpty() || organisation.getContactNumber().length()>255)
-            throw new Exception("Exception: contactNumber does not satisfy the database constraints");
-
-        else if (organisation.getContactPerson().isEmpty() || organisation.getContactPerson().length()>255)
-            throw new Exception("Exception: contactPerson does not satisfy the database constraints");
-
-        else if (organisation.getSlogan().isEmpty() || organisation.getSlogan().length()>255)
-            throw new Exception("Exception: orgSlogan does not satisfy the database constraints");
-
-        OrganisationRepository.save(organisation);
-
-        /*
-        get the id of the newly saved organisation and
-        concatenate it with the root directory
-        * */
-        int tmp_id = OrganisationRepository.getOrgId(organisation.getOrgEmail());
-        OrganisationRepository.updateRepo((long) tmp_id, "/home/ubuntu/Organisations/" + tmp_id);
-
-        LocalDate date = LocalDate.now(); /* registration date */
-        OrganisationInfoRepository.save(new organisationInfo((long) tmp_id));
-
-        try
-        {
-            //create certificate tuple
-            //create certificate
-            ServerAccess access = new ServerAccess();
-            access.createOrganisationDirectory(tmp_id,organisation.getOrgName());
-        }
-        catch(Exception e)
-        {
-            throw new Exception("server access error from add organisation. message: " + e);
-        }
-
-        return true;
-    }
-
-    @Override
-    public boolean suspendOrganisation(String orgId) throws Exception {
-
-        if(orgId == null)
-            throw new Exception("String object is null");
-        else if(orgId.isEmpty())
-            throw new Exception("invalid id length");
-        else if(OrganisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
-            throw new Exception("ID doesn't exist");
-        else
-        {
-            if(OrganisationRepository.updateStatus(Long.parseLong(orgId),"suspended".toLowerCase()) != 1)
-                throw new Exception("status not updated");
-            else return true;
-        }
-    }
-
-    @Override
-    public boolean reactivateOrganisation(String orgId) throws Exception {
-        if(orgId == null)
-            throw new Exception("String object is null");
-        else if(orgId.isEmpty())
-            throw new Exception("invalid id length");
-        else if(OrganisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
-            throw new Exception("ID doesn't exist");
-        else
-        {
-            if(OrganisationRepository.updateStatus(Long.parseLong(orgId),"active".toLowerCase()) != 1)
-                throw new Exception("status not updated");
-            else return true;
-        }
-    }
-
-    @Override
-    public boolean investigateOrganisation(String orgId) throws Exception {
-        if(orgId == null)
-            throw new Exception("String object is null");
-        else if(orgId.isEmpty())
-            throw new Exception("invalid id");
-        else if(OrganisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
-            throw new Exception("ID doesn't exist");
-        else
-        {
-            if(OrganisationRepository.updateStatus(Long.parseLong(orgId),"investigating".toLowerCase()) != 1)
-                throw new Exception("status not updated");
-            else return true;
-        }
-    }
-
-    @Override
     public boolean addOrgSocials(AddSocialsRequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request is not set");
@@ -633,7 +507,7 @@ public class OrganisationServiceImp implements OrganisationService {
     public boolean removeOrgImage(String orgId) throws Exception {
         if(orgId == null)
             throw new Exception("Exception: AddOrganisationRequest ID is not set");
-        else if(OrganisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
+        else if(organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
             throw new Exception("Exception: AddOrganisationRequest ID does not exist");
         if (orgId == null)
             throw new Exception("Exception: Organisation ID is not set");

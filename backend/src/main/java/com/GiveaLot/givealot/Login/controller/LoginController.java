@@ -22,15 +22,16 @@ public class LoginController {
     {
         this.service = service;
     }
+
     @PostMapping("/general")
     ResponseEntity<LoginResponse> loginGeneralUser(@RequestBody @NonNull LoginRequest body)
     {
         LoginResponse response;
+
         try
         {
             response = service.loginGeneralUser(body);
             return new ResponseEntity<>(response, HttpStatus.OK);
-
         }
         catch (Exception e)
         {
@@ -42,6 +43,7 @@ public class LoginController {
     ResponseEntity<LoginResponse> loginOrganisation(@RequestBody @NonNull LoginRequest body)
     {
         LoginResponse response;
+
         try
         {
             response = service.loginOrganisation(body);
@@ -57,6 +59,7 @@ public class LoginController {
     ResponseEntity<LoginResponse> loginAdminUser(@RequestBody @NonNull LoginRequest body)
     {
         LoginResponse response;
+
         try
         {
             response = service.loginAdminUser(body);

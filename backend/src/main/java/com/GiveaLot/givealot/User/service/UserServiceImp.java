@@ -30,7 +30,6 @@ public class UserServiceImp implements UserService {
         if(request.getEmail()==null)
         {
             throw new Exception("Registration not set, email not valid");
-
         }
         User userEmail = userRepository.findUserByEmail(request.getEmail());
         if (userEmail != null) {
@@ -112,7 +111,6 @@ public class UserServiceImp implements UserService {
             throw new UserNotAuthorisedException("current user is not an admin");
         }
         return userRepository.findUserByEmail(request.getGeneralUserEmail());
-
     }
 
     @Override

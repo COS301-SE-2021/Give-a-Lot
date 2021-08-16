@@ -82,7 +82,7 @@ export class OrganisationBasic extends Component {
                     <form className="form">
                         <div >
                             <OutlinedInput type="type"
-                               name="orgName" value={values.orgName}
+                               name="orgName" defaultValue={values.orgName}
                                onChange={this.changeHandler}
                                className="input" placeholder=" Name"
                                startAdornment={
@@ -96,7 +96,7 @@ export class OrganisationBasic extends Component {
                         <div >
                             <OutlinedInput type="password"
                                name="orgPassword"
-                               value={values.password}
+                               defaultValue={values.password}
                                onChange={this.changeHandler} className="inputBasic"
                                placeholder="Password"
                                startAdornment={

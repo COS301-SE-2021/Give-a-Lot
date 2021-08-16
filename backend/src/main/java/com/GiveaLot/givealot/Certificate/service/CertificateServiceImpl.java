@@ -40,8 +40,6 @@ public class CertificateServiceImpl implements CertificateService {
 
     SendMailService service;
 
-
-
     @Autowired
     CertificateServiceImpl(SendMailService service)
    {
@@ -114,11 +112,15 @@ public class CertificateServiceImpl implements CertificateService {
 
         access.downloadCertificateTemplate(points);
 
+        if (points!=0){
+            File deletion = new File("frontend/givealot/localFiles/" + organisation.getOrgId() + "certificate/CertificateComplete.pdf");
+            deletion.delete();
+        }
+
         String templateCertificate = "backend/src/main/resources/TempCertificate/CertificateTemplate.pdf";
-        String completeCertificate = "backend/src/main/resources/TempCertificate/CertificateComplete.pdf";
+        String completeCertificate = "frontend/givealot/localFiles/" + organisation.getOrgId() + "certificate/CertificateComplete.pdf";
 
         /** Setup the pdf file **/
-
 
         File template = new File(templateCertificate);
 
@@ -160,10 +162,8 @@ public class CertificateServiceImpl implements CertificateService {
         access.uploadCertificate(organisation.getOrgId(), organisation.getOrgName());
 
         File deletion1 = new File(templateCertificate);
-        File deletion2 = new File(completeCertificate);
 
         deletion1.delete();
-        deletion2.delete();
 
         return true;
 

@@ -38,6 +38,5 @@ public interface OrganisationRepository extends JpaRepository<Organisations,Long
     @Query("SELECT DISTINCT o.orgId FROM Organisations AS o WHERE o.orgEmail = ?1")
     long getOrgId(String orgEmail);
 
-/
 
 }

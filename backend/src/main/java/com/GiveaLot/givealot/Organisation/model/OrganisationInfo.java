@@ -14,17 +14,28 @@ public class OrganisationInfo
 {
     @Id
     @Column(name = "org_id", nullable = false, unique = true)
+    @Column(name = "numberOfImages", nullable = false, unique = true)
+    @Column(name = "numberOfReports", nullable = false, unique = true)
+    @Column(name = "address", nullable = false, unique = true)
+    @Column(name = "website", nullable = false, unique = true)
+    @Column(name = "auditorDetails", nullable = false, unique = true)
+    @Column(name = "committeeDetails", nullable = false, unique = true)
+    @Column(name = "NGONumber", nullable = false, unique = true)
+    @Column(name = "NGODate", nullable = false, unique = true)
+    @Column(name = "twitter", nullable = false, unique = true)
+    @Column(name = "facebook", nullable = false, unique = true)
+    @Column(name = "instagram", nullable = false, unique = true)
+    @Column(name = "establishmentDate", nullable = false, unique = true)
 
     public Long orgId;
 
-    private String  address;
+    private String address;
     private Integer numberOfImages;
-    private Integer getNumberOfReports;
-    private String  orgWebsite;
-    private String  taxReference;
-    private String  auditorDetails;
-    private String  committeeDetails;
-    private String  NGONumber;
+    private Integer numberOfReports;
+    private String website;
+    private String auditorDetails;
+    private String committeeDetails;
+    private String NGONumber;
     private String NGODate;
     private String twitter;
     private String facebook;
@@ -38,9 +49,8 @@ public class OrganisationInfo
     public OrganisationInfo() {
         this.address = null;
         this.numberOfImages = null;
-        this.getNumberOfReports = null;
-        this.orgWebsite = null;
-        this.taxReference = null;
+        this.numberOfReports = null;
+        this.website = null;
         this.auditorDetails = null;
         this.committeeDetails = null;
         this.NGONumber = null;
@@ -73,30 +83,6 @@ public class OrganisationInfo
 
     public void setNumberOfImages(Integer numberOfImages) {
         this.numberOfImages = numberOfImages;
-    }
-
-    public Integer getGetNumberOfReports() {
-        return getNumberOfReports;
-    }
-
-    public void setGetNumberOfReports(Integer getNumberOfReports) {
-        this.getNumberOfReports = getNumberOfReports;
-    }
-
-    public String getOrgWebsite() {
-        return orgWebsite;
-    }
-
-    public void setOrgWebsite(String orgWebsite) {
-        this.orgWebsite = orgWebsite;
-    }
-
-    public String getTaxReference() {
-        return taxReference;
-    }
-
-    public void setTaxReference(String taxReference) {
-        this.taxReference = taxReference;
     }
 
     public String getAuditorDetails() {
@@ -157,9 +143,8 @@ public class OrganisationInfo
                 "orgId='" + orgId + '\'' +
                 ", address='" + address + '\'' +
                 ", numberOfImages=" + numberOfImages +
-                ", getNumberOfReports=" + getNumberOfReports +
-                ", orgWebsite='" + orgWebsite + '\'' +
-                ", taxReference='" + taxReference + '\'' +
+                ", numberOfReports=" + numberOfReports +
+                ", website='" + website + '\'' +
                 ", auditorDetails='" + auditorDetails + '\'' +
                 ", committeeDetails='" + committeeDetails + '\'' +
                 ", NGONumber='" + NGONumber + '\'' +

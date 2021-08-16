@@ -73,8 +73,6 @@ public class CertificateServiceImpl implements CertificateService {
 
         Blockchain blockchain = new Blockchain(orgId,index,0,txHash,certificateHash);
 
-
-
         return true;
     }
 

@@ -30,7 +30,7 @@ public interface CertificateRepository extends JpaRepository {
 
     @Modifying
     @Transactional
-    @Query("update Certificate o set o.points = false where o.org_id = ?1")
-    void updatePoints(Long orgId);
+    @Query("update Certificate o set o.points = ?2 where o.org_id = ?1")
+    void updatePoints(Long orgId, int points);
 
 }

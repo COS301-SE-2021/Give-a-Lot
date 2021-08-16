@@ -393,7 +393,7 @@ public class ServerAccess {
             e.printStackTrace();
         }
         finally {
-            //report.delete();
+            report.delete();
             channelSftp.exit();
             session.disconnect();
         }

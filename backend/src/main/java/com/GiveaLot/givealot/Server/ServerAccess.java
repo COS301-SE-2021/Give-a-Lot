@@ -53,6 +53,19 @@ public class ServerAccess {
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Certificates");
             channelSftp.put( remoteDir + "Organisations/" + orgIdString + "/" + orgNameSpace);
 
+            String localImageStorage = "frontend/givealot/localFiles/" + orgIdString + "/gallery/";
+            String localCertificateStorage = "frontend/givealot/localFiles/" + orgIdString + "/certificate/";
+
+            File directoryImageLocal = new File(localImageStorage);
+            File directoryCertLocal = new File(localCertificateStorage);
+
+            if (directoryImageLocal.mkdir()){
+                throw new Exception("Exception: image directory could not be created");
+            }
+            if (directoryCertLocal.mkdir()){
+                throw new Exception("Exception: certificate directory could not be created");
+            }
+
         }catch (Exception e){
             throw new Exception("Exception: Failed to interact with the server: " + e);
         }
@@ -372,7 +385,7 @@ public class ServerAccess {
 
         File file = new File("C:/logo.png");
 
-        access.createOrganisationDirectory(28,"Example AddOrganisationRequest");
+        access.createOrganisationDirectory(6,"The Local Guys");
 
         //File doc = access.downloadCertificate(45,"New Org");
 

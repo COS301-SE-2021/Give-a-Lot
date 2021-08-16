@@ -20,6 +20,6 @@ public interface UserService {
 
     boolean SetAdmin(SetAdminRequest request) throws Exception;
 
-    User getUser(GetUserRequest request)throws UserNotAuthorisedException;
-    List<User> GetUsers(GetUsersRequest request) throws UserNotAuthorisedException;
+    User getUser(GetUserRequest request)throws UserNotAuthorisedException,Exception;
+    List<User> GetUsers(GetUsersRequest request) throws UserNotAuthorisedException,Exception;
 }

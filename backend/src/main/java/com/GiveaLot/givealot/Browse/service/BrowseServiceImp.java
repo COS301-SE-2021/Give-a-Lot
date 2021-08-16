@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -39,6 +40,8 @@ public class BrowseServiceImp implements BrowseService{
             *  pull random organisations
             *  based on what most users interact with
             */
+
+            throw new Exception("Exception: case under development");
         }
         else
         {
@@ -112,17 +115,20 @@ public class BrowseServiceImp implements BrowseService{
 
             // config
             final int upper_bound = 5;
-
+            List<Organisations> response = new ArrayList<>();
             for(String sector : tmp_sectors)
             {
                 List<Organisations> organisations_by_sector_tmp = browseRepository.getOrganisationsBySector(sector);
 
-                for(int index = 0; index < organisations_by_sector_tmp.size() && index < upper_bound; index++)
-                {
+                if(organisations_by_sector_tmp == null) /* move on to the next sector*/
+                    continue;
 
-                }
+                for(int index = 0; index < organisations_by_sector_tmp.size() && index < upper_bound; index++)
+                    response.add(organisations_by_sector_tmp.get(index));
             }
 
+            Collections.shuffle(response);
+            return response;
         }
     }
 

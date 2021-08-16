@@ -13,4 +13,14 @@ public class LoginServiceImp implements LoginService{
     public LoginResponse loginGeneralUser(LoginRequest body) {
         return null;
     }
+
+    @Override
+    public LoginResponse loginOrganisation(LoginRequest body) {
+        return null;
+    }
+
+    @Override
+    public LoginResponse loginAdminUser(LoginRequest body) {
+        return null;
+    }
 }

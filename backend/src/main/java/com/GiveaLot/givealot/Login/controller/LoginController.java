@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,18 +23,48 @@ public class LoginController {
         this.service = service;
     }
     @PostMapping("/general")
-    ResponseEntity<LoginResponse> loginGeneralUser(@RequestBody LoginRequest body)
+    ResponseEntity<LoginResponse> loginGeneralUser(@RequestBody @NonNull LoginRequest body)
     {
         LoginResponse response;
         try
         {
             response = service.loginGeneralUser(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+
         }
         catch (Exception e)
         {
-
+            return new ResponseEntity<>(new LoginResponse(false,e.toString(),null), HttpStatus.BAD_REQUEST);
         }
+    }
 
-        return new ResponseEntity<>(responseBody, HttpStatus.OK);
+    @PostMapping("/general")
+    ResponseEntity<LoginResponse> loginOrganisation(@RequestBody @NonNull LoginRequest body)
+    {
+        LoginResponse response;
+        try
+        {
+            response = service.loginOrganisation(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new LoginResponse(false,e.toString(),null), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PostMapping("/admin")
+    ResponseEntity<LoginResponse> loginAdminUser(@RequestBody @NonNull LoginRequest body)
+    {
+        LoginResponse response;
+        try
+        {
+            response = service.loginAdminUser(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new LoginResponse(false,e.toString(),null), HttpStatus.BAD_REQUEST);
+        }
     }
 }

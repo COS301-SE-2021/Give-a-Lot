@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service;
 public interface LoginService {
 
     LoginResponse loginGeneralUser(LoginRequest body);
-    LoginResponse loginGeneralAdmin(LoginRequest body);
+    LoginResponse loginOrganisation(LoginRequest body);
     LoginResponse loginAdminUser(LoginRequest body);
 }

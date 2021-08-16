@@ -368,13 +368,6 @@ public class OrganisationController
     /*
     * tested
     * */
-
-
-
-
-
-
-
     /* tested - works */
     /*@PutMapping("/investigate/{orgId}")
     public responseJSON investigateOrganisation(@PathVariable("orgId") @NonNull String orgId)
@@ -402,11 +395,6 @@ public class OrganisationController
             return response;
         }
     }*/
-
-
-
-
-
 
     /* tested - works - left comment for OrganisationDASTemp
        on the removeOrgAddress
@@ -465,8 +453,6 @@ public class OrganisationController
             return response;
         }
     }*/
-
-
 
     /* tested - works
      *  removeOrgNGO from OrganisationDASTemp always returns true

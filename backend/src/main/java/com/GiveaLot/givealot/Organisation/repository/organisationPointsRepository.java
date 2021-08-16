@@ -70,4 +70,8 @@ public interface organisationPointsRepository extends JpaRepository<Organisation
     @Transactional
     @Query("UPDATE OrganisationPoints op SET op.websiteIsValid = ?2 WHERE op.orgId = ?1")
     int Website(long orgId, boolean value);
+
+
+
+
 }

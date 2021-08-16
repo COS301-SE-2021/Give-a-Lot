@@ -7,14 +7,16 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDateTime;
 
-public interface UserRepository extends JpaRepository<User,String> {
+public interface UserRepository extends JpaRepository<User,Long> {
     ////////////////////////////////////////////////////////// SELECT //////////////////////////////////////////////////////////
     @Query("SELECT s FROM User s WHERE s.email = ?1")
     User findUserByEmail(String email);
 
     @Query("SELECT s FROM User s WHERE s.email = ?1 AND s.isAdmin = True")
-    User isAdmin(String username);
+    User isAdmin(String email);
 
+    @Query("SELECT s FROM User s WHERE s.id = ?1 AND s.isAdmin = True")
+    User isAdmin(long id);
 
     ////////////////////////////////////////////////////////// UPDATE //////////////////////////////////////////////////////////
 

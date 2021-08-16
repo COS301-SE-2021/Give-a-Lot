@@ -8,10 +8,10 @@ import 'date-fns';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { withStyles } from '@material-ui/core/styles'
-import {toast} from "react-toastify";
+import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 
-toast.configure()
+
 const useStyles = theme => ({
     root: {
         '& > *': {
@@ -60,8 +60,9 @@ export class Upgrade extends Component {
     }
 
     onSubmit = () => {
-        toast.success('upload success')
-
+        toast.success('upload success',{
+            position: toast.POSITION.TOP_RIGHT
+        });
     }
 
 render(){
@@ -85,14 +86,16 @@ render(){
                             placeholder="Enter your website url.."
                             className="input1"
                         />
-                        <input type="submit" value="Submit" className="submit1" onSubmit={this.onSubmit}/>
+                        <input type="submit" value="Submit" className="submit1" onClick={this.onSubmit}/>
                         {
                             !this.state.status1
                                 ? <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
                                 : <div className="contain_Icon"><CheckCircleIcon className="tick_Icon"/></div>
                         }
 
-
+                        <div className="form-group">
+                            <ToastContainer/>
+                        </div>
 
                     </form>
                    <form className="upgrade_form">
@@ -235,6 +238,21 @@ render(){
                             name="registered_no"
                             type="text"
                             placeholder="Enter your registered NGO number"
+                            className="input1"
+                        />
+                        <input type="submit" value="Submit" className="submit1"/>
+                        {
+                            !this.state.status8
+                                ? <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+                                : <div className="contain_Icon"><CheckCircleIcon className="tick_Icon"/></div>
+                        }
+                    </form>
+
+                    <form className="upgrade_form">
+                        <input
+                            name="registered_no"
+                            type="text"
+                            placeholder="Enter Committee details"
                             className="input1"
                         />
                         <input type="submit" value="Submit" className="submit1"/>

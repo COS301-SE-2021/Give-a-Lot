@@ -1,0 +1,61 @@
+.addOrg{
+    flex: 4;
+}
+.newUsers {
+    flex: 4;
+    padding: 10px;
+}
+
+.newUserForms {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.newUserItems {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.newUserItems > label {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(151, 150, 150);
+}
+
+.newUserItems > input {
+    height: 20px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.newUserGenders > input {
+    margin-top: 15px;
+}
+
+.newUserGenders>label{
+    margin: 10px;
+    font-size: 18px;
+    color: #555;
+}
+
+.newUserSelects{
+    height: 40px;
+    border-radius: 5px;
+}
+
+.newUserButtons{
+    width: 200px;
+    border: none;
+    background-color: #2d9499;
+    color: white;
+    padding: 7px 10px;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-top: 30px;
+    cursor: pointer;
+}

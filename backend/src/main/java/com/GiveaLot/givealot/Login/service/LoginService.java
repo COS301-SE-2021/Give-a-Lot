@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface LoginService {
 
-    LoginResponse loginGeneralUser(LoginRequest body);
-    LoginResponse loginOrganisation(LoginRequest body);
-    LoginResponse loginAdminUser(LoginRequest body);
+    LoginResponse loginGeneralUser(LoginRequest body) throws Exception;
+    LoginResponse loginOrganisation(LoginRequest body)throws Exception;
+    LoginResponse loginAdminUser(LoginRequest body)throws Exception;
 }

@@ -129,6 +129,16 @@ public interface OrganisationInfoRepository extends JpaRepository<OrganisationIn
 
     @Modifying
     @Transactional
+    @Query("UPDATE OrganisationInfo i SET i.numberOfReports = ?2 WHERE i.orgId = ?1")
+    Integer incrementReports(Long orgId, int reportCount);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE OrganisationInfo i SET i.numberOfReports = ?2 WHERE i.orgId = ?1")
+    Integer decrementReports(Long orgId, int reportCount);
+
+    @Modifying
+    @Transactional
     @Query("UPDATE OrganisationInfo i SET i.twitter = ?2 WHERE i.orgId = ?1")
     Integer addTwitter(Long orgId, String handle);
 

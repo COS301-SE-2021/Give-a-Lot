@@ -358,13 +358,42 @@ public class ServerAccess {
 
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + imageNumber + ".png");
 
-//            File deletion = new File(localFile);
-//            deletion.delete();
+
             image.delete();
         }catch (Exception e){
             e.printStackTrace();
         }
         finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+
+    public void uploadReport(long orgId, File report, String date) throws Exception {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            System.out.println("test");
+            report.renameTo(new File("backend/src/main/resources/TempDocument/report.txt"));
+
+            channelSftp.connect();
+
+
+            int reportNumber =organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfReports();
+
+            String orgIdString = String.valueOf(orgId);
+
+            String localFile = "frontend/givealot/localFiles/" + orgId + "/reports/report" + reportNumber + ".txt";
+
+            FileUtils.copyFile(report, new File(localFile));
+
+            System.out.println("test");
+            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Reports/report" + reportNumber + "-" + date +".txt");
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            report.delete();
             channelSftp.exit();
             session.disconnect();
         }

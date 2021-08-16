@@ -31,13 +31,13 @@ public class Blockchain {
     )
     long level;
     @Column(
-            name = "transactionHash",
+            name = "transaction_hash",
             nullable = false,
             columnDefinition = "TEXT"
     )
     String transactionHash;
     @Column(
-            name = "certificateHash",
+            name = "certificate_hash",
             nullable = false,
             columnDefinition = "TEXT"
     )

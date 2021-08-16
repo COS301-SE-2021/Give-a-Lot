@@ -10,7 +10,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Table(name="organisation_info")
-public class organisationInfo
+public class OrganisationInfo
 {
     @Id
     @Column(name = "org_id", nullable = false, unique = true)
@@ -29,11 +29,11 @@ public class organisationInfo
     private String instagram;
     private String establishmentDate;
 
-    public organisationInfo(Long orgId)
+    public OrganisationInfo(Long orgId)
     {
         this.setOrgId(orgId);
     }
-    public organisationInfo() {
+    public OrganisationInfo() {
         this.address = null;
         this.numberOfImages = null;
         this.getNumberOfReports = null;

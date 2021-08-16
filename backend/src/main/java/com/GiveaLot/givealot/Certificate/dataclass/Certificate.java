@@ -14,34 +14,34 @@ import javax.persistence.Table;
 )
 public class Certificate {
     @Column(
-            name = "dateCreated",
+            name = "date_created",
             updatable = true,
             nullable = false
     )
     String dateCreated;
     @Column(
-            name = "dateExpiry",
+            name = "date_expiry",
             updatable = true,
             nullable = false
     )
     String dateExpiry;
     @Id
     @Column(
-            name = "orgId",
+            name = "org_id",
             updatable = false,
             nullable = false
     )
     long org_id;
 
     @Column(
-            name = "orgRenewal",
+            name = "org_renewal",
             updatable = false,
             nullable = false
     )
     boolean orgRenewal;
 
     @Column(
-            name = "adminRenewal",
+            name = "admin_renewal",
             updatable = true,
             nullable = false
     )
@@ -89,11 +89,11 @@ public class Certificate {
         return points;
     }
 
-    public long getOrg_id() {
+    public long getOrgId() {
         return org_id;
     }
 
-    public void setOrg_id(long org_id) {
+    public void setOrgId(long org_id) {
         this.org_id = org_id;
     }
 

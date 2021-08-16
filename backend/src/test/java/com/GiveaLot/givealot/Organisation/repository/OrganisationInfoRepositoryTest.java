@@ -1,11 +1,9 @@
 package com.GiveaLot.givealot.Organisation.repository;
 
-import com.GiveaLot.givealot.Organisation.model.organisationInfo;
+import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class OrganisationInfoRepositoryTest {
@@ -15,7 +13,7 @@ class OrganisationInfoRepositoryTest {
 
     @Test
     void selectOrganisationInfo() {
-        organisationInfo organisationInfo = repository.selectOrganisationInfo(10L);
+        OrganisationInfo organisationInfo = repository.selectOrganisationInfo(10L);
         System.out.println(organisationInfo);
     }
 

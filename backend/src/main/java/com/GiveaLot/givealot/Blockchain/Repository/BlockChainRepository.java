@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
 @Repository
-public interface BlockChainRepository extends JpaRepository{
+public interface BlockChainRepository extends JpaRepository<Blockchain,Long>{
 
     /** (SELECT * FROM Blockchain WHERE orgId = ?) **/
     @Query("select i FROM Blockchain i  WHERE i.orgId = ?1")

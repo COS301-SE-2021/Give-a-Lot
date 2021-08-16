@@ -10,23 +10,27 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public interface CertificateRepository extends JpaRepository<Certificate, Long> {
+public interface CertificateRepository extends JpaRepository {
 
-    @Query("select o from Certificate where o.orgId =?1")
+    @Query("select o from Certificate o where o.org_id =?1")
     Certificate selectCertificateById(Long orgId);
 
-    @Query()
-    Certificate selectCertificateByHash(String certificateHash);
+    @Query("select o.points from Certificate o where o.org_id =?1")
+    Certificate selectPointsById(Long orgId);
 
     @Modifying
     @Transactional
-    @Query()
-    void updateOrgRenewal(Long orgId);
+    @Query("update Certificate o set o.orgRenewal = ?2 where o.org_id = ?1")
+    void updateOrgRenewal(Long orgId, boolean renew);
 
     @Modifying
     @Transactional
-    @Query()
-    void updateAdminRenewal(Long orgId);
+    @Query("update Certificate o set o.adminRenewal = ?2 where o.org_id = ?1")
+    void updateAdminRenewal(Long orgId, boolean renew);
 
+    @Modifying
+    @Transactional
+    @Query("update Certificate o set o.points = ?2 where o.org_id = ?1")
+    void updatePoints(Long orgId, int points);
 
 }

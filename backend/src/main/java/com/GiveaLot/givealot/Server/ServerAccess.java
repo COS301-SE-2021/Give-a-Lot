@@ -331,6 +331,7 @@ public class ServerAccess {
 
 //            File deletion = new File(localFile);
 //            deletion.delete();
+            image.delete();
         }catch (Exception e){
             e.printStackTrace();
         }

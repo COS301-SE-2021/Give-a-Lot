@@ -23,14 +23,9 @@ public interface CertificateService {
     //public boolean compare;
 
     public boolean createPDFDocument(Certificate cert, Organisations organisation, int points) throws Exception;
-
     public boolean checkRenewal() throws Exception;
 
-    public boolean setupEmailServerProperties();
-
-    public boolean sendEmail() throws Exception;
-
-    public MimeMessage CertificateExpiredEmail(String orgName, String orgEmail) throws Exception;
+    public boolean CertificateExpiredEmail(String orgName, String orgEmail) throws Exception;
 
     public boolean organisationRenewal(long orgId) throws Exception;
 

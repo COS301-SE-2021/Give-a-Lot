@@ -15,7 +15,6 @@ public interface UserRepository extends JpaRepository<User,String> {
     @Query("SELECT s FROM User s WHERE s.email = ?1 AND s.isAdmin = True")
     User isAdmin(String username);
 
-
     ////////////////////////////////////////////////////////// UPDATE //////////////////////////////////////////////////////////
 
     @Modifying

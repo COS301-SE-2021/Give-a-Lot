@@ -7,10 +7,10 @@ import java.util.Date;
 public class AddOrgEstDateRequest {
 
    private Date date;
-    private String orgId;
+    private long orgId;
 
     public AddOrgEstDateRequest(@JsonProperty Date date,
-                                @JsonProperty String orgId)
+                                @JsonProperty long orgId)
     {
         this.date = date;
         this.orgId = orgId;
@@ -24,11 +24,11 @@ public class AddOrgEstDateRequest {
         this.date = date;
     }
 
-    public String getOrgId() {
+    public long getOrgId() {
         return orgId;
     }
 
-    public void setOrgId(String orgId) {
+    public void setOrgId(long orgId) {
         this.orgId = orgId;
     }
 }

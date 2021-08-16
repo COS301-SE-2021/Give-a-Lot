@@ -6,20 +6,20 @@ import java.io.File;
 
 public class AddOrgAuditInfoRequest
 {
-    private String orgId;
+    private long orgId;
     private File audit;
 
-    public AddOrgAuditInfoRequest(@JsonProperty String orgId,
+    public AddOrgAuditInfoRequest(@JsonProperty long orgId,
                                   @JsonProperty File audit) {
         this.orgId = orgId;
         this.audit = audit;
     }
 
-    public String getOrgId() {
+    public long getOrgId() {
         return orgId;
     }
 
-    public void setOrgId(String orgId) {
+    public void setOrgId(long orgId) {
         this.orgId = orgId;
     }
 

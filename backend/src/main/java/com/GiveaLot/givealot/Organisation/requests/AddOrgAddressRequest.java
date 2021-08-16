@@ -5,15 +5,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AddOrgAddressRequest {
 
 
-    private String orgId;
+    private long orgId;
     private String address;
 
-    public AddOrgAddressRequest(@JsonProperty("orgId") String orgId,@JsonProperty("address") String address) {
+    public AddOrgAddressRequest(@JsonProperty("orgId") long orgId,@JsonProperty("address") String address) {
         this.orgId = orgId;
         this.address = address;
     }
 
-    public void setOrgId(String orgId) {
+    public void setOrgId(long orgId) {
         this.orgId = orgId;
     }
 
@@ -21,7 +21,7 @@ public class AddOrgAddressRequest {
         this.address = address;
     }
 
-    public String getOrgId() {
+    public long getOrgId() {
         return this.orgId;
     }
 

@@ -10,11 +10,11 @@ import {orgsRows} from "../../../../DummyData";
 
 // export class InfoValidation extends Component {
     export default function InfoValidation() {
-        const [data, setData] = useState(orgsRows);
+        // const [data, setData] = useState(orgsRows);
 
-        const handleDelete = (id) => {
-            setData(data.filter((item) => item.id !== id));
-        };
+        // const handleDelete = (id) => {
+        //     setData(data.filter((item) => item.id !== id));
+        // };
 
     const columns = [
         { field: 'id', headerName: 'ID', width: 100 },

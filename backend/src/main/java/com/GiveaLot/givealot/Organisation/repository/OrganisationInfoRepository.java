@@ -17,7 +17,8 @@ import org.springframework.transaction.annotation.Transactional;
 *   7) add tax reference - done
 *   8) remove tax reference - done
 *   9) add twitter, facebook, instagram - done
-* */
+*/
+
 @Repository
 public interface OrganisationInfoRepository extends JpaRepository<OrganisationInfo,Long>
 {

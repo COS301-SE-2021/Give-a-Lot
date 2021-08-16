@@ -14,12 +14,14 @@ import FormError from "./FormError"
 
 
 
+
 export class RegisterUser extends Component {
 
     constructor(props) {
         super(props)
 
         this.state = {
+            loading: false,
             email: "",
             password : "",
             surname: "",
@@ -39,6 +41,12 @@ export class RegisterUser extends Component {
         this.setState({[name]: value},
             () => { this.validateField(name, value) });
         // this.setState({[e.target.name] : e.target.value}, () => { this.validateField(name, value) })
+        this.setState({ loading: true });
+
+        //Faking API call here
+        setTimeout(() => {
+            this.setState({ loading: false });
+        }, 2000);
     }
 
     validateField(fieldName, value) {
@@ -94,6 +102,7 @@ export class RegisterUser extends Component {
     }
 
     render() {
+        const { loading } = this.state;
         const {email, password, surname, name} = this.state
         return (
             <div className="RegisterUser">
@@ -174,7 +183,20 @@ export class RegisterUser extends Component {
 
                                     </div>
                                     <div>
-                                        <button type="submit" className="RegisterUserbutton" disabled={!this.state.formValid}>Sign Up</button>
+                                        <button className="RegisterUserbutton" onClick={this.changeHandler}
+                                                disabled={loading}
+                                                // disabled={!this.state.formValid}
+                                        >
+                                            {loading && (
+                                                <i
+                                                    className="fa fa-refresh fa-spin"
+                                                    style={{ marginRight: "5px" }}
+                                                />
+                                            )}
+                                            {loading && <span>Registering</span>}
+                                            {!loading && <span>Register</span>}
+                                        </button>
+                                        {/*<button type="submit" className="RegisterUserbutton" disabled={!this.state.formValid}>Sign Up</button>*/}
                                     </div>
                                     <div className="form-group">
                                         <ToastContainer/>

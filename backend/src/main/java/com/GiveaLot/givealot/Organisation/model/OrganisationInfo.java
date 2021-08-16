@@ -105,6 +105,46 @@ public class OrganisationInfo
         this.establishmentDate = null;
     }
 
+    public Integer getNumberOfReports() {
+        return numberOfReports;
+    }
+
+    public void setNumberOfReports(Integer numberOfReports) {
+        this.numberOfReports = numberOfReports;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getTaxReference() {
+        return taxReference;
+    }
+
+    public void setTaxReference(String taxReference) {
+        this.taxReference = taxReference;
+    }
+
+    public String getAuditDocument() {
+        return auditDocument;
+    }
+
+    public void setAuditDocument(String auditDocument) {
+        this.auditDocument = auditDocument;
+    }
+
+    public Date getNGODate() {
+        return NGODate;
+    }
+
+    public void setNGODate(Date NGODate) {
+        this.NGODate = NGODate;
+    }
+
     public Long getOrgId() {
         return orgId;
     }

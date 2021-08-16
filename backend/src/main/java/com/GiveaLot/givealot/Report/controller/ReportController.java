@@ -12,25 +12,11 @@ import java.util.List;
 @RequestMapping("/report")
 public class ReportController {
 
-    private final ReportServiceImpl ReportServiceImpl;
-
-    @Autowired
-    public ReportController(ReportServiceImpl ReportServiceImpl) {
-        this.ReportServiceImpl = ReportServiceImpl;
-    }
 
    @CrossOrigin
    @PostMapping("/organisation")
    public List<ReportResponseJSON> createReport(@RequestBody createReportRequest request)
    {
-        try
-        {
-            createReportResponse createReportResponse = ReportServiceImpl.createReport(request);
-            return createReportResponse.getReportResponseJSON();
-        }
-        catch(Exception e)
-        {
-            return List.of(new ReportResponseJSON(402, e.getMessage(), null));
-        }
+        return null;
    }
 }

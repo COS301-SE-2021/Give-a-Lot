@@ -290,7 +290,19 @@
     color: red;
     font-size: 30px !important;
 }
-.f_Icon{
+
+._tick_Icon{
+
+    color: green;
+    font-size: 30px !important;
+}
+.f_tick_Icon{
+    margin-top: 15px;
+    color: green;
+    font-size: 30px !important;
+}
+
+.f_cross_Icon{
     margin-top: 15px;
     color: red;
     font-size: 30px !important;

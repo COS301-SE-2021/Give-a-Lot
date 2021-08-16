@@ -29,7 +29,8 @@ class Upgrade extends Component {
     constructor (props) {
         super(props)
         this.state = {
-            startDate: new Date()
+            startDate: new Date(),
+            status: false
         };
         this.handleChange = this.handleChange.bind(this);
         this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -48,6 +49,9 @@ class Upgrade extends Component {
 
 render(){
     const { classes } = this.props;
+
+
+
     return (
             <div className="upgrade">
                 <div className="upgrade_heading">
@@ -65,8 +69,12 @@ render(){
                             className="input1"
                         />
                         <input type="submit" value="Submit" className="submit1" />
+                        {
+                            this.state.status
+                                ? <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+                                : <div className="contain_Icon"><CheckCircleIcon className="tick_Icon"/></div>
+                        }
 
-                        <div className="contain_Icon"><CheckCircleIcon className="tick_Icon"/></div>
 
 
                     </form>
@@ -77,8 +85,14 @@ render(){
                            placeholder="Enter your address.."
                            className="input1"
                        />
+
                        <input type="submit" value="Submit" className="submit1"/>
-                       <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+                       {
+                           this.state.status
+                               ? <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+                               : <div className="contain_Icon"><CheckCircleIcon className="tick_Icon"/></div>
+                       }
+
                    </form>
 
                    <div className="upgrade_form">
@@ -100,8 +114,13 @@ render(){
 
                        </form>
                           <input type="submit" value="Submit" className="submit1"/>
-                          <div className="contain_Icon"><CheckCircleIcon className="tick_Icon"/></div>
-                   </div>
+                          {
+                              this.state.status
+                                  ? <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+                                  : <div className="contain_Icon"><CheckCircleIcon className="tick_Icon"/></div>
+                          }
+
+                      </div>
 
 
                    <div className="upgrade_form">
@@ -116,7 +135,12 @@ render(){
                            className="input1"
                        />
                        <input type="submit" value="Submit" className="submit1"/>
-                       <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+                       {
+                           this.state.status
+                               ? <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+                               : <div className="contain_Icon"><CheckCircleIcon className="tick_Icon"/></div>
+                       }
+
                    </form>
                    <form className="upgrade_form">
                        <input
@@ -126,7 +150,12 @@ render(){
                            className="input1"
                        />
                        <input type="submit" value="Submit" className="submit1"/>
-                       <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+                       {
+                           this.state.status
+                               ? <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+                               : <div className="contain_Icon"><CheckCircleIcon className="tick_Icon"/></div>
+                       }
+
                    </form>
 
 
@@ -151,7 +180,12 @@ render(){
                            </Button>
                        </label>
                        <input type="submit" value="Upload" className="img_submit"/>
-                       <div className="img_Icon"><CancelIcon className="_Icon"/></div>
+                       {
+                           this.state.status
+                               ? <div className="img_Icon"><CancelIcon className="_cross_Icon"/></div>
+                               : <div className="img_Icon"><CheckCircleIcon className="_tick_Icon"/></div>
+                       }
+
 
                    </div>
 
@@ -171,7 +205,12 @@ render(){
                             className="input1"
                         />
                         <input type="submit" value="Submit" className="submit1"/>
-                        <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+
+                        {
+                            this.state.status
+                                ? <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+                                : <div className="contain_Icon"><CheckCircleIcon className="tick_Icon"/></div>
+                        }
                     </form>
 
                     <form className="upgrade_form">
@@ -182,7 +221,11 @@ render(){
                             className="input1"
                         />
                         <input type="submit" value="Submit" className="submit1"/>
-                        <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+                        {
+                            this.state.status
+                                ? <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+                                : <div className="contain_Icon"><CheckCircleIcon className="tick_Icon"/></div>
+                        }
                     </form>
 
                     <div className="upgrade_form">
@@ -204,7 +247,11 @@ render(){
 
                         </form>
                         <input type="submit" value="Submit" className="submit1"/>
-                        <div className="contain_Icon"><CheckCircleIcon className="tick_Icon"/></div>
+                        {
+                            this.state.status
+                                ? <div className="contain_Icon"><CancelIcon className="cross_Icon"/></div>
+                                : <div className="contain_Icon"><CheckCircleIcon className="tick_Icon"/></div>
+                        }
                     </div>
 
 
@@ -220,7 +267,11 @@ render(){
 
                         <input type="file" name="file"  className="form_file"/>
                         <input type="submit" value="Upload" className="file_submit"/>
-                        <div className="file_Icon"><CancelIcon className="f_Icon"/></div>
+                        {
+                            this.state.status
+                                ? <div className="file_Icon"><CancelIcon className="f_cross_Icon"/></div>
+                                : <div className="file_Icon"><CheckCircleIcon className="f_tick_Icon"/></div>
+                        }
                     </form>
 
 
@@ -233,7 +284,11 @@ render(){
 
                         <input type="file" name="file"  className="form_file"/>
                         <input type="submit" value="Upload" className="file_submit"/>
-                        <div className="file_Icon"><CancelIcon className="f_Icon"/></div>
+                        {
+                            this.state.status
+                                ? <div className="file_Icon"><CancelIcon className="f_cross_Icon"/></div>
+                                : <div className="file_Icon"><CheckCircleIcon className="f_tick_Icon"/></div>
+                        }
                     </form>
 
 
@@ -249,7 +304,11 @@ render(){
 
                         <input type="file" name="file"  className="form_file"/>
                         <input type="submit" value="Upload" className="file_submit"/>
-                        <div className="file_Icon"><CancelIcon className="f_Icon"/></div>
+                        {
+                            this.state.status
+                                ? <div className="file_Icon"><CancelIcon className="f_cross_Icon"/></div>
+                                : <div className="file_Icon"><CheckCircleIcon className="f_tick_Icon"/></div>
+                        }
                     </form>
 
 

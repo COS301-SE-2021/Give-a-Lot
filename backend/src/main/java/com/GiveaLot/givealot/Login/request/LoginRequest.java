@@ -13,7 +13,7 @@ public class LoginRequest {
         this.role = role;
     }
 
-    public String getUseEmail() {
+    public String getEmail() {
         return this.email;
     }
 

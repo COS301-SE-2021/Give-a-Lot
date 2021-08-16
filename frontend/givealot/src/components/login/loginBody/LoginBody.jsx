@@ -6,6 +6,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import {Link} from "react-router-dom";
+import FormError from "../../register/registerUser/FormError";
 
 export class Login extends Component {
 
@@ -15,12 +16,53 @@ export class Login extends Component {
         this.state = {
             email: "",
             password : "",
+            formErrors: {email: '', password: ''},
+            emailValid: false,
+            passwordValid: false,
+            formValid: false
         }
     }
 
     changeHandler = (e) =>{
-        this.setState({[e.target.name] : e.target.value})
+        // this.setState({[e.target.name] : e.target.value})
+        const name = e.target.name;
+        const value = e.target.value;
+        this.setState({[name]: value},
+            () => { this.validateFields(name, value) });
     }
+
+    validateFields(fieldName, value) {
+        let fieldValidationError = this.state.formErrors;
+        let emailValid = this.state.emailValid;
+        let passwordValid = this.state.passwordValid;
+
+        switch(fieldName) {
+            case 'email':
+                emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+                fieldValidationError.email = emailValid ? '' : ' is invalid';
+                break;
+            case 'password':
+                passwordValid = value.length >= 6;
+                fieldValidationError.password = passwordValid ? '': ' is too short';
+                break;
+            default:
+                break;
+        }
+        this.setState({formErrors: fieldValidationError,
+            emailValid: emailValid,
+            passwordValid: passwordValid
+        }, this.validateForm);
+    }
+
+    validateForm() {
+        this.setState({formValid: this.state.emailValid && this.state.passwordValid});
+    }
+
+    errorClass(error) {
+        return(error.length === 0 ? '' : 'has-error');
+    }
+
+
     submitHandler = (e) =>{
         e.preventDefault()
         console.log(this.state)
@@ -45,7 +87,11 @@ export class Login extends Component {
                                    <p> Login </p>
                                </div>
 
-                               <div >
+                               <div className="panel panel-default">
+                                   <FormError formErrors={this.state.formErrors} />
+                               </div>
+
+                               <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
                                    <OutlinedInput type="type" name="email"
                                       value={email} onChange={this.changeHandler}
                                       className="input" placeholder="Email"
@@ -57,8 +103,8 @@ export class Login extends Component {
                                    />
                                </div>
 
-                               <div >
-                                   <OutlinedInput type="type"
+                               <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
+                                   <OutlinedInput type="password"
                                       name="password" value={password}
                                       onChange={this.changeHandler} className="input"
                                       placeholder="Password"
@@ -82,7 +128,7 @@ export class Login extends Component {
                                    </div>
                                </div>
                                <div>
-                                   <button type="submit" className="Login_button">Sign In</button>
+                                   <button type="submit" className="Login_button" disabled={!this.state.formValid}>Sign In</button>
                                </div>
                            </form>
                            <div className="gradientOverlay" />

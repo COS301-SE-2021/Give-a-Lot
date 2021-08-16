@@ -57,10 +57,11 @@ export class OrganisationBasic extends Component {
                     </div>
                     <form className="form">
                         <div >
-                            <OutlinedInput type="type"
+                            <OutlinedInput type="text"
                                name="contactPerson"
-                               value={values.contactPerson}
-                               onChange={this.changeHandler}
+                               defaultValue={values.contactPerson}
+                               // onChange={this.changeHandler}
+                               onChange={handleChange('contactPerson')}
                                className="inputBasic" placeholder=" Contact Person"
                                startAdornment={
                                    <InputAdornment position="start">
@@ -71,10 +72,11 @@ export class OrganisationBasic extends Component {
                         </div>
 
                         <div >
-                            <OutlinedInput type="type"
+                            <OutlinedInput type="text"
                                name="contactNumber"
-                               value={values.contactNumber}
-                               onChange={this.changeHandler}
+                               defaultValue={values.contactNumber}
+                               // onChange={this.changeHandler}
+                               onChange={handleChange('contactNumber')}
                                className="inputBasic" placeholder=" Contact Number"
                                startAdornment={
                                    <InputAdornment position="start">
@@ -85,8 +87,10 @@ export class OrganisationBasic extends Component {
                         </div>
 
                         <div >
-                            <OutlinedInput type="type" name="email"
-                               value={values.orgEmail} onChange={this.changeHandler}
+                            <OutlinedInput type="email" name="email"
+                                defaultValue={values.orgEmail}
+                               // onChange={this.changeHandler}
+                               onChange={handleChange('orgEmail')}
                                className="inputBasic" placeholder="Email"
                                startAdornment={
                                    <InputAdornment position="start">

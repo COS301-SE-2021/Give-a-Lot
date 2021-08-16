@@ -1,28 +1,10 @@
-// import React, { Component } from 'react'
-// import "./registerOrganisation.css"
-// import FeaturedHeader from "../../featuredHeader/FeaturedHeader";
-//
-// export class RegisterOrganisation extends Component {
-//
-//     render() {
-//         return (
-//             <div className="RegisterOrganisation">
-//                 <FeaturedHeader />
-//                 <div className="regOrgContent">
-//                     here is the stuff
-//                 </div>
-//             </div>
-//         )
-//     }
-// }
-//
-// export default RegisterOrganisation
-
 import React, { Component } from "react";
 import OrganisationBasic from "./registerOrgPages/OrganisationBasic"
 import OrganisationContact from "./registerOrgPages/OrganisationContact";
 import OrganisationAbout from "./registerOrgPages/OrganisationAbout";
 // import OrganisationMedia from "./registerOrgPages/OrganisationMedia"
+import Confirmation from "./registerOrgPages/Confirmation";
+import Success from "./registerOrgPages/Success"
 
 export class RegisterOrganisation extends Component {
     state = {
@@ -107,18 +89,17 @@ export class RegisterOrganisation extends Component {
             //             values={values}
             //         />
             //     );
-            // case 5:
-            //   return (
-            //     <ConfirmOrgRegistration
-            //       nextStep={this.nextStep}
-            //       prevStep={this.prevStep}
-            //       values={values}
-            //     />
-            //   );
-            //
-            // //
-            // case 6:
-            //   return <OrgSuceessRegistration firstStep={this.firstStep} />;
+            case 4:
+              return (
+                <Confirmation
+                  nextStep={this.nextStep}
+                  prevStep={this.prevStep}
+                  values={values}
+                />
+              );
+
+            case 5:
+              return <Success />;
         }
     }
 }

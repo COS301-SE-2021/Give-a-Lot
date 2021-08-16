@@ -44,8 +44,9 @@ export class OrganisationAbout extends Component {
                         <div >
                             <OutlinedInput type="type"
                                name="slogan"
-                               value={values.slogan}
-                               onChange={this.handleChange}
+                               defaultValue={values.slogan}
+                               // onChange={this.handleChange}
+                               onChange={handleChange('slogan')}
                                className="inputBasic" placeholder="Slogan"
                                startAdornment={
                                    <InputAdornment position="start">
@@ -57,8 +58,9 @@ export class OrganisationAbout extends Component {
                         <div >
                             <OutlinedInput type="type"
                                name="sector"
-                               value={values.orgSector}
-                               onChange={this.handleChange}
+                               defaultValue={values.orgSector}
+                               // onChange={this.handleChange}
+                               onChange={handleChange('orgSector')}
                                className="inputBasic" placeholder="Sector"
                                startAdornment={
                                    <InputAdornment position="start">
@@ -73,8 +75,9 @@ export class OrganisationAbout extends Component {
                                 // label="Multiline"
                                multiline
                                maxRows={50}
-                               value={values.orgDescription}
-                               onChange={this.handleChange}
+                               defaultValue={values.orgDescription}
+                               // onChange={this.handleChange}
+                               onChange={handleChange('orgDescription')}
                                className="inputBasic" placeholder="Description"
                                startAdornment={
                                    <InputAdornment position="start">

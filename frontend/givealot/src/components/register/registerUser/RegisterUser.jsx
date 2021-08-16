@@ -161,7 +161,6 @@ export class RegisterUser extends Component {
                                         />
                                     </div>
 
-
                                     <div style={{color: "white"}}>
                                         <div id="createAccount">
                                             <span>Login?
@@ -187,9 +186,7 @@ export class RegisterUser extends Component {
                         </div>
                     </div>
                 </div>
-                {/*<div className="form-group">*/}
-                {/*    <ToastContainer/>*/}
-                {/*</div>*/}
+
             </div>
         )
     }

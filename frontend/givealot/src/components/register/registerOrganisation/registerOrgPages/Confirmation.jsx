@@ -7,6 +7,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import FeaturedHeader from "../../../featuredHeader/FeaturedHeader";
 import "./basic.css"
 import { Link } from "react-router-dom";
+import axios from "axios";
+import {toast} from "react-toastify";
 
 
 export class Confirmation extends Component {
@@ -19,6 +21,18 @@ export class Confirmation extends Component {
         e.preventDefault();
         this.props.prevStep();
     };
+    submit = (e) =>{
+        e.preventDefault()
+        console.log(this.state)
+        axios.post('http://localhost:8080/v1/organisation/add/org', this.props)
+            .then(response =>{
+                // console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+                // toast.success('Registration failed ')
+            })
+    }
 
     render() {
         const {
@@ -28,13 +42,6 @@ export class Confirmation extends Component {
             <div className="RegisterOrganisation" style={{margin: "auto"}}>
                 <Fragment >
                     <FeaturedHeader />
-                    {/*<AppBar style={{ background: "#098F8F" }} position="sticky">*/}
-                    {/*    <Toolbar title="Enter Personal Information">*/}
-                    {/*        <Typography color="inherit" variant="h4">*/}
-                    {/*            Confirm Details*/}
-                    {/*        </Typography>*/}
-                    {/*    </Toolbar>*/}
-                    {/*</AppBar>*/}
 
                     <List
                         component="nav"
@@ -83,14 +90,14 @@ export class Confirmation extends Component {
                         Back
                     </Button>
                     <Link to="/login" className="link">
-                        <Button
+                        <Button type="submit"
                             style={{
                                 background: "#3C61B8",
                                 color: "#FFFFFF",
                                 marginRight: "1em"
                             }}
                             label="Continue"
-                            onClick={this.proceed}
+                            onClick={this.submit}
                         >
                             Confirm and Continue
                         </Button>

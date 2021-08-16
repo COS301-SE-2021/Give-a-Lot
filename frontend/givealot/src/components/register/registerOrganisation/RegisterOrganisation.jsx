@@ -5,6 +5,8 @@ import OrganisationAbout from "./registerOrgPages/OrganisationAbout";
 // import OrganisationMedia from "./registerOrgPages/OrganisationMedia"
 import Confirmation from "./registerOrgPages/Confirmation";
 import Success from "./registerOrgPages/Success"
+import axios from "axios";
+import {toast} from "react-toastify";
 
 export class RegisterOrganisation extends Component {
     state = {
@@ -44,6 +46,7 @@ export class RegisterOrganisation extends Component {
         this.setState({ [input]: e.target.value });
         console.log(e.target.value);
     };
+
 
     render() {
         const { step } = this.state;

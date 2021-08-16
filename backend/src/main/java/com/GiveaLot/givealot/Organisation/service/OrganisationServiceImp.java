@@ -156,18 +156,12 @@ public class OrganisationServiceImp implements OrganisationService {
 
         organisationRepository.updateRepo(id,directory);
 
-        //create certificate tuple
-
-        //create certificate
-
-
         LocalDate date = LocalDate.now(); /* registration date */
 
 
         organisationInfoRepository.save(new OrganisationInfo((long) id));
         organisationPointsRepository.save(new OrganisationPoints((long) id));
         certificateRepository.save(certificate);
-        //JPA double check
 
         certificateService.addCertificate(id);
         return true;
@@ -417,7 +411,24 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Override
     public boolean removeOrgAuditDoc(long orgId) throws Exception {
-        return false;
+        if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+            /*
+             * Because organisation already exists, set the field
+             * */
+            OrganisationInfo organisationInfo = new OrganisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            organisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun the contract");
+        }
+
+        if (organisationInfoRepository.removeAuditDoc(orgId) != 1)
+            throw new Exception("Exception: tax reference field not updated");
+
+        return true;
     }
 
     @Override
@@ -439,7 +450,24 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Override
     public boolean removeOrgAuditor(long orgId) throws Exception {
-        return false;
+        if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+            /*
+             * Because organisation already exists, set the field
+             * */
+            OrganisationInfo organisationInfo = new OrganisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            organisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun the contract");
+        }
+
+        if (organisationInfoRepository.removeAuditor(orgId) != 1)
+            throw new Exception("Exception: tax reference field not updated");
+
+        return true;
     }
 
     @Override
@@ -461,7 +489,24 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Override
     public boolean removeOrgCommittee(long orgId) throws Exception {
-        return false;
+        if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+            /*
+             * Because organisation already exists, set the field
+             * */
+            OrganisationInfo organisationInfo = new OrganisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            organisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun the contract");
+        }
+
+        if (organisationInfoRepository.removeCommittee(orgId) != 1)
+            throw new Exception("Exception: tax reference field not updated");
+
+        return true;
     }
 
     @Override
@@ -497,7 +542,24 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Override
     public boolean removeOrgNGO(long orgId) throws Exception {
-        return false;
+        if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+            /*
+             * Because organisation already exists, set the field
+             * */
+            OrganisationInfo organisationInfo = new OrganisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            organisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun the contract");
+        }
+
+        if (organisationInfoRepository.removeNGONUmber(orgId) != 1)
+            throw new Exception("Exception: tax reference field not updated");
+
+        return true;
     }
 
     @Override
@@ -517,7 +579,24 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Override
     public boolean removeOrgEstDate(long orgId) throws Exception {
-        return false;
+        if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+            /*
+             * Because organisation already exists, set the field
+             * */
+            OrganisationInfo organisationInfo = new OrganisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            organisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun the contract");
+        }
+
+        if (organisationInfoRepository.removeEstDate(orgId) != 1)
+            throw new Exception("Exception: tax reference field not updated");
+
+        return true;
     }
 
     @Override
@@ -548,7 +627,26 @@ public class OrganisationServiceImp implements OrganisationService {
     @Override
     public boolean removeOrgImage(long orgId) throws Exception {
 
-        return false;
+        if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+            /*
+             * Because organisation already exists, set the field
+             * */
+            OrganisationInfo organisationInfo = new OrganisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            organisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun the contract");
+        }
+
+        int numImages = organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfImages();
+
+        if (organisationInfoRepository.decrementImage(orgId, numImages - 1) != 1)
+            throw new Exception("Exception: tax reference field not updated");
+
+        return true;
     }
 
     public String getMd5(String input) {

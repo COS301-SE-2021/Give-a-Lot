@@ -39,4 +39,11 @@ public interface OrganisationService {
     boolean removeOrgNGO(String orgId) throws Exception;
     boolean addOrgEstDate(AddOrgEstDateRequest request) throws Exception;
     boolean removeOrgEstDate(String orgId) throws Exception;
+
+    /*
+    * */
+
+
+    boolean confirmValidity(Long orgId,Long adminId,String type,boolean confirmValidity) throws Exception;
+    Integer numberOfImages(Long orgId) throws Exception;
 }

@@ -5,8 +5,10 @@ import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
 import com.GiveaLot.givealot.Organisation.model.organisationInfo;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
+import com.GiveaLot.givealot.Organisation.repository.organisationPointsRepository;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
+import com.GiveaLot.givealot.Organisation.repository.organisationPointsRepository;
 import com.GiveaLot.givealot.Organisation.requests.*;
 import com.GiveaLot.givealot.Server.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,9 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Autowired
     private OrganisationInfoRepository organisationInfoRepository;
+
+    @Autowired
+    organisationPointsRepository organisationPointsRepository;
 
     @Autowired
     private CertificateRepository certificateRepository;
@@ -163,7 +168,7 @@ public class OrganisationServiceImp implements OrganisationService {
 
         organisationRepository.save(organisation);
         organisationInfoRepository.save(new organisationInfo((long) tmp_id));
-        organisationPointsRepository.save(new organisationPoints((long) tmp_id));
+        organisationPointsRepository.save(new OrganisationPoints((long) tmp_id));
         certificateRepository.save(certificate);
         return true;
     }
@@ -515,12 +520,6 @@ public class OrganisationServiceImp implements OrganisationService {
         return false;
     }
 
-    @Override
-    public OrganisationPoints selectOrganisationPoints(String orgId) throws Exception {
-        return null;
-    }
-
-
     public String getMd5(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -539,4 +538,127 @@ public class OrganisationServiceImp implements OrganisationService {
         }
 
     }
+    /*
+    * points
+    * points
+    * points
+    * points
+    * points
+    * points
+    * */
+
+    @Override
+    public boolean confirmValidity(Long orgId,Long adminId,String type,boolean confirmValidity) throws Exception
+    {
+        if(orgId == null)
+            throw new Exception("Exception: organisation id is not set");
+        else if(adminId == null)
+            throw new Exception("Exception: admin id is not set");
+        else if(type == null)
+            throw new Exception("Exception: type is not set");
+        else if(type.isEmpty())
+            throw new Exception("Exception: type is empty");
+
+        /*
+        * check if ID belongs to user
+        */
+
+        /*
+        * true: for valid
+        * false: invalid
+        * */
+        if(type.equalsIgnoreCase("address"))
+        {
+
+            int res = confirmValidity ? organisationPointsRepository.Address(orgId,true) : organisationPointsRepository.Address(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: address validity not confirmed");
+
+            res = confirmValidity ? organisationPointsRepository.Address(orgId,true) : organisationPointsRepository.Address(orgId,false);
+            certificateRepository.updatePoints(orgId,certificateRepository.selectPointsById(orgId) + dps);
+        }
+        else if(type.equalsIgnoreCase("audit"))
+        {
+            int res = confirmValidity ? organisationPointsRepository.Audit(orgId,true) : organisationPointsRepository.Audit(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: audit validity not confirmed");
+        }
+        else if(type.equalsIgnoreCase("auditor"))
+        {
+            int res = confirmValidity ? organisationPointsRepository.Auditor(orgId,true) : organisationPointsRepository.Auditor(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: auditor validity not confirmed");
+        }
+        else if(type.equalsIgnoreCase("committee"))
+        {
+            int res = confirmValidity ? organisationPointsRepository.Committee(orgId,true) : organisationPointsRepository.Committee(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: committee validity not confirmed");
+        }
+        else if(type.equalsIgnoreCase("establishment_date"))
+        {
+            int res = confirmValidity ? organisationPointsRepository.EstablishmentDate(orgId,true) : organisationPointsRepository.EstablishmentDate(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: establishment date validity not confirmed");
+        }
+        else if(type.equalsIgnoreCase("facebook"))
+        {
+            int res = confirmValidity ? organisationPointsRepository.Facebook(orgId,true) : organisationPointsRepository.Facebook(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: facebook validity not confirmed");
+        }
+        else if(type.equalsIgnoreCase("instagram"))
+        {
+            int res = confirmValidity ? organisationPointsRepository.Instagram(orgId,true) : organisationPointsRepository.Instagram(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: instagram validity not confirmed");
+        }
+        else if(type.equalsIgnoreCase("twitter"))
+        {
+            int res = confirmValidity ? organisationPointsRepository.Twitter(orgId,true) : organisationPointsRepository.Twitter(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: twitter validity not confirmed");
+        }
+        else if(type.equalsIgnoreCase("ngo_date"))
+        {
+            int res = confirmValidity ? organisationPointsRepository.NGO_Date(orgId,true) : organisationPointsRepository.NGO_Date(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: NGO date validity not confirmed");
+        }
+        else if(type.equalsIgnoreCase("ngo_number"))
+        {
+            int res = confirmValidity ? organisationPointsRepository.NGO_Number(orgId,true) : organisationPointsRepository.NGO_Number(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: NGO number validity not confirmed");
+        }
+        else if(type.equalsIgnoreCase("tax_raf"))
+        {
+            int res = confirmValidity ? organisationPointsRepository.taxRaf(orgId,true) : organisationPointsRepository.taxRaf(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: tax raf validity not confirmed");
+        }
+        else if(type.equalsIgnoreCase("website"))
+        {
+            int res = confirmValidity ? organisationPointsRepository.Website(orgId,true) : organisationPointsRepository.Website(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: address validity not confirmed");
+        }
+        else throw new Exception("Exception: type is incorrect");
+        return false;
+    }
+
+
+    @Override
+    public OrganisationPoints selectOrganisationPoints(String orgId) throws Exception {
+        return null;
+    }
+
+    @Override
+    public Integer numberOfImages(Long orgId) throws Exception
+    {
+        return null;
+    }
+
+
+
 }

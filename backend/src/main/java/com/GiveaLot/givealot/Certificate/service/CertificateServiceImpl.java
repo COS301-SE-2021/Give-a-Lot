@@ -9,6 +9,7 @@ import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
+import com.GiveaLot.givealot.Organisation.repository.organisationPointsRepository;
 import com.GiveaLot.givealot.Server.ServerAccess;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -32,6 +33,9 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Autowired
     private BlockChainRepository blockChainRepository;
+
+    @Autowired
+    organisationPointsRepository organisationPointsRepository;
 
 
 
@@ -76,7 +80,7 @@ public class CertificateServiceImpl implements CertificateService {
 
         Blockchain blockchain = blockChainRepository.selectBlockchainOrgId(orgId);
         Organisations organisation = organisationRepository.selectOrganisationById(orgId);
-        OrganisationPoints organisationPoints = organisationPointsRepository(orgId);
+        OrganisationPoints organisationPoints = organisationPointsRepository.selectOrganisationPoints(orgId);
         Certificate cert = certificateRepository.selectCertificateById(orgId);
 
         boolean certificateCreated = createPDFDocument(cert,organisation,cert.getPoints());

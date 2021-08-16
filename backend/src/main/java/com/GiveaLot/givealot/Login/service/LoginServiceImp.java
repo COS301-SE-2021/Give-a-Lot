@@ -26,7 +26,6 @@ public class LoginServiceImp implements LoginService{
         if(loginRepository.findUserByEmail(body.getEmail()) == null)
         {
             throw new Exception("user not found");
-
         }
         User user = loginRepository.findUserByEmail(body.getEmail());
 
@@ -38,7 +37,8 @@ public class LoginServiceImp implements LoginService{
     }
 
     @Override
-    public LoginResponse loginOrganisation(LoginRequest body)throws Exception {
+    public LoginResponse loginOrganisation(LoginRequest body)throws Exception
+    {
         if(body == null)
         {
             throw new Exception("please send a valid request");
@@ -80,5 +80,7 @@ public class LoginServiceImp implements LoginService{
         {
             throw new Exception("user password is incorrect");
         }
-        return new LoginResponse(true,"User logged in succesfully","1");    }
+        return new LoginResponse(true,"User logged in succesfully","1");
+
+    }
 }

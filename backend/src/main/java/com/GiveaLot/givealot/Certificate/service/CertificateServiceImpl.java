@@ -122,7 +122,6 @@ public class CertificateServiceImpl implements CertificateService {
 
         /** Setup the pdf file **/
 
-
         File template = new File(templateCertificate);
 
         PDDocument document = Loader.loadPDF(template);

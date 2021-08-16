@@ -484,8 +484,6 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("Exception: invalid value length");
         else if (request.getNgoDate() == null)
             throw new Exception("Exception: value not set");
-        else if (request.getNgoDate().isEmpty())
-            throw new Exception("Exception: invalid value length");
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 

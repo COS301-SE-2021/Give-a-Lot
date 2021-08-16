@@ -18,6 +18,8 @@ public class OrganisationInfo
     @Column(name = "numberOfReports", nullable = false, unique = true)
     @Column(name = "address", nullable = false, unique = true)
     @Column(name = "website", nullable = false, unique = true)
+    @Column(name = "taxReference", nullable = false, unique = true)
+    @Column(name = "auditDocument", nullable = false, unique = true)
     @Column(name = "auditorDetails", nullable = false, unique = true)
     @Column(name = "committeeDetails", nullable = false, unique = true)
     @Column(name = "NGONumber", nullable = false, unique = true)
@@ -35,8 +37,10 @@ public class OrganisationInfo
     private String website;
     private String auditorDetails;
     private String committeeDetails;
+    private String taxReference;
+    private String auditDocument;
     private String NGONumber;
-    private String NGODate;
+    private Date NGODate;
     private String twitter;
     private String facebook;
     private String instagram;

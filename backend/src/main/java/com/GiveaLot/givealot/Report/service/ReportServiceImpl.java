@@ -71,7 +71,6 @@ public class ReportServiceImpl implements ReportService {
             catch (Exception e){
                 throw new SQLException("Exception: ID is not present in the database");
             }
-            System.out.println("Work");
             ServerAccess access = new ServerAccess();
             access.uploadReport(report.getOrgId(),file,date);
             return true;

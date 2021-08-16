@@ -10,6 +10,7 @@ import com.GiveaLot.givealot.User.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -83,27 +84,30 @@ public class BrowseServiceImp implements BrowseService{
                 sort interactions in descending order
                 bubble sort - O(n^2) worst case but should suffice for now
              */
+            int i, j;
+            Integer tmp_iterations = null;
+            String temp_sector = null;
 
-
-
-
-            int i, j,temp;
-            int a[10] = { 10, 9, 7, 101, 23, 44, 12, 78, 34, 23};
-            for(i = 0; i<10; i++)
+            for(i = 0; i < tmp_interactions.size(); i++)
             {
-                for(j = i+1; j<10; j++)
+                for(j = i+1; j < tmp_interactions.size(); j++)
                 {
-                    if(a[j] > a[i])
+                    if(tmp_interactions.get(j) > tmp_interactions.get(i))
                     {
-                        temp = a[i];
-                        a[i] = a[j];
-                        a[j] = temp;
+                        tmp_iterations = tmp_interactions.get(i);
+                        temp_sector = tmp_sectors.get(i);
+
+                        tmp_interactions.set(i,tmp_interactions.get(j));
+                        tmp_sectors.set(i,tmp_sectors.get(j));
+
+                        tmp_interactions.set(j,tmp_iterations);
+                        tmp_sectors.set(j,temp_sector);
                     }
                 }
             }
 
-        }
 
+        }
     }
 
     @Override

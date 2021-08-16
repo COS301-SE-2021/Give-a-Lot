@@ -1,5 +1,5 @@
 import './App.css';
-import Admin from "./components/admin/Admin"
+// import Admin from "./components/admin/Admin"
 import "./components/basicUser/browse/css/browse.css";
 import "./components/basicUser/browse/css/recommended.css";
 import "./components/basicUser/browse/css/navbar.css";
@@ -14,7 +14,7 @@ import VerifyHomePage from "./components/basicUser/home/VerifyHomePage";
 import RegisterUser from "./components/register/registerUser/RegisterUser";
 import RegisterOrganisation from "./components/register/registerOrganisation/RegisterOrganisation";
 import Browse from "./components/basicUser/browse/Browse"
- import Organisation from "./components/organisation/Organisaion";
+ // import Organisation from "./components/organisation/Organisaion";
 
 function App() {
   return (

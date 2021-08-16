@@ -21,16 +21,16 @@ public interface CertificateRepository extends JpaRepository {
     @Modifying
     @Transactional
     @Query("update Certificate o set o.orgRenewal = ?2 where o.org_id = ?1")
-    void updateOrgRenewal(Long orgId, boolean renew);
+    int updateOrgRenewal(Long orgId, boolean renew);
 
     @Modifying
     @Transactional
     @Query("update Certificate o set o.adminRenewal = ?2 where o.org_id = ?1")
-    void updateAdminRenewal(Long orgId, boolean renew);
+    int updateAdminRenewal(Long orgId, boolean renew);
 
     @Modifying
     @Transactional
     @Query("update Certificate o set o.points = ?2 where o.org_id = ?1")
-    void updatePoints(Long orgId, int points);
+    int updatePoints(Long orgId, int points);
 
 }

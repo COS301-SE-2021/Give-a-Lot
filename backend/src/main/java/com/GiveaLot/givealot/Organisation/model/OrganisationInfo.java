@@ -13,37 +13,77 @@ import java.util.Date;
 public class OrganisationInfo
 {
     @Id
-    @Column(name = "org_id", nullable = false, unique = true)
-    @Column(name = "number_of_images", nullable = true, unique = false)
-    @Column(name = "number_of_reports", nullable = true, unique = false)
-    @Column(name = "address", nullable = true, unique = false)
-    @Column(name = "website", nullable = true, unique = false)
-    @Column(name = "tax_reference", nullable = true, unique = false)
-    @Column(name = "audit_document", nullable = true, unique = false)
-    @Column(name = "auditor_details", nullable = true, unique = false)
-    @Column(name = "committee_details", nullable = true, unique = false)
-    @Column(name = "ngo_number", nullable = true, unique = false)
-    @Column(name = "ngo_date", nullable = true, unique = false)
-    @Column(name = "twitter", nullable = true, unique = false)
-    @Column(name = "facebook", nullable = true, unique = false)
-    @Column(name = "instagram", nullable = true, unique = false)
-    @Column(name = "establishment_date", nullable = true, unique = false)
-
+    @Column(name = "org_id",
+            nullable = false,
+            unique = true)
     public Long orgId;
-
+    @Column(name = "address",
+            nullable = true,
+            unique = false)
     private String address;
+    @Column(name = "number_of_images",
+            nullable = true,
+            unique = false)
     private Integer numberOfImages;
+    @Column(name = "get_number_of_reports",
+            nullable = true,
+            unique = false)
+
     private Integer numberOfReports;
+    @Column(name = "org_website",
+            nullable = true,
+            unique = false)
+
     private String website;
+    @Column(name = "auditor_details",
+            nullable = true,
+            unique = false)
+
     private String auditorDetails;
+    @Column(name = "committee_details",
+            nullable = true,
+            unique = false)
+
     private String committeeDetails;
+    @Column(name = "tax_reference",
+            nullable = true,
+            unique = false)
+
     private String taxReference;
+    @Column(name = "audit_document",
+            nullable = true,
+            unique = false)
+
     private String auditDocument;
+    @Column(name = "ngonumber",
+            nullable = true,
+            unique = false)
+
     private String NGONumber;
+    @Column(name = "ngo_date",
+            nullable = true,
+            unique = false)
+
     private Date NGODate;
+    @Column(name = "twitter",
+            nullable = true,
+            unique = false)
+
     private String twitter;
+    @Column(name = "facebook",
+            nullable = true,
+            unique = false)
+
     private String facebook;
+    @Column(name = "instagram",
+            nullable = true,
+            unique = false)
+
     private String instagram;
+    @Column(
+            name = "establishment_date",
+            nullable = true,
+            unique = false)
     private String establishmentDate;
 
     public OrganisationInfo(Long orgId)

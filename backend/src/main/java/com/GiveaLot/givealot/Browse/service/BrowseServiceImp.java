@@ -110,10 +110,17 @@ public class BrowseServiceImp implements BrowseService{
             *  now pick at-most n organisations from each sector
             */
 
+            // config
+            final int upper_bound = 5;
+
             for(String sector : tmp_sectors)
             {
                 List<Organisations> organisations_by_sector_tmp = browseRepository.getOrganisationsBySector(sector);
 
+                for(int index = 0; index < organisations_by_sector_tmp.size() && index < upper_bound; index++)
+                {
+
+                }
             }
 
         }

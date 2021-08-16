@@ -6,7 +6,10 @@ export const FormError = ({formErrors}) =>
         {Object.keys(formErrors).map((fieldName, i) => {
             if(formErrors[fieldName].length > 0){
                 return (
-                    <p key={i}>{fieldName} {formErrors[fieldName]}</p>
+                    <div style={{color: "white"}}>
+                        <p key={i}>{fieldName} {formErrors[fieldName]}</p>
+                    </div>
+
                 )
             } else {
                 return '';

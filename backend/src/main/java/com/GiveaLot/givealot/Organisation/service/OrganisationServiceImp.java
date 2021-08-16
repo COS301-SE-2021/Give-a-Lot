@@ -2,6 +2,7 @@ package com.GiveaLot.givealot.Organisation.service;
 
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
+import com.GiveaLot.givealot.Certificate.service.CertificateService;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
@@ -41,6 +42,9 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private CertificateService certificateService;
 
     @Override
     public Organisations selectOrganisation(long orgId) throws Exception {
@@ -119,7 +123,6 @@ public class OrganisationServiceImp implements OrganisationService {
         /** Setup **/
 
         ServerAccess access = new ServerAccess();
-        long tmp_id = organisationRepository.getOrgId(organisation.getOrgEmail());
 
         /** Setup dates **/
 
@@ -147,21 +150,26 @@ public class OrganisationServiceImp implements OrganisationService {
         Certificate certificate = new Certificate(dateCreated,dateExpiry,0);
 
         access.createOrganisationDirectory(organisation.getOrgId(), organisation.getOrgName());
-        organisation.setDirectory("/home/ubuntu/Organisations/" + tmp_id);
+
+        long id = organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()).getOrgId();
+        String directory = "/home/ubuntu/Organisations/" + id;
+
+        organisationRepository.updateRepo(id,directory);
 
         //create certificate tuple
 
         //create certificate
 
 
-
         LocalDate date = LocalDate.now(); /* registration date */
 
 
-        organisationRepository.save(organisation);
-        organisationInfoRepository.save(new OrganisationInfo((long) tmp_id));
-        organisationPointsRepository.save(new OrganisationPoints((long) tmp_id));
+        organisationInfoRepository.save(new OrganisationInfo((long) id));
+        organisationPointsRepository.save(new OrganisationPoints((long) id));
         certificateRepository.save(certificate);
+        //JPA double check
+
+        certificateService.addCertificate(id);
         return true;
     }
 
@@ -207,14 +215,14 @@ public class OrganisationServiceImp implements OrganisationService {
         if (request == null)
             throw new Exception("Exception: request not set");
         else if (request.getWebsite() == null)
-            throw new Exception("Exception: website not set");
+            throw new Exception("Exception: value not set");
         else if (request.getWebsite().isEmpty())
-            throw new Exception("Exception: invalid website length");
+            throw new Exception("Exception: invalid value length");
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
         if (organisationInfoRepository.addOrgWebsite(request.getOrgId(), request.getWebsite()) != 1)
-            throw new Exception("Exception: website field failed to update");
+            throw new Exception("Exception: value field failed to update");
 
         return true;
     }
@@ -237,7 +245,7 @@ public class OrganisationServiceImp implements OrganisationService {
         }
 
         if (organisationInfoRepository.removeOrgWebsite(orgId) != 1)
-            throw new Exception("Exception: website field not updated");
+            throw new Exception("Exception: value field not updated");
 
         return true;
     }
@@ -247,12 +255,14 @@ public class OrganisationServiceImp implements OrganisationService {
         if (request == null)
             throw new Exception("Exception: request not set");
         else if (request.getAddress() == null)
-            throw new Exception("Exception: address not set");
+            throw new Exception("Exception: value not set");
+        else if (request.getAddress().isEmpty())
+            throw new Exception("Exception: invalid value length");
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
         if (organisationInfoRepository.addOrgAddress(request.getOrgId(), request.getAddress()) != 1)
-            throw new Exception("Exception: address field not updated");
+            throw new Exception("Exception: value field failed to update");
 
         return true;
     }
@@ -276,7 +286,7 @@ public class OrganisationServiceImp implements OrganisationService {
         }
 
         if (organisationInfoRepository.removeOrgAddress(orgId) != 1)
-            throw new Exception("Exception: address field not updated");
+            throw new Exception("Exception: value field not updated");
 
         return true;
     }
@@ -297,6 +307,9 @@ public class OrganisationServiceImp implements OrganisationService {
         String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
 
         access.uploadTaxReference(request.getOrgId(),name,request.getReference());
+
+        if (organisationInfoRepository.addOrgTaxRef(request.getOrgId(), "provided") != 1)
+            throw new Exception("Exception: value field failed to update");
 
         return true;
     }
@@ -381,7 +394,25 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Override
     public boolean addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception {
-        return false;
+        if (request == null)
+            throw new Exception("Exception: request not set");
+
+        else if (request.getAudit() == null)
+            throw new Exception("Exception: tax reference not set");
+
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        ServerAccess access = new ServerAccess();
+
+        String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
+
+        access.uploadAuditDocument(request.getOrgId(),name,request.getAudit());
+
+        if (organisationInfoRepository.addAuditDoc(request.getOrgId(), "provided") != 1)
+            throw new Exception("Exception: value field failed to update");
+
+        return true;
     }
 
     @Override
@@ -391,7 +422,19 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Override
     public boolean addOrgAuditor(AddOrgAuditorRequest request) throws Exception {
-        return false;
+        if (request == null)
+            throw new Exception("Exception: request not set");
+        else if (request.getAuditor() == null)
+            throw new Exception("Exception: value not set");
+        else if (request.getAuditor().isEmpty())
+            throw new Exception("Exception: invalid value length");
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.addAuditor(request.getOrgId(), request.getAuditor()) != 1)
+            throw new Exception("Exception: value field failed to update");
+
+        return true;
     }
 
     @Override
@@ -401,7 +444,19 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Override
     public boolean addOrgCommittee(AddOrgCommitteeRequest request) throws Exception {
-        return false;
+        if (request == null)
+            throw new Exception("Exception: request not set");
+        else if (request.getCommittee() == null)
+            throw new Exception("Exception: value not set");
+        else if (request.getCommittee().isEmpty())
+            throw new Exception("Exception: invalid value length");
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.addCommittee(request.getOrgId(), request.getCommittee()) != 1)
+            throw new Exception("Exception: value field failed to update");
+
+        return true;
     }
 
     @Override
@@ -421,7 +476,25 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Override
     public boolean addOrgNGO(AddOrgNGORequest request) throws Exception {
-        return false;
+        if (request == null)
+            throw new Exception("Exception: request not set");
+        else if (request.getNgoNumber() == null)
+            throw new Exception("Exception: value not set");
+        else if (request.getNgoNumber().isEmpty())
+            throw new Exception("Exception: invalid value length");
+        else if (request.getNgoDate() == null)
+            throw new Exception("Exception: value not set");
+        else if (request.getNgoDate().isEmpty())
+            throw new Exception("Exception: invalid value length");
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.addNGONumber(request.getOrgId(), request.getNgoNumber()) != 1)
+            throw new Exception("Exception: value field failed to update");
+        if (organisationInfoRepository.addNGODate(request.getOrgId(), request.getNgoDate()) != 1)
+            throw new Exception("Exception: value field failed to update");
+
+        return true;
     }
 
     @Override
@@ -431,7 +504,17 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Override
     public boolean addOrgEstDate(AddOrgEstDateRequest request) throws Exception {
-        return false;
+        if (request == null)
+            throw new Exception("Exception: request not set");
+        else if (request.getDate() == null)
+            throw new Exception("Exception: value not set");
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.addEstDate(request.getOrgId(), request.getDate()) != 1)
+            throw new Exception("Exception: value field failed to update");
+
+        return true;
     }
 
     @Override
@@ -441,8 +524,27 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Override
     public boolean addOrgImage(AddOrgImageRequest request) throws Exception {
+        if (request == null)
+            throw new Exception("Exception: request not set");
 
-        return false;
+        else if (request.getImage() == null)
+            throw new Exception("Exception: tax reference not set");
+
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        ServerAccess access = new ServerAccess();
+
+        String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
+
+        access.uploadImageJPG(request.getOrgId(),name,request.getImage());
+
+        int numImages = organisationInfoRepository.selectOrganisationInfo(request.getOrgId()).getNumberOfImages();
+
+        if (organisationInfoRepository.incrementImage(request.getOrgId(), numImages + 1) != 1)
+            throw new Exception("Exception: value field failed to update");
+
+        return true;
     }
 
     @Override

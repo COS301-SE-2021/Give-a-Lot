@@ -14,35 +14,35 @@ import VerifyHomePage from "./components/basicUser/home/VerifyHomePage";
 import RegisterUser from "./components/register/registerUser/RegisterUser";
 import RegisterOrganisation from "./components/register/registerOrganisation/RegisterOrganisation";
 import Browse from "./components/basicUser/browse/Browse"
-// import Organisation from "./components/organisation/Organisaion";
+ import Organisation from "./components/organisation/Organisaion";
 
 function App() {
   return (
    <div>
-       {/* <Switch>*/}
-       {/*    <Route exact path="/">*/}
-       {/*        <Home />*/}
-       {/*    </Route>*/}
-       {/*    <Route exact path="/login">*/}
-       {/*        <Login />*/}
-       {/*    </Route>*/}
-       {/*    <Route exact path="/verifyPage">*/}
-       {/*        <VerifyHomePage />*/}
-       {/*    </Route>*/}
-       {/*    <Route exact path="/register">*/}
-       {/*        <Register />*/}
-       {/*    </Route>*/}
-       {/*    <Route exact path="/registerUser">*/}
-       {/*        <RegisterUser />*/}
-       {/*    </Route>*/}
-       {/*    <Route exact path="/registerOrganisations">*/}
-       {/*        <RegisterOrganisation />*/}
-       {/*    </Route>*/}
-       {/*     <Route exact path="/browse">*/}
-       {/*         <Browse />*/}
-       {/*     </Route>*/}
-       {/*</Switch>*/}
-       <Admin/>
+        <Switch>
+           <Route exact path="/">
+               <Home />
+           </Route>
+           <Route exact path="/login">
+               <Login />
+           </Route>
+           <Route exact path="/verifyPage">
+               <VerifyHomePage />
+           </Route>
+           <Route exact path="/register">
+               <Register />
+           </Route>
+           <Route exact path="/registerUser">
+               <RegisterUser />
+           </Route>
+           <Route exact path="/registerOrganisations">
+               <RegisterOrganisation />
+           </Route>
+            <Route exact path="/browse">
+                <Browse />
+            </Route>
+       </Switch>
+       {/*<Organisation/>*/}
    </div>
     
   );

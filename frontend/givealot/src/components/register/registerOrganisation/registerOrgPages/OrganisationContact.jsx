@@ -60,7 +60,8 @@ export class OrganisationBasic extends Component {
                             <OutlinedInput type="text"
                                name="contactPerson"
                                defaultValue={values.contactPerson}
-                               onChange={this.changeHandler}
+                               // onChange={this.changeHandler}
+                               onChange={handleChange('contactPerson')}
                                className="inputBasic" placeholder=" Contact Person"
                                startAdornment={
                                    <InputAdornment position="start">
@@ -74,7 +75,8 @@ export class OrganisationBasic extends Component {
                             <OutlinedInput type="text"
                                name="contactNumber"
                                defaultValue={values.contactNumber}
-                               onChange={this.changeHandler}
+                               // onChange={this.changeHandler}
+                               onChange={handleChange('contactNumber')}
                                className="inputBasic" placeholder=" Contact Number"
                                startAdornment={
                                    <InputAdornment position="start">
@@ -86,7 +88,9 @@ export class OrganisationBasic extends Component {
 
                         <div >
                             <OutlinedInput type="email" name="email"
-                                defaultValue={values.orgEmail} onChange={this.changeHandler}
+                                defaultValue={values.orgEmail}
+                               // onChange={this.changeHandler}
+                               onChange={handleChange('orgEmail')}
                                className="inputBasic" placeholder="Email"
                                startAdornment={
                                    <InputAdornment position="start">

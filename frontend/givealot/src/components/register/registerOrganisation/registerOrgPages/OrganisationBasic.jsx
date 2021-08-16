@@ -12,44 +12,6 @@ import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
 
 export class OrganisationBasic extends Component {
 
-    // proceed = e => {
-    //     e.preventDefault()
-    //     console.log(this.state)
-    //     let config = {
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             'Access-Control-Allow-Origin': '*',
-    //         }
-    //     }
-    //     console.log(this.state)
-    //     axios.post('http://localhost:8080/registration/type/organisation/info', { "orgName" : "the givers of hop","orgPassword" : "@assassinsCreed2", "orgPasswordConfirm" : "@assassinsCreed2"}, config)
-    //         .then(response =>{
-    //             console.log(response)
-    //             // console.log(response.data[0].org_name)
-    //             // this.setState({users: response.data[0].org_name})
-    //
-    //         })
-    //         .catch(error =>{
-    //             console.log(error)
-    //             this.setState({error : 'Error Retrieving data'})
-    //         })
-    //     this.props.nextStep();
-    // };
-    // //   submitting = e => {
-    //
-    // //   };
-    //
-    // constructor(props) {
-    //     super(props)
-    //
-    //     this.state = {
-    //         orgName: "",
-    //         orgPassword: "",
-    //         orgPasswordConfirm: ""
-    //
-    //     }
-    // }
-
     proceed = e => {
         e.preventDefault();
         this.props.nextStep();
@@ -83,7 +45,8 @@ export class OrganisationBasic extends Component {
                         <div >
                             <OutlinedInput type="type"
                                name="orgName" defaultValue={values.orgName}
-                               onChange={this.changeHandler}
+                               // onChange={this.changeHandler}
+                               onChange={handleChange('orgName')}
                                className="input" placeholder=" Name"
                                startAdornment={
                                    <InputAdornment position="start">
@@ -97,7 +60,9 @@ export class OrganisationBasic extends Component {
                             <OutlinedInput type="password"
                                name="orgPassword"
                                defaultValue={values.password}
-                               onChange={this.changeHandler} className="inputBasic"
+                               // onChange={this.changeHandler}
+                               onChange={handleChange('password')}
+                               className="inputBasic"
                                placeholder="Password"
                                startAdornment={
                                    <InputAdornment position="start">

@@ -45,7 +45,8 @@ export class OrganisationAbout extends Component {
                             <OutlinedInput type="type"
                                name="slogan"
                                defaultValue={values.slogan}
-                               onChange={this.handleChange}
+                               // onChange={this.handleChange}
+                               onChange={handleChange('slogan')}
                                className="inputBasic" placeholder="Slogan"
                                startAdornment={
                                    <InputAdornment position="start">
@@ -58,7 +59,8 @@ export class OrganisationAbout extends Component {
                             <OutlinedInput type="type"
                                name="sector"
                                defaultValue={values.orgSector}
-                               onChange={this.handleChange}
+                               // onChange={this.handleChange}
+                               onChange={handleChange('orgSector')}
                                className="inputBasic" placeholder="Sector"
                                startAdornment={
                                    <InputAdornment position="start">
@@ -74,7 +76,8 @@ export class OrganisationAbout extends Component {
                                multiline
                                maxRows={50}
                                defaultValue={values.orgDescription}
-                               onChange={this.handleChange}
+                               // onChange={this.handleChange}
+                               onChange={handleChange('orgDescription')}
                                className="inputBasic" placeholder="Description"
                                startAdornment={
                                    <InputAdornment position="start">

@@ -12,6 +12,7 @@ import com.GiveaLot.givealot.Notification.service.SendMailServiceImpl;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
+import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Organisation.requests.AddOrganisationRequest;
 import com.GiveaLot.givealot.Server.ServerAccess;
@@ -25,6 +26,11 @@ import org.springframework.mail.javamail.JavaMailSender;
 
 import javax.mail.internet.MimeMessage;
 import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class CertificateServiceImpl implements CertificateService {
 
@@ -35,6 +41,10 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Autowired
     private CertificateRepository certificateRepository;
+
+    @Autowired
+    private BlockChainRepository blockChainRepository;
+
 
     SendMailService service;
 
@@ -49,15 +59,10 @@ public class CertificateServiceImpl implements CertificateService {
     @Override
     public boolean addCertificate(long orgId) throws Exception {
 
-        OrganisationPoints organisationPoints = new OrganisationPoints();
-
-        organisationPoints.setPoints(0);
-
         Certificate cert= certificateRepository.selectCertificateById(orgId);
-
         Organisations organisation = organisationRepository.selectOrganisationById(orgId);
 
-       boolean certificateCreated = createPDFDocument(cert,organisation,organisationPoints);
+       boolean certificateCreated = createPDFDocument(cert,organisation,0);
 
         if(!certificateCreated){
             throw new Exception("Exception: Problem creating and storing certificate");
@@ -73,7 +78,7 @@ public class CertificateServiceImpl implements CertificateService {
 
         Blockchain blockchain = new Blockchain(orgId,index,0,txHash,certificateHash);
 
-
+        blockChainRepository.save(blockchain);
 
         return true;
     }
@@ -81,15 +86,11 @@ public class CertificateServiceImpl implements CertificateService {
     @Override
     public boolean updateCertificate(long orgId) throws Exception {
 
-        //query organisation, certificate, org points, blockchain
-
-        //we need to remove points from organisationpoints and add it to certificate, we need to remove certlevel from certificate and add it to blockchain
-
         Organisations organisation = organisationRepository.selectOrganisationById(orgId);
-        OrganisationPoints organisationPoints = organisationPointsRepository(orgId);
         Certificate cert = certificateRepository.selectCertificateById(orgId);
+        Blockchain blockchain = blockChainRepository.selectBlockchainOrgId(orgId);
 
-        boolean certificateCreated = createPDFDocument(cert,organisation,organisationPoints);
+        boolean certificateCreated = createPDFDocument(cert,organisation,cert.getPoints());
 
         if(!certificateCreated){
             throw new Exception("Exception: Problem creating and storing certificate");
@@ -103,7 +104,7 @@ public class CertificateServiceImpl implements CertificateService {
         String certificateHash = result[0];
         String txHash = result[1];
 
-        Blockchain blockchain = new Blockchain(orgId,index,0,txHash,certificateHash);
+        blockChainRepository.UpdateBlockchain(blockchain.getIndex(),blockchain.getLevel()+1,txHash,certificateHash,orgId);
 
         return true;
     }
@@ -115,13 +116,9 @@ public class CertificateServiceImpl implements CertificateService {
         return access.downloadCertificate(orgId,orgName);
     }
 
-
-
     @Override
     public boolean createPDFDocument(Certificate cert, Organisations organisation, int points) throws Exception {
         ServerAccess access = new ServerAccess();
-
-
 
         access.downloadCertificateTemplate(points);
 
@@ -182,7 +179,32 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     public boolean checkRenewal() throws Exception {
-        return false;
+        List<Certificate> certificateList = certificateRepository.findAll();
+
+        Date dateCurrent = new Date();
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+        List<Long> id = new ArrayList<>();
+        List<Date> expiry = new ArrayList<>();;
+
+        for (int i = 0; i < certificateList.size(); i++) {
+            id.add(certificateList.get(i).getOrgId());
+            expiry.add(format.parse(certificateList.get(i).getDateExpiry()));
+        }
+
+        for (int i = 0; i < id.size(); i++) {
+            if(expiry.get(i)==null)
+                throw new NullPointerException();
+
+            Date sqlDate = expiry.get(i);
+
+            boolean check = dateCurrent.after(sqlDate);
+            if (check) {
+                certificateRepository.updateOrgRenewal(id.get(i),false);
+                certificateRepository.updateAdminRenewal(id.get(i),false);
+            }
+        }
+        return true;
     }
 
     @Override

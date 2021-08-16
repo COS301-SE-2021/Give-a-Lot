@@ -319,27 +319,26 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public boolean removeOrgTaxRef(String orgId) throws Exception {
-        if (orgId == null)
-            throw new Exception("Exception: Organisation ID is not set");
-        else if (orgId.isEmpty())
-            throw new Exception("Exception: ID is empty");
-        else if (organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
+    public boolean removeOrgTaxRef(long orgId) throws Exception {
+
+
+        if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
-        if (organisationInfoRepository.selectOrganisationInfo(Long.parseLong(orgId)) == null) {
+        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
             /*
              * Because organisation already exists, set the field
              * */
             OrganisationInfo organisationInfo = new OrganisationInfo();
-            organisationInfo.setOrgId(Long.parseLong(orgId));
+            organisationInfo.setOrgId(orgId);
+            organisationInfo.setTaxReference("");
 
             organisationInfoRepository.save(organisationInfo);
             throw new Exception("Exception: system level error, organisation info did not exist, rerun " +
                     "the contract");
         }
 
-        if (organisationInfoRepository.removeOrgTaxRef(Long.parseLong(orgId)) != 1)
+        if (organisationInfoRepository.removeOrgTaxRef(orgId) != 1)
             throw new Exception("Exception: tax reference field not updated");
 
         return true;
@@ -380,40 +379,45 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public boolean removeOrgSocials(String orgId, String type) throws Exception {
+    public boolean removeOrgSocials(long orgId, String type) throws Exception {
 
-        if (orgId == null)
-            throw new Exception("Exception: request id not set");
-
-        else if (type == null)
+         if (type == null)
             throw new Exception("Exception: request type is not set");
 
         else if (type.isEmpty())
             throw new Exception("Exception: type is empty");
 
-        else if (orgId.isEmpty())
-            throw new Exception("Exception: ID is empty");
-
-        else if (organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
+        else if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: request id does not exist");
 
         if (type.trim().equalsIgnoreCase("twitter")) {
-            if (organisationInfoRepository.removeTwitter(Long.parseLong(orgId)) != 1)
+            if (organisationInfoRepository.removeTwitter(orgId) != 1)
                 throw new Exception("Exception: social not removed");
+
         } else if (type.trim().equalsIgnoreCase("instagram")) {
-            if (organisationInfoRepository.removeInstagram(Long.parseLong(orgId)) != 1)
+            if (organisationInfoRepository.removeInstagram(orgId) != 1)
                 throw new Exception("Exception: social not removed");
+
         } else if (type.trim().equalsIgnoreCase("facebook")) {
-            if (organisationInfoRepository.removeFacebook(Long.parseLong(orgId)) != 1)
+            if (organisationInfoRepository.removeFacebook(orgId) != 1)
                 throw new Exception("Exception: social not removed");
+
         } else throw new Exception("Exception: social not identified");
 
         return true;
     }
 
     @Override
-    public boolean addOrgAuditDoc(File auditDoc) throws Exception {
-        return false;
+    public boolean addOrgAuditDoc(long orgId, File auditDoc) throws Exception {
+        if (orgId null) {
+            throw new Exception("Exception: request id not set");
+        }
+        ServerAccess access = new ServerAccess();
+        String name = organisationRepository.selectOrganisationById(orgId).getOrgName();
+
+        access.uploadAuditDocument(orgId,name,auditDoc);
+
+        return true;
     }
 
     @Override

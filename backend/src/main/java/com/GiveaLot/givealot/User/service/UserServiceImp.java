@@ -30,7 +30,6 @@ public class UserServiceImp implements UserService {
         if(request.getEmail()==null)
         {
             throw new Exception("Registration not set, email not valid");
-
         }
         User userEmail = userRepository.findUserByEmail(request.getEmail());
         if (userEmail != null) {
@@ -40,7 +39,6 @@ public class UserServiceImp implements UserService {
         if(request.getFirstName()==null)
         {
             throw new Exception("Registration not set, firstname not valid");
-
         }
         if(request.getLastName() == null){
             throw new Exception("Registration not set, lastname not valid");
@@ -49,14 +47,13 @@ public class UserServiceImp implements UserService {
         if (request.getPassword() == null)
         {
             throw new Exception("Registration not set, password not valid");
-
         }
         User newUser = request.getUser();
         newUser.setAdmin(false);
         newUser.setActivateDate(LocalDateTime.now());
 
         userRepository.save(newUser);
-        return false;
+        return true;
     }
 
 
@@ -92,8 +89,8 @@ public class UserServiceImp implements UserService {
         if(!Admin.getAdmin())
         {
             throw new Exception( "The current user is not an admin user");
-
         }
+
         User generalUser = userRepository.findUserByEmail(request.getGeneralUserEmail());
 
         int count = userRepository.updateAdmin(generalUser.getEmail(), true);

@@ -1,5 +1,6 @@
 package com.GiveaLot.givealot.Certificate.dataclass;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 
 import javax.persistence.Column;
@@ -8,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Builder
+@AllArgsConstructor
 @Entity
 @Table(
         name = "certificate"

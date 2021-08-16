@@ -60,12 +60,22 @@ public class ServerAccess {
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Certificates");
             channelSftp.put( remoteDir + "Organisations/" + orgIdString + "/" + orgNameSpace);
 
-            String localImageStorage = "frontend/givealot/localFiles/" + orgIdString + "/gallery/";
-            String localCertificateStorage = "frontend/givealot/localFiles/" + orgIdString + "/certificate/";
+            String localStorage = "frontend/givealot/localFiles/" + orgIdString;
+            String localImageStorage = "frontend/givealot/localFiles/" + orgIdString + "/gallery";
+            String localCertificateStorage = "frontend/givealot/localFiles/" + orgIdString + "/certificate";
 
+            File directoryLocal = new File(localStorage);
             File directoryImageLocal = new File(localImageStorage);
             File directoryCertLocal = new File(localCertificateStorage);
 
+            directoryLocal.mkdir();
+            directoryImageLocal.mkdir();
+            directoryCertLocal.mkdir();
+
+
+            if (directoryLocal.mkdir()){
+                throw new Exception("Exception: local directory could not be created");
+            }
             if (directoryImageLocal.mkdir()){
                 throw new Exception("Exception: image directory could not be created");
             }
@@ -89,7 +99,7 @@ public class ServerAccess {
             channelSftp.connect();
 
             String orgIdString = String.valueOf(orgId);
-            String localFile = "backend/src/main/resources/TempCertificate/CertificateComplete.pdf";
+            String localFile = "frontend/givealot/localFiles/" + orgIdString + "certificate/CertificateComplete.pdf";
 
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Certificates" + "/" + orgName.replaceAll("\\s+", "") + "Certificate.pdf");
 
@@ -291,11 +301,11 @@ public class ServerAccess {
 
             FileUtils.copyFile(image, new File(localFile));
 
-            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery" + imageNumber + ".jpg");
+            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + imageNumber + ".jpg");
 
             image.delete();
         }catch (Exception e){
-            throw new Exception("Exception: Failed to interact with the server");
+            throw new Exception("Exception: Failed to interact with the server: " + e);
         }
         finally {
             channelSftp.exit();
@@ -389,9 +399,9 @@ public class ServerAccess {
     public static void main(String[] args) throws Exception {
         ServerAccess access = new ServerAccess();
 
-        File file = new File("C:/logo.png");
+        File file = new File("C:/test.jpg");
 
-        access.createOrganisationDirectory(6,"The Local Guys");
+        access.createOrganisationDirectory(1,"The Local Guys");
 
         //File doc = access.downloadCertificate(45,"New Org");
 
@@ -399,7 +409,7 @@ public class ServerAccess {
 
 //        File image = access.downloadImagePNG(45,0);
 //
-//        access.uploadImagePNG(45,"New Org", image);
+        access.uploadImageJPG(1,"New Org", file);
     }
 
 

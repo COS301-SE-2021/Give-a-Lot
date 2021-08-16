@@ -14,20 +14,20 @@ public class OrganisationInfo
 {
     @Id
     @Column(name = "org_id", nullable = false, unique = true)
-    @Column(name = "numberOfImages", nullable = false, unique = true)
-    @Column(name = "numberOfReports", nullable = false, unique = true)
+    @Column(name = "number_of_images", nullable = false, unique = true)
+    @Column(name = "number_of_reports", nullable = false, unique = true)
     @Column(name = "address", nullable = false, unique = true)
     @Column(name = "website", nullable = false, unique = true)
-    @Column(name = "taxReference", nullable = false, unique = true)
-    @Column(name = "auditDocument", nullable = false, unique = true)
-    @Column(name = "auditorDetails", nullable = false, unique = true)
-    @Column(name = "committeeDetails", nullable = false, unique = true)
-    @Column(name = "NGONumber", nullable = false, unique = true)
-    @Column(name = "NGODate", nullable = false, unique = true)
+    @Column(name = "tax_reference", nullable = false, unique = true)
+    @Column(name = "audit_document", nullable = false, unique = true)
+    @Column(name = "auditor_details", nullable = false, unique = true)
+    @Column(name = "committee_details", nullable = false, unique = true)
+    @Column(name = "ngo_number", nullable = false, unique = true)
+    @Column(name = "ngo_date", nullable = false, unique = true)
     @Column(name = "twitter", nullable = false, unique = true)
     @Column(name = "facebook", nullable = false, unique = true)
     @Column(name = "instagram", nullable = false, unique = true)
-    @Column(name = "establishmentDate", nullable = false, unique = true)
+    @Column(name = "establishment_date", nullable = false, unique = true)
 
     public Long orgId;
 

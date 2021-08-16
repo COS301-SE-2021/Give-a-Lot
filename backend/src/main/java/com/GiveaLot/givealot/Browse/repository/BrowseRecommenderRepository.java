@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface BrowseRecommenderRepository extends JpaRepository<Browse,Long>
 {
-    @Query("SELECT DISTINCT b.interactions from Browse AS b where b.orgId = ?1 AND b.sector = ?2")
-    Integer getInteractionsFromSector(Long orgId, String sector);
+    @Query("SELECT DISTINCT b.interactions from Browse AS b where b.userId = ?1 AND b.sector = ?2")
+    Integer getInteractionsbySector(Long userId, String sector);
 
 }

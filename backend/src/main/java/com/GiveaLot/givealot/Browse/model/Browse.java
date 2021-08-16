@@ -14,22 +14,22 @@ import javax.persistence.Table;
 public class Browse
 {
     @Id
-    private Long orgId;
+    private Long userId;
     private Integer interactions;
     private String  sector;
 
     public Browse(){
-       orgId = null;
+        userId = null;
        interactions = null;
        sector = null;
     }
 
     public Long getOrgId() {
-        return orgId;
+        return userId;
     }
 
     public void setOrgId(Long orgId) {
-        this.orgId = orgId;
+        this.userId = orgId;
     }
 
     public Integer getInteractions() {

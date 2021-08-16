@@ -1,6 +1,8 @@
 package com.GiveaLot.givealot.Organisation.controller;
-import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
+import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
+import com.GiveaLot.givealot.Organisation.model.Organisations;
+import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.requests.AddOrganisationRequest;
 import com.GiveaLot.givealot.Organisation.requests.*;
 import com.GiveaLot.givealot.Organisation.service.OrganisationServiceImp;
@@ -53,7 +55,7 @@ public class OrganisationController
 
     /* tested - works */
     @GetMapping("/select/{orgId}")
-    public responseJSON selectOrganisation(@PathVariable("orgId") @NonNull String orgId)
+    public responseJSON selectOrganisation(@PathVariable("orgId") @NonNull long orgId)
     {
         response.setObject(null);
         try
@@ -76,7 +78,7 @@ public class OrganisationController
 
     /* tested - works */
     @GetMapping("/info/{orgId}")
-    public responseJSON selectOrganisationInfo(@PathVariable("orgId") @NonNull String orgId)
+    public responseJSON selectOrganisationInfo(@PathVariable("orgId") @NonNull long orgId)
     {
         response.setObject(null);
         try
@@ -120,7 +122,7 @@ public class OrganisationController
 
     /* tested - works */
     @DeleteMapping("/delete/website/{orgId}")
-    public responseJSON removeOrgWebsite(@PathVariable("orgId") @NonNull String orgId)
+    public responseJSON removeOrgWebsite(@PathVariable("orgId") @NonNull long orgId)
     {
         response.setObject(null);
         try
@@ -162,7 +164,7 @@ public class OrganisationController
 
     /* tested - works */
     @DeleteMapping("/delete/address/{orgId}")
-    public responseJSON removeOrgAddress(@PathVariable("orgId") @NonNull String orgId)
+    public responseJSON removeOrgAddress(@PathVariable("orgId") @NonNull long orgId)
     {
         response.setObject(null);
         try
@@ -205,7 +207,7 @@ public class OrganisationController
 
     /* tested - works */
     @DeleteMapping("/delete/taxref/{orgId}")
-    public responseJSON removeOrgTaxRef(@PathVariable("orgId")@NonNull String orgId)
+    public responseJSON removeOrgTaxRef(@PathVariable("orgId")@NonNull long orgId)
     {
         response.setObject(null);
         try
@@ -227,7 +229,7 @@ public class OrganisationController
 
     /* tested - works */
     @PutMapping("/suspend/{orgId}")
-    public responseJSON suspendOrganisation(@PathVariable("orgId") @NonNull String orgId)
+    public responseJSON suspendOrganisation(@PathVariable("orgId") @NonNull long orgId)
     {
         response.setObject(null);
         try
@@ -249,7 +251,7 @@ public class OrganisationController
 
     /* tested - works */
     @PutMapping("/activate/{orgId}")
-    public responseJSON reactivateOrganisation(@PathVariable("orgId") @NonNull String orgId)
+    public responseJSON reactivateOrganisation(@PathVariable("orgId") @NonNull long orgId)
     {
         response.setObject(null);
         try
@@ -271,7 +273,7 @@ public class OrganisationController
 
     /* tested - works */
     @PutMapping("/investigate/{orgId}")
-    public responseJSON investigateOrganisation(@PathVariable("orgId") @NonNull String orgId)
+    public responseJSON investigateOrganisation(@PathVariable("orgId") @NonNull long orgId)
     {
         response.setObject(null);
         try
@@ -315,7 +317,7 @@ public class OrganisationController
 
     /* tested - works */
     @DeleteMapping("/delete/socials/{orgId}/{type}")
-    public responseJSON removeOrgSocials(@PathVariable("orgId") @NonNull String orgId,@PathVariable("type") @NonNull String type)
+    public responseJSON removeOrgSocials(@PathVariable("orgId") @NonNull long orgId,@PathVariable("type") @NonNull String type)
     {
         response.setObject(null);
         try
@@ -335,11 +337,8 @@ public class OrganisationController
         return response;
     }
 
-    /*
-    * tested, works well
-    */
-    /*@GetMapping("/points/{orgId}")
-    public responseJSON selectOrganisationPoints(@PathVariable("orgId") @NonNull String orgId)
+    @GetMapping("/points/{orgId}")
+    public responseJSON selectOrganisationPoints(@PathVariable("orgId") @NonNull long orgId)
     {
         response.setObject(null);
         try
@@ -363,72 +362,10 @@ public class OrganisationController
             response.setMessage("unsuccessful " + e.toString());
         }
         return response;
-    }*/
+    }
 
-    /*
-    * tested
-    * */
-    /* tested - works */
-    /*@PutMapping("/investigate/{orgId}")
-    public responseJSON investigateOrganisation(@PathVariable("orgId") @NonNull String orgId)
-    {
-        response.setObject(null);
-        try
-        {
-            boolean res = service.investigateOrganisation(orgId);
-            if(res)
-            {
-                response.setCode("org_inv_ok_203");
-                response.setMessage("success");
-            }
-            else
-            {
-                response.setCode("org_inv_bad_203");
-                response.setMessage("unsuccessful");
-            }
-            return response;
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_inv_bad_500");
-            response.setMessage("unsuccessful: " + e.toString());
-            return response;
-        }
-    }*/
-
-    /* tested - works - left comment for OrganisationDASTemp
-       on the removeOrgAddress
-    */
-    /*@DeleteMapping("/delete/address/{orgId}")
-    public responseJSON removeOrgAddress(@PathVariable("orgId") @NonNull String orgId)
-    {
-        response.setObject(null);
-        try
-        {
-            boolean res = service.removeOrgAddress(orgId);
-            if(res)
-            {
-                response.setCode("org_rm_ok_205");
-                response.setMessage("success");
-            }
-            else
-            {
-                response.setCode("org_rm_bad_205");
-                response.setMessage("unsuccessful");
-            }
-            return response;
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_rm_bad_500");
-            response.setMessage("unsuccessful");
-            return response;
-        }
-    }*/
-
-    /* tested - works */
-    /*@DeleteMapping("/delete/images/{orgId}")
-    public responseJSON removeOrgImage(@PathVariable("orgId") @NonNull String orgId)
+    @DeleteMapping("/delete/images/{orgId}")
+    public responseJSON removeOrgImage(@PathVariable("orgId") @NonNull long orgId)
     {
         response.setObject(null);
         try
@@ -452,14 +389,10 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }*/
+    }
 
-    /* tested - works
-     *  removeOrgNGO from OrganisationDASTemp always returns true
-     *  even if an organisation id doesn't exist
-     * */
-    /*@DeleteMapping("/delete/ngo/{orgId}")
-    public responseJSON removeOrgNGO(@PathVariable("orgId") @NonNull String orgId)
+    @DeleteMapping("/delete/ngo/{orgId}")
+    public responseJSON removeOrgNGO(@PathVariable("orgId") @NonNull long orgId)
     {
         response.setObject(null);
         System.out.println(orgId);
@@ -484,15 +417,10 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }*/
+    }
 
-
-    /* tested - works
-     *  removeOrgEstDate from OrganisationDASTemp always returns true
-     *  even if an organisation id doesn't exist
-     * */
-    /*@DeleteMapping("/delete/estdate/{orgId}")
-    public responseJSON removeOrgEstDate(@PathVariable("orgId") @NonNull String orgId)
+    @DeleteMapping("/delete/estdate/{orgId}")
+    public responseJSON removeOrgEstDate(@PathVariable("orgId") @NonNull long orgId)
     {
         response.setObject(null);
         try
@@ -516,11 +444,10 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }*/
+    }
 
-    /* tested - works */
-    /*@DeleteMapping("/delete/donationinfo/{orgId}")
-    public responseJSON removeOrgDonationInfo(@PathVariable("orgId") @NonNull String orgId)
+    @DeleteMapping("/delete/donationinfo/{orgId}")
+    public responseJSON removeOrgDonationInfo(@PathVariable("orgId") @NonNull long orgId)
     {
         response.setObject(null);
         System.out.println(orgId);
@@ -545,14 +472,10 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }*/
+    }
 
-    /* tested - works
-     *  removeOrgAuditDoc from OrganisationDASTemp always returns true
-     *  even if an organisation id doesn't exist
-     * */
-    /*@DeleteMapping("/delete/audit/{orgId}")
-    public responseJSON removeOrgAuditDoc(@PathVariable("orgId") @NonNull String orgId)
+    @DeleteMapping("/delete/audit/{orgId}")
+    public responseJSON removeOrgAuditDoc(@PathVariable("orgId") @NonNull long orgId)
     {
         response.setObject(null);
         try
@@ -576,14 +499,10 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }*/
+    }
 
-    /* tested - works
-     *  removeOrgAuditor from OrganisationDASTemp always returns true
-     *  even if an organisation id doesn't exist
-     * */
-    /*@DeleteMapping("/delete/auditor/{orgId}")
-    public responseJSON removeOrgAuditor(@PathVariable("orgId") @NonNull String orgId)
+    @DeleteMapping("/delete/auditor/{orgId}")
+    public responseJSON removeOrgAuditor(@PathVariable("orgId") @NonNull long orgId)
     {
         response.setObject(null);
         try
@@ -607,14 +526,10 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }*/
+    }
 
-    /* tested - works
-     *  removeOrgCommittee from OrganisationDASTemp always returns true
-     *  even if an organisation id doesn't exist
-     * */
-    /*@DeleteMapping("/delete/committee/{orgId}")
-    public responseJSON removeOrgCommittee(@PathVariable("orgId") @NonNull String orgId)
+    @DeleteMapping("/delete/committee/{orgId}")
+    public responseJSON removeOrgCommittee(@PathVariable("orgId") @NonNull long orgId)
     {
         response.setObject(null);
         try
@@ -638,12 +553,9 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }*/
+    }
 
-
-
-    /* tested - status not confirmed: not entirely sure how to get the date object from a json object*/
-    /*@PostMapping("/add/estdate")
+    @PostMapping("/add/estdate")
     public responseJSON addOrgEstDate(@RequestBody @NonNull AddOrgEstDateRequest body)
     {
         response.setObject(null);
@@ -669,12 +581,9 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }*/
+    }
 
-    /* tested - status not confirmed: not entirely sure how to get the image
-     object from a json object, we should look into the multipart attribute
-     */
-    /*@PostMapping("/add/image")
+    @PostMapping("/add/image")
     public responseJSON addOrgImage(@RequestBody @NonNull AddOrgImageRequest body)
     {
         response.setObject(null);
@@ -699,11 +608,9 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }*/
+    }
 
-    /* tested - status not confirmed: not entirely sure how handle the file type
-    */
-    /*@PostMapping("/add/audit")
+    @PostMapping("/add/audit")
     public responseJSON addOrgAuditDoc(AddOrgAuditInfoRequest body)
     {
         response.setObject(null);
@@ -728,18 +635,9 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }*/
+    }
 
-
-     /* tested - works, addOrgTaxRef from OrganisationDASTemp returns true
-        even if org Id doesn't exist
-      */
-
-
-    /* tested - works, addOrgAuditor from OrganisationDASTemp returns true
-       even if org Id doesn't exist
-    */
-    /*@PostMapping("/add/auditor")
+    @PostMapping("/add/auditor")
     public responseJSON addOrgAuditor(@RequestBody @NonNull AddOrgAuditorRequest body)
     {
         response.setObject(null);
@@ -765,12 +663,9 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }*/
+    }
 
-    /* tested - works, addOrgCommittee from OrganisationDASTemp returns true
-       even if org Id doesn't exist
-    */
-    /*@PostMapping("/add/committee")
+    @PostMapping("/add/committee")
     public responseJSON addOrgCommittee(@RequestBody @NonNull AddOrgCommitteeRequest body)
     {
         response.setObject(null);
@@ -796,12 +691,9 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }*/
+    }
 
-    /* tested - works, addOrgDonationInfo from OrganisationDASTemp returns true
-       even if org Id doesn't exist
-    */
-    /*@PostMapping("/add/donation/info")
+    @PostMapping("/add/donation/info")
     public responseJSON addOrgDonationInfo(@RequestBody @NonNull AddOrgDonationInfoRequest body)
     {
         response.setObject(null);
@@ -827,17 +719,9 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }*/
+    }
 
-    /* tested - works, addOrgSocials from OrganisationDASTemp returns true
-       even if org Id doesn't exist
-    */
-
-
-    /*
-    * not sure how to handle the date object
-    * */
-    /*@PostMapping("/add/ngo")
+    @PostMapping("/add/ngo")
     public responseJSON addOrgNGO(@RequestBody AddOrgNGORequest body)
     {
         response.setObject(null);
@@ -862,5 +746,5 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }*/
+    }
 }

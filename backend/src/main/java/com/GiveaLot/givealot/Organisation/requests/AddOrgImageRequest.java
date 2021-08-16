@@ -6,29 +6,29 @@ import java.io.File;
 
 public class AddOrgImageRequest
 {
-    private String orgId;
-    private String image;
+    private long orgId;
+    private File image;
 
-    public AddOrgImageRequest(@JsonProperty String orgId,
-                              @JsonProperty String image)
+    public AddOrgImageRequest(@JsonProperty long orgId,
+                              @JsonProperty File image)
     {
         this.orgId = orgId;
         this.image = image;
     }
 
-    public String getOrgId() {
+    public long getOrgId() {
         return orgId;
     }
 
-    public void setOrgId(String orgId) {
+    public void setOrgId(long orgId) {
         this.orgId = orgId;
     }
 
-    public String getImage() {
+    public File getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(File image) {
         this.image = image;
     }
 }

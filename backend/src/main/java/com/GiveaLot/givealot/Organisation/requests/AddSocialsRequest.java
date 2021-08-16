@@ -5,23 +5,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AddSocialsRequest
 {
     private String type;
-    private String orgId;
+    private long orgId;
     private String url;
 
     public AddSocialsRequest(
                              @JsonProperty ("type") String type,
-                             @JsonProperty ("orgId") String orgId,
+                             @JsonProperty ("orgId") long orgId,
                              @JsonProperty ("url") String url) {
         this.url = url;
         this.type = type;
         this.orgId = orgId;
     }
 
-    public String getOrgId() {
+    public long getOrgId() {
         return orgId;
     }
 
-    public void setOrgId(String orgId) {
+    public void setOrgId(long orgId) {
         this.orgId = orgId;
     }
 

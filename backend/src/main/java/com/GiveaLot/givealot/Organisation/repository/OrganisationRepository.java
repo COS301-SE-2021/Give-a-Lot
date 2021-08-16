@@ -14,13 +14,11 @@ import org.springframework.transaction.annotation.Transactional;
 *  3) suspend AddOrganisationRequest - done
 *  4) activate AddOrganisationRequest - done
 *  5) investigate AddOrganisationRequest - done
-*
-*
-* */
+*/
 
 @Repository
-public interface OrganisationRepository extends JpaRepository<Organisations,Long> {
-
+public interface OrganisationRepository extends JpaRepository<Organisations,Long>
+{
     @Query("select o from Organisations o where o.orgId = ?1")
     Organisations selectOrganisationById(Long orgId);
 

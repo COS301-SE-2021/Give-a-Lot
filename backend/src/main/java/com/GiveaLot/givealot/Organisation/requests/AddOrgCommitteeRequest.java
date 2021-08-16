@@ -3,20 +3,20 @@ package com.GiveaLot.givealot.Organisation.requests;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AddOrgCommitteeRequest {
-    private String orgId;
+    private long orgId;
     private String committee;
 
-    public AddOrgCommitteeRequest(@JsonProperty String orgId,
+    public AddOrgCommitteeRequest(@JsonProperty long orgId,
                                   @JsonProperty String committee) {
         this.orgId = orgId;
         this.committee = committee;
     }
 
-    public String getOrgId() {
+    public long getOrgId() {
         return orgId;
     }
 
-    public void setOrgId(String orgId) {
+    public void setOrgId(long orgId) {
         this.orgId = orgId;
     }
 

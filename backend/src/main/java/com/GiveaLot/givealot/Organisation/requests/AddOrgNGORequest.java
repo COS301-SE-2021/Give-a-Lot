@@ -6,11 +6,11 @@ import java.util.Date;
 
 public class AddOrgNGORequest
 {
-    private String orgId;
+    private long orgId;
     private String ngoNumber;
     private Date ngoDate;
 
-    public AddOrgNGORequest(@JsonProperty String orgId,
+    public AddOrgNGORequest(@JsonProperty long orgId,
                             @JsonProperty String ngoNumber,
                             @JsonProperty Date ngoDate) {
         this.orgId = orgId;
@@ -18,11 +18,11 @@ public class AddOrgNGORequest
         this.ngoDate = ngoDate;
     }
 
-    public String getOrgId() {
+    public long getOrgId() {
         return orgId;
     }
 
-    public void setOrgId(String orgId) {
+    public void setOrgId(long orgId) {
         this.orgId = orgId;
     }
 

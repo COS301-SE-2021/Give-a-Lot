@@ -84,17 +84,17 @@ export class OrganisationBasic extends Component {
                             <OutlinedInput type="type"
                                name="orgName" value={values.orgName}
                                onChange={this.changeHandler}
-                               className="inputBasic" placeholder=" Name"
+                               className="input" placeholder=" Name"
                                startAdornment={
                                    <InputAdornment position="start">
-                                       <PersonOutlineIcon className="orgIcon" />
+                                       <PersonOutlineIcon style={{color:"#4f9ccf"}} />
                                    </InputAdornment>
                                }
                             />
                         </div>
 
                         <div >
-                            <OutlinedInput type="type"
+                            <OutlinedInput type="password"
                                name="orgPassword"
                                value={values.password}
                                onChange={this.changeHandler} className="inputBasic"

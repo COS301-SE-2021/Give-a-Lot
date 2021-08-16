@@ -57,7 +57,7 @@ export class OrganisationBasic extends Component {
                     </div>
                     <form className="form">
                         <div >
-                            <OutlinedInput type="type"
+                            <OutlinedInput type="text"
                                name="contactPerson"
                                value={values.contactPerson}
                                onChange={this.changeHandler}
@@ -71,7 +71,7 @@ export class OrganisationBasic extends Component {
                         </div>
 
                         <div >
-                            <OutlinedInput type="type"
+                            <OutlinedInput type="text"
                                name="contactNumber"
                                value={values.contactNumber}
                                onChange={this.changeHandler}
@@ -85,7 +85,7 @@ export class OrganisationBasic extends Component {
                         </div>
 
                         <div >
-                            <OutlinedInput type="type" name="email"
+                            <OutlinedInput type="email" name="email"
                                value={values.orgEmail} onChange={this.changeHandler}
                                className="inputBasic" placeholder="Email"
                                startAdornment={

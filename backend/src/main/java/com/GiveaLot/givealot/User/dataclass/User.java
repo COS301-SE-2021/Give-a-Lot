@@ -31,7 +31,7 @@ public class User {
             updatable = false,
             nullable = false
     )
-    private String id;
+    private long id;
 
     @Column(
             name = "firstname",
@@ -118,10 +118,9 @@ public class User {
         return activateDate;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
-
 
 
     public Boolean getAdmin() {

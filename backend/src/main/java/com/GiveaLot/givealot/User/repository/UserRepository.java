@@ -20,15 +20,15 @@ public interface UserRepository extends JpaRepository<User,String> {
 
     @Modifying
     @Query("UPDATE User u SET u.email = ?2 WHERE u.id = ?1")
-    int updateEmail(String UserID, String email);
+    int updateEmail(long UserID, String email);
 
     @Modifying
     @Query("UPDATE User u SET u.lastname = ?2 WHERE u.id = ?1")
-    int updateLastname(String UserID, String lastname);
+    int updateLastname(long UserID, String lastname);
 
     @Modifying
     @Query("UPDATE User u SET u.firstname = ?2 WHERE u.id = ?1")
-    int updateFirstname(String UserID, String firstname);
+    int updateFirstname(long UserID, String firstname);
 
     @Modifying
     @Query("UPDATE User u SET u.isAdmin = ?2 WHERE u.email = ?1")
@@ -40,7 +40,7 @@ public interface UserRepository extends JpaRepository<User,String> {
 
     @Modifying
     @Query("UPDATE User u SET u.activateDate = ?2 WHERE u.id = ?1")
-    int setActivateDate(String UserID, LocalDateTime activateDate);
+    int setActivateDate(long UserID, LocalDateTime activateDate);
 
 
     ////////////////////////////////////////////////////////// DELETE //////////////////////////////////////////////////////////

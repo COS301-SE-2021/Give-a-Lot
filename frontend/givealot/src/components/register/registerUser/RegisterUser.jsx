@@ -7,6 +7,11 @@ import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import {Link} from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import PersonIcon from '@material-ui/icons/Person';
+import FormError from "./FormError"
+
 
 export class RegisterUser extends Component {
 
@@ -16,26 +21,73 @@ export class RegisterUser extends Component {
         this.state = {
             email: "",
             password : "",
+            surname: "",
+            name: "",
+            formErrors: {email: '', password: '', surname: '', name: ''},
+            emailValid: false,
+            surnameValid: false,
+            nameValid: false,
+            passwordValid: false,
+            formValid: false
         }
     }
 
     changeHandler = (e) =>{
-        this.setState({[e.target.name] : e.target.value})
+        const name = e.target.name;
+        const value = e.target.value;
+        this.setState({[name]: value},
+            () => { this.validateField(name, value) });
+        // this.setState({[e.target.name] : e.target.value}, () => { this.validateField(name, value) })
     }
+
+    validateField(fieldName, value) {
+        let fieldValidationErrors = this.state.formErrors;
+        let emailValid = this.state.emailValid;
+        let passwordValid = this.state.passwordValid;
+
+        switch(fieldName) {
+            case 'email':
+                emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+                fieldValidationErrors.email = emailValid ? '' : ' is invalid';
+                break;
+            case 'password':
+                passwordValid = value.length >= 6;
+                fieldValidationErrors.password = passwordValid ? '': ' is too short';
+                break;
+            default:
+                break;
+        }
+        this.setState({formErrors: fieldValidationErrors,
+            emailValid: emailValid,
+            passwordValid: passwordValid
+        }, this.validateForm);
+    }
+
+    validateForm() {
+        this.setState({formValid: this.state.emailValid && this.state.passwordValid});
+    }
+
+    errorClass(error) {
+        return(error.length === 0 ? '' : 'has-error');
+    }
+
     submitHandler = (e) =>{
         e.preventDefault()
         console.log(this.state)
         axios.post('https://jsonplaceholder.typicode.com/posts', this.state)
             .then(response =>{
                 console.log(response)
+                toast.success('Registration success')
+                window.location.href = "/login";
             })
             .catch(error =>{
                 console.log(error)
+                toast.success('Registration failed ')
             })
     }
 
     render() {
-        const {email, password} = this.state
+        const {email, password, surname, name} = this.state
         return (
             <div className="RegisterUser">
                 <FeaturedHeader />
@@ -44,13 +96,43 @@ export class RegisterUser extends Component {
                         <div className="RegisterUserContent">
                             <div className="RegisterUsercontainer" >
                                 <form onSubmit={this.submitHandler}>
+
+                                    <div className="panel panel-default">
+                                        <FormError formErrors={this.state.formErrors} />
+                                    </div>
+
                                     <div className="topLine">
                                         <p> Register User </p>
                                     </div>
-                                    <div >
+                                    <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
+                                        <OutlinedInput type="type" name="name"
+                                           value={name} onChange={this.changeHandler}
+                                           className="RegisterUserinput" placeholder="Name" required
+                                           startAdornment={
+                                               <InputAdornment position="start">
+                                                   <PersonIcon className="loginIcon"/>
+                                               </InputAdornment>
+                                           }
+                                        />
+                                    </div>
+
+                                    <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
+                                        <OutlinedInput type="type"
+                                           name="surname" value={surname}
+                                           onChange={this.changeHandler} className="RegisterUserinput"
+                                           placeholder="Surname"
+                                           startAdornment={
+                                               <InputAdornment position="start">
+                                                   <PersonIcon className="loginIcon"/>
+                                               </InputAdornment>
+                                           }
+                                        />
+                                    </div>
+
+                                    <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
                                         <OutlinedInput type="type" name="email"
                                            value={email} onChange={this.changeHandler}
-                                           className="RegisterUserinput" placeholder="Name"
+                                           className="RegisterUserinput" placeholder="Email"
                                            startAdornment={
                                                <InputAdornment position="start">
                                                    <MailOutlineIcon className="loginIcon"/>
@@ -59,11 +141,11 @@ export class RegisterUser extends Component {
                                         />
                                     </div>
 
-                                    <div >
+                                    <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
                                         <OutlinedInput type="type"
                                            name="password" value={password}
                                            onChange={this.changeHandler} className="RegisterUserinput"
-                                           placeholder="Surname"
+                                           placeholder="password"
                                            startAdornment={
                                                <InputAdornment position="start">
                                                    <LockOpenIcon className="loginIcon"/>
@@ -72,30 +154,6 @@ export class RegisterUser extends Component {
                                         />
                                     </div>
 
-                                    <div >
-                                        <OutlinedInput type="type" name="email"
-                                           value={email} onChange={this.changeHandler}
-                                           className="RegisterUserinput" placeholder="Name"
-                                           startAdornment={
-                                               <InputAdornment position="start">
-                                                   <MailOutlineIcon className="loginIcon"/>
-                                               </InputAdornment>
-                                           }
-                                        />
-                                    </div>
-
-                                    <div >
-                                        <OutlinedInput type="type"
-                                           name="password" value={password}
-                                           onChange={this.changeHandler} className="RegisterUserinput"
-                                           placeholder="Surname"
-                                           startAdornment={
-                                               <InputAdornment position="start">
-                                                   <LockOpenIcon className="loginIcon"/>
-                                               </InputAdornment>
-                                           }
-                                        />
-                                    </div>
 
                                     <div style={{color: "white"}}>
                                         <div id="createAccount">
@@ -110,7 +168,7 @@ export class RegisterUser extends Component {
 
                                     </div>
                                     <div>
-                                        <button type="submit" className="RegisterUserbutton">Sign Up</button>
+                                        <button type="submit" className="RegisterUserbutton" disabled={!this.state.formValid}>Sign Up</button>
                                     </div>
 
                                 </form>
@@ -118,6 +176,9 @@ export class RegisterUser extends Component {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className="form-group">
+                    <ToastContainer/>
                 </div>
             </div>
         )

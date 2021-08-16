@@ -39,6 +39,7 @@ public class UserServiceImp implements UserService {
         if(request.getFirstName()==null)
         {
             throw new Exception("Registration not set, firstname not valid");
+
         }
         if(request.getLastName() == null){
             throw new Exception("Registration not set, lastname not valid");
@@ -47,13 +48,14 @@ public class UserServiceImp implements UserService {
         if (request.getPassword() == null)
         {
             throw new Exception("Registration not set, password not valid");
+
         }
         User newUser = request.getUser();
         newUser.setAdmin(false);
         newUser.setActivateDate(LocalDateTime.now());
 
         userRepository.save(newUser);
-        return true;
+        return false;
     }
 
 
@@ -80,6 +82,11 @@ public class UserServiceImp implements UserService {
             throw new Exception("Please send a valid request object.");
         }
 
+        if(request.getAdminEmail() == null)
+        {
+            throw new Exception("admin email empty");
+        }
+
         User Admin = userRepository.findUserByEmail(request.getAdminEmail());
 
         if (Admin==null) {
@@ -89,8 +96,13 @@ public class UserServiceImp implements UserService {
         if(!Admin.getAdmin())
         {
             throw new Exception( "The current user is not an admin user");
+
         }
 
+        if(request.getGeneralUserEmail() == null)
+        {
+            throw new Exception("general user field empty");
+        }
         User generalUser = userRepository.findUserByEmail(request.getGeneralUserEmail());
 
         int count = userRepository.updateAdmin(generalUser.getEmail(), true);
@@ -102,25 +114,52 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public User getUser(GetUserRequest request) throws UserNotAuthorisedException {
+    public User getUser(GetUserRequest request) throws UserNotAuthorisedException ,Exception{
+
+        if (request == null) {
+            throw new Exception("Please send a valid request object.");
+        }
+        if(request.getAdminUser() == null)
+        {
+            throw new Exception("user was not retrieved");
+        }
+
         User admin = userRepository.findUserByEmail(request.getAdminUser());
         if(!admin.getAdmin())
         {
             throw new UserNotAuthorisedException("current user is not an admin");
         }
-        return userRepository.findUserByEmail(request.getGeneralUserEmail());
 
+        if(request.getGeneralUserEmail() == null)
+        {
+            throw new Exception("user not found");
+        }
+
+        User returnedUser = userRepository.findUserByEmail(request.getGeneralUserEmail());
+
+        if(returnedUser == null)
+        {
+            throw new Exception("user does not exist");
+        }
+
+        return returnedUser;
     }
 
     @Override
-    public List<User> GetUsers(GetUsersRequest request) throws UserNotAuthorisedException
+    public List<User> GetUsers(GetUsersRequest request) throws UserNotAuthorisedException,Exception
         {
-            User admin = userRepository.findUserByEmail(request.getAdminUser());
 
+            if(request.getAdminUser() == null)
+            {
+                throw new Exception("user was not retrieved");
+            }
+
+            User admin = userRepository.findUserByEmail(request.getAdminUser());
             if(!admin.getAdmin())
             {
                 throw new UserNotAuthorisedException("current user is not an admin");
             }
-             return userRepository.findAll();
+
+            return userRepository.findAll();
         }
 }

@@ -12,6 +12,7 @@ import com.GiveaLot.givealot.Notification.service.SendMailServiceImpl;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
+import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Organisation.requests.AddOrganisationRequest;
 import com.GiveaLot.givealot.Server.ServerAccess;
@@ -41,6 +42,10 @@ public class CertificateServiceImpl implements CertificateService {
     @Autowired
     private CertificateRepository certificateRepository;
 
+    @Autowired
+    private BlockChainRepository blockChainRepository;
+
+
     SendMailService service;
 
 
@@ -54,15 +59,10 @@ public class CertificateServiceImpl implements CertificateService {
     @Override
     public boolean addCertificate(long orgId) throws Exception {
 
-        OrganisationPoints organisationPoints = new OrganisationPoints();
-
-        organisationPoints.setPoints(0);
-
         Certificate cert= certificateRepository.selectCertificateById(orgId);
-
         Organisations organisation = organisationRepository.selectOrganisationById(orgId);
 
-       boolean certificateCreated = createPDFDocument(cert,organisation,organisationPoints);
+       boolean certificateCreated = createPDFDocument(cert,organisation,0);
 
         if(!certificateCreated){
             throw new Exception("Exception: Problem creating and storing certificate");
@@ -78,21 +78,19 @@ public class CertificateServiceImpl implements CertificateService {
 
         Blockchain blockchain = new Blockchain(orgId,index,0,txHash,certificateHash);
 
+        blockChainRepository.save(blockchain);
+
         return true;
     }
 
     @Override
     public boolean updateCertificate(long orgId) throws Exception {
 
-        //query organisation, certificate, org points, blockchain
-
-        //we need to remove points from organisationpoints and add it to certificate, we need to remove certlevel from certificate and add it to blockchain
-
         Organisations organisation = organisationRepository.selectOrganisationById(orgId);
-        OrganisationPoints organisationPoints = organisationPointsRepository(orgId);
         Certificate cert = certificateRepository.selectCertificateById(orgId);
+        Blockchain blockchain = blockChainRepository.selectBlockchainOrgId(orgId);
 
-        boolean certificateCreated = createPDFDocument(cert,organisation,organisationPoints);
+        boolean certificateCreated = createPDFDocument(cert,organisation,cert.getPoints());
 
         if(!certificateCreated){
             throw new Exception("Exception: Problem creating and storing certificate");
@@ -106,7 +104,7 @@ public class CertificateServiceImpl implements CertificateService {
         String certificateHash = result[0];
         String txHash = result[1];
 
-        Blockchain blockchain = new Blockchain(orgId,index,0,txHash,certificateHash);
+        blockChainRepository.UpdateBlockchain(blockchain.getIndex(),blockchain.getLevel()+1,txHash,certificateHash,orgId);
 
         return true;
     }
@@ -118,14 +116,9 @@ public class CertificateServiceImpl implements CertificateService {
         return access.downloadCertificate(orgId,orgName);
     }
 
-
-
     @Override
-    public boolean createPDFDocument(Certificate cert, Organisations organisation, OrganisationPoints organisationPoints) throws Exception {
+    public boolean createPDFDocument(Certificate cert, Organisations organisation, int points) throws Exception {
         ServerAccess access = new ServerAccess();
-
-        int points = organisationPoints.getPoints();
-
 
         access.downloadCertificateTemplate(points);
 

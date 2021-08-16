@@ -1,6 +1,7 @@
 
 package com.GiveaLot.givealot.Server;
 
+import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
@@ -11,14 +12,19 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
 import org.apache.pdfbox.pdmodel.interactive.form.PDField;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.File;
 import java.io.InputStream;
 
 public class ServerAccess {
-    private String remoteHost = "209.97.142.151";
-    private String username = "ubuntu";
-    private String password = "COS301-DsP";
+
+    @Autowired
+    private OrganisationInfoRepository organisationInfoRepository;
+
+    private String remoteHost = "";
+    private String username = "";
+    private String password = "";
 
     private String remoteDir = "/home/ubuntu/";
 
@@ -26,7 +32,8 @@ public class ServerAccess {
 
     private ChannelSftp setupJsch() throws JSchException {
         JSch jsch = new JSch();
-        jsch.setKnownHosts("C:/Users/joshu/.ssh/known_hosts");
+        //jsch.setKnownHosts("C:/Users/joshu/.ssh/known_hosts");
+        jsch.setKnownHosts("backend/src/main/java/com/GiveaLot/givealot/Server/known_hosts");
         session = jsch.getSession(username, remoteHost);
         java.util.Properties config = new java.util.Properties();
         config.put("StrictHostKeyChecking", "no");
@@ -277,17 +284,16 @@ public class ServerAccess {
 
             //Query to certificate for number of images
 
-            int imageNumber = 0; //temp
+            int imageNumber = organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfImages() + 1;
 
             String orgIdString = String.valueOf(orgId);
-            String localFile = "C:/Users/joshu/Desktop/Organisations/" + orgId + "/image" + imageNumber + ".jpg";
+            String localFile = "frontend/givealot/localFiles/" + orgId + "/gallery/image" + imageNumber + ".jpg";
 
             FileUtils.copyFile(image, new File(localFile));
 
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery" + imageNumber + ".jpg");
 
-            File deletion = new File(localFile);
-            deletion.delete();
+            image.delete();
         }catch (Exception e){
             throw new Exception("Exception: Failed to interact with the server");
         }
@@ -333,10 +339,10 @@ public class ServerAccess {
 
             //Query to certificate for number of images
 
-            int imageNumber = 1; //temp
+            int imageNumber = organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfImages() + 1;
 
             String orgIdString = String.valueOf(orgId);
-            String localFile = "C:/Users/joshu/Desktop/Organisations/" + orgId + "/image" + imageNumber + ".png";
+            String localFile = "frontend/givealot/localFiles/" + orgId + "gallery/image" + imageNumber + ".png";
 
             FileUtils.copyFile(image, new File(localFile));
 

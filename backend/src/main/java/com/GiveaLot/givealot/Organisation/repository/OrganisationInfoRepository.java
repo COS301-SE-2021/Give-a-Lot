@@ -46,12 +46,12 @@ public interface OrganisationInfoRepository extends JpaRepository<OrganisationIn
 
     @Modifying
     @Transactional
-    @Query("UPDATE OrganisationInfo i SET i.taxReference = ?2 WHERE i.orgId = ?1")
-    Integer addOrgTaxRef(Long orgId, String taxRef);
+    @Query("UPDATE OrganisationInfo i SET i.NGONumber = ?2 WHERE i.orgId = ?1")
+    Integer addOrgTaxRef(Long orgId, String NgoNumber);
 
     @Modifying
     @Transactional
-    @Query("UPDATE OrganisationInfo i SET i.taxReference = null WHERE i.orgId = ?1")
+    @Query("UPDATE OrganisationInfo i SET i.NGONumber = null WHERE i.orgId = ?1")
     Integer removeOrgTaxRef(Long orgId);
 
     @Modifying

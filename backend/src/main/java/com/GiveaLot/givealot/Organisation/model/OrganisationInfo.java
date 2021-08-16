@@ -14,6 +14,7 @@ public class OrganisationInfo
 {
     @Id
     @Column(name = "org_id", nullable = false, unique = true)
+
     public Long orgId;
 
     private String  address;
@@ -24,6 +25,7 @@ public class OrganisationInfo
     private String  auditorDetails;
     private String  committeeDetails;
     private String  NGONumber;
+    private String NGODate;
     private String twitter;
     private String facebook;
     private String instagram;
@@ -42,6 +44,7 @@ public class OrganisationInfo
         this.auditorDetails = null;
         this.committeeDetails = null;
         this.NGONumber = null;
+        this.NGODate = null;
         this.twitter = null;
         this.facebook = null;
         this.instagram = null;
@@ -160,6 +163,7 @@ public class OrganisationInfo
                 ", auditorDetails='" + auditorDetails + '\'' +
                 ", committeeDetails='" + committeeDetails + '\'' +
                 ", NGONumber='" + NGONumber + '\'' +
+                ", NGODate='" + NGODate + '\'' +
                 ", twitter='" + twitter + '\'' +
                 ", facebook='" + facebook + '\'' +
                 ", instagram='" + instagram + '\'' +

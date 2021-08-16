@@ -493,32 +493,11 @@ public class OrganisationServiceImp implements OrganisationService {
     @Override
     public boolean addOrgImage(AddOrgImageRequest request) throws Exception {
 
-        if (request == null)
-            throw new Exception("Exception: request is not set");
-        else if (request.getOrgId() == null)
-            throw new Exception("Exception: request id not set");
-        else if (request.getImage() == null)
-            throw new Exception("Exception: request img url not set");
-        else if (request.getOrgId().isEmpty())
-            throw new Exception("Exception: request id is invalid");
-        else if (request.getImage().isEmpty())
-            throw new Exception("Exception: request img url is invalid");
-        else if (organisationRepository.selectOrganisationById(Long.parseLong(request.getOrgId())) == null)
-            throw new Exception("Exception: request id does not exist/invalid");
-
         return false;
     }
 
     @Override
     public boolean removeOrgImage(String orgId) throws Exception {
-        if(orgId == null)
-            throw new Exception("Exception: AddOrganisationRequest ID is not set");
-        else if(organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
-            throw new Exception("Exception: AddOrganisationRequest ID does not exist");
-        if (orgId == null)
-            throw new Exception("Exception: Organisation ID is not set");
-        else if (organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
-            throw new Exception("Exception: Organisation ID does not exist");
 
         return false;
     }

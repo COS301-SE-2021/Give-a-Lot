@@ -13,6 +13,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import FormError from "./FormError"
 
 
+
 export class RegisterUser extends Component {
 
     constructor(props) {
@@ -77,8 +78,14 @@ export class RegisterUser extends Component {
         axios.post('https://jsonplaceholder.typicode.com/posts', this.state)
             .then(response =>{
                 console.log(response)
-                toast.success('Registration success')
-                window.location.href = "/login";
+                toast("Registration successful, You can now Login", {
+                    position: toast.POSITION.TOP_RIGHT,
+                    className: 'toast-notify',
+                    progressClassName: 'notify-progress-bar',
+                    // autoClose: 50000000
+                });
+                // toast.success('Registration success')
+                // window.location.href = "/login";
             })
             .catch(error =>{
                 console.log(error)
@@ -130,7 +137,7 @@ export class RegisterUser extends Component {
                                     </div>
 
                                     <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
-                                        <OutlinedInput type="type" name="email"
+                                        <OutlinedInput type="email" name="email"
                                            value={email} onChange={this.changeHandler}
                                            className="RegisterUserinput" placeholder="Email"
                                            startAdornment={
@@ -142,7 +149,7 @@ export class RegisterUser extends Component {
                                     </div>
 
                                     <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
-                                        <OutlinedInput type="type"
+                                        <OutlinedInput type="password"
                                            name="password" value={password}
                                            onChange={this.changeHandler} className="RegisterUserinput"
                                            placeholder="password"
@@ -170,6 +177,9 @@ export class RegisterUser extends Component {
                                     <div>
                                         <button type="submit" className="RegisterUserbutton" disabled={!this.state.formValid}>Sign Up</button>
                                     </div>
+                                    <div className="form-group">
+                                        <ToastContainer/>
+                                    </div>
 
                                 </form>
                                 <div className="gradientOverlay" />
@@ -177,9 +187,9 @@ export class RegisterUser extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="form-group">
-                    <ToastContainer/>
-                </div>
+                {/*<div className="form-group">*/}
+                {/*    <ToastContainer/>*/}
+                {/*</div>*/}
             </div>
         )
     }

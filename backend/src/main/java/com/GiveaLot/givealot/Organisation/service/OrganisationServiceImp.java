@@ -154,9 +154,6 @@ public class OrganisationServiceImp implements OrganisationService {
 
         Certificate certificate = new Certificate(dateCreated,dateExpiry,0);
 
-
-
-
         access.createOrganisationDirectory(organisation.getOrgId(), organisation.getOrgName());
         organisation.setDirectory("/home/ubuntu/Organisations/" + tmp_id);
 
@@ -545,9 +542,6 @@ public class OrganisationServiceImp implements OrganisationService {
     * points
     * points
     * points
-    * points
-    * points
-    * points
     * */
 
     @Override
@@ -893,13 +887,28 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Override
     public OrganisationPoints selectOrganisationPoints(String orgId) throws Exception {
+        if(orgId == null)
+            throw new Exception("Exception: id is not set");
+
+        else if(organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
+            throw new Exception("Exception: id does not exist");
         return null;
     }
 
     @Override
     public Integer numberOfImages(Long orgId) throws Exception
     {
-        return null;
+        if(orgId == null)
+            throw new Exception("Exception: id is not set");
+
+        else if(organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: id does not exist");
+
+        Integer res = organisationPointsRepository.getNumberOfEmages(orgId);
+        if(res != 1)
+            throw new Exception("Exception: id does not exist");
+
+        return res;
     }
 
 

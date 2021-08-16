@@ -25,6 +25,11 @@ import org.springframework.mail.javamail.JavaMailSender;
 
 import javax.mail.internet.MimeMessage;
 import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class CertificateServiceImpl implements CertificateService {
 
@@ -181,7 +186,32 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     public boolean checkRenewal() throws Exception {
-        return false;
+        List<Certificate> certificateList = certificateRepository.findAll();
+
+        Date dateCurrent = new Date();
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+        List<Long> id = new ArrayList<>();
+        List<Date> expiry = new ArrayList<>();;
+
+        for (int i = 0; i < certificateList.size(); i++) {
+            id.add(certificateList.get(i).getOrgId());
+            expiry.add(format.parse(certificateList.get(i).getDateExpiry()));
+        }
+
+        for (int i = 0; i < id.size(); i++) {
+            if(expiry.get(i)==null)
+                throw new NullPointerException();
+
+            Date sqlDate = expiry.get(i);
+
+            boolean check = dateCurrent.after(sqlDate);
+            if (check) {
+                certificateRepository.updateOrgRenewal(id.get(i),false);
+                certificateRepository.updateAdminRenewal(id.get(i),false);
+            }
+        }
+        return true;
     }
 
     @Override

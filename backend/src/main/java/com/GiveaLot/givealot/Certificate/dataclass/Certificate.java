@@ -89,11 +89,11 @@ public class Certificate {
         return points;
     }
 
-    public long getOrg_id() {
+    public long getOrgId() {
         return org_id;
     }
 
-    public void setOrg_id(long org_id) {
+    public void setOrgId(long org_id) {
         this.org_id = org_id;
     }
 

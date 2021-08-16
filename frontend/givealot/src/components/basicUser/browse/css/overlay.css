@@ -1,0 +1,180 @@
+.popup-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.popup-container {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.popup-container::-webkit-scrollbar {
+    display: none;
+}
+
+.overlay
+{
+    display: none;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: rgba(109, 109, 109, 0.22);
+}
+
+.overlay2
+{
+    /*
+    not cosmetic, used to close the popup
+    */
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+}
+
+.popup-container
+{
+    position: fixed;
+    height: 400px;
+    width: 800px;
+    border-radius: 10px;
+    background-color: #F7EDED;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: scroll;
+}
+
+.popup-closeBTN
+{
+    position: absolute;
+    right: 0px;
+    border-radius: 50%;
+    font-size: 18px;
+    padding: 0 8px 5px 8px;
+    background: rgba(255, 255, 255, 0);
+    margin: 5px;
+    color: #7d7d7d;
+    cursor: pointer;
+}
+
+.section-1
+{
+    background-color: white;
+    width: 700px;
+    position: relative;
+    left: 50%;
+    top: 20px;
+    transform: translate(-50%,0);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.popup-orgTitle
+{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.popup-orgDescription
+{
+    font-size: 13px;
+}
+
+.section-1>button
+{
+    font-size: 10px;
+    color: white;
+    background: black;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.popup-donation-section
+{
+    position: relative;
+    top: 50px;
+    left: 70px;
+    text-align: center;
+}
+
+.popup-donation-section>p
+{
+    font-size: 12px;
+}
+
+.popup-donation-section>button
+{
+    background: #2d9499;
+    color: white;
+    border-radius: 5px;
+    padding: 4px 20px;
+    position: relative;
+    top: 20px;
+    cursor: pointer;
+}
+
+.pop-up-quick-facts
+{
+    background-color: white;
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+.pop-up-quick-facts > p
+{
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.pop-up-quick-facts > table
+{
+    font-size: 10px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0);
+    margin: 10px 0;
+}
+
+.popup-table-main-title
+{
+    font-weight: bold;
+
+    padding: 5px 20px 5px 0;
+}
+
+.popup-report-certificate-btns-container
+{
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    justify-content: space-evenly;
+    top: 10px;
+    position: relative;
+    z-index: -1;
+}
+
+.popup-report-btn
+{
+    padding: 2px 18px;
+    font-size: 12px;
+    border-radius: 3px;
+    color: white;
+    background: #9D1C1C;
+    cursor: pointer;
+}
+
+.popup-certificate-btn
+{
+    font-size: 12px;
+    border-radius: 3px;
+    padding: 2px 10px;
+    color: white;
+    background: #363C04;
+    cursor: pointer;
+}

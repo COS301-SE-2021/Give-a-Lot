@@ -1,8 +1,9 @@
-package com.GiveaLot.givealot.User.dataclass;
+package com.GiveaLot.givealot.User.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.context.annotation.Primary;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -20,12 +21,9 @@ public class User {
 
     @Id
     @GeneratedValue(
-            generator = "user_sequence"
+            strategy = GenerationType.IDENTITY
     )
-    @GenericGenerator(
-            name = "user_sequence",
-            strategy = "org.hibernate.id.UUIDGenerator"
-    )
+
     @Column(
             name = "id",
             updatable = false,

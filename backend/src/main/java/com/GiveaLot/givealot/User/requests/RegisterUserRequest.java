@@ -1,6 +1,6 @@
 package com.GiveaLot.givealot.User.requests;
 
-import com.GiveaLot.givealot.User.dataclass.User;
+import com.GiveaLot.givealot.User.model.User;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class RegisterUserRequest {

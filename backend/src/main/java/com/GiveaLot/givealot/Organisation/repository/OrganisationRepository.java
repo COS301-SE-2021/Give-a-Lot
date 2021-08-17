@@ -9,14 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/*
-* Todo:
-*  1) Register organisation - done
-*  2) Select AddOrganisationRequest - done
-*  3) suspend AddOrganisationRequest - done
-*  4) activate AddOrganisationRequest - done
-*  5) investigate AddOrganisationRequest - done
-*/
 
 @Repository
 public interface OrganisationRepository extends JpaRepository<Organisations,Long>

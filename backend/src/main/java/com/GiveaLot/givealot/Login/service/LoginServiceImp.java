@@ -4,13 +4,9 @@ import com.GiveaLot.givealot.Login.repository.LoginRepository;
 import com.GiveaLot.givealot.Login.request.LoginRequest;
 import com.GiveaLot.givealot.Login.response.LoginResponse;
 
-import com.GiveaLot.givealot.Login.request.LoginRequest;
-import com.GiveaLot.givealot.Login.response.LoginResponse;
-import com.GiveaLot.givealot.User.dataclass.User;
+import com.GiveaLot.givealot.User.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Random;
 
 @Service
 public class LoginServiceImp implements LoginService{

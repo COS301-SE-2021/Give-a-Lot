@@ -18,10 +18,12 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="entityManagerFactory" />
+          <factory-entry name="entityManagerFactory" value="2b224217-3c19-46dc-adaf-74f6d398e7a8" />
           <factory-entry name="givealot" />
         </datasource-mapping>
-        <naming-strategy-map />
+        <naming-strategy-map>
+          <unit-entry name="entityManagerFactory" />
+        </naming-strategy-map>
       </configuration>
     </facet>
   </component>
@@ -77,10 +79,6 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.opentest4j:opentest4j:1.2.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.junit.platform:junit-platform-commons:1.7.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-params:5.7.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-core:3.9.0" level="project" />
-    <orderEntry type="library" name="Maven: net.bytebuddy:byte-buddy:1.10.22" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: net.bytebuddy:byte-buddy-agent:1.10.22" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.objenesis:objenesis:3.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-junit-jupiter:3.9.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.skyscreamer:jsonassert:1.5.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.vaadin.external.google:android-json:0.0.20131108.vaadin1" level="project" />
@@ -162,11 +160,11 @@
     <orderEntry type="library" name="Maven: org.apache.pdfbox:fontbox:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.pdfbox:jempbox:1.8.11" level="project" />
     <orderEntry type="library" name="Maven: org.apache.pdfbox:xmpbox:2.0.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.pdfbox:pdfbox-tools:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.pdfbox:pdfbox-app:3.0.0-RC1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.pdfbox:pdfbox-debugger:3.0.0-RC1" level="project" />
     <orderEntry type="library" name="Maven: info.picocli:picocli:4.6.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.pdfbox:preflight:2.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.pdfbox:pdfbox-tools:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.web3j:core:4.8.7" level="project" />
     <orderEntry type="library" name="Maven: com.github.jnr:jnr-unixsocket:0.21" level="project" />
     <orderEntry type="library" name="Maven: com.github.jnr:jnr-ffi:2.1.9" level="project" />
@@ -204,5 +202,9 @@
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains:annotations:13.0" level="project" />
     <orderEntry type="library" name="Maven: com.squareup.okhttp3:logging-interceptor:4.3.1" level="project" />
+    <orderEntry type="library" name="Maven: org.mockito:mockito-core:2.21.0" level="project" />
+    <orderEntry type="library" name="Maven: net.bytebuddy:byte-buddy:1.10.22" level="project" />
+    <orderEntry type="library" name="Maven: net.bytebuddy:byte-buddy-agent:1.10.22" level="project" />
+    <orderEntry type="library" name="Maven: org.objenesis:objenesis:2.6" level="project" />
   </component>
 </module>

@@ -1,6 +1,6 @@
 package com.GiveaLot.givealot.User.repository;
 
-import com.GiveaLot.givealot.User.dataclass.User;
+import com.GiveaLot.givealot.User.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

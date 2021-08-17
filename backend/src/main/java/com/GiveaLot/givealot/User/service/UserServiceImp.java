@@ -1,9 +1,6 @@
 package com.GiveaLot.givealot.User.service;
 
-import com.GiveaLot.givealot.User.dataclass.User;
-import com.GiveaLot.givealot.User.exception.InvalidCredentialException;
-import com.GiveaLot.givealot.User.exception.ResetPasswordTimedOutException;
-import com.GiveaLot.givealot.User.exception.UserAlreadyValidationAccountException;
+import com.GiveaLot.givealot.User.model.User;
 import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
 import com.GiveaLot.givealot.User.repository.UserRepository;
 import com.GiveaLot.givealot.User.requests.*;
@@ -11,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImp implements UserService {

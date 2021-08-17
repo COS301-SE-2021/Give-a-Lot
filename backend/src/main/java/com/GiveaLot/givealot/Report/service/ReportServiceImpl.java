@@ -3,6 +3,7 @@ package com.GiveaLot.givealot.Report.service;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.GiveaLot.givealot.Report.dataclass.Report;
 import com.GiveaLot.givealot.Server.ServerAccess;
+import com.jcraft.jsch.JSch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -71,7 +72,7 @@ public class ReportServiceImpl implements ReportService {
             catch (Exception e){
                 throw new SQLException("Exception: ID is not present in the database");
             }
-            ServerAccess access = new ServerAccess();
+            ServerAccess access = new ServerAccess(new JSch());
             access.uploadReport(report.getOrgId(),file,date);
             return true;
         }

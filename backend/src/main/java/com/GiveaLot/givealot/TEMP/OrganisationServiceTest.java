@@ -1,4 +1,4 @@
-/*
+ /*
 package com.GiveaLot.givealot.AddOrganisationRequest.service;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;

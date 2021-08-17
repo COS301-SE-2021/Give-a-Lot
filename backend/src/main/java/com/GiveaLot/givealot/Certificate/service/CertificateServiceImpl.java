@@ -10,6 +10,7 @@ import com.GiveaLot.givealot.Notification.service.SendMailService;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Server.ServerAccess;
+import com.jcraft.jsch.JSch;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
@@ -101,14 +102,14 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     public File retrieveCertificate(long orgId, String orgName) throws Exception {
-        ServerAccess access = new ServerAccess();
+        ServerAccess access = new ServerAccess(new JSch());
 
         return access.downloadCertificate(orgId,orgName);
     }
 
     @Override
     public boolean createPDFDocument(Certificate cert, Organisations organisation, int points) throws Exception {
-        ServerAccess access = new ServerAccess();
+        ServerAccess access = new ServerAccess(new JSch());
 
         access.downloadCertificateTemplate(points);
 

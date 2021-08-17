@@ -1,8 +1,7 @@
 package com.GiveaLot.givealot.User.controller;
 
-import com.GiveaLot.givealot.Organisation.requests.AddOrgWebsiteRequest;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
-import com.GiveaLot.givealot.User.dataclass.User;
+import com.GiveaLot.givealot.User.model.User;
 import com.GiveaLot.givealot.User.requests.*;
 import com.GiveaLot.givealot.User.service.UserServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;

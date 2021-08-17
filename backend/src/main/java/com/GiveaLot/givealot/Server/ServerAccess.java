@@ -22,31 +22,41 @@ public class ServerAccess {
     @Autowired
     private OrganisationInfoRepository organisationInfoRepository;
 
-    private String remoteHost = "";
-    private String username = "";
-    private String password = "";
+    private String remoteHost = "209.97.142.151";
+    private String username = "ubuntu";
+    private String password = "COS301-DsP";
 
     private String remoteDir = "/home/ubuntu/";
 
     private Session session;
 
-    private ChannelSftp setupJsch() throws JSchException {
-        JSch jsch = new JSch();
-        //jsch.setKnownHosts("C:/Users/joshu/.ssh/known_hosts");
-        jsch.setKnownHosts("backend/src/main/java/com/GiveaLot/givealot/Server/known_hosts");
-        session = jsch.getSession(username, remoteHost);
-        java.util.Properties config = new java.util.Properties();
-        config.put("StrictHostKeyChecking", "no");
-        session.setConfig(config);
-        session.setPassword(password);
-        session.connect();
-        return (ChannelSftp) session.openChannel("sftp");
+    private final JSch jsch ;
+
+
+    public ServerAccess(JSch jSch) {
+        this.jsch = jSch;
     }
 
-    public void createOrganisationDirectory(long orgId, String orgName) throws Exception {
+    private ChannelSftp setupJsch() {
+        try {
+            //jsch.setKnownHosts("C:/Users/joshu/.ssh/known_hosts");
+            jsch.setKnownHosts("backend/src/main/java/com/GiveaLot/givealot/Server/known_hosts");
+            session = jsch.getSession(username, remoteHost);
+            java.util.Properties config = new java.util.Properties();
+            config.put("StrictHostKeyChecking", "no");
+            session.setConfig(config);
+            session.setPassword(password);
+            session.connect();
+            return (ChannelSftp) session.openChannel("sftp");
+        } catch (JSchException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public boolean createOrganisationDirectory(long orgId, String orgName) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
-
             channelSftp.connect();
 
             String orgIdString = String.valueOf(orgId);
@@ -84,12 +94,13 @@ public class ServerAccess {
             }
 
         }catch (Exception e){
-            throw new Exception("Exception: Failed to interact with the server: " + e);
+            e.printStackTrace();
         }
         finally {
             channelSftp.exit();
             session.disconnect();
         }
+        return  true;
     }
 
     public void uploadCertificate(long orgId, String orgName) throws Exception {
@@ -372,7 +383,6 @@ public class ServerAccess {
     public void uploadReport(long orgId, File report, String date) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
-            System.out.println("test");
             report.renameTo(new File("backend/src/main/resources/TempDocument/report.txt"));
 
             channelSftp.connect();
@@ -386,7 +396,6 @@ public class ServerAccess {
 
             FileUtils.copyFile(report, new File(localFile));
 
-            System.out.println("test");
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Reports/report" + reportNumber + "-" + date +".txt");
 
         }catch (Exception e){
@@ -426,7 +435,7 @@ public class ServerAccess {
     }
 
     public static void main(String[] args) throws Exception {
-        ServerAccess access = new ServerAccess();
+        ServerAccess access = new ServerAccess(new JSch());
 
         File file = new File("C:/test.jpg");
 

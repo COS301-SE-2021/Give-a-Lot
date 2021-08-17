@@ -9,5 +9,4 @@ import java.io.File;
 public interface ReportService {
     public boolean createReportFile(Report report) throws Exception;
 
-
 }

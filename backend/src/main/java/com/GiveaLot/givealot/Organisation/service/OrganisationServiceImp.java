@@ -12,6 +12,7 @@ import com.GiveaLot.givealot.Organisation.repository.organisationPointsRepositor
 import com.GiveaLot.givealot.Organisation.requests.*;
 import com.GiveaLot.givealot.Server.ServerAccess;
 import com.GiveaLot.givealot.User.repository.UserRepository;
+import com.jcraft.jsch.JSch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -122,7 +123,7 @@ public class OrganisationServiceImp implements OrganisationService {
 
         /** Setup **/
 
-        ServerAccess access = new ServerAccess();
+        ServerAccess access = new ServerAccess(new JSch());
 
         /** Setup dates **/
 
@@ -296,7 +297,7 @@ public class OrganisationServiceImp implements OrganisationService {
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
-        ServerAccess access = new ServerAccess();
+        ServerAccess access = new ServerAccess(new JSch());
 
         String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
 
@@ -397,7 +398,7 @@ public class OrganisationServiceImp implements OrganisationService {
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
-        ServerAccess access = new ServerAccess();
+        ServerAccess access = new ServerAccess(new JSch());
 
         String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
 
@@ -610,7 +611,7 @@ public class OrganisationServiceImp implements OrganisationService {
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
-        ServerAccess access = new ServerAccess();
+        ServerAccess access = new ServerAccess(new JSch());
 
         String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
 

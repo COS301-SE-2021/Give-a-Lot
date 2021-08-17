@@ -46,6 +46,9 @@ public class OrganisationServiceImp implements OrganisationService {
     @Autowired
     private CertificateService certificateService;
 
+    @Autowired
+    private final ServerAccess access = new ServerAccess();
+
     @Override
     public Organisations selectOrganisation(long orgId) throws Exception {
 
@@ -84,6 +87,10 @@ public class OrganisationServiceImp implements OrganisationService {
                 organisation.getContactPerson() == null|| organisation.getSlogan() == null)
             throw new Exception("invalid field provided: null");
 
+
+        System.out.println("hello there");
+
+
         organisation.setDirectory("/home/ubuntu/Organisations/");
         organisation.setStatus("active");
 
@@ -120,50 +127,49 @@ public class OrganisationServiceImp implements OrganisationService {
         else if (organisation.getSlogan().isEmpty() || organisation.getSlogan().length()>255)
             throw new Exception("Exception: orgSlogan does not satisfy the database constraints");
 
-        /** Setup **/
+        // salts and hashes of passwords
+        String salt = getMd5(organisation.getOrgEmail());
+        String salted = getMd5(organisation.getPassword() + salt);
+        organisation.setPassword(salted);
+        organisationRepository.save(organisation);
 
-        ServerAccess access = new ServerAccess();
+        long id = organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()).getOrgId();
+        String directory = "/home/ubuntu/Organisations/" + id;
+        organisationRepository.updateRepo(id,directory);
 
-        /** Setup dates **/
+        organisationInfoRepository.save(new OrganisationInfo((long) id));
+        organisationPointsRepository.save(new OrganisationPoints((long) id));
 
-        Date dateCurrent = new Date();
+        LocalDate date = LocalDate.now(); // registration date
+
+        //organisation is saved at this point
+
+        // save dates
+        /*Date dateCurrent = new Date();
         Date dateEx = new Date();
-
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-
         String dateCreated = format.format(dateCurrent);
 
         int year = dateCurrent.getYear();
         dateEx.setYear(year+1);
-        String dateExpiry = format.format(dateEx);
-
-        /** Salts and hashes password **/
-
-        String salt = getMd5(organisation.getOrgEmail());
-
-        String salted = getMd5(organisation.getPassword() + salt);
-
-        organisation.setPassword(salted);
+        String dateExpiry = format.format(dateEx);*/
 
         /** Create tables and directory **/
 
-        Certificate certificate = new Certificate(dateCreated,dateExpiry,0);
+        /*Certificate certificate;
+        try
+        {
+            ServerAccess access = new ServerAccess();
+            certificate = new Certificate(dateCreated,dateExpiry,0);
+            access.createOrganisationDirectory(id, organisation.getOrgName());
+        }
+        catch (Exception e)
+        {
+            throw new Exception("Exception : cert || server access -> " + e);
+        }
 
-        access.createOrganisationDirectory(organisation.getOrgId(), organisation.getOrgName());
-
-        long id = organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()).getOrgId();
-        String directory = "/home/ubuntu/Organisations/" + id;
-
-        organisationRepository.updateRepo(id,directory);
-
-        LocalDate date = LocalDate.now(); /* registration date */
-
-
-        organisationInfoRepository.save(new OrganisationInfo((long) id));
-        organisationPointsRepository.save(new OrganisationPoints((long) id));
         certificateRepository.save(certificate);
-
-        certificateService.addCertificate(id);
+        certificateService.addCertificate(id); */
         return true;
     }
 
@@ -296,8 +302,6 @@ public class OrganisationServiceImp implements OrganisationService {
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
-        ServerAccess access = new ServerAccess();
-
         String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
 
         access.uploadTaxReference(request.getOrgId(),name,request.getReference());
@@ -396,8 +400,6 @@ public class OrganisationServiceImp implements OrganisationService {
 
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
-
-        ServerAccess access = new ServerAccess();
 
         String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
 
@@ -609,8 +611,6 @@ public class OrganisationServiceImp implements OrganisationService {
 
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
-
-        ServerAccess access = new ServerAccess();
 
         String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
 
@@ -1036,5 +1036,24 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("Exception: id does not exist");
 
         return res;
+    }
+
+    public static void main(String[] args) throws Exception {
+        OrganisationServiceImp serviceImp = new OrganisationServiceImp();
+
+        Organisations org = new Organisations();
+        org.setOrgId(123L);
+        org.setPassword("iloveyou");
+        org.setContactNumber("Contact Number");
+        org.setOrgEmail("jane.doe@example.org");
+        org.setStatus("Status");
+        org.setOrgSector("Org Sector");
+        org.setContactPerson("Contact Person");
+        org.setSlogan("Slogan");
+        org.setOrgDescription("Org Description");
+        org.setOrgName("Org Name");
+        org.setDirectory("/tmp");
+
+        serviceImp.addOrganisation(org);
     }
 }

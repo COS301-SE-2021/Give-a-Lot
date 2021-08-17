@@ -16,8 +16,10 @@ public class ReportServiceImpl implements ReportService {
     @Autowired
     private OrganisationInfoRepository organisationInfoRepository;
 
-    public boolean createReportFile(Report report) throws Exception{
+    @Autowired
+    private final ServerAccess access = new ServerAccess();
 
+    public boolean createReportFile(Report report) throws Exception{
         try {
 
             /** Create file **/
@@ -25,8 +27,8 @@ public class ReportServiceImpl implements ReportService {
             String reportName = "report" + report.getId();
             reportName = reportName.replaceAll("[^a-zA-Z0-9]", "");
             File file = new File("frontend/givealot/reports/organisationReport/" + reportName + ".txt");
-            if (file.createNewFile()) {
-            } else {
+
+            if (!file.createNewFile()) {
                 throw new Exception("Exception: File already exists");
             }
 
@@ -63,21 +65,23 @@ public class ReportServiceImpl implements ReportService {
 
             /** Update database **/
 
-            try
-            {
-                int reports = organisationInfoRepository.selectOrganisationInfo(report.getOrgId()).getNumberOfReports();
-                organisationInfoRepository.incrementReports(report.getOrgId(),reports+1);
-            }
-            catch (Exception e){
-                throw new SQLException("Exception: ID is not present in the database");
-            }
-            ServerAccess access = new ServerAccess();
+            updateNumberOfReports(report.getOrgId());
             access.uploadReport(report.getOrgId(),file,date);
             return true;
         }
         catch (Exception e) {
             throw new Exception("Exception: " + e);
         }
+    }
+    public boolean updateNumberOfReports(long orgId) throws Exception {
+        try {
+            int reports = organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfReports();
+            organisationInfoRepository.incrementReports(orgId, reports + 1);
+            return true;
+        }catch (Exception e){
+            throw new Exception("Exception: ID is not present in the database" + e);
+        }
+
     }
 
     public static void main(String[] args) throws Exception {

@@ -38,7 +38,7 @@ public class RegisterUserRequest {
 
     public User getUser()
     {
-        User user = new User(getFirstName(),getLastName(),getEmail(),getPassword());
+        User user = new User(firstName,lastName,email,password);
         return user;
     }
 

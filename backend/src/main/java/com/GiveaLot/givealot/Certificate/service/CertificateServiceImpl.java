@@ -40,11 +40,14 @@ public class CertificateServiceImpl implements CertificateService {
     @Autowired
     private BlockChainRepository blockChainRepository;
 
-
-    SendMailService service;
+    @Autowired
+    private final ServerAccess access = new ServerAccess();
 
     @Autowired
-    CertificateServiceImpl(SendMailService service)
+    private final SendMailService service;
+
+    @Autowired
+    public CertificateServiceImpl(SendMailService service)
    {
         this.service = service;
    }
@@ -104,15 +107,11 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     public File retrieveCertificate(long orgId, String orgName) throws Exception {
-        ServerAccess access = new ServerAccess();
-
         return access.downloadCertificate(orgId,orgName);
     }
 
     @Override
     public boolean createPDFDocument(Certificate cert, Organisations organisation, int points) throws Exception {
-        ServerAccess access = new ServerAccess();
-
         access.downloadCertificateTemplate(points);
 
         if (points!=0){

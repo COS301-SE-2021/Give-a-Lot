@@ -1,10 +1,9 @@
 package com.GiveaLot.givealot.Login.service;
 
-import com.GiveaLot.givealot.Login.service.LoginService;
 import com.GiveaLot.givealot.Login.repository.*;
 import com.GiveaLot.givealot.Login.request.*;
 import com.GiveaLot.givealot.Login.response.*;
-import com.GiveaLot.givealot.User.dataclass.*;
+import com.GiveaLot.givealot.User.dataclass.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,11 +19,16 @@ public class LoginServiceImp implements LoginService{
         {
             throw new Exception("please send a valid request");
         }
-        if(loginRepository.findUserByEmail(body.getEmail()) == null)
+        else if(body.getEmail() == null)
+        {
+            throw new Exception("email field is null");
+        }
+        User user = loginRepository.findUserByEmail(body.getEmail());
+
+        if(user== null)
         {
             throw new Exception("user not found");
         }
-        User user = loginRepository.findUserByEmail(body.getEmail());
 
         if(!user.getPassword().equals(body.getPassword()))
         {

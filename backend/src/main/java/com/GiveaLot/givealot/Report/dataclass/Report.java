@@ -13,9 +13,6 @@ public class Report {
     String date;
     String id;
 
-    public Report() {
-
-    }
 
     public Report(long orgId, String orgName, String reportDescription, String reportType, String reporterEmail) {
         //Standard Report
@@ -31,24 +28,6 @@ public class Report {
         Timestamp id = new Timestamp(System.currentTimeMillis());
 
         this.id = id.toString().replaceAll("[^a-zA-Z0-9]", "");
-        ;
-    }
-
-    public Report(long orgId, String reportDescription, String reportType, String reporterEmail) {
-        //Certificate Report
-        this.orgId = orgId;
-        this.orgName = orgName;
-        this.reportDescription = reportDescription;
-        this.reportType = reportType;
-        this.reporterEmail = reporterEmail;
-        LocalDateTime date = LocalDateTime.now();
-        DateTimeFormatter dateTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        this.date = date.format(dateTime);
-
-        Timestamp id = new Timestamp(System.currentTimeMillis());
-
-        this.id = id.toString().replaceAll("[^a-zA-Z0-9]", "");
-        ;
     }
 
     /**

@@ -107,3 +107,5 @@ modules.xml
 /backend/src/main/resources/test.txt
 /backend/src/main/resources/application.properties
 /backend/src/main/resources/application.yml
+/backend/target/classes/application.properties
+/backend/target/classes/application.yml

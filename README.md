@@ -43,7 +43,7 @@
 
 <div style="margin-left: 4%">
 
-The team Peak Performers had the following mentor from <a href="https://5dt.com/"> Fifth Dimension Technologies </a> and the <a href="https://www.up.ac.za/"> University of Pretoria</a>:
+
 
 Industry Mentor:
 * Madimetja Shika:  madi@deepsinkpartners.com

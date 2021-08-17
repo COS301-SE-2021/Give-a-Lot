@@ -97,7 +97,7 @@ public class ServerAccess {
             channelSftp.connect();
 
             String orgIdString = String.valueOf(orgId);
-            String localFile = "frontend/givealot/localFiles/" + orgIdString + "certificate/CertificateComplete.pdf";
+            String localFile = "frontend/givealot/localFiles/" + orgIdString + "/certificate/CertificateComplete.pdf";
 
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Certificates" + "/" + orgName.replaceAll("\\s+", "") + "Certificate.pdf");
 

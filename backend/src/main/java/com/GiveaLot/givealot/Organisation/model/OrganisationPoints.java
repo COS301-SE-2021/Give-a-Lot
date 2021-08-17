@@ -1,11 +1,20 @@
 package com.GiveaLot.givealot.Organisation.model;
 
-import java.io.File;
-import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Builder
+@AllArgsConstructor
+@Entity
+@Table(name="organisation_points")
 public class OrganisationPoints {
 
-    private String orgId;
+    @Id
+    private Long orgId;
     private int points;
     private boolean addressIsValid;
     private boolean websiteIsValid;
@@ -27,7 +36,7 @@ public class OrganisationPoints {
     {
 
     }
-    public OrganisationPoints(String orgId, int points, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean taxRefIsValid, boolean auditorIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, String socialMediaType, boolean estDateIsValid, int numberOfImages) {
+    public OrganisationPoints(String Long, int points, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean taxRefIsValid, boolean auditorIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, String socialMediaType, boolean estDateIsValid, int numberOfImages) {
         this.orgId = orgId;
         this.points = points;
         this.addressIsValid = addressIsValid;
@@ -43,7 +52,7 @@ public class OrganisationPoints {
         this.socialMediaType = socialMediaType;
     }
 
-    public OrganisationPoints(String orgId, int points, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean taxRefIsValid, boolean auditorIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, boolean instagramIsValid, boolean facebookIsValid, boolean twitterIsValid, boolean estDateIsValid, int numberOfImages) {
+    public OrganisationPoints(Long orgId, int points, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean taxRefIsValid, boolean auditorIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, boolean instagramIsValid, boolean facebookIsValid, boolean twitterIsValid, boolean estDateIsValid, int numberOfImages) {
         this.orgId = orgId;
         this.points = points;
         this.addressIsValid = addressIsValid;
@@ -62,11 +71,15 @@ public class OrganisationPoints {
 
     }
 
-    public String getOrgId() {
+    public OrganisationPoints(long org_id) {
+        this.orgId = org_id;
+    }
+
+    public Long getOrgId() {
         return orgId;
     }
 
-    public void setOrgId(String orgId) {
+    public void setOrgId(Long orgId) {
         this.orgId = orgId;
     }
 

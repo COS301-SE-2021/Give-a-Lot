@@ -1,72 +1,118 @@
-/*
 package com.GiveaLot.givealot.Organisation.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
-public class OrganisationInfo {
-    private String orgId;
+@Builder
+@AllArgsConstructor
+@Entity
+@Table(name="organisation_info")
+public class OrganisationInfo
+{
+    @Id
+    @Column(name = "org_id",
+            nullable = false,
+            unique = true)
+    public Long orgId;
+    @Column(name = "address",
+            nullable = true,
+            unique = false)
     private String address;
-    private int numberOfImages;
-    private int numberOfReports;
+    @Column(name = "number_of_images",
+            nullable = true,
+            unique = false)
+    private Integer numberOfImages;
+    @Column(name = "get_number_of_reports",
+            nullable = true,
+            unique = false)
+
+    private Integer numberOfReports;
+    @Column(name = "org_website",
+            nullable = true,
+            unique = false)
+
     private String website;
-    private String auditDocument;
-    private String taxReference;
+    @Column(name = "auditor_details",
+            nullable = true,
+            unique = false)
+
     private String auditorDetails;
+    @Column(name = "committee_details",
+            nullable = true,
+            unique = false)
+
     private String committeeDetails;
-    private String ngoNumber;
-    private Date ngoDate;
+    @Column(name = "tax_reference",
+            nullable = true,
+            unique = false)
+
+    private String taxReference;
+    @Column(name = "audit_document",
+            nullable = true,
+            unique = false)
+
+    private String auditDocument;
+    @Column(name = "ngonumber",
+            nullable = true,
+            unique = false)
+
+    private String NGONumber;
+    @Column(name = "ngo_date",
+            nullable = true,
+            unique = false)
+
+    private Date NGODate;
+    @Column(name = "twitter",
+            nullable = true,
+            unique = false)
+
     private String twitter;
+    @Column(name = "facebook",
+            nullable = true,
+            unique = false)
+
     private String facebook;
+    @Column(name = "instagram",
+            nullable = true,
+            unique = false)
+
     private String instagram;
-    private Date establishmentDate;
+    @Column(
+            name = "establishment_date",
+            nullable = true,
+            unique = false)
+    private String establishmentDate;
 
-    public OrganisationInfo(String orgId, String address, int numberOfImages, int numberOfReports, String website, String auditDocument, String taxReference, String auditorDetails, String committeeDetails, String ngoNumber, Date ngoDate, String twitter, String facebook, String instagram, Date establishmentDate) {
-        this.orgId = orgId;
-        this.address = address;
-        this.numberOfImages = numberOfImages;
-        this.numberOfReports = numberOfReports;
-        this.website = website;
-        this.auditDocument = auditDocument;
-        this.taxReference = taxReference;
-        this.auditorDetails = auditorDetails;
-        this.committeeDetails = committeeDetails;
-        this.ngoNumber = ngoNumber;
-        this.ngoDate = ngoDate;
-        this.twitter = twitter;
-        this.facebook = facebook;
-        this.instagram = instagram;
-        this.establishmentDate = establishmentDate;
+    public OrganisationInfo(Long orgId)
+    {
+        this.setOrgId(orgId);
+    }
+    public OrganisationInfo() {
+        this.address = null;
+        this.numberOfImages = null;
+        this.numberOfReports = null;
+        this.website = null;
+        this.auditorDetails = null;
+        this.committeeDetails = null;
+        this.NGONumber = null;
+        this.NGODate = null;
+        this.twitter = null;
+        this.facebook = null;
+        this.instagram = null;
+        this.establishmentDate = null;
     }
 
-    public String getOrgId() {
-        return orgId;
-    }
-
-    public void setOrgId(String orgId) {
-        this.orgId = orgId;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public int getNumberOfImages() {
-        return numberOfImages;
-    }
-
-    public void setNumberOfImages(int numberOfImages) {
-        this.numberOfImages = numberOfImages;
-    }
-
-    public int getNumberOfReports() {
+    public Integer getNumberOfReports() {
         return numberOfReports;
     }
 
-    public void setNumberOfReports(int numberOfReports) {
+    public void setNumberOfReports(Integer numberOfReports) {
         this.numberOfReports = numberOfReports;
     }
 
@@ -78,6 +124,14 @@ public class OrganisationInfo {
         this.website = website;
     }
 
+    public String getTaxReference() {
+        return taxReference;
+    }
+
+    public void setTaxReference(String taxReference) {
+        this.taxReference = taxReference;
+    }
+
     public String getAuditDocument() {
         return auditDocument;
     }
@@ -86,12 +140,36 @@ public class OrganisationInfo {
         this.auditDocument = auditDocument;
     }
 
-    public String getTaxReference() {
-        return taxReference;
+    public Date getNGODate() {
+        return NGODate;
     }
 
-    public void setTaxReference(String taxReference) {
-        this.taxReference = taxReference;
+    public void setNGODate(Date NGODate) {
+        this.NGODate = NGODate;
+    }
+
+    public Long getOrgId() {
+        return orgId;
+    }
+
+    public void setOrgId(Long orgId) {
+        this.orgId = orgId;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Integer getNumberOfImages() {
+        return numberOfImages;
+    }
+
+    public void setNumberOfImages(Integer numberOfImages) {
+        this.numberOfImages = numberOfImages;
     }
 
     public String getAuditorDetails() {
@@ -110,20 +188,12 @@ public class OrganisationInfo {
         this.committeeDetails = committeeDetails;
     }
 
-    public String getNgoNumber() {
-        return ngoNumber;
+    public String getNGONumber() {
+        return NGONumber;
     }
 
-    public void setNgoNumber(String ngoNumber) {
-        this.ngoNumber = ngoNumber;
-    }
-
-    public Date getNgoDate() {
-        return ngoDate;
-    }
-
-    public void setNgoDate(Date ngoDate) {
-        this.ngoDate = ngoDate;
+    public void setNGONumber(String NGONumber) {
+        this.NGONumber = NGONumber;
     }
 
     public String getTwitter() {
@@ -150,14 +220,30 @@ public class OrganisationInfo {
         this.instagram = instagram;
     }
 
-    public Date getEstablishmentDate() {
+    public String getEstablishmentDate() {
         return establishmentDate;
+    }
+
+    @Override
+    public String toString() {
+        return "organisationInfo{" +
+                "orgId='" + orgId + '\'' +
+                ", address='" + address + '\'' +
+                ", numberOfImages=" + numberOfImages +
+                ", numberOfReports=" + numberOfReports +
+                ", website='" + website + '\'' +
+                ", auditorDetails='" + auditorDetails + '\'' +
+                ", committeeDetails='" + committeeDetails + '\'' +
+                ", NGONumber='" + NGONumber + '\'' +
+                ", NGODate='" + NGODate + '\'' +
+                ", twitter='" + twitter + '\'' +
+                ", facebook='" + facebook + '\'' +
+                ", instagram='" + instagram + '\'' +
+                ", establishmentDate='" + establishmentDate + '\'' +
+                '}';
     }
 
     public void setEstablishmentDate(String establishmentDate) {
         this.establishmentDate = establishmentDate;
     }
-
-
 }
-*/

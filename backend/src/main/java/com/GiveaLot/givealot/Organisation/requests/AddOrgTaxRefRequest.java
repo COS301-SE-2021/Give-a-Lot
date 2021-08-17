@@ -2,29 +2,31 @@ package com.GiveaLot.givealot.Organisation.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class AddOrgTaxRefRequest {
-    private String orgId;
-    private String reference;
+import java.io.File;
 
-    public AddOrgTaxRefRequest(@JsonProperty String orgId,
-                               @JsonProperty String reference) {
+public class AddOrgTaxRefRequest {
+    private long orgId;
+    private File reference;
+
+    public AddOrgTaxRefRequest(@JsonProperty ("orgId") long orgId,
+                               @JsonProperty ("reference") File reference) {
         this.orgId = orgId;
         this.reference = reference;
     }
 
-    public String getOrgId() {
+    public long getOrgId() {
         return orgId;
     }
 
-    public void setOrgId(String orgId) {
+    public void setOrgId(long orgId) {
         this.orgId = orgId;
     }
 
-    public String getReference() {
+    public File getReference() {
         return reference;
     }
 
-    public void setReference(String reference) {
+    public void setReference(File reference) {
         this.reference = reference;
     }
 }

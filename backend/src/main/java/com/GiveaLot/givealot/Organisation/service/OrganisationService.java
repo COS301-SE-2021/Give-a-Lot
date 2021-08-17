@@ -1,42 +1,49 @@
 package com.GiveaLot.givealot.Organisation.service;
 
-import com.GiveaLot.givealot.Organisation.dataclass.OrganisationRepo;
-import com.GiveaLot.givealot.Organisation.dataclass.organisationInfo;
+import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
+import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.requests.*;
 import org.springframework.stereotype.Service;
 
 @Service
 public interface OrganisationService {
-    OrganisationRepo selectOrganisation(String orgId) throws Exception;
-    organisationInfo selectOrganisationInfo(String orgId) throws Exception;
-    OrganisationPoints selectOrganisationPoints(String orgId) throws Exception;
-    boolean addOrganisation(OrganisationRepo organisation) throws Exception;
-    boolean reactivateOrganisation(String orgId) throws Exception;
-    boolean investigateOrganisation(String orgId) throws Exception;
-    boolean suspendOrganisation(String orgId) throws Exception;
+    Organisations selectOrganisation(long orgId) throws Exception;
+    OrganisationInfo selectOrganisationInfo(long orgId) throws Exception;
+    OrganisationPoints selectOrganisationPoints(long orgId) throws Exception;
+    boolean addOrganisation(Organisations organisation) throws Exception;
+    boolean reactivateOrganisation(long orgId) throws Exception;
+    boolean investigateOrganisation(long orgId) throws Exception;
+    boolean suspendOrganisation(long orgId) throws Exception;
 
     //Additional classes
     boolean addOrgWebsite(AddOrgWebsiteRequest request) throws Exception;
-    boolean removeOrgWebsite(String orgId) throws Exception;
+    boolean removeOrgWebsite(long orgId) throws Exception;
     boolean addOrgAddress(AddOrgAddressRequest request) throws Exception;
-    boolean removeOrgAddress(String orgId) throws Exception;
+    boolean removeOrgAddress(long orgId) throws Exception;
     boolean addOrgImage(AddOrgImageRequest request) throws Exception;
-    boolean removeOrgImage(String orgId) throws Exception;
+    boolean removeOrgImage(long orgId) throws Exception;
     boolean addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception;
-    boolean removeOrgAuditDoc(String orgId) throws Exception;
+    boolean removeOrgAuditDoc(long orgId) throws Exception;
     boolean addOrgTaxRef(AddOrgTaxRefRequest request) throws Exception;
-    boolean removeOrgTaxRef(String orgId) throws Exception;
+    boolean removeOrgTaxRef(long orgId) throws Exception;
     boolean addOrgAuditor(AddOrgAuditorRequest request) throws Exception;
-    boolean removeOrgAuditor(String orgId) throws Exception;
+    boolean removeOrgAuditor(long orgId) throws Exception;
     boolean addOrgCommittee(AddOrgCommitteeRequest request) throws Exception;
-    boolean removeOrgCommittee(String orgId) throws Exception ;
+    boolean removeOrgCommittee(long orgId) throws Exception ;
     boolean addOrgDonationInfo(AddOrgDonationInfoRequest request) throws Exception;
-    boolean removeOrgDonationInfo(String orgId) throws Exception;
+    boolean removeOrgDonationInfo(long orgId) throws Exception;
     boolean addOrgSocials(AddSocialsRequest request) throws Exception;
-    boolean removeOrgSocials(String orgId, String type) throws Exception;
+    boolean removeOrgSocials(long orgId, String type) throws Exception;
     boolean addOrgNGO(AddOrgNGORequest request) throws Exception;
-    boolean removeOrgNGO(String orgId) throws Exception;
+    boolean removeOrgNGO(long orgId) throws Exception;
     boolean addOrgEstDate(AddOrgEstDateRequest request) throws Exception;
-    boolean removeOrgEstDate(String orgId) throws Exception;
+    boolean removeOrgEstDate(long orgId) throws Exception;
+
+    /*
+    * */
+
+
+    boolean confirmValidity(Long orgId,Long adminId,String type,boolean confirmValidity) throws Exception;
+    Integer numberOfImages(Long orgId) throws Exception;
 }

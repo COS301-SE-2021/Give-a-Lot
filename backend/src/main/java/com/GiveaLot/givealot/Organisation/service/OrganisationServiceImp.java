@@ -1,172 +1,94 @@
 package com.GiveaLot.givealot.Organisation.service;
 
-import com.GiveaLot.givealot.Organisation.dataclass.organisationInfo;
+import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
+import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
+import com.GiveaLot.givealot.Certificate.service.CertificateService;
+import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
+import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
+import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
-import com.GiveaLot.givealot.Organisation.dataclass.OrganisationRepo;
-import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
+import com.GiveaLot.givealot.Organisation.repository.organisationPointsRepository;
 import com.GiveaLot.givealot.Organisation.requests.*;
+import com.GiveaLot.givealot.Server.ServerAccess;
+import com.GiveaLot.givealot.User.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
 
 
 @Service
 public class OrganisationServiceImp implements OrganisationService {
 
-    @Autowired
-    private OrganisationRepository OrganisationRepository;
 
     @Autowired
-    private OrganisationInfoRepository OrganisationInfoRepository;
+    private OrganisationRepository organisationRepository;
+
+    @Autowired
+    private OrganisationInfoRepository organisationInfoRepository;
+
+    @Autowired
+    organisationPointsRepository organisationPointsRepository;
+
+    @Autowired
+    private CertificateRepository certificateRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private CertificateService certificateService;
 
     @Override
-    public OrganisationRepo selectOrganisation(String orgId) throws Exception {
+    public Organisations selectOrganisation(long orgId) throws Exception {
 
-        if(orgId == null)
-            throw new Exception("Exception: Organisation Id is null");
-        else if (orgId.isEmpty() || orgId.length()>50){
-            throw new Exception("Exception: orgId does not satisfy the database constraints");
-        }
-
-        return OrganisationRepository.selectOrganisation(orgId);
+        Organisations res = organisationRepository.selectOrganisationById(orgId);
+        if (res != null)
+            return res;
+        else throw new Exception("Exception: id does not exist, check spelling");
     }
 
     @Override
-    public organisationInfo selectOrganisationInfo(String orgId) throws Exception
-    {
-        if(orgId == null)
-            throw new Exception("Exception: Organisation ID is not set");
-        else if(OrganisationRepository.selectOrganisation(orgId) == null)
+    public OrganisationInfo selectOrganisationInfo(long orgId) throws Exception {
+        if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
-        organisationInfo organisationInfo = OrganisationInfoRepository.selectOrganisationInfo(orgId);
+        OrganisationInfo organisationInfo = organisationInfoRepository.selectOrganisationInfo(orgId);
 
-        if(organisationInfo == null)
-        {
-            /*
-            * Because organisation already exists, set the field
-            * */
-            organisationInfo = new organisationInfo();
+        if (organisationInfo == null) {
+            organisationInfo = new OrganisationInfo();
             organisationInfo.setOrgId(orgId);
 
-            OrganisationInfoRepository.save(organisationInfo);
+            organisationInfoRepository.save(organisationInfo);
             throw new Exception("Exception: system level error, organisation info did not exist, rerun " +
                     "the contract");
-        }
-        else return organisationInfo;
+        } else return organisationInfo;
     }
 
     @Override
-    public boolean addOrgWebsite(AddOrgWebsiteRequest request) throws Exception {
-        if(request == null)
-            throw new Exception("Exception: request not set");
-        else if(request.getOrgId() == null)
-            throw new Exception("Exception: ID not set");
-        else if(request.getWebsite() == null)
-            throw new Exception("Exception: website not set");
-        else if(OrganisationRepository.selectOrganisation(request.getOrgId()) == null)
-            throw new Exception("Exception: Organisation ID does not exist");
-
-        /*
-        *  Todo:
-        *   validate the website
-        * */
-
-        if(OrganisationInfoRepository.addOrgWebsite(request.getOrgId(),request.getWebsite()) != 1)
-            throw new Exception("Exception: website field not updated");
-
-        return true;
-    }
-
-    @Override
-    public boolean removeOrgWebsite(String orgId) throws Exception {
-        if(orgId == null)
-            throw new Exception("Exception: Organisation ID is not set");
-        else if(OrganisationRepository.selectOrganisation(orgId) == null)
-            throw new Exception("Exception: Organisation ID does not exist");
-
-        if(OrganisationInfoRepository.selectOrganisationInfo(orgId) == null)
-        {
-            /*
-             * Because organisation already exists, set the field
-             * */
-            organisationInfo organisationInfo = new organisationInfo();
-            organisationInfo.setOrgId(orgId);
-
-            OrganisationInfoRepository.save(organisationInfo);
-            throw new Exception("Exception: system level error, organisation info did not exist, rerun " +
-                    "the contract");
-        }
-
-        if(OrganisationInfoRepository.removeOrgWebsite(orgId) != 1)
-            throw new Exception("Exception: website field not updated");
-
-        return true;
-    }
-
-    @Override
-    public boolean addOrgAddress(AddOrgAddressRequest request) throws Exception {
-        if(request == null)
-            throw new Exception("Exception: request not set");
-        else if(request.getOrgId() == null)
-            throw new Exception("Exception: ID not set");
-        else if(request.getAddress() == null)
-            throw new Exception("Exception: address not set");
-        else if(OrganisationRepository.selectOrganisation(request.getOrgId()) == null)
-            throw new Exception("Exception: Organisation ID does not exist");
-
-        if(OrganisationInfoRepository.addOrgAddress(request.getOrgId(),request.getAddress()) != 1)
-            throw new Exception("Exception: address field not updated");
-
-        return true;
-    }
-
-    @Override
-    public boolean removeOrgAddress(String orgId) throws Exception {
-        if(orgId == null)
-            throw new Exception("Exception: Organisation ID is not set");
-        else if(OrganisationRepository.selectOrganisation(orgId) == null)
-            throw new Exception("Exception: Organisation ID does not exist");
-
-        if(OrganisationInfoRepository.selectOrganisationInfo(orgId) == null)
-        {
-            /*
-             * Because organisation already exists, set the field
-             * */
-            organisationInfo organisationInfo = new organisationInfo();
-            organisationInfo.setOrgId(orgId);
-
-            OrganisationInfoRepository.save(organisationInfo);
-            throw new Exception("Exception: system level error, organisation info did not exist, rerun " +
-                    "the contract");
-        }
-
-        if(OrganisationInfoRepository.removeOrgAddress(orgId) != 1)
-            throw new Exception("Exception: address field not updated");
-
-        return true;
-    }
-
-    @Override
-    public OrganisationPoints selectOrganisationPoints(String orgId) throws Exception {
-        return null;
-    }
-
-    @Override
-    public boolean addOrganisation(OrganisationRepo organisation) throws Exception
+    public boolean addOrganisation(Organisations organisation) throws Exception
     {
         if(organisation == null)
             throw new Exception("invalid organisation object: null");
 
-        else if(organisation.getOrgId() == null || organisation.getOrgName() == null || organisation.getOrgDescription() == null|| organisation.getPassword() == null|| organisation.getOrgSector() == null|| organisation.getStatus() == null|| organisation.getOrgEmail() == null|| organisation.getDirectory() == null|| organisation.getContactNumber() == null|| organisation.getContactPerson() == null|| organisation.getSlogan() == null)
+        if(organisation.getOrgName() == null || organisation.getOrgDescription() == null||
+                organisation.getPassword() == null|| organisation.getOrgSector() == null ||
+                organisation.getOrgEmail() == null|| organisation.getContactNumber() == null||
+                organisation.getContactPerson() == null|| organisation.getSlogan() == null)
             throw new Exception("invalid field provided: null");
 
-        else if(OrganisationRepository.selectOrganisation(organisation.getOrgId()) != null)
-            throw new Exception("This organisation already exists");
+        organisation.setDirectory("/home/ubuntu/Organisations/");
+        organisation.setStatus("active");
 
-        else if (organisation.getOrgId().isEmpty() || organisation.getOrgId().length() > 50)
-            throw new Exception("Exception: orgId does not satisfy the database constraints");
+        if(organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()) != null)
+            throw new Exception("Email already exists");
 
         else if (organisation.getOrgName().isEmpty() || organisation.getOrgName().length()>255)
             throw new Exception("Exception: orgName does not satisfy the database constraints");
@@ -198,565 +120,921 @@ public class OrganisationServiceImp implements OrganisationService {
         else if (organisation.getSlogan().isEmpty() || organisation.getSlogan().length()>255)
             throw new Exception("Exception: orgSlogan does not satisfy the database constraints");
 
-        organisationInfo organisationInfo = new organisationInfo();
+        /** Setup **/
 
-        OrganisationRepository.save(organisation);
-        organisationInfo.setOrgId(organisation.getOrgId());
+        ServerAccess access = new ServerAccess();
+
+        /** Setup dates **/
+
+        Date dateCurrent = new Date();
+        Date dateEx = new Date();
+
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+        String dateCreated = format.format(dateCurrent);
+
+        int year = dateCurrent.getYear();
+        dateEx.setYear(year+1);
+        String dateExpiry = format.format(dateEx);
+
+        /** Salts and hashes password **/
+
+        String salt = getMd5(organisation.getOrgEmail());
+
+        String salted = getMd5(organisation.getPassword() + salt);
+
+        organisation.setPassword(salted);
+
+        /** Create tables and directory **/
+
+        Certificate certificate = new Certificate(dateCreated,dateExpiry,0);
+
+        access.createOrganisationDirectory(organisation.getOrgId(), organisation.getOrgName());
+
+        long id = organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()).getOrgId();
+        String directory = "/home/ubuntu/Organisations/" + id;
+
+        organisationRepository.updateRepo(id,directory);
+
         LocalDate date = LocalDate.now(); /* registration date */
-        OrganisationInfoRepository.save(organisationInfo);
+
+
+        organisationInfoRepository.save(new OrganisationInfo((long) id));
+        organisationPointsRepository.save(new OrganisationPoints((long) id));
+        certificateRepository.save(certificate);
+
+        certificateService.addCertificate(id);
         return true;
     }
 
     @Override
-    public boolean suspendOrganisation(String orgId) throws Exception {
+    public boolean suspendOrganisation(long orgId) throws Exception {
 
-        if(orgId == null)
-            throw new Exception("String object is null");
-        else if(orgId.isEmpty())
-            throw new Exception("invalid id length");
-        else if(OrganisationRepository.selectOrganisation(orgId) == null)
+
+        if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("ID doesn't exist");
-        else
-        {
-            if(OrganisationRepository.updateStatus(orgId,"suspended".toLowerCase()) != 1)
+        else {
+            if (organisationRepository.updateStatus(orgId, "suspended".toLowerCase()) != 1)
                 throw new Exception("status not updated");
             else return true;
         }
     }
 
     @Override
-    public boolean reactivateOrganisation(String orgId) throws Exception {
-        if(orgId == null)
-            throw new Exception("String object is null");
-        else if(orgId.isEmpty())
-            throw new Exception("invalid id length");
-        else if(OrganisationRepository.selectOrganisation(orgId) == null)
+    public boolean reactivateOrganisation(long orgId) throws Exception {
+
+        if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("ID doesn't exist");
-        else
-        {
-            if(OrganisationRepository.updateStatus(orgId,"active".toLowerCase()) != 1)
+        else {
+            if (organisationRepository.updateStatus(orgId, "active".toLowerCase()) != 1)
                 throw new Exception("status not updated");
             else return true;
         }
     }
 
     @Override
-    public boolean investigateOrganisation(String orgId) throws Exception {
-        if(orgId == null)
-            throw new Exception("String object is null");
-        else if(orgId.isEmpty())
-            throw new Exception("invalid id length");
-        else if(OrganisationRepository.selectOrganisation(orgId) == null)
+    public boolean investigateOrganisation(long orgId) throws Exception {
+
+        if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("ID doesn't exist");
-        else
-        {
-            if(OrganisationRepository.updateStatus(orgId,"investigating".toLowerCase()) != 1)
+        else {
+            if (organisationRepository.updateStatus(orgId, "investigating".toLowerCase()) != 1)
                 throw new Exception("status not updated");
             else return true;
         }
     }
 
-
-    @Override
-    public boolean addOrgImage(AddOrgImageRequest request) throws Exception {
-        return false;
-    }
-
-    @Override
-    public boolean removeOrgImage(String orgId) throws Exception {
-        return false;
-    }
-
-    @Override
-    public boolean addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception {
-        return false;
-    }
-
-    @Override
-    public boolean removeOrgAuditDoc(String orgId) throws Exception {
-        return false;
-    }
-
-    @Override
-    public boolean addOrgTaxRef(AddOrgTaxRefRequest request) throws Exception {
-        return false;
-    }
-
-    @Override
-    public boolean removeOrgTaxRef(String orgId) throws Exception {
-        return false;
-    }
-
-    @Override
-    public boolean addOrgAuditor(AddOrgAuditorRequest request) throws Exception {
-        return false;
-    }
-
-    @Override
-    public boolean removeOrgAuditor(String orgId) throws Exception {
-        return false;
-    }
-
-    @Override
-    public boolean addOrgCommittee(AddOrgCommitteeRequest request) throws Exception {
-        return false;
-    }
-
-    @Override
-    public boolean removeOrgCommittee(String orgId) throws Exception {
-        return false;
-    }
-
-    @Override
-    public boolean addOrgDonationInfo(AddOrgDonationInfoRequest request) throws Exception {
-        return false;
-    }
-
-    @Override
-    public boolean removeOrgDonationInfo(String orgId) throws Exception {
-        return false;
-    }
-
-    @Override
-    public boolean addOrgSocials(AddSocialsRequest request) throws Exception {
-        return false;
-    }
-
-    @Override
-    public boolean removeOrgSocials(String orgId, String type) throws Exception {
-        return false;
-    }
-
-    @Override
-    public boolean addOrgNGO(AddOrgNGORequest request) throws Exception {
-        return false;
-    }
-
-    @Override
-    public boolean removeOrgNGO(String orgId) throws Exception {
-        return false;
-    }
-
-    @Override
-    public boolean addOrgEstDate(AddOrgEstDateRequest request) throws Exception {
-        return false;
-    }
-
-    @Override
-    public boolean removeOrgEstDate(String orgId) throws Exception {
-        return false;
-    }
-
-/*    @Override
-    public OrganisationInfo selectOrganisationInfo(String orgId) throws Exception {
-        if (orgId.length()==0 || orgId.length()>50){
-            throw new Exception("Exception: orgId does not satisfy the database constraints");
-        }
-        return organisationDAOInterface.selectOrganisationInfo(orgId);
-    }
-
-    @Override
-    public OrganisationPoints selectOrganisationPoints(String orgId) throws Exception {
-        if (orgId.length()==0 || orgId.length()>50){
-            throw new Exception("Exception: orgId does not satisfy the database constraints");
-        }
-        return organisationDAOInterface.selectOrganisationPoints(orgId);
-    }
-
-    @Override
-    public boolean organisationExists(Organisation organisation) throws Exception {
-        if (organisation.getOrgId().toString().length()==0 || organisation.getOrgId().toString().length()>50){
-            throw new Exception("Exception: orgId does not satisfy the database constraints");
-        }
-        if (organisation.getOrgName().length()==0 || organisation.getOrgName().length()>255){
-            throw new Exception("Exception: orgName does not satisfy the database constraints");
-        }
-        if (organisation.getOrgDescription().length()==0 || organisation.getOrgDescription().length()>65535){
-            throw new Exception("Exception: orgDescription does not satisfy the database constraints");
-        }
-        if (organisation.getPassword().length()==0 || organisation.getPassword().length()>255){
-            throw new Exception("Exception: password does not satisfy the database constraints");
-        }
-        if (organisation.getOrgSector().length()==0 || organisation.getOrgSector().length()>255){
-            throw new Exception("Exception: orgSector does not satisfy the database constraints");
-        }
-        if (organisation.getStatus().length()==0 || organisation.getStatus().length()>255){
-            throw new Exception("Exception: status does not satisfy the database constraints");
-        }
-        if (organisation.getOrgEmail().length()==0 || organisation.getOrgEmail().length()>255){
-            throw new Exception("Exception: orgEmail does not satisfy the database constraints");
-        }
-        if (organisation.getDirectory().length()==0 || organisation.getDirectory().length()>255){
-            throw new Exception("Exception: directory does not satisfy the database constraints");
-        }
-        if (organisation.getContactNumber().length()==0 || organisation.getContactNumber().length()>255){
-            throw new Exception("Exception: contactNumber does not satisfy the database constraints");
-        }
-        if (organisation.getContactPerson().length()==0 || organisation.getContactPerson().length()>255){
-            throw new Exception("Exception: contactPerson does not satisfy the database constraints");
-        }
-        if (organisation.getSlogan().length()==0 || organisation.getSlogan().length()>255){
-            throw new Exception("Exception: orgSlogan does not satisfy the database constraints");
-        }
-        return organisationDAOInterface.organisationExists(organisation);
-    }
-
-    @Override
-    public boolean addOrganisation(Organisation organisation) throws Exception {
-        if (organisation.getOrgId().toString().length() ==0 || organisation.getOrgId().toString().length()>50){
-            throw new Exception("Exception: orgId does not satisfy the database constraints");
-        }
-        if (organisation.getOrgName().length()==0 || organisation.getOrgName().length()>255){
-            throw new Exception("Exception: orgName does not satisfy the database constraints");
-        }
-        if (organisation.getOrgDescription().length()==0 || organisation.getOrgDescription().length()>65535){
-            throw new Exception("Exception: orgDescription does not satisfy the database constraints");
-        }
-        if (organisation.getPassword().length()==0 || organisation.getPassword().length()>255){
-            throw new Exception("Exception: password does not satisfy the database constraints");
-        }
-        if (organisation.getOrgSector().length()==0 || organisation.getOrgSector().length()>255){
-            throw new Exception("Exception: orgSector does not satisfy the database constraints");
-        }
-        if (organisation.getStatus().length()==0 || organisation.getStatus().length()>255){
-            throw new Exception("Exception: status does not satisfy the database constraints");
-        }
-        if (organisation.getOrgEmail().length()==0 || organisation.getOrgEmail().length()>255){
-            throw new Exception("Exception: orgEmail does not satisfy the database constraints");
-        }
-        if (organisation.getDirectory().length()==0 || organisation.getDirectory().length()>255){
-            throw new Exception("Exception: directory does not satisfy the database constraints");
-        }
-        if (organisation.getContactNumber().length()==0 || organisation.getContactNumber().length()>255){
-            throw new Exception("Exception: contactNumber does not satisfy the database constraints");
-        }
-        if (organisation.getContactPerson().length()==0 || organisation.getContactPerson().length()>255){
-            throw new Exception("Exception: contactPerson does not satisfy the database constraints");
-        }
-        if (organisation.getSlogan().length()==0 || organisation.getSlogan().length()>255){
-            throw new Exception("Exception: orgSlogan does not satisfy the database constraints");
-        }
-        return organisationDAOInterface.addOrganisation(organisation);
-    }
-
-    @Override
-    public boolean reactivateOrganisation(String orgId) throws Exception {
-        if (orgId.length()==0 || orgId.length()>50){
-            throw new Exception("Exception: orgId does not satisfy the database constraints");
-        }
-        return organisationDAOInterface.reactivateOrganisation(orgId);
-    }
-
-    @Override
-    public boolean investigateOrganisation(String orgId) throws Exception {
-        if (orgId.length()==0 || orgId.length()>50){
-            throw new Exception("Exception: orgId does not satisfy the database constraints");
-        }
-        return organisationDAOInterface.investigateOrganisation(orgId);
-    }
-
-    @Override
-    public boolean suspendOrganisation(String orgId) throws Exception {
-        if (orgId.length()==0 || orgId.length()>50){
-            throw new Exception("Exception: orgId does not satisfy the database constraints");
-        }
-        return organisationDAOInterface.suspendOrganisation(orgId);
-    }
-
-
-    //Additional classes
     @Override
     public boolean addOrgWebsite(AddOrgWebsiteRequest request) throws Exception {
-        if(request != null)
-        {
-            String orgId = request.getOrgId();
-            String website = request.getWebsite();
-            if (orgId.length()==0 || orgId.length()>50){
-                throw new Exception("Exception: orgId does not satisfy the database constraints");
-            }
-            if (website.length()==0 || website.length()>255){
-                throw new Exception("Exception: website does not satisfy the database constraints");
-            }
+        if (request == null)
+            throw new Exception("Exception: request not set");
+        else if (request.getWebsite() == null)
+            throw new Exception("Exception: value not set");
+        else if (request.getWebsite().isEmpty())
+            throw new Exception("Exception: invalid value length");
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
 
-            return organisationDAOInterface.addOrgWebsite(orgId, website);
-        }
-        throw new Exception("Exception: request object is null");
+        if (organisationInfoRepository.addOrgWebsite(request.getOrgId(), request.getWebsite()) != 1)
+            throw new Exception("Exception: value field failed to update");
+
+        return true;
     }
 
     @Override
-    public boolean removeOrgWebsite(String orgId) throws Exception {
-        if (orgId.length()==0 || orgId.length()>50){
-            throw new Exception("Exception: orgId is Invalid");
+    public boolean removeOrgWebsite(long orgId) throws Exception {
+        if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+            /*
+             * Because organisation already exists, set the field
+             * */
+            OrganisationInfo organisationInfo = new OrganisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            organisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun " +
+                    "the contract");
         }
-        return organisationDAOInterface.removeOrgWebsite(orgId);
+
+        if (organisationInfoRepository.removeOrgWebsite(orgId) != 1)
+            throw new Exception("Exception: value field not updated");
+
+        return true;
     }
 
     @Override
     public boolean addOrgAddress(AddOrgAddressRequest request) throws Exception {
-        if(request != null)
-        {
-            String orgId = request.getOrgId();
-            String address = request.getAddress();
-            if (orgId.length()==0 || orgId.length()>50){
-                throw new Exception("Exception: orgId does not satisfy the database constraints");
-            }
-            if (address.length()==0 || address.length()>255){
-                throw new Exception("Exception: address does not satisfy the database constraints");
-            }
+        if (request == null)
+            throw new Exception("Exception: request not set");
+        else if (request.getAddress() == null)
+            throw new Exception("Exception: value not set");
+        else if (request.getAddress().isEmpty())
+            throw new Exception("Exception: invalid value length");
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
 
-            return organisationDAOInterface.addOrgAddress(orgId,address);
-        }
-        throw new Exception("Exception: request object is null");
+        if (organisationInfoRepository.addOrgAddress(request.getOrgId(), request.getAddress()) != 1)
+            throw new Exception("Exception: value field failed to update");
 
+        return true;
     }
 
     @Override
-    public boolean removeOrgAddress(String orgId) throws Exception {
-        if (orgId.length()==0 || orgId.length()>50){
-            throw new Exception("Exception: orgId is Invalid");
+    public boolean removeOrgAddress(long orgId) throws Exception {
+
+        if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+            /*
+             * Because organisation already exists, set the field
+             * */
+            OrganisationInfo organisationInfo = new OrganisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            organisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun " +
+                    "the contract");
         }
 
-        return organisationDAOInterface.removeOrgAddress(orgId);
-    }
+        if (organisationInfoRepository.removeOrgAddress(orgId) != 1)
+            throw new Exception("Exception: value field not updated");
 
-    @Override
-    public boolean addOrgImage(AddOrgImageRequest request) throws Exception {
-        if(request != null)
-        {
-            String orgId = request.getOrgId();
-            File image = request.getImage();
-
-            if (orgId.length()==0 || orgId.length()>50){
-                throw new Exception("Exception: orgId does not satisfy the database constraints");
-            }
-            if (image.isFile()){
-                throw new Exception("Exception: image cannot be uploaded to the server");
-            }
-            return organisationDAOInterface.addOrgImage(orgId, image);
-        }
-        throw new Exception("Exception: request object is null");
-    }
-
-    @Override
-    public boolean removeOrgImage(String orgId) throws Exception {
-        if (orgId.length()==0 || orgId.length()>50){
-            throw new Exception("Exception: orgId does not satisfy the database constraints");
-        }
-        return organisationDAOInterface.removeOrgImage(orgId);
-
-    }
-
-    @Override
-    public boolean addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception {
-        if(request != null)
-        {
-            String orgId = request.getOrgId();
-            File audit = request.getAudit();
-            if (orgId.length()==0 || orgId.length()>50){
-                throw new Exception("Exception: orgId does not satisfy the database constraints");
-            }
-            if (audit.isFile()){
-                throw new Exception("Exception: audit cannot be uploaded to the server");
-            }
-            return organisationDAOInterface.addOrgAuditDoc(orgId, audit);
-        }
-        throw new Exception("Exception: request object is null");
-    }
-
-    @Override
-    public boolean removeOrgAuditDoc(String orgId) throws Exception {
-        if (orgId.length()==0 || orgId.length()>50){
-            throw new Exception("Exception: orgId is Invalid");
-        }
-        return organisationDAOInterface.removeOrgAuditDoc(orgId);
-
+        return true;
     }
 
     @Override
     public boolean addOrgTaxRef(AddOrgTaxRefRequest request) throws Exception {
-        if(request != null)
-        {
-            String orgId = request.getOrgId();
-            String reference = request.getReference();
-            if (orgId.length()==0 || orgId.length()>50){
-                throw new Exception("Exception: orgId does not satisfy the database constraints");
-            }
-            if (reference.length()==0 || reference.length()>255){
-                throw new Exception("Exception: reference does not satisfy the database constraints");
-            }
+        if (request == null)
+            throw new Exception("Exception: request not set");
 
-            return organisationDAOInterface.addOrgTaxRef(orgId, reference);
-        }
-        throw new Exception("Exception: request object is null");
+        else if (request.getReference() == null)
+            throw new Exception("Exception: tax reference not set");
+
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        ServerAccess access = new ServerAccess();
+
+        String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
+
+        access.uploadTaxReference(request.getOrgId(),name,request.getReference());
+
+        if (organisationInfoRepository.addOrgTaxRef(request.getOrgId(), "provided") != 1)
+            throw new Exception("Exception: value field failed to update");
+
+        return true;
     }
 
     @Override
-    public boolean removeOrgTaxRef(String orgId) throws Exception {
-        if (orgId.length()==0 || orgId.length()>50){
-            throw new Exception("Exception: orgId is Invalid");
+    public boolean removeOrgTaxRef(long orgId) throws Exception {
+
+        if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+            /*
+             * Because organisation already exists, set the field
+             * */
+            OrganisationInfo organisationInfo = new OrganisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            organisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun " +
+                    "the contract");
         }
-        return organisationDAOInterface.removeOrgTaxRef(orgId);
 
-    }
+        if (organisationInfoRepository.removeOrgTaxRef(orgId) != 1)
+            throw new Exception("Exception: tax reference field not updated");
 
-    @Override
-    public boolean addOrgAuditor(AddOrgAuditorRequest request) throws Exception {
-        if(request != null)
-        {
-            String orgId = request.getOrgId();
-            String auditor = request.getAuditor();
-            if (orgId.length()==0 || orgId.length()>50){
-                throw new Exception("Exception: orgId does not satisfy the database constraints");
-            }
-            if (auditor.length()==0 || auditor.length()>255){
-                throw new Exception("Exception: auditor does not satisfy the database constraints");
-            }
-            return organisationDAOInterface.addOrgAuditor(orgId, auditor);
-        }
-        throw new Exception("Exception: request object is null");
-    }
-
-    @Override
-    public boolean removeOrgAuditor(String orgId) throws Exception {
-        if (orgId.length()==0 || orgId.length()>50){
-            throw new Exception("Exception: orgId is Invalid");
-        }
-        return organisationDAOInterface.removeOrgAuditor(orgId);
-
-    }
-
-    @Override
-    public boolean addOrgCommittee(AddOrgCommitteeRequest request) throws Exception {
-        if(request != null)
-        {
-            String orgId = request.getOrgId();
-            String committee = request.getCommittee();
-            if (orgId.length()==0 || orgId.length()>50){
-                throw new Exception("Exception: orgId does not satisfy the database constraints");
-            }
-            if (committee.length()==0 || committee.length()>255){
-                throw new Exception("Exception: committee does not satisfy the database constraints");
-            }
-            return organisationDAOInterface.addOrgCommittee(orgId, committee);
-        }
-        throw new Exception("Exception: request object is null");
-    }
-
-    @Override
-    public boolean removeOrgCommittee(String orgId) throws Exception {
-        if (orgId.length()==0 || orgId.length()>50){
-            throw new Exception("Exception: orgId is Invalid");
-        }
-        return organisationDAOInterface.removeOrgCommittee(orgId);
-
-    }
-
-    @Override
-    public boolean addOrgDonationInfo(AddOrgDonationInfoRequest request) throws Exception {
-        if(request != null)
-        {
-            String orgId = request.getOrgId();
-            String info = request.getOrgInfo();
-            if (orgId.length()==0 || orgId.length()>50){
-                throw new Exception("Exception: orgId does not satisfy the database constraints");
-            }
-            if (info.length()==0 || info.length()>255){
-                throw new Exception("Exception: info does not satisfy the database constraints");
-            }
-            return organisationDAOInterface.addOrgDonationInfo(orgId, info);
-        }
-        throw new Exception("Exception: request object is null");
-    }
-
-    @Override
-    public boolean removeOrgDonationInfo(String orgId) throws Exception {
-        if (orgId.length()==0 || orgId.length()>50){
-            throw new Exception("Exception: orgId is Invalid");
-        }
-        return organisationDAOInterface.removeOrgDonationInfo(orgId);
+        return true;
     }
 
     @Override
     public boolean addOrgSocials(AddSocialsRequest request) throws Exception {
-        if(request != null)
-        {
-            String orgId = request.getOrgId();
-            String type = request.getType();
-            String url = request.getUrl();
-            if (orgId.length()==0 || orgId.length()>50){
-                throw new Exception("Exception: orgId does not satisfy the database constraints");
-            }
-            if (type.length()==0 || type.length()>255){
-                throw new Exception("Exception: type is Invalid");
-            }
-            if (url.length()==0 || url.length()>255){
-                throw new Exception("Exception: url does not satisfy the database constraints");
-            }
+        if (request == null)
+            throw new Exception("Exception: request is not set");
 
-            return organisationDAOInterface.addOrgSocials(orgId,type,url);
-        }
+        else if (request.getType() == null)
+            throw new Exception("Exception: request type is not set");
 
-        throw new Exception("Exception: request object is null");
+        else if (request.getUrl().isEmpty())
+            throw new Exception("Exception: url is empty");
+
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: request id does not exist");
+
+        if (request.getType().trim().equalsIgnoreCase("twitter")) {
+            if (organisationInfoRepository.addTwitter(request.getOrgId(), request.getUrl()) != 1)
+                throw new Exception("Exception: social not added");
+        } else if (request.getType().trim().equalsIgnoreCase("instagram")) {
+            if (organisationInfoRepository.addInstagram(request.getOrgId(), request.getUrl()) != 1)
+                throw new Exception("Exception: social not added");
+        } else if (request.getType().trim().equalsIgnoreCase("facebook")) {
+            if (organisationInfoRepository.addFacebook(request.getOrgId(), request.getUrl()) != 1)
+                throw new Exception("Exception: social not added");
+        } else throw new Exception("Exception: social not identified");
+
+        return true;
     }
 
     @Override
-    public boolean removeOrgSocials(String orgId, String type) throws Exception {
-        if (orgId.length()==0 || orgId.length()>50){
-            throw new Exception("Exception: orgId is Invalid");
+    public boolean removeOrgSocials(long orgId, String type) throws Exception {
+
+        if (type == null)
+            throw new Exception("Exception: request type is not set");
+
+        else if (type.isEmpty())
+            throw new Exception("Exception: type is empty");
+
+        else if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: request id does not exist");
+
+        if (type.trim().equalsIgnoreCase("twitter")) {
+            if (organisationInfoRepository.removeTwitter(orgId) != 1)
+                throw new Exception("Exception: social not removed");
+        } else if (type.trim().equalsIgnoreCase("instagram")) {
+            if (organisationInfoRepository.removeInstagram(orgId) != 1)
+                throw new Exception("Exception: social not removed");
+        } else if (type.trim().equalsIgnoreCase("facebook")) {
+            if (organisationInfoRepository.removeFacebook(orgId) != 1)
+                throw new Exception("Exception: social not removed");
+        } else throw new Exception("Exception: social not identified");
+
+        return true;
+    }
+
+    @Override
+    public boolean addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception {
+        if (request == null)
+            throw new Exception("Exception: request not set");
+
+        else if (request.getAudit() == null)
+            throw new Exception("Exception: tax reference not set");
+
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        ServerAccess access = new ServerAccess();
+
+        String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
+
+        access.uploadAuditDocument(request.getOrgId(),name,request.getAudit());
+
+        if (organisationInfoRepository.addAuditDoc(request.getOrgId(), "provided") != 1)
+            throw new Exception("Exception: value field failed to update");
+
+        return true;
+    }
+
+    @Override
+    public boolean removeOrgAuditDoc(long orgId) throws Exception {
+        if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+            /*
+             * Because organisation already exists, set the field
+             * */
+            OrganisationInfo organisationInfo = new OrganisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            organisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun the contract");
         }
-        return organisationDAOInterface.removeOrgSocials(orgId, type);
+
+        if (organisationInfoRepository.removeAuditDoc(orgId) != 1)
+            throw new Exception("Exception: tax reference field not updated");
+
+        return true;
+    }
+
+    @Override
+    public boolean addOrgAuditor(AddOrgAuditorRequest request) throws Exception {
+        if (request == null)
+            throw new Exception("Exception: request not set");
+        else if (request.getAuditor() == null)
+            throw new Exception("Exception: value not set");
+        else if (request.getAuditor().isEmpty())
+            throw new Exception("Exception: invalid value length");
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.addAuditor(request.getOrgId(), request.getAuditor()) != 1)
+            throw new Exception("Exception: value field failed to update");
+
+        return true;
+    }
+
+    @Override
+    public boolean removeOrgAuditor(long orgId) throws Exception {
+        if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+            /*
+             * Because organisation already exists, set the field
+             * */
+            OrganisationInfo organisationInfo = new OrganisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            organisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun the contract");
+        }
+
+        if (organisationInfoRepository.removeAuditor(orgId) != 1)
+            throw new Exception("Exception: tax reference field not updated");
+
+        return true;
+    }
+
+    @Override
+    public boolean addOrgCommittee(AddOrgCommitteeRequest request) throws Exception {
+        if (request == null)
+            throw new Exception("Exception: request not set");
+        else if (request.getCommittee() == null)
+            throw new Exception("Exception: value not set");
+        else if (request.getCommittee().isEmpty())
+            throw new Exception("Exception: invalid value length");
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.addCommittee(request.getOrgId(), request.getCommittee()) != 1)
+            throw new Exception("Exception: value field failed to update");
+
+        return true;
+    }
+
+    @Override
+    public boolean removeOrgCommittee(long orgId) throws Exception {
+        if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+            /*
+             * Because organisation already exists, set the field
+             * */
+            OrganisationInfo organisationInfo = new OrganisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            organisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun the contract");
+        }
+
+        if (organisationInfoRepository.removeCommittee(orgId) != 1)
+            throw new Exception("Exception: tax reference field not updated");
+
+        return true;
+    }
+
+    @Override
+    public boolean addOrgDonationInfo(AddOrgDonationInfoRequest request) throws Exception {
+        return false;
+    }
+
+    @Override
+    public boolean removeOrgDonationInfo(long orgId) throws Exception {
+        return false;
     }
 
     @Override
     public boolean addOrgNGO(AddOrgNGORequest request) throws Exception {
-        if(request != null) {
-            String orgId = request.getOrgId();
-            String ngoNumber = request.getNgoNumber();
-            Date ngoDate = request.getNgoDate();
+        if (request == null)
+            throw new Exception("Exception: request not set");
+        else if (request.getNgoNumber() == null)
+            throw new Exception("Exception: value not set");
+        else if (request.getNgoNumber().isEmpty())
+            throw new Exception("Exception: invalid value length");
+        else if (request.getNgoDate() == null)
+            throw new Exception("Exception: value not set");
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
 
-            if (orgId.length()==0 || orgId.length()>50){
-                throw new Exception("Exception: orgId does not satisfy the database constraints");
-            }
-            if (ngoNumber.length()==0 || ngoNumber.length()>255){
-                throw new Exception("Exception: nogNumber does not satisfy the database constraints");
-            }
+        if (organisationInfoRepository.addNGONumber(request.getOrgId(), request.getNgoNumber()) != 1)
+            throw new Exception("Exception: value field failed to update");
+        if (organisationInfoRepository.addNGODate(request.getOrgId(), request.getNgoDate()) != 1)
+            throw new Exception("Exception: value field failed to update");
 
-
-            return organisationDAOInterface.addOrgNGO(orgId, ngoNumber, ngoDate);
-        }
-        throw new Exception("Exception: request object is null");
+        return true;
     }
 
     @Override
-    public boolean removeOrgNGO(String orgId) throws Exception {
-        if (orgId.length()==0 || orgId.length()>50){
-            throw new Exception("Exception: orgId is Invalid");
+    public boolean removeOrgNGO(long orgId) throws Exception {
+        if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+            /*
+             * Because organisation already exists, set the field
+             * */
+            OrganisationInfo organisationInfo = new OrganisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            organisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun the contract");
         }
-        return organisationDAOInterface.removeOrgNGO(orgId);
+
+        if (organisationInfoRepository.removeNGONUmber(orgId) != 1)
+            throw new Exception("Exception: tax reference field not updated");
+
+        return true;
     }
 
     @Override
     public boolean addOrgEstDate(AddOrgEstDateRequest request) throws Exception {
-        if(request != null)
-        {
-            String orgId = request.getOrgId();
-            Date date = request.getDate();
-            if (orgId.length()==0 || orgId.length()>50){
-                throw new Exception("Exception: orgId does not satisfy the database constraints");
-            }
+        if (request == null)
+            throw new Exception("Exception: request not set");
+        else if (request.getDate() == null)
+            throw new Exception("Exception: value not set");
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
 
-            return organisationDAOInterface.addOrgEstDate(orgId, date);
-        }
-        throw new Exception("Exception: request object is null");
+        if (organisationInfoRepository.addEstDate(request.getOrgId(), request.getDate()) != 1)
+            throw new Exception("Exception: value field failed to update");
+
+        return true;
     }
 
     @Override
-    public boolean removeOrgEstDate(String orgId) throws Exception {
-        if (orgId.length()==0 || orgId.length()>50){
-            throw new Exception("Exception: orgId is Invalid");
+    public boolean removeOrgEstDate(long orgId) throws Exception {
+        if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+            /*
+             * Because organisation already exists, set the field
+             * */
+            OrganisationInfo organisationInfo = new OrganisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            organisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun the contract");
         }
-        return organisationDAOInterface.removeOrgEstDate(orgId);
 
-    }*/
+        if (organisationInfoRepository.removeEstDate(orgId) != 1)
+            throw new Exception("Exception: tax reference field not updated");
 
+        return true;
+    }
+
+    @Override
+    public boolean addOrgImage(AddOrgImageRequest request) throws Exception {
+        if (request == null)
+            throw new Exception("Exception: request not set");
+
+        else if (request.getImage() == null)
+            throw new Exception("Exception: tax reference not set");
+
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        ServerAccess access = new ServerAccess();
+
+        String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
+
+        access.uploadImageJPG(request.getOrgId(),name,request.getImage());
+
+        int numImages = organisationInfoRepository.selectOrganisationInfo(request.getOrgId()).getNumberOfImages();
+
+        if (organisationInfoRepository.incrementImage(request.getOrgId(), numImages + 1) != 1)
+            throw new Exception("Exception: value field failed to update");
+
+        return true;
+    }
+
+    @Override
+    public boolean removeOrgImage(long orgId) throws Exception {
+
+        if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+            /*
+             * Because organisation already exists, set the field
+             * */
+            OrganisationInfo organisationInfo = new OrganisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            organisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun the contract");
+        }
+
+        int numImages = organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfImages();
+
+        if (organisationInfoRepository.decrementImage(orgId, numImages - 1) != 1)
+            throw new Exception("Exception: tax reference field not updated");
+
+        return true;
+    }
+
+    public String getMd5(String input) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+
+            byte[] messageDigest = md.digest(input.getBytes());
+
+            BigInteger no = new BigInteger(1, messageDigest);
+
+            String hashtext = no.toString(16);
+            while (hashtext.length() < 32) {
+                hashtext = "0" + hashtext;
+            }
+            return hashtext;
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    /*
+    * points
+    * points
+    * points
+    * */
+
+    @Override
+    public boolean confirmValidity(Long orgId,Long adminId,String type,boolean confirmValidity) throws Exception
+    {
+        if(orgId == null)
+            throw new Exception("Exception: organisation id is not set");
+        else if(adminId == null)
+            throw new Exception("Exception: admin id is not set");
+        else if(type == null)
+            throw new Exception("Exception: type is not set");
+        else if(type.isEmpty())
+            throw new Exception("Exception: type is empty");
+        else if(userRepository.isAdmin(adminId) == null)
+            throw new Exception("Exception: user unauthorized");
+        /*
+        * check if ID belongs to user
+        */
+
+        /*
+        * true: for valid
+        * false: invalid
+        * */
+        if(type.equalsIgnoreCase("address"))
+        {
+            Integer dps = 0, currentPoints = 0;
+            int res = confirmValidity ? organisationPointsRepository.Address(orgId,true) : organisationPointsRepository.Address(orgId,false);
+            if(res != 1)
+                throw new Exception("Exception: address validity not confirmed");
+
+            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
+            if(certificate_tmp == null) /*perform rollback*/
+            {
+                res = confirmValidity ? organisationPointsRepository.Address(orgId,false) : organisationPointsRepository.Address(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }
+            else currentPoints = certificate_tmp.getPoints();
+
+            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+
+            if(res != 1)
+            {
+                res = confirmValidity ? organisationPointsRepository.Address(orgId,false) : organisationPointsRepository.Address(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }
+
+        }
+        else if(type.equalsIgnoreCase("audit"))
+        {
+            Integer currentPoints = 0, dps = 0;
+            Integer res = confirmValidity ? organisationPointsRepository.Audit(orgId,true) : organisationPointsRepository.Audit(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: audit validity not confirmed");
+
+            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
+            if(certificate_tmp == null) /*perform rollback*/
+            {
+                res = confirmValidity ? organisationPointsRepository.Audit(orgId,false) : organisationPointsRepository.Audit(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }
+            else currentPoints = certificate_tmp.getPoints();
+
+                    res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+
+            if(res != 1)
+            {
+                res = confirmValidity ? organisationPointsRepository.Audit(orgId,false) : organisationPointsRepository.Audit(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }
+        }
+        else if(type.equalsIgnoreCase("auditor"))
+        {
+            Integer currentPoints = 0,dps = 0;
+            Integer res = confirmValidity ? organisationPointsRepository.Auditor(orgId,true) : organisationPointsRepository.Auditor(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: auditor validity not confirmed");
+
+            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
+            if(certificate_tmp == null) /*perform rollback*/
+            {
+                res = confirmValidity ? organisationPointsRepository.Auditor(orgId,false) : organisationPointsRepository.Auditor(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }else currentPoints = certificate_tmp.getPoints();
+
+            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+
+            if(res != 1)
+            {
+                res = confirmValidity ? organisationPointsRepository.Auditor(orgId,false) : organisationPointsRepository.Auditor(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }
+        }
+        else if(type.equalsIgnoreCase("committee"))
+        {
+            Integer currentPoints = 0,dps = 0;
+            Integer res = confirmValidity ? organisationPointsRepository.Committee(orgId,true) : organisationPointsRepository.Committee(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: committee validity not confirmed");
+
+            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
+            if(certificate_tmp == null) /*perform rollback*/
+            {
+                res = confirmValidity ? organisationPointsRepository.Committee(orgId,false) : organisationPointsRepository.Committee(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }else currentPoints = certificate_tmp.getPoints();
+
+            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+
+            if(res != 1)
+            {
+                res = confirmValidity ? organisationPointsRepository.Committee(orgId,false) : organisationPointsRepository.Committee(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }
+        }
+        else if(type.equalsIgnoreCase("establishment_date"))
+        {
+            Integer currentPoints = 0,dps = 0;
+            Integer res = confirmValidity ? organisationPointsRepository.EstablishmentDate(orgId,true) : organisationPointsRepository.EstablishmentDate(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: establishment date validity not confirmed");
+
+            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
+            if(certificate_tmp == null) /*perform rollback*/
+            {
+                res = confirmValidity ? organisationPointsRepository.EstablishmentDate(orgId,false) : organisationPointsRepository.EstablishmentDate(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }else currentPoints = certificate_tmp.getPoints();
+
+            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+
+            if(res != 1)
+            {
+                res = confirmValidity ? organisationPointsRepository.EstablishmentDate(orgId,false) : organisationPointsRepository.EstablishmentDate(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }
+        }
+        else if(type.equalsIgnoreCase("facebook"))
+        {
+            Integer currentPoints = 0,dps = 0;
+            Integer res = confirmValidity ? organisationPointsRepository.Facebook(orgId,true) : organisationPointsRepository.Facebook(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: facebook validity not confirmed");
+
+            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
+            if(certificate_tmp == null) /*perform rollback*/
+            {
+                res = confirmValidity ? organisationPointsRepository.Facebook(orgId,false) : organisationPointsRepository.Facebook(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }else currentPoints = certificate_tmp.getPoints();
+
+            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+
+            if(res != 1)
+            {
+                res = confirmValidity ? organisationPointsRepository.Facebook(orgId,false) : organisationPointsRepository.Facebook(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }
+        }
+        else if(type.equalsIgnoreCase("instagram"))
+        {
+            Integer currentPoints = 0,dps = 0;
+            Integer res = confirmValidity ? organisationPointsRepository.Instagram(orgId,true) : organisationPointsRepository.Instagram(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: instagram validity not confirmed");
+
+            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
+            if(certificate_tmp == null) /*perform rollback*/
+            {
+                res = confirmValidity ? organisationPointsRepository.Instagram(orgId,false) : organisationPointsRepository.Instagram(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }
+            else currentPoints = certificate_tmp.getPoints();
+            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+
+            if(res != 1)
+            {
+                res = confirmValidity ? organisationPointsRepository.Instagram(orgId,false) : organisationPointsRepository.Instagram(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }
+        }
+        else if(type.equalsIgnoreCase("twitter"))
+        {
+            Integer currentPoints = 0,dps = 0;
+            Integer res = confirmValidity ? organisationPointsRepository.Twitter(orgId,true) : organisationPointsRepository.Twitter(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: twitter validity not confirmed");
+
+            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
+            if(certificate_tmp == null) /*perform rollback*/
+            {
+                res = confirmValidity ? organisationPointsRepository.Twitter(orgId,false) : organisationPointsRepository.Twitter(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }else currentPoints = certificate_tmp.getPoints();
+
+            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+
+            if(res != 1)
+            {
+                res = confirmValidity ? organisationPointsRepository.Twitter(orgId,false) : organisationPointsRepository.Twitter(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }
+        }
+        else if(type.equalsIgnoreCase("ngo_date"))
+        {
+            Integer currentPoints = 0,dps = 0;
+            Integer res = confirmValidity ? organisationPointsRepository.NGO_Date(orgId,true) : organisationPointsRepository.NGO_Date(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: NGO date validity not confirmed");
+
+            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
+            if(certificate_tmp == null) /*perform rollback*/
+            {
+                res = confirmValidity ? organisationPointsRepository.NGO_Date(orgId,false) : organisationPointsRepository.NGO_Date(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }else currentPoints = certificate_tmp.getPoints();
+
+            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+
+            if(res != 1)
+            {
+                res = confirmValidity ? organisationPointsRepository.NGO_Date(orgId,false) : organisationPointsRepository.NGO_Date(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }
+        }
+        else if(type.equalsIgnoreCase("ngo_number"))
+        {
+            Integer currentPoints = 0,dps = 0;
+            Integer res = confirmValidity ? organisationPointsRepository.NGO_Number(orgId,true) : organisationPointsRepository.NGO_Number(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: NGO number validity not confirmed");
+
+            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
+            if(certificate_tmp == null) /*perform rollback*/
+            {
+                res = confirmValidity ? organisationPointsRepository.NGO_Number(orgId,false) : organisationPointsRepository.NGO_Number(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }else currentPoints = certificate_tmp.getPoints();
+
+            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+
+            if(res != 1)
+            {
+                res = confirmValidity ? organisationPointsRepository.NGO_Number(orgId,false) : organisationPointsRepository.NGO_Number(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }
+        }
+        else if(type.equalsIgnoreCase("tax_raf"))
+        {
+            Integer currentPoints = 0,dps = 0;
+            Integer res = confirmValidity ? organisationPointsRepository.taxRaf(orgId,true) : organisationPointsRepository.taxRaf(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: tax raf validity not confirmed");
+
+            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
+            if(certificate_tmp == null) /*perform rollback*/
+            {
+                res = confirmValidity ? organisationPointsRepository.taxRaf(orgId,false) : organisationPointsRepository.taxRaf(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }else currentPoints = certificate_tmp.getPoints();
+
+            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+
+            if(res != 1)
+            {
+                res = confirmValidity ? organisationPointsRepository.taxRaf(orgId,false) : organisationPointsRepository.taxRaf(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }
+        }
+        else if(type.equalsIgnoreCase("website"))
+        {
+            Integer currentPoints = 0,dps = 0;
+            Integer res = confirmValidity ? organisationPointsRepository.Website(orgId,true) : organisationPointsRepository.Website(orgId,false);
+            if(res != -1)
+                throw new Exception("Exception: address validity not confirmed");
+
+            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
+            if(certificate_tmp == null) /*perform rollback*/
+            {
+                res = confirmValidity ? organisationPointsRepository.Website(orgId,false) : organisationPointsRepository.Website(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }else currentPoints = certificate_tmp.getPoints();
+
+            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+
+            if(res != 1)
+            {
+                res = confirmValidity ? organisationPointsRepository.Website(orgId,false) : organisationPointsRepository.Website(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }
+        }
+        else throw new Exception("Exception: type is incorrect");
+        return false;
+    }
+
+
+    @Override
+    public OrganisationPoints selectOrganisationPoints(long orgId) throws Exception {
+
+        if(organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: id does not exist");
+        return null;
+    }
+
+    @Override
+    public Integer numberOfImages(Long orgId) throws Exception
+    {
+        if(orgId == null)
+            throw new Exception("Exception: id is not set");
+
+        else if(organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: id does not exist");
+
+        Integer res = organisationPointsRepository.getNumberOfEmages(orgId);
+        if(res != 1)
+            throw new Exception("Exception: id does not exist");
+
+        return res;
+    }
 }

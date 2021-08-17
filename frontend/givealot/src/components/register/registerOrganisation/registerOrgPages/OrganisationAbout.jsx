@@ -93,8 +93,7 @@ export class OrganisationAbout extends Component {
 
                         <div >
                             <OutlinedInput type="type"
-                                // label="Multiline"
-                               multiline
+                               multiline={true}
                                maxRows={50}
                                defaultValue={values.orgDescription}
                                // onChange={this.handleChange}

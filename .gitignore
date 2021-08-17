@@ -28,6 +28,8 @@
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
 
+
+
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries
@@ -102,3 +104,4 @@ modules.xml
 /backend/target/classes/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.class
 /backend/target/classes/com/GiveaLot/givealot/Blockchain/contract/CertificateContract$5.class
 /backend/target/
+/backend/src/main/resources/test.txt

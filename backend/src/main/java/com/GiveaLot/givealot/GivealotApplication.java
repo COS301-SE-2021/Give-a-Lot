@@ -9,7 +9,6 @@ import org.springframework.core.env.Environment;
 @SpringBootApplication
 public class GivealotApplication {
 
-
 	public static void main(String[] args) {
 		SpringApplication.run(GivealotApplication.class, args);
 	}

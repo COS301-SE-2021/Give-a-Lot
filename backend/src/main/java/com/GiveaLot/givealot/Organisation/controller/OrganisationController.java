@@ -26,6 +26,7 @@ public class OrganisationController
     }
 
     /* tested, works well */
+    @CrossOrigin("*")
     @PostMapping("/add/org")
     public responseJSON addOrganisation(@RequestBody @NonNull AddOrganisationRequest body)
     {

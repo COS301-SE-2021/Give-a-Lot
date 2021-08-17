@@ -42,6 +42,7 @@ function App() {
                 <Browse />
             </Route>
        </Switch>
+       {/*<Admin />*/}
    </div>
     
   );

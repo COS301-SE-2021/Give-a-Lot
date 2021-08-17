@@ -9,6 +9,10 @@ import OutlinedInput from "@material-ui/core/OutlinedInput";
 import InputAdornment from "@material-ui/core/InputAdornment";
 // import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
 import DescriptionIcon from '@material-ui/icons/Description';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+
 
 export class OrganisationAbout extends Component {
 
@@ -68,6 +72,23 @@ export class OrganisationAbout extends Component {
                                    </InputAdornment>
                                }
                             />
+                            {/*<InputLabel id="demo-simple-select-outlined-label" className="inputBasic">sector</InputLabel>*/}
+                            {/*<Select*/}
+                            {/*    labelId="demo-simple-select-outlined-label"*/}
+                            {/*    id="demo-simple-select-outlined"*/}
+                            {/*    // value={age}*/}
+                            {/*    defaultValue={values.sector}*/}
+                            {/*    onChange={handleChange('sector')}*/}
+                            {/*    // onChange={handleChange}*/}
+                            {/*    label="Age"*/}
+                            {/*>*/}
+                            {/*    <MenuItem value="">*/}
+                            {/*        <em>None</em>*/}
+                            {/*    </MenuItem>*/}
+                            {/*    <MenuItem value={10}>Ten</MenuItem>*/}
+                            {/*    <MenuItem value={20}>Twenty</MenuItem>*/}
+                            {/*    <MenuItem value={30}>Thirty</MenuItem>*/}
+                            {/*</Select>*/}
                         </div>
 
                         <div >

@@ -10,6 +10,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { withStyles } from '@material-ui/core/styles'
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
+import Axios from "axios";
 
 
 const useStyles = theme => ({
@@ -27,10 +28,10 @@ export class Upgrade extends Component {
 
     constructor (props) {
         super(props)
-        this.state = {
+       /* this.state = {
             startDate: new Date(),
 
-            status1: false,
+            status1: true,
             status2: false,
             status3: false,
             status4: false,
@@ -42,6 +43,11 @@ export class Upgrade extends Component {
             status10: false,
             status11: false,
             status12: false,
+        };*/
+
+        this.state = {
+            orgId: "1",
+            website: "",
         };
         this.handleChange = this.handleChange.bind(this);
         this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -59,20 +65,38 @@ export class Upgrade extends Component {
         console.log(this.state.startDate)
     }
 
-    onSubmit = () => {
+    onToast = () => {
         toast.success('upload success',{
             position: toast.POSITION.TOP_RIGHT
 
         });
     }
 
-render(){
+
+    handleInputChange = e => {
+        this.setState({website: e.target.value});
+
+    };
+    handleFormChange = e => {
+        e.preventDefault();
+        const data = {
+            orgId: this.state.orgId,
+            website: this.state.website
+        };
+        Axios
+            .post("http://localhost:8080/v1/organisation/add/website", data)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    };
+
+
+    render(){
     const { classes } = this.props;
 
-    let message
+  /*  let message
     if(this.state.status1){
         message = <div className="contain_Icon"><CheckCircleIcon className="tick_Icon"/></div>
-    }
+    }*/
 
 
     return (
@@ -84,21 +108,31 @@ render(){
                 </div>
                 <div className="upgrade_container">
                <div className="contain">
-                    <form className="upgrade_form">
+                    <form className="upgrade_form" onSubmit={this.handleFormChange}>
                         <input
                             name="website"
                             type="text"
                             placeholder="Enter your website url.."
                             className="input1"
+                            onChange={this.handleInputChange}
                         />
-                        <input type="submit" value="Submit" className="submit1" onClick={this.onSubmit}/>
-                        {message}
+                        <button type="submit" className="submit1" onClick={this.onToast}>Submit </button>
+                        {}
 
                         <div className="form-group">
                             <ToastContainer/>
                         </div>
 
                     </form>
+
+
+
+
+
+
+
+
+
                    <form className="upgrade_form">
                        <input
                            name="address"
@@ -107,7 +141,7 @@ render(){
                            className="input1"
                        />
 
-                       <input type="submit" value="Submit" className="submit1"/>
+                       <input type="submit" value="Submit" className="submit1" onClick={this.onSubmit}/>
                        { }
 
                    </form>
@@ -130,7 +164,7 @@ render(){
                            </div>
 
                        </form>
-                          <input type="submit" value="Submit" className="submit1"/>
+                          <input type="submit" value="Submit" className="submit1" onClick={this.onSubmit}/>
                           {}
 
                       </div>
@@ -147,7 +181,7 @@ render(){
                            placeholder="Enter your social media url"
                            className="input1"
                        />
-                       <input type="submit" value="Submit" className="submit1"/>
+                       <input type="submit" value="Submit" className="submit1" onClick={this.onSubmit}/>
                        {}
 
                    </form>
@@ -158,7 +192,7 @@ render(){
                            placeholder="Enter your social media url"
                            className="input1"
                        />
-                       <input type="submit" value="Submit" className="submit1"/>
+                       <input type="submit" value="Submit" className="submit1" onClick={this.onSubmit}/>
                        {}
 
                    </form>
@@ -184,7 +218,7 @@ render(){
                               <AddAPhotoIcon  color="default"/> Choose a file
                            </Button>
                        </label>
-                       <input type="submit" value="Upload" className="img_submit"/>
+                       <input type="submit" value="Upload" className="img_submit" onClick={this.onSubmit}/>
                        {}
 
                    </div>
@@ -201,7 +235,7 @@ render(){
                             placeholder="Enter your Tax reference number"
                             className="input1"
                         />
-                        <input type="submit" value="Submit" className="submit1"/>
+                        <input type="submit" value="Submit" className="submit1" onClick={this.onSubmit}/>
 
                         {}
                     </form>
@@ -213,7 +247,7 @@ render(){
                             placeholder="Enter your registered NGO number"
                             className="input1"
                         />
-                        <input type="submit" value="Submit" className="submit1"/>
+                        <input type="submit" value="Submit" className="submit1" onClick={this.onSubmit}/>
                         {}
                     </form>
 
@@ -224,7 +258,7 @@ render(){
                             placeholder="Enter Committee details"
                             className="input1"
                         />
-                        <input type="submit" value="Submit" className="submit1"/>
+                        <input type="submit" value="Submit" className="submit1" onClick={this.onSubmit}/>
                         {}
                     </form>
 
@@ -246,7 +280,7 @@ render(){
                             </div>
 
                         </form>
-                        <input type="submit" value="Submit" className="submit1"/>
+                        <input type="submit" value="Submit" className="submit1" onClick={this.onSubmit}/>
                         {}
                     </div>
 
@@ -262,7 +296,7 @@ render(){
                     <form className="upgrade_form">
 
                         <input type="file" name="file"  className="form_file"/>
-                        <input type="submit" value="Upload" className="file_submit"/>
+                        <input type="submit" value="Upload" className="file_submit" onClick={this.onSubmit}/>
                         {}
                     </form>
 
@@ -275,7 +309,7 @@ render(){
                     <form className="upgrade_form">
 
                         <input type="file" name="file"  className="form_file"/>
-                        <input type="submit" value="Upload" className="file_submit"/>
+                        <input type="submit" value="Upload" className="file_submit" onClick={this.onSubmit}/>
                         {}
                     </form>
 
@@ -291,7 +325,7 @@ render(){
                     <form className="upgrade_form">
 
                         <input type="file" name="file"  className="form_file"/>
-                        <input type="submit" value="Upload" className="file_submit"/>
+                        <input type="submit" value="Upload" className="file_submit" onClick={this.onSubmit}/>
                         { }
                     </form>
 

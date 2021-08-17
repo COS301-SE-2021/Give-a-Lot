@@ -1,5 +1,5 @@
 import './App.css';
-// import Admin from "./components/admin/Admin"
+import Admin from "./components/admin/Admin"
 import "./components/basicUser/browse/css/browse.css";
 import "./components/basicUser/browse/css/recommended.css";
 import "./components/basicUser/browse/css/navbar.css";

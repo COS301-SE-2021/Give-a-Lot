@@ -1,8 +1,0 @@
-com\givealot\givealot\Organisation\dao\OrganisationDASTemp.class
-com\givealot\givealot\Organisation\model\Organisation.class
-com\givealot\givealot\Organisation\dao\OrganisationDASPostgre.class
-com\givealot\givealot\Organisation\service\OrganisationService.class
-com\givealot\givealot\Organisation\dao\OrganisationDAOInterface.class
-com\givealot\givealot\Organisation\datasource\PostgreDataSource.class
-com\givealot\givealot\GivealotApplication.class
-com\givealot\givealot\Organisation\controller\OrganisationController.class

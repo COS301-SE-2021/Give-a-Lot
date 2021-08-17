@@ -87,10 +87,14 @@ public class OrganisationServiceImp implements OrganisationService {
                 organisation.getContactPerson() == null|| organisation.getSlogan() == null)
             throw new Exception("invalid field provided: null");
 
+
+        System.out.println("hello there");
+
+
         organisation.setDirectory("/home/ubuntu/Organisations/");
         organisation.setStatus("active");
 
-        if(organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()).getOrgId() != null)
+        if(organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()) != null)
             throw new Exception("Email already exists");
 
         else if (organisation.getOrgName().isEmpty() || organisation.getOrgName().length()>255)
@@ -123,47 +127,49 @@ public class OrganisationServiceImp implements OrganisationService {
         else if (organisation.getSlogan().isEmpty() || organisation.getSlogan().length()>255)
             throw new Exception("Exception: orgSlogan does not satisfy the database constraints");
 
+        // salts and hashes of passwords
+        String salt = getMd5(organisation.getOrgEmail());
+        String salted = getMd5(organisation.getPassword() + salt);
+        organisation.setPassword(salted);
+        organisationRepository.save(organisation);
 
-        /** Setup dates **/
+        long id = organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()).getOrgId();
+        String directory = "/home/ubuntu/Organisations/" + id;
+        organisationRepository.updateRepo(id,directory);
 
-        Date dateCurrent = new Date();
+        organisationInfoRepository.save(new OrganisationInfo((long) id));
+        organisationPointsRepository.save(new OrganisationPoints((long) id));
+
+        LocalDate date = LocalDate.now(); // registration date
+
+        //organisation is saved at this point
+
+        // save dates
+        /*Date dateCurrent = new Date();
         Date dateEx = new Date();
-
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-
         String dateCreated = format.format(dateCurrent);
 
         int year = dateCurrent.getYear();
         dateEx.setYear(year+1);
-        String dateExpiry = format.format(dateEx);
-
-        /** Salts and hashes password **/
-
-        String salt = getMd5(organisation.getOrgEmail());
-
-        String salted = getMd5(organisation.getPassword() + salt);
-
-        organisation.setPassword(salted);
+        String dateExpiry = format.format(dateEx);*/
 
         /** Create tables and directory **/
 
-        Certificate certificate = new Certificate(dateCreated,dateExpiry,0);
+        /*Certificate certificate;
+        try
+        {
+            ServerAccess access = new ServerAccess();
+            certificate = new Certificate(dateCreated,dateExpiry,0);
+            access.createOrganisationDirectory(id, organisation.getOrgName());
+        }
+        catch (Exception e)
+        {
+            throw new Exception("Exception : cert || server access -> " + e);
+        }
 
-        access.createOrganisationDirectory(organisation.getOrgId(), organisation.getOrgName());
-
-        long id = organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()).getOrgId();
-        String directory = "/home/ubuntu/Organisations/" + id;
-
-        organisationRepository.updateRepo(id,directory);
-
-        LocalDate date = LocalDate.now(); /* registration date */
-
-
-        organisationInfoRepository.save(new OrganisationInfo((long) id));
-        organisationPointsRepository.save(new OrganisationPoints((long) id));
         certificateRepository.save(certificate);
-
-        certificateService.addCertificate(id);
+        certificateService.addCertificate(id); */
         return true;
     }
 

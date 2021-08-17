@@ -1,10 +1,9 @@
 package com.GiveaLot.givealot.Login.service;
 
-import com.GiveaLot.givealot.Login.service.LoginService;
 import com.GiveaLot.givealot.Login.repository.*;
 import com.GiveaLot.givealot.Login.request.*;
 import com.GiveaLot.givealot.Login.response.*;
-import com.GiveaLot.givealot.User.dataclass.*;
+import com.GiveaLot.givealot.User.dataclass.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

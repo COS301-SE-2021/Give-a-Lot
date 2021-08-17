@@ -105,3 +105,5 @@ modules.xml
 /backend/target/classes/com/GiveaLot/givealot/Blockchain/contract/CertificateContract$5.class
 /backend/target/
 /backend/src/main/resources/test.txt
+/backend/src/main/resources/application.properties
+/backend/src/main/resources/application.yml

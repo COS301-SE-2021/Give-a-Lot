@@ -22,28 +22,28 @@ public class Certificate {
     )
     String dateCreated;
     @Column(
-            name = "date_expiry",
+            name = "dateExpiry",
             updatable = true,
             nullable = false
     )
     String dateExpiry;
     @Id
     @Column(
-            name = "org_id",
+            name = "orgId",
             updatable = false,
             nullable = false
     )
     long org_id;
 
     @Column(
-            name = "org_renewal",
+            name = "orgRenewal",
             updatable = false,
             nullable = false
     )
     boolean orgRenewal;
 
     @Column(
-            name = "admin_renewal",
+            name = "adminRenewal",
             updatable = true,
             nullable = false
     )

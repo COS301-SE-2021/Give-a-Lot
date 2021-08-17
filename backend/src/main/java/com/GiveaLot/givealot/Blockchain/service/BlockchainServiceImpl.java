@@ -1,8 +1,9 @@
 package com.GiveaLot.givealot.Blockchain.service;
-import com.GiveaLot.givealot.Blockchain.Repository.*;
+
+import com.GiveaLot.givealot.Blockchain.Repository.BlockChainRepository;
+import com.GiveaLot.givealot.Blockchain.contract.CertificateContract;
 import com.GiveaLot.givealot.Certificate.dataclass.SmartContractConfig;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.GiveaLot.givealot.Blockchain.contract.CertificateContract;
 import org.springframework.stereotype.Service;
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;

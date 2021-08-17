@@ -4,19 +4,27 @@ import com.GiveaLot.givealot.User.dataclass.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 
+@Repository
 public interface UserRepository extends JpaRepository<User,Long> {
     ////////////////////////////////////////////////////////// SELECT //////////////////////////////////////////////////////////
     @Query("SELECT s FROM User s WHERE s.email = ?1")
     User findUserByEmail(String email);
+
+
+    @Query("SELECT s FROM User s WHERE s.id = ?1")
+    User findUserById(long user_id);
 
     @Query("SELECT s FROM User s WHERE s.email = ?1 AND s.isAdmin = True")
     User isAdmin(String email);
 
     @Query("SELECT s FROM User s WHERE s.id = ?1 AND s.isAdmin = True")
     User isAdmin(long user_id);
+
+
 
     ///////////////////////////////////////////////////////// UPDATE //////////////////////////////////////////////////////////
 

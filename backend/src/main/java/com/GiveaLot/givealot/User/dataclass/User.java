@@ -6,32 +6,22 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Builder
-@AllArgsConstructor
 @Entity
-@Table(
-        name = "user",
-        uniqueConstraints = {
-                @UniqueConstraint(name = "user_email_unique", columnNames = "email"),
-        }
-)
+@Table(name = "users")
 public class User {
 
     @Id
-    @GeneratedValue(
-            generator = "user_sequence"
-    )
-    @GenericGenerator(
-            name = "user_sequence",
-            strategy = "org.hibernate.id.UUIDGenerator"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(
             name = "id",
             updatable = false,
-            nullable = false
+            nullable = false,
+            unique = true
     )
-    private long id;
+    private Long id;
 
     @Column(
             name = "firstname",
@@ -50,7 +40,8 @@ public class User {
     @Column(
             name = "email",
             nullable = false,
-            columnDefinition = "TEXT"
+            columnDefinition = "TEXT",
+            unique = true
     )
     private String email;
 
@@ -70,9 +61,9 @@ public class User {
 
     @Column(
             name = "activation_date",
-            columnDefinition = "TIMESTAMP"
+            columnDefinition = "TEXT"
     )
-    private LocalDateTime activateDate;
+    private String activateDate;
 
 
 
@@ -91,6 +82,15 @@ public class User {
         this.password = password;
     }
 
+    public User(Long id, String firstname, String lastname, String email, Boolean isAdmin, String password, String activateDate) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.isAdmin = isAdmin;
+        this.password = password;
+        this.activateDate = activateDate;
+    }
 
     ////////////////////////////////////////////////// GETTERS //////////////////////////////////////////////////
 
@@ -112,9 +112,7 @@ public class User {
         return password;
     }
 
-
-
-    public LocalDateTime getActivateDate() {
+    public String getActivateDate() {
         return activateDate;
     }
 
@@ -151,7 +149,7 @@ public class User {
 
 
 
-    public void setActivateDate(LocalDateTime activateDate) {
+    public void setActivateDate(String activateDate) {
         this.activateDate = activateDate;
     }
 

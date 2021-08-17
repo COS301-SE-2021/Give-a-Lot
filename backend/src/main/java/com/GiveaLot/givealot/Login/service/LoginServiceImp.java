@@ -1,21 +1,18 @@
 package com.GiveaLot.givealot.Login.service;
 
-import com.GiveaLot.givealot.Login.repository.LoginRepository;
-import com.GiveaLot.givealot.Login.request.LoginRequest;
-import com.GiveaLot.givealot.Login.response.LoginResponse;
-
-import com.GiveaLot.givealot.Login.request.LoginRequest;
-import com.GiveaLot.givealot.Login.response.LoginResponse;
-import com.GiveaLot.givealot.User.dataclass.User;
+import com.GiveaLot.givealot.Login.service.LoginService;
+import com.GiveaLot.givealot.Login.repository.*;
+import com.GiveaLot.givealot.Login.request.*;
+import com.GiveaLot.givealot.Login.response.*;
+import com.GiveaLot.givealot.User.dataclass.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Random;
 
 @Service
 public class LoginServiceImp implements LoginService{
     @Autowired
     LoginRepository loginRepository;
+
     @Override
     public LoginResponse loginGeneralUser(LoginRequest body) throws Exception{
 
@@ -26,7 +23,6 @@ public class LoginServiceImp implements LoginService{
         if(loginRepository.findUserByEmail(body.getEmail()) == null)
         {
             throw new Exception("user not found");
-
         }
         User user = loginRepository.findUserByEmail(body.getEmail());
 
@@ -38,7 +34,8 @@ public class LoginServiceImp implements LoginService{
     }
 
     @Override
-    public LoginResponse loginOrganisation(LoginRequest body)throws Exception {
+    public LoginResponse loginOrganisation(LoginRequest body)throws Exception
+    {
         if(body == null)
         {
             throw new Exception("please send a valid request");
@@ -80,5 +77,7 @@ public class LoginServiceImp implements LoginService{
         {
             throw new Exception("user password is incorrect");
         }
-        return new LoginResponse(true,"User logged in succesfully","1");    }
+        return new LoginResponse(true,"User logged in succesfully","1");
+
+    }
 }

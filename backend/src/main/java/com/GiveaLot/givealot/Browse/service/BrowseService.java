@@ -7,15 +7,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public interface BrowseService {
-
+public interface BrowseService
+{
     /*
     *  recommended based on user previous interactions,searches and default
     *  default -> organisations with more interaction compared to the rest
     * */
-    List<Organisations> getRecommendedOrganisations(Long string);
+    List<Organisations> getRecommendedOrganisations(Long string) throws Exception;
 
     List<browseOrganisationsBySectorResponse> browseOrganisationsBySectors() throws Exception;
-
-
 }

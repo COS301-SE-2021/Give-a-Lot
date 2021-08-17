@@ -3,12 +3,9 @@ package com.GiveaLot.givealot.Certificate.service;
 
 
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
-import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
-import com.GiveaLot.givealot.Organisation.requests.AddOrganisationRequest;
 import org.springframework.stereotype.Service;
 
-import javax.mail.internet.MimeMessage;
 import java.io.File;
 
 @Service

@@ -3,7 +3,10 @@ package com.GiveaLot.givealot.Organisation.model;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Builder

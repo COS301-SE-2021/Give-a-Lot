@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.sql.*;
+import java.sql.SQLException;
 
 @Service
 public class ReportServiceImpl implements ReportService {

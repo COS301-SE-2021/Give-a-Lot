@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /*
 * Todo:
 *  1) Register organisation - done
@@ -19,6 +21,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface OrganisationRepository extends JpaRepository<Organisations,Long>
 {
+    @Query("SELECT distinct o FROM Organisations AS o")
+    List<Organisations> getAllOrganisations();
+
     @Query("select o from Organisations o where o.orgId = ?1")
     Organisations selectOrganisationById(Long orgId);
 
@@ -37,6 +42,4 @@ public interface OrganisationRepository extends JpaRepository<Organisations,Long
 
     @Query("SELECT DISTINCT o.orgId FROM Organisations AS o WHERE o.orgEmail = ?1")
     long getOrgId(String orgEmail);
-
-
 }

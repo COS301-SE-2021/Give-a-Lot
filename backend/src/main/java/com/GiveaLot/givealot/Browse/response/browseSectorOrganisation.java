@@ -1,7 +1,5 @@
 package com.GiveaLot.givealot.Browse.response;
 
-import com.fasterxml.jackson.annotation.JsonRootName;
-
 /*
 * browse organisation by sector response helper class
 * */

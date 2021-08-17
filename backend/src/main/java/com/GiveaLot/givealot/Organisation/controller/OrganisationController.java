@@ -1,26 +1,22 @@
 package com.GiveaLot.givealot.Organisation.controller;
+
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
-import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
-import com.GiveaLot.givealot.Organisation.requests.AddOrganisationRequest;
 import com.GiveaLot.givealot.Organisation.requests.*;
 import com.GiveaLot.givealot.Organisation.service.OrganisationServiceImp;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
-
-import static java.util.List.of;
 
 @RequestMapping("v1/organisation")
 @CrossOrigin("*")
 @RestController
 public class OrganisationController
 {
-    private OrganisationServiceImp service;
-    private responseJSON response;
+    private final OrganisationServiceImp service;
+    private final responseJSON response;
 
     @Autowired
     public OrganisationController(OrganisationServiceImp service, responseJSON response)

@@ -1,4 +1,4 @@
-package com.GiveaLot.givealot.Report;
+package com.GiveaLot.givealot.Report.service;
 
 import java.io.File;
 

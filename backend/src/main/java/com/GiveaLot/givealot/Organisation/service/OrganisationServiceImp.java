@@ -126,8 +126,8 @@ public class OrganisationServiceImp implements OrganisationService {
 
         /** Setup dates **/
 
-        java.util.Date dateCurrent = new Date();
-        java.util.Date dateEx = new Date();
+        Date dateCurrent = new Date();
+        Date dateEx = new Date();
 
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 

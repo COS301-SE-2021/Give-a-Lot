@@ -9,10 +9,10 @@ public class RegisterUserRequest {
     private final String email;
     private final String password;
 
-    public RegisterUserRequest(@JsonProperty String firstName,
-                               @JsonProperty String lastName,
-                               @JsonProperty String email,
-                               @JsonProperty String password) {
+    public RegisterUserRequest(@JsonProperty("firstName") String firstName,
+                               @JsonProperty("lastName")  String lastName,
+                               @JsonProperty("email")  String email,
+                               @JsonProperty("password")  String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -42,5 +42,13 @@ public class RegisterUserRequest {
         return user;
     }
 
-
+    @Override
+    public String toString() {
+        return "RegisterUserRequest{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

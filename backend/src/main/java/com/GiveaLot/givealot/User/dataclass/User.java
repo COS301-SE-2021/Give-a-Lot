@@ -17,7 +17,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(
             name = "id",
-            updatable = false,
             nullable = false,
             unique = true
     )
@@ -116,7 +115,7 @@ public class User {
         return activateDate;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

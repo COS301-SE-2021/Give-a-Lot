@@ -36,7 +36,6 @@ public class UserServiceImp implements UserService {
         if(request.getFirstName()==null)
         {
             throw new Exception("Registration not set, firstname not valid");
-
         }
         if(request.getLastName() == null){
             throw new Exception("Registration not set, lastname not valid");
@@ -59,7 +58,7 @@ public class UserServiceImp implements UserService {
         newUser.setActivateDate(dateCreated);
 
         userRepository.save(newUser);
-        return false;
+        return true;
     }
 
 

@@ -27,12 +27,14 @@ public class UserController {
     }
 
     @PostMapping("/register/user")
-    public responseJSON addUser(@RequestBody @NonNull User body)
+    public responseJSON addUser(@RequestBody @NonNull RegisterUserRequest body)
     {
         response.setObject(null);
         try
         {
-            if(userServiceImp.Register(new RegisterUserRequest(body.getFirstname(),body.getLastname(),body.getEmail(),body.getPassword())))
+            System.out.println("hello");
+            System.out.println(body.toString());
+            if(userServiceImp.Register(new RegisterUserRequest(body.getFirstName(),body.getLastName(),body.getEmail(),body.getPassword())))
             {
                 response.setCode("user_add_ok_200");
                 response.setMessage("success");

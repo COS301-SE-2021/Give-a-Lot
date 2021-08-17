@@ -1,0 +1,40 @@
+.gallery{
+    flex: 4;
+}
+.OrgUpdateRight{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.userUpdateUpload{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.userUpdateImg{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.userUpdateIcon{
+    cursor: pointer;
+}
+
+.userUpdateButton{
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    background-color: #2d9499;
+    color: white;
+    font-weight: 600;
+}
+.GalOrgContainer{
+    display: flex;
+    margin-top: 20px;
+}

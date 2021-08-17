@@ -1,0 +1,153 @@
+
+/*
+search styles
+*/
+
+.search-container
+{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background: rgba(42, 42, 42, 0.8);
+    display: none;
+}
+
+/* 
+    not cosmetic 
+*/
+#search-close-sensor 
+{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background: rgba(42, 42, 42, 0);
+    display: none;
+}
+
+.search-input-icon-container
+{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0);
+    display: flex;
+    flex-direction: row;
+    top: 20px;
+    width: 300px;
+    justify-content: space-between;
+}
+
+.search-input-icon-container > input
+{
+    height: 30px;
+    width: 250px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.search-input-icon-container > img
+{
+    width: 40px;
+    position: relative;
+    top: -3px;
+    cursor: pointer;
+}
+
+.search-results
+{
+    z-index: 100;
+    top: 80px;
+    position: relative;
+    width: 620px;
+    left: 50%;
+    transform: translate(-50%,0);
+    background: #FFFFFF;
+    padding: 10px;
+    border-radius: 10px;
+    overflow-y: scroll;
+    max-height: 80vh;
+    display: none;
+}
+
+.organisation-orgName
+{
+    font-weight: 500;
+}
+
+.organisation-orgSlogan
+{
+    font-size: 10px;
+    margin-bottom: 15px;
+}
+
+.organisation-orgShortDescription
+{
+    font-size: 12px;
+    width: 400px;
+}
+
+/*
+ search results style - organisatons
+*/
+
+.organisation
+{
+
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(172, 172, 172, 0.36);
+    padding: 10px;
+    width: 600px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+.organisation > img
+{
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 20px;
+    border: 1px solid #FEC0C0;
+}
+
+.organisation-sector-preview-btn-container
+{
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.organisation-sector-preview-btn-container > p
+{
+    background: #D6E392;
+    font-size: 9px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 0 20px;
+}
+
+.organisation-sector-preview-btn-container > button {
+    border-radius: 3px;
+    color: white;
+    font-size: 10px;
+    background: #FF7575;
+    padding: 2px 0;
+    cursor: pointer;
+}
+
+#search-num-results 
+{
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    position: relative;
+    top: 50px;
+    left: -240px;
+}

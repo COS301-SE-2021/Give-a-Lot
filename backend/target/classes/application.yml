@@ -1,8 +1,8 @@
 app:
   datasource:
-    jdbc-url: jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz
-    username: iqvyaozz
-    password: JMDPprQmLVegi673UQgH93aNEOSvt2K1
+    jdbc-url: jdbc:postgresql://209.97.142.151:5432/
+    username: postgres
+    password: COS301-DsP
     pool-size: 30
 
 ---

@@ -110,32 +110,17 @@ export class Login extends Component {
                                    <FormError formErrors={this.state.formErrors} />
                                </div>
 
-                               <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
-                                   {/*<TextField type="type" name="email"*/}
-                                   {/*           */}
-                                   {/*   value={email} onChange={this.changeHandler}*/}
-                                   {/*   className="input" placeholder="Email"*/}
-                                   {/*   startAdornment={*/}
-                                   {/*       <InputAdornment position="start">*/}
-                                   {/*           <MailOutlineIcon className="loginIcon"/>*/}
-                                   {/*       </InputAdornment>*/}
-                                   {/*   }*/}
-                                   {/*/>*/}
-
-                                   <TextField
-                                       className="input"
-                                       onChange={this.changeHandler}
-                                       id="input-with-icon-textfield"
-                                       placeholder="Email"
-                                       InputProps={{
-                                           startAdornment: (
-                                               <InputAdornment position="start">
-                                                   <MailOutlineIcon />
-                                               </InputAdornment>
-                                           ),
-                                       }}
+                               <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
+                                   <OutlinedInput type="email"
+                                      name="email" value={email}
+                                      onChange={this.changeHandler} className="input"
+                                      placeholder="Email"
+                                      startAdornment={
+                                          <InputAdornment position="start">
+                                              <MailOutlineIcon className="loginIcon"/>
+                                          </InputAdornment>
+                                      }
                                    />
-
                                </div>
 
                                <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>

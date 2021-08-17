@@ -19,11 +19,11 @@ public class ServerAccess {
     @Autowired
     private OrganisationInfoRepository organisationInfoRepository;
 
-    ServerConfig config = new ServerConfig();
-
-    private String remoteHost = config.getRemoteHost();
-    private String username = config.getUsername();
-    private String password = config.getPassword();
+//    ServerConfig config = new ServerConfig();
+//
+//    private String remoteHost = config.getRemoteHost();
+//    private String username = config.getUsername();
+//    private String password = config.getPassword();
 
     private String remoteDir = "/home/ubuntu/";
 
@@ -32,11 +32,11 @@ public class ServerAccess {
     private ChannelSftp setupJsch() throws JSchException {
         JSch jsch = new JSch();
         jsch.setKnownHosts("backend/src/main/java/com/GiveaLot/givealot/Server/known_hosts");
-        session = jsch.getSession(username, remoteHost);
+//        session = jsch.getSession(username, remoteHost);
         java.util.Properties config = new java.util.Properties();
         config.put("StrictHostKeyChecking", "no");
         session.setConfig(config);
-        session.setPassword(password);
+//        session.setPassword(password);
         session.connect();
         return (ChannelSftp) session.openChannel("sftp");
     }

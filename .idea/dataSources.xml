@@ -8,7 +8,7 @@
       <jdbc-url>jdbc:postgresql://hansken.db.elephantsql.com:5432/</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="postgres@209.97.142.151" uuid="e408bebc-77d2-4fce-8c63-a20466b456d9">
+    <data-source source="LOCAL" name="GiveALot" uuid="efb831bd-7c3d-405b-911c-ea18a8c03377">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>

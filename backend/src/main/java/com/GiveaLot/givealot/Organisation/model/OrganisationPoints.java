@@ -16,7 +16,6 @@ public class OrganisationPoints {
 
     @Id
     private Long orgId;
-    private int points;
     private boolean addressIsValid;
     private boolean websiteIsValid;
     private boolean auditIsValid;
@@ -37,9 +36,8 @@ public class OrganisationPoints {
     {
 
     }
-    public OrganisationPoints(String Long, int points, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean taxRefIsValid, boolean auditorIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, String socialMediaType, boolean estDateIsValid, int numberOfImages) {
+    public OrganisationPoints(String Long, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean taxRefIsValid, boolean auditorIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, String socialMediaType, boolean estDateIsValid, int numberOfImages) {
         this.orgId = orgId;
-        this.points = points;
         this.addressIsValid = addressIsValid;
         this.websiteIsValid = websiteIsValid;
         this.auditIsValid = auditIsValid;
@@ -53,9 +51,8 @@ public class OrganisationPoints {
         this.socialMediaType = socialMediaType;
     }
 
-    public OrganisationPoints(Long orgId, int points, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean taxRefIsValid, boolean auditorIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, boolean instagramIsValid, boolean facebookIsValid, boolean twitterIsValid, boolean estDateIsValid, int numberOfImages) {
+    public OrganisationPoints(Long orgId, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean taxRefIsValid, boolean auditorIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, boolean instagramIsValid, boolean facebookIsValid, boolean twitterIsValid, boolean estDateIsValid, int numberOfImages) {
         this.orgId = orgId;
-        this.points = points;
         this.addressIsValid = addressIsValid;
         this.websiteIsValid = websiteIsValid;
         this.auditIsValid = auditIsValid;
@@ -82,14 +79,6 @@ public class OrganisationPoints {
 
     public void setOrgId(Long orgId) {
         this.orgId = orgId;
-    }
-
-    public int getPoints() {
-        return points;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
     }
 
     public boolean isAddressIsValid() {

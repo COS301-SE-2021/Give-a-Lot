@@ -46,6 +46,9 @@ public class OrganisationServiceImp implements OrganisationService {
     @Autowired
     private CertificateService certificateService;
 
+    @Autowired
+    private final ServerAccess access = new ServerAccess();
+
     @Override
     public Organisations selectOrganisation(long orgId) throws Exception {
 
@@ -87,7 +90,7 @@ public class OrganisationServiceImp implements OrganisationService {
         organisation.setDirectory("/home/ubuntu/Organisations/");
         organisation.setStatus("active");
 
-        if(organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()) != null)
+        if(organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()).getOrgId() != null)
             throw new Exception("Email already exists");
 
         else if (organisation.getOrgName().isEmpty() || organisation.getOrgName().length()>255)
@@ -120,9 +123,6 @@ public class OrganisationServiceImp implements OrganisationService {
         else if (organisation.getSlogan().isEmpty() || organisation.getSlogan().length()>255)
             throw new Exception("Exception: orgSlogan does not satisfy the database constraints");
 
-        /** Setup **/
-
-        ServerAccess access = new ServerAccess();
 
         /** Setup dates **/
 
@@ -296,8 +296,6 @@ public class OrganisationServiceImp implements OrganisationService {
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
-        ServerAccess access = new ServerAccess();
-
         String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
 
         access.uploadTaxReference(request.getOrgId(),name,request.getReference());
@@ -396,8 +394,6 @@ public class OrganisationServiceImp implements OrganisationService {
 
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
-
-        ServerAccess access = new ServerAccess();
 
         String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
 
@@ -609,8 +605,6 @@ public class OrganisationServiceImp implements OrganisationService {
 
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
-
-        ServerAccess access = new ServerAccess();
 
         String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
 
@@ -1036,5 +1030,24 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("Exception: id does not exist");
 
         return res;
+    }
+
+    public static void main(String[] args) throws Exception {
+        OrganisationServiceImp serviceImp = new OrganisationServiceImp();
+
+        Organisations org = new Organisations();
+        org.setOrgId(123L);
+        org.setPassword("iloveyou");
+        org.setContactNumber("Contact Number");
+        org.setOrgEmail("jane.doe@example.org");
+        org.setStatus("Status");
+        org.setOrgSector("Org Sector");
+        org.setContactPerson("Contact Person");
+        org.setSlogan("Slogan");
+        org.setOrgDescription("Org Description");
+        org.setOrgName("Org Name");
+        org.setDirectory("/tmp");
+
+        serviceImp.addOrganisation(org);
     }
 }

@@ -81,13 +81,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.3.7" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:5.3.7" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.8.2" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-security:2.5.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.7" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:5.5.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.5.0" level="project" />
-    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.0" level="project" />
-    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:5.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-mail:2.4.4" level="project" />
     <orderEntry type="library" name="Maven: com.sun.mail:jakarta.mail:1.6.7" level="project" />
     <orderEntry type="library" name="Maven: com.sun.activation:jakarta.activation:1.2.2" level="project" />
@@ -104,6 +97,7 @@
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-jpa:2.5.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:2.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:5.3.7" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.7" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.3.7" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.9.6" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.30" level="project" />
@@ -145,6 +139,8 @@
     <orderEntry type="library" name="Maven: org.web3j:abi:4.8.7" level="project" />
     <orderEntry type="library" name="Maven: org.web3j:codegen:4.8.7" level="project" />
     <orderEntry type="library" name="Maven: com.squareup:kotlinpoet:1.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.jetbrains.kotlin:kotlin-reflect:1.5.0" level="project" />
     <orderEntry type="library" name="Maven: com.squareup:javapoet:1.7.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.junit.platform:junit-platform-launcher:1.7.2" level="project" />

@@ -6,8 +6,7 @@ import lombok.Builder;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.io.File;
-import java.util.Date;
+
 @Builder
 @AllArgsConstructor
 @Entity

@@ -1,19 +1,16 @@
 package com.GiveaLot.givealot.User.service;
 
 import com.GiveaLot.givealot.User.dataclass.User;
-import com.GiveaLot.givealot.User.exception.InvalidCredentialException;
-import com.GiveaLot.givealot.User.exception.ResetPasswordTimedOutException;
-import com.GiveaLot.givealot.User.exception.UserAlreadyValidationAccountException;
 import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
 import com.GiveaLot.givealot.User.repository.UserRepository;
 import com.GiveaLot.givealot.User.requests.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImp implements UserService {
@@ -52,7 +49,14 @@ public class UserServiceImp implements UserService {
         }
         User newUser = request.getUser();
         newUser.setAdmin(false);
-        newUser.setActivateDate(LocalDateTime.now());
+
+        Date dateCurrent = new Date();
+        Date dateEx = new Date();
+
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+        String dateCreated = format.format(dateCurrent);
+        newUser.setActivateDate(dateCreated);
 
         userRepository.save(newUser);
         return false;

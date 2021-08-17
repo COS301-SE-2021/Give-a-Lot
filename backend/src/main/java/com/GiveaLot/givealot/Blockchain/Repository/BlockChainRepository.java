@@ -1,20 +1,12 @@
 
 package com.GiveaLot.givealot.Blockchain.Repository;
 
-import com.GiveaLot.givealot.Blockchain.contract.*;
 import com.GiveaLot.givealot.Blockchain.dataclass.Blockchain;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import org.web3j.crypto.Credentials;
-import org.web3j.protocol.Web3j;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
 
 @Repository
 public interface BlockChainRepository extends JpaRepository<Blockchain,Long>{

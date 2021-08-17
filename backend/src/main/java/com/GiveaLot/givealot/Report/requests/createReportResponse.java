@@ -1,13 +1,14 @@
 package com.GiveaLot.givealot.Report.requests;
 
-import com.GiveaLot.givealot.Report.ReportResponseJSON;
+//import com.GiveaLot.givealot.Report.ReportResponseJSON;
+import com.GiveaLot.givealot.Report.service.ReportResponseJSON;
 
 import java.io.File;
 import java.util.List;
 
 public class createReportResponse {
     private File reportFile;
-    private List<ReportResponseJSON> ReportResponseJSON;
+    private List<com.GiveaLot.givealot.Report.service.ReportResponseJSON> ReportResponseJSON;
 
     public createReportResponse(){}
 

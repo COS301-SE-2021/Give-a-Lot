@@ -1,12 +1,8 @@
 package com.GiveaLot.givealot.Organisation.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 
 import javax.persistence.*;
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 @Builder
 @Entity

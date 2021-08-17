@@ -63,10 +63,11 @@ public class Certificate {
         this.points = 0;
     }
 
-    public Certificate(String dateCreated, String dateExpiry, int level){
+    public Certificate(long org_id, String dateCreated, String dateExpiry, int points){
+        this.org_id = org_id;
         this.dateCreated = dateCreated;
         this.dateExpiry = dateExpiry;
-        this.points = level;
+        this.points = points;
         this.adminRenewal = true;
         this.orgRenewal = true;
     }

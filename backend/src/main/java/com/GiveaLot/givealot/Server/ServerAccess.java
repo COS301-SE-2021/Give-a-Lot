@@ -7,24 +7,23 @@ import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 import org.apache.commons.io.FileUtils;
-import org.apache.pdfbox.Loader;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
-import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
-import org.apache.pdfbox.pdmodel.interactive.form.PDField;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.InputStream;
 
+@Service
 public class ServerAccess {
 
     @Autowired
     private OrganisationInfoRepository organisationInfoRepository;
 
-    private String remoteHost = "";
-    private String username = "";
-    private String password = "";
+    ServerConfig config = new ServerConfig();
+
+    private String remoteHost = config.getRemoteHost();
+    private String username = config.getUsername();
+    private String password = config.getPassword();
 
     private String remoteDir = "/home/ubuntu/";
 
@@ -32,7 +31,6 @@ public class ServerAccess {
 
     private ChannelSftp setupJsch() throws JSchException {
         JSch jsch = new JSch();
-        //jsch.setKnownHosts("C:/Users/joshu/.ssh/known_hosts");
         jsch.setKnownHosts("backend/src/main/java/com/GiveaLot/givealot/Server/known_hosts");
         session = jsch.getSession(username, remoteHost);
         java.util.Properties config = new java.util.Properties();
@@ -99,7 +97,7 @@ public class ServerAccess {
             channelSftp.connect();
 
             String orgIdString = String.valueOf(orgId);
-            String localFile = "frontend/givealot/localFiles/" + orgIdString + "certificate/CertificateComplete.pdf";
+            String localFile = "frontend/givealot/localFiles/" + orgIdString + "/certificate/CertificateComplete.pdf";
 
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Certificates" + "/" + orgName.replaceAll("\\s+", "") + "Certificate.pdf");
 
@@ -370,11 +368,12 @@ public class ServerAccess {
     }
 
     public void uploadReport(long orgId, File report, String date) throws Exception {
+        System.out.println("test");
         ChannelSftp channelSftp = setupJsch();
         try {
             System.out.println("test");
             report.renameTo(new File("backend/src/main/resources/TempDocument/report.txt"));
-
+            System.out.println("test");
             channelSftp.connect();
 
 

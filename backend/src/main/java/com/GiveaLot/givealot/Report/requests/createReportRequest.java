@@ -2,9 +2,6 @@ package com.GiveaLot.givealot.Report.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.sql.Timestamp;
-import java.time.format.DateTimeFormatter;
-
 public class createReportRequest {
     String orgId;
     String reportDescription;

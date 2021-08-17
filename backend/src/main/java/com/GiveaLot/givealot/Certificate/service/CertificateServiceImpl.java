@@ -16,6 +16,8 @@ import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
 import org.apache.pdfbox.pdmodel.interactive.form.PDField;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.text.DateFormat;
@@ -24,8 +26,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Service
+@Configurable
 public class CertificateServiceImpl implements CertificateService {
 
+    @Autowired
     private BlockchainService blockchainService;
 
     @Autowired
@@ -37,19 +42,21 @@ public class CertificateServiceImpl implements CertificateService {
     @Autowired
     private BlockChainRepository blockChainRepository;
 
-
-    SendMailService service;
+    @Autowired
+    private final ServerAccess access = new ServerAccess();
 
     @Autowired
-    CertificateServiceImpl(SendMailService service)
+    private final SendMailService service;
+
+    @Autowired
+    public CertificateServiceImpl(SendMailService service)
    {
         this.service = service;
    }
 
     @Override
-    public boolean addCertificate(long orgId) throws Exception {
+    public boolean addCertificate(long orgId, Certificate cert) throws Exception {
 
-        Certificate cert= certificateRepository.selectCertificateById(orgId);
         Organisations organisation = organisationRepository.selectOrganisationById(orgId);
 
        boolean certificateCreated = createPDFDocument(cert,organisation,0);
@@ -101,15 +108,11 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     public File retrieveCertificate(long orgId, String orgName) throws Exception {
-        ServerAccess access = new ServerAccess();
-
         return access.downloadCertificate(orgId,orgName);
     }
 
     @Override
     public boolean createPDFDocument(Certificate cert, Organisations organisation, int points) throws Exception {
-        ServerAccess access = new ServerAccess();
-
         access.downloadCertificateTemplate(points);
 
         if (points!=0){
@@ -118,7 +121,7 @@ public class CertificateServiceImpl implements CertificateService {
         }
 
         String templateCertificate = "backend/src/main/resources/TempCertificate/CertificateTemplate.pdf";
-        String completeCertificate = "frontend/givealot/localFiles/" + organisation.getOrgId() + "certificate/CertificateComplete.pdf";
+        String completeCertificate = "frontend/givealot/localFiles/" + organisation.getOrgId() + "/certificate/CertificateComplete.pdf";
 
         /** Setup the pdf file **/
 
@@ -130,7 +133,6 @@ public class CertificateServiceImpl implements CertificateService {
         PDAcroForm acroForm = catalog.getAcroForm();
 
         /** Assign acroform fields **/
-
 
         try {
 
@@ -152,9 +154,11 @@ public class CertificateServiceImpl implements CertificateService {
                 acroForm.flatten();
 
             }
+            System.out.println("works2");
         }catch (Exception e){
-            throw new Exception("Exception: unable to create certificate");
+            throw new Exception("Exception: unable to create certificate: " + e);
         }
+        System.out.println("works3");
 
         document.save(completeCertificate);
         document.close();

@@ -87,10 +87,6 @@ public class OrganisationServiceImp implements OrganisationService {
                 organisation.getContactPerson() == null|| organisation.getSlogan() == null)
             throw new Exception("invalid field provided: null");
 
-
-        System.out.println("hello there");
-
-
         organisation.setDirectory("/home/ubuntu/Organisations/");
         organisation.setStatus("active");
 

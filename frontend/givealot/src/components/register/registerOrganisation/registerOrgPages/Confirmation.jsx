@@ -23,10 +23,16 @@ export class Confirmation extends Component {
     };
     submit = (e) =>{
         e.preventDefault()
-        console.log(this.state)
-        axios.post('http://localhost:8080/v1/organisation/add/org', this.props)
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        console.log(this.props.values)
+        axios.post('http://localhost:8080/v1/organisation/add/org', this.props.values, {config})
             .then(response =>{
-                // console.log(response)
+                console.log(response)
             })
             .catch(error =>{
                 console.log(error)

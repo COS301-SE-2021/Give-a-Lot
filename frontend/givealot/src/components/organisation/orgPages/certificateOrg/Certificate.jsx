@@ -4,13 +4,21 @@ import cert from "./stock.jpg";
 import GetAppIcon from '@material-ui/icons/GetApp';
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import {Link} from "react-router-dom";
-import axios from "axios";
-
+import Axios from "axios";
+import { useState} from "react";
 
 
 export default function Certificate() {
 
+    const [ Dcertificate, setDcertificate]= useState("")
 
+        const DownloadC=()=>{
+            Axios.get("https://official-joke-api.appspot.com/random_joke").then(
+                (response)=>{
+                console.log(response);
+                setDcertificate(response.data.setup + "..." + response.data.punchline);
+            })
+        }
         return (
             <div className="certificate">
                 <div className="heading">
@@ -23,7 +31,8 @@ export default function Certificate() {
                         <ArrowUpwardIcon className="certIcon"/>Upgrade
                     </Link>
                 </button>
-                <button className="button button2"><GetAppIcon className="certIcon"/>Download</button>
+                <button className="button button2" onClick={DownloadC} ><GetAppIcon className="certIcon"/>Download</button>
+                {Dcertificate}
 
                 <div className="temporary">
                     <img className="image" src={cert} alt="cert" style={{width: "700px", height: "410px"}}/>

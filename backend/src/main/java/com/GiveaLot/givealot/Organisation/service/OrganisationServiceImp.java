@@ -13,6 +13,7 @@ import com.GiveaLot.givealot.Organisation.requests.*;
 import com.GiveaLot.givealot.Server.ServerAccess;
 import com.GiveaLot.givealot.User.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
@@ -25,6 +26,7 @@ import java.util.Date;
 
 
 @Service
+@Configurable
 public class OrganisationServiceImp implements OrganisationService {
 
 
@@ -35,7 +37,7 @@ public class OrganisationServiceImp implements OrganisationService {
     private OrganisationInfoRepository organisationInfoRepository;
 
     @Autowired
-    organisationPointsRepository organisationPointsRepository;
+    private organisationPointsRepository organisationPointsRepository;
 
     @Autowired
     private CertificateRepository certificateRepository;
@@ -48,6 +50,16 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Autowired
     private final ServerAccess access = new ServerAccess();
+
+    @Autowired
+    public void setOrganisationServiceImp(OrganisationRepository organisationRepository, OrganisationInfoRepository organisationInfoRepository, organisationPointsRepository organisationPointsRepository, CertificateRepository certificateRepository, UserRepository userRepository){
+        this.organisationRepository = organisationRepository;
+        this.organisationInfoRepository = organisationInfoRepository;
+        this.organisationPointsRepository = organisationPointsRepository;
+        this.certificateRepository = certificateRepository;
+        this.userRepository = userRepository;
+
+    }
 
     @Override
     public Organisations selectOrganisation(long orgId) throws Exception {
@@ -141,22 +153,22 @@ public class OrganisationServiceImp implements OrganisationService {
         //organisation is saved at this point
 
         // save dates
-        /*Date dateCurrent = new Date();
+        Date dateCurrent = new Date();
         Date dateEx = new Date();
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         String dateCreated = format.format(dateCurrent);
 
         int year = dateCurrent.getYear();
         dateEx.setYear(year+1);
-        String dateExpiry = format.format(dateEx);*/
+        String dateExpiry = format.format(dateEx);
 
         /** Create tables and directory **/
 
-        /*Certificate certificate;
+        Certificate certificate;
         try
         {
             ServerAccess access = new ServerAccess();
-            certificate = new Certificate(dateCreated,dateExpiry,0);
+            certificate = new Certificate(id,dateCreated,dateExpiry,0);
             access.createOrganisationDirectory(id, organisation.getOrgName());
         }
         catch (Exception e)
@@ -165,7 +177,7 @@ public class OrganisationServiceImp implements OrganisationService {
         }
 
         certificateRepository.save(certificate);
-        certificateService.addCertificate(id); */
+        certificateService.addCertificate(id,certificate);
         return true;
     }
 
@@ -1034,22 +1046,5 @@ public class OrganisationServiceImp implements OrganisationService {
         return res;
     }
 
-    public static void main(String[] args) throws Exception {
-        OrganisationServiceImp serviceImp = new OrganisationServiceImp();
 
-        Organisations org = new Organisations();
-        org.setOrgId(123L);
-        org.setPassword("iloveyou");
-        org.setContactNumber("Contact Number");
-        org.setOrgEmail("jane.doe@example.org");
-        org.setStatus("Status");
-        org.setOrgSector("Org Sector");
-        org.setContactPerson("Contact Person");
-        org.setSlogan("Slogan");
-        org.setOrgDescription("Org Description");
-        org.setOrgName("Org Name");
-        org.setDirectory("/tmp");
-
-        serviceImp.addOrganisation(org);
-    }
 }

@@ -1,5 +1,6 @@
 package com.GiveaLot.givealot.Organisation.repository;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
+import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

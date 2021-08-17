@@ -11,7 +11,7 @@ import java.io.File;
 @Service
 public interface CertificateService {
 
-  public boolean addCertificate(long orgId) throws Exception;
+  public boolean addCertificate(long orgId, Certificate certificate) throws Exception;
 
     public boolean updateCertificate(long orgId) throws Exception;
 

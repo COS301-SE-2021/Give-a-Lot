@@ -35,7 +35,7 @@ export default function Certificate() {
                 {Dcertificate}
 
                 <div className="temporary">
-                    <img className="image" src={cert} alt="cert" style={{width: "700px", height: "410px"}}/>
+                    <img className="image" src={frontend/givealot/localFiles/20/certificate/CertificateComplete.pdf} alt="cert" style={{width: "700px", height: "410px"}}/>
 
                 </div>
             </div>

@@ -86,7 +86,7 @@ import { Link } from "react-router-dom";
 import { DeleteOutline } from "@material-ui/icons";
 
 const columns = [
-    // { field: "id", headerName: "ID", width: 100 },
+    { field: "id", headerName: "ID", width: 100 },
     // {
     //   field: "firstname",
     //   headerName: "First Name",
@@ -129,7 +129,8 @@ const columns = [
 ];
 
 // const handleDelete = (id) => {
-//         setData(data.filter((item) => item.id !== id));
+//         // setData(this.state.orgs.filter((item) => item.id !== id));
+//     this.setState(this.state.orgs.filter((item) => item.id !== id))
 //     };
 
 export default class AdminOrgs extends Component {
@@ -154,7 +155,7 @@ export default class AdminOrgs extends Component {
         const adminUsersRequestBody = {
             "adminUserEmail" : this.state.adminUserEmail
         }
-        axios.post('http://localhost:8080/v1/user/get/users', adminUsersRequestBody, config)
+        axios.post('http://localhost:8080/v1/organisation/get/organisations', adminUsersRequestBody, config)
             .then(response =>{
                 console.log(response)
                 this.setState({orgs: response.data.response})

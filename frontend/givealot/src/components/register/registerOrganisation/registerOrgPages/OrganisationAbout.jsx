@@ -61,7 +61,7 @@ export class OrganisationAbout extends Component {
                         </div>
                         <div >
                             <OutlinedInput type="type"
-                               name="sector"
+                               name="orgSector"
                                defaultValue={values.orgSector}
                                // onChange={this.handleChange}
                                onChange={handleChange('orgSector')}
@@ -72,23 +72,7 @@ export class OrganisationAbout extends Component {
                                    </InputAdornment>
                                }
                             />
-                            {/*<InputLabel id="demo-simple-select-outlined-label" className="inputBasic">sector</InputLabel>*/}
-                            {/*<Select*/}
-                            {/*    labelId="demo-simple-select-outlined-label"*/}
-                            {/*    id="demo-simple-select-outlined"*/}
-                            {/*    // value={age}*/}
-                            {/*    defaultValue={values.sector}*/}
-                            {/*    onChange={handleChange('sector')}*/}
-                            {/*    // onChange={handleChange}*/}
-                            {/*    label="Age"*/}
-                            {/*>*/}
-                            {/*    <MenuItem value="">*/}
-                            {/*        <em>None</em>*/}
-                            {/*    </MenuItem>*/}
-                            {/*    <MenuItem value={10}>Ten</MenuItem>*/}
-                            {/*    <MenuItem value={20}>Twenty</MenuItem>*/}
-                            {/*    <MenuItem value={30}>Thirty</MenuItem>*/}
-                            {/*</Select>*/}
+
                         </div>
 
                         <div >

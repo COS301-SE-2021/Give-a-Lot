@@ -50,8 +50,8 @@ export class RegisterOrganisation extends Component {
 
     render() {
         const { step } = this.state;
-        const { orgName, slogan, orgDescription, sector, orgEmail, contactPerson, contactNumber, password } = this.state;
-        const values = { orgName, slogan, orgDescription, sector, orgEmail, contactPerson, contactNumber, password };
+        const { orgName, slogan, orgDescription, orgSector, orgEmail, contactPerson, contactNumber, password } = this.state;
+        const values = { orgName, slogan, orgDescription, orgSector, orgEmail, contactPerson, contactNumber, password };
 
         switch (step) {
             default:

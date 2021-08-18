@@ -1438,10 +1438,10 @@ true posixrules
 13127||-9223372036854775808|U|G
 13127||10|U|G</Grants>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>667</IntrospectionStateNumber>
+      <IntrospectionStateNumber>831</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|16456|16458|1
-sequence|table|16510|16512|1
+sequence|table|16524|16526|1
 </Relations>
     </database>
     <role id="5" parent="1" name="admin">
@@ -1520,7 +1520,7 @@ sequence|table|16510|16512|1
       <Comment>standard public schema</Comment>
       <StateNumber>275</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>668</IntrospectionStateNumber>
+      <IntrospectionStateNumber>832</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="21" parent="4" name="plpgsql">
@@ -1627,9 +1627,9 @@ sequence|table|16510|16512|1
       <DataType>bigint|0s</DataType>
     </sequence>
     <sequence id="34" parent="20" name="users_id_seq">
-      <ObjectId>16510</ObjectId>
-      <Owner>user</Owner>
-      <StateNumber>645</StateNumber>
+      <ObjectId>16524</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>828</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
     <table id="35" parent="20" name="blockchain">
@@ -1650,7 +1650,7 @@ sequence|table|16510|16512|1
     <table id="38" parent="20" name="organisation_points">
       <ObjectId>16451</ObjectId>
       <Owner>user</Owner>
-      <StateNumber>621</StateNumber>
+      <StateNumber>669</StateNumber>
     </table>
     <table id="39" parent="20" name="organisations">
       <ObjectId>16458</ObjectId>
@@ -1663,9 +1663,9 @@ sequence|table|16510|16512|1
       <StateNumber>568</StateNumber>
     </table>
     <table id="41" parent="20" name="users">
-      <ObjectId>16512</ObjectId>
-      <Owner>user</Owner>
-      <StateNumber>645</StateNumber>
+      <ObjectId>16526</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>828</StateNumber>
     </table>
     <column id="42" parent="35" name="org_id">
       <Position>1</Position>
@@ -1990,7 +1990,14 @@ sequence|table|16510|16512|1
       <StateNumber>566</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <index id="89" parent="38" name="organisation_points_pkey">
+    <column id="89" parent="38" name="points">
+      <Position>19</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>669</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="90" parent="38" name="organisation_points_pkey">
       <ObjectId>16454</ObjectId>
       <StateNumber>566</StateNumber>
       <ColNames>org_id</ColNames>
@@ -2000,14 +2007,14 @@ sequence|table|16510|16512|1
       <CollationIds>0</CollationIds>
       <ClassIds>3124</ClassIds>
     </index>
-    <key id="90" parent="38" name="organisation_points_pkey">
+    <key id="91" parent="38" name="organisation_points_pkey">
       <ObjectId>16455</ObjectId>
       <StateNumber>566</StateNumber>
       <ColNames>org_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>organisation_points_pkey</UnderlyingIndexName>
     </key>
-    <column id="91" parent="39" name="org_id">
+    <column id="92" parent="39" name="org_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -2015,77 +2022,77 @@ sequence|table|16510|16512|1
       <DefaultExpression>nextval(&apos;organisations_org_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="92" parent="39" name="contact_number">
+    <column id="93" parent="39" name="contact_number">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>567</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="93" parent="39" name="contact_person">
+    <column id="94" parent="39" name="contact_person">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>567</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="94" parent="39" name="directory">
+    <column id="95" parent="39" name="directory">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>567</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="95" parent="39" name="org_description">
+    <column id="96" parent="39" name="org_description">
       <Position>5</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>567</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="96" parent="39" name="org_email">
+    <column id="97" parent="39" name="org_email">
       <Position>6</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>567</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="97" parent="39" name="org_name">
+    <column id="98" parent="39" name="org_name">
       <Position>7</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>567</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="98" parent="39" name="org_sector">
+    <column id="99" parent="39" name="org_sector">
       <Position>8</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>567</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="99" parent="39" name="password">
+    <column id="100" parent="39" name="password">
       <Position>9</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>567</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="100" parent="39" name="org_slogan">
+    <column id="101" parent="39" name="org_slogan">
       <Position>10</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>567</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="101" parent="39" name="status">
+    <column id="102" parent="39" name="status">
       <Position>11</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>567</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="102" parent="39" name="organisations_pkey">
+    <index id="103" parent="39" name="organisations_pkey">
       <ObjectId>16465</ObjectId>
       <StateNumber>567</StateNumber>
       <ColNames>org_id</ColNames>
@@ -2095,33 +2102,33 @@ sequence|table|16510|16512|1
       <CollationIds>0</CollationIds>
       <ClassIds>3124</ClassIds>
     </index>
-    <key id="103" parent="39" name="organisations_pkey">
+    <key id="104" parent="39" name="organisations_pkey">
       <ObjectId>16466</ObjectId>
       <StateNumber>567</StateNumber>
       <ColNames>org_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>organisations_pkey</UnderlyingIndexName>
     </key>
-    <column id="104" parent="40" name="user_id">
+    <column id="105" parent="40" name="user_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>568</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="105" parent="40" name="interactions">
+    <column id="106" parent="40" name="interactions">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>568</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="106" parent="40" name="sector">
+    <column id="107" parent="40" name="sector">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>568</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="107" parent="40" name="recommender_table_pkey">
+    <index id="108" parent="40" name="recommender_table_pkey">
       <ObjectId>16470</ObjectId>
       <StateNumber>568</StateNumber>
       <ColNames>user_id</ColNames>
@@ -2131,65 +2138,65 @@ sequence|table|16510|16512|1
       <CollationIds>0</CollationIds>
       <ClassIds>3124</ClassIds>
     </index>
-    <key id="108" parent="40" name="recommender_table_pkey">
+    <key id="109" parent="40" name="recommender_table_pkey">
       <ObjectId>16471</ObjectId>
       <StateNumber>568</StateNumber>
       <ColNames>user_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>recommender_table_pkey</UnderlyingIndexName>
     </key>
-    <column id="109" parent="41" name="id">
+    <column id="110" parent="41" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>645</StateNumber>
+      <StateNumber>828</StateNumber>
       <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="110" parent="41" name="activation_date">
+    <column id="111" parent="41" name="activation_date">
       <Position>2</Position>
       <DataType>text|0s</DataType>
-      <StateNumber>645</StateNumber>
+      <StateNumber>828</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="111" parent="41" name="email">
+    <column id="112" parent="41" name="email">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>645</StateNumber>
+      <StateNumber>828</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="112" parent="41" name="firstname">
+    <column id="113" parent="41" name="firstname">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>645</StateNumber>
+      <StateNumber>828</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="113" parent="41" name="is_admin">
+    <column id="114" parent="41" name="is_admin">
       <Position>5</Position>
       <DataType>boolean|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>645</StateNumber>
+      <StateNumber>828</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="114" parent="41" name="lastname">
+    <column id="115" parent="41" name="lastname">
       <Position>6</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>645</StateNumber>
+      <StateNumber>828</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="115" parent="41" name="password">
+    <column id="116" parent="41" name="password">
       <Position>7</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>645</StateNumber>
+      <StateNumber>828</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="116" parent="41" name="users_pkey">
-      <ObjectId>16519</ObjectId>
-      <StateNumber>645</StateNumber>
+    <index id="117" parent="41" name="users_pkey">
+      <ObjectId>16533</ObjectId>
+      <StateNumber>828</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -2197,9 +2204,9 @@ sequence|table|16510|16512|1
       <CollationIds>0</CollationIds>
       <ClassIds>3124</ClassIds>
     </index>
-    <index id="117" parent="41" name="uk_6dotkott2kjsp8vw4d0m25fb7">
-      <ObjectId>16521</ObjectId>
-      <StateNumber>647</StateNumber>
+    <index id="118" parent="41" name="uk_6dotkott2kjsp8vw4d0m25fb7">
+      <ObjectId>16535</ObjectId>
+      <StateNumber>830</StateNumber>
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
@@ -2207,16 +2214,16 @@ sequence|table|16510|16512|1
       <CollationNames>default</CollationNames>
       <ClassIds>3126</ClassIds>
     </index>
-    <key id="118" parent="41" name="users_pkey">
-      <ObjectId>16520</ObjectId>
-      <StateNumber>645</StateNumber>
+    <key id="119" parent="41" name="users_pkey">
+      <ObjectId>16534</ObjectId>
+      <StateNumber>828</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
     </key>
-    <key id="119" parent="41" name="uk_6dotkott2kjsp8vw4d0m25fb7">
-      <ObjectId>16522</ObjectId>
-      <StateNumber>647</StateNumber>
+    <key id="120" parent="41" name="uk_6dotkott2kjsp8vw4d0m25fb7">
+      <ObjectId>16536</ObjectId>
+      <StateNumber>830</StateNumber>
       <ColNames>email</ColNames>
       <UnderlyingIndexName>uk_6dotkott2kjsp8vw4d0m25fb7</UnderlyingIndexName>
     </key>

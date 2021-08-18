@@ -10,8 +10,14 @@ import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Organisation.repository.organisationPointsRepository;
 import com.GiveaLot.givealot.Organisation.requests.*;
+import com.GiveaLot.givealot.Organisation.response.generalOrganisationResponse;
+import com.GiveaLot.givealot.Organisation.response.getOrganisationsResponse;
+import com.GiveaLot.givealot.Organisation.response.selectOrganisationResponse;
 import com.GiveaLot.givealot.Server.ServerAccess;
+import com.GiveaLot.givealot.User.dataclass.User;
+import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
 import com.GiveaLot.givealot.User.repository.UserRepository;
+import com.GiveaLot.givealot.User.requests.GetUsersRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
@@ -23,6 +29,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 
 @Service
@@ -61,12 +68,49 @@ public class OrganisationServiceImp implements OrganisationService {
 
     }
 
-    @Override
-    public Organisations selectOrganisation(long orgId) throws Exception {
+    @Override /*tested all good - converted*/
+    public getOrganisationsResponse getOrganisations(GetOrganisationsRequest request) throws Exception
+    {
+        if(request == null)
+        {
+            throw new Exception("Exception: request not set");
+        }
+        if(request.getAdminUserEmail() == null)
+        {
+            throw new Exception("Exception: admin user field not set");
+        }
+        else if(request.getAdminUserEmail().isEmpty())
+        {
+            throw new Exception("Exception: admin user field is empty");
+        }
+
+        User admin = userRepository.findUserByEmail(request.getAdminUserEmail());
+
+        if(admin == null)
+            throw new Exception("Exception: user is not admin");
+
+
+        if(!admin.getAdmin())
+        {
+            throw new UserNotAuthorisedException("current user is not an admin");
+        }
+
+        List<Organisations> res = organisationRepository.findAll();
+        if(res == null)
+            throw new Exception("Exception: there are no organisations");
+
+        return new getOrganisationsResponse("get_orgs_200_ok","success",res);
+    }
+
+    @Override /*tested all good - converted*/
+    public selectOrganisationResponse selectOrganisation(Long orgId) throws Exception {
+
+        if(orgId == null)
+            throw new Exception("Exception: Id provided is null");
 
         Organisations res = organisationRepository.selectOrganisationById(orgId);
         if (res != null)
-            return res;
+            return new selectOrganisationResponse("sel_org_200_ok","success",res);
         else throw new Exception("Exception: id does not exist, check spelling");
     }
 
@@ -87,8 +131,8 @@ public class OrganisationServiceImp implements OrganisationService {
         } else return organisationInfo;
     }
 
-    @Override
-    public boolean addOrganisation(Organisations organisation) throws Exception
+    @Override /* tested works well except - certificate throws a null pointer exception.*/
+    public generalOrganisationResponse addOrganisation(Organisations organisation) throws Exception
     {
         if(organisation == null)
             throw new Exception("invalid organisation object: null");
@@ -178,66 +222,82 @@ public class OrganisationServiceImp implements OrganisationService {
 
         certificateRepository.save(certificate);
         certificateService.addCertificate(id,certificate);
-        return true;
+        return new generalOrganisationResponse("add_org_200_ok", "success");
     }
 
-    @Override
-    public boolean suspendOrganisation(long orgId) throws Exception {
+    @Override /*tested all good - converted*/
+    public generalOrganisationResponse suspendOrganisation(Long orgId) throws Exception {
 
+        if(orgId == null)
+            throw new Exception("Exception: provided id is null");
 
-        if (organisationRepository.selectOrganisationById(orgId) == null)
-            throw new Exception("ID doesn't exist");
-        else {
+        else if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: ID doesn't exist");
+        else
+        {
             if (organisationRepository.updateStatus(orgId, "suspended".toLowerCase()) != 1)
                 throw new Exception("status not updated");
-            else return true;
+            else return new generalOrganisationResponse("sus_org_200_ok", "success");
         }
     }
 
-    @Override
-    public boolean reactivateOrganisation(long orgId) throws Exception {
+    @Override /*tested all good - converted*/
+    public generalOrganisationResponse reactivateOrganisation(Long orgId) throws Exception {
 
+        if(orgId == null)
+            throw new Exception("Exception: ID is null");
         if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("ID doesn't exist");
         else {
             if (organisationRepository.updateStatus(orgId, "active".toLowerCase()) != 1)
                 throw new Exception("status not updated");
-            else return true;
+            else return new generalOrganisationResponse("rea_org_200_ok", "success");
         }
     }
 
-    @Override
-    public boolean investigateOrganisation(long orgId) throws Exception {
+    @Override /*tested all good - converted*/
+    public generalOrganisationResponse investigateOrganisation(Long orgId) throws Exception {
 
         if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("ID doesn't exist");
         else {
             if (organisationRepository.updateStatus(orgId, "investigating".toLowerCase()) != 1)
                 throw new Exception("status not updated");
-            else return true;
+            else return new generalOrganisationResponse("inv_org_200_ok", "success");
         }
     }
 
-    @Override
-    public boolean addOrgWebsite(AddOrgWebsiteRequest request) throws Exception {
+    @Override /*tested all good - converted*/
+    public generalOrganisationResponse addOrgWebsite(AddOrgWebsiteRequest request) throws Exception
+    {
         if (request == null)
             throw new Exception("Exception: request not set");
+
         else if (request.getWebsite() == null)
             throw new Exception("Exception: value not set");
+
         else if (request.getWebsite().isEmpty())
             throw new Exception("Exception: invalid value length");
+
+        else if(request.getOrgId() == null)
+            throw new Exception("Exception: ID is null");
+
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
         if (organisationInfoRepository.addOrgWebsite(request.getOrgId(), request.getWebsite()) != 1)
             throw new Exception("Exception: value field failed to update");
 
-        return true;
+        return new generalOrganisationResponse("add_web_200_ok", "success");
     }
 
-    @Override
-    public boolean removeOrgWebsite(long orgId) throws Exception {
-        if (organisationRepository.selectOrganisationById(orgId) == null)
+    @Override /*tested all good - converted*/
+    public generalOrganisationResponse removeOrgWebsite(Long orgId) throws Exception {
+
+        if(orgId == null)
+            throw new Exception("Exception: ID is null");
+
+        else if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
         if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
@@ -252,36 +312,45 @@ public class OrganisationServiceImp implements OrganisationService {
                     "the contract");
         }
 
-        if (organisationInfoRepository.removeOrgWebsite(orgId) != 1)
+        if(organisationInfoRepository.removeOrgWebsite(orgId) != 1)
             throw new Exception("Exception: value field not updated");
 
-        return true;
+        return new generalOrganisationResponse("rem_web_200_ok", "success");
     }
 
-    @Override
-    public boolean addOrgAddress(AddOrgAddressRequest request) throws Exception {
+    @Override /*tested all good - converted*/
+    public generalOrganisationResponse addOrgAddress(AddOrgAddressRequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request not set");
+
+        else if(request.getOrgId() == null)
+            throw new Exception("Exception: ID is null");
+
         else if (request.getAddress() == null)
             throw new Exception("Exception: value not set");
+
         else if (request.getAddress().isEmpty())
             throw new Exception("Exception: invalid value length");
+
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
         if (organisationInfoRepository.addOrgAddress(request.getOrgId(), request.getAddress()) != 1)
             throw new Exception("Exception: value field failed to update");
 
-        return true;
+        return new generalOrganisationResponse("add_addr_200_ok", "success");
     }
 
-    @Override
-    public boolean removeOrgAddress(long orgId) throws Exception {
+    @Override /*tested all good - converted*/
+    public generalOrganisationResponse removeOrgAddress(Long orgId) throws Exception {
 
-        if (organisationRepository.selectOrganisationById(orgId) == null)
+        if(orgId == null)
+            throw new Exception("Exception: provided ID is null");
+
+        else if(organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
-        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+        else if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
             /*
              * Because organisation already exists, set the field
              * */
@@ -296,13 +365,86 @@ public class OrganisationServiceImp implements OrganisationService {
         if (organisationInfoRepository.removeOrgAddress(orgId) != 1)
             throw new Exception("Exception: value field not updated");
 
-        return true;
+        return new generalOrganisationResponse("rem_addr_200_OK", "success");
     }
 
-    @Override
-    public boolean addOrgTaxRef(AddOrgTaxRefRequest request) throws Exception {
+    @Override /*tested all good - converted*/
+    public generalOrganisationResponse addOrgSocials(AddSocialsRequest request) throws Exception {
+        if (request == null)
+            throw new Exception("Exception: request is not set");
+
+        else if (request.getType() == null)
+            throw new Exception("Exception: request type is not set");
+
+        else if (request.getUrl().isEmpty())
+            throw new Exception("Exception: url is empty");
+
+        else if(request.getOrgId() == null)
+            throw new Exception("Exception: provided ID is null");
+
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: request id does not exist");
+
+        if (request.getType().trim().equalsIgnoreCase("twitter")) {
+            if (organisationInfoRepository.addTwitter(request.getOrgId(), request.getUrl()) != 1)
+                throw new Exception("Exception: social not added");
+        }
+        else if (request.getType().trim().equalsIgnoreCase("instagram")) {
+            if (organisationInfoRepository.addInstagram(request.getOrgId(), request.getUrl()) != 1)
+                throw new Exception("Exception: social not added");
+        }
+        else if (request.getType().trim().equalsIgnoreCase("facebook")) {
+            if (organisationInfoRepository.addFacebook(request.getOrgId(), request.getUrl()) != 1)
+                throw new Exception("Exception: social not added");
+        }
+        else throw new Exception("Exception: social not identified");
+
+        return new generalOrganisationResponse("add_soc_200_OK","success");
+    }
+
+    @Override /*tested all good - converted*/
+    public generalOrganisationResponse removeOrgSocials(Long orgId, String type) throws Exception {
+
+        if (type == null)
+            throw new Exception("Exception: request type is not set");
+
+        else if(orgId == null)
+            throw new Exception("Exception: provided ID is null");
+
+        else if (type.isEmpty())
+            throw new Exception("Exception: type is empty");
+
+        else if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: request id does not exist");
+
+        if (type.trim().equalsIgnoreCase("twitter"))
+        {
+            if (organisationInfoRepository.removeTwitter(orgId) != 1)
+                throw new Exception("Exception: social not removed");
+        }
+        else if (type.trim().equalsIgnoreCase("instagram"))
+        {
+            if (organisationInfoRepository.removeInstagram(orgId) != 1)
+                throw new Exception("Exception: social not removed");
+
+        }
+        else if (type.trim().equalsIgnoreCase("facebook"))
+        {
+            if (organisationInfoRepository.removeFacebook(orgId) != 1)
+                throw new Exception("Exception: social not removed");
+        }
+        else throw new Exception("Exception: social not identified");
+
+        return new generalOrganisationResponse("rem_soc_200_OK", "success");
+    }
+
+    @Override /*not fully integration tested, all good - converted*/
+    public generalOrganisationResponse addOrgTaxRef(AddOrgTaxRefRequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request not set");
+
+        if(request.getOrgId() == null)
+            throw new Exception("Exception: provided ID is null");
 
         else if (request.getReference() == null)
             throw new Exception("Exception: tax reference not set");
@@ -310,18 +452,26 @@ public class OrganisationServiceImp implements OrganisationService {
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
-        String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
+        Organisations organisation_tmp = organisationRepository.selectOrganisationById(request.getOrgId());
+
+        if(organisation_tmp == null)
+            throw new Exception("Exception: failed to proceed");
+
+        String name = organisation_tmp.getOrgName();
 
         access.uploadTaxReference(request.getOrgId(),name,request.getReference());
 
         if (organisationInfoRepository.addOrgTaxRef(request.getOrgId(), "provided") != 1)
             throw new Exception("Exception: value field failed to update");
 
-        return true;
+        return new generalOrganisationResponse("add_tax_200_OK", "success");
     }
 
-    @Override
-    public boolean removeOrgTaxRef(long orgId) throws Exception {
+    @Override /*not fully integration tested, all good - converted*/
+    public generalOrganisationResponse removeOrgTaxRef(Long orgId) throws Exception {
+
+        if(orgId == null)
+            throw new Exception("Exception : the provided ID is null");
 
         if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: Organisation ID does not exist");
@@ -341,67 +491,17 @@ public class OrganisationServiceImp implements OrganisationService {
         if (organisationInfoRepository.removeOrgTaxRef(orgId) != 1)
             throw new Exception("Exception: tax reference field not updated");
 
-        return true;
+        return new generalOrganisationResponse("rem_tax_200_OK", "success");
     }
 
-    @Override
-    public boolean addOrgSocials(AddSocialsRequest request) throws Exception {
-        if (request == null)
-            throw new Exception("Exception: request is not set");
 
-        else if (request.getType() == null)
-            throw new Exception("Exception: request type is not set");
-
-        else if (request.getUrl().isEmpty())
-            throw new Exception("Exception: url is empty");
-
-        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
-            throw new Exception("Exception: request id does not exist");
-
-        if (request.getType().trim().equalsIgnoreCase("twitter")) {
-            if (organisationInfoRepository.addTwitter(request.getOrgId(), request.getUrl()) != 1)
-                throw new Exception("Exception: social not added");
-        } else if (request.getType().trim().equalsIgnoreCase("instagram")) {
-            if (organisationInfoRepository.addInstagram(request.getOrgId(), request.getUrl()) != 1)
-                throw new Exception("Exception: social not added");
-        } else if (request.getType().trim().equalsIgnoreCase("facebook")) {
-            if (organisationInfoRepository.addFacebook(request.getOrgId(), request.getUrl()) != 1)
-                throw new Exception("Exception: social not added");
-        } else throw new Exception("Exception: social not identified");
-
-        return true;
-    }
-
-    @Override
-    public boolean removeOrgSocials(long orgId, String type) throws Exception {
-
-        if (type == null)
-            throw new Exception("Exception: request type is not set");
-
-        else if (type.isEmpty())
-            throw new Exception("Exception: type is empty");
-
-        else if (organisationRepository.selectOrganisationById(orgId) == null)
-            throw new Exception("Exception: request id does not exist");
-
-        if (type.trim().equalsIgnoreCase("twitter")) {
-            if (organisationInfoRepository.removeTwitter(orgId) != 1)
-                throw new Exception("Exception: social not removed");
-        } else if (type.trim().equalsIgnoreCase("instagram")) {
-            if (organisationInfoRepository.removeInstagram(orgId) != 1)
-                throw new Exception("Exception: social not removed");
-        } else if (type.trim().equalsIgnoreCase("facebook")) {
-            if (organisationInfoRepository.removeFacebook(orgId) != 1)
-                throw new Exception("Exception: social not removed");
-        } else throw new Exception("Exception: social not identified");
-
-        return true;
-    }
-
-    @Override
-    public boolean addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception {
+    @Override /*not fully integration tested, all good - converted*/
+    public generalOrganisationResponse addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request not set");
+
+        if(request.getOrgId() == null)
+            throw new Exception("Exception: provided ID is null");
 
         else if (request.getAudit() == null)
             throw new Exception("Exception: tax reference not set");
@@ -409,18 +509,27 @@ public class OrganisationServiceImp implements OrganisationService {
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
-        String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
+        Organisations organisation_tmp = organisationRepository.selectOrganisationById(request.getOrgId());
+
+        if(organisation_tmp == null)
+            throw new Exception("Exception: failed to finish - add audit doc");
+
+        String name = organisation_tmp.getOrgName();
 
         access.uploadAuditDocument(request.getOrgId(),name,request.getAudit());
 
         if (organisationInfoRepository.addAuditDoc(request.getOrgId(), "provided") != 1)
             throw new Exception("Exception: value field failed to update");
 
-        return true;
+        return new generalOrganisationResponse("add_audoc_200_OK", "success");
     }
 
-    @Override
-    public boolean removeOrgAuditDoc(long orgId) throws Exception {
+    @Override /*not fully integration tested, all good - converted*/
+    public generalOrganisationResponse removeOrgAuditDoc(Long orgId) throws Exception
+    {
+        if(orgId == null)
+            throw new Exception("Exception: Provided ID is null");
+
         if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
@@ -438,28 +547,38 @@ public class OrganisationServiceImp implements OrganisationService {
         if (organisationInfoRepository.removeAuditDoc(orgId) != 1)
             throw new Exception("Exception: tax reference field not updated");
 
-        return true;
+        return new generalOrganisationResponse("rem_audoc_200_OK", "success");
     }
 
-    @Override
-    public boolean addOrgAuditor(AddOrgAuditorRequest request) throws Exception {
+    @Override /*not fully integration tested, all good - converted*/
+    public generalOrganisationResponse addOrgAuditor(AddOrgAuditorRequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request not set");
+
+        if(request.getOrgId() == null)
+            throw new Exception("Exception: privided ID is null");
+
         else if (request.getAuditor() == null)
             throw new Exception("Exception: value not set");
+
         else if (request.getAuditor().isEmpty())
             throw new Exception("Exception: invalid value length");
+
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
         if (organisationInfoRepository.addAuditor(request.getOrgId(), request.getAuditor()) != 1)
             throw new Exception("Exception: value field failed to update");
 
-        return true;
+        return new generalOrganisationResponse("add_aud_200_OK", "success");
     }
 
-    @Override
-    public boolean removeOrgAuditor(long orgId) throws Exception {
+    @Override /*not fully integration tested, all good - converted*/
+    public generalOrganisationResponse removeOrgAuditor(Long orgId) throws Exception
+    {
+        if(orgId == null)
+            throw new Exception("Exception: provided ID is null");
+
         if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
@@ -477,28 +596,38 @@ public class OrganisationServiceImp implements OrganisationService {
         if (organisationInfoRepository.removeAuditor(orgId) != 1)
             throw new Exception("Exception: tax reference field not updated");
 
-        return true;
+        return new generalOrganisationResponse("rem_audr_200_OK", "success");
     }
 
-    @Override
-    public boolean addOrgCommittee(AddOrgCommitteeRequest request) throws Exception {
+    @Override /*not fully integration tested, all good - converted*/
+    public generalOrganisationResponse addOrgCommittee(AddOrgCommitteeRequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request not set");
+
+        else if(request.getOrgId() == null)
+            throw new Exception("Exception: provided ID is null");
+
         else if (request.getCommittee() == null)
             throw new Exception("Exception: value not set");
+
         else if (request.getCommittee().isEmpty())
             throw new Exception("Exception: invalid value length");
+
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
         if (organisationInfoRepository.addCommittee(request.getOrgId(), request.getCommittee()) != 1)
             throw new Exception("Exception: value field failed to update");
 
-        return true;
+        return new generalOrganisationResponse("add_cmt_200_OK", "success");
     }
 
     @Override
-    public boolean removeOrgCommittee(long orgId) throws Exception {
+    public generalOrganisationResponse removeOrgCommittee(Long orgId) throws Exception {
+
+        if(orgId == null)
+            throw new Exception("Exception: provided ID is null");
+
         if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
@@ -516,17 +645,35 @@ public class OrganisationServiceImp implements OrganisationService {
         if (organisationInfoRepository.removeCommittee(orgId) != 1)
             throw new Exception("Exception: tax reference field not updated");
 
-        return true;
+        return new generalOrganisationResponse("rem_cmt_200_OK", "success");
     }
 
-    @Override
-    public boolean addOrgDonationInfo(AddOrgDonationInfoRequest request) throws Exception {
-        return false;
+    @Override /*not implemented */
+    public generalOrganisationResponse addOrgDonationInfo(AddOrgDonationInfoRequest request) throws Exception {
+        if(request == null)
+        {
+            throw new Exception("Exception: request object is null");
+        }
+        else if(request.getOrgId() == null)
+        {
+            throw new Exception("Exception: provided ID is not set");
+        }
+        else if(request.getOrgInfo() == null)
+        {
+            throw new Exception("Exception: donation information is null");
+        }
+
+        throw new Exception("Exception: donation is under construction");
     }
 
-    @Override
-    public boolean removeOrgDonationInfo(long orgId) throws Exception {
-        return false;
+    @Override /*not implemented */
+    public generalOrganisationResponse removeOrgDonationInfo(Long orgId) throws Exception {
+        if(orgId == null)
+        {
+            throw new Exception("Exception: provided ID is not set");
+        }
+
+        throw new Exception("Exception: donation is under construction");
     }
 
     @Override

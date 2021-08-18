@@ -4,6 +4,8 @@ import com.GiveaLot.givealot.User.dataclass.User;
 import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
 import com.GiveaLot.givealot.User.repository.UserRepository;
 import com.GiveaLot.givealot.User.requests.*;
+import com.GiveaLot.givealot.User.response.UserResponse;
+import com.GiveaLot.givealot.User.response.userResponseGeneral;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +24,7 @@ public class UserServiceImp implements UserService {
     UserRepository userRepository;
 
     @Override /*tested - all good*/
-    public boolean Register(RegisterUserRequest request) throws Exception{
+    public userResponseGeneral Register(RegisterUserRequest request) throws Exception{
         if (request == null) {
             throw new Exception("Registration not set");
         }
@@ -66,11 +68,11 @@ public class UserServiceImp implements UserService {
         newUser.setActivateDate(dateCreated);
 
         userRepository.save(newUser);
-        return true;
+       return new userResponseGeneral("add_user_200_ok","success");
     }
 
     @Override /* tested - all good */
-    public boolean ResetPasswordRequest(ResetPasswordRequestRequest request) throws Exception{
+    public userResponseGeneral ResetPasswordRequest(ResetPasswordRequestRequest request) throws Exception{
         if (request == null) {
             throw new Exception("Exception: Reset not set");
         }
@@ -94,11 +96,11 @@ public class UserServiceImp implements UserService {
         String salted = getMd5(request.getNewPassword() + salt);
 
         userRepository.updatePassword(currentUser.getEmail(),salted);
-        return true;
+        return new userResponseGeneral("res_pass_200_ok","success");
     }
 
     @Override /* tested - all good */
-    public boolean SetAdmin(SetAdminRequest request) throws Exception {
+    public userResponseGeneral SetAdmin(SetAdminRequest request) throws Exception {
         if (request == null) {
             throw new Exception("Please send a valid request object.");
         }
@@ -122,13 +124,16 @@ public class UserServiceImp implements UserService {
         {
             throw new Exception( "The current user is not an admin user");
         }
-
         User generalUser = userRepository.findUserByEmail(request.getGeneralUserEmail());
+
+        if(generalUser == null)
+            throw new Exception("Exception: user not found by their email");
 
         if (userRepository.updateAdmin(generalUser.getEmail(), true) == 0) {
             throw new Exception( "The update did not occur correctly. Please try again.");
         }
-        return true;
+
+        return new userResponseGeneral("set_ad_200_ok","success");
     }
 
     @Override /*tested all good*/
@@ -179,6 +184,10 @@ public class UserServiceImp implements UserService {
             }
 
             User admin = userRepository.findUserByEmail(request.getAdminUser());
+
+            if(admin == null)
+                throw new Exception("Exception: user is not admin");
+
 
             if(!admin.getAdmin())
             {

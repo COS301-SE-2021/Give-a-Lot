@@ -4,20 +4,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AddOrgDonationInfoRequest {
 
-    private long orgId;
+    private Long orgId;
     private String orgInfo;
 
-    public AddOrgDonationInfoRequest(@JsonProperty long orgId,
-                                     @JsonProperty String orgInfo) {
+    public AddOrgDonationInfoRequest(@JsonProperty ("orgId") long orgId,
+                                     @JsonProperty ("orgInfo") String orgInfo) {
         this.orgId = orgId;
         this.orgInfo = orgInfo;
     }
 
-    public long getOrgId() {
+    public Long getOrgId() {
         return orgId;
     }
 
-    public void setOrgId(long orgId) {
+    public void setOrgId(Long orgId) {
         this.orgId = orgId;
     }
 

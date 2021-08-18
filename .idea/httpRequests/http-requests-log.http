@@ -1,3 +1,29 @@
+POST http://localhost:8080/v1/login/user/determine
+Content-Type: application/json
+
+{
+  "username" : "some@email.com",
+  "password" : "pass1234",
+  "role" : "default"
+}
+
+<> 2021-08-18T222658.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/determine
+Content-Type: application/json
+
+{
+  "username" : "admin@email.com",
+  "password" : "pass1234",
+  "role" : "default"
+}
+
+<> 2021-08-18T222630.200.json
+
+###
+
 PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/tax_raf/false
 
 <> 2021-08-18T202727.200.json
@@ -360,32 +386,6 @@ Content-Type: application/json
 }
 
 <> 2021-08-18T050012.200.json
-
-###
-
-POST http://localhost:8080/v1/login/user/general
-Content-Type: application/json
-
-{
-  "username" : "admin@email.com",
-  "password" : "pass1234",
-  "role" : "default"
-}
-
-<> 2021-08-18T044643.200.json
-
-###
-
-POST http://localhost:8080/v1/login/user/general
-Content-Type: application/json
-
-{
-  "username" : "admin@email.com",
-  "password" : "pass12345",
-  "role" : "default"
-}
-
-<> 2021-08-18T044634.200.json
 
 ###
 

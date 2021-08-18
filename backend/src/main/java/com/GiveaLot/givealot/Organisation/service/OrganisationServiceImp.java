@@ -62,11 +62,15 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public Organisations selectOrganisation(long orgId) throws Exception {
+    public Organisations selectOrganisation(Long orgId) throws Exception {
+
+        if(orgId == null)
+            throw new Exception("Exception: Id provided is null");
 
         Organisations res = organisationRepository.selectOrganisationById(orgId);
         if (res != null)
             return res;
+
         else throw new Exception("Exception: id does not exist, check spelling");
     }
 
@@ -87,7 +91,7 @@ public class OrganisationServiceImp implements OrganisationService {
         } else return organisationInfo;
     }
 
-    @Override
+    @Override /* tested works well except - certificate throws a null pointer exception.*/
     public boolean addOrganisation(Organisations organisation) throws Exception
     {
         if(organisation == null)
@@ -184,6 +188,10 @@ public class OrganisationServiceImp implements OrganisationService {
     @Override
     public boolean suspendOrganisation(long orgId) throws Exception {
 
+        /*if()
+        {
+
+        }*/
 
         if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("ID doesn't exist");

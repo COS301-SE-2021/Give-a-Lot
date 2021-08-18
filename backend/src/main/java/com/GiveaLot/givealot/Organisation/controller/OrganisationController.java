@@ -25,8 +25,31 @@ public class OrganisationController
         this.response = response;
     }
 
-    /* tested, works well */
-    @PostMapping("/add/org")
+    /* tested - works */
+    @GetMapping("/select/{orgId}")
+    public responseJSON selectOrganisation(@PathVariable("orgId") @NonNull Long orgId)
+    {
+        response.setObject(null);
+        try
+        {
+            Organisations res = service.selectOrganisation(orgId);
+            if(res != null)
+            {
+                response.setCode("org_sel_ok_200");
+                response.setMessage("success");
+            }
+            response.setObject(res);
+        }
+        catch (Exception e)
+        {
+            response.setCode("org_sel_bad_500");
+            response.setMessage("unsuccessful " + e);
+        }
+        return response;
+    }
+
+
+    @PostMapping("/add/org") /* tested, works well */
     public responseJSON addOrganisation(@RequestBody @NonNull AddOrganisationRequest body)
     {
         response.setObject(null);
@@ -45,29 +68,6 @@ public class OrganisationController
         {
             response.setCode("org_add_err_501");
             response.setMessage("unsuccessful " + e.getMessage());
-        }
-        return response;
-    }
-
-    /* tested - works */
-    @GetMapping("/select/{orgId}")
-    public responseJSON selectOrganisation(@PathVariable("orgId") @NonNull long orgId)
-    {
-        response.setObject(null);
-        try
-        {
-            Organisations res = service.selectOrganisation(orgId);
-            if(res != null)
-            {
-                response.setCode("org_sel_ok_200");
-                response.setMessage("success");
-            }
-            response.setObject(res);
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_sel_bad_500");
-            response.setMessage("unsuccessful " + e.toString());
         }
         return response;
     }

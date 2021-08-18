@@ -11,6 +11,7 @@ import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Organisation.repository.organisationPointsRepository;
 import com.GiveaLot.givealot.Organisation.requests.*;
 import com.GiveaLot.givealot.Organisation.response.getOrganisationsResponse;
+import com.GiveaLot.givealot.Organisation.response.selectOrganisationResponse;
 import com.GiveaLot.givealot.Server.ServerAccess;
 import com.GiveaLot.givealot.User.dataclass.User;
 import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
@@ -101,15 +102,14 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public Organisations selectOrganisation(Long orgId) throws Exception {
+    public selectOrganisationResponse selectOrganisation(Long orgId) throws Exception {
 
         if(orgId == null)
             throw new Exception("Exception: Id provided is null");
 
         Organisations res = organisationRepository.selectOrganisationById(orgId);
         if (res != null)
-            return res;
-
+            return new selectOrganisationResponse("sel_org_200_ok","success",res);
         else throw new Exception("Exception: id does not exist, check spelling");
     }
 

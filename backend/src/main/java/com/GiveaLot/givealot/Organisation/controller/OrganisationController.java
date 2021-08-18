@@ -5,6 +5,7 @@ import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.requests.*;
 import com.GiveaLot.givealot.Organisation.response.getOrganisationsResponse;
+import com.GiveaLot.givealot.Organisation.response.selectOrganisationResponse;
 import com.GiveaLot.givealot.Organisation.service.OrganisationServiceImp;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import com.GiveaLot.givealot.User.dataclass.User;
@@ -34,27 +35,21 @@ public class OrganisationController
     }
 
     /* tested - works */
-    @GetMapping("/select/{orgId}")
-    public responseJSON selectOrganisation(@PathVariable("orgId") @NonNull Long orgId)
+     @GetMapping("/sel/organisation/{orgId}") /*tested all good*/
+    public ResponseEntity<selectOrganisationResponse> selectOrganisation(@PathVariable("orgId") @NonNull Long orgId)
     {
-        response.setObject(null);
+        selectOrganisationResponse response;
         try
         {
-            Organisations res = service.selectOrganisation(orgId);
-            if(res != null)
-            {
-                response.setCode("org_sel_ok_200");
-                response.setMessage("success");
-            }
-            response.setObject(res);
+            response = service.selectOrganisation(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)
         {
-            response.setCode("org_sel_bad_500");
-            response.setMessage("unsuccessful " + e);
+            return new ResponseEntity<>(new selectOrganisationResponse("sel_org_500_bad","failed: " + e, null), HttpStatus.OK);
         }
-        return response;
     }
+
 
     @PostMapping("/get/organisations") /*tested all good*/
     public ResponseEntity<getOrganisationsResponse> getOrganisations(@RequestBody @NonNull GetOrganisationsRequest body)
@@ -72,7 +67,7 @@ public class OrganisationController
     }
 
 
-    @PostMapping("/add/org") /* tested, works well */
+/*    @PostMapping("/add/org") *//* tested, works well *//*
     public responseJSON addOrganisation(@RequestBody @NonNull AddOrganisationRequest body)
     {
         response.setObject(null);
@@ -95,7 +90,7 @@ public class OrganisationController
         return response;
     }
 
-    /* tested - works */
+    *//* tested - works *//*
     @GetMapping("/info/{orgId}")
     public responseJSON selectOrganisationInfo(@PathVariable("orgId") @NonNull long orgId)
     {
@@ -118,7 +113,7 @@ public class OrganisationController
         return response;
     }
 
-    /* tested - works */
+    *//* tested - works *//*
     @PostMapping("/add/website")
     public responseJSON addOrgWebsite(@RequestBody @NonNull AddOrgWebsiteRequest body)
     {
@@ -139,7 +134,7 @@ public class OrganisationController
         return response;
     }
 
-    /* tested - works */
+    *//* tested - works *//*
     @DeleteMapping("/delete/website/{orgId}")
     public responseJSON removeOrgWebsite(@PathVariable("orgId") @NonNull long orgId)
     {
@@ -160,7 +155,7 @@ public class OrganisationController
         return response;
     }
 
-    /* tested - works */
+    *//* tested - works *//*
     @PutMapping("/add/address")
     public responseJSON addOrgAddress(@RequestBody @NonNull AddOrgAddressRequest body)
     {
@@ -181,7 +176,7 @@ public class OrganisationController
         return response;
     }
 
-    /* tested - works */
+    *//* tested - works *//*
     @DeleteMapping("/delete/address/{orgId}")
     public responseJSON removeOrgAddress(@PathVariable("orgId") @NonNull long orgId)
     {
@@ -202,7 +197,7 @@ public class OrganisationController
         return response;
     }
 
-    /* tested - works */
+    *//* tested - works *//*
     @PostMapping("/add/taxref")
     public responseJSON addOrgTaxRef(@RequestBody AddOrgTaxRefRequest body)
     {
@@ -224,7 +219,7 @@ public class OrganisationController
         }
     }
 
-    /* tested - works */
+    *//* tested - works *//*
     @DeleteMapping("/delete/taxref/{orgId}")
     public responseJSON removeOrgTaxRef(@PathVariable("orgId")@NonNull long orgId)
     {
@@ -246,7 +241,7 @@ public class OrganisationController
         return response;
     }
 
-    /* tested - works */
+    *//* tested - works *//*
     @PutMapping("/suspend/{orgId}")
     public responseJSON suspendOrganisation(@PathVariable("orgId") @NonNull long orgId)
     {
@@ -268,7 +263,7 @@ public class OrganisationController
         return response;
     }
 
-    /* tested - works */
+    *//* tested - works *//*
     @PutMapping("/activate/{orgId}")
     public responseJSON reactivateOrganisation(@PathVariable("orgId") @NonNull long orgId)
     {
@@ -290,7 +285,7 @@ public class OrganisationController
         return response;
     }
 
-    /* tested - works */
+    *//* tested - works *//*
     @PutMapping("/investigate/{orgId}")
     public responseJSON investigateOrganisation(@PathVariable("orgId") @NonNull long orgId)
     {
@@ -312,7 +307,7 @@ public class OrganisationController
         return response;
     }
 
-    /* tested - works */
+    *//* tested - works *//*
     @PostMapping("/add/socials")
     public responseJSON addOrgSocials(@RequestBody  @NonNull AddSocialsRequest body)
     {
@@ -334,7 +329,7 @@ public class OrganisationController
         return response;
     }
 
-    /* tested - works */
+    *//* tested - works *//*
     @DeleteMapping("/delete/socials/{orgId}/{type}")
     public responseJSON removeOrgSocials(@PathVariable("orgId") @NonNull long orgId,@PathVariable("type") @NonNull String type)
     {
@@ -765,5 +760,5 @@ public class OrganisationController
             response.setMessage("unsuccessful");
             return response;
         }
-    }
+    }*/
 }

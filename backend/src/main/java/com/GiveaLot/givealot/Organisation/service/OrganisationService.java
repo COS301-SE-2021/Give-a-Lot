@@ -24,7 +24,7 @@ public interface OrganisationService {
     //Additional classes
     generalOrganisationResponse addOrgWebsite(AddOrgWebsiteRequest request) throws Exception;
     generalOrganisationResponse removeOrgWebsite(Long orgId) throws Exception;
-    boolean addOrgAddress(AddOrgAddressRequest request) throws Exception;
+    generalOrganisationResponse addOrgAddress(AddOrgAddressRequest request) throws Exception;
     boolean removeOrgAddress(long orgId) throws Exception;
     boolean addOrgImage(AddOrgImageRequest request) throws Exception;
     boolean removeOrgImage(long orgId) throws Exception;

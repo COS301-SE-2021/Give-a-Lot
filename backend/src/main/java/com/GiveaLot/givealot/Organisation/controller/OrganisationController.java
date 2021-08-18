@@ -159,6 +159,21 @@ public class OrganisationController
         }
     }
 
+    @PutMapping("/add/address") /* tested - works */
+    public ResponseEntity<generalOrganisationResponse> addOrgAddress(@RequestBody @NonNull AddOrgAddressRequest body)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.addOrgAddress(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("add_addr_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
     /* tested - works *//*
     @GetMapping("/info/{orgId}")
     public responseJSON selectOrganisationInfo(@PathVariable("orgId") @NonNull long orgId)
@@ -189,25 +204,7 @@ public class OrganisationController
 
 
     *//* tested - works *//*
-    @PutMapping("/add/address")
-    public responseJSON addOrgAddress(@RequestBody @NonNull AddOrgAddressRequest body)
-    {
-        response.setObject(null);
-        try
-        {
-            if(service.addOrgAddress(body))
-            {
-                response.setCode("we_ok_200");
-                response.setMessage("success");
-            }
-        }
-        catch (Exception e)
-        {
-            response.setCode("add_bad_500");
-            response.setMessage("unsuccessful " + e.getMessage());
-        }
-        return response;
-    }
+
 
     *//* tested - works *//*
     @DeleteMapping("/delete/address/{orgId}")

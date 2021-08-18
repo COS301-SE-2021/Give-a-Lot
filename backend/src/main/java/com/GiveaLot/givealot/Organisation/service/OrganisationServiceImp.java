@@ -318,21 +318,27 @@ public class OrganisationServiceImp implements OrganisationService {
         return new generalOrganisationResponse("rem_web_200_ok", "success");
     }
 
-    @Override
-    public boolean addOrgAddress(AddOrgAddressRequest request) throws Exception {
+    @Override /*tested all good - converted*/
+    public generalOrganisationResponse addOrgAddress(AddOrgAddressRequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request not set");
+
+        else if(request.getOrgId() == null)
+            throw new Exception("Exception: ID is null");
+
         else if (request.getAddress() == null)
             throw new Exception("Exception: value not set");
+
         else if (request.getAddress().isEmpty())
             throw new Exception("Exception: invalid value length");
+
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
         if (organisationInfoRepository.addOrgAddress(request.getOrgId(), request.getAddress()) != 1)
             throw new Exception("Exception: value field failed to update");
 
-        return true;
+        return new generalOrganisationResponse("add_addr_200_ok", "success");
     }
 
     @Override

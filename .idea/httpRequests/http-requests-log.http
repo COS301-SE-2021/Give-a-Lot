@@ -1,3 +1,26 @@
+PUT http://localhost:8080/v1/organisation/add/address
+Content-Type: application/json
+
+{
+  "orgId": "18",
+  "address": "458 Give alot str, Pretoria, SA"
+}
+
+<> 2021-08-18T075444.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/add/address
+
+{
+  "orgId": "18",
+  "address": "458 Give alot str, Pretoria, SA"
+}
+
+<> 2021-08-18T075428.415.json
+
+###
+
 DELETE http://localhost:8080/v1/organisation/delete/website/18
 
 <> 2021-08-18T074450.200.json
@@ -526,32 +549,6 @@ Content-Type: application/json
 }
 
 <> 2021-08-18T021010.400.json
-
-###
-
-POST http://localhost:8080/v1/login/user/general
-Content-Type: application/json
-
-{
-  "username" : "admin@email.com",
-  "password" : "pass1234",
-  "role" : "default"
-}
-
-<> 2021-08-18T021003.200.json
-
-###
-
-POST http://localhost:8080/v1/login/user/general
-Content-Type: application/json
-
-{
-  "username" : "admin@email.com",
-  "password" : "password",
-  "role" : "default"
-}
-
-<> 2021-08-18T020941.400.json
 
 ###
 

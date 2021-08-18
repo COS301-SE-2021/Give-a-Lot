@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="organisations controller revision">
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-08-18T054653.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Fixing organisation points">
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/GiveaLot/givealot/User/controller/UserControllerTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,14 +217,6 @@
       <option name="project" value="LOCAL" />
       <updated>1629261980094</updated>
     </task>
-    <task id="LOCAL-00014" summary="Fixing organisation points">
-      <created>1629281118302</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1629281118302</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
     <task id="LOCAL-00014" summary="organisations controller revision - suspend">
       <created>1629262817591</created>
       <option name="number" value="00014" />
@@ -408,7 +399,21 @@
       <option name="project" value="LOCAL" />
       <updated>1629320181853</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Fixing organisation points">
+      <created>1629327656636</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1629327656636</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Fixing organisation points">
+      <created>1629327702103</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1629327702103</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -442,6 +447,5 @@
     <MESSAGE value="organisations controller revision - add Organisation" />
     <MESSAGE value="Fixing organisation points" />
     <option name="LAST_COMMIT_MESSAGE" value="Fixing organisation points" />
-    <option name="LAST_COMMIT_MESSAGE" value="organisations controller revision" />
   </component>
 </project>

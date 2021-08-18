@@ -495,10 +495,13 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
 
-    @Override
-    public boolean addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception {
+    @Override /*not fully integration tested, all good - converted*/
+    public generalOrganisationResponse addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request not set");
+
+        if(request.getOrgId() == null)
+            throw new Exception("Exception: provided ID is null");
 
         else if (request.getAudit() == null)
             throw new Exception("Exception: tax reference not set");
@@ -506,18 +509,27 @@ public class OrganisationServiceImp implements OrganisationService {
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
-        String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
+        Organisations organisation_tmp = organisationRepository.selectOrganisationById(request.getOrgId());
+
+        if(organisation_tmp == null)
+            throw new Exception("Exception: failed to finish - add audit doc");
+
+        String name = organisation_tmp.getOrgName();
 
         access.uploadAuditDocument(request.getOrgId(),name,request.getAudit());
 
         if (organisationInfoRepository.addAuditDoc(request.getOrgId(), "provided") != 1)
             throw new Exception("Exception: value field failed to update");
 
-        return true;
+        return new generalOrganisationResponse("add_audoc_200_OK", "success");
     }
 
-    @Override
-    public boolean removeOrgAuditDoc(long orgId) throws Exception {
+    @Override /*not fully integration tested, all good - converted*/
+    public generalOrganisationResponse removeOrgAuditDoc(Long orgId) throws Exception
+    {
+        if(orgId == null)
+            throw new Exception("Exception: Provided ID is null");
+
         if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
@@ -535,11 +547,11 @@ public class OrganisationServiceImp implements OrganisationService {
         if (organisationInfoRepository.removeAuditDoc(orgId) != 1)
             throw new Exception("Exception: tax reference field not updated");
 
-        return true;
+        return new generalOrganisationResponse("rem_audoc_200_OK", "success");
     }
 
     @Override
-    public boolean addOrgAuditor(AddOrgAuditorRequest request) throws Exception {
+    public generalOrganisationResponse addOrgAuditor(AddOrgAuditorRequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request not set");
         else if (request.getAuditor() == null)
@@ -552,7 +564,7 @@ public class OrganisationServiceImp implements OrganisationService {
         if (organisationInfoRepository.addAuditor(request.getOrgId(), request.getAuditor()) != 1)
             throw new Exception("Exception: value field failed to update");
 
-        return true;
+        return new generalOrganisationResponse("add_aud_200_OK", "success");
     }
 
     @Override

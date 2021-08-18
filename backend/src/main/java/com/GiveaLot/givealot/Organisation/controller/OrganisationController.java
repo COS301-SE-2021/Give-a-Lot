@@ -249,6 +249,36 @@ public class OrganisationController
         }
     }
 
+    @PostMapping("/add/audit") /* not tested */
+    public ResponseEntity<generalOrganisationResponse> addOrgAuditDoc(@RequestBody @NonNull AddOrgAuditInfoRequest body)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.addOrgAuditDoc(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("add_audoc_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
+    @DeleteMapping("/delete/audit/{orgId}") /* not tested */
+    public ResponseEntity<generalOrganisationResponse> removeOrgAuditDoc(@PathVariable("orgId") @NonNull Long orgId)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.removeOrgAuditDoc(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_audoc_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
 
     /* tested -  gfworks *//*
     @GetMapping("/info/{orgId}")
@@ -411,32 +441,7 @@ public class OrganisationController
         }
     }
 
-    @DeleteMapping("/delete/audit/{orgId}")
-    public responseJSON removeOrgAuditDoc(@PathVariable("orgId") @NonNull long orgId)
-    {
-        response.setObject(null);
-        try
-        {
-            boolean res = service.removeOrgAuditDoc(orgId);
-            if(res)
-            {
-                response.setCode("org_rm_ok_211");
-                response.setMessage("success");
-            }
-            else
-            {
-                response.setCode("org_rm_bad_211");
-                response.setMessage("unsuccessful");
-            }
-            return response;
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_rm_bad_500");
-            response.setMessage("unsuccessful");
-            return response;
-        }
-    }
+
 
     @DeleteMapping("/delete/auditor/{orgId}")
     public responseJSON removeOrgAuditor(@PathVariable("orgId") @NonNull long orgId)
@@ -547,32 +552,7 @@ public class OrganisationController
         }
     }
 
-    @PostMapping("/add/audit")
-    public responseJSON addOrgAuditDoc(AddOrgAuditInfoRequest body)
-    {
-        response.setObject(null);
-        try
-        {
-            boolean res = service.addOrgAuditDoc(body);
-            if(res)
-            {
-                response.setCode("org_add_ok_217");
-                response.setMessage("success");
-            }
-            else
-            {
-                response.setCode("org_add_bad_217");
-                response.setMessage("unsuccessful");
-            }
-            return response;
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_add_bad_500");
-            response.setMessage("unsuccessful");
-            return response;
-        }
-    }
+
 
     @PostMapping("/add/auditor")
     public responseJSON addOrgAuditor(@RequestBody @NonNull AddOrgAuditorRequest body)

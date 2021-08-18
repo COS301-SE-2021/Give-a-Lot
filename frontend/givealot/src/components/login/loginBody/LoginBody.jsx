@@ -7,7 +7,6 @@ import LockOpenIcon from '@material-ui/icons/LockOpen';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import {Link} from "react-router-dom";
 import FormError from "../../register/registerUser/FormError";
-import TextField from '@material-ui/core/TextField';
 
 export class Login extends Component {
 

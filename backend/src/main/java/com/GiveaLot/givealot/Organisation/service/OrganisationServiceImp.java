@@ -402,7 +402,7 @@ public class OrganisationServiceImp implements OrganisationService {
         return new generalOrganisationResponse("add_soc_200_OK","success");
     }
 
-    @Override
+    @Override /*tested all good - converted*/
     public generalOrganisationResponse removeOrgSocials(Long orgId, String type) throws Exception {
 
         if (type == null)
@@ -438,10 +438,13 @@ public class OrganisationServiceImp implements OrganisationService {
         return new generalOrganisationResponse("rem_soc_200_OK", "success");
     }
 
-    @Override
-    public boolean addOrgTaxRef(AddOrgTaxRefRequest request) throws Exception {
+    @Override /*not fully integration tested, all good - converted*/
+    public generalOrganisationResponse addOrgTaxRef(AddOrgTaxRefRequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request not set");
+
+        if(request.getOrgId() == null)
+            throw new Exception("Exception: provided ID is null");
 
         else if (request.getReference() == null)
             throw new Exception("Exception: tax reference not set");
@@ -449,18 +452,26 @@ public class OrganisationServiceImp implements OrganisationService {
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
-        String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
+        Organisations organisation_tmp = organisationRepository.selectOrganisationById(request.getOrgId());
+
+        if(organisation_tmp == null)
+            throw new Exception("Exception: failed to proceed");
+
+        String name = organisation_tmp.getOrgName();
 
         access.uploadTaxReference(request.getOrgId(),name,request.getReference());
 
         if (organisationInfoRepository.addOrgTaxRef(request.getOrgId(), "provided") != 1)
             throw new Exception("Exception: value field failed to update");
 
-        return true;
+        return new generalOrganisationResponse("add_tax_200_OK", "success");
     }
 
-    @Override
-    public boolean removeOrgTaxRef(long orgId) throws Exception {
+    @Override /*not fully integration tested, all good - converted*/
+    public generalOrganisationResponse removeOrgTaxRef(Long orgId) throws Exception {
+
+        if(orgId == null)
+            throw new Exception("Exception : the provided ID is null");
 
         if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: Organisation ID does not exist");
@@ -480,9 +491,8 @@ public class OrganisationServiceImp implements OrganisationService {
         if (organisationInfoRepository.removeOrgTaxRef(orgId) != 1)
             throw new Exception("Exception: tax reference field not updated");
 
-        return true;
+        return new generalOrganisationResponse("rem_tax_200_OK", "success");
     }
-
 
 
     @Override

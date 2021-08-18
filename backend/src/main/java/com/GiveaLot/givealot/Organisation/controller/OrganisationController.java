@@ -219,6 +219,36 @@ public class OrganisationController
         }
     }
 
+    @PostMapping("/add/taxref") /* not tested */
+    public ResponseEntity<generalOrganisationResponse> addOrgTaxRef(@RequestBody AddOrgTaxRefRequest body)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.addOrgTaxRef(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("add_tax_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
+    @DeleteMapping("/delete/taxref/{orgId}") /* not tested */
+    public ResponseEntity<generalOrganisationResponse> removeOrgTaxRef(@PathVariable("orgId")@NonNull Long orgId)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.removeOrgTaxRef(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_tax_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
 
     /* tested -  gfworks *//*
     @GetMapping("/info/{orgId}")
@@ -242,64 +272,6 @@ public class OrganisationController
         }
         return response;
     }
-
-    *//* tested - works *//*
-    @PostMapping("/add/taxref")
-    public responseJSON addOrgTaxRef(@RequestBody AddOrgTaxRefRequest body)
-    {
-        response.setObject(null);
-        try
-        {
-            if(service.addOrgTaxRef(body))
-            {
-                response.setCode("org_add_ok_200");
-                response.setMessage("success");
-            }
-            return response;
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_add_bad_500");
-            response.setMessage("unsuccessful " + e);
-            return response;
-        }
-    }
-
-    *//* tested - works *//*
-    @DeleteMapping("/delete/taxref/{orgId}")
-    public responseJSON removeOrgTaxRef(@PathVariable("orgId")@NonNull long orgId)
-    {
-        response.setObject(null);
-        try
-        {
-            boolean res = service.removeOrgTaxRef(orgId);
-            if(res)
-            {
-                response.setCode("org_rm_ok_200");
-                response.setMessage("success");
-            }
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_rm_bad_500");
-            response.setMessage("unsuccessful " + e);
-        }
-        return response;
-    }
-
-    *//* tested - works *//*
-
-
-    *//* tested - works *//*
-
-
-    *//* tested - works *//*
-
-
-    *//* tested - works *//*
-
-
-    *//* tested - works *//*
 
 
     @GetMapping("/points/{orgId}")

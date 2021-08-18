@@ -30,8 +30,8 @@ public interface OrganisationService {
     boolean removeOrgImage(long orgId) throws Exception;
     boolean addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception;
     boolean removeOrgAuditDoc(long orgId) throws Exception;
-    boolean addOrgTaxRef(AddOrgTaxRefRequest request) throws Exception;
-    boolean removeOrgTaxRef(long orgId) throws Exception;
+    generalOrganisationResponse addOrgTaxRef(AddOrgTaxRefRequest request) throws Exception;
+    generalOrganisationResponse removeOrgTaxRef(Long orgId) throws Exception;
     boolean addOrgAuditor(AddOrgAuditorRequest request) throws Exception;
     boolean removeOrgAuditor(long orgId) throws Exception;
     boolean addOrgCommittee(AddOrgCommitteeRequest request) throws Exception;

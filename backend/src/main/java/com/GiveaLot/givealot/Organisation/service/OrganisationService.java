@@ -23,7 +23,7 @@ public interface OrganisationService {
     public getOrganisationsResponse getOrganisations(GetOrganisationsRequest request) throws Exception;
     //Additional classes
     generalOrganisationResponse addOrgWebsite(AddOrgWebsiteRequest request) throws Exception;
-    boolean removeOrgWebsite(long orgId) throws Exception;
+    generalOrganisationResponse removeOrgWebsite(Long orgId) throws Exception;
     boolean addOrgAddress(AddOrgAddressRequest request) throws Exception;
     boolean removeOrgAddress(long orgId) throws Exception;
     boolean addOrgImage(AddOrgImageRequest request) throws Exception;

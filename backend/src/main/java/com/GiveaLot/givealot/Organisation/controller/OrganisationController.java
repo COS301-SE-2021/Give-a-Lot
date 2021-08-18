@@ -144,6 +144,21 @@ public class OrganisationController
         }
     }
 
+    @DeleteMapping("/delete/website/{orgId}") /* tested - works */
+    public ResponseEntity<generalOrganisationResponse> removeOrgWebsite(@PathVariable("orgId") @NonNull Long orgId)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.removeOrgWebsite(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_web_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
     /* tested - works *//*
     @GetMapping("/info/{orgId}")
     public responseJSON selectOrganisationInfo(@PathVariable("orgId") @NonNull long orgId)
@@ -171,25 +186,7 @@ public class OrganisationController
 
 
     *//* tested - works *//*
-    @DeleteMapping("/delete/website/{orgId}")
-    public responseJSON removeOrgWebsite(@PathVariable("orgId") @NonNull long orgId)
-    {
-        response.setObject(null);
-        try
-        {
-            if(service.removeOrgWebsite(orgId))
-            {
-                response.setCode("rem_ok_200");
-                response.setMessage("success");
-            }
-        }
-        catch (Exception e)
-        {
-            response.setCode("rem_bad_500");
-            response.setMessage("unsuccessful " + e.getMessage());
-        }
-        return response;
-    }
+
 
     *//* tested - works *//*
     @PutMapping("/add/address")

@@ -267,7 +267,7 @@ public class OrganisationServiceImp implements OrganisationService {
         }
     }
 
-    @Override
+    @Override /*tested all good - converted*/
     public generalOrganisationResponse addOrgWebsite(AddOrgWebsiteRequest request) throws Exception
     {
         if (request == null)
@@ -291,9 +291,13 @@ public class OrganisationServiceImp implements OrganisationService {
         return new generalOrganisationResponse("add_web_200_ok", "success");
     }
 
-    @Override
-    public boolean removeOrgWebsite(long orgId) throws Exception {
-        if (organisationRepository.selectOrganisationById(orgId) == null)
+    @Override /*tested all good - converted*/
+    public generalOrganisationResponse removeOrgWebsite(Long orgId) throws Exception {
+
+        if(orgId == null)
+            throw new Exception("Exception: ID is null");
+
+        else if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
         if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
@@ -308,10 +312,10 @@ public class OrganisationServiceImp implements OrganisationService {
                     "the contract");
         }
 
-        if (organisationInfoRepository.removeOrgWebsite(orgId) != 1)
+        if(organisationInfoRepository.removeOrgWebsite(orgId) != 1)
             throw new Exception("Exception: value field not updated");
 
-        return true;
+        return new generalOrganisationResponse("rem_web_200_ok", "success");
     }
 
     @Override

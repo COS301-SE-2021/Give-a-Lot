@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface OrganisationService {
-    Organisations selectOrganisation(long orgId) throws Exception;
+    Organisations selectOrganisation(Long orgId) throws Exception;
     OrganisationInfo selectOrganisationInfo(long orgId) throws Exception;
     OrganisationPoints selectOrganisationPoints(long orgId) throws Exception;
     boolean addOrganisation(Organisations organisation) throws Exception;

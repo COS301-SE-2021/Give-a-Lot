@@ -279,6 +279,96 @@ public class OrganisationController
         }
     }
 
+    @PostMapping("/add/auditor") /* not tested */
+    public ResponseEntity<generalOrganisationResponse> addOrgAuditor(@RequestBody @NonNull AddOrgAuditorRequest body)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.addOrgAuditor(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("add_audr_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
+    @DeleteMapping("/delete/auditor/{orgId}") /* not tested */
+    public ResponseEntity<generalOrganisationResponse> removeOrgAuditor(@PathVariable("orgId") @NonNull long orgId)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.removeOrgAuditor(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_audr_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
+    @PostMapping("/add/committee") /* not tested */
+    public ResponseEntity<generalOrganisationResponse>  addOrgCommittee(@RequestBody @NonNull AddOrgCommitteeRequest body)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.addOrgCommittee(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("add_cmt_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
+    @DeleteMapping("/delete/committee/{orgId}")
+    public ResponseEntity<generalOrganisationResponse> removeOrgCommittee(@PathVariable("orgId") @NonNull long orgId)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.removeOrgCommittee(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_cmt_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
+    @PostMapping("/add/donation/info") /* not tested */
+    public ResponseEntity<generalOrganisationResponse> addOrgDonationInfo(@RequestBody @NonNull AddOrgDonationInfoRequest body)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.addOrgDonationInfo(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("add_don_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
+    @DeleteMapping("/delete/donationinfo/{orgId}") /* not tested */
+    public ResponseEntity<generalOrganisationResponse> removeOrgDonationInfo(@PathVariable("orgId") @NonNull Long orgId)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.removeOrgDonationInfo(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_don_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
 
     /* tested -  gfworks *//*
     @GetMapping("/info/{orgId}")
@@ -413,89 +503,7 @@ public class OrganisationController
         }
     }
 
-    @DeleteMapping("/delete/donationinfo/{orgId}")
-    public responseJSON removeOrgDonationInfo(@PathVariable("orgId") @NonNull long orgId)
-    {
-        response.setObject(null);
-        System.out.println(orgId);
-        try
-        {
-            boolean res = service.removeOrgDonationInfo(orgId);
-            if(res)
-            {
-                response.setCode("org_rm_ok_210");
-                response.setMessage("success");
-            }
-            else
-            {
-                response.setCode("org_rm_bad_210");
-                response.setMessage("unsuccessful");
-            }
-            return response;
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_rm_bad_500");
-            response.setMessage("unsuccessful");
-            return response;
-        }
-    }
 
-
-
-    @DeleteMapping("/delete/auditor/{orgId}")
-    public responseJSON removeOrgAuditor(@PathVariable("orgId") @NonNull long orgId)
-    {
-        response.setObject(null);
-        try
-        {
-            boolean res = service.removeOrgAuditor(orgId);
-            if(res)
-            {
-                response.setCode("org_rm_ok_212");
-                response.setMessage("success");
-            }
-            else
-            {
-                response.setCode("org_rm_bad_212");
-                response.setMessage("unsuccessful");
-            }
-            return response;
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_rm_bad_500");
-            response.setMessage("unsuccessful");
-            return response;
-        }
-    }
-
-    @DeleteMapping("/delete/committee/{orgId}")
-    public responseJSON removeOrgCommittee(@PathVariable("orgId") @NonNull long orgId)
-    {
-        response.setObject(null);
-        try
-        {
-            boolean res = service.removeOrgCommittee(orgId);
-            if(res)
-            {
-                response.setCode("org_rm_ok_213");
-                response.setMessage("success");
-            }
-            else
-            {
-                response.setCode("org_rm_bad_213");
-                response.setMessage("unsuccessful");
-            }
-            return response;
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_rm_bad_500");
-            response.setMessage("unsuccessful");
-            return response;
-        }
-    }
 
     @PostMapping("/add/estdate")
     public responseJSON addOrgEstDate(@RequestBody @NonNull AddOrgEstDateRequest body)
@@ -554,89 +562,10 @@ public class OrganisationController
 
 
 
-    @PostMapping("/add/auditor")
-    public responseJSON addOrgAuditor(@RequestBody @NonNull AddOrgAuditorRequest body)
-    {
-        response.setObject(null);
-        System.out.println(body.getAuditor() + " " + body.getOrgId());
-        try
-        {
-            boolean res = service.addOrgAuditor(body);
-            if(res)
-            {
-                response.setCode("org_add_ok_219");
-                response.setMessage("success");
-            }
-            else
-            {
-                response.setCode("org_add_bad_219");
-                response.setMessage("unsuccessful");
-            }
-            return response;
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_add_bad_500");
-            response.setMessage("unsuccessful");
-            return response;
-        }
-    }
 
-    @PostMapping("/add/committee")
-    public responseJSON addOrgCommittee(@RequestBody @NonNull AddOrgCommitteeRequest body)
-    {
-        response.setObject(null);
-        System.out.println(body.getCommittee() + " " + body.getOrgId());
-        try
-        {
-            boolean res = service.addOrgCommittee(body);
-            if(res)
-            {
-                response.setCode("org_add_ok_220");
-                response.setMessage("success");
-            }
-            else
-            {
-                response.setCode("org_add_bad_220");
-                response.setMessage("unsuccessful");
-            }
-            return response;
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_add_bad_500");
-            response.setMessage("unsuccessful");
-            return response;
-        }
-    }
 
-    @PostMapping("/add/donation/info")
-    public responseJSON addOrgDonationInfo(@RequestBody @NonNull AddOrgDonationInfoRequest body)
-    {
-        response.setObject(null);
-        System.out.println(body.getOrgInfo() + " " + body.getOrgId());
-        try
-        {
-            boolean res = service.addOrgDonationInfo(body);
-            if(res)
-            {
-                response.setCode("org_add_ok_221");
-                response.setMessage("success");
-            }
-            else
-            {
-                response.setCode("org_add_bad_221");
-                response.setMessage("unsuccessful");
-            }
-            return response;
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_add_bad_500");
-            response.setMessage("unsuccessful");
-            return response;
-        }
-    }
+
+
 
     @PostMapping("/add/ngo")
     public responseJSON addOrgNGO(@RequestBody AddOrgNGORequest body)

@@ -1,0 +1,539 @@
+POST http://localhost:8080/v1/organisation/add/address
+Content-Type: application/json
+
+{
+  "orgId": "18",
+  "address": "458 Give alot str, Pretoria, SA"
+}
+
+<> 2021-08-18T175603.200.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/socials/18/facebook
+
+<> 2021-08-18T082301.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/socials
+Content-Type: application/json
+
+{
+  "socialType": "facebook",
+  "orgId" : "",
+  "url" : "someurlnotvalidated"
+}
+
+<> 2021-08-18T081447.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/socials
+Content-Type: application/json
+
+{
+  "socialType": "facebook",
+  "orgId" : "18",
+  "url" : "someurlnotvalidated"
+}
+
+<> 2021-08-18T081440.200.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/address/18
+
+<> 2021-08-18T080442.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/add/address
+Content-Type: application/json
+
+{
+  "orgId": "18",
+  "address": "458 Give alot str, Pretoria, SA"
+}
+
+<> 2021-08-18T075444.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/add/address
+
+{
+  "orgId": "18",
+  "address": "458 Give alot str, Pretoria, SA"
+}
+
+<> 2021-08-18T075428.415.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/website/18
+
+<> 2021-08-18T074450.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/website
+Content-Type: application/json
+
+{
+  "orgId": "18",
+  "website": "www.someweb.org"
+}
+
+<> 2021-08-18T073344.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/website
+Content-Type: application/json
+
+{
+  "orgId": "18",
+  "website": "www.someweb.org"
+}
+
+<> 2021-08-18T073255.404.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/investigate/18
+
+<> 2021-08-18T072247.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/investigate/18d
+
+<> 2021-08-18T072235.400.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/investigate/18
+
+<> 2021-08-18T072223.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/activate/18
+
+<> 2021-08-18T072021.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/suspend/18
+
+<> 2021-08-18T070326.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/suspend/18
+
+<> 2021-08-18T065905.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/suspend/18
+
+<> 2021-08-18T065748.404.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "Kids next door",
+  "slogan" : "When the code breaks, blame the recent commit and push",
+  "orgDescription" : "We are trying our best to keep it together but in reality its tough, one day at a time.",
+  "orgSector" : "developers",
+  "orgEmail" : "contact@kidsnextdoor.com",
+  "contactPerson" : "Madi",
+  "contactNumber" : "0112345678",
+  "password" : "givepassword"
+}
+
+<> 2021-08-18T064536.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/18
+
+<> 2021-08-18T063129.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/sel/organisation/18
+
+<> 2021-08-18T063030.405.json
+
+###
+
+POST http://localhost:8080/v1/organisation/sel/organisation/18
+
+###
+
+POST http://localhost:8080/v1/organisation/get/organisations
+Content-Type: application/json
+
+{
+  "adminUserEmail" : "admin@email.com"
+}
+
+<> 2021-08-18T054714.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/get/organisations
+Content-Type: application/json
+
+{
+  "adminUserEmail" : ""
+}
+
+<> 2021-08-18T054653.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/get/organisations
+Content-Type: application/json
+
+{
+  "adminUserEmail" : "admin@email.com"
+}
+
+<> 2021-08-18T054615.200.json
+
+###
+
+POST http://localhost:8080/v1/user/get/users
+Content-Type: application/json
+
+{
+  "adminUserEmail" : "admin@email.com"
+}
+
+<> 2021-08-18T050012.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/general
+Content-Type: application/json
+
+{
+  "username" : "admin@email.com",
+  "password" : "pass1234",
+  "role" : "default"
+}
+
+<> 2021-08-18T044643.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/general
+Content-Type: application/json
+
+{
+  "username" : "admin@email.com",
+  "password" : "pass12345",
+  "role" : "default"
+}
+
+<> 2021-08-18T044634.200.json
+
+###
+
+GET http://localhost:8080/v1/user/get/users
+Content-Type: application/json
+
+{
+  "adminUserEmail" : "admin@email.com"
+}
+
+<> 2021-08-18T044627.200.json
+
+###
+
+POST http://localhost:8080/v1/user/get/user
+Content-Type: application/json
+
+{
+ "generalUserEmail" : "some@email.com",
+  "adminUserEmail" : "admin@email.com"
+}
+
+<> 2021-08-18T044607.200.json
+
+###
+
+POST http://localhost:8080/v1/user/resetPassword/user
+Content-Type: application/json
+
+{
+ "userEmail" : "some@email.com",
+ "newPassword" : "pass1234"
+}
+
+<> 2021-08-18T044600.200.json
+
+###
+
+POST http://localhost:8080/v1/user/resetPassword/user
+Content-Type: application/json
+
+{
+ "userEmail" : "some@email.com",
+ "newPassword" : "pass1234"
+}
+
+###
+
+POST http://localhost:8080/v1/user/resetPassword/user
+Content-Type: application/json
+
+{
+ "userEmail" : "some@email.com",
+ "newPassword" : "pass1234"
+}
+
+###
+
+POST http://localhost:8080/v1/user/setadmin/user
+Content-Type: application/json
+
+{
+  "generalUserEmail" : "some@email.com",
+  "adminEmail" : "admin@email.com"
+}
+
+<> 2021-08-18T044417.200.json
+
+###
+
+POST http://localhost:8080/v1/user/setadmin/user
+Content-Type: application/json
+
+{
+  "generalUserEmail" : "email@email.com",
+  "adminEmail" : "admin@email.com"
+}
+
+<> 2021-08-18T044334.200.json
+
+###
+
+POST http://localhost:8080/v1/user/setadmin/user
+Content-Type: application/json
+
+{
+  "generalUserEmail" : "email@email.com",
+  "adminEmail" : "admin@email.com"
+}
+
+<> 2021-08-18T044014.200.json
+
+###
+
+POST http://localhost:8080/v1/user/setadmin/user
+Content-Type: application/json
+
+{
+  "generalUserEmail" : "email@email.com",
+  "adminEmail" : "admin@email.com"
+}
+
+<> 2021-08-18T043606.200.json
+
+###
+
+POST http://localhost:8080/v1/user/setadmin/user
+Content-Type: application/json
+
+{
+  "generalUserEmail" : "email@email.com",
+  "adminEmail" : "admin@email.com"
+}
+
+<> 2021-08-18T043547.200.json
+
+###
+
+POST http://localhost:8080/v1/user/register/user
+Content-Type: application/json
+
+{
+   "firstName" : "Jackson",
+  "lastName" : "Parker",
+  "email": "some@email.com",
+  "password":"pass1234"
+}
+
+<> 2021-08-18T043531.200.json
+
+###
+
+POST http://localhost:8080/v1/user/get/user
+Content-Type: application/json
+
+{
+ "generalUserEmail" : "some@email.com",
+  "adminUserEmail" : "admin@email.com"
+}
+
+<> 2021-08-18T041249.200.json
+
+###
+
+GET http://localhost:8080/v1/user/get/users
+Content-Type: application/json
+
+{
+  "adminUserEmail" : "admin@email.com"
+}
+
+<> 2021-08-18T041240.200.json
+
+###
+
+GET http://localhost:8080/v1/user/get/users
+Content-Type: application/json
+
+{
+  "adminUserEmail" : "admin@email.com"
+}
+
+<> 2021-08-18T041231.200.json
+
+###
+
+POST http://localhost:8080/v1/user/register/user
+Content-Type: application/json
+
+{
+   "firstName" : "Jackson",
+  "lastName" : "Parker",
+  "email": "some@email.com",
+  "password":"pass1234"
+}
+
+<> 2021-08-18T040948.200.json
+
+###
+
+POST http://localhost:8080/v1/user/register/user
+Content-Type: application/json
+
+{
+   "firstName" : "Jackson",
+  "lastName" : "Parker",
+  "email": "some@email.com",
+  "password":"pass1234"
+}
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "Kids next door",
+  "slogan" : "When the code breaks, blame the recent commit and push",
+  "orgDescription" : "We are trying our best to keep it together but in reality its tough, one day at a time.",
+  "orgSector" : "developers",
+  "orgEmail" : "contact@kidsnextdoor.com",
+  "contactPerson" : "Madi",
+  "contactNumber" : "0112345678",
+  "password" : "givepassword"
+}
+
+<> 2021-08-18T032058.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "The givers of pizza",
+  "slogan" : "We give to looters",
+  "orgDescription" : "Thisis is the givers organisations and we give to the people who give pizza",
+  "orgSector" : "loot",
+  "orgEmail" : "the@pizza.com",
+  "contactPerson" : "Johanne",
+  "contactNumber" : "0887575653",
+  "password" : "gta5"
+}
+
+<> 2021-08-18T031856.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/login_org
+Content-Type: application/json
+
+{
+  "username" : "the@pizdza.com",
+  "password" : "gta5",
+  "role" : "default"
+}
+
+<> 2021-08-18T025319.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/admin
+Content-Type: application/json
+
+{
+  "username" : "admin@email.com",
+  "password" : "pass1234",
+  "role" : "default"
+}
+
+<> 2021-08-18T025313.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/general
+Content-Type: application/json
+
+{
+  "username" : "admin@email.com",
+  "password" : "pass12345",
+  "role" : "default"
+}
+
+<> 2021-08-18T025103.400.json
+
+###
+
+POST http://localhost:8080/v1/login/user/admin
+Content-Type: application/json
+
+{
+  "username" : "admin@email.com",
+  "password" : "pass1234",
+  "role" : "default"
+}
+
+<> 2021-08-18T022854.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/admin
+Content-Type: application/json
+
+{
+  "username" : "admin@email.com",
+  "password" : "pass1234",
+  "role" : "default"
+}
+
+<> 2021-08-18T022515.200.json
+
+###
+

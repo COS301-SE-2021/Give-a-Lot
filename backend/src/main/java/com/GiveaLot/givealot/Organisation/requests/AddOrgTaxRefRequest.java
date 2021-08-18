@@ -5,20 +5,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.File;
 
 public class AddOrgTaxRefRequest {
-    private long orgId;
+    private Long orgId;
     private File reference;
 
-    public AddOrgTaxRefRequest(@JsonProperty ("orgId") long orgId,
+    public AddOrgTaxRefRequest(@JsonProperty ("orgId") Long orgId,
                                @JsonProperty ("reference") File reference) {
         this.orgId = orgId;
         this.reference = reference;
     }
 
-    public long getOrgId() {
+    public Long getOrgId() {
         return orgId;
     }
 
-    public void setOrgId(long orgId) {
+    public void setOrgId(Long orgId) {
         this.orgId = orgId;
     }
 

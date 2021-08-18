@@ -33,6 +33,34 @@ public class UserControllerTest {
     private UserServiceImp userServiceImp;
 
     @Test
+    public void testAddUser3() throws Exception {
+        MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/user/register/user")
+                .contentType(MediaType.APPLICATION_JSON);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        MockHttpServletRequestBuilder requestBuilder = contentTypeResult.content(
+                objectMapper.writeValueAsString(new RegisterUserRequest("Jane", "Doe", "jane.doe@example.org", "iloveyou")));
+        MockMvcBuilders.standaloneSetup(this.userController)
+                .build()
+                .perform(requestBuilder)
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
+    public void testAddUser4() throws Exception {
+        MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/user/register/user", "Uri Vars")
+                .contentType(MediaType.APPLICATION_JSON);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        MockHttpServletRequestBuilder requestBuilder = contentTypeResult.content(
+                objectMapper.writeValueAsString(new RegisterUserRequest("Jane", "Doe", "jane.doe@example.org", "iloveyou")));
+        MockMvcBuilders.standaloneSetup(this.userController)
+                .build()
+                .perform(requestBuilder)
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
     public void testAddUser() throws Exception {
         MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/user/register/user")
                 .contentType(MediaType.APPLICATION_JSON);
@@ -78,7 +106,41 @@ public class UserControllerTest {
     }
 
     @Test
+    public void testGetUser2() throws Exception {
+        MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/user/get/user")
+                .contentType(MediaType.APPLICATION_JSON);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        MockHttpServletRequestBuilder requestBuilder = contentTypeResult
+                .content(objectMapper.writeValueAsString(new GetUserRequest("jane.doe@example.org", "Admin User")));
+        MockMvcBuilders.standaloneSetup(this.userController)
+                .build()
+                .perform(requestBuilder)
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
+                .andExpect(MockMvcResultMatchers.content()
+                        .string("{\"message\":\"unsuccessful\",\"success\":false,\"jwttoken\":null}"));
+    }
+
+    @Test
     public void testGetUsers() throws Exception {
+        MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.get("/v1/user/get/users")
+                .contentType(MediaType.APPLICATION_JSON);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        MockHttpServletRequestBuilder requestBuilder = contentTypeResult
+                .content(objectMapper.writeValueAsString(new GetUsersRequest("Admin User")));
+        MockMvcBuilders.standaloneSetup(this.userController)
+                .build()
+                .perform(requestBuilder)
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
+                .andExpect(
+                        MockMvcResultMatchers.content().string("{\"message\":\"successful\",\"success\":true,\"jwttoken\":\"1\"}"));
+    }
+
+    @Test
+    public void testGetUsers2() throws Exception {
         MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.get("/v1/user/get/users")
                 .contentType(MediaType.APPLICATION_JSON);
 
@@ -109,7 +171,35 @@ public class UserControllerTest {
     }
 
     @Test
+    public void testResetPassword2() throws Exception {
+        MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/user/resetPassword/user")
+                .contentType(MediaType.APPLICATION_JSON);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        MockHttpServletRequestBuilder requestBuilder = contentTypeResult
+                .content(objectMapper.writeValueAsString(new ResetPasswordRequestRequest("jane.doe@example.org", "iloveyou")));
+        MockMvcBuilders.standaloneSetup(this.userController)
+                .build()
+                .perform(requestBuilder)
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
     public void testSetAdmin() throws Exception {
+        MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/user/setadmin/user")
+                .contentType(MediaType.APPLICATION_JSON);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        MockHttpServletRequestBuilder requestBuilder = contentTypeResult
+                .content(objectMapper.writeValueAsString(new SetAdminRequest("jane.doe@example.org", "jane.doe@example.org")));
+        MockMvcBuilders.standaloneSetup(this.userController)
+                .build()
+                .perform(requestBuilder)
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
+    public void testSetAdmin2() throws Exception {
         MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/user/setadmin/user")
                 .contentType(MediaType.APPLICATION_JSON);
 

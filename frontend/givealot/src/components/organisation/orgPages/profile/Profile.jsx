@@ -8,18 +8,43 @@ import {
     PhoneAndroid,
     Publish,
 } from "@material-ui/icons";
-// import { Link } from "react-router-dom";
+import axios from "axios";
 
 export class Profile extends Component {
 
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            org:[]
+        }
+    }
+
+    componentDidMount(){
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        axios.get('http://localhost:8080/v1/user/get/users', config)
+            .then(response =>{
+                console.log(response)
+                this.setState({org: response.data.response})
+                console.log(this.state.org)
+            })
+            .catch(error =>{
+                console.log(error)
+                this.setState({error : 'Error Retrieving data'})
+            })
+    }
+
     render() {
+        const { org } = this.state
         return (
             <div className="profileOrg">
                 <div className="userTitleContainer">
                     <h1 className="userTitle">Edit Information</h1>
-                    {/*<Link to="/newUser">*/}
-                    {/*    <button className="userAddButton">Create</button>*/}
-                    {/*</Link>*/}
                 </div>
                 <div className="userOrgContainer">
                     <div className="userShow">

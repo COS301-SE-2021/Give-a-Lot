@@ -185,6 +185,10 @@ public class UserServiceImp implements UserService {
 
             User admin = userRepository.findUserByEmail(request.getAdminUser());
 
+            if(admin == null)
+                throw new Exception("Exception: user is not admin");
+
+
             if(!admin.getAdmin())
             {
                 throw new UserNotAuthorisedException("current user is not an admin");

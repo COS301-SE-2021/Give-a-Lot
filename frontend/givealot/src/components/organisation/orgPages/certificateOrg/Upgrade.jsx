@@ -48,6 +48,7 @@ export class Upgrade extends Component {
         this.state = {
             orgId: "19",
             website: "",
+            address:"",
         };
         this.handleChange = this.handleChange.bind(this);
         this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -77,6 +78,11 @@ export class Upgrade extends Component {
         this.setState({website: e.target.value});
 
     };
+    handleAddressInputChange = e => {
+        this.setState({address: e.target.value});
+
+    };
+
     handleFormChange = e => {
         e.preventDefault();
         const data = {
@@ -85,6 +91,17 @@ export class Upgrade extends Component {
         };
         Axios
             .post("http://localhost:8080/v1/organisation/add/website", data)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    };
+    handleAddressFormChange = e => {
+        e.preventDefault();
+        const data = {
+            orgId: this.state.orgId,
+            address: this.state.address,
+        };
+        Axios
+            .post("http://localhost:8080/v1/organisation/add/address", data)
             .then(res => console.log(res))
             .catch(err => console.log(err));
     };
@@ -127,17 +144,20 @@ export class Upgrade extends Component {
 
 
 
-                        <form className="upgrade_form" onSubmit={this.handleAdressFormChange}>
+                        <form className="upgrade_form" onSubmit={this.handleAddressFormChange}>
                             <input
                                 name="address"
                                 type="text"
                                 placeholder="Enter your address.."
                                 className="input1"
-                                onChange={this.handleAdressInputChange}
+                                onChange={this.handleAddressInputChange}
                             />
 
                             <input type="submit" value="Submit" className="submit1" onClick={this.onToast}/>
                             { }
+                            <div className="form-group">
+                                <ToastContainer/>
+                            </div>
 
                         </form>
 

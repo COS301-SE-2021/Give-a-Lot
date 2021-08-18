@@ -10,6 +10,7 @@ import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Organisation.repository.organisationPointsRepository;
 import com.GiveaLot.givealot.Organisation.requests.*;
+import com.GiveaLot.givealot.Organisation.response.generalOrganisationResponse;
 import com.GiveaLot.givealot.Organisation.response.getOrganisationsResponse;
 import com.GiveaLot.givealot.Organisation.response.selectOrganisationResponse;
 import com.GiveaLot.givealot.Server.ServerAccess;
@@ -131,7 +132,7 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override /* tested works well except - certificate throws a null pointer exception.*/
-    public boolean addOrganisation(Organisations organisation) throws Exception
+    public generalOrganisationResponse addOrganisation(Organisations organisation) throws Exception
     {
         if(organisation == null)
             throw new Exception("invalid organisation object: null");
@@ -221,7 +222,7 @@ public class OrganisationServiceImp implements OrganisationService {
 
         certificateRepository.save(certificate);
         certificateService.addCertificate(id,certificate);
-        return true;
+        return new generalOrganisationResponse("add_org_200_ok", "success");
     }
 
     @Override

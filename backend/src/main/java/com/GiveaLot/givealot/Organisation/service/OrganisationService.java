@@ -4,6 +4,7 @@ import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.requests.*;
+import com.GiveaLot.givealot.Organisation.response.generalOrganisationResponse;
 import com.GiveaLot.givealot.Organisation.response.getOrganisationsResponse;
 import com.GiveaLot.givealot.Organisation.response.selectOrganisationResponse;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ public interface OrganisationService {
     selectOrganisationResponse selectOrganisation(Long orgId) throws Exception;
     OrganisationInfo selectOrganisationInfo(long orgId) throws Exception;
     OrganisationPoints selectOrganisationPoints(long orgId) throws Exception;
-    boolean addOrganisation(Organisations organisation) throws Exception;
+    generalOrganisationResponse addOrganisation(Organisations organisation) throws Exception;
     boolean reactivateOrganisation(long orgId) throws Exception;
     boolean investigateOrganisation(long orgId) throws Exception;
     boolean suspendOrganisation(long orgId) throws Exception;

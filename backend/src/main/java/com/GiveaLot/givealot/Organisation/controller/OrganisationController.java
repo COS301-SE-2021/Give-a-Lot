@@ -4,6 +4,7 @@ import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.requests.*;
+import com.GiveaLot.givealot.Organisation.response.generalOrganisationResponse;
 import com.GiveaLot.givealot.Organisation.response.getOrganisationsResponse;
 import com.GiveaLot.givealot.Organisation.response.selectOrganisationResponse;
 import com.GiveaLot.givealot.Organisation.service.OrganisationServiceImp;
@@ -66,31 +67,25 @@ public class OrganisationController
         }
     }
 
-
-/*    @PostMapping("/add/org") *//* tested, works well *//*
-    public responseJSON addOrganisation(@RequestBody @NonNull AddOrganisationRequest body)
+    @PostMapping("/add/org") /*tested all good*/
+    public ResponseEntity<generalOrganisationResponse> addOrganisation(@RequestBody @NonNull AddOrganisationRequest body)
     {
-        response.setObject(null);
+        generalOrganisationResponse response;
         try
         {
-            if(service.addOrganisation(new Organisations(body.getOrgName(),
+            response = service.addOrganisation(new Organisations(body.getOrgName(),
                     body.getSlogan(),body.getOrgDescription(),body.getOrgSector(),
                     body.getOrgEmail(),null,body.getStatus(),body.getContactPerson(),
-                    body.getContactNumber(), "givealot/organisations/", body.getPassword())))
-            {
-                response.setCode("org_add_ok_200");
-                response.setMessage("success");
-            }
+                    body.getContactNumber(), "givealot/organisations/", body.getPassword()));
+            return new ResponseEntity<>(response,  HttpStatus.OK);
         }
         catch (Exception e)
         {
-            response.setCode("org_add_err_501");
-            response.setMessage("unsuccessful " + e.getMessage());
+            return new ResponseEntity<>(new generalOrganisationResponse("org_add_err_501","failed: " + e), HttpStatus.OK);
         }
-        return response;
     }
 
-    *//* tested - works *//*
+    /* tested - works *//*
     @GetMapping("/info/{orgId}")
     public responseJSON selectOrganisationInfo(@PathVariable("orgId") @NonNull long orgId)
     {

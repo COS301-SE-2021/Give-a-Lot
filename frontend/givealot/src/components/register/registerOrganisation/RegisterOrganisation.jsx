@@ -5,8 +5,8 @@ import OrganisationAbout from "./registerOrgPages/OrganisationAbout";
 // import OrganisationMedia from "./registerOrgPages/OrganisationMedia"
 import Confirmation from "./registerOrgPages/Confirmation";
 import Success from "./registerOrgPages/Success"
-import axios from "axios";
-import {toast} from "react-toastify";
+//import axios from "axios";
+//import {toast} from "react-toastify";
 
 export class RegisterOrganisation extends Component {
     state = {

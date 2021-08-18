@@ -9,9 +9,9 @@ import OutlinedInput from "@material-ui/core/OutlinedInput";
 import InputAdornment from "@material-ui/core/InputAdornment";
 // import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
 import DescriptionIcon from '@material-ui/icons/Description';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
+//import InputLabel from '@material-ui/core/InputLabel';
+//import MenuItem from '@material-ui/core/MenuItem';
+//import Select from '@material-ui/core/Select';
 
 
 export class OrganisationAbout extends Component {

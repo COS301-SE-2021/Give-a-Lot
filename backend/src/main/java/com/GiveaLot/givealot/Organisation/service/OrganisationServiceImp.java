@@ -10,8 +10,12 @@ import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Organisation.repository.organisationPointsRepository;
 import com.GiveaLot.givealot.Organisation.requests.*;
+import com.GiveaLot.givealot.Organisation.response.getOrganisationsResponse;
 import com.GiveaLot.givealot.Server.ServerAccess;
+import com.GiveaLot.givealot.User.dataclass.User;
+import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
 import com.GiveaLot.givealot.User.repository.UserRepository;
+import com.GiveaLot.givealot.User.requests.GetUsersRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
@@ -23,6 +27,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 
 @Service
@@ -61,12 +66,50 @@ public class OrganisationServiceImp implements OrganisationService {
 
     }
 
+    @Override /*tested all good*/
+    public getOrganisationsResponse getOrganisations(GetOrganisationsRequest request) throws Exception
+    {
+        if(request == null)
+        {
+            throw new Exception("Exception: request not set");
+        }
+        if(request.getAdminUserEmail() == null)
+        {
+            throw new Exception("Exception: admin user field not set");
+        }
+        else if(request.getAdminUserEmail().isEmpty())
+        {
+            throw new Exception("Exception: admin user field is empty");
+        }
+
+        User admin = userRepository.findUserByEmail(request.getAdminUserEmail());
+
+        if(admin == null)
+            throw new Exception("Exception: user is not admin");
+
+
+        if(!admin.getAdmin())
+        {
+            throw new UserNotAuthorisedException("current user is not an admin");
+        }
+
+        List<Organisations> res = organisationRepository.findAll();
+        if(res == null)
+            throw new Exception("Exception: there are no organisations");
+
+        return new getOrganisationsResponse("get_orgs_200_ok","success",res);
+    }
+
     @Override
-    public Organisations selectOrganisation(long orgId) throws Exception {
+    public Organisations selectOrganisation(Long orgId) throws Exception {
+
+        if(orgId == null)
+            throw new Exception("Exception: Id provided is null");
 
         Organisations res = organisationRepository.selectOrganisationById(orgId);
         if (res != null)
             return res;
+
         else throw new Exception("Exception: id does not exist, check spelling");
     }
 
@@ -87,7 +130,7 @@ public class OrganisationServiceImp implements OrganisationService {
         } else return organisationInfo;
     }
 
-    @Override
+    @Override /* tested works well except - certificate throws a null pointer exception.*/
     public boolean addOrganisation(Organisations organisation) throws Exception
     {
         if(organisation == null)
@@ -98,10 +141,6 @@ public class OrganisationServiceImp implements OrganisationService {
                 organisation.getOrgEmail() == null|| organisation.getContactNumber() == null||
                 organisation.getContactPerson() == null|| organisation.getSlogan() == null)
             throw new Exception("invalid field provided: null");
-
-
-        System.out.println("hello there");
-
 
         organisation.setDirectory("/home/ubuntu/Organisations/");
         organisation.setStatus("active");
@@ -188,6 +227,10 @@ public class OrganisationServiceImp implements OrganisationService {
     @Override
     public boolean suspendOrganisation(long orgId) throws Exception {
 
+        /*if()
+        {
+
+        }*/
 
         if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("ID doesn't exist");
@@ -1024,7 +1067,6 @@ public class OrganisationServiceImp implements OrganisationService {
         else throw new Exception("Exception: type is incorrect");
         return false;
     }
-
 
     @Override
     public OrganisationPoints selectOrganisationPoints(long orgId) throws Exception {

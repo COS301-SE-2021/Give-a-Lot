@@ -9,6 +9,10 @@ import OutlinedInput from "@material-ui/core/OutlinedInput";
 import InputAdornment from "@material-ui/core/InputAdornment";
 // import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
 import DescriptionIcon from '@material-ui/icons/Description';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+
 
 export class OrganisationAbout extends Component {
 
@@ -57,7 +61,7 @@ export class OrganisationAbout extends Component {
                         </div>
                         <div >
                             <OutlinedInput type="type"
-                               name="sector"
+                               name="orgSector"
                                defaultValue={values.orgSector}
                                // onChange={this.handleChange}
                                onChange={handleChange('orgSector')}
@@ -68,12 +72,12 @@ export class OrganisationAbout extends Component {
                                    </InputAdornment>
                                }
                             />
+
                         </div>
 
                         <div >
                             <OutlinedInput type="type"
-                                // label="Multiline"
-                               multiline
+                               multiline={true}
                                maxRows={50}
                                defaultValue={values.orgDescription}
                                // onChange={this.handleChange}

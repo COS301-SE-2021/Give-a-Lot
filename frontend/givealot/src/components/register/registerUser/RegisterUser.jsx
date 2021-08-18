@@ -79,8 +79,21 @@ export class RegisterUser extends Component {
 
     submitHandler = (e) =>{
         e.preventDefault()
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
         console.log(this.state)
-        axios.post('https://jsonplaceholder.typicode.com/posts', this.state)
+        const RegisterUserRequestBody = {
+            "firstName" : this.state.name,
+            "lastName": this.state.surname,
+            "email" : this.state.email,
+            "password" : this.state.password
+
+        }
+        axios.post('http://localhost:8080/v1/user/register/user', RegisterUserRequestBody, {config})
             .then(response =>{
                 console.log(response)
                 toast("Registration successful, You can now Login", {

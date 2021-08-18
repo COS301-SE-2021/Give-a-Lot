@@ -1,4 +1,4 @@
-import './Organisation.css';
+import './organisation.css';
 import TopbarOrg from './topbarOrg/TopbarOrg';
 import SidebarOrg from "./sidebarOrg/SidebarOrg"
 import DashboardOrg from "./orgPages/orgdashboard/DashboardOrg"

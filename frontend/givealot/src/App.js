@@ -1,5 +1,5 @@
 import './App.css';
-// import Admin from "./components/admin/Admin"
+import Admin from "./components/admin/Admin"
 import "./components/basicUser/browse/css/browse.css";
 import "./components/basicUser/browse/css/recommended.css";
 import "./components/basicUser/browse/css/navbar.css";
@@ -19,30 +19,30 @@ import Browse from "./components/basicUser/browse/Browse"
 function App() {
   return (
    <div>
-       {/*<Switch>
-           <Route exact path="/">
-               <Home />
-           </Route>
-           <Route exact path="/login">
-               <Login />
-           </Route>
-           <Route exact path="/verifyPage">
-               <VerifyHomePage />
-           </Route>
-           <Route exact path="/register">
-               <Register />
-           </Route>
-           <Route exact path="/registerUser">
-               <RegisterUser />
-           </Route>
-           <Route exact path="/registerOrganisations">
-               <RegisterOrganisation />
-           </Route>
-            <Route exact path="/browse">
-                <Browse />
-            </Route>
-       </Switch>*/}
-       <Organisation/>
+       {/*<Switch>*/}
+       {/*    <Route exact path="/">*/}
+       {/*        <Home />*/}
+       {/*    </Route>*/}
+       {/*    <Route exact path="/login">*/}
+       {/*        <Login />*/}
+       {/*    </Route>*/}
+       {/*    <Route exact path="/verifyPage">*/}
+       {/*        <VerifyHomePage />*/}
+       {/*    </Route>*/}
+       {/*    <Route exact path="/register">*/}
+       {/*        <Register />*/}
+       {/*    </Route>*/}
+       {/*    <Route exact path="/registerUser">*/}
+       {/*        <RegisterUser />*/}
+       {/*    </Route>*/}
+       {/*    <Route exact path="/registerOrganisations">*/}
+       {/*        <RegisterOrganisation />*/}
+       {/*    </Route>*/}
+       {/*     <Route exact path="/browse">*/}
+       {/*         <Browse />*/}
+       {/*     </Route>*/}
+       {/*</Switch>*/}
+       <Admin />
    </div>
     
   );

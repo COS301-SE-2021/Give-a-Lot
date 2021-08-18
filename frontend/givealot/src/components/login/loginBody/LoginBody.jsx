@@ -7,6 +7,7 @@ import LockOpenIcon from '@material-ui/icons/LockOpen';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import {Link} from "react-router-dom";
 import FormError from "../../register/registerUser/FormError";
+import TextField from '@material-ui/core/TextField';
 
 export class Login extends Component {
 
@@ -65,8 +66,21 @@ export class Login extends Component {
 
     submitHandler = (e) =>{
         e.preventDefault()
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        // console.log("something1")
         console.log(this.state)
-        axios.post('https://jsonplaceholder.typicode.com/posts', this.state)
+        const loginRequestBody = {
+           "username" : this.state.email,
+            "password" : this.state.password,
+            "role" : "default"
+        }
+        console.log(loginRequestBody)
+        axios.post('http://localhost:8080/v1/login/user/general', loginRequestBody , {config})
             .then(response =>{
                 console.log(response)
             })
@@ -91,10 +105,11 @@ export class Login extends Component {
                                    <FormError formErrors={this.state.formErrors} />
                                </div>
 
-                               <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
-                                   <OutlinedInput type="type" name="email"
-                                      value={email} onChange={this.changeHandler}
-                                      className="input" placeholder="Email"
+                               <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
+                                   <OutlinedInput type="email"
+                                      name="email" value={email}
+                                      onChange={this.changeHandler} className="input"
+                                      placeholder="Email"
                                       startAdornment={
                                           <InputAdornment position="start">
                                               <MailOutlineIcon className="loginIcon"/>

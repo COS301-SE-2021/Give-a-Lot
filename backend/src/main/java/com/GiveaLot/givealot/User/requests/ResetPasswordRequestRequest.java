@@ -6,7 +6,7 @@ public class ResetPasswordRequestRequest {
     private final String email;
     private final String newPassword;
 
-    public ResetPasswordRequestRequest(@JsonProperty String email,@JsonProperty String newPassword) {
+    public ResetPasswordRequestRequest(@JsonProperty ("userEmail") String email,@JsonProperty ("newPassword") String newPassword) {
 
         this.email = email;
         this.newPassword = newPassword;

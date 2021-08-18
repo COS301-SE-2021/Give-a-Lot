@@ -4,18 +4,21 @@ import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.requests.*;
+import com.GiveaLot.givealot.Organisation.response.getOrganisationsResponse;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public interface OrganisationService {
-    Organisations selectOrganisation(long orgId) throws Exception;
+    Organisations selectOrganisation(Long orgId) throws Exception;
     OrganisationInfo selectOrganisationInfo(long orgId) throws Exception;
     OrganisationPoints selectOrganisationPoints(long orgId) throws Exception;
     boolean addOrganisation(Organisations organisation) throws Exception;
     boolean reactivateOrganisation(long orgId) throws Exception;
     boolean investigateOrganisation(long orgId) throws Exception;
     boolean suspendOrganisation(long orgId) throws Exception;
-
+    public getOrganisationsResponse getOrganisations(GetOrganisationsRequest request) throws Exception;
     //Additional classes
     boolean addOrgWebsite(AddOrgWebsiteRequest request) throws Exception;
     boolean removeOrgWebsite(long orgId) throws Exception;

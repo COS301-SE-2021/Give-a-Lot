@@ -51,6 +51,8 @@ export class Upgrade extends Component {
             url:"",
             website: "",
             address:"",
+            reference:"",
+            committee:"",
         };
         this.handleChange = this.handleChange.bind(this);
         this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -87,6 +89,14 @@ export class Upgrade extends Component {
 
     handleDateInputChange = e => {
         this.setState({date: e.target.value});
+
+    };
+    handleInstaInputChange = e => {
+        this.setState({url: e.target.value});
+
+    };
+    handleTaxInputChange = e => {
+        this.setState({url: e.target.value});
 
     };
     handleInstaInputChange = e => {

@@ -83,6 +83,11 @@ export class Upgrade extends Component {
 
     };
 
+    handleDateInputChange = e => {
+        this.setState({date: e.target.value});
+
+    };
+
     handleFormChange = e => {
         e.preventDefault();
         const data = {
@@ -102,6 +107,17 @@ export class Upgrade extends Component {
         };
         Axios
             .post("http://localhost:8080/v1/organisation/add/address", data)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    };
+    handledateFormChange = e => {
+        e.preventDefault();
+        const data = {
+            orgId: this.state.orgId,
+            date: this.state.date,
+        };
+        Axios
+            .post("-", data)
             .then(res => console.log(res))
             .catch(err => console.log(err));
     };

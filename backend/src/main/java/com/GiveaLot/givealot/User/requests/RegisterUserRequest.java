@@ -7,7 +7,7 @@ public class RegisterUserRequest {
     private final String firstName;
     private final String lastName;
     private final String email;
-    private final String password;
+    private String password;
 
     public RegisterUserRequest(@JsonProperty("firstName") String firstName,
                                @JsonProperty("lastName")  String lastName,
@@ -34,6 +34,11 @@ public class RegisterUserRequest {
 
     public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password)
+    {
+        this.password = password;
     }
 
     public User getUser()

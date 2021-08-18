@@ -7,6 +7,9 @@ import com.GiveaLot.givealot.User.requests.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -18,8 +21,7 @@ public class UserServiceImp implements UserService {
     @Autowired
     UserRepository userRepository;
 
-
-    @Override
+    @Override /*tested - all good*/
     public boolean Register(RegisterUserRequest request) throws Exception{
         if (request == null) {
             throw new Exception("Registration not set");
@@ -33,19 +35,25 @@ public class UserServiceImp implements UserService {
             throw new  Exception("The email has already been taken.");
         }
 
-        if(request.getFirstName()==null)
+        if(request.getFirstName()==null || request.getFirstName().isEmpty())
         {
             throw new Exception("Registration not set, firstname not valid");
         }
-        if(request.getLastName() == null){
+        if(request.getLastName() == null || request.getLastName().isEmpty()){
             throw new Exception("Registration not set, lastname not valid");
 
         }
-        if (request.getPassword() == null)
+        if (request.getPassword() == null || request.getPassword().isEmpty())
         {
             throw new Exception("Registration not set, password not valid");
 
         }
+
+        // salts and hashes of passwords
+        String salt = getMd5(request.getEmail());
+        String salted = getMd5(request.getPassword() + salt);
+        request.setPassword(salted);
+
         User newUser = request.getUser();
         newUser.setAdmin(false);
 
@@ -61,11 +69,18 @@ public class UserServiceImp implements UserService {
         return true;
     }
 
-
-    @Override
+    @Override /* tested - all good */
     public boolean ResetPasswordRequest(ResetPasswordRequestRequest request) throws Exception{
         if (request == null) {
-            throw new Exception("Reset not set");
+            throw new Exception("Exception: Reset not set");
+        }
+
+        else if(request.getEmail() == null || request.getNewPassword() == null ) {
+            throw new Exception("Exception: null field(s) provided");
+        }
+
+        else if(request.getEmail().isEmpty() || request.getNewPassword().isEmpty()) {
+            throw new Exception("Exception: empty field(s) provided");
         }
 
         User currentUser = userRepository.findUserByEmail(request.getEmail());
@@ -74,12 +89,15 @@ public class UserServiceImp implements UserService {
             throw new Exception("this user is not registered");
         }
 
-        userRepository.updatePassword(currentUser.getEmail(),request.getNewPassword());
+        // salts and hashes of passwords
+        String salt = getMd5(request.getEmail());
+        String salted = getMd5(request.getNewPassword() + salt);
+
+        userRepository.updatePassword(currentUser.getEmail(),salted);
         return true;
     }
 
-
-    @Override
+    @Override /* tested - all good */
     public boolean SetAdmin(SetAdminRequest request) throws Exception {
         if (request == null) {
             throw new Exception("Please send a valid request object.");
@@ -88,6 +106,10 @@ public class UserServiceImp implements UserService {
         if(request.getAdminEmail() == null)
         {
             throw new Exception("admin email empty");
+        }
+        else if(request.getGeneralUserEmail() == null)
+        {
+            throw new Exception("general user field empty");
         }
 
         User Admin = userRepository.findUserByEmail(request.getAdminEmail());
@@ -99,65 +121,65 @@ public class UserServiceImp implements UserService {
         if(!Admin.getAdmin())
         {
             throw new Exception( "The current user is not an admin user");
-
         }
 
-        if(request.getGeneralUserEmail() == null)
-        {
-            throw new Exception("general user field empty");
-        }
         User generalUser = userRepository.findUserByEmail(request.getGeneralUserEmail());
 
-        int count = userRepository.updateAdmin(generalUser.getEmail(), true);
-
-        if (count == 0) {
+        if (userRepository.updateAdmin(generalUser.getEmail(), true) == 0) {
             throw new Exception( "The update did not occur correctly. Please try again.");
         }
         return true;
     }
 
-    @Override
-    public User getUser(GetUserRequest request) throws UserNotAuthorisedException ,Exception{
+    @Override /*tested all good*/
+    public User getUser(GetUserRequest request) throws Exception{
 
-        if (request == null) {
+        if (request == null){
             throw new Exception("Please send a valid request object.");
         }
-        if(request.getAdminUser() == null)
+        else if(request.getAdminUser() == null || request.getAdminUser().isEmpty()) {
+            throw new Exception("admin email not set");
+        }
+        else if(request.getGeneralUserEmail() == null || request.getGeneralUserEmail().isEmpty())
         {
-            throw new Exception("user was not retrieved");
+            throw new Exception("user email not set");
         }
 
         User admin = userRepository.findUserByEmail(request.getAdminUser());
+
         if(!admin.getAdmin())
         {
             throw new UserNotAuthorisedException("current user is not an admin");
         }
 
-        if(request.getGeneralUserEmail() == null)
-        {
-            throw new Exception("user not found");
-        }
+        User res = userRepository.findUserByEmail(request.getGeneralUserEmail());
 
-        User returnedUser = userRepository.findUserByEmail(request.getGeneralUserEmail());
-
-        if(returnedUser == null)
+        if(res == null)
         {
             throw new Exception("user does not exist");
         }
 
-        return returnedUser;
+        return res;
     }
 
-    @Override
-    public List<User> GetUsers(GetUsersRequest request) throws UserNotAuthorisedException,Exception
+    @Override /*tested all good*/
+    public List<User> GetUsers(GetUsersRequest request) throws Exception
         {
-
+            if(request == null)
+            {
+                throw new Exception("Exception: request not set");
+            }
             if(request.getAdminUser() == null)
             {
-                throw new Exception("user was not retrieved");
+                throw new Exception("Exception: admin user field not set");
+            }
+            else if(request.getAdminUser().isEmpty())
+            {
+                throw new Exception("Exception: admin user field is empty");
             }
 
             User admin = userRepository.findUserByEmail(request.getAdminUser());
+
             if(!admin.getAdmin())
             {
                 throw new UserNotAuthorisedException("current user is not an admin");
@@ -165,4 +187,23 @@ public class UserServiceImp implements UserService {
 
             return userRepository.findAll();
         }
+
+    public String getMd5(String input) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+
+            byte[] messageDigest = md.digest(input.getBytes());
+
+            BigInteger no = new BigInteger(1, messageDigest);
+
+            String hashtext = no.toString(16);
+            while (hashtext.length() < 32) {
+                hashtext = "0" + hashtext;
+            }
+            return hashtext;
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }

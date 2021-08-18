@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.env.Environment;
 
 @SpringBootApplication
-public class GivealotApplication implements CommandLineRunner {
+public class GivealotApplication /*implements CommandLineRunner*/ {
 
 
 	@Autowired
@@ -20,7 +20,7 @@ public class GivealotApplication implements CommandLineRunner {
 		SpringApplication.run(GivealotApplication.class, args);
 	}
 
-	@Override
+/*	@Override
 	public void run(String... args) throws Exception {
 		Organisations org = new Organisations();
 		org.setOrgId(123L);
@@ -36,7 +36,7 @@ public class GivealotApplication implements CommandLineRunner {
 		org.setDirectory("/tmp");
 
 		serviceImp.addOrganisation(org);
-	}
+	}*/
 
 
 }

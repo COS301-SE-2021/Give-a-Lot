@@ -24,7 +24,7 @@ public class LoginController {
         this.service = service;
     }
 
-    @PostMapping("/general")
+    @PostMapping("/general") /*tested - works perfect*/
     ResponseEntity<LoginResponse> loginGeneralUser(@RequestBody @NonNull LoginRequest body)
     {
         LoginResponse response;
@@ -40,7 +40,7 @@ public class LoginController {
         }
     }
 
-    @PostMapping("/login_org")
+    @PostMapping("/login_org") /*tested - works perfect*/
     ResponseEntity<LoginResponse> loginOrganisation(@RequestBody @NonNull LoginRequest body)
     {
         LoginResponse response;
@@ -56,7 +56,7 @@ public class LoginController {
         }
     }
 
-    @PostMapping("/admin")
+    @PostMapping("/admin") /*tested - works perfect*/
     ResponseEntity<LoginResponse> loginAdminUser(@RequestBody @NonNull LoginRequest body)
     {
         LoginResponse response;

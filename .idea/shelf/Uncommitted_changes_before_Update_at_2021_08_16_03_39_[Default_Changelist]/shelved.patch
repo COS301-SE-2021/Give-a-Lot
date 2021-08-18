@@ -1,0 +1,801 @@
+Index: backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.GiveaLot.givealot.Organisation.service;\r\n\r\nimport com.GiveaLot.givealot.Certificate.dataclass.Certificate;\r\nimport com.GiveaLot.givealot.Certificate.repository.CertificateRepository;\r\nimport com.GiveaLot.givealot.Certificate.service.CertificateService;\r\nimport com.GiveaLot.givealot.Organisation.model.OrganisationInfo;\r\nimport com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;\r\nimport com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;\r\nimport com.GiveaLot.givealot.Organisation.model.Organisations;\r\nimport com.GiveaLot.givealot.Organisation.model.OrganisationPoints;\r\nimport com.GiveaLot.givealot.Organisation.requests.*;\r\nimport com.GiveaLot.givealot.Server.*;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.stereotype.Service;\r\n\r\nimport java.io.File;\r\nimport java.math.BigInteger;\r\nimport java.security.MessageDigest;\r\nimport java.security.NoSuchAlgorithmException;\r\nimport java.text.DateFormat;\r\nimport java.text.SimpleDateFormat;\r\nimport java.time.LocalDate;\r\nimport java.util.Date;\r\n\r\n\r\n@Service\r\npublic class OrganisationServiceImp implements OrganisationService {\r\n\r\n\r\n    @Autowired\r\n    private OrganisationRepository organisationRepository;\r\n\r\n    @Autowired\r\n    private OrganisationInfoRepository organisationInfoRepository;\r\n\r\n    @Autowired\r\n    private CertificateRepository certificateRepository;\r\n\r\n    @Autowired\r\n    private CertificateService certificateService;\r\n\r\n    @Override\r\n    public Organisations selectOrganisation(String orgId) throws Exception {\r\n\r\n        if (orgId == null)\r\n            throw new Exception(\"Exception: Organisation Id is null\");\r\n        else if (orgId.isEmpty() || orgId.length() > 50) {\r\n            throw new Exception(\"Exception: orgId does not satisfy the database constraints\");\r\n        }\r\n\r\n        Organisations res = organisationRepository.selectOrganisationById(Long.parseLong(orgId));\r\n        if (res != null)\r\n            return res;\r\n        else throw new Exception(\"Exception: id does not exist, check spelling\");\r\n    }\r\n\r\n    @Override\r\n    public OrganisationInfo selectOrganisationInfo(String orgId) throws Exception {\r\n        if (orgId == null)\r\n            throw new Exception(\"Exception: Organisation ID is not set\");\r\n        else if (organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)\r\n            throw new Exception(\"Exception: Organisation ID does not exist\");\r\n\r\n        OrganisationInfo organisationInfo = organisationInfoRepository.selectOrganisationInfo(Long.parseLong(orgId));\r\n\r\n        if (organisationInfo == null) {\r\n            organisationInfo = new OrganisationInfo();\r\n            organisationInfo.setOrgId(Long.parseLong(orgId));\r\n\r\n            organisationInfoRepository.save(organisationInfo);\r\n            throw new Exception(\"Exception: system level error, organisation info did not exist, rerun \" +\r\n                    \"the contract\");\r\n        } else return organisationInfo;\r\n    }\r\n\r\n    @Override\r\n    public boolean addOrganisation(Organisations organisation) throws Exception\r\n    {\r\n        if(organisation == null)\r\n            throw new Exception(\"invalid organisation object: null\");\r\n\r\n        if(organisation.getOrgName() == null || organisation.getOrgDescription() == null||\r\n                organisation.getPassword() == null|| organisation.getOrgSector() == null ||\r\n                organisation.getOrgEmail() == null|| organisation.getContactNumber() == null||\r\n                organisation.getContactPerson() == null|| organisation.getSlogan() == null)\r\n            throw new Exception(\"invalid field provided: null\");\r\n\r\n        organisation.setDirectory(\"/home/ubuntu/Organisations/\");\r\n        organisation.setStatus(\"active\");\r\n\r\n        if(organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()) != null)\r\n            throw new Exception(\"Email already exists\");\r\n\r\n        else if (organisation.getOrgName().isEmpty() || organisation.getOrgName().length()>255)\r\n            throw new Exception(\"Exception: orgName does not satisfy the database constraints\");\r\n\r\n        else if (organisation.getOrgDescription().isEmpty() || organisation.getOrgDescription().length()>65535)\r\n            throw new Exception(\"Exception: orgDescription does not satisfy the database constraints\");\r\n\r\n        else if (organisation.getPassword().isEmpty() || organisation.getPassword().length()>255)\r\n            throw new Exception(\"Exception: password does not satisfy the database constraints\");\r\n\r\n        else if (organisation.getOrgSector().isEmpty() || organisation.getOrgSector().length()>255)\r\n            throw new Exception(\"Exception: orgSector does not satisfy the database constraints\");\r\n\r\n        else if (organisation.getStatus().isEmpty() || organisation.getStatus().length()>255)\r\n            throw new Exception(\"Exception: status does not satisfy the database constraints\");\r\n\r\n        else if (organisation.getOrgEmail().isEmpty() || organisation.getOrgEmail().length()>255)\r\n            throw new Exception(\"Exception: orgEmail does not satisfy the database constraints\");\r\n\r\n        else if (organisation.getDirectory().isEmpty() || organisation.getDirectory().length()>255)\r\n            throw new Exception(\"Exception: directory does not satisfy the database constraints\");\r\n\r\n        else if (organisation.getContactNumber().isEmpty() || organisation.getContactNumber().length()>255)\r\n            throw new Exception(\"Exception: contactNumber does not satisfy the database constraints\");\r\n\r\n        else if (organisation.getContactPerson().isEmpty() || organisation.getContactPerson().length()>255)\r\n            throw new Exception(\"Exception: contactPerson does not satisfy the database constraints\");\r\n\r\n        else if (organisation.getSlogan().isEmpty() || organisation.getSlogan().length()>255)\r\n            throw new Exception(\"Exception: orgSlogan does not satisfy the database constraints\");\r\n\r\n        /** Setup **/\r\n\r\n        ServerAccess access = new ServerAccess();\r\n        long tmp_id = organisationRepository.getOrgId(organisation.getOrgEmail());\r\n\r\n        /** Setup dates **/\r\n\r\n        java.util.Date dateCurrent = new Date();\r\n        java.util.Date dateEx = new Date();\r\n\r\n        DateFormat format = new SimpleDateFormat(\"yyyy-MM-dd\");\r\n\r\n        String dateCreated = format.format(dateCurrent);\r\n\r\n        int year = dateCurrent.getYear();\r\n        dateEx.setYear(year+1);\r\n        String dateExpiry = format.format(dateEx);\r\n\r\n        /** Salts and hashes password **/\r\n\r\n        String salt = getMd5(organisation.getOrgEmail());\r\n\r\n        String salted = getMd5(organisation.getPassword() + salt);\r\n\r\n        organisation.setPassword(salted);\r\n\r\n        /** Create tables and directory **/\r\n\r\n        Certificate certificate = new Certificate(dateCreated,dateExpiry,0);\r\n\r\n        access.createOrganisationDirectory(organisation.getOrgId(), organisation.getOrgName());\r\n        organisation.setDirectory(\"/home/ubuntu/Organisations/\" + tmp_id);\r\n\r\n        LocalDate date = LocalDate.now(); /* registration date */\r\n\r\n        organisationRepository.save(organisation);\r\n        organisationInfoRepository.save(new OrganisationInfo((long) tmp_id));\r\n        organisationPointsRepository.save(new organisationPoints((long) tmp_id));\r\n        certificateRepository.save(certificate);\r\n\r\n        certificateService.addCertificate(organisation.getOrgId());\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public boolean suspendOrganisation(String orgId) throws Exception {\r\n\r\n        if (orgId == null)\r\n            throw new Exception(\"String object is null\");\r\n        else if (orgId.isEmpty())\r\n            throw new Exception(\"invalid id length\");\r\n        else if (organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)\r\n            throw new Exception(\"ID doesn't exist\");\r\n        else {\r\n            if (organisationRepository.updateStatus(Long.parseLong(orgId), \"suspended\".toLowerCase()) != 1)\r\n                throw new Exception(\"status not updated\");\r\n            else return true;\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public boolean reactivateOrganisation(String orgId) throws Exception {\r\n        if (orgId == null)\r\n            throw new Exception(\"String object is null\");\r\n        else if (orgId.isEmpty())\r\n            throw new Exception(\"invalid id length\");\r\n        else if (organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)\r\n            throw new Exception(\"ID doesn't exist\");\r\n        else {\r\n            if (organisationRepository.updateStatus(Long.parseLong(orgId), \"active\".toLowerCase()) != 1)\r\n                throw new Exception(\"status not updated\");\r\n            else return true;\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public boolean investigateOrganisation(String orgId) throws Exception {\r\n        if (orgId == null)\r\n            throw new Exception(\"String object is null\");\r\n        else if (orgId.isEmpty())\r\n            throw new Exception(\"invalid id\");\r\n        else if (organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)\r\n            throw new Exception(\"ID doesn't exist\");\r\n        else {\r\n            if (organisationRepository.updateStatus(Long.parseLong(orgId), \"investigating\".toLowerCase()) != 1)\r\n                throw new Exception(\"status not updated\");\r\n            else return true;\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public boolean addOrgWebsite(AddOrgWebsiteRequest request) throws Exception {\r\n        if (request == null)\r\n            throw new Exception(\"Exception: request not set\");\r\n        else if (request.getOrgId() == null)\r\n            throw new Exception(\"Exception: ID not set\");\r\n        else if (request.getWebsite() == null)\r\n            throw new Exception(\"Exception: website not set\");\r\n        else if (request.getWebsite().isEmpty())\r\n            throw new Exception(\"Exception: invalid website length\");\r\n        else if (organisationRepository.selectOrganisationById(Long.parseLong(request.getOrgId())) == null)\r\n            throw new Exception(\"Exception: Organisation ID does not exist\");\r\n\r\n        if (organisationInfoRepository.addOrgWebsite(Long.parseLong(request.getOrgId()), request.getWebsite()) != 1)\r\n            throw new Exception(\"Exception: website field failed to update\");\r\n\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public boolean removeOrgWebsite(String orgId) throws Exception {\r\n        if (orgId == null)\r\n            throw new Exception(\"Exception: Organisation ID is not set\");\r\n        else if (organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)\r\n            throw new Exception(\"Exception: Organisation ID does not exist\");\r\n\r\n        if (organisationInfoRepository.selectOrganisationInfo(Long.parseLong(orgId)) == null) {\r\n            /*\r\n             * Because organisation already exists, set the field\r\n             * */\r\n            OrganisationInfo organisationInfo = new OrganisationInfo();\r\n            organisationInfo.setOrgId(Long.parseLong(orgId));\r\n\r\n            organisationInfoRepository.save(organisationInfo);\r\n            throw new Exception(\"Exception: system level error, organisation info did not exist, rerun \" +\r\n                    \"the contract\");\r\n        }\r\n\r\n        if (organisationInfoRepository.removeOrgWebsite(Long.parseLong(orgId)) != 1)\r\n            throw new Exception(\"Exception: website field not updated\");\r\n\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public boolean addOrgAddress(AddOrgAddressRequest request) throws Exception {\r\n        if (request == null)\r\n            throw new Exception(\"Exception: request not set\");\r\n        else if (request.getOrgId() == null)\r\n            throw new Exception(\"Exception: ID not set\");\r\n        else if (request.getAddress() == null)\r\n            throw new Exception(\"Exception: address not set\");\r\n        else if (organisationRepository.selectOrganisationById(Long.parseLong(request.getOrgId())) == null)\r\n            throw new Exception(\"Exception: Organisation ID does not exist\");\r\n\r\n        if (organisationInfoRepository.addOrgAddress(Long.parseLong(request.getOrgId()), request.getAddress()) != 1)\r\n            throw new Exception(\"Exception: address field not updated\");\r\n\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public boolean removeOrgAddress(String orgId) throws Exception {\r\n        if (orgId == null)\r\n            throw new Exception(\"Exception: Organisation ID is not set\");\r\n        else if (organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)\r\n            throw new Exception(\"Exception: Organisation ID does not exist\");\r\n\r\n        if (organisationInfoRepository.selectOrganisationInfo(Long.parseLong(orgId)) == null) {\r\n            /*\r\n             * Because organisation already exists, set the field\r\n             * */\r\n            OrganisationInfo organisationInfo = new OrganisationInfo();\r\n            organisationInfo.setOrgId(Long.parseLong(orgId));\r\n\r\n            organisationInfoRepository.save(organisationInfo);\r\n            throw new Exception(\"Exception: system level error, organisation info did not exist, rerun \" +\r\n                    \"the contract\");\r\n        }\r\n\r\n        if (organisationInfoRepository.removeOrgAddress(Long.parseLong(orgId)) != 1)\r\n            throw new Exception(\"Exception: address field not updated\");\r\n\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public boolean addOrgTaxRef(AddOrgTaxRefRequest request) throws Exception {\r\n        if (request == null)\r\n            throw new Exception(\"Exception: request not set\");\r\n        else if (request.getOrgId() == null)\r\n            throw new Exception(\"Exception: ID not set\");\r\n        else if (request.getReference() == null)\r\n            throw new Exception(\"Exception: tax reference not set\");\r\n        else if (request.getReference().isEmpty())\r\n            throw new Exception(\"Exception: tax field is empty\");\r\n        else if (request.getOrgId().isEmpty())\r\n            throw new Exception(\"Exception: org ID is empty\");\r\n        else if (organisationRepository.selectOrganisationById(Long.parseLong(request.getOrgId())) == null)\r\n            throw new Exception(\"Exception: Organisation ID does not exist\");\r\n\r\n        if (organisationInfoRepository.addOrgTaxRef(Long.parseLong(request.getOrgId()), request.getReference()) != 1)\r\n            throw new Exception(\"Exception: tax reference field not updated\");\r\n\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public boolean removeOrgTaxRef(long orgId) throws Exception {\r\n\r\n\r\n        if (organisationRepository.selectOrganisationById(orgId) == null)\r\n            throw new Exception(\"Exception: Organisation ID does not exist\");\r\n\r\n        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {\r\n            /*\r\n             * Because organisation already exists, set the field\r\n             * */\r\n            OrganisationInfo organisationInfo = new OrganisationInfo();\r\n            organisationInfo.setOrgId(orgId);\r\n            organisationInfo.setTaxReference(\"\");\r\n\r\n            organisationInfoRepository.save(organisationInfo);\r\n            throw new Exception(\"Exception: system level error, organisation info did not exist, rerun \" +\r\n                    \"the contract\");\r\n        }\r\n\r\n        if (organisationInfoRepository.removeOrgTaxRef(orgId) != 1)\r\n            throw new Exception(\"Exception: tax reference field not updated\");\r\n\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public boolean addOrgSocials(AddSocialsRequest request) throws Exception {\r\n        if (request == null)\r\n            throw new Exception(\"Exception: request is not set\");\r\n\r\n        else if (request.getOrgId() == null)\r\n            throw new Exception(\"Exception: request id not set\");\r\n\r\n        else if (request.getType() == null)\r\n            throw new Exception(\"Exception: request type is not set\");\r\n\r\n        else if (request.getUrl().isEmpty())\r\n            throw new Exception(\"Exception: url is empty\");\r\n\r\n        else if (request.getOrgId().isEmpty())\r\n            throw new Exception(\"Exception: ID is empty\");\r\n\r\n        else if (organisationRepository.selectOrganisationById(Long.parseLong(request.getOrgId())) == null)\r\n            throw new Exception(\"Exception: request id does not exist\");\r\n\r\n        if (request.getType().trim().equalsIgnoreCase(\"twitter\")) {\r\n            if (organisationInfoRepository.addTwitter(Long.parseLong(request.getOrgId()), request.getUrl()) != 1)\r\n                throw new Exception(\"Exception: social not added\");\r\n        } else if (request.getType().trim().equalsIgnoreCase(\"instagram\")) {\r\n            if (organisationInfoRepository.addInstagram(Long.parseLong(request.getOrgId()), request.getUrl()) != 1)\r\n                throw new Exception(\"Exception: social not added\");\r\n        } else if (request.getType().trim().equalsIgnoreCase(\"facebook\")) {\r\n            if (organisationInfoRepository.addFacebook(Long.parseLong(request.getOrgId()), request.getUrl()) != 1)\r\n                throw new Exception(\"Exception: social not added\");\r\n        } else throw new Exception(\"Exception: social not identified\");\r\n\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public boolean removeOrgSocials(long orgId, String type) throws Exception {\r\n\r\n         if (type == null)\r\n            throw new Exception(\"Exception: request type is not set\");\r\n\r\n        else if (type.isEmpty())\r\n            throw new Exception(\"Exception: type is empty\");\r\n\r\n        else if (organisationRepository.selectOrganisationById(orgId) == null)\r\n            throw new Exception(\"Exception: request id does not exist\");\r\n\r\n        if (type.trim().equalsIgnoreCase(\"twitter\")) {\r\n            if (organisationInfoRepository.removeTwitter(orgId) != 1)\r\n                throw new Exception(\"Exception: social not removed\");\r\n\r\n        } else if (type.trim().equalsIgnoreCase(\"instagram\")) {\r\n            if (organisationInfoRepository.removeInstagram(orgId) != 1)\r\n                throw new Exception(\"Exception: social not removed\");\r\n\r\n        } else if (type.trim().equalsIgnoreCase(\"facebook\")) {\r\n            if (organisationInfoRepository.removeFacebook(orgId) != 1)\r\n                throw new Exception(\"Exception: social not removed\");\r\n\r\n        } else throw new Exception(\"Exception: social not identified\");\r\n\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public boolean addOrgAuditDoc(long orgId, File auditDoc) throws Exception {\r\n        if (orgId null) {\r\n            throw new Exception(\"Exception: request id not set\");\r\n        }\r\n        ServerAccess access = new ServerAccess();\r\n        String name = organisationRepository.selectOrganisationById(orgId).getOrgName();\r\n\r\n        access.uploadAuditDocument(orgId,name,auditDoc);\r\n\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public boolean removeOrgAuditDoc(long orgId) throws Exception {\r\n        return false;\r\n    }\r\n\r\n    @Override\r\n    public boolean addOrgAuditor(AddOrgAuditorRequest request) throws Exception {\r\n        return false;\r\n    }\r\n\r\n    @Override\r\n    public boolean removeOrgAuditor(long orgId) throws Exception {\r\n        return false;\r\n    }\r\n\r\n    @Override\r\n    public boolean addOrgCommittee(AddOrgCommitteeRequest request) throws Exception {\r\n        return false;\r\n    }\r\n\r\n    @Override\r\n    public boolean removeOrgCommittee(long orgId) throws Exception {\r\n        return false;\r\n    }\r\n\r\n    @Override\r\n    public boolean addOrgDonationInfo(AddOrgDonationInfoRequest request) throws Exception {\r\n        return false;\r\n    }\r\n\r\n    @Override\r\n    public boolean removeOrgDonationInfo(long orgId) throws Exception {\r\n        return false;\r\n    }\r\n\r\n    @Override\r\n    public boolean addOrgNGO(AddOrgNGORequest request) throws Exception {\r\n        return false;\r\n    }\r\n\r\n    @Override\r\n    public boolean removeOrgNGO(long orgId) throws Exception {\r\n        return false;\r\n    }\r\n\r\n    @Override\r\n    public boolean addOrgEstDate(AddOrgEstDateRequest request) throws Exception {\r\n        return false;\r\n    }\r\n\r\n    @Override\r\n    public boolean removeOrgEstDate(String orgId) throws Exception {\r\n        return false;\r\n    }\r\n\r\n    @Override\r\n    public boolean addOrgImage(AddOrgImageRequest request) throws Exception {\r\n\r\n        if (request == null)\r\n            throw new Exception(\"Exception: request is not set\");\r\n        else if (request.getOrgId() == null)\r\n            throw new Exception(\"Exception: request id not set\");\r\n        else if (request.getImage() == null)\r\n            throw new Exception(\"Exception: request img url not set\");\r\n        else if (request.getOrgId().isEmpty())\r\n            throw new Exception(\"Exception: request id is invalid\");\r\n        else if (request.getImage().isEmpty())\r\n            throw new Exception(\"Exception: request img url is invalid\");\r\n        else if (organisationRepository.selectOrganisationById(Long.parseLong(request.getOrgId())) == null)\r\n            throw new Exception(\"Exception: request id does not exist/invalid\");\r\n\r\n        return false;\r\n    }\r\n\r\n    @Override\r\n    public boolean removeOrgImage(String orgId) throws Exception {\r\n        if(orgId == null)\r\n            throw new Exception(\"Exception: AddOrganisationRequest ID is not set\");\r\n        else if(organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)\r\n            throw new Exception(\"Exception: AddOrganisationRequest ID does not exist\");\r\n        if (orgId == null)\r\n            throw new Exception(\"Exception: Organisation ID is not set\");\r\n        else if (organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)\r\n            throw new Exception(\"Exception: Organisation ID does not exist\");\r\n\r\n        return false;\r\n    }\r\n\r\n    @Override\r\n    public OrganisationPoints selectOrganisationPoints(String orgId) throws Exception {\r\n        return null;\r\n    }\r\n\r\n\r\n    public String getMd5(String input) {\r\n        try {\r\n            MessageDigest md = MessageDigest.getInstance(\"MD5\");\r\n\r\n            byte[] messageDigest = md.digest(input.getBytes());\r\n\r\n            BigInteger no = new BigInteger(1, messageDigest);\r\n\r\n            String hashtext = no.toString(16);\r\n            while (hashtext.length() < 32) {\r\n                hashtext = \"0\" + hashtext;\r\n            }\r\n            return hashtext;\r\n        } catch (NoSuchAlgorithmException e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java b/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java
+--- a/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java	
++++ b/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java	
+@@ -40,32 +40,22 @@
+     private CertificateService certificateService;
+ 
+     @Override
+-    public Organisations selectOrganisation(String orgId) throws Exception {
++    public Organisations selectOrganisation(long orgId) throws Exception {
+ 
+-        if (orgId == null)
+-            throw new Exception("Exception: Organisation Id is null");
+-        else if (orgId.isEmpty() || orgId.length() > 50) {
+-            throw new Exception("Exception: orgId does not satisfy the database constraints");
+-        }
+-
+-        Organisations res = organisationRepository.selectOrganisationById(Long.parseLong(orgId));
++        Organisations res = organisationRepository.selectOrganisationById(orgId);
+         if (res != null)
+             return res;
+         else throw new Exception("Exception: id does not exist, check spelling");
+     }
+ 
+     @Override
+-    public OrganisationInfo selectOrganisationInfo(String orgId) throws Exception {
+-        if (orgId == null)
+-            throw new Exception("Exception: Organisation ID is not set");
+-        else if (organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
+-            throw new Exception("Exception: Organisation ID does not exist");
++    public OrganisationInfo selectOrganisationInfo(long orgId) throws Exception {
+ 
+-        OrganisationInfo organisationInfo = organisationInfoRepository.selectOrganisationInfo(Long.parseLong(orgId));
++        OrganisationInfo organisationInfo = organisationInfoRepository.selectOrganisationInfo(orgId);
+ 
+         if (organisationInfo == null) {
+             organisationInfo = new OrganisationInfo();
+-            organisationInfo.setOrgId(Long.parseLong(orgId));
++            organisationInfo.setOrgId(orgId);
+ 
+             organisationInfoRepository.save(organisationInfo);
+             throw new Exception("Exception: system level error, organisation info did not exist, rerun " +
+@@ -122,7 +112,7 @@
+             throw new Exception("Exception: orgSlogan does not satisfy the database constraints");
+ 
+         /** Setup **/
+-
++        organisationRepository.save(organisation);
+         ServerAccess access = new ServerAccess();
+         long tmp_id = organisationRepository.getOrgId(organisation.getOrgEmail());
+ 
+@@ -151,8 +141,9 @@
+ 
+         Certificate certificate = new Certificate(dateCreated,dateExpiry,0);
+ 
++        t
++
+         access.createOrganisationDirectory(organisation.getOrgId(), organisation.getOrgName());
+-        organisation.setDirectory("/home/ubuntu/Organisations/" + tmp_id);
+ 
+         LocalDate date = LocalDate.now(); /* registration date */
+ 
+@@ -166,46 +157,36 @@
+     }
+ 
+     @Override
+-    public boolean suspendOrganisation(String orgId) throws Exception {
++    public boolean suspendOrganisation(long orgId) throws Exception {
+ 
+-        if (orgId == null)
+-            throw new Exception("String object is null");
+-        else if (orgId.isEmpty())
+-            throw new Exception("invalid id length");
+-        else if (organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
++        if (organisationRepository.selectOrganisationById(orgId) == null)
+             throw new Exception("ID doesn't exist");
+         else {
+-            if (organisationRepository.updateStatus(Long.parseLong(orgId), "suspended".toLowerCase()) != 1)
++            if (organisationRepository.updateStatus(orgId, "suspended".toLowerCase()) != 1)
+                 throw new Exception("status not updated");
+             else return true;
+         }
+     }
+ 
+     @Override
+-    public boolean reactivateOrganisation(String orgId) throws Exception {
+-        if (orgId == null)
+-            throw new Exception("String object is null");
+-        else if (orgId.isEmpty())
+-            throw new Exception("invalid id length");
+-        else if (organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
++    public boolean reactivateOrganisation(long orgId) throws Exception {
++
++        if (organisationRepository.selectOrganisationById(orgId) == null)
+             throw new Exception("ID doesn't exist");
+         else {
+-            if (organisationRepository.updateStatus(Long.parseLong(orgId), "active".toLowerCase()) != 1)
++            if (organisationRepository.updateStatus(orgId, "active".toLowerCase()) != 1)
+                 throw new Exception("status not updated");
+             else return true;
+         }
+     }
+ 
+     @Override
+-    public boolean investigateOrganisation(String orgId) throws Exception {
+-        if (orgId == null)
+-            throw new Exception("String object is null");
+-        else if (orgId.isEmpty())
+-            throw new Exception("invalid id");
+-        else if (organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
++    public boolean investigateOrganisation(long orgId) throws Exception {
++
++        if (organisationRepository.selectOrganisationById(orgId) == null)
+             throw new Exception("ID doesn't exist");
+         else {
+-            if (organisationRepository.updateStatus(Long.parseLong(orgId), "investigating".toLowerCase()) != 1)
++            if (organisationRepository.updateStatus(orgId, "investigating".toLowerCase()) != 1)
+                 throw new Exception("status not updated");
+             else return true;
+         }
+@@ -213,36 +194,31 @@
+ 
+     @Override
+     public boolean addOrgWebsite(AddOrgWebsiteRequest request) throws Exception {
+-        if (request == null)
+-            throw new Exception("Exception: request not set");
+-        else if (request.getOrgId() == null)
+-            throw new Exception("Exception: ID not set");
+-        else if (request.getWebsite() == null)
++
++        if (request.getWebsite() == null)
+             throw new Exception("Exception: website not set");
+         else if (request.getWebsite().isEmpty())
+             throw new Exception("Exception: invalid website length");
+-        else if (organisationRepository.selectOrganisationById(Long.parseLong(request.getOrgId())) == null)
++        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+             throw new Exception("Exception: Organisation ID does not exist");
+-
+-        if (organisationInfoRepository.addOrgWebsite(Long.parseLong(request.getOrgId()), request.getWebsite()) != 1)
++        if (organisationInfoRepository.addOrgWebsite(request.getOrgId(), request.getWebsite()) != 1)
+             throw new Exception("Exception: website field failed to update");
+ 
+         return true;
+     }
+ 
+     @Override
+-    public boolean removeOrgWebsite(String orgId) throws Exception {
+-        if (orgId == null)
+-            throw new Exception("Exception: Organisation ID is not set");
+-        else if (organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
++    public boolean removeOrgWebsite(long orgId) throws Exception {
++
++        if (organisationRepository.selectOrganisationById(orgId) == null)
+             throw new Exception("Exception: Organisation ID does not exist");
+ 
+-        if (organisationInfoRepository.selectOrganisationInfo(Long.parseLong(orgId)) == null) {
++        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+             /*
+              * Because organisation already exists, set the field
+              * */
+             OrganisationInfo organisationInfo = new OrganisationInfo();
+-            organisationInfo.setOrgId(Long.parseLong(orgId));
++            organisationInfo.setOrgId(orgId);
+ 
+             organisationInfoRepository.save(organisationInfo);
+             throw new Exception("Exception: system level error, organisation info did not exist, rerun " +
+@@ -263,35 +239,32 @@
+             throw new Exception("Exception: ID not set");
+         else if (request.getAddress() == null)
+             throw new Exception("Exception: address not set");
+-        else if (organisationRepository.selectOrganisationById(Long.parseLong(request.getOrgId())) == null)
++        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+             throw new Exception("Exception: Organisation ID does not exist");
+ 
+-        if (organisationInfoRepository.addOrgAddress(Long.parseLong(request.getOrgId()), request.getAddress()) != 1)
++        if (organisationInfoRepository.addOrgAddress(request.getOrgId(), request.getAddress()) != 1)
+             throw new Exception("Exception: address field not updated");
+ 
+         return true;
+     }
+ 
+     @Override
+-    public boolean removeOrgAddress(String orgId) throws Exception {
+-        if (orgId == null)
+-            throw new Exception("Exception: Organisation ID is not set");
+-        else if (organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
+-            throw new Exception("Exception: Organisation ID does not exist");
++    public boolean removeOrgAddress(long orgId) throws Exception {
+ 
+-        if (organisationInfoRepository.selectOrganisationInfo(Long.parseLong(orgId)) == null) {
++
++        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+             /*
+              * Because organisation already exists, set the field
+              * */
+             OrganisationInfo organisationInfo = new OrganisationInfo();
+-            organisationInfo.setOrgId(Long.parseLong(orgId));
++            organisationInfo.setOrgId(orgId);
+ 
+             organisationInfoRepository.save(organisationInfo);
+             throw new Exception("Exception: system level error, organisation info did not exist, rerun " +
+                     "the contract");
+         }
+ 
+-        if (organisationInfoRepository.removeOrgAddress(Long.parseLong(orgId)) != 1)
++        if (organisationInfoRepository.removeOrgAddress(orgId) != 1)
+             throw new Exception("Exception: address field not updated");
+ 
+         return true;
+@@ -301,45 +274,13 @@
+     public boolean addOrgTaxRef(AddOrgTaxRefRequest request) throws Exception {
+         if (request == null)
+             throw new Exception("Exception: request not set");
+-        else if (request.getOrgId() == null)
+-            throw new Exception("Exception: ID not set");
+         else if (request.getReference() == null)
+             throw new Exception("Exception: tax reference not set");
+-        else if (request.getReference().isEmpty())
+-            throw new Exception("Exception: tax field is empty");
+-        else if (request.getOrgId().isEmpty())
+-            throw new Exception("Exception: org ID is empty");
+-        else if (organisationRepository.selectOrganisationById(Long.parseLong(request.getOrgId())) == null)
+-            throw new Exception("Exception: Organisation ID does not exist");
+-
+-        if (organisationInfoRepository.addOrgTaxRef(Long.parseLong(request.getOrgId()), request.getReference()) != 1)
+-            throw new Exception("Exception: tax reference field not updated");
+-
+-        return true;
+-    }
+-
+-    @Override
+-    public boolean removeOrgTaxRef(long orgId) throws Exception {
+-
+ 
+-        if (organisationRepository.selectOrganisationById(orgId) == null)
+-            throw new Exception("Exception: Organisation ID does not exist");
++        String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
+ 
+-        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+-            /*
+-             * Because organisation already exists, set the field
+-             * */
+-            OrganisationInfo organisationInfo = new OrganisationInfo();
+-            organisationInfo.setOrgId(orgId);
+-            organisationInfo.setTaxReference("");
+-
+-            organisationInfoRepository.save(organisationInfo);
+-            throw new Exception("Exception: system level error, organisation info did not exist, rerun " +
+-                    "the contract");
+-        }
+-
+-        if (organisationInfoRepository.removeOrgTaxRef(orgId) != 1)
+-            throw new Exception("Exception: tax reference field not updated");
++        ServerAccess access = new ServerAccess();
++        access.uploadAuditDocument(request.getOrgId(),name,request.getReference());
+ 
+         return true;
+     }
+@@ -349,29 +290,23 @@
+         if (request == null)
+             throw new Exception("Exception: request is not set");
+ 
+-        else if (request.getOrgId() == null)
+-            throw new Exception("Exception: request id not set");
+-
+         else if (request.getType() == null)
+             throw new Exception("Exception: request type is not set");
+ 
+         else if (request.getUrl().isEmpty())
+             throw new Exception("Exception: url is empty");
+ 
+-        else if (request.getOrgId().isEmpty())
+-            throw new Exception("Exception: ID is empty");
+-
+-        else if (organisationRepository.selectOrganisationById(Long.parseLong(request.getOrgId())) == null)
++        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+             throw new Exception("Exception: request id does not exist");
+ 
+         if (request.getType().trim().equalsIgnoreCase("twitter")) {
+-            if (organisationInfoRepository.addTwitter(Long.parseLong(request.getOrgId()), request.getUrl()) != 1)
++            if (organisationInfoRepository.addTwitter(request.getOrgId(), request.getUrl()) != 1)
+                 throw new Exception("Exception: social not added");
+         } else if (request.getType().trim().equalsIgnoreCase("instagram")) {
+-            if (organisationInfoRepository.addInstagram(Long.parseLong(request.getOrgId()), request.getUrl()) != 1)
++            if (organisationInfoRepository.addInstagram(request.getOrgId(), request.getUrl()) != 1)
+                 throw new Exception("Exception: social not added");
+         } else if (request.getType().trim().equalsIgnoreCase("facebook")) {
+-            if (organisationInfoRepository.addFacebook(Long.parseLong(request.getOrgId()), request.getUrl()) != 1)
++            if (organisationInfoRepository.addFacebook(request.getOrgId(), request.getUrl()) != 1)
+                 throw new Exception("Exception: social not added");
+         } else throw new Exception("Exception: social not identified");
+ 
+@@ -408,26 +343,37 @@
+     }
+ 
+     @Override
+-    public boolean addOrgAuditDoc(long orgId, File auditDoc) throws Exception {
+-        if (orgId null) {
+-            throw new Exception("Exception: request id not set");
+-        }
++    public boolean addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception {
++        if (request == null)
++            throw new Exception("Exception: request is not set");
++        else if (request.getAudit() == null)
++            throw new Exception("Exception: request document not set");
++        else if (request.getAudit().exists())
++            throw new Exception("Exception: request document does not exist");
++        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
++            throw new Exception("Exception: request id does not exist/invalid");
++
+         ServerAccess access = new ServerAccess();
+-        String name = organisationRepository.selectOrganisationById(orgId).getOrgName();
++        String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
+ 
+-        access.uploadAuditDocument(orgId,name,auditDoc);
++        access.uploadAuditDocument(request.getOrgId(),name,request.getAudit());
+ 
+         return true;
+     }
+ 
+-    @Override
+-    public boolean removeOrgAuditDoc(long orgId) throws Exception {
+-        return false;
+-    }
+-
+     @Override
+     public boolean addOrgAuditor(AddOrgAuditorRequest request) throws Exception {
+-        return false;
++        if (request == null)
++            throw new Exception("Exception: request is not set");
++        else if (request.getAuditor() == null)
++            throw new Exception("Exception: request value not set");
++        else if (!request.getAuditor().isEmpty())
++            throw new Exception("Exception: request value does not exist");
++        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
++            throw new Exception("Exception: request id does not exist/invalid");
++
++        if (organisationInfoRepository.addOrgAuditor(request.getOrgId(), request.getAuditor()) != 1)
++            throw new Exception("Exception: website field failed to update");
+     }
+ 
+     @Override
+@@ -437,27 +383,37 @@
+ 
+     @Override
+     public boolean addOrgCommittee(AddOrgCommitteeRequest request) throws Exception {
+-        return false;
++        if (request == null)
++            throw new Exception("Exception: request is not set");
++        else if (request.getCommittee() == null)
++            throw new Exception("Exception: request value not set");
++        else if (!request.getCommittee().isEmpty())
++            throw new Exception("Exception: request value does not exist");
++        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
++            throw new Exception("Exception: request id does not exist/invalid");
++
++        if (organisationInfoRepository.addOrgAuditor(request.getOrgId(), request.getCommittee()) != 1)
++            throw new Exception("Exception: website field failed to update");
+     }
+ 
+     @Override
+     public boolean removeOrgCommittee(long orgId) throws Exception {
+         return false;
+     }
+-
+-    @Override
+-    public boolean addOrgDonationInfo(AddOrgDonationInfoRequest request) throws Exception {
+-        return false;
+-    }
+-
+-    @Override
+-    public boolean removeOrgDonationInfo(long orgId) throws Exception {
+-        return false;
+-    }
+ 
+     @Override
+     public boolean addOrgNGO(AddOrgNGORequest request) throws Exception {
+-        return false;
++        if (request == null)
++            throw new Exception("Exception: request is not set");
++        else if (request.getNgoDate() == null)
++            throw new Exception("Exception: request value not set");
++        else if (!request.getNgoNumber().isEmpty())
++            throw new Exception("Exception: request document does not exist");
++        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
++            throw new Exception("Exception: request id does not exist/invalid");
++
++        if (organisationInfoRepository.addN(request.getOrgId(), request.getAuditor()) != 1)
++            throw new Exception("Exception: website field failed to update");
+     }
+ 
+     @Override
+@@ -467,11 +423,16 @@
+ 
+     @Override
+     public boolean addOrgEstDate(AddOrgEstDateRequest request) throws Exception {
+-        return false;
++        if (request == null)
++            throw new Exception("Exception: request is not set");
++        else if (request.getDate() == null)
++            throw new Exception("Exception: request value not set");
++        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
++            throw new Exception("Exception: request id does not exist/invalid");
+     }
+ 
+     @Override
+-    public boolean removeOrgEstDate(String orgId) throws Exception {
++    public boolean removeOrgEstDate(long orgId) throws Exception {
+         return false;
+     }
+ 
+@@ -480,36 +441,31 @@
+ 
+         if (request == null)
+             throw new Exception("Exception: request is not set");
+-        else if (request.getOrgId() == null)
+-            throw new Exception("Exception: request id not set");
+         else if (request.getImage() == null)
+             throw new Exception("Exception: request img url not set");
+-        else if (request.getOrgId().isEmpty())
+-            throw new Exception("Exception: request id is invalid");
+-        else if (request.getImage().isEmpty())
+-            throw new Exception("Exception: request img url is invalid");
+-        else if (organisationRepository.selectOrganisationById(Long.parseLong(request.getOrgId())) == null)
++        else if (request.getImage().exists())
++            throw new Exception("Exception: request image does not exist");
++        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+             throw new Exception("Exception: request id does not exist/invalid");
+ 
+-        return false;
++        ServerAccess access = new ServerAccess();
++        String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
++        access.uploadImageJPG(request.getOrgId(),name,request.getImage());
++
++        return true;
+     }
+ 
+     @Override
+-    public boolean removeOrgImage(String orgId) throws Exception {
+-        if(orgId == null)
+-            throw new Exception("Exception: AddOrganisationRequest ID is not set");
+-        else if(organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
+-            throw new Exception("Exception: AddOrganisationRequest ID does not exist");
+-        if (orgId == null)
+-            throw new Exception("Exception: Organisation ID is not set");
+-        else if (organisationRepository.selectOrganisationById(Long.parseLong(orgId)) == null)
++    public boolean removeOrgImage(long orgId) throws Exception {
++
++        if (organisationRepository.selectOrganisationById(orgId) == null)
+             throw new Exception("Exception: Organisation ID does not exist");
+ 
+         return false;
+     }
+ 
+     @Override
+-    public OrganisationPoints selectOrganisationPoints(String orgId) throws Exception {
++    public OrganisationPoints selectOrganisationPoints(long orgId) throws Exception {
+         return null;
+     }
+ 
+Index: backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgWebsiteRequest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.GiveaLot.givealot.Organisation.requests;\r\n\r\nimport com.fasterxml.jackson.annotation.JsonProperty;\r\n\r\npublic class AddOrgWebsiteRequest\r\n{\r\n    private String orgId;\r\n    private String website;\r\n\r\n    public AddOrgWebsiteRequest(@JsonProperty (\"orgId\") String orgId,\r\n                                @JsonProperty (\"website\") String website)\r\n    {\r\n        this.orgId = orgId;\r\n        this.website = website;\r\n    }\r\n\r\n    public String getOrgId() {\r\n        return orgId;\r\n    }\r\n\r\n    public void setOrgId(String orgId) {\r\n        this.orgId = orgId;\r\n    }\r\n\r\n    public String getWebsite() {\r\n        return website;\r\n    }\r\n\r\n    public void setWebsite(String website) {\r\n        this.website = website;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgWebsiteRequest.java b/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgWebsiteRequest.java
+--- a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgWebsiteRequest.java	
++++ b/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgWebsiteRequest.java	
+@@ -4,21 +4,21 @@
+ 
+ public class AddOrgWebsiteRequest
+ {
+-    private String orgId;
++    private long orgId;
+     private String website;
+ 
+-    public AddOrgWebsiteRequest(@JsonProperty ("orgId") String orgId,
++    public AddOrgWebsiteRequest(@JsonProperty ("orgId") long orgId,
+                                 @JsonProperty ("website") String website)
+     {
+         this.orgId = orgId;
+         this.website = website;
+     }
+ 
+-    public String getOrgId() {
++    public long getOrgId() {
+         return orgId;
+     }
+ 
+-    public void setOrgId(String orgId) {
++    public void setOrgId(long orgId) {
+         this.orgId = orgId;
+     }
+ 
+Index: backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddSocialsRequest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.GiveaLot.givealot.Organisation.requests;\r\n\r\nimport com.fasterxml.jackson.annotation.JsonProperty;\r\n\r\npublic class AddSocialsRequest\r\n{\r\n    private String type;\r\n    private String orgId;\r\n    private String url;\r\n\r\n    public AddSocialsRequest(\r\n                             @JsonProperty (\"type\") String type,\r\n                             @JsonProperty (\"orgId\") String orgId,\r\n                             @JsonProperty (\"url\") String url) {\r\n        this.url = url;\r\n        this.type = type;\r\n        this.orgId = orgId;\r\n    }\r\n\r\n    public String getOrgId() {\r\n        return orgId;\r\n    }\r\n\r\n    public void setOrgId(String orgId) {\r\n        this.orgId = orgId;\r\n    }\r\n\r\n    public String getType() {\r\n        return type;\r\n    }\r\n\r\n    public void setType(String type) {\r\n        this.type = type;\r\n    }\r\n\r\n    public String getUrl() {\r\n        return url;\r\n    }\r\n\r\n    public void setUrl(String url) {\r\n        this.url = url;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddSocialsRequest.java b/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddSocialsRequest.java
+--- a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddSocialsRequest.java	
++++ b/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddSocialsRequest.java	
+@@ -5,23 +5,23 @@
+ public class AddSocialsRequest
+ {
+     private String type;
+-    private String orgId;
++    private long orgId;
+     private String url;
+ 
+     public AddSocialsRequest(
+                              @JsonProperty ("type") String type,
+-                             @JsonProperty ("orgId") String orgId,
++                             @JsonProperty ("orgId") long orgId,
+                              @JsonProperty ("url") String url) {
+         this.url = url;
+         this.type = type;
+         this.orgId = orgId;
+     }
+ 
+-    public String getOrgId() {
++    public long getOrgId() {
+         return orgId;
+     }
+ 
+-    public void setOrgId(String orgId) {
++    public void setOrgId(long orgId) {
+         this.orgId = orgId;
+     }
+ 
+Index: backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.GiveaLot.givealot.Organisation.service;\r\n\r\nimport com.GiveaLot.givealot.Organisation.model.Organisations;\r\nimport com.GiveaLot.givealot.Organisation.model.OrganisationInfo;\r\nimport com.GiveaLot.givealot.Organisation.model.OrganisationPoints;\r\nimport com.GiveaLot.givealot.Organisation.requests.*;\r\nimport org.springframework.stereotype.Service;\r\n\r\n@Service\r\npublic interface OrganisationService {\r\n    Organisations selectOrganisation(String orgId) throws Exception;\r\n    OrganisationInfo selectOrganisationInfo(String orgId) throws Exception;\r\n    OrganisationPoints selectOrganisationPoints(String orgId) throws Exception;\r\n    boolean addOrganisation(Organisations organisation) throws Exception;\r\n    boolean reactivateOrganisation(String orgId) throws Exception;\r\n    boolean investigateOrganisation(String orgId) throws Exception;\r\n    boolean suspendOrganisation(String orgId) throws Exception;\r\n\r\n    //Additional classes\r\n    boolean addOrgWebsite(AddOrgWebsiteRequest request) throws Exception;\r\n    boolean removeOrgWebsite(String orgId) throws Exception;\r\n    boolean addOrgAddress(AddOrgAddressRequest request) throws Exception;\r\n    boolean removeOrgAddress(String orgId) throws Exception;\r\n    boolean addOrgImage(AddOrgImageRequest request) throws Exception;\r\n    boolean removeOrgImage(String orgId) throws Exception;\r\n    boolean addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception;\r\n    boolean removeOrgAuditDoc(String orgId) throws Exception;\r\n    boolean addOrgTaxRef(AddOrgTaxRefRequest request) throws Exception;\r\n    boolean removeOrgTaxRef(String orgId) throws Exception;\r\n    boolean addOrgAuditor(AddOrgAuditorRequest request) throws Exception;\r\n    boolean removeOrgAuditor(String orgId) throws Exception;\r\n    boolean addOrgCommittee(AddOrgCommitteeRequest request) throws Exception;\r\n    boolean removeOrgCommittee(String orgId) throws Exception ;\r\n    boolean addOrgDonationInfo(AddOrgDonationInfoRequest request) throws Exception;\r\n    boolean removeOrgDonationInfo(String orgId) throws Exception;\r\n    boolean addOrgSocials(AddSocialsRequest request) throws Exception;\r\n    boolean removeOrgSocials(String orgId, String type) throws Exception;\r\n    boolean addOrgNGO(AddOrgNGORequest request) throws Exception;\r\n    boolean removeOrgNGO(String orgId) throws Exception;\r\n    boolean addOrgEstDate(AddOrgEstDateRequest request) throws Exception;\r\n    boolean removeOrgEstDate(String orgId) throws Exception;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationService.java b/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationService.java
+--- a/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationService.java	
++++ b/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationService.java	
+@@ -6,37 +6,35 @@
+ import com.GiveaLot.givealot.Organisation.requests.*;
+ import org.springframework.stereotype.Service;
+ 
++import java.io.File;
++
+ @Service
+ public interface OrganisationService {
+-    Organisations selectOrganisation(String orgId) throws Exception;
+-    OrganisationInfo selectOrganisationInfo(String orgId) throws Exception;
+-    OrganisationPoints selectOrganisationPoints(String orgId) throws Exception;
++    Organisations selectOrganisation(long orgId) throws Exception;
++    OrganisationInfo selectOrganisationInfo(long orgId) throws Exception;
++    OrganisationPoints selectOrganisationPoints(long orgId) throws Exception;
+     boolean addOrganisation(Organisations organisation) throws Exception;
+-    boolean reactivateOrganisation(String orgId) throws Exception;
+-    boolean investigateOrganisation(String orgId) throws Exception;
+-    boolean suspendOrganisation(String orgId) throws Exception;
++    boolean reactivateOrganisation(long orgId) throws Exception;
++    boolean investigateOrganisation(long orgId) throws Exception;
++    boolean suspendOrganisation(long orgId) throws Exception;
+ 
+     //Additional classes
+     boolean addOrgWebsite(AddOrgWebsiteRequest request) throws Exception;
+-    boolean removeOrgWebsite(String orgId) throws Exception;
++    boolean removeOrgWebsite(long orgId) throws Exception;
+     boolean addOrgAddress(AddOrgAddressRequest request) throws Exception;
+-    boolean removeOrgAddress(String orgId) throws Exception;
++    boolean removeOrgAddress(long orgId) throws Exception;
+     boolean addOrgImage(AddOrgImageRequest request) throws Exception;
+-    boolean removeOrgImage(String orgId) throws Exception;
++    boolean removeOrgImage(long orgId) throws Exception;
+     boolean addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception;
+-    boolean removeOrgAuditDoc(String orgId) throws Exception;
+     boolean addOrgTaxRef(AddOrgTaxRefRequest request) throws Exception;
+-    boolean removeOrgTaxRef(String orgId) throws Exception;
+     boolean addOrgAuditor(AddOrgAuditorRequest request) throws Exception;
+-    boolean removeOrgAuditor(String orgId) throws Exception;
++    boolean removeOrgAuditor(long orgId) throws Exception;
+     boolean addOrgCommittee(AddOrgCommitteeRequest request) throws Exception;
+-    boolean removeOrgCommittee(String orgId) throws Exception ;
+-    boolean addOrgDonationInfo(AddOrgDonationInfoRequest request) throws Exception;
+-    boolean removeOrgDonationInfo(String orgId) throws Exception;
++    boolean removeOrgCommittee(long orgId) throws Exception;
+     boolean addOrgSocials(AddSocialsRequest request) throws Exception;
+-    boolean removeOrgSocials(String orgId, String type) throws Exception;
++    boolean removeOrgSocials(long orgId, String type) throws Exception;
+     boolean addOrgNGO(AddOrgNGORequest request) throws Exception;
+-    boolean removeOrgNGO(String orgId) throws Exception;
++    boolean removeOrgNGO(long orgId) throws Exception;
+     boolean addOrgEstDate(AddOrgEstDateRequest request) throws Exception;
+-    boolean removeOrgEstDate(String orgId) throws Exception;
++    boolean removeOrgEstDate(long orgId) throws Exception;
+ }
+Index: backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.GiveaLot.givealot.Organisation.controller;\r\nimport com.GiveaLot.givealot.Organisation.model.Organisations;\r\nimport com.GiveaLot.givealot.Organisation.model.OrganisationInfo;\r\nimport com.GiveaLot.givealot.Organisation.requests.AddOrganisationRequest;\r\nimport com.GiveaLot.givealot.Organisation.requests.*;\r\nimport com.GiveaLot.givealot.Organisation.service.OrganisationServiceImp;\r\nimport com.GiveaLot.givealot.Organisation.service.response.responseJSON;\r\n\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.lang.NonNull;\r\nimport org.springframework.web.bind.annotation.*;\r\n\r\nimport static java.util.List.of;\r\n\r\n@RequestMapping(\"v1/organisation\")\r\n@CrossOrigin(\"*\")\r\n@RestController\r\npublic class OrganisationController\r\n{\r\n    private OrganisationServiceImp service;\r\n    private responseJSON response;\r\n\r\n    @Autowired\r\n    public OrganisationController(OrganisationServiceImp service, responseJSON response)\r\n    {\r\n        this.service = service;\r\n        this.response = response;\r\n    }\r\n\r\n    /* tested, works well */\r\n    @PostMapping(\"/add/org\")\r\n    public responseJSON addOrganisation(@RequestBody @NonNull AddOrganisationRequest body)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            if(service.addOrganisation(new Organisations(body.getOrgName(),\r\n                    body.getSlogan(),body.getOrgDescription(),body.getOrgSector(),\r\n                    body.getOrgEmail(),null,body.getStatus(),body.getContactPerson(),\r\n                    body.getContactNumber(), \"givealot/organisations/\", body.getPassword())))\r\n            {\r\n                response.setCode(\"org_add_ok_200\");\r\n                response.setMessage(\"success\");\r\n            }\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_add_err_501\");\r\n            response.setMessage(\"unsuccessful \" + e.getMessage());\r\n        }\r\n        return response;\r\n    }\r\n\r\n    /* tested - works */\r\n    @GetMapping(\"/select/{orgId}\")\r\n    public responseJSON selectOrganisation(@PathVariable(\"orgId\") @NonNull String orgId)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            Organisations res = service.selectOrganisation(orgId);\r\n            if(res != null)\r\n            {\r\n                response.setCode(\"org_sel_ok_200\");\r\n                response.setMessage(\"success\");\r\n            }\r\n            response.setObject(res);\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_sel_bad_500\");\r\n            response.setMessage(\"unsuccessful \" + e.toString());\r\n        }\r\n        return response;\r\n    }\r\n\r\n    /* tested - works */\r\n    @GetMapping(\"/info/{orgId}\")\r\n    public responseJSON selectOrganisationInfo(@PathVariable(\"orgId\") @NonNull String orgId)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            OrganisationInfo res = service.selectOrganisationInfo(orgId);\r\n            if(res != null)\r\n            {\r\n                response.setCode(\"org_sel_ok_200\");\r\n                response.setMessage(\"success\");\r\n                response.setObject(res);\r\n            }\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_sel_bad_500\");\r\n            response.setMessage(\"unsuccessful \" + e);\r\n        }\r\n        return response;\r\n    }\r\n\r\n    /* tested - works */\r\n    @PutMapping(\"/add/website\")\r\n    public responseJSON addOrgWebsite(@RequestBody @NonNull AddOrgWebsiteRequest body)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            if(service.addOrgWebsite(body))\r\n            {\r\n                response.setCode(\"add_ok_200\");\r\n                response.setMessage(\"success\");\r\n            }\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"add_bad_500\");\r\n            response.setMessage(\"unsuccessful \" + e.getMessage());\r\n        }\r\n        return response;\r\n    }\r\n\r\n    /* tested - works */\r\n    @DeleteMapping(\"/delete/website/{orgId}\")\r\n    public responseJSON removeOrgWebsite(@PathVariable(\"orgId\") @NonNull String orgId)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            if(service.removeOrgWebsite(orgId))\r\n            {\r\n                response.setCode(\"rem_ok_200\");\r\n                response.setMessage(\"success\");\r\n            }\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"rem_bad_500\");\r\n            response.setMessage(\"unsuccessful \" + e.getMessage());\r\n        }\r\n        return response;\r\n    }\r\n\r\n    /* tested - works */\r\n    @PutMapping(\"/add/address\")\r\n    public responseJSON addOrgAddress(@RequestBody @NonNull AddOrgAddressRequest body)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            if(service.addOrgAddress(body))\r\n            {\r\n                response.setCode(\"add_ok_200\");\r\n                response.setMessage(\"success\");\r\n            }\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"add_bad_500\");\r\n            response.setMessage(\"unsuccessful \" + e.getMessage());\r\n        }\r\n        return response;\r\n    }\r\n\r\n    /* tested - works */\r\n    @DeleteMapping(\"/delete/address/{orgId}\")\r\n    public responseJSON removeOrgAddress(@PathVariable(\"orgId\") @NonNull String orgId)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            if(service.removeOrgAddress(orgId))\r\n            {\r\n                response.setCode(\"rem_ok_200\");\r\n                response.setMessage(\"success\");\r\n            }\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"rem_bad_500\");\r\n            response.setMessage(\"unsuccessful \" + e.getMessage());\r\n        }\r\n        return response;\r\n    }\r\n\r\n    /* tested - works */\r\n    @PostMapping(\"/add/taxref\")\r\n    public responseJSON addOrgTaxRef(@RequestBody AddOrgTaxRefRequest body)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            if(service.addOrgTaxRef(body))\r\n            {\r\n                response.setCode(\"org_add_ok_200\");\r\n                response.setMessage(\"success\");\r\n            }\r\n            return response;\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_add_bad_500\");\r\n            response.setMessage(\"unsuccessful \" + e);\r\n            return response;\r\n        }\r\n    }\r\n\r\n    /* tested - works */\r\n    @DeleteMapping(\"/delete/taxref/{orgId}\")\r\n    public responseJSON removeOrgTaxRef(@PathVariable(\"orgId\")@NonNull String orgId)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            boolean res = service.removeOrgTaxRef(orgId);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_rm_ok_200\");\r\n                response.setMessage(\"success\");\r\n            }\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_rm_bad_500\");\r\n            response.setMessage(\"unsuccessful \" + e);\r\n        }\r\n        return response;\r\n    }\r\n\r\n    /* tested - works */\r\n    @PutMapping(\"/suspend/{orgId}\")\r\n    public responseJSON suspendOrganisation(@PathVariable(\"orgId\") @NonNull String orgId)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            boolean res = service.suspendOrganisation(orgId);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_sus_ok_200\");\r\n                response.setMessage(\"success\");\r\n            }\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_sus_bad_500\");\r\n            response.setMessage(\"unsuccessful \" + e);\r\n        }\r\n        return response;\r\n    }\r\n\r\n    /* tested - works */\r\n    @PutMapping(\"/activate/{orgId}\")\r\n    public responseJSON reactivateOrganisation(@PathVariable(\"orgId\") @NonNull String orgId)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            boolean res = service.reactivateOrganisation(orgId);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_act_ok_200\");\r\n                response.setMessage(\"success\");\r\n            }\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_act_bad_500\");\r\n            response.setMessage(\"unsuccessful \" + e);\r\n        }\r\n        return response;\r\n    }\r\n\r\n    /* tested - works */\r\n    @PutMapping(\"/investigate/{orgId}\")\r\n    public responseJSON investigateOrganisation(@PathVariable(\"orgId\") @NonNull String orgId)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            boolean res = service.investigateOrganisation(orgId);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_inv_ok_200\");\r\n                response.setMessage(\"success\");\r\n            }\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_inv_bad_500\");\r\n            response.setMessage(\"unsuccessful \" + e);\r\n        }\r\n        return response;\r\n    }\r\n\r\n    /* tested - works */\r\n    @PostMapping(\"/add/socials\")\r\n    public responseJSON addOrgSocials(@RequestBody  @NonNull AddSocialsRequest body)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            boolean res = service.addOrgSocials(body);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_add_ok_222\");\r\n                response.setMessage(\"success\");\r\n            }\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_add_bad_500\");\r\n            response.setMessage(\"unsuccessful \" + e);\r\n        }\r\n        return response;\r\n    }\r\n\r\n    /* tested - works */\r\n    @DeleteMapping(\"/delete/socials/{orgId}/{type}\")\r\n    public responseJSON removeOrgSocials(@PathVariable(\"orgId\") @NonNull String orgId,@PathVariable(\"type\") @NonNull String type)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            boolean res = service.removeOrgSocials(orgId,type);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_rm_ok_200\");\r\n                response.setMessage(\"success\");\r\n            }\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_rm_bad_500\");\r\n            response.setMessage(\"unsuccessful \" + e);\r\n        }\r\n        return response;\r\n    }\r\n\r\n    /*\r\n    * tested, works well\r\n    */\r\n    /*@GetMapping(\"/points/{orgId}\")\r\n    public responseJSON selectOrganisationPoints(@PathVariable(\"orgId\") @NonNull String orgId)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            OrganisationPoints res = service.selectOrganisationPoints(orgId);\r\n            if(res != null)\r\n            {\r\n                response.setCode(\"org_sel_ok_200\");\r\n                response.setMessage(\"success\");\r\n            }\r\n            else\r\n            {\r\n                response.setCode(\"org_sel_bad_200\");\r\n                response.setMessage(\"unsuccessful\");\r\n            }\r\n            response.setObject(res);\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_sel_bad_500\");\r\n            response.setMessage(\"unsuccessful \" + e.toString());\r\n        }\r\n        return response;\r\n    }*/\r\n\r\n    /*\r\n    * tested\r\n    * */\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n    /* tested - works */\r\n    /*@PutMapping(\"/investigate/{orgId}\")\r\n    public responseJSON investigateOrganisation(@PathVariable(\"orgId\") @NonNull String orgId)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            boolean res = service.investigateOrganisation(orgId);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_inv_ok_203\");\r\n                response.setMessage(\"success\");\r\n            }\r\n            else\r\n            {\r\n                response.setCode(\"org_inv_bad_203\");\r\n                response.setMessage(\"unsuccessful\");\r\n            }\r\n            return response;\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_inv_bad_500\");\r\n            response.setMessage(\"unsuccessful: \" + e.toString());\r\n            return response;\r\n        }\r\n    }*/\r\n\r\n\r\n\r\n\r\n\r\n\r\n    /* tested - works - left comment for OrganisationDASTemp\r\n       on the removeOrgAddress\r\n    */\r\n    /*@DeleteMapping(\"/delete/address/{orgId}\")\r\n    public responseJSON removeOrgAddress(@PathVariable(\"orgId\") @NonNull String orgId)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            boolean res = service.removeOrgAddress(orgId);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_rm_ok_205\");\r\n                response.setMessage(\"success\");\r\n            }\r\n            else\r\n            {\r\n                response.setCode(\"org_rm_bad_205\");\r\n                response.setMessage(\"unsuccessful\");\r\n            }\r\n            return response;\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_rm_bad_500\");\r\n            response.setMessage(\"unsuccessful\");\r\n            return response;\r\n        }\r\n    }*/\r\n\r\n    /* tested - works */\r\n    /*@DeleteMapping(\"/delete/images/{orgId}\")\r\n    public responseJSON removeOrgImage(@PathVariable(\"orgId\") @NonNull String orgId)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            boolean res = service.removeOrgImage(orgId);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_rm_ok_206\");\r\n                response.setMessage(\"success\");\r\n            }\r\n            else\r\n            {\r\n                response.setCode(\"org_rm_bad_206\");\r\n                response.setMessage(\"unsuccessful\");\r\n            }\r\n            return response;\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_rm_bad_500\");\r\n            response.setMessage(\"unsuccessful\");\r\n            return response;\r\n        }\r\n    }*/\r\n\r\n\r\n\r\n    /* tested - works\r\n     *  removeOrgNGO from OrganisationDASTemp always returns true\r\n     *  even if an organisation id doesn't exist\r\n     * */\r\n    /*@DeleteMapping(\"/delete/ngo/{orgId}\")\r\n    public responseJSON removeOrgNGO(@PathVariable(\"orgId\") @NonNull String orgId)\r\n    {\r\n        response.setObject(null);\r\n        System.out.println(orgId);\r\n        try\r\n        {\r\n            boolean res = service.removeOrgNGO(orgId);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_rm_ok_208\");\r\n                response.setMessage(\"success\");\r\n            }\r\n            else\r\n            {\r\n                response.setCode(\"org_rm_bad_208\");\r\n                response.setMessage(\"unsuccessful\");\r\n            }\r\n            return response;\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_rm_bad_500\");\r\n            response.setMessage(\"unsuccessful\");\r\n            return response;\r\n        }\r\n    }*/\r\n\r\n\r\n    /* tested - works\r\n     *  removeOrgEstDate from OrganisationDASTemp always returns true\r\n     *  even if an organisation id doesn't exist\r\n     * */\r\n    /*@DeleteMapping(\"/delete/estdate/{orgId}\")\r\n    public responseJSON removeOrgEstDate(@PathVariable(\"orgId\") @NonNull String orgId)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            boolean res = service.removeOrgEstDate(orgId);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_rm_ok_209\");\r\n                response.setMessage(\"success\");\r\n            }\r\n            else\r\n            {\r\n                response.setCode(\"org_rm_bad_209\");\r\n                response.setMessage(\"unsuccessful\");\r\n            }\r\n            return response;\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_rm_bad_500\");\r\n            response.setMessage(\"unsuccessful\");\r\n            return response;\r\n        }\r\n    }*/\r\n\r\n    /* tested - works */\r\n    /*@DeleteMapping(\"/delete/donationinfo/{orgId}\")\r\n    public responseJSON removeOrgDonationInfo(@PathVariable(\"orgId\") @NonNull String orgId)\r\n    {\r\n        response.setObject(null);\r\n        System.out.println(orgId);\r\n        try\r\n        {\r\n            boolean res = service.removeOrgDonationInfo(orgId);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_rm_ok_210\");\r\n                response.setMessage(\"success\");\r\n            }\r\n            else\r\n            {\r\n                response.setCode(\"org_rm_bad_210\");\r\n                response.setMessage(\"unsuccessful\");\r\n            }\r\n            return response;\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_rm_bad_500\");\r\n            response.setMessage(\"unsuccessful\");\r\n            return response;\r\n        }\r\n    }*/\r\n\r\n    /* tested - works\r\n     *  removeOrgAuditDoc from OrganisationDASTemp always returns true\r\n     *  even if an organisation id doesn't exist\r\n     * */\r\n    /*@DeleteMapping(\"/delete/audit/{orgId}\")\r\n    public responseJSON removeOrgAuditDoc(@PathVariable(\"orgId\") @NonNull String orgId)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            boolean res = service.removeOrgAuditDoc(orgId);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_rm_ok_211\");\r\n                response.setMessage(\"success\");\r\n            }\r\n            else\r\n            {\r\n                response.setCode(\"org_rm_bad_211\");\r\n                response.setMessage(\"unsuccessful\");\r\n            }\r\n            return response;\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_rm_bad_500\");\r\n            response.setMessage(\"unsuccessful\");\r\n            return response;\r\n        }\r\n    }*/\r\n\r\n    /* tested - works\r\n     *  removeOrgAuditor from OrganisationDASTemp always returns true\r\n     *  even if an organisation id doesn't exist\r\n     * */\r\n    /*@DeleteMapping(\"/delete/auditor/{orgId}\")\r\n    public responseJSON removeOrgAuditor(@PathVariable(\"orgId\") @NonNull String orgId)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            boolean res = service.removeOrgAuditor(orgId);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_rm_ok_212\");\r\n                response.setMessage(\"success\");\r\n            }\r\n            else\r\n            {\r\n                response.setCode(\"org_rm_bad_212\");\r\n                response.setMessage(\"unsuccessful\");\r\n            }\r\n            return response;\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_rm_bad_500\");\r\n            response.setMessage(\"unsuccessful\");\r\n            return response;\r\n        }\r\n    }*/\r\n\r\n    /* tested - works\r\n     *  removeOrgCommittee from OrganisationDASTemp always returns true\r\n     *  even if an organisation id doesn't exist\r\n     * */\r\n    /*@DeleteMapping(\"/delete/committee/{orgId}\")\r\n    public responseJSON removeOrgCommittee(@PathVariable(\"orgId\") @NonNull String orgId)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            boolean res = service.removeOrgCommittee(orgId);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_rm_ok_213\");\r\n                response.setMessage(\"success\");\r\n            }\r\n            else\r\n            {\r\n                response.setCode(\"org_rm_bad_213\");\r\n                response.setMessage(\"unsuccessful\");\r\n            }\r\n            return response;\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_rm_bad_500\");\r\n            response.setMessage(\"unsuccessful\");\r\n            return response;\r\n        }\r\n    }*/\r\n\r\n\r\n\r\n    /* tested - status not confirmed: not entirely sure how to get the date object from a json object*/\r\n    /*@PostMapping(\"/add/estdate\")\r\n    public responseJSON addOrgEstDate(@RequestBody @NonNull AddOrgEstDateRequest body)\r\n    {\r\n        response.setObject(null);\r\n        //System.out.println(body.getDate().toString());\r\n        try\r\n        {\r\n            boolean res = service.addOrgEstDate(body);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_add_ok_216\");\r\n                response.setMessage(\"success\");\r\n            }\r\n            else\r\n            {\r\n                response.setCode(\"org_add_bad_216\");\r\n                response.setMessage(\"unsuccessful\");\r\n            }\r\n            return response;\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_add_bad_500\");\r\n            response.setMessage(\"unsuccessful\");\r\n            return response;\r\n        }\r\n    }*/\r\n\r\n    /* tested - status not confirmed: not entirely sure how to get the image\r\n     object from a json object, we should look into the multipart attribute\r\n     */\r\n    /*@PostMapping(\"/add/image\")\r\n    public responseJSON addOrgImage(@RequestBody @NonNull AddOrgImageRequest body)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            boolean res = service.addOrgImage(body);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_add_ok_217\");\r\n                response.setMessage(\"success\");\r\n            }\r\n            else\r\n            {\r\n                response.setCode(\"org_add_bad_217\");\r\n                response.setMessage(\"unsuccessful\");\r\n            }\r\n            return response;\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_add_bad_500\");\r\n            response.setMessage(\"unsuccessful\");\r\n            return response;\r\n        }\r\n    }*/\r\n\r\n    /* tested - status not confirmed: not entirely sure how handle the file type\r\n    */\r\n    /*@PostMapping(\"/add/audit\")\r\n    public responseJSON addOrgAuditDoc(AddOrgAuditInfoRequest body)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            boolean res = service.addOrgAuditDoc(body);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_add_ok_217\");\r\n                response.setMessage(\"success\");\r\n            }\r\n            else\r\n            {\r\n                response.setCode(\"org_add_bad_217\");\r\n                response.setMessage(\"unsuccessful\");\r\n            }\r\n            return response;\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_add_bad_500\");\r\n            response.setMessage(\"unsuccessful\");\r\n            return response;\r\n        }\r\n    }*/\r\n\r\n\r\n     /* tested - works, addOrgTaxRef from OrganisationDASTemp returns true\r\n        even if org Id doesn't exist\r\n      */\r\n\r\n\r\n    /* tested - works, addOrgAuditor from OrganisationDASTemp returns true\r\n       even if org Id doesn't exist\r\n    */\r\n    /*@PostMapping(\"/add/auditor\")\r\n    public responseJSON addOrgAuditor(@RequestBody @NonNull AddOrgAuditorRequest body)\r\n    {\r\n        response.setObject(null);\r\n        System.out.println(body.getAuditor() + \" \" + body.getOrgId());\r\n        try\r\n        {\r\n            boolean res = service.addOrgAuditor(body);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_add_ok_219\");\r\n                response.setMessage(\"success\");\r\n            }\r\n            else\r\n            {\r\n                response.setCode(\"org_add_bad_219\");\r\n                response.setMessage(\"unsuccessful\");\r\n            }\r\n            return response;\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_add_bad_500\");\r\n            response.setMessage(\"unsuccessful\");\r\n            return response;\r\n        }\r\n    }*/\r\n\r\n    /* tested - works, addOrgCommittee from OrganisationDASTemp returns true\r\n       even if org Id doesn't exist\r\n    */\r\n    /*@PostMapping(\"/add/committee\")\r\n    public responseJSON addOrgCommittee(@RequestBody @NonNull AddOrgCommitteeRequest body)\r\n    {\r\n        response.setObject(null);\r\n        System.out.println(body.getCommittee() + \" \" + body.getOrgId());\r\n        try\r\n        {\r\n            boolean res = service.addOrgCommittee(body);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_add_ok_220\");\r\n                response.setMessage(\"success\");\r\n            }\r\n            else\r\n            {\r\n                response.setCode(\"org_add_bad_220\");\r\n                response.setMessage(\"unsuccessful\");\r\n            }\r\n            return response;\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_add_bad_500\");\r\n            response.setMessage(\"unsuccessful\");\r\n            return response;\r\n        }\r\n    }*/\r\n\r\n    /* tested - works, addOrgDonationInfo from OrganisationDASTemp returns true\r\n       even if org Id doesn't exist\r\n    */\r\n    /*@PostMapping(\"/add/donation/info\")\r\n    public responseJSON addOrgDonationInfo(@RequestBody @NonNull AddOrgDonationInfoRequest body)\r\n    {\r\n        response.setObject(null);\r\n        System.out.println(body.getOrgInfo() + \" \" + body.getOrgId());\r\n        try\r\n        {\r\n            boolean res = service.addOrgDonationInfo(body);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_add_ok_221\");\r\n                response.setMessage(\"success\");\r\n            }\r\n            else\r\n            {\r\n                response.setCode(\"org_add_bad_221\");\r\n                response.setMessage(\"unsuccessful\");\r\n            }\r\n            return response;\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_add_bad_500\");\r\n            response.setMessage(\"unsuccessful\");\r\n            return response;\r\n        }\r\n    }*/\r\n\r\n    /* tested - works, addOrgSocials from OrganisationDASTemp returns true\r\n       even if org Id doesn't exist\r\n    */\r\n\r\n\r\n    /*\r\n    * not sure how to handle the date object\r\n    * */\r\n    /*@PostMapping(\"/add/ngo\")\r\n    public responseJSON addOrgNGO(@RequestBody AddOrgNGORequest body)\r\n    {\r\n        response.setObject(null);\r\n        try\r\n        {\r\n            boolean res = service.addOrgNGO(body);\r\n            if(res)\r\n            {\r\n                response.setCode(\"org_add_ok_223\");\r\n                response.setMessage(\"success\");\r\n            }\r\n            else\r\n            {\r\n                response.setCode(\"org_add_bad_223\");\r\n                response.setMessage(\"unsuccessful\");\r\n            }\r\n            return response;\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            response.setCode(\"org_add_bad_500\");\r\n            response.setMessage(\"unsuccessful\");\r\n            return response;\r\n        }\r\n    }*/\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java b/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java
+--- a/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java	
++++ b/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java	
+@@ -10,6 +10,8 @@
+ import org.springframework.lang.NonNull;
+ import org.springframework.web.bind.annotation.*;
+ 
++import java.io.File;
++
+ import static java.util.List.of;
+ 
+ @RequestMapping("v1/organisation")
+@@ -53,7 +55,7 @@
+ 
+     /* tested - works */
+     @GetMapping("/select/{orgId}")
+-    public responseJSON selectOrganisation(@PathVariable("orgId") @NonNull String orgId)
++    public responseJSON selectOrganisation(@PathVariable("orgId") @NonNull long orgId)
+     {
+         response.setObject(null);
+         try
+@@ -76,7 +78,7 @@
+ 
+     /* tested - works */
+     @GetMapping("/info/{orgId}")
+-    public responseJSON selectOrganisationInfo(@PathVariable("orgId") @NonNull String orgId)
++    public responseJSON selectOrganisationInfo(@PathVariable("orgId") @NonNull long orgId)
+     {
+         response.setObject(null);
+         try
+@@ -162,7 +164,7 @@
+ 
+     /* tested - works */
+     @DeleteMapping("/delete/address/{orgId}")
+-    public responseJSON removeOrgAddress(@PathVariable("orgId") @NonNull String orgId)
++    public responseJSON removeOrgAddress(@PathVariable("orgId") @NonNull long orgId)
+     {
+         response.setObject(null);
+         try
+@@ -203,31 +205,9 @@
+         }
+     }
+ 
+-    /* tested - works */
+-    @DeleteMapping("/delete/taxref/{orgId}")
+-    public responseJSON removeOrgTaxRef(@PathVariable("orgId")@NonNull String orgId)
+-    {
+-        response.setObject(null);
+-        try
+-        {
+-            boolean res = service.removeOrgTaxRef(orgId);
+-            if(res)
+-            {
+-                response.setCode("org_rm_ok_200");
+-                response.setMessage("success");
+-            }
+-        }
+-        catch (Exception e)
+-        {
+-            response.setCode("org_rm_bad_500");
+-            response.setMessage("unsuccessful " + e);
+-        }
+-        return response;
+-    }
+-
+     /* tested - works */
+     @PutMapping("/suspend/{orgId}")
+-    public responseJSON suspendOrganisation(@PathVariable("orgId") @NonNull String orgId)
++    public responseJSON suspendOrganisation(@PathVariable("orgId") @NonNull long orgId)
+     {
+         response.setObject(null);
+         try
+@@ -249,7 +229,7 @@
+ 
+     /* tested - works */
+     @PutMapping("/activate/{orgId}")
+-    public responseJSON reactivateOrganisation(@PathVariable("orgId") @NonNull String orgId)
++    public responseJSON reactivateOrganisation(@PathVariable("orgId") @NonNull long orgId)
+     {
+         response.setObject(null);
+         try
+@@ -271,7 +251,7 @@
+ 
+     /* tested - works */
+     @PutMapping("/investigate/{orgId}")
+-    public responseJSON investigateOrganisation(@PathVariable("orgId") @NonNull String orgId)
++    public responseJSON investigateOrganisation(@PathVariable("orgId") @NonNull long orgId)
+     {
+         response.setObject(null);
+         try
+@@ -315,7 +295,7 @@
+ 
+     /* tested - works */
+     @DeleteMapping("/delete/socials/{orgId}/{type}")
+-    public responseJSON removeOrgSocials(@PathVariable("orgId") @NonNull String orgId,@PathVariable("type") @NonNull String type)
++    public responseJSON removeOrgSocials(@PathVariable("orgId") @NonNull long orgId,@PathVariable("type") @NonNull String type)
+     {
+         response.setObject(null);
+         try
+Index: backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationInfo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.GiveaLot.givealot.Organisation.model;\r\n\r\nimport lombok.AllArgsConstructor;\r\nimport lombok.Builder;\r\n\r\nimport javax.persistence.*;\r\nimport java.util.Date;\r\n\r\n@Builder\r\n@AllArgsConstructor\r\n@Entity\r\n@Table(name=\"organisation_info\")\r\npublic class OrganisationInfo\r\n{\r\n    @Id\r\n    @Column(name = \"org_id\", nullable = false, unique = true)\r\n    public Long orgId;\r\n\r\n    private String  address;\r\n    private Integer numberOfImages;\r\n    private Integer getNumberOfReports;\r\n    private String  orgWebsite;\r\n    private String  taxReference;\r\n    private String  auditorDetails;\r\n    private String  committeeDetails;\r\n    private String  NGONumber;\r\n    private String twitter;\r\n    private String facebook;\r\n    private String instagram;\r\n    private String establishmentDate;\r\n\r\n    public OrganisationInfo(Long orgId)\r\n    {\r\n        this.setOrgId(orgId);\r\n    }\r\n    public OrganisationInfo() {\r\n        this.address = null;\r\n        this.numberOfImages = null;\r\n        this.getNumberOfReports = null;\r\n        this.orgWebsite = null;\r\n        this.taxReference = null;\r\n        this.auditorDetails = null;\r\n        this.committeeDetails = null;\r\n        this.NGONumber = null;\r\n        this.twitter = null;\r\n        this.facebook = null;\r\n        this.instagram = null;\r\n        this.establishmentDate = null;\r\n    }\r\n\r\n    public Long getOrgId() {\r\n        return orgId;\r\n    }\r\n\r\n    public void setOrgId(Long orgId) {\r\n        this.orgId = orgId;\r\n    }\r\n\r\n    public String getAddress() {\r\n        return address;\r\n    }\r\n\r\n    public void setAddress(String address) {\r\n        this.address = address;\r\n    }\r\n\r\n    public Integer getNumberOfImages() {\r\n        return numberOfImages;\r\n    }\r\n\r\n    public void setNumberOfImages(Integer numberOfImages) {\r\n        this.numberOfImages = numberOfImages;\r\n    }\r\n\r\n    public Integer getGetNumberOfReports() {\r\n        return getNumberOfReports;\r\n    }\r\n\r\n    public void setGetNumberOfReports(Integer getNumberOfReports) {\r\n        this.getNumberOfReports = getNumberOfReports;\r\n    }\r\n\r\n    public String getOrgWebsite() {\r\n        return orgWebsite;\r\n    }\r\n\r\n    public void setOrgWebsite(String orgWebsite) {\r\n        this.orgWebsite = orgWebsite;\r\n    }\r\n\r\n    public String getTaxReference() {\r\n        return taxReference;\r\n    }\r\n\r\n    public void setTaxReference(String taxReference) {\r\n        this.taxReference = taxReference;\r\n    }\r\n\r\n    public String getAuditorDetails() {\r\n        return auditorDetails;\r\n    }\r\n\r\n    public void setAuditorDetails(String auditorDetails) {\r\n        this.auditorDetails = auditorDetails;\r\n    }\r\n\r\n    public String getCommitteeDetails() {\r\n        return committeeDetails;\r\n    }\r\n\r\n    public void setCommitteeDetails(String committeeDetails) {\r\n        this.committeeDetails = committeeDetails;\r\n    }\r\n\r\n    public String getNGONumber() {\r\n        return NGONumber;\r\n    }\r\n\r\n    public void setNGONumber(String NGONumber) {\r\n        this.NGONumber = NGONumber;\r\n    }\r\n\r\n    public String getTwitter() {\r\n        return twitter;\r\n    }\r\n\r\n    public void setTwitter(String twitter) {\r\n        this.twitter = twitter;\r\n    }\r\n\r\n    public String getFacebook() {\r\n        return facebook;\r\n    }\r\n\r\n    public void setFacebook(String facebook) {\r\n        this.facebook = facebook;\r\n    }\r\n\r\n    public String getInstagram() {\r\n        return instagram;\r\n    }\r\n\r\n    public void setInstagram(String instagram) {\r\n        this.instagram = instagram;\r\n    }\r\n\r\n    public String getEstablishmentDate() {\r\n        return establishmentDate;\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return \"organisationInfo{\" +\r\n                \"orgId='\" + orgId + '\\'' +\r\n                \", address='\" + address + '\\'' +\r\n                \", numberOfImages=\" + numberOfImages +\r\n                \", getNumberOfReports=\" + getNumberOfReports +\r\n                \", orgWebsite='\" + orgWebsite + '\\'' +\r\n                \", taxReference='\" + taxReference + '\\'' +\r\n                \", auditorDetails='\" + auditorDetails + '\\'' +\r\n                \", committeeDetails='\" + committeeDetails + '\\'' +\r\n                \", NGONumber='\" + NGONumber + '\\'' +\r\n                \", twitter='\" + twitter + '\\'' +\r\n                \", facebook='\" + facebook + '\\'' +\r\n                \", instagram='\" + instagram + '\\'' +\r\n                \", establishmentDate='\" + establishmentDate + '\\'' +\r\n                '}';\r\n    }\r\n\r\n    public void setEstablishmentDate(String establishmentDate) {\r\n        this.establishmentDate = establishmentDate;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationInfo.java b/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationInfo.java
+--- a/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationInfo.java	
++++ b/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationInfo.java	
+@@ -16,18 +16,20 @@
+     @Column(name = "org_id", nullable = false, unique = true)
+     public Long orgId;
+ 
+-    private String  address;
++    private String address;
+     private Integer numberOfImages;
+     private Integer getNumberOfReports;
+-    private String  orgWebsite;
+-    private String  taxReference;
+-    private String  auditorDetails;
+-    private String  committeeDetails;
+-    private String  NGONumber;
++    private String orgWebsite;
++    private String taxReference;
++    private String auditorDetails;
++    private String committeeDetails;
++    private String NGONumber;
+     private String twitter;
+     private String facebook;
+     private String instagram;
+     private String establishmentDate;
++    private String NGODate;
++
+ 
+     public OrganisationInfo(Long orgId)
+     {
+@@ -46,6 +48,15 @@
+         this.facebook = null;
+         this.instagram = null;
+         this.establishmentDate = null;
++        this.NGODate = null;
++    }
++
++    public String getNGODate() {
++        return NGODate;
++    }
++
++    public void setNGODate(String NGODate) {
++        this.NGODate = NGODate;
+     }
+ 
+     public Long getOrgId() {
+Index: backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgAddressRequest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.GiveaLot.givealot.Organisation.requests;\r\n\r\nimport com.fasterxml.jackson.annotation.JsonProperty;\r\n\r\npublic class AddOrgAddressRequest {\r\n\r\n\r\n    private String orgId;\r\n    private String address;\r\n\r\n    public AddOrgAddressRequest(@JsonProperty(\"orgId\") String orgId,@JsonProperty(\"address\") String address) {\r\n        this.orgId = orgId;\r\n        this.address = address;\r\n    }\r\n\r\n    public void setOrgId(String orgId) {\r\n        this.orgId = orgId;\r\n    }\r\n\r\n    public void setAddress(String address) {\r\n        this.address = address;\r\n    }\r\n\r\n    public String getOrgId() {\r\n        return this.orgId;\r\n    }\r\n\r\n    public String getAddress() {\r\n        return this.address;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgAddressRequest.java b/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgAddressRequest.java
+--- a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgAddressRequest.java	
++++ b/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgAddressRequest.java	
+@@ -5,15 +5,15 @@
+ public class AddOrgAddressRequest {
+ 
+ 
+-    private String orgId;
++    private long orgId;
+     private String address;
+ 
+-    public AddOrgAddressRequest(@JsonProperty("orgId") String orgId,@JsonProperty("address") String address) {
++    public AddOrgAddressRequest(@JsonProperty("orgId") long orgId,@JsonProperty("address") String address) {
+         this.orgId = orgId;
+         this.address = address;
+     }
+ 
+-    public void setOrgId(String orgId) {
++    public void setOrgId(long orgId) {
+         this.orgId = orgId;
+     }
+ 
+@@ -21,7 +21,7 @@
+         this.address = address;
+     }
+ 
+-    public String getOrgId() {
++    public Long getOrgId() {
+         return this.orgId;
+     }
+ 

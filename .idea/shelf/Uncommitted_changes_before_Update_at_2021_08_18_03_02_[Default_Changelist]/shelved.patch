@@ -1,0 +1,232 @@
+Index: backend/src/main/java/com/GiveaLot/givealot/Blockchain/service/BlockchainServiceImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.GiveaLot.givealot.Blockchain.service;\r\n\r\nimport com.GiveaLot.givealot.Blockchain.Repository.BlockChainRepository;\r\nimport com.GiveaLot.givealot.Blockchain.contract.CertificateContract;\r\nimport com.GiveaLot.givealot.Blockchain.dataclass.ContractConfig;\r\n\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.stereotype.Service;\r\nimport org.web3j.crypto.Credentials;\r\nimport org.web3j.protocol.Web3j;\r\nimport org.web3j.protocol.core.methods.response.TransactionReceipt;\r\nimport org.web3j.protocol.http.HttpService;\r\nimport org.web3j.tuples.generated.Tuple3;\r\n\r\nimport java.io.File;\r\nimport java.io.FileInputStream;\r\nimport java.io.IOException;\r\nimport java.math.BigInteger;\r\nimport java.security.MessageDigest;\r\nimport java.security.NoSuchAlgorithmException;\r\n\r\n@Service\r\npublic class BlockchainServiceImpl implements BlockchainService {\r\n\r\n\r\n//    public final BlockChainRepository blockChainRepository;\r\n\r\n//    @Autowired\r\n//    BlockchainServiceImpl(  BlockChainRepository blockchainDAOInterface)\r\n//    {\r\n//        this.blockChainRepository = blockchainDAOInterface;\r\n//    }\r\n\r\n    @Override\r\n    public String[] uploadCertificate(long orgId, File certificate) throws Exception {\r\n        CertificateContract certificateContract = loadSmartContract();\r\n        String hashedCertificate = hashCertificate(certificate);\r\n        BigInteger _orgId = BigInteger.valueOf(orgId);\r\n        BigInteger _level = BigInteger.valueOf(0);\r\n        try {\r\n            TransactionReceipt latestTransaction = certificateContract\r\n                    .addCertificate(hashedCertificate, _orgId, _level)\r\n                    .send();\r\n            String[] result = new String[2];\r\n            result[0] = hashedCertificate;\r\n            result[1] = latestTransaction.getTransactionHash();\r\n\r\n            return result;\r\n        }catch (Exception e){\r\n            throw new Exception(\"Exception: Blockchain transaction failed: \" + e);\r\n        }    }\r\n\r\n    @Override\r\n    public String[] upgradeCertificate(long index, long orgId, File certificate, long level) throws Exception {\r\n        CertificateContract certificateContract = loadSmartContract();\r\n        String hashedCertificate = hashCertificate(certificate);\r\n        BigInteger _index = BigInteger.valueOf(index);\r\n        BigInteger _orgId = BigInteger.valueOf(orgId);\r\n        BigInteger _level = BigInteger.valueOf(level);\r\n        try {\r\n            TransactionReceipt latestTransaction = certificateContract\r\n                    .upgradeCertificate(_index, hashedCertificate, _orgId, _level)\r\n                    .send();\r\n            String[] result = new String[2];\r\n            result[0] = hashedCertificate;\r\n            result[1] = latestTransaction.getTransactionHash();\r\n            return result;\r\n        }catch (Exception e){\r\n            throw new Exception(\"Exception: Blockchain transaction failed\");\r\n        }    }\r\n\r\n    @Override\r\n    public long findCertificateIndex(long orgId) throws Exception {\r\n        BigInteger _orgId = BigInteger.valueOf(orgId);\r\n        CertificateContract certificateContract = loadSmartContract();\r\n        try {\r\n            for (int j = 0; j < (int) orgId; j++) {\r\n                if (certificateContract.certificates(BigInteger.valueOf(j)).send().component1().equals(_orgId)) {\r\n                    return j;\r\n                }\r\n            }\r\n        }catch (Exception e) {\r\n            throw new Exception(\"Exception: Blockchain transaction failed: \" + e);\r\n        }\r\n        return 9999;\r\n//        try {\r\n//            return certificateContract.findCertificateIndex(_orgId).send().longValue();\r\n//        }catch (Exception e){\r\n//            throw new Exception(\"Exception: Blockchain transaction failed: \" + e);\r\n//        }\r\n    }\r\n\r\n    @Override\r\n    public String retrieveCertificateHash(long index, long orgId) throws Exception {\r\n        BigInteger _index = BigInteger.valueOf(index);\r\n        BigInteger _orgId = BigInteger.valueOf(orgId);\r\n        CertificateContract certificateContract = loadSmartContract();\r\n        try {\r\n            Tuple3<BigInteger, String, BigInteger> test = certificateContract.retrieveCertificate(_index, _orgId).send();\r\n            return test.component2();\r\n        }catch (Exception e){\r\n            throw new Exception(\"Exception: Blockchain transaction failed\");\r\n        }    }\r\n\r\n    @Override\r\n    public boolean compareCertificateHash(long index, long orgId, File certificate) throws Exception {\r\n        String blockchainCertificateHash = retrieveCertificateHash(index, orgId);\r\n        String uploadCertificateHash = hashCertificate(certificate);\r\n        return blockchainCertificateHash.equals(uploadCertificateHash);\r\n    }\r\n\r\n    @Override\r\n    public String hashCertificate(File certificate) throws IOException, NoSuchAlgorithmException {\r\n        MessageDigest shaDigest = MessageDigest.getInstance(\"SHA-256\");\r\n        FileInputStream inputStream = new FileInputStream(certificate);\r\n        byte[] byteArray = new byte[1024];\r\n        int bytes = 0;\r\n        while ((bytes = inputStream.read(byteArray)) != -1){\r\n            shaDigest.update(byteArray, 0, bytes);\r\n        }\r\n        inputStream.close();\r\n        byte[] hashBytes = shaDigest.digest();\r\n        StringBuilder stringBuilder = new StringBuilder();\r\n        for (int i = 0; i < hashBytes.length; i++) {\r\n            stringBuilder.append(Integer.toString((hashBytes[i] & 0xff) + 0x100, 16).substring(1));\r\n        }\r\n        return stringBuilder.toString();    }\r\n\r\n    @Override\r\n    public Web3j buildWeb3jClient() {\r\n        return Web3j.build(new HttpService(\"HTTP://127.0.0.1:7545\"));\r\n    }\r\n\r\n    @Override\r\n    public String deploySmartContract() throws Exception {\r\n        ContractConfig config = new ContractConfig();\r\n        Web3j client = buildWeb3jClient();\r\n        try {\r\n            return CertificateContract.deploy(client, getCredentialsFromPrivateKey(), config.getGasPrice(), config.getGasLimit())\r\n                    .send()\r\n                    .getContractAddress();\r\n        }catch (Exception e){\r\n            throw new Exception(\"Exception: Blockchain transaction failed\");\r\n        }    }\r\n\r\n    @Override\r\n    public CertificateContract loadSmartContract() {\r\n        ContractConfig config = new ContractConfig();\r\n        Web3j client = buildWeb3jClient();\r\n        return CertificateContract.load(config.getCONTRACT_ADDRESS(), client, getCredentialsFromPrivateKey(), config.getGasPrice(), config.getGasLimit());    }\r\n\r\n    @Override\r\n    public Credentials getCredentialsFromPrivateKey() {\r\n        ContractConfig config = new ContractConfig();\r\n        return Credentials.create(config.getPRIVATE_KEY());    }\r\n\r\n    public static void main(String[] args) throws Exception {\r\n        BlockchainServiceImpl blockchainService = new BlockchainServiceImpl();\r\n        File file = new File(\"frontend/givealot/localFiles/20/certificate/CertificateComplete.pdf\");\r\n        System.out.println(blockchainService.compareCertificateHash(5,20,file));\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/com/GiveaLot/givealot/Blockchain/service/BlockchainServiceImpl.java b/backend/src/main/java/com/GiveaLot/givealot/Blockchain/service/BlockchainServiceImpl.java
+--- a/backend/src/main/java/com/GiveaLot/givealot/Blockchain/service/BlockchainServiceImpl.java	(revision 9985e54969a62fc25e83cbd2f58d4f3cdb4a58f6)
++++ b/backend/src/main/java/com/GiveaLot/givealot/Blockchain/service/BlockchainServiceImpl.java	(date 1629247239327)
+@@ -2,7 +2,7 @@
+ 
+ import com.GiveaLot.givealot.Blockchain.Repository.BlockChainRepository;
+ import com.GiveaLot.givealot.Blockchain.contract.CertificateContract;
+-import com.GiveaLot.givealot.Blockchain.dataclass.ContractConfig;
++import com.GiveaLot.givealot.Certificate.dataclass.ContractConfig;
+ 
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.stereotype.Service;
+Index: backend/src/test/java/com/GiveaLot/givealot/Login/service/LoginServiceImpTest.java
+===================================================================
+diff --git a/backend/src/test/java/com/GiveaLot/givealot/Login/service/LoginServiceImpTest.java b/backend/src/test/java/com/GiveaLot/givealot/Login/service/LoginServiceImpTest.java
+deleted file mode 100644
+--- a/backend/src/test/java/com/GiveaLot/givealot/Login/service/LoginServiceImpTest.java	(revision 9985e54969a62fc25e83cbd2f58d4f3cdb4a58f6)
++++ /dev/null	(revision 9985e54969a62fc25e83cbd2f58d4f3cdb4a58f6)
+@@ -1,206 +0,0 @@
+-package com.GiveaLot.givealot.Login.service;
+-
+-import static org.junit.jupiter.api.Assertions.assertEquals;
+-import static org.junit.jupiter.api.Assertions.assertThrows;
+-import static org.junit.jupiter.api.Assertions.assertTrue;
+-import static org.mockito.Mockito.any;
+-import static org.mockito.Mockito.atLeast;
+-import static org.mockito.Mockito.mock;
+-import static org.mockito.Mockito.verify;
+-import static org.mockito.Mockito.when;
+-
+-import com.GiveaLot.givealot.Login.repository.LoginRepository;
+-import com.GiveaLot.givealot.Login.request.LoginRequest;
+-import com.GiveaLot.givealot.Login.response.LoginResponse;
+-import com.GiveaLot.givealot.User.dataclass.User;
+-import org.junit.jupiter.api.Test;
+-import org.junit.jupiter.api.extension.ExtendWith;
+-import org.springframework.beans.factory.annotation.Autowired;
+-import org.springframework.boot.test.mock.mockito.MockBean;
+-import org.springframework.test.context.ContextConfiguration;
+-import org.springframework.test.context.junit.jupiter.SpringExtension;
+-
+-@ContextConfiguration(classes = {LoginServiceImp.class})
+-@ExtendWith(SpringExtension.class)
+-public class LoginServiceImpTest {
+-    @MockBean
+-    private LoginRepository loginRepository;
+-
+-    @Autowired
+-    private LoginServiceImp loginServiceImp;
+-
+-    @Test
+-    public void testLoginGeneralUser() throws Exception {
+-        User user = new User();
+-        user.setEmail("jane.doe@example.org");
+-        user.setPassword("iloveyou");
+-        user.setActivateDate("2020-03-01");
+-        user.setAdmin(false);
+-        user.setFirstname("Jane");
+-        user.setLastname("Doe");
+-        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user);
+-        LoginResponse actualLoginGeneralUserResult = this.loginServiceImp
+-                .loginGeneralUser(new LoginRequest("jane.doe@example.org", "iloveyou", "Role"));
+-        assertEquals("1", actualLoginGeneralUserResult.getJWTToken());
+-        assertTrue(actualLoginGeneralUserResult.isSuccess());
+-        assertEquals("User logged in succesfully", actualLoginGeneralUserResult.getMessage());
+-        verify(this.loginRepository, atLeast(1)).findUserByEmail((String) any());
+-    }
+-
+-    @Test
+-    public void testLoginGeneralUser2() throws Exception {
+-        User user = new User();
+-        user.setEmail("jane.doe@example.org");
+-        user.setPassword("User logged in succesfully");
+-        user.setActivateDate("2020-03-01");
+-        user.setAdmin(false);
+-        user.setFirstname("Jane");
+-        user.setLastname("Doe");
+-        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user);
+-        assertThrows(Exception.class,
+-                () -> this.loginServiceImp.loginGeneralUser(new LoginRequest("jane.doe@example.org", "iloveyou", "Role")));
+-        verify(this.loginRepository, atLeast(1)).findUserByEmail((String) any());
+-    }
+-
+-    @Test
+-    public void testLoginGeneralUser3() throws Exception {
+-        User user = new User();
+-        user.setEmail("jane.doe@example.org");
+-        user.setPassword(null);
+-        user.setActivateDate("2020-03-01");
+-        user.setAdmin(false);
+-        user.setFirstname("Jane");
+-        user.setLastname("Doe");
+-        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user);
+-        assertThrows(Exception.class, () -> this.loginServiceImp.loginGeneralUser(null));
+-
+-    }
+-
+-    @Test
+-    public void testLoginGeneralUser4() throws Exception {
+-        User user = new User();
+-        user.setEmail("jane.doe@example.org");
+-        user.setPassword(null);
+-        user.setActivateDate("2020-03-01");
+-        user.setAdmin(false);
+-        user.setFirstname("Jane");
+-        user.setLastname("Doe");
+-        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user);
+-        LoginRequest loginRequest = mock(LoginRequest.class);
+-        when(loginRequest.getPassword()).thenReturn("foo");
+-        when(loginRequest.getEmail()).thenReturn(null);
+-        assertThrows(Exception.class, () -> this.loginServiceImp.loginGeneralUser(loginRequest));
+-        verify(loginRequest).getEmail();
+-    }
+-
+- /*   @Test
+-    public void testLoginOrganisation() throws Exception {
+-        User user = new User();
+-        user.setEmail("jane.doe@example.org");
+-        user.setPassword("iloveyou");
+-        user.setActivateDate("2020-03-01");
+-        user.setAdmin(true);
+-        user.setFirstname("Jane");
+-        user.setLastname("Doe");
+-        when(this.loginRepository.findOrganisationByEmail((String) any())).thenReturn(user);
+-        LoginResponse actualLoginOrganisationResult = this.loginServiceImp
+-                .loginOrganisation(new LoginRequest("jane.doe@example.org", "iloveyou", "Role"));
+-        assertEquals("1", actualLoginOrganisationResult.getJWTToken());
+-        assertTrue(actualLoginOrganisationResult.isSuccess());
+-        assertEquals("User logged in succesfully", actualLoginOrganisationResult.getMessage());
+-        verify(this.loginRepository, atLeast(1)).findOrganisationByEmail((String) any());
+-    }*/
+-
+-/*    @Test
+-    public void testLoginOrganisation2() throws Exception {
+-        User user = new User();
+-        user.setEmail("jane.doe@example.org");
+-        user.setPassword("User logged in succesfully");
+-        user.setActivateDate("2020-03-01");
+-        user.setAdmin(true);
+-        user.setFirstname("Jane");
+-        user.setLastname("Doe");
+-        when(this.loginRepository.findOrganisationByEmail((String) any())).thenReturn(user);
+-        assertThrows(Exception.class,
+-                () -> this.loginServiceImp.loginOrganisation(new LoginRequest("jane.doe@example.org", "iloveyou", "Role")));
+-        verify(this.loginRepository, atLeast(1)).findOrganisationByEmail((String) any());
+-    }*/
+-
+- /*   @Test
+-    public void testLoginOrganisation3() throws Exception {
+-        User user = new User();
+-        user.setEmail("jane.doe@example.org");
+-        user.setPassword(null);
+-        user.setActivateDate("2020-03-01");
+-        user.setAdmin(true);
+-        user.setFirstname("Jane");
+-        user.setLastname("Doe");
+-        when(this.loginRepository.findOrganisationByEmail((String) any())).thenReturn(user);
+-        assertThrows(Exception.class, () -> this.loginServiceImp.loginOrganisation(null));
+-    }*/
+-
+-    @Test
+-    public void testLoginAdminUser() throws Exception {
+-        User user = new User();
+-        user.setEmail("jane.doe@example.org");
+-        user.setPassword("iloveyou");
+-        user.setActivateDate("2020-03-01");
+-        user.setAdmin(true);
+-        user.setFirstname("Jane");
+-        user.setLastname("Doe");
+-        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user);
+-        LoginResponse actualLoginAdminUserResult = this.loginServiceImp
+-                .loginAdminUser(new LoginRequest("jane.doe@example.org", "iloveyou", "Role"));
+-        assertEquals("1", actualLoginAdminUserResult.getJWTToken());
+-        assertTrue(actualLoginAdminUserResult.isSuccess());
+-        assertEquals("User logged in succesfully", actualLoginAdminUserResult.getMessage());
+-        verify(this.loginRepository, atLeast(1)).findUserByEmail((String) any());
+-    }
+-
+-    @Test
+-    public void testLoginAdminUser2() throws Exception {
+-        User user = new User();
+-        user.setEmail("jane.doe@example.org");
+-        user.setPassword("User logged in succesfully");
+-        user.setActivateDate("2020-03-01");
+-        user.setAdmin(true);
+-        user.setFirstname("Jane");
+-        user.setLastname("Doe");
+-        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user);
+-        assertThrows(Exception.class,
+-                () -> this.loginServiceImp.loginAdminUser(new LoginRequest("jane.doe@example.org", "iloveyou", "Role")));
+-        verify(this.loginRepository, atLeast(1)).findUserByEmail((String) any());
+-    }
+-
+-    @Test
+-    public void testLoginAdminUser3() throws Exception {
+-        User user = new User();
+-        user.setEmail("jane.doe@example.org");
+-        user.setPassword(null);
+-        user.setActivateDate("2020-03-01");
+-        user.setAdmin(true);
+-        user.setFirstname("Jane");
+-        user.setLastname("Doe");
+-        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user);
+-        assertThrows(Exception.class, () -> this.loginServiceImp.loginAdminUser(null));
+-    }
+-
+-    @Test
+-    public void testLoginAdminUser4() throws Exception {
+-        User user = new User();
+-        user.setEmail("jane.doe@example.org");
+-        user.setPassword(null);
+-        user.setActivateDate("2020-03-01");
+-        user.setAdmin(false);
+-        user.setFirstname("Jane");
+-        user.setLastname("Doe");
+-        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user);
+-        LoginRequest loginRequest = mock(LoginRequest.class);
+-        when(loginRequest.getPassword()).thenReturn("foo");
+-        when(loginRequest.getEmail()).thenReturn("foo");
+-        assertThrows(Exception.class, () -> this.loginServiceImp.loginAdminUser(loginRequest));
+-        verify(this.loginRepository, atLeast(1)).findUserByEmail((String) any());
+-        verify(loginRequest, atLeast(1)).getEmail();
+-    }
+-}
+-

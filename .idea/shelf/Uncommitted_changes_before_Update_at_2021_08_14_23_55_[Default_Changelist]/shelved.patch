@@ -1,0 +1,239 @@
+Index: backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.GiveaLot.givealot.Server;\r\n\r\nimport com.GiveaLot.givealot.Organisation.model.Organisation;\r\nimport com.jcraft.jsch.ChannelSftp;\r\nimport com.jcraft.jsch.JSch;\r\nimport com.jcraft.jsch.JSchException;\r\nimport com.jcraft.jsch.Session;\r\nimport org.apache.commons.io.FileUtils;\r\nimport org.apache.pdfbox.Loader;\r\nimport org.apache.pdfbox.pdmodel.PDDocument;\r\nimport org.apache.pdfbox.pdmodel.PDDocumentCatalog;\r\nimport org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;\r\nimport org.apache.pdfbox.pdmodel.interactive.form.PDField;\r\n\r\nimport java.io.File;\r\nimport java.io.InputStream;\r\n\r\npublic class ServerAccess {\r\n    private String remoteHost = \"\";\r\n    private String username = \"\";\r\n    private String password = \"\";\r\n\r\n    private String remoteDir = \"/home/ubuntu/\";\r\n\r\n    private Session session;\r\n\r\n    private ChannelSftp setupJsch() throws JSchException {\r\n        JSch jsch = new JSch();\r\n        jsch.setKnownHosts(\"C:/Users/joshu/.ssh/known_hosts\");\r\n        session = jsch.getSession(username, remoteHost);\r\n        java.util.Properties config = new java.util.Properties();\r\n        config.put(\"StrictHostKeyChecking\", \"no\");\r\n        session.setConfig(config);\r\n        session.setPassword(password);\r\n        session.connect();\r\n        return (ChannelSftp) session.openChannel(\"sftp\");\r\n    }\r\n\r\n    public void createOrganisationDirectory(long orgId, String orgName) throws Exception {\r\n        ChannelSftp channelSftp = setupJsch();\r\n        try {\r\n\r\n            channelSftp.connect();\r\n\r\n            String orgIdString = String.valueOf(orgId);\r\n\r\n            String orgNameSpace = orgName.replaceAll(\"\\\\s+\", \"\");\r\n\r\n            String remoteDir = \"/home/ubuntu/Organisations/\";\r\n\r\n            channelSftp.mkdir(remoteDir + \"Organisations/\" + orgIdString);\r\n            channelSftp.mkdir(remoteDir + \"Organisations/\" + orgIdString + \"/\" + \"Reports\");\r\n            channelSftp.mkdir(remoteDir + \"Organisations/\" + orgIdString + \"/\" + \"Documents\");\r\n            channelSftp.mkdir(remoteDir + \"Organisations/\" + orgIdString + \"/\" + \"Gallery\");\r\n            channelSftp.mkdir(remoteDir + \"Organisations/\" + orgIdString + \"/\" + \"Certificates\");\r\n            channelSftp.put( remoteDir + \"Organisations/\" + orgIdString + \"/\" + orgNameSpace);\r\n\r\n        }catch (Exception e){\r\n            throw new Exception(\"Exception: Failed to interact with the server\");\r\n        }\r\n        finally {\r\n            channelSftp.exit();\r\n            session.disconnect();\r\n        }\r\n    }\r\n\r\n    public void uploadCertificate(long orgId, String orgName) throws Exception {\r\n        ChannelSftp channelSftp = setupJsch();\r\n        try {\r\n\r\n            channelSftp.connect();\r\n\r\n            String orgIdString = String.valueOf(orgId);\r\n            String localFile = \"backend/src/main/resources/TempCertificate/CertificateComplete.pdf\";\r\n\r\n            channelSftp.put(localFile, remoteDir + \"Organisations/\" + orgIdString + \"/\" + \"Certificates\" + \"/\" + orgName.replaceAll(\"\\\\s+\", \"\") + \"Certificate.pdf\");\r\n\r\n        }catch (Exception e){\r\n            throw new Exception(\"Exception: Failed to interact with the server\");\r\n        }\r\n        finally {\r\n            channelSftp.exit();\r\n            session.disconnect();\r\n        }\r\n    }\r\n\r\n    public void downloadCertificateTemplate(int points) throws Exception {\r\n        ChannelSftp channelSftp = setupJsch();\r\n        try {\r\n\r\n            channelSftp.connect();\r\n\r\n\r\n            String templateLocation;\r\n\r\n            if (points < 20) {\r\n                templateLocation = remoteDir + \"Templates/cert0Template.pdf\";\r\n\r\n            } else if (points >= 20 && points < 40) {\r\n                templateLocation = remoteDir + \"Templates/cert1Template.pdf\";\r\n\r\n            } else if (points >= 40 && points < 60) {\r\n                templateLocation = remoteDir + \"Templates/cert2Template.pdf\";\r\n\r\n            } else if (points >= 60 && points < 80) {\r\n                templateLocation = remoteDir + \"Templates/cert3Template.pdf\";\r\n\r\n            } else if (points >= 80 && points < 100) {\r\n                templateLocation = remoteDir + \"Templates/cert4Template.pdf\";\r\n\r\n            } else if (points == 100) {\r\n                templateLocation = remoteDir + \"Templates/cert5Template.pdf\";\r\n\r\n            } else {\r\n                throw new Exception(\"Exception: Invalid certificate level\");\r\n            }\r\n\r\n            File fileLocation = new File(\"backend/src/main/resources/TempCertificate/CertificateTemplate.pdf\");\r\n            InputStream stream = channelSftp.get(templateLocation);\r\n            FileUtils.copyInputStreamToFile(stream, fileLocation);\r\n\r\n\r\n        }catch (Exception e){\r\n            throw new Exception(\"Exception: Failed to download certificate template\");\r\n        }\r\n        finally {\r\n            channelSftp.exit();\r\n            session.disconnect();\r\n        }\r\n\r\n    }\r\n\r\n    public File downloadCertificate(long orgId, String orgName) throws Exception {\r\n        ChannelSftp channelSftp = setupJsch();\r\n        try {\r\n            channelSftp.connect();\r\n\r\n            String orgIdString = String.valueOf(orgId);\r\n\r\n            String templateLocation;\r\n\r\n            templateLocation = remoteDir + \"Organisations/\" + orgIdString + \"/\" + \"Certificates\" + \"/\" + orgName.replaceAll(\"\\\\s+\", \"\") + \"Certificate.pdf\";\r\n\r\n            File fileLocation = new File(orgName.replaceAll(\"\\\\s+\", \"\") + \"Certificate.pdf\");\r\n            InputStream stream = channelSftp.get(templateLocation);\r\n            FileUtils.copyInputStreamToFile(stream, fileLocation);\r\n\r\n            return fileLocation;\r\n\r\n        }catch (Exception e){\r\n            throw new Exception(\"Exception: Failed to download certificate\");\r\n        }\r\n        finally {\r\n            channelSftp.exit();\r\n            session.disconnect();\r\n        }\r\n    }\r\n\r\n    public void uploadAuditDocument(long orgId, String orgName, File document) throws Exception {\r\n        ChannelSftp channelSftp = setupJsch();\r\n        try {\r\n\r\n            document.renameTo(new File(\"backend/src/main/resources/TempCertificate/audit.pdf\"));\r\n\r\n            channelSftp.connect();\r\n\r\n            String orgIdString = String.valueOf(orgId);\r\n            String localFile = \"backend/src/main/resources/TempCertificate/audit.pdf\";\r\n\r\n            channelSftp.put(localFile, remoteDir + \"Organisations/\" + orgIdString + \"/\" + \"Documents\" + \"/\" + orgName.replaceAll(\"\\\\s+\", \"\") + \"AuditDocument.pdf\");\r\n\r\n            File deletion = new File(localFile);\r\n            deletion.delete();\r\n        }catch (Exception e){\r\n            throw new Exception(\"Exception: Failed to interact with the server\");\r\n        }\r\n        finally {\r\n            channelSftp.exit();\r\n            session.disconnect();\r\n        }\r\n    }\r\n\r\n    public void uploadTaxReference(long orgId, String orgName, File document) throws Exception {\r\n        ChannelSftp channelSftp = setupJsch();\r\n        try {\r\n\r\n            document.renameTo(new File(\"backend/src/main/resources/TempCertificate/taxRef.pdf\"));\r\n\r\n            channelSftp.connect();\r\n\r\n            String orgIdString = String.valueOf(orgId);\r\n            String localFile = \"backend/src/main/resources/TempCertificate/taxRef.pdf\";\r\n\r\n            channelSftp.put(localFile, remoteDir + \"Organisations/\" + orgIdString + \"/\" + \"Documents\" + \"/\" + orgName.replaceAll(\"\\\\s+\", \"\") + \"TaxReference.pdf\");\r\n\r\n            File deletion = new File(localFile);\r\n            deletion.delete();\r\n        }catch (Exception e){\r\n            throw new Exception(\"Exception: Failed to interact with the server\");\r\n        }\r\n        finally {\r\n            channelSftp.exit();\r\n            session.disconnect();\r\n        }\r\n    }\r\n\r\n    public static void main(String[] args) throws Exception {\r\n        ServerAccess access = new ServerAccess();\r\n\r\n        File file = new File(\"C:/auditDoc.pdf\");\r\n\r\n        File doc = access.downloadCertificate(45,\"New Org\");\r\n\r\n        access.uploadAuditDocument(45,\"New Org\",doc);\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java b/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java
+--- a/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java	(revision e73ad8182028af401c2cc50bc735be0ceb81991c)
++++ b/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java	(date 1628978099323)
+@@ -16,9 +16,9 @@
+ import java.io.InputStream;
+ 
+ public class ServerAccess {
+-    private String remoteHost = "";
+-    private String username = "";
+-    private String password = "";
++    private String remoteHost = "209.97.142.151";
++    private String username = "ubuntu";
++    private String password = "COS301-DsP";
+ 
+     private String remoteDir = "/home/ubuntu/";
+ 
+@@ -160,12 +160,12 @@
+         ChannelSftp channelSftp = setupJsch();
+         try {
+ 
+-            document.renameTo(new File("backend/src/main/resources/TempCertificate/audit.pdf"));
++            document.renameTo(new File("backend/src/main/resources/TempDocument/audit.pdf"));
+ 
+             channelSftp.connect();
+ 
+             String orgIdString = String.valueOf(orgId);
+-            String localFile = "backend/src/main/resources/TempCertificate/audit.pdf";
++            String localFile = "backend/src/main/resources/TempDocument/audit.pdf";
+ 
+             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Documents" + "/" + orgName.replaceAll("\\s+", "") + "AuditDocument.pdf");
+ 
+@@ -180,16 +180,42 @@
+         }
+     }
+ 
++    public File downloadAuditDoc(long orgId, String orgName) throws Exception {
++        ChannelSftp channelSftp = setupJsch();
++        try {
++            channelSftp.connect();
++
++            String orgIdString = String.valueOf(orgId);
++
++            String templateLocation;
++
++            templateLocation = remoteDir + "Organisations/" + orgIdString + "/" + "Documents" + "/" + orgName.replaceAll("\\s+", "") + "AuditDocument.pdf";
++
++            File fileLocation = new File(orgName.replaceAll("\\s+", "") + "AuditDocument.pdf");
++            InputStream stream = channelSftp.get(templateLocation);
++            FileUtils.copyInputStreamToFile(stream, fileLocation);
++
++            return fileLocation;
++
++        }catch (Exception e){
++            throw new Exception("Exception: Failed to download certificate");
++        }
++        finally {
++            channelSftp.exit();
++            session.disconnect();
++        }
++    }
++
+     public void uploadTaxReference(long orgId, String orgName, File document) throws Exception {
+         ChannelSftp channelSftp = setupJsch();
+         try {
+ 
+-            document.renameTo(new File("backend/src/main/resources/TempCertificate/taxRef.pdf"));
++            document.renameTo(new File("backend/src/main/resources/TempDocument/taxRef.pdf"));
+ 
+             channelSftp.connect();
+ 
+             String orgIdString = String.valueOf(orgId);
+-            String localFile = "backend/src/main/resources/TempCertificate/taxRef.pdf";
++            String localFile = "backend/src/main/resources/TempDocument/taxRef.pdf";
+ 
+             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Documents" + "/" + orgName.replaceAll("\\s+", "") + "TaxReference.pdf");
+ 
+@@ -204,14 +230,152 @@
+         }
+     }
+ 
++    public File downloadTaxRef(long orgId, String orgName) throws Exception {
++        ChannelSftp channelSftp = setupJsch();
++        try {
++            channelSftp.connect();
++
++            String orgIdString = String.valueOf(orgId);
++
++            String templateLocation;
++
++            templateLocation = remoteDir + "Organisations/" + orgIdString + "/" + "Documents" + "/" + orgName.replaceAll("\\s+", "") + "TaxReference.pdf";
++
++            File fileLocation = new File(orgName.replaceAll("\\s+", "") + "TaxReference.pdf");
++            InputStream stream = channelSftp.get(templateLocation);
++            FileUtils.copyInputStreamToFile(stream, fileLocation);
++
++            return fileLocation;
++
++        }catch (Exception e){
++            throw new Exception("Exception: Failed to download certificate");
++        }
++        finally {
++            channelSftp.exit();
++            session.disconnect();
++        }
++    }
++
++    public void uploadImageJPG(long orgId, String orgName, File image) throws Exception {
++        ChannelSftp channelSftp = setupJsch();
++        try {
++
++            image.renameTo(new File("backend/src/main/resources/TempDocument/image.jpg"));
++
++            channelSftp.connect();
++
++            //Query to organisation points for number of images
++
++            int imageNumber = 0;
++
++            String orgIdString = String.valueOf(orgId);
++            String localFile = "backend/src/main/resources/TempDocument/image.jpg";
++
++            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery" + imageNumber + ".jpg");
++
++            File deletion = new File(localFile);
++            deletion.delete();
++        }catch (Exception e){
++            throw new Exception("Exception: Failed to interact with the server");
++        }
++        finally {
++            channelSftp.exit();
++            session.disconnect();
++        }
++    }
++
++    public File downloadImageJPG(long orgId, int index) throws Exception {
++        ChannelSftp channelSftp = setupJsch();
++        try {
++            channelSftp.connect();
++
++            String orgIdString = String.valueOf(orgId);
++
++            String templateLocation;
++
++            templateLocation = remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + index + ".jpg";
++
++            File fileLocation = new File("image" + index + ".jpg");
++            InputStream stream = channelSftp.get(templateLocation);
++            FileUtils.copyInputStreamToFile(stream, fileLocation);
++
++            return fileLocation;
++
++        }catch (Exception e){
++            throw new Exception("Exception: Failed to download certificate");
++        }
++        finally {
++            channelSftp.exit();
++            session.disconnect();
++        }
++    }
++
++    public void uploadImagePNG(long orgId, String orgName, File image) throws Exception {
++        ChannelSftp channelSftp = setupJsch();
++        try {
++
++            image.renameTo(new File("backend/src/main/resources/TempDocument/image.png"));
++
++            channelSftp.connect();
++
++            //Query to organisation points for number of images
++
++            int imageNumber = 1;
++
++            String orgIdString = String.valueOf(orgId);
++            String localFile = "backend/src/main/resources/TempDocument/image.png";
++
++            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + imageNumber + ".png");
++
++            File deletion = new File(localFile);
++            deletion.delete();
++        }catch (Exception e){
++            e.printStackTrace();
++        }
++        finally {
++            channelSftp.exit();
++            session.disconnect();
++        }
++    }
++
++    public File downloadImagePNG(long orgId, int index) throws Exception {
++        ChannelSftp channelSftp = setupJsch();
++        try {
++            channelSftp.connect();
++
++            String orgIdString = String.valueOf(orgId);
++
++            String templateLocation;
++
++            templateLocation = remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + index + ".png";
++
++            File fileLocation = new File("image" + index + ".png");
++            InputStream stream = channelSftp.get(templateLocation);
++            FileUtils.copyInputStreamToFile(stream, fileLocation);
++
++            return fileLocation;
++
++        }catch (Exception e){
++            throw new Exception("Exception: Failed to download certificate");
++        }
++        finally {
++            channelSftp.exit();
++            session.disconnect();
++        }
++    }
++
+     public static void main(String[] args) throws Exception {
+         ServerAccess access = new ServerAccess();
+ 
+-        File file = new File("C:/auditDoc.pdf");
++        File file = new File("C:/logo.png");
++
++        //File doc = access.downloadCertificate(45,"New Org");
+ 
+-        File doc = access.downloadCertificate(45,"New Org");
++        //access.uploadTaxReference(45,"New Org",doc);
+ 
+-        access.uploadAuditDocument(45,"New Org",doc);
++        File image = access.downloadImagePNG(45,0);
++
++        access.uploadImagePNG(45,"New Org", image);
+     }
+ 
+ 

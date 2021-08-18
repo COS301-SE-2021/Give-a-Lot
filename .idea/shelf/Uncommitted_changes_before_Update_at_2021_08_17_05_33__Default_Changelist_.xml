@@ -1,0 +1,64 @@
+<changelist name="Uncommitted_changes_before_Update_at_2021_08_17_05_33_[Default_Changelist]" date="1629171202781" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_17_05_33_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2021/08/17 05:33 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/com/GiveaLot/givealot/Login/repository/LoginRepository.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/com/GiveaLot/givealot/Login/repository/LoginRepository.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_17_05_33_[Default_Changelist]/LoginRepository.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/com/GiveaLot/givealot/User/requests/RegisterUserRequest.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/com/GiveaLot/givealot/User/requests/RegisterUserRequest.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_17_05_33_[Default_Changelist]/RegisterUserRequest.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_17_05_33_[Default_Changelist]/OrganisationServiceImp.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/com/GiveaLot/givealot/User/controller/UserController.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/com/GiveaLot/givealot/User/controller/UserController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_17_05_33_[Default_Changelist]/UserController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/com/GiveaLot/givealot/User/repository/UserRepository.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/com/GiveaLot/givealot/User/repository/UserRepository.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_17_05_33_[Default_Changelist]/UserRepository.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/com/GiveaLot/givealot/Browse/service/BrowseServiceImp.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/com/GiveaLot/givealot/Browse/service/BrowseServiceImp.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_17_05_33_[Default_Changelist]/BrowseServiceImp.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/com/GiveaLot/givealot/Login/service/LoginServiceImp.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/com/GiveaLot/givealot/Login/service/LoginServiceImp.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_17_05_33_[Default_Changelist]/LoginServiceImp.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/com/GiveaLot/givealot/User/service/UserService.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/com/GiveaLot/givealot/User/service/UserService.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_17_05_33_[Default_Changelist]/UserService.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/com/GiveaLot/givealot/User/dataclass/User.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/com/GiveaLot/givealot/User/service/UserServiceImp.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/com/GiveaLot/givealot/User/service/UserServiceImp.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_17_05_33_[Default_Changelist]/UserServiceImp.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/com/GiveaLot/givealot/User/dataclass/User$UserBuilder.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/com/GiveaLot/givealot/User/model/User$UserBuilder.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/com/GiveaLot/givealot/User/model/User$UserBuilder.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_17_05_33_[Default_Changelist]/User$UserBuilder.class" />
+  </binary>
+</changelist>

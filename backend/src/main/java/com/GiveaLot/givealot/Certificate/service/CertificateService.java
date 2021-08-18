@@ -7,6 +7,8 @@ import com.GiveaLot.givealot.Organisation.model.Organisations;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 @Service
 public interface CertificateService {
@@ -27,6 +29,8 @@ public interface CertificateService {
     public boolean organisationRenewal(long orgId) throws Exception;
 
     public boolean adminRenewal(long orgId) throws Exception;
+
+    public boolean compareCertificate(File certificate) throws Exception;
 }
 
 

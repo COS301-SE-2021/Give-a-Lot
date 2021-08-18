@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="organisations controller revision">
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-08-18T022854.200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-08-18T025103.400.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/components/login/loginBody/LoginBody.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/components/login/loginBody/LoginBody.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/components/register/registerUser/RegisterUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/components/register/registerUser/RegisterUser.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +78,7 @@
     <configuration name="generated-requests#17" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="17" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#19" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="19" runType="Run single request">
+    <configuration name="generated-requests#2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#20" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="20" runType="Run single request">
@@ -99,11 +99,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests#2" />
         <item itemvalue="HTTP Request.generated-requests#22" />
         <item itemvalue="HTTP Request.generated-requests#21" />
         <item itemvalue="HTTP Request.generated-requests#17" />
         <item itemvalue="HTTP Request.generated-requests#20" />
-        <item itemvalue="HTTP Request.generated-requests#19" />
       </list>
     </recent_temporary>
   </component>
@@ -117,6 +117,7 @@
       <updated>1629230718911</updated>
       <workItem from="1629230737576" duration="39557000" />
       <workItem from="1629301692751" duration="4571000" />
+      <workItem from="1629310968540" duration="5779000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <created>1629235654571</created>
@@ -342,7 +343,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629305664485</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="organisations controller revision">
+      <created>1629310585160</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1629310585160</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

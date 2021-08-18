@@ -8,7 +8,7 @@ import OutlinedInput from '@material-ui/core/OutlinedInput';
 import {Link} from "react-router-dom";
 import FormError from "../../register/registerUser/FormError";
 
-export class Login extends Component {
+export class LoginBody extends Component {
 
     constructor(props) {
         super(props)
@@ -154,4 +154,4 @@ export class Login extends Component {
     }
 }
 
-export default Login
+export default LoginBody

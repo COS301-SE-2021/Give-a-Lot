@@ -90,7 +90,8 @@ export class RegisterUser extends Component {
             "firstName" : this.state.name,
             "lastName": this.state.surname,
             "email" : this.state.email,
-            "password" : this.state.password
+            "password" : this.state.password,
+            "role":1
 
         }
         axios.post('http://localhost:8080/v1/user/register/user', RegisterUserRequestBody, {config})
@@ -194,7 +195,7 @@ export class RegisterUser extends Component {
                                     </div>
                                     <div>
                                         <button className="RegisterUserbutton"
-                                            onClick={this.changeHandler}
+                                            // onClick={this.changeHandler}
                                             // disabled={loading}
                                                 // disabled={!this.state.formValid}
                                         >

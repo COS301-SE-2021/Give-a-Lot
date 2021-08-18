@@ -4,7 +4,10 @@ import com.GiveaLot.givealot.Browse.response.browseOrganisationsBySectorResponse
 import com.GiveaLot.givealot.Browse.service.BrowseServiceImp;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
+import com.GiveaLot.givealot.User.response.getUserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +28,7 @@ public class BrowseController {
     }
 
     @GetMapping("/sectors")
-    responseJSON browseOrganisationsBySectors()
+    ResponseEntity<responseJSON> browseOrganisationsBySectors()
     {
         response.setObject(null);
 
@@ -35,22 +38,28 @@ public class BrowseController {
 
            if(res != null)
            {
-               response.setCode("ok_org_br_200");
-               response.setMessage("success");
-               response.setObject(res);
+               response = new responseJSON("ok_org_br_200","success",res);
+               return new ResponseEntity<>(response,HttpStatus.OK);
+
            }
+            response = new responseJSON("bad_org_br_500","unsuccess" ,null);
+
+            return new ResponseEntity<>(response,HttpStatus.OK);
         }
         catch (Exception e)
         {
-            response.setCode("bad_org_br_500");
-            response.setMessage("Exception: browse failed due to " + e);
+
+            response = new responseJSON("bad_org_br_500","Exception: browse failed due to " + e,null);
+
+            return new ResponseEntity<>(response,HttpStatus.OK);
+
         }
 
-        return response;
+
     }
 
     @GetMapping("/sectors/{userId}")
-    responseJSON browseOrganisationsRecommended(@PathVariable("userId")  @NonNull Long userId)
+    ResponseEntity<responseJSON> browseOrganisationsRecommended(@PathVariable("userId")  @NonNull Long userId)
     {
         response.setObject(null);
         try
@@ -59,16 +68,19 @@ public class BrowseController {
 
             if(res != null)
             {
-                response.setCode("ok_org_br_200");
-                response.setMessage("success");
-                response.setObject(res);
+                response = new responseJSON("ok_org_br_200","success",res);
+                return new ResponseEntity<>(response,HttpStatus.OK);
+
             }
+            response = new responseJSON("bad_org_br_500","unsuccessful",null);
+
+            return new ResponseEntity<>(response,HttpStatus.OK);
         }
         catch (Exception e)
         {
-            response.setCode("bad_org_br_500");
-            response.setMessage("Exception: browse failed due to " + e);
+            response = new responseJSON("bad_org_br_500","Exception: browse failed due to " + e,null);
+
+            return new ResponseEntity<>(response,HttpStatus.OK);
         }
-        return response;
     }
 }

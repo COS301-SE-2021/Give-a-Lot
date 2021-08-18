@@ -1,0 +1,5 @@
+{
+  "code": "user_sel_bad_500",
+  "message": "unsuccessful com.GiveaLot.givealot.User.exception.UserNotAuthorisedException: current user is not an admin",
+  "object": null
+}

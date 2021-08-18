@@ -1,0 +1,13 @@
+{
+  "code": "user_sel_ok_200",
+  "message": "success",
+  "object": {
+    "id": 5,
+    "firstname": "Jackson",
+    "lastname": "Parker",
+    "email": "some@email.com",
+    "password": "d7f1a80c663272d59927d312d1a45d1c",
+    "activateDate": "2021-08-18",
+    "admin": false
+  }
+}

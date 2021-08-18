@@ -47,6 +47,8 @@ export class Upgrade extends Component {
 
         this.state = {
             orgId: "19",
+            type: "instagram",
+            url:"",
             website: "",
             address:"",
         };
@@ -87,7 +89,10 @@ export class Upgrade extends Component {
         this.setState({date: e.target.value});
 
     };
+    handleInstaInputChange = e => {
+        this.setState({url: e.target.value});
 
+    };
     handleFormChange = e => {
         e.preventDefault();
         const data = {
@@ -121,6 +126,20 @@ export class Upgrade extends Component {
             .then(res => console.log(res))
             .catch(err => console.log(err));
     };
+
+    handleInstaFormChange = e => {
+        e.preventDefault();
+        const data = {
+            orgId: this.state.orgId,
+            type: this.state.type,
+            url: this.state.url,
+        };
+        Axios
+            .post("http://localhost:8080/v1/organisation/add/socials", data)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    };
+
 
 
     render(){
@@ -203,16 +222,17 @@ export class Upgrade extends Component {
                         </div>
 
 
-                        <div className="upgrade_form">
+                        <div className="upgrade_form" >
                             <label className="upgrade_label">Social media section</label>
                         </div>
 
-                        <form className="upgrade_form">
+                        <form className="upgrade_form" onSubmit={this.handleInstaFormChange} >
                             <input
                                 name="socialMedia1"
                                 type="text"
                                 placeholder="Enter your social media url"
                                 className="input1"
+                                onChange={this.handleInstaInputChange}
                             />
                             <input type="submit" value="Submit" className="submit1" onClick={this.onToast}/>
                             {}

@@ -156,6 +156,7 @@ public class BlockchainServiceImpl implements BlockchainService {
 
     public static void main(String[] args) throws Exception {
         BlockchainServiceImpl blockchainService = new BlockchainServiceImpl();
-        System.out.println(blockchainService.findCertificateIndex(18));
+        File file = new File("frontend/givealot/localFiles/20/certificate/CertificateComplete.pdf");
+        System.out.println(blockchainService.compareCertificateHash(5,20,file));
     }
 }

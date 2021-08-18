@@ -1,3 +1,21 @@
+PUT http://localhost:8080/v1/organisation/investigate/18
+
+<> 2021-08-18T072247.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/investigate/18d
+
+<> 2021-08-18T072235.400.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/investigate/18
+
+<> 2021-08-18T072223.200.json
+
+###
+
 PUT http://localhost:8080/v1/organisation/activate/18
 
 <> 2021-08-18T072021.200.json
@@ -539,41 +557,6 @@ Content-Type: application/json
 }
 
 <> 2021-08-18T013214.200.json
-
-###
-
-POST http://localhost:8080/v1/user/get/user
-Content-Type: application/json
-
-{
- "generalUserEmail" : "admin@email.com"
-}
-
-<> 2021-08-18T012640.200.json
-
-###
-
-POST http://localhost:8080/v1/user/resetPassword/user
-Content-Type: application/json
-
-{
- "userEmail" : "some@email.com",
- "newPassword" : "pass1234"
-}
-
-<> 2021-08-18T011810.200.json
-
-###
-
-PUT http://localhost:8080/v1/user/resetPassword/user
-Content-Type: application/json
-
-{
- "userEmail" : "some@email.com",
- "newPassword" : "pass1234"
-}
-
-<> 2021-08-18T011309.200.json
 
 ###
 

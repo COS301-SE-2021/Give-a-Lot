@@ -1,5 +1,0 @@
-{
-  "code": "add_bad_500",
-  "message": "unsuccessful Executing an update/delete query; nested exception is javax.persistence.TransactionRequiredException: Executing an update/delete query",
-  "object": null
-}

@@ -255,7 +255,7 @@ public class OrganisationServiceImp implements OrganisationService {
         }
     }
 
-    @Override
+    @Override /*tested all good - converted*/
     public generalOrganisationResponse investigateOrganisation(Long orgId) throws Exception {
 
         if (organisationRepository.selectOrganisationById(orgId) == null)

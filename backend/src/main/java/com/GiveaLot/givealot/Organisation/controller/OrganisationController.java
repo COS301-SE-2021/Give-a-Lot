@@ -114,7 +114,7 @@ public class OrganisationController
         }
     }
 
-    @PutMapping("/investigate/{orgId}")
+    @PutMapping("/investigate/{orgId}") /* tested - works */
     public ResponseEntity<generalOrganisationResponse> investigateOrganisation(@PathVariable("orgId") @NonNull Long orgId)
     {
         generalOrganisationResponse response;

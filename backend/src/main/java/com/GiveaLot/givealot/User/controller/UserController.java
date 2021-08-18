@@ -1,10 +1,15 @@
 package com.GiveaLot.givealot.User.controller;
 
+import com.GiveaLot.givealot.Login.request.LoginRequest;
+import com.GiveaLot.givealot.Login.response.LoginResponse;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import com.GiveaLot.givealot.User.dataclass.User;
 import com.GiveaLot.givealot.User.requests.*;
+import com.GiveaLot.givealot.User.response.UserResponse;
 import com.GiveaLot.givealot.User.service.UserServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,106 +32,106 @@ public class UserController {
     }
 
     @PostMapping("/register/user") /*tested - all good*/
-    public responseJSON addUser(@RequestBody @NonNull RegisterUserRequest body)
+    ResponseEntity<UserResponse> addUser(@RequestBody @NonNull RegisterUserRequest body)
     {
-        response.setObject(null);
+        UserResponse userResponse;
         try
         {
-            if(userServiceImp.Register(new RegisterUserRequest(body.getFirstName(),body.getLastName(),body.getEmail(),body.getPassword())))
-            {
-                response.setCode("user_add_ok_200");
-                response.setMessage("success");
-            }
+            userResponse = userServiceImp.Register(body);
+            return new ResponseEntity<>(userResponse,HttpStatus.OK);
         }
         catch (Exception e)
         {
-            response.setCode("user_add_err_501");
-            response.setMessage("unsuccessful " + e.getMessage());
+            return new ResponseEntity<>(new UserResponse(false,e.toString(),null), HttpStatus.OK);
         }
-        return response;
     }
+  /*  @PostMapping("/login_org") /*tested - works perfect
+    ResponseEntity<LoginResponse> loginOrganisation(@RequestBody @NonNull LoginRequest body)
+    {
+        LoginResponse response;
+
+        try
+        {
+            response = service.loginOrganisation(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new LoginResponse(false,e.toString(),null), HttpStatus.OK);
+        }
+    }*/
 
     @PostMapping("/setadmin/user") /* tested - all good */
-    public responseJSON setAdmin(@RequestBody @NonNull SetAdminRequest body)
+    public ResponseEntity<UserResponse>  setAdmin(@RequestBody @NonNull SetAdminRequest body)
     {
-        response.setObject(null);
+        UserResponse userResponse;
         try
         {
-            if(userServiceImp.SetAdmin(body))
-            {
-                response.setCode("add_ok_200");
-                response.setMessage("success");
-            }
+            userResponse = userServiceImp.SetAdmin(body);
+            return new ResponseEntity<>(userResponse,HttpStatus.OK);
         }
         catch (Exception e)
         {
-            response.setCode("add_bad_500");
-            response.setMessage("unsuccessful " + e.getMessage());
+            return new ResponseEntity<>(new UserResponse(false,e.toString(),null), HttpStatus.OK);
         }
-        return response;
     }
 
     @PostMapping("/resetPassword/user") /* tested - all good */
-    public responseJSON resetPassword(@RequestBody @NonNull ResetPasswordRequestRequest body)
+    public ResponseEntity<UserResponse>  resetPassword(@RequestBody @NonNull ResetPasswordRequestRequest body)
     {
-        response.setObject(null);
+        UserResponse userResponse;
         try
         {
-            if(userServiceImp.ResetPasswordRequest(body))
-            {
-                response.setCode("res_ok_200");
-                response.setMessage("success");
-            }
+            userResponse = userServiceImp.ResetPasswordRequest(body);
+            return new ResponseEntity<>(userResponse,HttpStatus.OK);
         }
         catch (Exception e)
         {
-            response.setCode("res_bad_500");
-            response.setMessage("unsuccessful " + e.getMessage());
+            return new ResponseEntity<>(new UserResponse(false,e.toString(),null), HttpStatus.OK);
         }
-        return response;
+
     }
 
     @PostMapping("/get/user") /*tested all good*/
-    public responseJSON getUser(@RequestBody @NonNull GetUserRequest body)
+    public ResponseEntity<UserResponse>  getUser(@RequestBody @NonNull GetUserRequest body)
     {
-        response.setObject(null);
+        UserResponse userResponse;
         try
         {
             User res = userServiceImp.getUser(body);
             if(res != null)
             {
-                response.setCode("user_sel_ok_200");
-                response.setMessage("success");
+                userResponse = new UserResponse(true,"successful","1");
+                return new ResponseEntity<>(userResponse,HttpStatus.OK);
+
             }
-            response.setObject(res);
+            return new ResponseEntity<>(new UserResponse(false,"unsuccessful",null), HttpStatus.OK);
+
         }
         catch (Exception e)
         {
-            response.setCode("user_sel_bad_500");
-            response.setMessage("unsuccessful " + e);
+            return new ResponseEntity<>(new UserResponse(false,e.toString(),null), HttpStatus.OK);
+
         }
-        return response;
     }
 
     @GetMapping("/get/users") /*tested all good*/
-    public responseJSON getUsers(@RequestBody @NonNull GetUsersRequest body)
+    public ResponseEntity<UserResponse>  getUsers(@RequestBody @NonNull GetUsersRequest body)
     {
-        response.setObject(null);
+        UserResponse userResponse;
         try
         {
             List<User> res = userServiceImp.GetUsers(body);
             if(res != null)
             {
-                response.setCode("users_sel_ok_200");
-                response.setMessage("success");
+                userResponse = new UserResponse(true,"successful","1");
+                return new ResponseEntity<>(userResponse,HttpStatus.OK);
             }
-            response.setObject(res);
+            return new ResponseEntity<>(new UserResponse(false,"unsuccessful",null), HttpStatus.OK);
         }
         catch (Exception e)
         {
-            response.setCode("users_sel_bad_500");
-            response.setMessage("unsuccessful " + e);
+            return new ResponseEntity<>(new UserResponse(false,e.toString(),null), HttpStatus.OK);
         }
-        return response;
     }
 }

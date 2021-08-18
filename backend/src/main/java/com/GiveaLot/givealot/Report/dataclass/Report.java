@@ -94,4 +94,6 @@ public class Report {
     public void setOrgId(long orgId) {
         this.orgId = orgId;
     }
+
+
 }

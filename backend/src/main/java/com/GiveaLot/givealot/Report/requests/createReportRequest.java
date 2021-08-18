@@ -3,16 +3,19 @@ package com.GiveaLot.givealot.Report.requests;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class createReportRequest {
-    String orgId;
+    long orgId;
     String reportDescription;
     String reportType;
     String reporterEmail;
+    String orgName;
 
 
-    public createReportRequest(@JsonProperty("orgId") String orgId,
+    public createReportRequest(@JsonProperty("orgId") long orgId,
+                               @JsonProperty("orgName") String orgName,
                                @JsonProperty("description") String reportDescription,
                                @JsonProperty("type") String reportType,
-                               @JsonProperty("email") String reporterEmail)
+                               @JsonProperty("email") String reporterEmail
+                              )
     {
         this.orgId = orgId;
         this.reportDescription = reportDescription;
@@ -26,7 +29,7 @@ public class createReportRequest {
 
     /** Getters **/
 
-    public String getOrgId() {
+    public long getOrgId() {
         return orgId;
     }
 
@@ -42,12 +45,15 @@ public class createReportRequest {
         return reporterEmail;
     }
 
+    public String getOrgName() {
+        return orgName;
+    }
 
 
 
     /** Setters **/
 
-    public void setOrgId(String orgId) {
+    public void setOrgId(long orgId) {
         this.orgId = orgId;
     }
 
@@ -62,5 +68,7 @@ public class createReportRequest {
     public void setReporterEmail(String reporterEmail) {
         this.reporterEmail = reporterEmail;
     }
-
+    public void setOrgName(String orgName) {
+        this.orgName = orgName;
+    }
 }

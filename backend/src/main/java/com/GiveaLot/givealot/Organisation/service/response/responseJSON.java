@@ -7,38 +7,41 @@ import org.springframework.stereotype.Service;
 @JsonPropertyOrder({"code", "message", ""})
 @JsonRootName("result")
 @Service
-public class responseJSON implements response
+public class responseJSON
 {
     private String code;
     private String message;
     private Object object;
 
-    @Override
+    public responseJSON(String code, String message, Object object) {
+        this.code = code;
+        this.message = message;
+        this.object = object;
+    }
+
+    public responseJSON() {
+    }
+
     public String getCode() {
         return code;
     }
 
-    @Override
     public void setCode(String code) {
         this.code = code;
     }
 
-    @Override
     public String getMessage() {
         return message;
     }
 
-    @Override
     public void setMessage(String message) {
         this.message = message;
     }
 
-    @Override
     public void setObject(Object object) {
         this.object = object;
     }
 
-    @Override
     public Object getObject() {
         return this.object;
     }

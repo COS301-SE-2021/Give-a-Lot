@@ -3,6 +3,8 @@ package com.GiveaLot.givealot.Organisation.service;
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
 import com.GiveaLot.givealot.Certificate.service.CertificateService;
+import com.GiveaLot.givealot.Notification.dataclass.Mail;
+import com.GiveaLot.givealot.Notification.service.SendMailServiceImpl;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
@@ -57,6 +59,9 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Autowired
     private final ServerAccess access = new ServerAccess();
+
+    @Autowired
+    private SendMailServiceImpl sendMailService;
 
     @Autowired
     public void setOrganisationServiceImp(OrganisationRepository organisationRepository, OrganisationInfoRepository organisationInfoRepository, organisationPointsRepository organisationPointsRepository, CertificateRepository certificateRepository, UserRepository userRepository){
@@ -222,6 +227,21 @@ public class OrganisationServiceImp implements OrganisationService {
 
         certificateRepository.save(certificate);
         certificateService.addCertificate(id,certificate);
+
+        /**Sending a verification email**/
+        System.out.println("Sending Email...");
+
+        Mail mail = new Mail(organisation.getOrgEmail(),"Givealot SignUp Verification","Congratulations your organisation has successfully signed up to the Givealot platform" +
+                "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations" +
+                "\n" +
+                "\n" +
+                "Kind Regards \n" +
+                "Givealot Team");
+
+        sendMailService.sendMail(mail);
+        System.out.println("Email sent successfully");
+
+
         return new generalOrganisationResponse("add_org_200_ok", "success");
     }
 
@@ -237,7 +257,25 @@ public class OrganisationServiceImp implements OrganisationService {
         {
             if (organisationRepository.updateStatus(orgId, "suspended".toLowerCase()) != 1)
                 throw new Exception("status not updated");
-            else return new generalOrganisationResponse("sus_org_200_ok", "success");
+            else
+            {
+                /**Sending Status change email**/
+                System.out.println("Sending Email...");
+
+                Mail mail = new Mail(organisationRepository.selectOrganisationById(orgId).getOrgEmail(),"Givealot Status Change","It is with great regret to inform you that your organisation due to numerous reports against it has been susoended" +
+                        "\n these reports will be reviewed by team and if found to be false we will reactivate your organization." +
+                        "\n We apologise for the inconvienace this may cause" +
+                        "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations" +
+                        "\n" +
+                        "\n" +
+                        "Kind Regards \n" +
+                        "Givealot Team");
+
+                sendMailService.sendMail(mail);
+                System.out.println("Email sent successfully");
+
+                return new generalOrganisationResponse("sus_org_200_ok", "success");
+            }
         }
     }
 
@@ -251,7 +289,22 @@ public class OrganisationServiceImp implements OrganisationService {
         else {
             if (organisationRepository.updateStatus(orgId, "active".toLowerCase()) != 1)
                 throw new Exception("status not updated");
-            else return new generalOrganisationResponse("rea_org_200_ok", "success");
+            else
+            {
+                System.out.println("Sending Email...");
+
+                Mail mail = new Mail(organisationRepository.selectOrganisationById(orgId).getOrgEmail(),"Givealot Status Change","It is with great confidence to inform you that tour account has been reactivated" +
+                        "\n We apologise for the inconvenience this may have caused" +
+                        "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations" +
+                        "\n" +
+                        "\n" +
+                        "Kind Regards \n" +
+                        "Givealot Team");
+
+                sendMailService.sendMail(mail);
+                System.out.println("Email sent successfully");
+                return new generalOrganisationResponse("rea_org_200_ok", "success");
+            }
         }
     }
 
@@ -263,7 +316,24 @@ public class OrganisationServiceImp implements OrganisationService {
         else {
             if (organisationRepository.updateStatus(orgId, "investigating".toLowerCase()) != 1)
                 throw new Exception("status not updated");
-            else return new generalOrganisationResponse("inv_org_200_ok", "success");
+            else
+            {
+                /**Sending Status change email**/
+                System.out.println("Sending Email...");
+
+                Mail mail = new Mail(organisationRepository.selectOrganisationById(orgId).getOrgEmail(),"Givealot Status Change","It is with great regret to inform you that your organisation due to numerous reports against it is under investigation" +
+                        "\n these reports will be reviewed by team and if found to be false we will reactivate your organization." +
+                        "\n We apologise for the inconvienace this may cause" +
+                        "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations" +
+                        "\n" +
+                        "\n" +
+                        "Kind Regards \n" +
+                        "Givealot Team");
+
+                sendMailService.sendMail(mail);
+                System.out.println("Email sent successfully");
+                return new generalOrganisationResponse("inv_org_200_ok", "success");
+            }
         }
     }
 

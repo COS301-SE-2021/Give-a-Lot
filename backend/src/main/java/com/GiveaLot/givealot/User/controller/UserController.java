@@ -23,12 +23,10 @@ public class UserController {
     private final UserServiceImp userServiceImp;
     private final responseJSON response;
 
-
     @Autowired
     public UserController(UserServiceImp userServiceImp,responseJSON response) {
         this.userServiceImp = userServiceImp;
         this.response = response;
-
     }
 
     @PostMapping("/register/user") /*tested - all good*/
@@ -45,21 +43,6 @@ public class UserController {
             return new ResponseEntity<>(new userResponseGeneral("add_usr_bad_500","failed :" + e), HttpStatus.OK);
         }
     }
-  /*  @PostMapping("/login_org") /*tested - works perfect
-    ResponseEntity<LoginResponse> loginOrganisation(@RequestBody @NonNull LoginRequest body)
-    {
-        LoginResponse response;
-
-        try
-        {
-            response = service.loginOrganisation(body);
-            return new ResponseEntity<>(response, HttpStatus.OK);
-        }
-        catch (Exception e)
-        {
-            return new ResponseEntity<>(new LoginResponse(false,e.toString(),null), HttpStatus.OK);
-        }
-    }*/
 
     @PostMapping("/setadmin/user") /* tested - all good */
     public ResponseEntity<userResponseGeneral>  setAdmin(@RequestBody @NonNull SetAdminRequest body)
@@ -107,7 +90,6 @@ public class UserController {
 
             }
             return new ResponseEntity<>(new getUserResponse(false,"unsuccessful",null, res), HttpStatus.OK);
-
         }
         catch (Exception e)
         {
@@ -115,7 +97,7 @@ public class UserController {
         }
     }
 
-    @GetMapping("/get/users") /*tested all good*/
+    @PostMapping("/get/users") /*tested all good*/
     public ResponseEntity<UserResponse>  getUsers(@RequestBody @NonNull GetUsersRequest body)
     {
         UserResponse userResponse;

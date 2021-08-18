@@ -10,8 +10,12 @@ import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Organisation.repository.organisationPointsRepository;
 import com.GiveaLot.givealot.Organisation.requests.*;
+import com.GiveaLot.givealot.Organisation.response.getOrganisationsResponse;
 import com.GiveaLot.givealot.Server.ServerAccess;
+import com.GiveaLot.givealot.User.dataclass.User;
+import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
 import com.GiveaLot.givealot.User.repository.UserRepository;
+import com.GiveaLot.givealot.User.requests.GetUsersRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
@@ -23,6 +27,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 
 @Service
@@ -59,6 +64,40 @@ public class OrganisationServiceImp implements OrganisationService {
         this.certificateRepository = certificateRepository;
         this.userRepository = userRepository;
 
+    }
+
+    @Override /*tested all good*/
+    public getOrganisationsResponse getOrganisations(GetOrganisationsRequest request) throws Exception
+    {
+        if(request == null)
+        {
+            throw new Exception("Exception: request not set");
+        }
+        if(request.getAdminUserEmail() == null)
+        {
+            throw new Exception("Exception: admin user field not set");
+        }
+        else if(request.getAdminUserEmail().isEmpty())
+        {
+            throw new Exception("Exception: admin user field is empty");
+        }
+
+        User admin = userRepository.findUserByEmail(request.getAdminUserEmail());
+
+        if(admin == null)
+            throw new Exception("Exception: user is not admin");
+
+
+        if(!admin.getAdmin())
+        {
+            throw new UserNotAuthorisedException("current user is not an admin");
+        }
+
+        List<Organisations> res = organisationRepository.findAll();
+        if(res == null)
+            throw new Exception("Exception: there are no organisations");
+
+        return new getOrganisationsResponse("get_orgs_200_ok","success",res);
     }
 
     @Override

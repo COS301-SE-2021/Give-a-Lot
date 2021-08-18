@@ -719,7 +719,7 @@ public class OrganisationServiceImp implements OrganisationService {
         return true;
     }
 
-    @Override
+    @Override /*tested - works well */
     public generalOrganisationResponse addOrgEstDate(AddOrgEstDateRequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request not set");
@@ -749,9 +749,13 @@ public class OrganisationServiceImp implements OrganisationService {
         return new generalOrganisationResponse("add_est_200_OK","success");
     }
 
-    @Override
-    public boolean removeOrgEstDate(long orgId) throws Exception {
-        if (organisationRepository.selectOrganisationById(orgId) == null)
+    @Override /*tested - works well */
+    public generalOrganisationResponse removeOrgEstDate(Long orgId) throws Exception
+    {
+        if(orgId == null)
+            throw new Exception("Exception: provided ID is null");
+
+        else if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
         if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
@@ -768,7 +772,7 @@ public class OrganisationServiceImp implements OrganisationService {
         if (organisationInfoRepository.removeEstDate(orgId) != 1)
             throw new Exception("Exception: tax reference field not updated");
 
-        return true;
+        return new generalOrganisationResponse("rem_est_200_OK", "success");
     }
 
     @Override

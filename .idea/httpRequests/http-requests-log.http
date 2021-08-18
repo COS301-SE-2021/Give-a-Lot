@@ -1,3 +1,9 @@
+DELETE http://localhost:8080/v1/organisation/delete/estdate/18
+
+<> 2021-08-18T190627.200.json
+
+###
+
 POST http://localhost:8080/v1/organisation/add/estdate
 Content-Type: application/json
 
@@ -520,19 +526,6 @@ Content-Type: application/json
 }
 
 <> 2021-08-18T025103.400.json
-
-###
-
-POST http://localhost:8080/v1/login/user/admin
-Content-Type: application/json
-
-{
-  "username" : "admin@email.com",
-  "password" : "pass1234",
-  "role" : "default"
-}
-
-<> 2021-08-18T022854.200.json
 
 ###
 

@@ -369,7 +369,7 @@ public class OrganisationController
         }
     }
 
-    @PostMapping("/add/estdate")
+    @PostMapping("/add/estdate") /* tested - works */
     public  ResponseEntity<generalOrganisationResponse> addOrgEstDate(@RequestBody @NonNull AddOrgEstDateRequest body)
     {
         generalOrganisationResponse response;
@@ -381,6 +381,21 @@ public class OrganisationController
         catch (Exception e)
         {
             return new ResponseEntity<>(new generalOrganisationResponse("add_est_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
+    @DeleteMapping("/delete/estdate/{orgId}") /*tested - works */
+    public ResponseEntity<generalOrganisationResponse> removeOrgEstDate(@PathVariable("orgId") @NonNull Long orgId)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.removeOrgEstDate(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_est_500_err","failed: " + e), HttpStatus.OK);
         }
     }
 
@@ -491,32 +506,7 @@ public class OrganisationController
         }
     }
 
-    @DeleteMapping("/delete/estdate/{orgId}")
-    public responseJSON removeOrgEstDate(@PathVariable("orgId") @NonNull long orgId)
-    {
-        response.setObject(null);
-        try
-        {
-            boolean res = service.removeOrgEstDate(orgId);
-            if(res)
-            {
-                response.setCode("org_rm_ok_209");
-                response.setMessage("success");
-            }
-            else
-            {
-                response.setCode("org_rm_bad_209");
-                response.setMessage("unsuccessful");
-            }
-            return response;
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_rm_bad_500");
-            response.setMessage("unsuccessful");
-            return response;
-        }
-    }
+
 
 
     @PostMapping("/add/image")

@@ -1,0 +1,5 @@
+{
+  "message": "User logged in succesfully",
+  "success": true,
+  "jwttoken": "1"
+}

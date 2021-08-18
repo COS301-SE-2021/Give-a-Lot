@@ -1,0 +1,17 @@
+{
+  "code": "sel_org_200_ok",
+  "message": "success",
+  "response": {
+    "orgName": "Org Name New22323422",
+    "slogan": "Slogan2",
+    "orgDescription": "Org Description223322",
+    "orgSector": "Org Sector",
+    "orgEmail": "jane.doe@example12323422.org",
+    "orgId": 18,
+    "status": "active",
+    "contactPerson": "Contact Person",
+    "contactNumber": "Contact Number223322",
+    "directory": "/home/ubuntu/Organisations/18",
+    "password": "626e4fc56777e17bb401c4121f675016"
+  }
+}

@@ -4,21 +4,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AddOrgWebsiteRequest
 {
-    private long orgId;
+    private Long orgId;
     private String website;
 
-    public AddOrgWebsiteRequest(@JsonProperty ("orgId") long orgId,
+    public AddOrgWebsiteRequest(@JsonProperty ("orgId") Long orgId,
                                 @JsonProperty ("website") String website)
     {
         this.orgId = orgId;
         this.website = website;
     }
 
-    public long getOrgId() {
+    public Long getOrgId() {
         return orgId;
     }
 
-    public void setOrgId(long orgId) {
+    public void setOrgId(Long orgId) {
         this.orgId = orgId;
     }
 

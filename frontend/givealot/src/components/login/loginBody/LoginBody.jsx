@@ -7,12 +7,15 @@ import LockOpenIcon from '@material-ui/icons/LockOpen';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import {Link} from "react-router-dom";
 import FormError from "../../register/registerUser/FormError";
+import Admin from "../../Admin/Admin";
+import Organisation from "../../organisation/Organisaion";
+import Browse from "../../basicUser/browse/Browse"
+import { Redirect, Route } from "react-router";
 
 export class LoginBody extends Component {
 
     constructor(props) {
         super(props)
-
         this.state = {
             email: "",
             password : "",
@@ -79,9 +82,35 @@ export class LoginBody extends Component {
             "role" : "default"
         }
         console.log(loginRequestBody)
+        localStorage.clear();
         axios.post('http://localhost:8080/v1/login/user/determine', loginRequestBody , {config})
             .then(response =>{
-                console.log(response)
+                console.log(response.data)
+                const loggedUser={
+                    "id":response.data.id,
+                    "email":response.data.username,
+                    "role":response.data.jwttoken
+                }
+
+                ////set local variables
+                localStorage.setItem( "id" ,response.data.id);
+                localStorage.setItem( "role" ,response.data.jwttoken)
+
+
+                if (response.data.jwttoken==="general"){
+                    /////redirect
+                    return <Redirect to="/home" />;
+                }
+                else if (response.data.jwttoken==="admin"){
+                    console.log("here is admin")
+                    return <Redirect to="/dash" />;
+                }
+                else if (response.data.jwttoken==="organization"){
+                    return <Redirect to="/org" />;
+                }
+                else{
+                    return <Redirect to="/login" />;
+                }
             })
             .catch(error =>{
                 console.log(error)

@@ -1,0 +1,18 @@
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "The givers of pizza",
+  "slogan" : "We give to looters",
+  "orgDescription" : "Thisis is the givers organisations and we give to the people who give pizza",
+  "orgSector" : "loot",
+  "orgEmail" : "the@pizza.com",
+  "contactPerson" : "Johanne",
+  "contactNumber" : "0887575653",
+  "password" : "gta5"
+}
+
+<> 2021-08-17T202737.200.json
+
+###
+

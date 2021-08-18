@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4e2561bd-a51b-4715-b930-12e7320bf3b0" name="Default Changelist" comment="implemented user integration test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/GiveaLot/givealot/User/controller/UserControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/User/response/UserResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/User/response/UserResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/givealot/givealot/User/controller/UserControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/GiveaLot/givealot/User/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/GiveaLot/givealot/User/controller/UserControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +78,7 @@
       <recent name="com.GiveaLot.givealot.User.requests" />
     </key>
   </component>
-  <component name="RunManager" selected="Diffblue Cover.Write tests for class UserController">
+  <component name="RunManager" selected="JUnit.UserControllerTest.testGetUser">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -91,9 +89,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="generated-requests#5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="5" runType="Run single request">
-      <method v="2" />
     </configuration>
     <configuration name="LoginServiceImpTest.testLoginGeneralUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="givealot" />
@@ -142,6 +137,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserControllerTest.testGetUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="givealot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.GiveaLot.givealot.User.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.GiveaLot.givealot.User.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.GiveaLot.givealot.User.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="testGetUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.testGetUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="givealot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.GiveaLot.givealot.User.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.GiveaLot.givealot.User.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.GiveaLot.givealot.User.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="testGetUsers" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GivealotApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="givealot" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.GiveaLot.givealot.GivealotApplication" />
@@ -171,17 +198,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Write tests for method OrganisationController.selectOrganisation" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration" activateToolWindowBeforeRun="false" temporary="true">
-      <module name="givealot" />
-      <settings run-config-name="Write tests for method OrganisationController.selectOrganisation" include-system-env-vars="true">
-        <jvm-args />
-        <selection-scope>method</selection-scope>
-        <selected-element key="com.GiveaLot.givealot.Organisation.controller.OrganisationController.selectOrganisation:(J)Lcom/GiveaLot/givealot/Organisation/service/response/responseJSON;" />
-      </settings>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Write tests for method UserController.addUser" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration">
       <module name="givealot" />
       <settings run-config-name="Write tests for method UserController.addUser" include-system-env-vars="true">
@@ -195,11 +211,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserControllerTest.testGetUser" />
+        <item itemvalue="JUnit.UserControllerTest.testGetUsers" />
         <item itemvalue="JUnit.UserControllerTest" />
         <item itemvalue="Diffblue Cover.Write tests for class UserController" />
         <item itemvalue="Diffblue Cover.Write tests for method OrganisationController.selectOrganisation (2)" />
-        <item itemvalue="JUnit.OrganisationControllerTest.testSelectOrganisation" />
-        <item itemvalue="Diffblue Cover.Write tests for method OrganisationController.selectOrganisation" />
       </list>
     </recent_temporary>
   </component>
@@ -216,7 +232,7 @@
       <workItem from="1629118576458" duration="31000" />
       <workItem from="1629156334318" duration="775000" />
       <workItem from="1629157221470" duration="18464000" />
-      <workItem from="1629204924083" duration="12616000" />
+      <workItem from="1629204924083" duration="14570000" />
     </task>
     <task id="LOCAL-00001" summary="migrated server database">
       <created>1629169103675</created>
@@ -302,7 +318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629255128930</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="implemented user integration test">
+      <created>1629262202376</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1629262202376</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -96,7 +96,7 @@ public class UserControllerTest {
 
         ObjectMapper objectMapper = new ObjectMapper();
         MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-                .content(objectMapper.writeValueAsString(new GetUsersRequest("Admin User")));
+                .content(objectMapper.writeValueAsString(new GetUsersRequest("some@email.com")));
         MockMvcBuilders.standaloneSetup(this.userController)
                 .build()
                 .perform(requestBuilder)

@@ -61,6 +61,18 @@ public class UserControllerTest {
     }
 
     @Test
+    public void testConstructor() {
+        // TODO: This test is incomplete.
+        //   Reason: Nothing to assert: the constructed class does not have observers (e.g. getters or public fields).
+        //   Add observers (e.g. getters or public fields) to the class.
+        //   See https://diff.blue/R002
+
+        UserServiceImp userServiceImp = new UserServiceImp();
+        new UserController(userServiceImp, new responseJSON());
+
+    }
+
+    @Test
     public void testGetUser() throws Exception {
         MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/user/get/user")
                 .contentType(MediaType.APPLICATION_JSON);
@@ -74,7 +86,7 @@ public class UserControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
                 .andExpect(MockMvcResultMatchers.content()
-                        .string("{\"message\":\"unsuccessful\",\"success\":false,\"jwttoken\":null}"));
+                        .string("{\"message\":\"unsuccessful\",\"success\":false,\"response\":null,\"jwttoken\":null}"));
     }
 
     @Test
@@ -90,8 +102,8 @@ public class UserControllerTest {
                 .perform(requestBuilder)
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
-                .andExpect(
-                        MockMvcResultMatchers.content().string("{\"message\":\"successful\",\"success\":true,\"jwttoken\":\"1\"}"));
+                .andExpect(MockMvcResultMatchers.content()
+                        .string("{\"message\":\"successful\",\"success\":true,\"response\":[],\"jwttoken\":\"1\"}"));
     }
 
     @Test

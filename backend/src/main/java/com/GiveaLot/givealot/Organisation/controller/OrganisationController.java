@@ -99,7 +99,7 @@ public class OrganisationController
         }
     }
 
-    @PutMapping("/activate/{orgId}")
+    @PutMapping("/activate/{orgId}") /* tested - works */
     public ResponseEntity<generalOrganisationResponse> reactivateOrganisation(@PathVariable("orgId") @NonNull Long orgId)
     {
         generalOrganisationResponse response;
@@ -107,7 +107,6 @@ public class OrganisationController
         {
             response = service.reactivateOrganisation(orgId);
             return new ResponseEntity<>(response, HttpStatus.OK);
-
         }
         catch (Exception e)
         {

@@ -241,7 +241,7 @@ public class OrganisationServiceImp implements OrganisationService {
         }
     }
 
-    @Override
+    @Override /*tested all good - converted*/
     public generalOrganisationResponse reactivateOrganisation(Long orgId) throws Exception {
 
         if(orgId == null)

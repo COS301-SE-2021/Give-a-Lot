@@ -1021,7 +1021,6 @@ public class OrganisationServiceImp implements OrganisationService {
         return false;
     }
 
-
     @Override
     public OrganisationPoints selectOrganisationPoints(long orgId) throws Exception {
 

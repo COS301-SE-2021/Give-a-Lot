@@ -36,7 +36,7 @@ public class LoginController {
         }
         catch (Exception e)
         {
-            return new ResponseEntity<>(new LoginResponse(false,e.toString(),null), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new LoginResponse(false,e.toString(),null), HttpStatus.OK);
         }
     }
 
@@ -52,7 +52,7 @@ public class LoginController {
         }
         catch (Exception e)
         {
-            return new ResponseEntity<>(new LoginResponse(false,e.toString(),null), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new LoginResponse(false,e.toString(),null), HttpStatus.OK);
         }
     }
 
@@ -68,7 +68,7 @@ public class LoginController {
         }
         catch (Exception e)
         {
-            return new ResponseEntity<>(new LoginResponse(false,e.toString(),null), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new LoginResponse(false,e.toString(),null), HttpStatus.OK);
         }
     }
 }

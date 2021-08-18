@@ -4,7 +4,7 @@ import { DataGrid } from '@material-ui/data-grid';
 import axios from "axios";
 
 const columns = [
-  // { field: "id", headerName: "ID", width: 100 },
+  { field: "id", headerName: "ID", width: 100 },
   // {
   //   field: "firstname",
   //   headerName: "First Name",

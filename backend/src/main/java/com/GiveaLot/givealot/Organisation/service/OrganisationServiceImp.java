@@ -12,9 +12,7 @@ import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Organisation.repository.organisationPointsRepository;
 import com.GiveaLot.givealot.Organisation.requests.*;
-import com.GiveaLot.givealot.Organisation.response.generalOrganisationResponse;
-import com.GiveaLot.givealot.Organisation.response.getOrganisationsResponse;
-import com.GiveaLot.givealot.Organisation.response.selectOrganisationResponse;
+import com.GiveaLot.givealot.Organisation.response.*;
 import com.GiveaLot.givealot.Server.ServerAccess;
 import com.GiveaLot.givealot.User.dataclass.User;
 import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
@@ -120,7 +118,11 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public OrganisationInfo selectOrganisationInfo(long orgId) throws Exception {
+    public selectOrganisationInfoResponse selectOrganisationInfo(Long orgId) throws Exception {
+
+        if(orgId == null)
+            throw new Exception("Exception: Provided ID is null");
+
         if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
@@ -133,7 +135,7 @@ public class OrganisationServiceImp implements OrganisationService {
             organisationInfoRepository.save(organisationInfo);
             throw new Exception("Exception: system level error, organisation info did not exist, rerun " +
                     "the contract");
-        } else return organisationInfo;
+        } else return new selectOrganisationInfoResponse("sel_org_200_OK","success", organisationInfo);
     }
 
     @Override /* tested works well except - certificate throws a null pointer exception.*/
@@ -789,24 +791,43 @@ public class OrganisationServiceImp implements OrganisationService {
         return true;
     }
 
-    @Override
-    public boolean addOrgEstDate(AddOrgEstDateRequest request) throws Exception {
+    @Override /*tested - works well */
+    public generalOrganisationResponse addOrgEstDate(AddOrgEstDateRequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request not set");
+
         else if (request.getDate() == null)
             throw new Exception("Exception: value not set");
+
+        else if (request.getDate().isEmpty())
+            throw new Exception("Exception: date field is empty");
+
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
-        if (organisationInfoRepository.addEstDate(request.getOrgId(), request.getDate()) != 1)
+        String Str [] = (request.getDate()).split("/");
+
+        String tmp_date = "";
+
+        if(Str.length == 3)
+        {
+            tmp_date = Str[2] + "-" + Str[1] + "-" + Str[0];
+        }
+        else throw new Exception("Exception: Invalid date provided");
+
+        if (organisationInfoRepository.addEstDate(request.getOrgId(), tmp_date) != 1)
             throw new Exception("Exception: value field failed to update");
 
-        return true;
+        return new generalOrganisationResponse("add_est_200_OK","success");
     }
 
-    @Override
-    public boolean removeOrgEstDate(long orgId) throws Exception {
-        if (organisationRepository.selectOrganisationById(orgId) == null)
+    @Override /*tested - works well */
+    public generalOrganisationResponse removeOrgEstDate(Long orgId) throws Exception
+    {
+        if(orgId == null)
+            throw new Exception("Exception: provided ID is null");
+
+        else if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
         if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
@@ -823,13 +844,16 @@ public class OrganisationServiceImp implements OrganisationService {
         if (organisationInfoRepository.removeEstDate(orgId) != 1)
             throw new Exception("Exception: tax reference field not updated");
 
-        return true;
+        return new generalOrganisationResponse("rem_est_200_OK", "success");
     }
 
-    @Override
-    public boolean addOrgImage(AddOrgImageRequest request) throws Exception {
+    @Override /*all good*/
+    public generalOrganisationResponse addOrgImage(AddOrgImageRequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request not set");
+
+        else if(request.getOrgId() == null)
+            throw new Exception("Provided ID is null");
 
         else if (request.getImage() == null)
             throw new Exception("Exception: tax reference not set");
@@ -837,7 +861,13 @@ public class OrganisationServiceImp implements OrganisationService {
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
-        String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
+        Organisations organisation_tmp = organisationRepository.selectOrganisationById(request.getOrgId());
+
+        if(organisation_tmp == null)
+            throw new Exception("Exception: add image function did not finish, organisation does not exist");
+
+
+        String name = organisation_tmp.getOrgName();
 
         access.uploadImageJPG(request.getOrgId(),name,request.getImage());
 
@@ -846,13 +876,16 @@ public class OrganisationServiceImp implements OrganisationService {
         if (organisationInfoRepository.incrementImage(request.getOrgId(), numImages + 1) != 1)
             throw new Exception("Exception: value field failed to update");
 
-        return true;
+        return new generalOrganisationResponse("add_img_200_OK", "success");
     }
 
-    @Override
-    public boolean removeOrgImage(long orgId) throws Exception {
+    @Override /* all good, correctness not tested yet */
+    public generalOrganisationResponse removeOrgImage(Long orgId) throws Exception {
 
-        if (organisationRepository.selectOrganisationById(orgId) == null)
+        if (orgId == null)
+            throw new Exception("Exception: provided ID is null");
+
+        else if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
         if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
@@ -866,40 +899,25 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("Exception: system level error, organisation info did not exist, rerun the contract");
         }
 
-        int numImages = organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfImages();
+        OrganisationInfo organisation_tmp = organisationInfoRepository.selectOrganisationInfo(orgId);
+
+        if (organisation_tmp == null)
+            throw new Exception("Exception: rare error occured, image not fully removed");
+
+        int numImages = organisation_tmp.getNumberOfImages();
 
         if (organisationInfoRepository.decrementImage(orgId, numImages - 1) != 1)
             throw new Exception("Exception: tax reference field not updated");
 
-        return true;
+        return new generalOrganisationResponse("rem_img_200_OK", "success");
     }
 
-    public String getMd5(String input) {
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-
-            byte[] messageDigest = md.digest(input.getBytes());
-
-            BigInteger no = new BigInteger(1, messageDigest);
-
-            String hashtext = no.toString(16);
-            while (hashtext.length() < 32) {
-                hashtext = "0" + hashtext;
-            }
-            return hashtext;
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
     /*
     * points
-    * points
-    * points
-    * */
+    */
 
-    @Override
-    public boolean confirmValidity(Long orgId,Long adminId,String type,boolean confirmValidity) throws Exception
+    @Override /*tested - works well */
+    public generalOrganisationResponse confirmValidity(Long orgId,Long adminId,String type,boolean confirmValidity) throws Exception
     {
         if(orgId == null)
             throw new Exception("Exception: organisation id is not set");
@@ -921,7 +939,7 @@ public class OrganisationServiceImp implements OrganisationService {
         * */
         if(type.equalsIgnoreCase("address"))
         {
-            Integer dps = 0, currentPoints = 0;
+            Integer dps = 10, currentPoints = 0;
             int res = confirmValidity ? organisationPointsRepository.Address(orgId,true) : organisationPointsRepository.Address(orgId,false);
             if(res != 1)
                 throw new Exception("Exception: address validity not confirmed");
@@ -949,9 +967,9 @@ public class OrganisationServiceImp implements OrganisationService {
         }
         else if(type.equalsIgnoreCase("audit"))
         {
-            Integer currentPoints = 0, dps = 0;
+            Integer currentPoints = 0, dps = 15;
             Integer res = confirmValidity ? organisationPointsRepository.Audit(orgId,true) : organisationPointsRepository.Audit(orgId,false);
-            if(res != -1)
+            if(res != 1)
                 throw new Exception("Exception: audit validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
@@ -976,9 +994,9 @@ public class OrganisationServiceImp implements OrganisationService {
         }
         else if(type.equalsIgnoreCase("auditor"))
         {
-            Integer currentPoints = 0,dps = 0;
+            Integer currentPoints = 0,dps = 10;
             Integer res = confirmValidity ? organisationPointsRepository.Auditor(orgId,true) : organisationPointsRepository.Auditor(orgId,false);
-            if(res != -1)
+            if(res != 1)
                 throw new Exception("Exception: auditor validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
@@ -1002,9 +1020,9 @@ public class OrganisationServiceImp implements OrganisationService {
         }
         else if(type.equalsIgnoreCase("committee"))
         {
-            Integer currentPoints = 0,dps = 0;
+            Integer currentPoints = 0,dps = 5;
             Integer res = confirmValidity ? organisationPointsRepository.Committee(orgId,true) : organisationPointsRepository.Committee(orgId,false);
-            if(res != -1)
+            if(res != 1)
                 throw new Exception("Exception: committee validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
@@ -1028,9 +1046,9 @@ public class OrganisationServiceImp implements OrganisationService {
         }
         else if(type.equalsIgnoreCase("establishment_date"))
         {
-            Integer currentPoints = 0,dps = 0;
+            Integer currentPoints = 0,dps = 5;
             Integer res = confirmValidity ? organisationPointsRepository.EstablishmentDate(orgId,true) : organisationPointsRepository.EstablishmentDate(orgId,false);
-            if(res != -1)
+            if(res != 1)
                 throw new Exception("Exception: establishment date validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
@@ -1054,9 +1072,9 @@ public class OrganisationServiceImp implements OrganisationService {
         }
         else if(type.equalsIgnoreCase("facebook"))
         {
-            Integer currentPoints = 0,dps = 0;
+            Integer currentPoints = 0,dps = 5;
             Integer res = confirmValidity ? organisationPointsRepository.Facebook(orgId,true) : organisationPointsRepository.Facebook(orgId,false);
-            if(res != -1)
+            if(res != 1)
                 throw new Exception("Exception: facebook validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
@@ -1080,9 +1098,9 @@ public class OrganisationServiceImp implements OrganisationService {
         }
         else if(type.equalsIgnoreCase("instagram"))
         {
-            Integer currentPoints = 0,dps = 0;
+            Integer currentPoints = 0,dps = 5;
             Integer res = confirmValidity ? organisationPointsRepository.Instagram(orgId,true) : organisationPointsRepository.Instagram(orgId,false);
-            if(res != -1)
+            if(res != 1)
                 throw new Exception("Exception: instagram validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
@@ -1106,9 +1124,9 @@ public class OrganisationServiceImp implements OrganisationService {
         }
         else if(type.equalsIgnoreCase("twitter"))
         {
-            Integer currentPoints = 0,dps = 0;
+            Integer currentPoints = 0,dps = 5;
             Integer res = confirmValidity ? organisationPointsRepository.Twitter(orgId,true) : organisationPointsRepository.Twitter(orgId,false);
-            if(res != -1)
+            if(res != 1)
                 throw new Exception("Exception: twitter validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
@@ -1132,9 +1150,9 @@ public class OrganisationServiceImp implements OrganisationService {
         }
         else if(type.equalsIgnoreCase("ngo_date"))
         {
-            Integer currentPoints = 0,dps = 0;
+            Integer currentPoints = 0,dps = 5;
             Integer res = confirmValidity ? organisationPointsRepository.NGO_Date(orgId,true) : organisationPointsRepository.NGO_Date(orgId,false);
-            if(res != -1)
+            if(res != 1)
                 throw new Exception("Exception: NGO date validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
@@ -1158,9 +1176,9 @@ public class OrganisationServiceImp implements OrganisationService {
         }
         else if(type.equalsIgnoreCase("ngo_number"))
         {
-            Integer currentPoints = 0,dps = 0;
+            Integer currentPoints = 0,dps = 5;
             Integer res = confirmValidity ? organisationPointsRepository.NGO_Number(orgId,true) : organisationPointsRepository.NGO_Number(orgId,false);
-            if(res != -1)
+            if(res != 1)
                 throw new Exception("Exception: NGO number validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
@@ -1184,9 +1202,9 @@ public class OrganisationServiceImp implements OrganisationService {
         }
         else if(type.equalsIgnoreCase("tax_raf"))
         {
-            Integer currentPoints = 0,dps = 0;
+            Integer currentPoints = 0,dps = 5;
             Integer res = confirmValidity ? organisationPointsRepository.taxRaf(orgId,true) : organisationPointsRepository.taxRaf(orgId,false);
-            if(res != -1)
+            if(res != 1)
                 throw new Exception("Exception: tax raf validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
@@ -1210,10 +1228,11 @@ public class OrganisationServiceImp implements OrganisationService {
         }
         else if(type.equalsIgnoreCase("website"))
         {
-            Integer currentPoints = 0,dps = 0;
+            Integer currentPoints = 0,dps = 10;
             Integer res = confirmValidity ? organisationPointsRepository.Website(orgId,true) : organisationPointsRepository.Website(orgId,false);
-            if(res != -1)
-                throw new Exception("Exception: address validity not confirmed");
+
+            if(res != 1)
+                throw new Exception("Exception: website validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
             if(certificate_tmp == null) /*perform rollback*/
@@ -1222,7 +1241,8 @@ public class OrganisationServiceImp implements OrganisationService {
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
-            }else currentPoints = certificate_tmp.getPoints();
+            }
+            else currentPoints = certificate_tmp.getPoints();
 
             res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
 
@@ -1235,19 +1255,34 @@ public class OrganisationServiceImp implements OrganisationService {
             }
         }
         else throw new Exception("Exception: type is incorrect");
-        return false;
+        return new generalOrganisationResponse("confirm_200_OK","success");
     }
 
     @Override
-    public OrganisationPoints selectOrganisationPoints(long orgId) throws Exception {
+    public organisationPointsResponse selectOrganisationPoints(Long orgId) throws Exception {
 
-        if(organisationRepository.selectOrganisationById(orgId) == null)
-            throw new Exception("Exception: id does not exist");
-        return null;
+        if(orgId == null)
+            throw new Exception("Exception: Provided ID is null");
+
+        if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        OrganisationPoints organisationPoints = organisationPointsRepository.selectOrganisationPoints(orgId);
+
+        if (organisationPoints == null) {
+            organisationPoints = new OrganisationPoints();
+            organisationPoints.setOrgId(orgId);
+
+            organisationPointsRepository.save(organisationPoints);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun " +
+                    "the contract");
+        }
+
+        else return new organisationPointsResponse("sel_pts_200_OK","success", organisationPoints);
     }
 
-    @Override
-    public Integer numberOfImages(Long orgId) throws Exception
+    @Override /* tested - all good */
+    public numberOfImagesResponse numberOfImages(Long orgId) throws Exception
     {
         if(orgId == null)
             throw new Exception("Exception: id is not set");
@@ -1259,8 +1294,27 @@ public class OrganisationServiceImp implements OrganisationService {
         if(res != 1)
             throw new Exception("Exception: id does not exist");
 
-        return res;
+        return new numberOfImagesResponse("num_img_200_OK", "success", res);
     }
 
+    /*helper*/
+    public String getMd5(String input) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+
+            byte[] messageDigest = md.digest(input.getBytes());
+
+            BigInteger no = new BigInteger(1, messageDigest);
+
+            String hashtext = no.toString(16);
+            while (hashtext.length() < 32) {
+                hashtext = "0" + hashtext;
+            }
+            return hashtext;
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
 }

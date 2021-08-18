@@ -1,4 +1,0 @@
-{
-  "code": "set_ad_500_bad",
-  "message": "Failed: java.lang.Exception: Exception: user not found by their email"
-}

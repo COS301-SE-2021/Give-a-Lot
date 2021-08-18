@@ -218,6 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629261980094</updated>
     </task>
+    <task id="LOCAL-00014" summary="Fixing organisation points">
+      <created>1629281118302</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1629281118302</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <task id="LOCAL-00014" summary="organisations controller revision - suspend">
       <created>1629262817591</created>
       <option name="number" value="00014" />
@@ -431,6 +439,9 @@
     <MESSAGE value="organisations controller revision - remove socials" />
     <MESSAGE value="organisations controller revision - tax" />
     <MESSAGE value="organisations controller revision" />
+    <MESSAGE value="organisations controller revision - add Organisation" />
+    <MESSAGE value="Fixing organisation points" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing organisation points" />
     <option name="LAST_COMMIT_MESSAGE" value="organisations controller revision" />
   </component>
 </project>

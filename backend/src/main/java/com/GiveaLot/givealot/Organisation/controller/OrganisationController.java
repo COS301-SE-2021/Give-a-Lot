@@ -4,11 +4,19 @@ import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.requests.*;
+import com.GiveaLot.givealot.Organisation.response.getOrganisationsResponse;
 import com.GiveaLot.givealot.Organisation.service.OrganisationServiceImp;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
+import com.GiveaLot.givealot.User.dataclass.User;
+import com.GiveaLot.givealot.User.requests.GetUsersRequest;
+import com.GiveaLot.givealot.User.response.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequestMapping("v1/organisation")
 @CrossOrigin("*")
@@ -46,6 +54,21 @@ public class OrganisationController
             response.setMessage("unsuccessful " + e);
         }
         return response;
+    }
+
+    @PostMapping("/get/organisations") /*tested all good*/
+    public ResponseEntity<getOrganisationsResponse> getOrganisations(@RequestBody @NonNull GetOrganisationsRequest body)
+    {
+        getOrganisationsResponse response;
+        try
+        {
+            response = service.getOrganisations(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new getOrganisationsResponse("get_orgs_500_bad","failed: " + e, null), HttpStatus.OK);
+        }
     }
 
 

@@ -8,6 +8,7 @@ public class ReportResponseJSON
     String status;
     private File reportFile;
 
+
     public ReportResponseJSON(int http_code, String status, File reportFile)
     {
         this.code = http_code;

@@ -4,9 +4,7 @@ import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.requests.*;
-import com.GiveaLot.givealot.Organisation.response.generalOrganisationResponse;
-import com.GiveaLot.givealot.Organisation.response.getOrganisationsResponse;
-import com.GiveaLot.givealot.Organisation.response.selectOrganisationResponse;
+import com.GiveaLot.givealot.Organisation.response.*;
 import com.GiveaLot.givealot.Organisation.service.OrganisationServiceImp;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import com.GiveaLot.givealot.User.dataclass.User;
@@ -399,174 +397,82 @@ public class OrganisationController
         }
     }
 
-
-    /* tested -  gfworks *//*
-    @GetMapping("/info/{orgId}")
-    public responseJSON selectOrganisationInfo(@PathVariable("orgId") @NonNull long orgId)
+    @PutMapping("/delete/validity/confirm/{orgId}/{adminId}/{type}/{confirm}") /*tested - works */
+    public ResponseEntity<generalOrganisationResponse> confirmValidity(@PathVariable("orgId") @NonNull Long orgId,
+                                                                       @PathVariable("adminId") @NonNull Long adminId,
+                                                                       @PathVariable("type") @NonNull String type,
+                                                                       @PathVariable("confirm") @NonNull Boolean confirm)
     {
-        response.setObject(null);
+        generalOrganisationResponse response;
         try
         {
-            OrganisationInfo res = service.selectOrganisationInfo(orgId);
-            if(res != null)
-            {
-                response.setCode("org_sel_ok_200");
-                response.setMessage("success");
-                response.setObject(res);
-            }
+            response = service.confirmValidity(orgId,adminId,type,confirm);
+            return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)
         {
-            response.setCode("org_sel_bad_500");
-            response.setMessage("unsuccessful " + e);
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_est_500_err","failed: " + e), HttpStatus.OK);
         }
-        return response;
     }
 
-
-    @GetMapping("/points/{orgId}")
-    public responseJSON selectOrganisationPoints(@PathVariable("orgId") @NonNull long orgId)
+    @PostMapping("/add/image") /* all good - correctness not tested yet */
+    public ResponseEntity<generalOrganisationResponse> addOrgImage(@RequestBody @NonNull AddOrgImageRequest body)
     {
-        response.setObject(null);
+        generalOrganisationResponse response;
         try
         {
-            OrganisationPoints res = service.selectOrganisationPoints(orgId);
-            if(res != null)
-            {
-                response.setCode("org_sel_ok_200");
-                response.setMessage("success");
-            }
-            else
-            {
-                response.setCode("org_sel_bad_200");
-                response.setMessage("unsuccessful");
-            }
-            response.setObject(res);
+            response = service.addOrgImage(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)
         {
-            response.setCode("org_sel_bad_500");
-            response.setMessage("unsuccessful " + e.toString());
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_est_500_err","failed: " + e), HttpStatus.OK);
         }
-        return response;
     }
+
 
     @DeleteMapping("/delete/images/{orgId}")
-    public responseJSON removeOrgImage(@PathVariable("orgId") @NonNull long orgId)
+    public ResponseEntity<generalOrganisationResponse> removeOrgImage(@PathVariable("orgId") @NonNull Long orgId)
     {
-        response.setObject(null);
+        generalOrganisationResponse response;
         try
         {
-            boolean res = service.removeOrgImage(orgId);
-            if(res)
-            {
-                response.setCode("org_rm_ok_206");
-                response.setMessage("success");
-            }
-            else
-            {
-                response.setCode("org_rm_bad_206");
-                response.setMessage("unsuccessful");
-            }
-            return response;
+            response = service.removeOrgImage(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)
         {
-            response.setCode("org_rm_bad_500");
-            response.setMessage("unsuccessful");
-            return response;
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_img_500_err","failed: " + e), HttpStatus.OK);
         }
     }
 
-    @DeleteMapping("/delete/ngo/{orgId}")
-    public responseJSON removeOrgNGO(@PathVariable("orgId") @NonNull long orgId)
+    @DeleteMapping("/delete/images/count/{orgId}") /* tested - all good */
+    public ResponseEntity<numberOfImagesResponse> numberOfImages(@PathVariable("orgId") @NonNull Long orgId)
     {
-        response.setObject(null);
-        System.out.println(orgId);
+        numberOfImagesResponse response;
         try
         {
-            boolean res = service.removeOrgNGO(orgId);
-            if(res)
-            {
-                response.setCode("org_rm_ok_208");
-                response.setMessage("success");
-            }
-            else
-            {
-                response.setCode("org_rm_bad_208");
-                response.setMessage("unsuccessful");
-            }
-            return response;
+            response = service.numberOfImages(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)
         {
-            response.setCode("org_rm_bad_500");
-            response.setMessage("unsuccessful");
-            return response;
+            return new ResponseEntity<>(new numberOfImagesResponse("num_img_500_err","failed: " + e, null), HttpStatus.OK);
         }
     }
 
-
-
-
-    @PostMapping("/add/image")
-    public responseJSON addOrgImage(@RequestBody @NonNull AddOrgImageRequest body)
+    @GetMapping("/points/{orgId}") /* all good - correctness not tested yet */
+    public ResponseEntity<organisationPointsResponse> selectOrganisationPoints(@PathVariable("orgId") @NonNull long orgId)
     {
-        response.setObject(null);
+        organisationPointsResponse response;
         try
         {
-            boolean res = service.addOrgImage(body);
-            if(res)
-            {
-                response.setCode("org_add_ok_217");
-                response.setMessage("success");
-            }
-            else
-            {
-                response.setCode("org_add_bad_217");
-                response.setMessage("unsuccessful");
-            }
-            return response;
+            response = service.selectOrganisationPoints(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)
         {
-            response.setCode("org_add_bad_500");
-            response.setMessage("unsuccessful");
-            return response;
+            return new ResponseEntity<>(new organisationPointsResponse("num_img_500_err","failed: " + e, null), HttpStatus.OK);
         }
     }
-
-
-
-
-
-
-
-
-    @PostMapping("/add/ngo")
-    public responseJSON addOrgNGO(@RequestBody AddOrgNGORequest body)
-    {
-        response.setObject(null);
-        try
-        {
-            boolean res = service.addOrgNGO(body);
-            if(res)
-            {
-                response.setCode("org_add_ok_223");
-                response.setMessage("success");
-            }
-            else
-            {
-                response.setCode("org_add_bad_223");
-                response.setMessage("unsuccessful");
-            }
-            return response;
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_add_bad_500");
-            response.setMessage("unsuccessful");
-            return response;
-        }
-    }*/
 }

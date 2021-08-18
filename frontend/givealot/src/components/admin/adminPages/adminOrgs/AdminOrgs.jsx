@@ -83,10 +83,10 @@ import "./adminOrgs.css"
 import { DataGrid } from '@material-ui/data-grid';
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { DeleteOutline } from "@material-ui/icons";
+// import { DeleteOutline } from "@material-ui/icons";
 
 const columns = [
-    { field: "id", headerName: "ID", width: 100 },
+    { field: "orgId", headerName: "ID", width: 100 },
     // {
     //   field: "firstname",
     //   headerName: "First Name",
@@ -100,14 +100,19 @@ const columns = [
     //     );
     //   },
     // },
-    { field: "firstname", headerName: "First Name", width: 200 },
-    { field: "lastname", headerName: "Last Name", width: 200 },
+    { field: "orgName", headerName: "Org Name", width: 200 },
+    { field: "slogan", headerName: "Slogan", width: 200 },
     {
-        field: "email",
-        headerName: "Email",
-        width: 220,
+        field: "orgDescription",
+        headerName: "Org Description",
+        width: 200,
     },
-    { field: "activateDate", headerName: "Activation Date", width: 200 },
+    { field: "orgSector", headerName: "Sector", width: 130 },
+    { field: "orgEmail", headerName: "Email", width: 200 },
+    { field: "contactNumber", headerName: "Number", width: 160 },
+    { field: "status", headerName: "Status", width: 130 },
+    { field: "contactPerson", headerName: "Contact Person", width: 200 },
+
     {
         field: "action",
         headerName: "Action",
@@ -139,7 +144,7 @@ export default class AdminOrgs extends Component {
         super(props)
 
         this.state = {
-            orgs:[],
+            organisations:[],
             adminUserEmail: "admin@email.com"
         }
 
@@ -152,14 +157,14 @@ export default class AdminOrgs extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        const adminUsersRequestBody = {
+        const adminUserRequestBody = {
             "adminUserEmail" : this.state.adminUserEmail
         }
-        axios.post('http://localhost:8080/v1/organisation/get/organisations', adminUsersRequestBody, config)
+        axios.post('http://localhost:8080/v1/user/get/users', adminUserRequestBody, config)
             .then(response =>{
                 console.log(response)
-                this.setState({orgs: response.data.response})
-                console.log(this.state.orgs)
+                this.setState({organisations: response.data.response})
+                // console.log(this.state.orgs)
             })
             .catch(error =>{
                 console.log(error)
@@ -167,14 +172,16 @@ export default class AdminOrgs extends Component {
             })
     }
     render() {
-        const { orgs } = this.state
+        const { organisations } = this.state
+        // console.log(orgs);
         return (
+
             <div className="adminOrgss">
                 <Link to="/addOrg">
                     <button className="AddButton">Create</button>
                 </Link>
                 <DataGrid
-                    rows={orgs}
+                    rows={organisations}
                     disableSelectionOnClick
                     columns={columns}
                     pageSize={8}

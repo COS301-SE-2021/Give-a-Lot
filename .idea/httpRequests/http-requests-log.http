@@ -1,5 +1,11 @@
 PUT http://localhost:8080/v1/organisation/suspend/18
 
+<> 2021-08-18T070326.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/suspend/18
+
 <> 2021-08-18T065905.200.json
 
 ###
@@ -574,17 +580,6 @@ Content-Type: application/json
 }
 
 <> 2021-08-18T011249.400.json
-
-###
-
-PUT http://localhost:8080/v1/user/resetPassword/user
-
-{
- "userEmail" : "some@email.com"
- "newPassword" : "pass1234"
-}
-
-<> 2021-08-18T011228.415.json
 
 ###
 

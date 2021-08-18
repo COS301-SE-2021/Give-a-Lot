@@ -256,7 +256,7 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public generalOrganisationResponse investigateOrganisation(long orgId) throws Exception {
+    public generalOrganisationResponse investigateOrganisation(Long orgId) throws Exception {
 
         if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("ID doesn't exist");

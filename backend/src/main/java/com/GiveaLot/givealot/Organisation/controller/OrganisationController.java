@@ -85,7 +85,7 @@ public class OrganisationController
     }
 
     @PutMapping("/suspend/{orgId}") /* tested all good */
-    public ResponseEntity<generalOrganisationResponse> suspendOrganisation(@PathVariable("orgId") @NonNull long orgId)
+    public ResponseEntity<generalOrganisationResponse> suspendOrganisation(@PathVariable("orgId") @NonNull Long orgId)
     {
         generalOrganisationResponse response;
         try
@@ -96,6 +96,37 @@ public class OrganisationController
         catch (Exception e)
         {
             return new ResponseEntity<>(new generalOrganisationResponse("org_sus_err_501","failed: " + e), HttpStatus.OK);
+        }
+    }
+
+    @PutMapping("/activate/{orgId}")
+    public ResponseEntity<generalOrganisationResponse> reactivateOrganisation(@PathVariable("orgId") @NonNull Long orgId)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.reactivateOrganisation(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("org_rea_err_500","failed: " + e), HttpStatus.OK);
+        }
+    }
+
+    @PutMapping("/investigate/{orgId}")
+    public ResponseEntity<generalOrganisationResponse> investigateOrganisation(@PathVariable("orgId") @NonNull Long orgId)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.investigateOrganisation(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("org_inv_err_500","failed: " + e), HttpStatus.OK);
         }
     }
 
@@ -254,48 +285,10 @@ public class OrganisationController
 
 
     *//* tested - works *//*
-    @PutMapping("/activate/{orgId}")
-    public responseJSON reactivateOrganisation(@PathVariable("orgId") @NonNull long orgId)
-    {
-        response.setObject(null);
-        try
-        {
-            boolean res = service.reactivateOrganisation(orgId);
-            if(res)
-            {
-                response.setCode("org_act_ok_200");
-                response.setMessage("success");
-            }
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_act_bad_500");
-            response.setMessage("unsuccessful " + e);
-        }
-        return response;
-    }
+
 
     *//* tested - works *//*
-    @PutMapping("/investigate/{orgId}")
-    public responseJSON investigateOrganisation(@PathVariable("orgId") @NonNull long orgId)
-    {
-        response.setObject(null);
-        try
-        {
-            boolean res = service.investigateOrganisation(orgId);
-            if(res)
-            {
-                response.setCode("org_inv_ok_200");
-                response.setMessage("success");
-            }
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_inv_bad_500");
-            response.setMessage("unsuccessful " + e);
-        }
-        return response;
-    }
+
 
     *//* tested - works *//*
     @PostMapping("/add/socials")

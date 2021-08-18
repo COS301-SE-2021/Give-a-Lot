@@ -6,7 +6,10 @@ import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.requests.*;
 import com.GiveaLot.givealot.Organisation.service.OrganisationServiceImp;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
+import com.GiveaLot.givealot.User.response.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
@@ -51,8 +54,9 @@ public class OrganisationController
 
     /* tested - works */
     @GetMapping("/select/{orgId}")
-    public responseJSON selectOrganisation(@PathVariable("orgId") @NonNull long orgId)
+    public ResponseEntity<responseJSON> selectOrganisation(@PathVariable("orgId") @NonNull long orgId)
     {
+        responseJSON responseJSON = new responseJSON();
         response.setObject(null);
         try
         {
@@ -63,13 +67,14 @@ public class OrganisationController
                 response.setMessage("success");
             }
             response.setObject(res);
+            return new ResponseEntity<>(responseJSON, HttpStatus.OK);
         }
         catch (Exception e)
         {
             response.setCode("org_sel_bad_500");
             response.setMessage("unsuccessful " + e.toString());
+            return new ResponseEntity<>(responseJSON, HttpStatus.OK);
         }
-        return response;
     }
 
     /* tested - works */

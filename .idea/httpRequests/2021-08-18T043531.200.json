@@ -1,0 +1,4 @@
+{
+  "code": "add_usr_bad_500",
+  "message": "failed :java.lang.Exception: The email has already been taken."
+}

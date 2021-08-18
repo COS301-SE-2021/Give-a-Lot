@@ -1,0 +1,5 @@
+{
+  "code": "get_orgs_500_bad",
+  "message": "failed: java.lang.Exception: Exception: admin user field is empty",
+  "response": null
+}

@@ -242,26 +242,28 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public boolean reactivateOrganisation(long orgId) throws Exception {
+    public generalOrganisationResponse reactivateOrganisation(Long orgId) throws Exception {
 
+        if(orgId == null)
+            throw new Exception("Exception: ID is null");
         if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("ID doesn't exist");
         else {
             if (organisationRepository.updateStatus(orgId, "active".toLowerCase()) != 1)
                 throw new Exception("status not updated");
-            else return true;
+            else return new generalOrganisationResponse("rea_org_200_ok", "success");
         }
     }
 
     @Override
-    public boolean investigateOrganisation(long orgId) throws Exception {
+    public generalOrganisationResponse investigateOrganisation(long orgId) throws Exception {
 
         if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("ID doesn't exist");
         else {
             if (organisationRepository.updateStatus(orgId, "investigating".toLowerCase()) != 1)
                 throw new Exception("status not updated");
-            else return true;
+            else return new generalOrganisationResponse("inv_org_200_ok", "success");
         }
     }
 

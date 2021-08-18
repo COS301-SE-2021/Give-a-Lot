@@ -29,8 +29,18 @@ export class Confirmation extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
+        const RegisterOrganisationRequestBody = {
+            "orgName" : this.props.values.orgName,
+            "slogan" : this.props.values.slogan,
+            "orgDescription" : this.props.values.orgDescription,
+            "orgSector" : this.props.values.orgSector,
+            "orgEmail" : this.props.values.orgEmail,
+            "contactPerson" : this.props.values.contactPerson,
+            "contactNumber" : this.props.values.contactNumber,
+            "password" : this.props.values.password
+        }
         console.log(this.props.values)
-        axios.post('http://localhost:8080/v1/organisation/add/org', this.props.values, {config})
+        axios.post('http://localhost:8080/v1/organisation/add/org', RegisterOrganisationRequestBody, {config})
             .then(response =>{
                 console.log(response)
             })
@@ -42,7 +52,7 @@ export class Confirmation extends Component {
 
     render() {
         const {
-            values: { slogan, orgEmail, sector, orgDescription, contactNumber, contactPerson, orgName }
+            values: { slogan, orgEmail, orgSector, orgDescription, contactNumber, contactPerson, orgName }
         } = this.props;
         return (
             <div className="RegisterOrganisation" style={{margin: "auto"}}>
@@ -65,7 +75,7 @@ export class Confirmation extends Component {
                             <ListItemText primary="Email" secondary={orgEmail} />
                         </ListItem>
                         <ListItem className="confirmWords">
-                            <ListItemText primary="Sector" secondary={sector} />
+                            <ListItemText primary="Sector" secondary={orgSector} />
                         </ListItem>
                         <ListItem className="confirmWords">
                             <ListItemText primary="Description" secondary={orgDescription} />

@@ -75,14 +75,9 @@ export class Login extends Component {
         // console.log("something1")
         console.log(this.state)
         const loginRequestBody = {
-           // "username" : this.state.email,
-           //  "password" : this.state.password,
-           //  "role" : "default"
-
-            "username" : "some se",
-            "password" : "password",
+           "username" : this.state.email,
+            "password" : this.state.password,
             "role" : "default"
-
         }
         console.log(loginRequestBody)
         axios.post('http://localhost:8080/v1/login/user/general', loginRequestBody , {config})

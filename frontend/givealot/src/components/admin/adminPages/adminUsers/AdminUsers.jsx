@@ -1,74 +1,69 @@
-import * as React from 'react';
+import React, { Component } from 'react';
 import "./adminUsers.css"
 import { DataGrid } from '@material-ui/data-grid';
-// import { DeleteOutline } from "@material-ui/icons";
-// import { userRows } from "../../dummyData";
-import { userRows } from "../../../../DummyData"
-// import { Link } from "react-router-dom";
-import { useState } from "react";
+import axios from "axios";
 
-export default function UserList() {
-  const [data, setData] = useState(userRows);
-
-  const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
-  };
-  
-  const columns = [
-    { field: "id", headerName: "ID", width: 100 },
-    {
-      field: "user",
-      headerName: "User",
-      width: 200,
-      renderCell: (params) => {
-        return (
+const columns = [
+  // { field: "id", headerName: "ID", width: 100 },
+  {
+    field: "firstName",
+    headerName: "First Name",
+    width: 200,
+    renderCell: (params) => {
+      return (
           <div className="userListUsers">
             <img className="userListImgs" src={params.row.avatar} alt="" />
             {params.row.username}
           </div>
-        );
-      },
+      );
     },
-    { field: "email", headerName: "Email", width: 200 },
-    {
-      field: "status",
-      headerName: "Status",
-      width: 120,
-    },
-    {
-      field: "transaction",
-      headerName: "Transaction Volume",
-      width: 160,
-    },
-    // {
-    //   field: "action",
-    //   headerName: "Action",
-    //   width: 150,
-    //   renderCell: (params) => {
-    //     return (
-    //       <>
-    //         <Link to={"/user/" + params.row.id}>
-    //           <button className="userListEdits">Edit</button>
-    //         </Link>
-    //         <DeleteOutline
-    //           className="userListDeletes"
-    //           onClick={() => handleDelete(params.row.id)}
-    //         />
-    //       </>
-    //     );
-    //   },
-    // },
-  ];
+  },
+  { field: "lastName", headerName: "Last Name", width: 200 },
+  {
+    field: "activationDate",
+    headerName: "Activation Date",
+    width: 200,
+  },
+  {
+    field: "email",
+    headerName: "Email",
+    width: 220,
+  },
+];
+export default class AdminUsers extends Component {
+  // const [data, info ,setData] = useState(userRows);
+  constructor(props) {
+    super(props)
 
-  return (
-    <div className="adminUserss">
-      <DataGrid
-        rows={data}
-        disableSelectionOnClick
-        columns={columns}
-        pageSize={8}
-        checkboxSelection
-      />
-    </div>
-  );
+    this.state = {
+      users:[]
+    }
+
+  }
+
+  componentDidMount(){
+    axios.get('http://localhost:8080/v1/user/get/users')
+        .then(response =>{
+          console.log(response)
+          this.setState({users: response.data})
+        })
+        .catch(error =>{
+          console.log(error)
+          this.setState({error : 'Error Retrieving data'})
+        })
+  }
+  render() {
+    const { users } = this.state
+    return (
+        <div className="adminUserss">
+          <DataGrid
+              rows={users}
+              disableSelectionOnClick
+              columns={columns}
+              pageSize={8}
+              checkboxSelection
+          />
+        </div>
+    );
+  }
 }

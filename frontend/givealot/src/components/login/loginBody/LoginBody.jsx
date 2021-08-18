@@ -7,9 +7,8 @@ import LockOpenIcon from '@material-ui/icons/LockOpen';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import {Link} from "react-router-dom";
 import FormError from "../../register/registerUser/FormError";
-import TextField from '@material-ui/core/TextField';
 
-export class Login extends Component {
+export class LoginBody extends Component {
 
     constructor(props) {
         super(props)
@@ -80,7 +79,7 @@ export class Login extends Component {
             "role" : "default"
         }
         console.log(loginRequestBody)
-        axios.post('http://localhost:8080/v1/login/user/general', loginRequestBody , {config})
+        axios.post('http://localhost:8080/v1/login/user/determine', loginRequestBody , {config})
             .then(response =>{
                 console.log(response)
             })
@@ -155,4 +154,4 @@ export class Login extends Component {
     }
 }
 
-export default Login
+export default LoginBody

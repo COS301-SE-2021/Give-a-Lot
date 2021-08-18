@@ -8,7 +8,7 @@ import FeaturedHeader from "../../../featuredHeader/FeaturedHeader";
 import "./basic.css"
 import { Link } from "react-router-dom";
 import axios from "axios";
-import {toast} from "react-toastify";
+// import {toast} from "react-toastify";
 
 
 export class Confirmation extends Component {

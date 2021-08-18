@@ -86,7 +86,7 @@ import { Link } from "react-router-dom";
 // import { DeleteOutline } from "@material-ui/icons";
 
 const columns = [
-    { field: "orgId", headerName: "ID", width: 100 },
+
     // {
     //   field: "firstname",
     //   headerName: "First Name",
@@ -100,6 +100,7 @@ const columns = [
     //     );
     //   },
     // },
+    { field: "orgId", headerName: "ID", width: 100 },
     { field: "orgName", headerName: "Org Name", width: 200 },
     { field: "slogan", headerName: "Slogan", width: 200 },
     {
@@ -157,14 +158,13 @@ export default class AdminOrgs extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        const adminUserRequestBody = {
-            "adminUserEmail" : this.state.adminUserEmail
-        }
-        axios.post('http://localhost:8080/v1/user/get/users', adminUserRequestBody, config)
+        // const adminUserRequestBody = {
+        //     "adminUserEmail" : this.state.adminUserEmail
+        // }
+        axios.get('http://localhost:8080/v1/organisation/get/organisations', config)
             .then(response =>{
                 console.log(response)
                 this.setState({organisations: response.data.response})
-                // console.log(this.state.orgs)
             })
             .catch(error =>{
                 console.log(error)

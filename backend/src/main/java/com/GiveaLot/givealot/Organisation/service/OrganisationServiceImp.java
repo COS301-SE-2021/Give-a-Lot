@@ -225,7 +225,7 @@ public class OrganisationServiceImp implements OrganisationService {
         return new generalOrganisationResponse("add_org_200_ok", "success");
     }
 
-    @Override
+    @Override /*tested all good - converted*/
     public generalOrganisationResponse suspendOrganisation(Long orgId) throws Exception {
 
         if(orgId == null)

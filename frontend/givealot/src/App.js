@@ -8,12 +8,12 @@ import "./components/basicUser/browse/css/search.css";
 //import Register from "./components/register/Register";
 //import Home from "./components/basicUser/home/Home"
 import React from "react";
-/*import {Route, Switch} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import Login from "./components/login/Login";
 import VerifyHomePage from "./components/basicUser/home/VerifyHomePage";
 import RegisterUser from "./components/register/registerUser/RegisterUser";
 import RegisterOrganisation from "./components/register/registerOrganisation/RegisterOrganisation";
-import Browse from "./components/basicUser/browse/Browse"*/
+import Browse from "./components/basicUser/browse/Browse"
 import Organisation from "./components/organisation/Organisaion";
 
 function App() {

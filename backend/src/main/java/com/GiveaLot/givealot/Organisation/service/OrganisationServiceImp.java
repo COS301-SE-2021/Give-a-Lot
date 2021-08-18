@@ -67,7 +67,7 @@ public class OrganisationServiceImp implements OrganisationService {
 
     }
 
-    @Override /*tested all good*/
+    @Override /*tested all good - converted*/
     public getOrganisationsResponse getOrganisations(GetOrganisationsRequest request) throws Exception
     {
         if(request == null)
@@ -101,7 +101,7 @@ public class OrganisationServiceImp implements OrganisationService {
         return new getOrganisationsResponse("get_orgs_200_ok","success",res);
     }
 
-    @Override
+    @Override /*tested all good - converted*/
     public selectOrganisationResponse selectOrganisation(Long orgId) throws Exception {
 
         if(orgId == null)

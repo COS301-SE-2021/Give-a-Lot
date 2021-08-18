@@ -159,7 +159,7 @@ public class OrganisationController
         }
     }
 
-    @PutMapping("/add/address") /* tested - works */
+    @PostMapping("/add/address") /* tested - works */
     public ResponseEntity<generalOrganisationResponse> addOrgAddress(@RequestBody @NonNull AddOrgAddressRequest body)
     {
         generalOrganisationResponse response;
@@ -369,6 +369,36 @@ public class OrganisationController
         }
     }
 
+    @PostMapping("/add/estdate") /* tested - works */
+    public  ResponseEntity<generalOrganisationResponse> addOrgEstDate(@RequestBody @NonNull AddOrgEstDateRequest body)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.addOrgEstDate(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("add_est_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
+    @DeleteMapping("/delete/estdate/{orgId}") /*tested - works */
+    public ResponseEntity<generalOrganisationResponse> removeOrgEstDate(@PathVariable("orgId") @NonNull Long orgId)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.removeOrgEstDate(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_est_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
 
     /* tested -  gfworks *//*
     @GetMapping("/info/{orgId}")
@@ -476,62 +506,8 @@ public class OrganisationController
         }
     }
 
-    @DeleteMapping("/delete/estdate/{orgId}")
-    public responseJSON removeOrgEstDate(@PathVariable("orgId") @NonNull long orgId)
-    {
-        response.setObject(null);
-        try
-        {
-            boolean res = service.removeOrgEstDate(orgId);
-            if(res)
-            {
-                response.setCode("org_rm_ok_209");
-                response.setMessage("success");
-            }
-            else
-            {
-                response.setCode("org_rm_bad_209");
-                response.setMessage("unsuccessful");
-            }
-            return response;
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_rm_bad_500");
-            response.setMessage("unsuccessful");
-            return response;
-        }
-    }
 
 
-
-    @PostMapping("/add/estdate")
-    public responseJSON addOrgEstDate(@RequestBody @NonNull AddOrgEstDateRequest body)
-    {
-        response.setObject(null);
-        //System.out.println(body.getDate().toString());
-        try
-        {
-            boolean res = service.addOrgEstDate(body);
-            if(res)
-            {
-                response.setCode("org_add_ok_216");
-                response.setMessage("success");
-            }
-            else
-            {
-                response.setCode("org_add_bad_216");
-                response.setMessage("unsuccessful");
-            }
-            return response;
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_add_bad_500");
-            response.setMessage("unsuccessful");
-            return response;
-        }
-    }
 
     @PostMapping("/add/image")
     public responseJSON addOrgImage(@RequestBody @NonNull AddOrgImageRequest body)

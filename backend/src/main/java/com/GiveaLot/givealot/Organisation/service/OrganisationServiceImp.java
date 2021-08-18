@@ -719,24 +719,43 @@ public class OrganisationServiceImp implements OrganisationService {
         return true;
     }
 
-    @Override
-    public boolean addOrgEstDate(AddOrgEstDateRequest request) throws Exception {
+    @Override /*tested - works well */
+    public generalOrganisationResponse addOrgEstDate(AddOrgEstDateRequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request not set");
+
         else if (request.getDate() == null)
             throw new Exception("Exception: value not set");
+
+        else if (request.getDate().isEmpty())
+            throw new Exception("Exception: date field is empty");
+
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
-        if (organisationInfoRepository.addEstDate(request.getOrgId(), request.getDate()) != 1)
+        String Str [] = (request.getDate()).split("/");
+
+        String tmp_date = "";
+
+        if(Str.length == 3)
+        {
+            tmp_date = Str[2] + "-" + Str[1] + "-" + Str[0];
+        }
+        else throw new Exception("Exception: Invalid date provided");
+
+        if (organisationInfoRepository.addEstDate(request.getOrgId(), tmp_date) != 1)
             throw new Exception("Exception: value field failed to update");
 
-        return true;
+        return new generalOrganisationResponse("add_est_200_OK","success");
     }
 
-    @Override
-    public boolean removeOrgEstDate(long orgId) throws Exception {
-        if (organisationRepository.selectOrganisationById(orgId) == null)
+    @Override /*tested - works well */
+    public generalOrganisationResponse removeOrgEstDate(Long orgId) throws Exception
+    {
+        if(orgId == null)
+            throw new Exception("Exception: provided ID is null");
+
+        else if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
         if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
@@ -753,7 +772,7 @@ public class OrganisationServiceImp implements OrganisationService {
         if (organisationInfoRepository.removeEstDate(orgId) != 1)
             throw new Exception("Exception: tax reference field not updated");
 
-        return true;
+        return new generalOrganisationResponse("rem_est_200_OK", "success");
     }
 
     @Override

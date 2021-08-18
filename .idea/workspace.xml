@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e2561bd-a51b-4715-b930-12e7320bf3b0" name="Default Changelist" comment="implemented user integration test">
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/GiveaLot/givealot/User/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/GiveaLot/givealot/User/controller/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Organisation/controller/OrganisationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Organisation/controller/OrganisationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/GiveaLot/givealot/User/controller/UserControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/User/response/UserResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/User/response/UserResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/givealot/givealot/User/controller/UserControllerTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +80,7 @@
       <recent name="com.GiveaLot.givealot.User.requests" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserControllerTest">
+  <component name="RunManager" selected="Diffblue Cover.Write tests for class UserController">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -215,7 +216,7 @@
       <workItem from="1629118576458" duration="31000" />
       <workItem from="1629156334318" duration="775000" />
       <workItem from="1629157221470" duration="18464000" />
-      <workItem from="1629204924083" duration="11367000" />
+      <workItem from="1629204924083" duration="12616000" />
     </task>
     <task id="LOCAL-00001" summary="migrated server database">
       <created>1629169103675</created>
@@ -280,7 +281,28 @@
       <option name="project" value="LOCAL" />
       <updated>1629252320224</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="implemented user integration test">
+      <created>1629255063806</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1629255063806</updated>
+    </task>
+    <task id="LOCAL-00011" summary="implemented user integration test">
+      <created>1629255103208</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1629255103208</updated>
+    </task>
+    <task id="LOCAL-00012" summary="implemented user integration test">
+      <created>1629255128930</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1629255128930</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

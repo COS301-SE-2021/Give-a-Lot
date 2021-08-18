@@ -4,9 +4,7 @@ import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.requests.*;
-import com.GiveaLot.givealot.Organisation.response.generalOrganisationResponse;
-import com.GiveaLot.givealot.Organisation.response.getOrganisationsResponse;
-import com.GiveaLot.givealot.Organisation.response.selectOrganisationResponse;
+import com.GiveaLot.givealot.Organisation.response.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,8 +12,8 @@ import java.util.List;
 @Service
 public interface OrganisationService {
     selectOrganisationResponse selectOrganisation(Long orgId) throws Exception;
-    OrganisationInfo selectOrganisationInfo(long orgId) throws Exception;
-    OrganisationPoints selectOrganisationPoints(long orgId) throws Exception;
+    selectOrganisationInfoResponse selectOrganisationInfo(Long orgId) throws Exception;
+    organisationPointsResponse selectOrganisationPoints(Long orgId) throws Exception;
     generalOrganisationResponse addOrganisation(Organisations organisation) throws Exception;
     generalOrganisationResponse reactivateOrganisation(Long orgId) throws Exception;
     generalOrganisationResponse investigateOrganisation(Long orgId) throws Exception;
@@ -26,8 +24,8 @@ public interface OrganisationService {
     generalOrganisationResponse removeOrgWebsite(Long orgId) throws Exception;
     generalOrganisationResponse addOrgAddress(AddOrgAddressRequest request) throws Exception;
     generalOrganisationResponse removeOrgAddress(Long orgId) throws Exception;
-    boolean addOrgImage(AddOrgImageRequest request) throws Exception;
-    boolean removeOrgImage(long orgId) throws Exception;
+    generalOrganisationResponse addOrgImage(AddOrgImageRequest request) throws Exception;
+    generalOrganisationResponse removeOrgImage(Long orgId) throws Exception;
     generalOrganisationResponse addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception;
     generalOrganisationResponse removeOrgAuditDoc(Long orgId) throws Exception;
     generalOrganisationResponse addOrgTaxRef(AddOrgTaxRefRequest request) throws Exception;
@@ -47,8 +45,6 @@ public interface OrganisationService {
 
     /*
     * */
-
-
     generalOrganisationResponse confirmValidity(Long orgId,Long adminId,String type,boolean confirmValidity) throws Exception;
-    Integer numberOfImages(Long orgId) throws Exception;
+    numberOfImagesResponse numberOfImages(Long orgId) throws Exception;
 }

@@ -10,9 +10,7 @@ import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Organisation.repository.organisationPointsRepository;
 import com.GiveaLot.givealot.Organisation.requests.*;
-import com.GiveaLot.givealot.Organisation.response.generalOrganisationResponse;
-import com.GiveaLot.givealot.Organisation.response.getOrganisationsResponse;
-import com.GiveaLot.givealot.Organisation.response.selectOrganisationResponse;
+import com.GiveaLot.givealot.Organisation.response.*;
 import com.GiveaLot.givealot.Server.ServerAccess;
 import com.GiveaLot.givealot.User.dataclass.User;
 import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
@@ -115,7 +113,11 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public OrganisationInfo selectOrganisationInfo(long orgId) throws Exception {
+    public selectOrganisationInfoResponse selectOrganisationInfo(Long orgId) throws Exception {
+
+        if(orgId == null)
+            throw new Exception("Exception: Provided ID is null");
+
         if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
@@ -128,7 +130,7 @@ public class OrganisationServiceImp implements OrganisationService {
             organisationInfoRepository.save(organisationInfo);
             throw new Exception("Exception: system level error, organisation info did not exist, rerun " +
                     "the contract");
-        } else return organisationInfo;
+        } else return new selectOrganisationInfoResponse("sel_org_200_OK","success", organisationInfo);
     }
 
     @Override /* tested works well except - certificate throws a null pointer exception.*/
@@ -775,10 +777,13 @@ public class OrganisationServiceImp implements OrganisationService {
         return new generalOrganisationResponse("rem_est_200_OK", "success");
     }
 
-    @Override
-    public boolean addOrgImage(AddOrgImageRequest request) throws Exception {
+    @Override /*all good*/
+    public generalOrganisationResponse addOrgImage(AddOrgImageRequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request not set");
+
+        else if(request.getOrgId() == null)
+            throw new Exception("Provided ID is null");
 
         else if (request.getImage() == null)
             throw new Exception("Exception: tax reference not set");
@@ -786,7 +791,13 @@ public class OrganisationServiceImp implements OrganisationService {
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
-        String name = organisationRepository.selectOrganisationById(request.getOrgId()).getOrgName();
+        Organisations organisation_tmp = organisationRepository.selectOrganisationById(request.getOrgId());
+
+        if(organisation_tmp == null)
+            throw new Exception("Exception: add image function did not finish, organisation does not exist");
+
+
+        String name = organisation_tmp.getOrgName();
 
         access.uploadImageJPG(request.getOrgId(),name,request.getImage());
 
@@ -795,13 +806,16 @@ public class OrganisationServiceImp implements OrganisationService {
         if (organisationInfoRepository.incrementImage(request.getOrgId(), numImages + 1) != 1)
             throw new Exception("Exception: value field failed to update");
 
-        return true;
+        return new generalOrganisationResponse("add_img_200_OK", "success");
     }
 
-    @Override
-    public boolean removeOrgImage(long orgId) throws Exception {
+    @Override /* all good, correctness not tested yet */
+    public generalOrganisationResponse removeOrgImage(Long orgId) throws Exception {
 
-        if (organisationRepository.selectOrganisationById(orgId) == null)
+        if (orgId == null)
+            throw new Exception("Exception: provided ID is null");
+
+        else if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
         if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
@@ -815,39 +829,24 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("Exception: system level error, organisation info did not exist, rerun the contract");
         }
 
-        int numImages = organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfImages();
+        OrganisationInfo organisation_tmp = organisationInfoRepository.selectOrganisationInfo(orgId);
+
+        if (organisation_tmp == null)
+            throw new Exception("Exception: rare error occured, image not fully removed");
+
+        int numImages = organisation_tmp.getNumberOfImages();
 
         if (organisationInfoRepository.decrementImage(orgId, numImages - 1) != 1)
             throw new Exception("Exception: tax reference field not updated");
 
-        return true;
+        return new generalOrganisationResponse("rem_img_200_OK", "success");
     }
 
-    public String getMd5(String input) {
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-
-            byte[] messageDigest = md.digest(input.getBytes());
-
-            BigInteger no = new BigInteger(1, messageDigest);
-
-            String hashtext = no.toString(16);
-            while (hashtext.length() < 32) {
-                hashtext = "0" + hashtext;
-            }
-            return hashtext;
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
     /*
     * points
-    * points
-    * points
-    * */
+    */
 
-    @Override
+    @Override /*tested - works well */
     public generalOrganisationResponse confirmValidity(Long orgId,Long adminId,String type,boolean confirmValidity) throws Exception
     {
         if(orgId == null)
@@ -1190,15 +1189,30 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public OrganisationPoints selectOrganisationPoints(long orgId) throws Exception {
+    public organisationPointsResponse selectOrganisationPoints(Long orgId) throws Exception {
 
-        if(organisationRepository.selectOrganisationById(orgId) == null)
-            throw new Exception("Exception: id does not exist");
-        return null;
+        if(orgId == null)
+            throw new Exception("Exception: Provided ID is null");
+
+        if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        OrganisationPoints organisationPoints = organisationPointsRepository.selectOrganisationPoints(orgId);
+
+        if (organisationPoints == null) {
+            organisationPoints = new OrganisationPoints();
+            organisationPoints.setOrgId(orgId);
+
+            organisationPointsRepository.save(organisationPoints);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun " +
+                    "the contract");
+        }
+
+        else return new organisationPointsResponse("sel_pts_200_OK","success", organisationPoints);
     }
 
-    @Override
-    public Integer numberOfImages(Long orgId) throws Exception
+    @Override /* tested - all good */
+    public numberOfImagesResponse numberOfImages(Long orgId) throws Exception
     {
         if(orgId == null)
             throw new Exception("Exception: id is not set");
@@ -1210,8 +1224,27 @@ public class OrganisationServiceImp implements OrganisationService {
         if(res != 1)
             throw new Exception("Exception: id does not exist");
 
-        return res;
+        return new numberOfImagesResponse("num_img_200_OK", "success", res);
     }
 
+    /*helper*/
+    public String getMd5(String input) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+
+            byte[] messageDigest = md.digest(input.getBytes());
+
+            BigInteger no = new BigInteger(1, messageDigest);
+
+            String hashtext = no.toString(16);
+            while (hashtext.length() < 32) {
+                hashtext = "0" + hashtext;
+            }
+            return hashtext;
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
 }

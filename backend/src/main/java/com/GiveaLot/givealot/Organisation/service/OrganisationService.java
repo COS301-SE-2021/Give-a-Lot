@@ -19,7 +19,7 @@ public interface OrganisationService {
     generalOrganisationResponse addOrganisation(Organisations organisation) throws Exception;
     boolean reactivateOrganisation(long orgId) throws Exception;
     boolean investigateOrganisation(long orgId) throws Exception;
-    boolean suspendOrganisation(long orgId) throws Exception;
+    generalOrganisationResponse suspendOrganisation(Long orgId) throws Exception;
     public getOrganisationsResponse getOrganisations(GetOrganisationsRequest request) throws Exception;
     //Additional classes
     boolean addOrgWebsite(AddOrgWebsiteRequest request) throws Exception;

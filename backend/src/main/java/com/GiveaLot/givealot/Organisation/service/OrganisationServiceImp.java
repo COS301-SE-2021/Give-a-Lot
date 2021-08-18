@@ -226,19 +226,18 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public boolean suspendOrganisation(long orgId) throws Exception {
+    public generalOrganisationResponse suspendOrganisation(Long orgId) throws Exception {
 
-        /*if()
+        if(orgId == null)
+            throw new Exception("Exception: provided id is null");
+
+        else if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: ID doesn't exist");
+        else
         {
-
-        }*/
-
-        if (organisationRepository.selectOrganisationById(orgId) == null)
-            throw new Exception("ID doesn't exist");
-        else {
             if (organisationRepository.updateStatus(orgId, "suspended".toLowerCase()) != 1)
                 throw new Exception("status not updated");
-            else return true;
+            else return new generalOrganisationResponse("sus_org_200_ok", "success");
         }
     }
 

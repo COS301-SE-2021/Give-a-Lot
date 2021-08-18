@@ -51,7 +51,6 @@ public class OrganisationController
         }
     }
 
-
     @PostMapping("/get/organisations") /*tested all good*/
     public ResponseEntity<getOrganisationsResponse> getOrganisations(@RequestBody @NonNull GetOrganisationsRequest body)
     {
@@ -82,6 +81,21 @@ public class OrganisationController
         catch (Exception e)
         {
             return new ResponseEntity<>(new generalOrganisationResponse("org_add_err_501","failed: " + e), HttpStatus.OK);
+        }
+    }
+
+    @PutMapping("/suspend/{orgId}") /* tested all good */
+    public ResponseEntity<generalOrganisationResponse> suspendOrganisation(@PathVariable("orgId") @NonNull long orgId)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.suspendOrganisation(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("org_sus_err_501","failed: " + e), HttpStatus.OK);
         }
     }
 
@@ -237,26 +251,7 @@ public class OrganisationController
     }
 
     *//* tested - works *//*
-    @PutMapping("/suspend/{orgId}")
-    public responseJSON suspendOrganisation(@PathVariable("orgId") @NonNull long orgId)
-    {
-        response.setObject(null);
-        try
-        {
-            boolean res = service.suspendOrganisation(orgId);
-            if(res)
-            {
-                response.setCode("org_sus_ok_200");
-                response.setMessage("success");
-            }
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_sus_bad_500");
-            response.setMessage("unsuccessful " + e);
-        }
-        return response;
-    }
+
 
     *//* tested - works *//*
     @PutMapping("/activate/{orgId}")

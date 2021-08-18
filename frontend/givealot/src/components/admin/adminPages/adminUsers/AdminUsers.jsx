@@ -5,30 +5,27 @@ import axios from "axios";
 
 const columns = [
   // { field: "id", headerName: "ID", width: 100 },
-  {
-    field: "firstName",
-    headerName: "First Name",
-    width: 200,
-    renderCell: (params) => {
-      return (
-          <div className="userListUsers">
-            <img className="userListImgs" src={params.row.avatar} alt="" />
-            {params.row.username}
-          </div>
-      );
-    },
-  },
-  { field: "lastName", headerName: "Last Name", width: 200 },
-  {
-    field: "activationDate",
-    headerName: "Activation Date",
-    width: 200,
-  },
+  // {
+  //   field: "firstname",
+  //   headerName: "First Name",
+  //   width: 200,
+  //   renderCell: (params) => {
+  //     return (
+  //         <div className="userListUsers">
+  //           <img className="userListImgs" src={params.row.avatar} alt="" />
+  //           {params.row.username}
+  //         </div>
+  //     );
+  //   },
+  // },
+    { field: "firstname", headerName: "First Name", width: 200 },
+  { field: "lastname", headerName: "Last Name", width: 200 },
   {
     field: "email",
     headerName: "Email",
     width: 220,
   },
+    { field: "activateDate", headerName: "Activation Date", width: 200 },
 ];
 export default class AdminUsers extends Component {
   // const [data, info ,setData] = useState(userRows);
@@ -37,7 +34,7 @@ export default class AdminUsers extends Component {
 
     this.state = {
       users:[],
-        adminUserEmail: ""
+        adminUserEmail: "admin@email.com"
     }
 
   }
@@ -55,7 +52,8 @@ export default class AdminUsers extends Component {
     axios.post('http://localhost:8080/v1/user/get/users', adminUsersRequestBody, config)
         .then(response =>{
           console.log(response)
-          this.setState({users: response.data})
+          this.setState({users: response.data.response})
+            console.log(this.state.users)
         })
         .catch(error =>{
           console.log(error)

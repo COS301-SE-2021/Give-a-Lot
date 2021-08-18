@@ -20,6 +20,20 @@ import OrgValidate from "./adminPages/infoValidation/OrgValidate"
 import AddOrg from "./adminPages/AddOrg/AddOrg";
 
 function Admin() {
+
+    const loggedInUser = {
+        "id" :localStorage.getItem("id"),
+        "role":localStorage.getItem("role")
+    };
+    console.log(loggedInUser)
+    if(localStorage.getItem("id") || loggedInUser.role!="admin")
+    {
+        ////unauthorized
+        console.log("user logged out or not admin")
+    }
+
+
+    ///console.log(foundUser)
     return (
         <Router>
             <div className="App">

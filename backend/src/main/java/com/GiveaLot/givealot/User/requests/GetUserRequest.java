@@ -6,7 +6,7 @@ public class GetUserRequest {
     private final String generalUserEmail;
     private final String adminUser;
 
-    public GetUserRequest(@JsonProperty("generalUserEmail") String generalUserEmail,@JsonProperty("adminUser")  String adminUser) {
+    public GetUserRequest(@JsonProperty("generalUserEmail") String generalUserEmail,@JsonProperty("adminUserEmail")  String adminUser) {
         this.generalUserEmail = generalUserEmail;
         this.adminUser = adminUser;
     }

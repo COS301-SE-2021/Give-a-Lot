@@ -13,6 +13,7 @@ import com.GiveaLot.givealot.Organisation.requests.*;
 import com.GiveaLot.givealot.Server.ServerAccess;
 import com.GiveaLot.givealot.User.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
@@ -25,6 +26,7 @@ import java.util.Date;
 
 
 @Service
+@Configurable
 public class OrganisationServiceImp implements OrganisationService {
 
 
@@ -35,7 +37,7 @@ public class OrganisationServiceImp implements OrganisationService {
     private OrganisationInfoRepository organisationInfoRepository;
 
     @Autowired
-    organisationPointsRepository organisationPointsRepository;
+    private organisationPointsRepository organisationPointsRepository;
 
     @Autowired
     private CertificateRepository certificateRepository;
@@ -48,6 +50,16 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Autowired
     private final ServerAccess access = new ServerAccess();
+
+    @Autowired
+    public void setOrganisationServiceImp(OrganisationRepository organisationRepository, OrganisationInfoRepository organisationInfoRepository, organisationPointsRepository organisationPointsRepository, CertificateRepository certificateRepository, UserRepository userRepository){
+        this.organisationRepository = organisationRepository;
+        this.organisationInfoRepository = organisationInfoRepository;
+        this.organisationPointsRepository = organisationPointsRepository;
+        this.certificateRepository = certificateRepository;
+        this.userRepository = userRepository;
+
+    }
 
     @Override
     public Organisations selectOrganisation(long orgId) throws Exception {
@@ -90,7 +102,7 @@ public class OrganisationServiceImp implements OrganisationService {
         organisation.setDirectory("/home/ubuntu/Organisations/");
         organisation.setStatus("active");
 
-        if(organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()).getOrgId() != null)
+        if(organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()) != null)
             throw new Exception("Email already exists");
 
         else if (organisation.getOrgName().isEmpty() || organisation.getOrgName().length()>255)
@@ -123,47 +135,49 @@ public class OrganisationServiceImp implements OrganisationService {
         else if (organisation.getSlogan().isEmpty() || organisation.getSlogan().length()>255)
             throw new Exception("Exception: orgSlogan does not satisfy the database constraints");
 
+        // salts and hashes of passwords
+        String salt = getMd5(organisation.getOrgEmail());
+        String salted = getMd5(organisation.getPassword() + salt);
+        organisation.setPassword(salted);
+        organisationRepository.save(organisation);
 
-        /** Setup dates **/
+        long id = organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()).getOrgId();
+        String directory = "/home/ubuntu/Organisations/" + id;
+        organisationRepository.updateRepo(id,directory);
 
+        organisationInfoRepository.save(new OrganisationInfo((long) id));
+        organisationPointsRepository.save(new OrganisationPoints((long) id));
+
+        LocalDate date = LocalDate.now(); // registration date
+
+        //organisation is saved at this point
+
+        // save dates
         Date dateCurrent = new Date();
         Date dateEx = new Date();
-
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-
         String dateCreated = format.format(dateCurrent);
 
         int year = dateCurrent.getYear();
         dateEx.setYear(year+1);
         String dateExpiry = format.format(dateEx);
 
-        /** Salts and hashes password **/
-
-        String salt = getMd5(organisation.getOrgEmail());
-
-        String salted = getMd5(organisation.getPassword() + salt);
-
-        organisation.setPassword(salted);
-
         /** Create tables and directory **/
 
-        Certificate certificate = new Certificate(dateCreated,dateExpiry,0);
+        Certificate certificate;
+        try
+        {
+            ServerAccess access = new ServerAccess();
+            certificate = new Certificate(id,dateCreated,dateExpiry,0);
+            access.createOrganisationDirectory(id, organisation.getOrgName());
+        }
+        catch (Exception e)
+        {
+            throw new Exception("Exception : cert || server access -> " + e);
+        }
 
-        access.createOrganisationDirectory(organisation.getOrgId(), organisation.getOrgName());
-
-        long id = organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()).getOrgId();
-        String directory = "/home/ubuntu/Organisations/" + id;
-
-        organisationRepository.updateRepo(id,directory);
-
-        LocalDate date = LocalDate.now(); /* registration date */
-
-
-        organisationInfoRepository.save(new OrganisationInfo((long) id));
-        organisationPointsRepository.save(new OrganisationPoints((long) id));
         certificateRepository.save(certificate);
-
-        certificateService.addCertificate(id);
+        certificateService.addCertificate(id,certificate);
         return true;
     }
 
@@ -1007,7 +1021,6 @@ public class OrganisationServiceImp implements OrganisationService {
         return false;
     }
 
-
     @Override
     public OrganisationPoints selectOrganisationPoints(long orgId) throws Exception {
 
@@ -1032,22 +1045,5 @@ public class OrganisationServiceImp implements OrganisationService {
         return res;
     }
 
-    public static void main(String[] args) throws Exception {
-        OrganisationServiceImp serviceImp = new OrganisationServiceImp();
 
-        Organisations org = new Organisations();
-        org.setOrgId(123L);
-        org.setPassword("iloveyou");
-        org.setContactNumber("Contact Number");
-        org.setOrgEmail("jane.doe@example.org");
-        org.setStatus("Status");
-        org.setOrgSector("Org Sector");
-        org.setContactPerson("Contact Person");
-        org.setSlogan("Slogan");
-        org.setOrgDescription("Org Description");
-        org.setOrgName("Org Name");
-        org.setDirectory("/tmp");
-
-        serviceImp.addOrganisation(org);
-    }
 }

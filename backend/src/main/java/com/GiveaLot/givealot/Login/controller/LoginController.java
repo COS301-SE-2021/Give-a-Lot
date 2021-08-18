@@ -24,7 +24,7 @@ public class LoginController {
         this.service = service;
     }
 
-    @PostMapping("/general")
+    @PostMapping("/general") /*tested - works perfect*/
     ResponseEntity<LoginResponse> loginGeneralUser(@RequestBody @NonNull LoginRequest body)
     {
         LoginResponse response;
@@ -36,11 +36,11 @@ public class LoginController {
         }
         catch (Exception e)
         {
-            return new ResponseEntity<>(new LoginResponse(false,e.toString(),null), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new LoginResponse(false,e.toString(),null), HttpStatus.OK);
         }
     }
 
-    @PostMapping("/login_org")
+    @PostMapping("/login_org") /*tested - works perfect*/
     ResponseEntity<LoginResponse> loginOrganisation(@RequestBody @NonNull LoginRequest body)
     {
         LoginResponse response;
@@ -52,11 +52,11 @@ public class LoginController {
         }
         catch (Exception e)
         {
-            return new ResponseEntity<>(new LoginResponse(false,e.toString(),null), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new LoginResponse(false,e.toString(),null), HttpStatus.OK);
         }
     }
 
-    @PostMapping("/admin")
+    @PostMapping("/admin") /*tested - works perfect*/
     ResponseEntity<LoginResponse> loginAdminUser(@RequestBody @NonNull LoginRequest body)
     {
         LoginResponse response;
@@ -68,7 +68,7 @@ public class LoginController {
         }
         catch (Exception e)
         {
-            return new ResponseEntity<>(new LoginResponse(false,e.toString(),null), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new LoginResponse(false,e.toString(),null), HttpStatus.OK);
         }
     }
 }

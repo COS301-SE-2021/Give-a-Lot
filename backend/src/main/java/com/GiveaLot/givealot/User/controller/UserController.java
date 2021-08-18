@@ -26,13 +26,13 @@ public class UserController {
 
     }
 
-    @PostMapping("/register/user")
-    public responseJSON addUser(@RequestBody @NonNull User body)
+    @PostMapping("/register/user") /*tested - all good*/
+    public responseJSON addUser(@RequestBody @NonNull RegisterUserRequest body)
     {
         response.setObject(null);
         try
         {
-            if(userServiceImp.Register(new RegisterUserRequest(body.getFirstname(),body.getLastname(),body.getEmail(),body.getPassword())))
+            if(userServiceImp.Register(new RegisterUserRequest(body.getFirstName(),body.getLastName(),body.getEmail(),body.getPassword())))
             {
                 response.setCode("user_add_ok_200");
                 response.setMessage("success");
@@ -46,7 +46,7 @@ public class UserController {
         return response;
     }
 
-    @PutMapping("/setadmin/user")
+    @PostMapping("/setadmin/user") /* tested - all good */
     public responseJSON setAdmin(@RequestBody @NonNull SetAdminRequest body)
     {
         response.setObject(null);
@@ -66,7 +66,7 @@ public class UserController {
         return response;
     }
 
-    @PutMapping("/resetPassword/user")
+    @PostMapping("/resetPassword/user") /* tested - all good */
     public responseJSON resetPassword(@RequestBody @NonNull ResetPasswordRequestRequest body)
     {
         response.setObject(null);
@@ -74,19 +74,19 @@ public class UserController {
         {
             if(userServiceImp.ResetPasswordRequest(body))
             {
-                response.setCode("add_ok_200");
+                response.setCode("res_ok_200");
                 response.setMessage("success");
             }
         }
         catch (Exception e)
         {
-            response.setCode("add_bad_500");
+            response.setCode("res_bad_500");
             response.setMessage("unsuccessful " + e.getMessage());
         }
         return response;
     }
 
-    @GetMapping("/get/user")
+    @PostMapping("/get/user") /*tested all good*/
     public responseJSON getUser(@RequestBody @NonNull GetUserRequest body)
     {
         response.setObject(null);
@@ -103,12 +103,12 @@ public class UserController {
         catch (Exception e)
         {
             response.setCode("user_sel_bad_500");
-            response.setMessage("unsuccessful " + e.toString());
+            response.setMessage("unsuccessful " + e);
         }
         return response;
     }
 
-    @GetMapping("/get/users")
+    @GetMapping("/get/users") /*tested all good*/
     public responseJSON getUsers(@RequestBody @NonNull GetUsersRequest body)
     {
         response.setObject(null);
@@ -117,15 +117,15 @@ public class UserController {
             List<User> res = userServiceImp.GetUsers(body);
             if(res != null)
             {
-                response.setCode("user_sel_ok_200");
+                response.setCode("users_sel_ok_200");
                 response.setMessage("success");
             }
             response.setObject(res);
         }
         catch (Exception e)
         {
-            response.setCode("user_sel_bad_500");
-            response.setMessage("unsuccessful " + e.toString());
+            response.setCode("users_sel_bad_500");
+            response.setMessage("unsuccessful " + e);
         }
         return response;
     }

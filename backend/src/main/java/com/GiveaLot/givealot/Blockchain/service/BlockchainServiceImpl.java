@@ -2,7 +2,8 @@ package com.GiveaLot.givealot.Blockchain.service;
 
 import com.GiveaLot.givealot.Blockchain.Repository.BlockChainRepository;
 import com.GiveaLot.givealot.Blockchain.contract.CertificateContract;
-import com.GiveaLot.givealot.Certificate.dataclass.SmartContractConfig;
+import com.GiveaLot.givealot.Blockchain.dataclass.ContractConfig;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.web3j.crypto.Credentials;
@@ -22,13 +23,13 @@ import java.security.NoSuchAlgorithmException;
 public class BlockchainServiceImpl implements BlockchainService {
 
 
-    public final BlockChainRepository blockChainRepository;
+//    public final BlockChainRepository blockChainRepository;
 
-    @Autowired
-    BlockchainServiceImpl(  BlockChainRepository blockchainDAOInterface)
-    {
-        this.blockChainRepository = blockchainDAOInterface;
-    }
+//    @Autowired
+//    BlockchainServiceImpl(  BlockChainRepository blockchainDAOInterface)
+//    {
+//        this.blockChainRepository = blockchainDAOInterface;
+//    }
 
     @Override
     public String[] uploadCertificate(long orgId, File certificate) throws Exception {
@@ -46,7 +47,7 @@ public class BlockchainServiceImpl implements BlockchainService {
 
             return result;
         }catch (Exception e){
-            throw new Exception("Exception: Blockchain transaction failed");
+            throw new Exception("Exception: Blockchain transaction failed: " + e);
         }    }
 
     @Override
@@ -73,10 +74,21 @@ public class BlockchainServiceImpl implements BlockchainService {
         BigInteger _orgId = BigInteger.valueOf(orgId);
         CertificateContract certificateContract = loadSmartContract();
         try {
-            return certificateContract.findCertificateIndex(_orgId).send().longValue();
-        }catch (Exception e){
-            throw new Exception("Exception: Blockchain transaction failed");
-        }    }
+            for (int j = 0; j < (int) orgId; j++) {
+                if (certificateContract.certificates(BigInteger.valueOf(j)).send().component1().equals(_orgId)) {
+                    return j;
+                }
+            }
+        }catch (Exception e) {
+            throw new Exception("Exception: Blockchain transaction failed: " + e);
+        }
+        return 9999;
+//        try {
+//            return certificateContract.findCertificateIndex(_orgId).send().longValue();
+//        }catch (Exception e){
+//            throw new Exception("Exception: Blockchain transaction failed: " + e);
+//        }
+    }
 
     @Override
     public String retrieveCertificateHash(long index, long orgId) throws Exception {
@@ -121,7 +133,7 @@ public class BlockchainServiceImpl implements BlockchainService {
 
     @Override
     public String deploySmartContract() throws Exception {
-        SmartContractConfig config = new SmartContractConfig();
+        ContractConfig config = new ContractConfig();
         Web3j client = buildWeb3jClient();
         try {
             return CertificateContract.deploy(client, getCredentialsFromPrivateKey(), config.getGasPrice(), config.getGasLimit())
@@ -133,12 +145,18 @@ public class BlockchainServiceImpl implements BlockchainService {
 
     @Override
     public CertificateContract loadSmartContract() {
-        SmartContractConfig config = new SmartContractConfig();
+        ContractConfig config = new ContractConfig();
         Web3j client = buildWeb3jClient();
         return CertificateContract.load(config.getCONTRACT_ADDRESS(), client, getCredentialsFromPrivateKey(), config.getGasPrice(), config.getGasLimit());    }
 
     @Override
     public Credentials getCredentialsFromPrivateKey() {
-        SmartContractConfig config = new SmartContractConfig();
+        ContractConfig config = new ContractConfig();
         return Credentials.create(config.getPRIVATE_KEY());    }
+
+    public static void main(String[] args) throws Exception {
+        BlockchainServiceImpl blockchainService = new BlockchainServiceImpl();
+        File file = new File("frontend/givealot/localFiles/20/certificate/CertificateComplete.pdf");
+        System.out.println(blockchainService.compareCertificateHash(5,20,file));
+    }
 }

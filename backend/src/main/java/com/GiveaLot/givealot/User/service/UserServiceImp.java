@@ -1,5 +1,7 @@
 package com.GiveaLot.givealot.User.service;
 
+import com.GiveaLot.givealot.Notification.dataclass.Mail;
+import com.GiveaLot.givealot.Notification.service.SendMailServiceImpl;
 import com.GiveaLot.givealot.User.dataclass.User;
 import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
 import com.GiveaLot.givealot.User.repository.UserRepository;
@@ -22,6 +24,9 @@ public class UserServiceImp implements UserService {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    SendMailServiceImpl sendMailService;
 
     @Override /*tested - all good*/
     public userResponseGeneral Register(RegisterUserRequest request) throws Exception{
@@ -68,6 +73,18 @@ public class UserServiceImp implements UserService {
         newUser.setActivateDate(dateCreated);
 
         userRepository.save(newUser);
+        /**Sending a verification email**/
+        System.out.println("Sending Email...");
+
+        Mail mail = new Mail(newUser.getEmail(),"Givealot SignUp Verification","Congratulations your you have successfully signed up to the Givealot platform" +
+                "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations" +
+                "\n" +
+                "\n" +
+                "Kind Regards \n" +
+                "Givealot Team");
+
+        sendMailService.sendMail(mail);
+        System.out.println("Email sent successfully");
        return new userResponseGeneral("add_user_200_ok","success");
     }
 
@@ -133,6 +150,18 @@ public class UserServiceImp implements UserService {
             throw new Exception( "The update did not occur correctly. Please try again.");
         }
 
+        /**Sending a verification email**/
+        System.out.println("Sending Email...");
+
+        Mail mail = new Mail(generalUser.getEmail(),"Role Change","Congratulations your you have successfully promoted to the role of an admin in the Givealot platform" +
+                "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations" +
+                "\n" +
+                "\n" +
+                "Kind Regards \n" +
+                "Givealot Team");
+
+        sendMailService.sendMail(mail);
+        System.out.println("Email sent successfully");
         return new userResponseGeneral("set_ad_200_ok","success");
     }
 

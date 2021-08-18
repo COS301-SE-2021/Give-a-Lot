@@ -1,7 +1,9 @@
 package com.GiveaLot.givealot.Report.service;
 
 import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
+import com.GiveaLot.givealot.Organisation.response.selectOrganisationResponse;
 import com.GiveaLot.givealot.Report.dataclass.Report;
+import com.GiveaLot.givealot.Report.requests.createReportResponse;
 import com.GiveaLot.givealot.Server.ServerAccess;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +21,7 @@ public class ReportServiceImpl implements ReportService {
     @Autowired
     private final ServerAccess access = new ServerAccess();
 
-    public boolean createReportFile(Report report) throws Exception{
+    public createReportResponse createReportFile(Report report) throws Exception{
         try {
 
             /** Create file **/
@@ -67,7 +69,7 @@ public class ReportServiceImpl implements ReportService {
 
             updateNumberOfReports(report.getOrgId());
             access.uploadReport(report.getOrgId(),file,date);
-            return true;
+            return new createReportResponse("report_org_200_ok","success",report);
         }
         catch (Exception e) {
             throw new Exception("Exception: " + e);

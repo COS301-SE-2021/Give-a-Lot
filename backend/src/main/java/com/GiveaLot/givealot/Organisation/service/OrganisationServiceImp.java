@@ -403,10 +403,13 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public boolean removeOrgSocials(long orgId, String type) throws Exception {
+    public generalOrganisationResponse removeOrgSocials(Long orgId, String type) throws Exception {
 
         if (type == null)
             throw new Exception("Exception: request type is not set");
+
+        else if(orgId == null)
+            throw new Exception("Exception: provided ID is null");
 
         else if (type.isEmpty())
             throw new Exception("Exception: type is empty");
@@ -414,18 +417,25 @@ public class OrganisationServiceImp implements OrganisationService {
         else if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: request id does not exist");
 
-        if (type.trim().equalsIgnoreCase("twitter")) {
+        if (type.trim().equalsIgnoreCase("twitter"))
+        {
             if (organisationInfoRepository.removeTwitter(orgId) != 1)
                 throw new Exception("Exception: social not removed");
-        } else if (type.trim().equalsIgnoreCase("instagram")) {
+        }
+        else if (type.trim().equalsIgnoreCase("instagram"))
+        {
             if (organisationInfoRepository.removeInstagram(orgId) != 1)
                 throw new Exception("Exception: social not removed");
-        } else if (type.trim().equalsIgnoreCase("facebook")) {
+
+        }
+        else if (type.trim().equalsIgnoreCase("facebook"))
+        {
             if (organisationInfoRepository.removeFacebook(orgId) != 1)
                 throw new Exception("Exception: social not removed");
-        } else throw new Exception("Exception: social not identified");
+        }
+        else throw new Exception("Exception: social not identified");
 
-        return true;
+        return new generalOrganisationResponse("rem_soc_200_OK", "success");
     }
 
     @Override

@@ -39,7 +39,7 @@ public interface OrganisationService {
     boolean addOrgDonationInfo(AddOrgDonationInfoRequest request) throws Exception;
     boolean removeOrgDonationInfo(long orgId) throws Exception;
     generalOrganisationResponse addOrgSocials(AddSocialsRequest request) throws Exception;
-    boolean removeOrgSocials(long orgId, String type) throws Exception;
+    public generalOrganisationResponse removeOrgSocials(Long orgId, String type) throws Exception;
     boolean addOrgNGO(AddOrgNGORequest request) throws Exception;
     boolean removeOrgNGO(long orgId) throws Exception;
     boolean addOrgEstDate(AddOrgEstDateRequest request) throws Exception;

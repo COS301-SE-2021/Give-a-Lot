@@ -204,6 +204,21 @@ public class OrganisationController
         }
     }
 
+    @DeleteMapping("/delete/socials/{orgId}/{type}") /* tested - works */
+    public ResponseEntity<generalOrganisationResponse> removeOrgSocials(@PathVariable("orgId") @NonNull Long orgId,@PathVariable("type") @NonNull String type)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.removeOrgSocials(orgId,type);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_soc_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
     /* tested - works *//*
     @GetMapping("/info/{orgId}")
     public responseJSON selectOrganisationInfo(@PathVariable("orgId") @NonNull long orgId)
@@ -284,26 +299,7 @@ public class OrganisationController
 
 
     *//* tested - works *//*
-    @DeleteMapping("/delete/socials/{orgId}/{type}")
-    public responseJSON removeOrgSocials(@PathVariable("orgId") @NonNull long orgId,@PathVariable("type") @NonNull String type)
-    {
-        response.setObject(null);
-        try
-        {
-            boolean res = service.removeOrgSocials(orgId,type);
-            if(res)
-            {
-                response.setCode("org_rm_ok_200");
-                response.setMessage("success");
-            }
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_rm_bad_500");
-            response.setMessage("unsuccessful " + e);
-        }
-        return response;
-    }
+
 
     @GetMapping("/points/{orgId}")
     public responseJSON selectOrganisationPoints(@PathVariable("orgId") @NonNull long orgId)

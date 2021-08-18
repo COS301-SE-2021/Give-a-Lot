@@ -1,3 +1,9 @@
+DELETE http://localhost:8080/v1/organisation/delete/socials/18/facebook
+
+<> 2021-08-18T082301.200.json
+
+###
+
 POST http://localhost:8080/v1/organisation/add/socials
 Content-Type: application/json
 
@@ -529,19 +535,6 @@ Content-Type: application/json
 }
 
 <> 2021-08-18T022505.400.json
-
-###
-
-POST http://localhost:8080/v1/login/user/login_org
-Content-Type: application/json
-
-{
-  "username" : "the@pizza.comm",
-  "password" : "gta5",
-  "role" : "default"
-}
-
-<> 2021-08-18T021812.400.json
 
 ###
 

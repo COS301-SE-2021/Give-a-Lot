@@ -6,6 +6,7 @@ import com.GiveaLot.givealot.Login.response.*;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.User.dataclass.User;
+import com.GiveaLot.givealot.User.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,45 @@ public class LoginServiceImp implements LoginService{
     LoginRepository loginRepository;
 
     @Autowired
+    UserRepository userRepository;
+
+    @Autowired
     OrganisationRepository organisationRepository;
+
+    public LoginResponse login(LoginRequest request) throws Exception {
+        if(request == null)
+        {
+            throw new Exception("Exception: login request object is null");
+        }
+        else if(request.getEmail() == null)
+        {
+            throw new Exception("Exception: email field is null");
+        }
+        else if(request.getEmail().trim().isEmpty())
+        {
+            throw new Exception("Exception: email field is empty");
+        }
+        else if(request.getPassword() == null)
+        {
+            throw new Exception("Exception: password field is null");
+        }
+        else if(request.getPassword().trim().isEmpty()) {
+            throw new Exception("Exception: password field is empty");
+        }
+
+        User user = userRepository.findUserByEmail(request.getEmail());
+
+        if(user == null) {
+            return this.loginOrganisation(request);
+        }
+
+        if(user.getAdmin())
+        {
+           return this.loginAdminUser(request);
+        }
+        else return this.loginGeneralUser(request);
+
+    }
 
     @Override /*tested - works perfect*/
     public LoginResponse loginGeneralUser(LoginRequest request) throws Exception
@@ -59,7 +98,7 @@ public class LoginServiceImp implements LoginService{
         {
             throw new Exception("user password is incorrect");
         }
-        return new LoginResponse(true,"User logged in succesfully","1");
+        return new LoginResponse(true,"User logged in successfully","general", user.getId());
     }
 
     @Override /*tested - works perfect*/
@@ -93,7 +132,7 @@ public class LoginServiceImp implements LoginService{
         {
             throw new Exception("user password is incorrect");
         }
-        return new LoginResponse(true,"User logged in succesfully","1");
+        return new LoginResponse(true,"User logged in succesfully","organisation",user.getOrgId());
     }
 
     @Override /*tested - works perfect*/
@@ -131,7 +170,7 @@ public class LoginServiceImp implements LoginService{
         {
             throw new Exception("user password is incorrect");
         }
-        return new LoginResponse(true,"User logged in succesfully","1");
+        return new LoginResponse(true,"User logged in succesfully","admin", user.getId());
     }
 
     public String getMd5(String input)

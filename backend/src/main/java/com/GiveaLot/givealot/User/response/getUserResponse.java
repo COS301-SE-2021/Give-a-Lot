@@ -4,12 +4,14 @@ import com.GiveaLot.givealot.User.dataclass.User;
 
 import java.util.List;
 
-public class UserResponse {
+public class getUserResponse
+{
     private final String message;
     private final boolean success;
     private final String JWTToken;
-    List<User> response;
-    public UserResponse(boolean success, String message, String JWTToken, List<User> res)
+    User response;
+
+    public getUserResponse(boolean success, String message, String JWTToken, User res)
     {
         this.message = message;
         this.success = success;
@@ -17,11 +19,11 @@ public class UserResponse {
         this.response = res;
     }
 
-    public List<User> getResponse() {
+    public User getResponse() {
         return response;
     }
 
-    public void setResponse(List<User> response) {
+    public void setResponse(User response) {
         this.response = response;
     }
 

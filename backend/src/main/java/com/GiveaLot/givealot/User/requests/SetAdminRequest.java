@@ -18,4 +18,12 @@ public class SetAdminRequest {
     public String getGeneralUserEmail() {
         return generalUserEmail;
     }
+
+    @Override
+    public String toString() {
+        return "SetAdminRequest{" +
+                "adminEmail='" + adminEmail + '\'' +
+                ", generalUserEmail='" + generalUserEmail + '\'' +
+                '}';
+    }
 }

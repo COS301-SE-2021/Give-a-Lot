@@ -25,7 +25,7 @@ const columns = [
         renderCell: (params) => {
             return (
                 <>
-                    <Link to={"/orgValidate/" + params.updates.id}>
+                    <Link to={"/orgValidate/" + params.row.id}>
                         <button className="accept">Validate</button>
                     </Link>
                     {/*<DeleteOutline*/}
@@ -48,7 +48,18 @@ export class InfoValidation extends Component {
 
         this.state = {
             updates:[],
-            adminUserEmail: "admin@email.com"
+            adminUserEmail: "admin@email.com",
+            address: '',
+            audit: '',
+            auditor: '',
+            committee: '' ,
+            establishment_date: '',
+            facebook: '',
+            instagram: '',
+            twitter: '',
+            ngo_date:'' ,
+            ngo_number: '',
+            tax_raf: '',
         }
 
     }
@@ -63,7 +74,7 @@ export class InfoValidation extends Component {
         const updateRequestBody = {
             "adminUserEmail" : this.state.adminUserEmail
         }
-        axios.get('http://localhost:8080/v1/organisation/get/organisations', config)
+        axios.get(' http://localhost:8080/v1/organisation/delete/validity/confirm/orgId/adminId/type/confirm', config)
             .then(response =>{
                 console.log(response)
                 this.setState({updates: response.data.response})

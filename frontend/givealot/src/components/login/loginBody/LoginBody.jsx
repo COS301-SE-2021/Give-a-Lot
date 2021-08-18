@@ -79,7 +79,7 @@ export class LoginBody extends Component {
             "role" : "default"
         }
         console.log(loginRequestBody)
-        axios.post('http://localhost:8080/v1/login/user/general', loginRequestBody , {config})
+        axios.post('http://localhost:8080/v1/login/user/determine', loginRequestBody , {config})
             .then(response =>{
                 console.log(response)
             })

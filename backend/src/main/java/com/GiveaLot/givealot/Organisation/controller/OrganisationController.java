@@ -369,6 +369,21 @@ public class OrganisationController
         }
     }
 
+    @PostMapping("/add/estdate")
+    public  ResponseEntity<generalOrganisationResponse> addOrgEstDate(@RequestBody @NonNull AddOrgEstDateRequest body)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.addOrgEstDate(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("add_est_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
 
     /* tested -  gfworks *//*
     @GetMapping("/info/{orgId}")
@@ -503,35 +518,6 @@ public class OrganisationController
         }
     }
 
-
-
-    @PostMapping("/add/estdate")
-    public responseJSON addOrgEstDate(@RequestBody @NonNull AddOrgEstDateRequest body)
-    {
-        response.setObject(null);
-        //System.out.println(body.getDate().toString());
-        try
-        {
-            boolean res = service.addOrgEstDate(body);
-            if(res)
-            {
-                response.setCode("org_add_ok_216");
-                response.setMessage("success");
-            }
-            else
-            {
-                response.setCode("org_add_bad_216");
-                response.setMessage("unsuccessful");
-            }
-            return response;
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_add_bad_500");
-            response.setMessage("unsuccessful");
-            return response;
-        }
-    }
 
     @PostMapping("/add/image")
     public responseJSON addOrgImage(@RequestBody @NonNull AddOrgImageRequest body)

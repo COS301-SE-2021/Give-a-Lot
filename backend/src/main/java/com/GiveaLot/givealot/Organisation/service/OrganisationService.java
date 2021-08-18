@@ -42,7 +42,7 @@ public interface OrganisationService {
     public generalOrganisationResponse removeOrgSocials(Long orgId, String type) throws Exception;
     boolean addOrgNGO(AddOrgNGORequest request) throws Exception;
     boolean removeOrgNGO(long orgId) throws Exception;
-    boolean addOrgEstDate(AddOrgEstDateRequest request) throws Exception;
+    generalOrganisationResponse addOrgEstDate(AddOrgEstDateRequest request) throws Exception;
     boolean removeOrgEstDate(long orgId) throws Exception;
 
     /*

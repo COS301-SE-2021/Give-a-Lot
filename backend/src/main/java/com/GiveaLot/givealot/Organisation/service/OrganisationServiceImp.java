@@ -720,18 +720,33 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public boolean addOrgEstDate(AddOrgEstDateRequest request) throws Exception {
+    public generalOrganisationResponse addOrgEstDate(AddOrgEstDateRequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request not set");
+
         else if (request.getDate() == null)
             throw new Exception("Exception: value not set");
+
+        else if (request.getDate().isEmpty())
+            throw new Exception("Exception: date field is empty");
+
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
-        if (organisationInfoRepository.addEstDate(request.getOrgId(), request.getDate()) != 1)
+        String Str [] = (request.getDate()).split("/");
+
+        String tmp_date = "";
+
+        if(Str.length == 3)
+        {
+            tmp_date = Str[2] + "-" + Str[1] + "-" + Str[0];
+        }
+        else throw new Exception("Exception: Invalid date provided");
+
+        if (organisationInfoRepository.addEstDate(request.getOrgId(), tmp_date) != 1)
             throw new Exception("Exception: value field failed to update");
 
-        return true;
+        return new generalOrganisationResponse("add_est_200_OK","success");
     }
 
     @Override

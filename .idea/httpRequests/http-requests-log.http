@@ -1,3 +1,15 @@
+POST http://localhost:8080/v1/organisation/add/address
+Content-Type: application/json
+
+{
+  "orgId": "18",
+  "address": "458 Give alot str, Pretoria, SA"
+}
+
+<> 2021-08-18T175603.200.json
+
+###
+
 DELETE http://localhost:8080/v1/organisation/delete/socials/18/facebook
 
 <> 2021-08-18T082301.200.json
@@ -522,19 +534,6 @@ Content-Type: application/json
 }
 
 <> 2021-08-18T022515.200.json
-
-###
-
-POST http://localhost:8080/v1/login/user/admin
-Content-Type: application/json
-
-{
-  "username" : "admin@email.com",
-  "password" : "gta5",
-  "role" : "default"
-}
-
-<> 2021-08-18T022505.400.json
 
 ###
 

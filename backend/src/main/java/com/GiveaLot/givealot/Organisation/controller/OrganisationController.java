@@ -159,7 +159,7 @@ public class OrganisationController
         }
     }
 
-    @PutMapping("/add/address") /* tested - works */
+    @PostMapping("/add/address") /* tested - works */
     public ResponseEntity<generalOrganisationResponse> addOrgAddress(@RequestBody @NonNull AddOrgAddressRequest body)
     {
         generalOrganisationResponse response;

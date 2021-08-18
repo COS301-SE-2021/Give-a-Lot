@@ -98,7 +98,7 @@ public class LoginServiceImp implements LoginService{
         {
             throw new Exception("user password is incorrect");
         }
-        return new LoginResponse(true,"User logged in successfully","general");
+        return new LoginResponse(true,"User logged in successfully","general", user.getId());
     }
 
     @Override /*tested - works perfect*/
@@ -132,7 +132,7 @@ public class LoginServiceImp implements LoginService{
         {
             throw new Exception("user password is incorrect");
         }
-        return new LoginResponse(true,"User logged in succesfully","organisation");
+        return new LoginResponse(true,"User logged in succesfully","organisation",user.getOrgId());
     }
 
     @Override /*tested - works perfect*/
@@ -170,7 +170,7 @@ public class LoginServiceImp implements LoginService{
         {
             throw new Exception("user password is incorrect");
         }
-        return new LoginResponse(true,"User logged in succesfully","admin");
+        return new LoginResponse(true,"User logged in succesfully","admin", user.getId());
     }
 
     public String getMd5(String input)

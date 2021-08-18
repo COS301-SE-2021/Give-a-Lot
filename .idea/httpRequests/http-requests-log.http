@@ -7,6 +7,32 @@ Content-Type: application/json
   "role" : "default"
 }
 
+<> 2021-08-18T225313.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/determine
+Content-Type: application/json
+
+{
+  "username" : "some@email.com",
+  "password" : "pass1234",
+  "role" : "default"
+}
+
+<> 2021-08-18T224555.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/determine
+Content-Type: application/json
+
+{
+  "username" : "some@email.com",
+  "password" : "pass1234",
+  "role" : "default"
+}
+
 <> 2021-08-18T222658.200.json
 
 ###
@@ -364,28 +390,6 @@ Content-Type: application/json
 }
 
 <> 2021-08-18T054653.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/get/organisations
-Content-Type: application/json
-
-{
-  "adminUserEmail" : "admin@email.com"
-}
-
-<> 2021-08-18T054615.200.json
-
-###
-
-POST http://localhost:8080/v1/user/get/users
-Content-Type: application/json
-
-{
-  "adminUserEmail" : "admin@email.com"
-}
-
-<> 2021-08-18T050012.200.json
 
 ###
 

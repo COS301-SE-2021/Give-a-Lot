@@ -174,6 +174,36 @@ public class OrganisationController
         }
     }
 
+    @DeleteMapping("/delete/address/{orgId}") /* tested - works */
+    public ResponseEntity<generalOrganisationResponse>  removeOrgAddress(@PathVariable("orgId") @NonNull Long orgId)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.removeOrgAddress(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_addr_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
+    @PostMapping("/add/socials") /* tested - works */
+    public ResponseEntity<generalOrganisationResponse> addOrgSocials(@RequestBody  @NonNull AddSocialsRequest body)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.addOrgSocials(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("add_soc_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
     /* tested - works *//*
     @GetMapping("/info/{orgId}")
     public responseJSON selectOrganisationInfo(@PathVariable("orgId") @NonNull long orgId)
@@ -193,36 +223,6 @@ public class OrganisationController
         {
             response.setCode("org_sel_bad_500");
             response.setMessage("unsuccessful " + e);
-        }
-        return response;
-    }
-
-    *//* tested - works *//*
-
-
-    *//* tested - works *//*
-
-
-    *//* tested - works *//*
-
-
-    *//* tested - works *//*
-    @DeleteMapping("/delete/address/{orgId}")
-    public responseJSON removeOrgAddress(@PathVariable("orgId") @NonNull long orgId)
-    {
-        response.setObject(null);
-        try
-        {
-            if(service.removeOrgAddress(orgId))
-            {
-                response.setCode("rem_ok_200");
-                response.setMessage("success");
-            }
-        }
-        catch (Exception e)
-        {
-            response.setCode("rem_bad_500");
-            response.setMessage("unsuccessful " + e.getMessage());
         }
         return response;
     }
@@ -281,26 +281,7 @@ public class OrganisationController
 
 
     *//* tested - works *//*
-    @PostMapping("/add/socials")
-    public responseJSON addOrgSocials(@RequestBody  @NonNull AddSocialsRequest body)
-    {
-        response.setObject(null);
-        try
-        {
-            boolean res = service.addOrgSocials(body);
-            if(res)
-            {
-                response.setCode("org_add_ok_222");
-                response.setMessage("success");
-            }
-        }
-        catch (Exception e)
-        {
-            response.setCode("org_add_bad_500");
-            response.setMessage("unsuccessful " + e);
-        }
-        return response;
-    }
+
 
     *//* tested - works *//*
     @DeleteMapping("/delete/socials/{orgId}/{type}")

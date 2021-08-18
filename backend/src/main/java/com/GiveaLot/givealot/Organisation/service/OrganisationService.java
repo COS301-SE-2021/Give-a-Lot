@@ -25,7 +25,7 @@ public interface OrganisationService {
     generalOrganisationResponse addOrgWebsite(AddOrgWebsiteRequest request) throws Exception;
     generalOrganisationResponse removeOrgWebsite(Long orgId) throws Exception;
     generalOrganisationResponse addOrgAddress(AddOrgAddressRequest request) throws Exception;
-    boolean removeOrgAddress(long orgId) throws Exception;
+    generalOrganisationResponse removeOrgAddress(Long orgId) throws Exception;
     boolean addOrgImage(AddOrgImageRequest request) throws Exception;
     boolean removeOrgImage(long orgId) throws Exception;
     boolean addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception;
@@ -38,7 +38,7 @@ public interface OrganisationService {
     boolean removeOrgCommittee(long orgId) throws Exception ;
     boolean addOrgDonationInfo(AddOrgDonationInfoRequest request) throws Exception;
     boolean removeOrgDonationInfo(long orgId) throws Exception;
-    boolean addOrgSocials(AddSocialsRequest request) throws Exception;
+    generalOrganisationResponse addOrgSocials(AddSocialsRequest request) throws Exception;
     boolean removeOrgSocials(long orgId, String type) throws Exception;
     boolean addOrgNGO(AddOrgNGORequest request) throws Exception;
     boolean removeOrgNGO(long orgId) throws Exception;

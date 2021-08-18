@@ -341,13 +341,16 @@ public class OrganisationServiceImp implements OrganisationService {
         return new generalOrganisationResponse("add_addr_200_ok", "success");
     }
 
-    @Override
-    public boolean removeOrgAddress(long orgId) throws Exception {
+    @Override /*tested all good - converted*/
+    public generalOrganisationResponse removeOrgAddress(Long orgId) throws Exception {
 
-        if (organisationRepository.selectOrganisationById(orgId) == null)
+        if(orgId == null)
+            throw new Exception("Exception: provided ID is null");
+
+        else if(organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
-        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+        else if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
             /*
              * Because organisation already exists, set the field
              * */
@@ -361,6 +364,66 @@ public class OrganisationServiceImp implements OrganisationService {
 
         if (organisationInfoRepository.removeOrgAddress(orgId) != 1)
             throw new Exception("Exception: value field not updated");
+
+        return new generalOrganisationResponse("rem_addr_200_OK", "success");
+    }
+
+    @Override /*tested all good - converted*/
+    public generalOrganisationResponse addOrgSocials(AddSocialsRequest request) throws Exception {
+        if (request == null)
+            throw new Exception("Exception: request is not set");
+
+        else if (request.getType() == null)
+            throw new Exception("Exception: request type is not set");
+
+        else if (request.getUrl().isEmpty())
+            throw new Exception("Exception: url is empty");
+
+        else if(request.getOrgId() == null)
+            throw new Exception("Exception: provided ID is null");
+
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: request id does not exist");
+
+        if (request.getType().trim().equalsIgnoreCase("twitter")) {
+            if (organisationInfoRepository.addTwitter(request.getOrgId(), request.getUrl()) != 1)
+                throw new Exception("Exception: social not added");
+        }
+        else if (request.getType().trim().equalsIgnoreCase("instagram")) {
+            if (organisationInfoRepository.addInstagram(request.getOrgId(), request.getUrl()) != 1)
+                throw new Exception("Exception: social not added");
+        }
+        else if (request.getType().trim().equalsIgnoreCase("facebook")) {
+            if (organisationInfoRepository.addFacebook(request.getOrgId(), request.getUrl()) != 1)
+                throw new Exception("Exception: social not added");
+        }
+        else throw new Exception("Exception: social not identified");
+
+        return new generalOrganisationResponse("add_soc_200_OK","success");
+    }
+
+    @Override
+    public boolean removeOrgSocials(long orgId, String type) throws Exception {
+
+        if (type == null)
+            throw new Exception("Exception: request type is not set");
+
+        else if (type.isEmpty())
+            throw new Exception("Exception: type is empty");
+
+        else if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: request id does not exist");
+
+        if (type.trim().equalsIgnoreCase("twitter")) {
+            if (organisationInfoRepository.removeTwitter(orgId) != 1)
+                throw new Exception("Exception: social not removed");
+        } else if (type.trim().equalsIgnoreCase("instagram")) {
+            if (organisationInfoRepository.removeInstagram(orgId) != 1)
+                throw new Exception("Exception: social not removed");
+        } else if (type.trim().equalsIgnoreCase("facebook")) {
+            if (organisationInfoRepository.removeFacebook(orgId) != 1)
+                throw new Exception("Exception: social not removed");
+        } else throw new Exception("Exception: social not identified");
 
         return true;
     }
@@ -410,59 +473,7 @@ public class OrganisationServiceImp implements OrganisationService {
         return true;
     }
 
-    @Override
-    public boolean addOrgSocials(AddSocialsRequest request) throws Exception {
-        if (request == null)
-            throw new Exception("Exception: request is not set");
 
-        else if (request.getType() == null)
-            throw new Exception("Exception: request type is not set");
-
-        else if (request.getUrl().isEmpty())
-            throw new Exception("Exception: url is empty");
-
-        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
-            throw new Exception("Exception: request id does not exist");
-
-        if (request.getType().trim().equalsIgnoreCase("twitter")) {
-            if (organisationInfoRepository.addTwitter(request.getOrgId(), request.getUrl()) != 1)
-                throw new Exception("Exception: social not added");
-        } else if (request.getType().trim().equalsIgnoreCase("instagram")) {
-            if (organisationInfoRepository.addInstagram(request.getOrgId(), request.getUrl()) != 1)
-                throw new Exception("Exception: social not added");
-        } else if (request.getType().trim().equalsIgnoreCase("facebook")) {
-            if (organisationInfoRepository.addFacebook(request.getOrgId(), request.getUrl()) != 1)
-                throw new Exception("Exception: social not added");
-        } else throw new Exception("Exception: social not identified");
-
-        return true;
-    }
-
-    @Override
-    public boolean removeOrgSocials(long orgId, String type) throws Exception {
-
-        if (type == null)
-            throw new Exception("Exception: request type is not set");
-
-        else if (type.isEmpty())
-            throw new Exception("Exception: type is empty");
-
-        else if (organisationRepository.selectOrganisationById(orgId) == null)
-            throw new Exception("Exception: request id does not exist");
-
-        if (type.trim().equalsIgnoreCase("twitter")) {
-            if (organisationInfoRepository.removeTwitter(orgId) != 1)
-                throw new Exception("Exception: social not removed");
-        } else if (type.trim().equalsIgnoreCase("instagram")) {
-            if (organisationInfoRepository.removeInstagram(orgId) != 1)
-                throw new Exception("Exception: social not removed");
-        } else if (type.trim().equalsIgnoreCase("facebook")) {
-            if (organisationInfoRepository.removeFacebook(orgId) != 1)
-                throw new Exception("Exception: social not removed");
-        } else throw new Exception("Exception: social not identified");
-
-        return true;
-    }
 
     @Override
     public boolean addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception {

@@ -219,7 +219,8 @@ public class OrganisationController
         }
     }
 
-    /* tested - works *//*
+
+    /* tested -  gfworks *//*
     @GetMapping("/info/{orgId}")
     public responseJSON selectOrganisationInfo(@PathVariable("orgId") @NonNull long orgId)
     {

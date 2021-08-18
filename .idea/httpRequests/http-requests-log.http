@@ -7,6 +7,19 @@ Content-Type: application/json
   "role" : "default"
 }
 
+<> 2021-08-18T225758.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/determine
+Content-Type: application/json
+
+{
+  "username" : "some@email.com",
+  "password" : "pass1234",
+  "role" : "default"
+}
+
 <> 2021-08-18T225313.200.json
 
 ###
@@ -379,17 +392,6 @@ Content-Type: application/json
 }
 
 <> 2021-08-18T054714.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/get/organisations
-Content-Type: application/json
-
-{
-  "adminUserEmail" : ""
-}
-
-<> 2021-08-18T054653.200.json
 
 ###
 

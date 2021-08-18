@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.env.Environment;
 
 @SpringBootApplication
-public class GivealotApplication  {
+public class GivealotApplication /*implements CommandLineRunner*/ {
 
 
 	@Autowired
@@ -20,23 +20,23 @@ public class GivealotApplication  {
 		SpringApplication.run(GivealotApplication.class, args);
 	}
 
-//	@Override
-//	public void run(String... args) throws Exception {
-//		Organisations org = new Organisations();
-//		org.setOrgId(123L);
-//		org.setPassword("iloveyou");
-//		org.setContactNumber("Contact Number2");
-//		org.setOrgEmail("jane.doe@example2.org");
-//		org.setStatus("Status");
-//		org.setOrgSector("Org Sector");
-//		org.setContactPerson("Contact Person");
-//		org.setSlogan("Slogan2");
-//		org.setOrgDescription("Org Description");
-//		org.setOrgName("Org Name New2");
-//		org.setDirectory("/tmp");
-//
-//		serviceImp.addOrganisation(org);
-//	}
+/*	@Override
+	public void run(String... args) throws Exception {
+		Organisations org = new Organisations();
+		org.setOrgId(123L);
+		org.setPassword("iloveyou");
+		org.setContactNumber("Contact Number2");
+		org.setOrgEmail("jane.doe@example2.org");
+		org.setStatus("Status");
+		org.setOrgSector("Org Sector");
+		org.setContactPerson("Contact Person");
+		org.setSlogan("Slogan2");
+		org.setOrgDescription("Org Description");
+		org.setOrgName("Org Name New2");
+		org.setDirectory("/tmp");
+
+		serviceImp.addOrganisation(org);
+	}*/
 
 
 }

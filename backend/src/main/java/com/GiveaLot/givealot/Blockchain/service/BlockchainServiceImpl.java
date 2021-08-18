@@ -2,7 +2,8 @@ package com.GiveaLot.givealot.Blockchain.service;
 
 import com.GiveaLot.givealot.Blockchain.Repository.BlockChainRepository;
 import com.GiveaLot.givealot.Blockchain.contract.CertificateContract;
-import com.GiveaLot.givealot.Certificate.dataclass.ContractConfig;
+import com.GiveaLot.givealot.Blockchain.dataclass.ContractConfig;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.web3j.crypto.Credentials;
@@ -155,6 +156,7 @@ public class BlockchainServiceImpl implements BlockchainService {
 
     public static void main(String[] args) throws Exception {
         BlockchainServiceImpl blockchainService = new BlockchainServiceImpl();
-        System.out.println(blockchainService.findCertificateIndex(18));
+        File file = new File("frontend/givealot/localFiles/20/certificate/CertificateComplete.pdf");
+        System.out.println(blockchainService.compareCertificateHash(5,20,file));
     }
 }

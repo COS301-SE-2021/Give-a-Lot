@@ -97,7 +97,7 @@ public class OrganisationController
     }
 
     /* tested - works */
-    @PutMapping("/add/website")
+    @PostMapping("/add/website")
     public responseJSON addOrgWebsite(@RequestBody @NonNull AddOrgWebsiteRequest body)
     {
         response.setObject(null);
@@ -147,7 +147,7 @@ public class OrganisationController
         {
             if(service.addOrgAddress(body))
             {
-                response.setCode("add_ok_200");
+                response.setCode("we_ok_200");
                 response.setMessage("success");
             }
         }

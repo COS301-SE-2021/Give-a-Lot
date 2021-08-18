@@ -1,5 +1,0 @@
-{
-  "code": "org_add_err_501",
-  "message": "unsuccessful Exception : cert || server access -> java.lang.NullPointerException",
-  "object": null
-}

@@ -900,7 +900,7 @@ public class OrganisationServiceImp implements OrganisationService {
         {
             Integer currentPoints = 0, dps = 15;
             Integer res = confirmValidity ? organisationPointsRepository.Audit(orgId,true) : organisationPointsRepository.Audit(orgId,false);
-            if(res != -1)
+            if(res != 1)
                 throw new Exception("Exception: audit validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
@@ -927,7 +927,7 @@ public class OrganisationServiceImp implements OrganisationService {
         {
             Integer currentPoints = 0,dps = 10;
             Integer res = confirmValidity ? organisationPointsRepository.Auditor(orgId,true) : organisationPointsRepository.Auditor(orgId,false);
-            if(res != -1)
+            if(res != 1)
                 throw new Exception("Exception: auditor validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
@@ -953,7 +953,7 @@ public class OrganisationServiceImp implements OrganisationService {
         {
             Integer currentPoints = 0,dps = 5;
             Integer res = confirmValidity ? organisationPointsRepository.Committee(orgId,true) : organisationPointsRepository.Committee(orgId,false);
-            if(res != -1)
+            if(res != 1)
                 throw new Exception("Exception: committee validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
@@ -979,7 +979,7 @@ public class OrganisationServiceImp implements OrganisationService {
         {
             Integer currentPoints = 0,dps = 5;
             Integer res = confirmValidity ? organisationPointsRepository.EstablishmentDate(orgId,true) : organisationPointsRepository.EstablishmentDate(orgId,false);
-            if(res != -1)
+            if(res != 1)
                 throw new Exception("Exception: establishment date validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
@@ -1005,7 +1005,7 @@ public class OrganisationServiceImp implements OrganisationService {
         {
             Integer currentPoints = 0,dps = 5;
             Integer res = confirmValidity ? organisationPointsRepository.Facebook(orgId,true) : organisationPointsRepository.Facebook(orgId,false);
-            if(res != -1)
+            if(res != 1)
                 throw new Exception("Exception: facebook validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
@@ -1031,7 +1031,7 @@ public class OrganisationServiceImp implements OrganisationService {
         {
             Integer currentPoints = 0,dps = 5;
             Integer res = confirmValidity ? organisationPointsRepository.Instagram(orgId,true) : organisationPointsRepository.Instagram(orgId,false);
-            if(res != -1)
+            if(res != 1)
                 throw new Exception("Exception: instagram validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
@@ -1057,7 +1057,7 @@ public class OrganisationServiceImp implements OrganisationService {
         {
             Integer currentPoints = 0,dps = 5;
             Integer res = confirmValidity ? organisationPointsRepository.Twitter(orgId,true) : organisationPointsRepository.Twitter(orgId,false);
-            if(res != -1)
+            if(res != 1)
                 throw new Exception("Exception: twitter validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
@@ -1083,7 +1083,7 @@ public class OrganisationServiceImp implements OrganisationService {
         {
             Integer currentPoints = 0,dps = 5;
             Integer res = confirmValidity ? organisationPointsRepository.NGO_Date(orgId,true) : organisationPointsRepository.NGO_Date(orgId,false);
-            if(res != -1)
+            if(res != 1)
                 throw new Exception("Exception: NGO date validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
@@ -1109,7 +1109,7 @@ public class OrganisationServiceImp implements OrganisationService {
         {
             Integer currentPoints = 0,dps = 5;
             Integer res = confirmValidity ? organisationPointsRepository.NGO_Number(orgId,true) : organisationPointsRepository.NGO_Number(orgId,false);
-            if(res != -1)
+            if(res != 1)
                 throw new Exception("Exception: NGO number validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
@@ -1135,7 +1135,7 @@ public class OrganisationServiceImp implements OrganisationService {
         {
             Integer currentPoints = 0,dps = 5;
             Integer res = confirmValidity ? organisationPointsRepository.taxRaf(orgId,true) : organisationPointsRepository.taxRaf(orgId,false);
-            if(res != -1)
+            if(res != 1)
                 throw new Exception("Exception: tax raf validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
@@ -1161,8 +1161,9 @@ public class OrganisationServiceImp implements OrganisationService {
         {
             Integer currentPoints = 0,dps = 10;
             Integer res = confirmValidity ? organisationPointsRepository.Website(orgId,true) : organisationPointsRepository.Website(orgId,false);
-            if(res != -1)
-                throw new Exception("Exception: address validity not confirmed");
+
+            if(res != 1)
+                throw new Exception("Exception: website validity not confirmed");
 
             Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
             if(certificate_tmp == null) /*perform rollback*/
@@ -1171,7 +1172,8 @@ public class OrganisationServiceImp implements OrganisationService {
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
-            }else currentPoints = certificate_tmp.getPoints();
+            }
+            else currentPoints = certificate_tmp.getPoints();
 
             res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
 
@@ -1184,7 +1186,7 @@ public class OrganisationServiceImp implements OrganisationService {
             }
         }
         else throw new Exception("Exception: type is incorrect");
-        return false;
+        return new generalOrganisationResponse("confirm_200_OK","success");
     }
 
     @Override

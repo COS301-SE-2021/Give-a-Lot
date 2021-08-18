@@ -399,7 +399,7 @@ public class OrganisationController
         }
     }
 
-    @PutMapping("/delete/validity/confirm/{orgId}/{adminId}/{type}/") /*tested - works */
+    @PutMapping("/delete/validity/confirm/{orgId}/{adminId}/{type}/{confirm}") /*tested - works */
     public ResponseEntity<generalOrganisationResponse> confirmValidity(@PathVariable("orgId") @NonNull Long orgId,
                                                                        @PathVariable("adminId") @NonNull Long adminId,
                                                                        @PathVariable("type") @NonNull String type,

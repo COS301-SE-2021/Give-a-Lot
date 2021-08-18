@@ -1,4 +1,4 @@
-import './admin.css';
+import './Admin.css';
 import Topbar from './topbar/Topbar';
 import Sidebar from "./sidebar/Sidebar"
 import Dashboard from './adminPages/dashboard/Dashboard';

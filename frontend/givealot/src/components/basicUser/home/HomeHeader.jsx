@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import "./home.css";
-import logo from "../../admin/topbar/ID2.png"
+import logo from "../../Admin/topbar/ID2.png"
 import SearchIcon from '@material-ui/icons/Search';
 import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import "./featuredHeader.css"
-import logo from "../admin/topbar/ID2.png";
+import logo from "../Admin/topbar/ID2.png";
 
 export class FeaturedHeader extends Component {
 

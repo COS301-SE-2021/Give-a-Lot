@@ -1,4 +1,4 @@
-import "./register.css"
+import "./Register.css"
 import FeaturedHeader from "../featuredHeader/FeaturedHeader"
 import RegisterBody from "./RegisterBody";
 import React from "react";

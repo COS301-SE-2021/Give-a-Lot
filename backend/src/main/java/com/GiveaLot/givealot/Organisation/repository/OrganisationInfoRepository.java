@@ -111,7 +111,7 @@ public interface OrganisationInfoRepository extends JpaRepository<OrganisationIn
     @Modifying
     @Transactional
     @Query("UPDATE OrganisationInfo i SET i.establishmentDate = ?2 WHERE i.orgId = ?1")
-    Integer addEstDate(Long orgId, Date estDate);
+    Integer addEstDate(Long orgId, String estDate);
 
     @Modifying
     @Transactional

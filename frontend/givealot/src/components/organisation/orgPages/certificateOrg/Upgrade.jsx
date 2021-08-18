@@ -9,7 +9,8 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { withStyles } from '@material-ui/core/styles'
 import {toast, ToastContainer} from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css'
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-datepicker/dist/react-datepicker.css';
 import Axios from "axios";
 
 
@@ -46,6 +47,7 @@ export class Upgrade extends Component {
          };*/
 
         this.state = {
+            startDate: new Date(),
             orgId: "18",
             type: "instagram",
             url:"",
@@ -53,7 +55,7 @@ export class Upgrade extends Component {
             address:"",
             reference:"",
             committee:"",
-            date:"",
+            date:""
         };
         this.handleChange = this.handleChange.bind(this);
         this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -61,13 +63,23 @@ export class Upgrade extends Component {
     }
 
     handleChange(date) {
-        this.setState({startDate: date})
+        this.setState({startDate: date, date:document.getElementsByClassName("input3")[0].value} )
+
 
     }
 
     onFormSubmit(e) {
         e.preventDefault();
-        console.log(this.state.startDate)
+        const data = {
+            orgId: this.state.orgId,
+            date: this.state.date,
+
+        };
+        console.log(data)
+        Axios
+            .post("http://localhost:8080/v1/organisation/add/estdate", data)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
     }
 
     onToast = () => {
@@ -105,10 +117,12 @@ export class Upgrade extends Component {
     };
     handleFormChange = e => {
         e.preventDefault();
+
         const data = {
             orgId: this.state.orgId,
             website: this.state.website
         };
+        console.log(data)
         Axios
             .post("http://localhost:8080/v1/organisation/add/website", data)
             .then(res => console.log(res))
@@ -122,17 +136,6 @@ export class Upgrade extends Component {
         };
         Axios
             .post("http://localhost:8080/v1/organisation/add/address", data)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
-    };
-    handleDateFormChange = e => {
-        e.preventDefault();
-        const data = {
-            orgId: this.state.orgId,
-            date: this.state.date,
-        };
-        Axios
-            .post("http://localhost:8080/v1/organisation/add/estdate", data)
             .then(res => console.log(res))
             .catch(err => console.log(err));
     };
@@ -190,8 +193,8 @@ export class Upgrade extends Component {
         return (
             <div className="upgrade">
                 <div className="upgrade_heading">
-                    <p className="upgrade_level">Current level:</p>
-                    <p className="upgrade_status"> Intermediate</p>
+                    <p className="upgrade_level"> Fill in the outstanding details</p>
+                    {/*<p className="upgrade_status"> Intermediate</p>*/}
 
                 </div>
                 <div className="upgrade_container">
@@ -237,24 +240,25 @@ export class Upgrade extends Component {
                         </div>
 
                         <div className="upgrade_form">
-                            <form onSubmit={ this.handleDateFormChange }>
+                            <form onSubmit={ this.onFormSubmit }>
                                 <div >
-                                    <input
-
-                                        onChange={ this.handleDateInputChange }
+                                    <DatePicker
+                                        selected={ this.state.startDate }
+                                        onChange={ this.handleChange }
                                         name="startDate"
-                                        type="text"
-                                        className="input1"
+                                        dateFormat="dd/MM/yyyy"
+                                        className="input1 input3"
                                     />
 
                                 </div>
 
-                            </form>
+
                             <input type="submit" value="Submit" className="submit1" onClick={this.onToast}/>
                             {}
                             <div className="form-group">
                                 <ToastContainer/>
                             </div>
+                            </form>
                         </div>
 
 

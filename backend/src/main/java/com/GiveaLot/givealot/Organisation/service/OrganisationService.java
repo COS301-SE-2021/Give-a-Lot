@@ -49,6 +49,6 @@ public interface OrganisationService {
     * */
 
 
-    boolean confirmValidity(Long orgId,Long adminId,String type,boolean confirmValidity) throws Exception;
+    generalOrganisationResponse confirmValidity(Long orgId,Long adminId,String type,boolean confirmValidity) throws Exception;
     Integer numberOfImages(Long orgId) throws Exception;
 }

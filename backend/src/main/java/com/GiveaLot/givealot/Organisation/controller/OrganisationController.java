@@ -399,6 +399,23 @@ public class OrganisationController
         }
     }
 
+    @PutMapping("/delete/validity/confirm/{orgId}/{adminId}/{type}/") /*tested - works */
+    public ResponseEntity<generalOrganisationResponse> confirmValidity(@PathVariable("orgId") @NonNull Long orgId,
+                                                                       @PathVariable("adminId") @NonNull Long adminId,
+                                                                       @PathVariable("type") @NonNull String type,
+                                                                       @PathVariable("confirm") @NonNull Boolean confirm){
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.confirmValidity(orgId,adminId,type,confirm);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_est_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
 
     /* tested -  gfworks *//*
     @GetMapping("/info/{orgId}")

@@ -848,7 +848,7 @@ public class OrganisationServiceImp implements OrganisationService {
     * */
 
     @Override
-    public boolean confirmValidity(Long orgId,Long adminId,String type,boolean confirmValidity) throws Exception
+    public generalOrganisationResponse confirmValidity(Long orgId,Long adminId,String type,boolean confirmValidity) throws Exception
     {
         if(orgId == null)
             throw new Exception("Exception: organisation id is not set");

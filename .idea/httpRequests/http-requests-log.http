@@ -1,3 +1,27 @@
+POST http://localhost:8080/v1/organisation/add/website
+Content-Type: application/json
+
+{
+  "orgId": "18",
+  "website": "www.someweb.org"
+}
+
+<> 2021-08-18T073344.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/website
+Content-Type: application/json
+
+{
+  "orgId": "18",
+  "website": "www.someweb.org"
+}
+
+<> 2021-08-18T073255.404.json
+
+###
+
 PUT http://localhost:8080/v1/organisation/investigate/18
 
 <> 2021-08-18T072247.200.json
@@ -533,30 +557,6 @@ Content-Type: application/json
 }
 
 <> 2021-08-18T013832.200.json
-
-###
-
-POST http://localhost:8080/v1/user/get/user
-Content-Type: application/json
-
-{
- "generalUserEmail" : "some@email.com",
-  "adminUserEmail" : "admin@email.com"
-}
-
-<> 2021-08-18T013306.200.json
-
-###
-
-POST http://localhost:8080/v1/user/get/user
-Content-Type: application/json
-
-{
- "generalUserEmail" : "some@email.com",
-  "adminUserEmail" : "admin@email.com"
-}
-
-<> 2021-08-18T013214.200.json
 
 ###
 

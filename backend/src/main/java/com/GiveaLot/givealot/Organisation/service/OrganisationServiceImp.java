@@ -268,20 +268,27 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public boolean addOrgWebsite(AddOrgWebsiteRequest request) throws Exception {
+    public generalOrganisationResponse addOrgWebsite(AddOrgWebsiteRequest request) throws Exception
+    {
         if (request == null)
             throw new Exception("Exception: request not set");
+
         else if (request.getWebsite() == null)
             throw new Exception("Exception: value not set");
+
         else if (request.getWebsite().isEmpty())
             throw new Exception("Exception: invalid value length");
+
+        else if(request.getOrgId() == null)
+            throw new Exception("Exception: ID is null");
+
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
 
         if (organisationInfoRepository.addOrgWebsite(request.getOrgId(), request.getWebsite()) != 1)
             throw new Exception("Exception: value field failed to update");
 
-        return true;
+        return new generalOrganisationResponse("add_web_200_ok", "success");
     }
 
     @Override

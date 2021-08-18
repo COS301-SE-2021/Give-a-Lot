@@ -129,6 +129,21 @@ public class OrganisationController
         }
     }
 
+    @PostMapping("/add/website") /* tested - works */
+    public ResponseEntity<generalOrganisationResponse> addOrgWebsite(@RequestBody @NonNull AddOrgWebsiteRequest body)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.addOrgWebsite(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("org_web_err_500","failed: " + e), HttpStatus.OK);
+        }
+    }
+
     /* tested - works *//*
     @GetMapping("/info/{orgId}")
     public responseJSON selectOrganisationInfo(@PathVariable("orgId") @NonNull long orgId)
@@ -153,25 +168,7 @@ public class OrganisationController
     }
 
     *//* tested - works *//*
-    @PostMapping("/add/website")
-    public responseJSON addOrgWebsite(@RequestBody @NonNull AddOrgWebsiteRequest body)
-    {
-        response.setObject(null);
-        try
-        {
-            if(service.addOrgWebsite(body))
-            {
-                response.setCode("add_ok_200");
-                response.setMessage("success");
-            }
-        }
-        catch (Exception e)
-        {
-            response.setCode("add_bad_500");
-            response.setMessage("unsuccessful " + e.getMessage());
-        }
-        return response;
-    }
+
 
     *//* tested - works *//*
     @DeleteMapping("/delete/website/{orgId}")

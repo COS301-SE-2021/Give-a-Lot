@@ -9,7 +9,8 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { withStyles } from '@material-ui/core/styles'
 import {toast, ToastContainer} from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css'
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-datepicker/dist/react-datepicker.css';
 import Axios from "axios";
 
 
@@ -46,11 +47,15 @@ export class Upgrade extends Component {
          };*/
 
         this.state = {
-            orgId: "19",
+            startDate: new Date(),
+            orgId: "18",
             type: "instagram",
             url:"",
             website: "",
             address:"",
+            reference:"",
+            committee:"",
+            date:""
         };
         this.handleChange = this.handleChange.bind(this);
         this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -58,14 +63,23 @@ export class Upgrade extends Component {
     }
 
     handleChange(date) {
-        this.setState({
-            startDate: date
-        })
+        this.setState({startDate: date, date:document.getElementsByClassName("input3")[0].value} )
+
+
     }
 
     onFormSubmit(e) {
         e.preventDefault();
-        console.log(this.state.startDate)
+        const data = {
+            orgId: this.state.orgId,
+            date: this.state.date,
+
+        };
+        console.log(data)
+        Axios
+            .post("http://localhost:8080/v1/organisation/add/estdate", data)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
     }
 
     onToast = () => {
@@ -93,12 +107,22 @@ export class Upgrade extends Component {
         this.setState({url: e.target.value});
 
     };
+    handleTaxInputChange = e => {
+        this.setState({reference: e.target.value});
+
+    };
+    handleCommitteeInputChange = e => {
+        this.setState({committee: e.target.value});
+
+    };
     handleFormChange = e => {
         e.preventDefault();
+
         const data = {
             orgId: this.state.orgId,
             website: this.state.website
         };
+        console.log(data)
         Axios
             .post("http://localhost:8080/v1/organisation/add/website", data)
             .then(res => console.log(res))
@@ -115,17 +139,6 @@ export class Upgrade extends Component {
             .then(res => console.log(res))
             .catch(err => console.log(err));
     };
-    handledateFormChange = e => {
-        e.preventDefault();
-        const data = {
-            orgId: this.state.orgId,
-            date: this.state.date,
-        };
-        Axios
-            .post("-", data)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
-    };
 
     handleInstaFormChange = e => {
         e.preventDefault();
@@ -136,6 +149,32 @@ export class Upgrade extends Component {
         };
         Axios
             .post("http://localhost:8080/v1/organisation/add/socials", data)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    };
+
+    handleTaxFormChange = e => {
+        e.preventDefault();
+        const data = {
+            orgId: this.state.orgId,
+            reference: this.state.reference,
+
+        };
+        Axios
+            .post("http://localhost:8080/v1/organisation/add/taxref", data)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    };
+
+    handleCommitteeFormChange = e => {
+        e.preventDefault();
+        const data = {
+            orgId: this.state.orgId,
+            committee: this.state.committee,
+
+        };
+        Axios
+            .post("http://localhost:8080/v1/organisation/add/committee", data)
             .then(res => console.log(res))
             .catch(err => console.log(err));
     };
@@ -154,8 +193,8 @@ export class Upgrade extends Component {
         return (
             <div className="upgrade">
                 <div className="upgrade_heading">
-                    <p className="upgrade_level">Current level:</p>
-                    <p className="upgrade_status"> Intermediate</p>
+                    <p className="upgrade_level"> Fill in the outstanding details</p>
+                    {/*<p className="upgrade_status"> Intermediate</p>*/}
 
                 </div>
                 <div className="upgrade_container">
@@ -207,18 +246,19 @@ export class Upgrade extends Component {
                                         selected={ this.state.startDate }
                                         onChange={ this.handleChange }
                                         name="startDate"
-                                        dateFormat="MM/dd/yyyy"
-                                        className="input1"
+                                        dateFormat="dd/MM/yyyy"
+                                        className="input1 input3"
                                     />
 
                                 </div>
 
-                            </form>
+
                             <input type="submit" value="Submit" className="submit1" onClick={this.onToast}/>
                             {}
                             <div className="form-group">
                                 <ToastContainer/>
                             </div>
+                            </form>
                         </div>
 
 
@@ -285,14 +325,18 @@ export class Upgrade extends Component {
                     </div>
 
 
+
+
+
                     <div className="contain2">
 
-                        <form className="upgrade_form">
+                        <form className="upgrade_form" onSubmit={this.handleTaxFormChange}>
                             <input
                                 name="tax"
                                 type="text"
                                 placeholder="Enter your Tax reference number"
                                 className="input1"
+                                onChange={this.handleTaxInputChange}
                             />
                             <input type="submit" value="Submit" className="submit1" onClick={this.onToast}/>
 
@@ -302,7 +346,7 @@ export class Upgrade extends Component {
                             </div>
                         </form>
 
-                        <form className="upgrade_form">
+                        <form className="upgrade_form" >
                             <input
                                 name="registered_no"
                                 type="text"
@@ -316,12 +360,13 @@ export class Upgrade extends Component {
                             </div>
                         </form>
 
-                        <form className="upgrade_form">
+                        <form className="upgrade_form" onSubmit={this.handleCommitteeFormChange}>
                             <input
-                                name="registered_no"
+                                name="committee"
                                 type="text"
                                 placeholder="Enter Committee details"
                                 className="input1"
+                                onChange={this.handleCommitteeInputChange}
                             />
                             <input type="submit" value="Submit" className="submit1" onClick={this.onToast}/>
                             {}

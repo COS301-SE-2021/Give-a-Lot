@@ -15,44 +15,44 @@ import RegisterUser from "./components/register/registerUser/RegisterUser";
 import RegisterOrganisation from "./components/register/registerOrganisation/RegisterOrganisation";
 import Browse from "./components/basicUser/browse/Browse"
 import Organisation from "./components/organisation/Organisaion";
-import AdminDash from './components/Admin/Admin'
+// import AdminDash from './components/Admin/adminPages/dashboard/Dashboard'
 
 function App() {
   return (
    <div>
-       {/*<Switch>*/}
-       {/*    <Route exact path="/">*/}
-       {/*        <Home />*/}
-       {/*    </Route>*/}
-       {/*    <Route exact path="/login">*/}
-       {/*        <Login />*/}
-       {/*    </Route>*/}
-       {/*    <Route exact path="/verifyPage">*/}
-       {/*        <VerifyHomePage />*/}
-       {/*    </Route>*/}
-       {/*    <Route exact path="/register">*/}
-       {/*        <Register />*/}
-       {/*    </Route>*/}
-       {/*    <Route exact path="/registerUser">*/}
-       {/*        <RegisterUser />*/}
-       {/*    </Route>*/}
-       {/*    <Route exact path="/registerOrganisations">*/}
-       {/*        <RegisterOrganisation />*/}
-       {/*    </Route>*/}
-       {/*     <Route exact path="/browse">*/}
-       {/*         <Browse />*/}
-       {/*     </Route>*/}
-       {/*    <Route exact path="/dash">*/}
-       {/*        <AdminDash />*/}
-       {/*    </Route>*/}
-       {/*    <Route exact path="/org">*/}
-       {/*        <Organisation />*/}
-       {/*    </Route>*/}
-       {/*    <Route exact path="/home">*/}
-       {/*        <Home />*/}
-       {/*    </Route>*/}
-       {/*</Switch>*/}
-       <Admin />
+       <Switch>
+           <Route exact path="/">
+               <Home />
+           </Route>
+           <Route exact path="/login">
+               <Login />
+           </Route>
+           <Route exact path="/verifyPage">
+               <VerifyHomePage />
+           </Route>
+           <Route exact path="/register">
+               <Register />
+           </Route>
+           <Route exact path="/registerUser">
+               <RegisterUser />
+           </Route>
+           <Route exact path="/registerOrganisations">
+               <RegisterOrganisation />
+           </Route>
+            <Route exact path="/browse">
+                <Browse />
+            </Route>
+           <Route exact path="/admin">
+               <Admin />
+           </Route>
+           <Route exact path="/org">
+               <Organisation />
+           </Route>
+           <Route exact path="/home">
+               <Home />
+           </Route>
+       </Switch>
+       {/*<Admin />*/}
    </div>
     
   );

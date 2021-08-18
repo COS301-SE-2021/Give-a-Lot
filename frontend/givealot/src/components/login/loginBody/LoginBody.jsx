@@ -103,7 +103,8 @@ export class LoginBody extends Component {
                 }
                 else if (response.data.jwttoken==="admin"){
                     console.log("here is admin")
-                    return <Redirect to="/dash" />;
+                    return <Redirect to="/admin" />;
+                    // window.location.href = "/admin";
                 }
                 else if (response.data.jwttoken==="organization"){
                     return <Redirect to="/org" />;

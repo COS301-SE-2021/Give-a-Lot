@@ -127,15 +127,16 @@ export class Upgrade extends Component {
 
 
 
-                        <form className="upgrade_form">
+                        <form className="upgrade_form" onSubmit={this.handleAdressFormChange}>
                             <input
                                 name="address"
                                 type="text"
                                 placeholder="Enter your address.."
                                 className="input1"
+                                onChange={this.handleAdressInputChange}
                             />
 
-                            <input type="submit" value="Submit" className="submit1" onClick={this.onSubmit}/>
+                            <input type="submit" value="Submit" className="submit1" onClick={this.onToast}/>
                             { }
 
                         </form>
@@ -158,7 +159,7 @@ export class Upgrade extends Component {
                                 </div>
 
                             </form>
-                            <input type="submit" value="Submit" className="submit1" onClick={this.onSubmit}/>
+                            <input type="submit" value="Submit" className="submit1" onClick={this.onToast}/>
                             {}
                             <div className="form-group">
                                 <ToastContainer/>
@@ -177,7 +178,7 @@ export class Upgrade extends Component {
                                 placeholder="Enter your social media url"
                                 className="input1"
                             />
-                            <input type="submit" value="Submit" className="submit1" onClick={this.onSubmit}/>
+                            <input type="submit" value="Submit" className="submit1" onClick={this.onToast}/>
                             {}
                             <div className="form-group">
                                 <ToastContainer/>
@@ -190,7 +191,7 @@ export class Upgrade extends Component {
                                 placeholder="Enter your social media url"
                                 className="input1"
                             />
-                            <input type="submit" value="Submit" className="submit1" onClick={this.onSubmit}/>
+                            <input type="submit" value="Submit" className="submit1" onClick={this.onToast}/>
                             {}
                             <div className="form-group">
                                 <ToastContainer/>
@@ -218,7 +219,7 @@ export class Upgrade extends Component {
                                     <AddAPhotoIcon  /> Choose a file
                                 </Button>
                             </label>
-                            <input type="submit" value="Upload" className="img_submit" onClick={this.onSubmit}/>
+                            <input type="submit" value="Upload" className="img_submit" onClick={this.onToast}/>
                             {}
                             <div className="form-group">
                                 <ToastContainer/>
@@ -237,7 +238,7 @@ export class Upgrade extends Component {
                                 placeholder="Enter your Tax reference number"
                                 className="input1"
                             />
-                            <input type="submit" value="Submit" className="submit1" onClick={this.onSubmit}/>
+                            <input type="submit" value="Submit" className="submit1" onClick={this.onToast}/>
 
                             {}
                             <div className="form-group">
@@ -252,7 +253,7 @@ export class Upgrade extends Component {
                                 placeholder="Enter your registered NGO number"
                                 className="input1"
                             />
-                            <input type="submit" value="Submit" className="submit1" onClick={this.onSubmit}/>
+                            <input type="submit" value="Submit" className="submit1" onClick={this.onToast}/>
                             {}
                             <div className="form-group">
                                 <ToastContainer/>
@@ -266,7 +267,7 @@ export class Upgrade extends Component {
                                 placeholder="Enter Committee details"
                                 className="input1"
                             />
-                            <input type="submit" value="Submit" className="submit1" onClick={this.onSubmit}/>
+                            <input type="submit" value="Submit" className="submit1" onClick={this.onToast}/>
                             {}
                             <div className="form-group">
                                 <ToastContainer/>
@@ -291,7 +292,7 @@ export class Upgrade extends Component {
                                 </div>
 
                             </form>
-                            <input type="submit" value="Submit" className="submit1" onClick={this.onSubmit}/>
+                            <input type="submit" value="Submit" className="submit1" onClick={this.onToast}/>
                             {}
                             <div className="form-group">
                                 <ToastContainer/>
@@ -310,7 +311,7 @@ export class Upgrade extends Component {
                         <form className="upgrade_form">
 
                             <input type="file" name="file"  className="form_file"/>
-                            <input type="submit" value="Upload" className="file_submit" onClick={this.onSubmit}/>
+                            <input type="submit" value="Upload" className="file_submit" onClick={this.onToast}/>
                             {}
                             <div className="form-group">
                                 <ToastContainer/>
@@ -326,7 +327,7 @@ export class Upgrade extends Component {
                         <form className="upgrade_form">
 
                             <input type="file" name="file"  className="form_file"/>
-                            <input type="submit" value="Upload" className="file_submit" onClick={this.onSubmit}/>
+                            <input type="submit" value="Upload" className="file_submit" onClick={this.onToast}/>
                             {}
                             <div className="form-group">
                                 <ToastContainer/>
@@ -345,7 +346,7 @@ export class Upgrade extends Component {
                         <form className="upgrade_form">
 
                             <input type="file" name="file"  className="form_file"/>
-                            <input type="submit" value="Upload" className="file_submit" onClick={this.onSubmit}/>
+                            <input type="submit" value="Upload" className="file_submit" onClick={this.onToast}/>
                             { }
                             <div className="form-group">
                                 <ToastContainer/>

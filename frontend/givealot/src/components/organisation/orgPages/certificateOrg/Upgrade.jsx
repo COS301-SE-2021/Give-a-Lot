@@ -46,14 +46,14 @@ export class Upgrade extends Component {
          };*/
 
         this.state = {
-            orgId: "19",
+            orgId: "18",
             type: "instagram",
             url:"",
             website: "",
             address:"",
             reference:"",
             committee:"",
-            date:""
+            date:"",
         };
         this.handleChange = this.handleChange.bind(this);
         this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -61,7 +61,7 @@ export class Upgrade extends Component {
     }
 
     handleChange(date) {
-        this.setState({startDate: date, date: date})
+        this.setState({startDate: date})
 
     }
 
@@ -125,14 +125,14 @@ export class Upgrade extends Component {
             .then(res => console.log(res))
             .catch(err => console.log(err));
     };
-    handledateFormChange = e => {
+    handleDateFormChange = e => {
         e.preventDefault();
         const data = {
             orgId: this.state.orgId,
             date: this.state.date,
         };
         Axios
-            .post("-", data)
+            .post("http://localhost:8080/v1/organisation/add/estdate", data)
             .then(res => console.log(res))
             .catch(err => console.log(err));
     };
@@ -237,13 +237,13 @@ export class Upgrade extends Component {
                         </div>
 
                         <div className="upgrade_form">
-                            <form onSubmit={ this.onFormSubmit }>
+                            <form onSubmit={ this.handleDateFormChange }>
                                 <div >
-                                    <DatePicker
-                                        selected={ this.state.startDate }
-                                        onChange={ this.handleChange }
+                                    <input
+
+                                        onChange={ this.handleDateInputChange }
                                         name="startDate"
-                                        dateFormat="dd/MM/yyyy"
+                                        type="text"
                                         className="input1"
                                     />
 

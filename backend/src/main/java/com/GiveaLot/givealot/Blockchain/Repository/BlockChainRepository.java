@@ -23,7 +23,7 @@ public interface BlockChainRepository extends JpaRepository<Blockchain,Long>{
     @Modifying
     @Transactional
     @Query("UPDATE Blockchain i SET i.index = ?1, i.level = ?2, i.transactionHash = ?3, i.certificateHash = ?4 WHERE i.orgId = ?5")
-    Boolean UpdateBlockchain(long index,long level,String transactionHash,String certificateHash,long orgId);
+    int UpdateBlockchain(long index,long level,String transactionHash,String certificateHash,long orgId);
 
 
     @Query("SELECT i FROM Blockchain i WHERE i.certificateHash=?1")

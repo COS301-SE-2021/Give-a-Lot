@@ -68,7 +68,6 @@ public class OrganisationServiceImp implements OrganisationService {
         this.organisationPointsRepository = organisationPointsRepository;
         this.certificateRepository = certificateRepository;
         this.userRepository = userRepository;
-
     }
 
     @Override /*tested all good - converted*/

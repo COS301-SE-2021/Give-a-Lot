@@ -47,16 +47,19 @@ public class CertificateServiceImpl implements CertificateService {
     private BlockChainRepository blockChainRepository;
 
     @Autowired
-    private final ServerAccess access = new ServerAccess();
+    private ServerAccess access = new ServerAccess();
 
     @Autowired
     private final SendMailService service;
 
     @Autowired
-    public CertificateServiceImpl(SendMailService service)
-   {
+    public CertificateServiceImpl(BlockchainService blockchainService, OrganisationRepository organisationRepository, CertificateRepository certificateRepository, BlockChainRepository blockChainRepository, SendMailService service) {
+        this.blockchainService = blockchainService;
+        this.organisationRepository = organisationRepository;
+        this.certificateRepository = certificateRepository;
+        this.blockChainRepository = blockChainRepository;
         this.service = service;
-   }
+    }
 
     @Override
     public boolean addCertificate(long orgId, Certificate cert) throws Exception {
@@ -236,10 +239,12 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     public boolean compareCertificate(File certificate) throws Exception {
-        BlockchainServiceImpl block = new BlockchainServiceImpl();
         Blockchain blockchain = blockChainRepository.selectBlockchainCertificateHash(
-                block.hashCertificate(certificate));
-        return block.compareCertificateHash(blockchain.getIndex(),blockchain.getOrgId(),certificate);
+                blockchainService.hashCertificate(certificate));
+        if (blockchain==null){
+            return false;
+        }
+        return blockchainService.compareCertificateHash(blockchain.getIndex(),blockchain.getOrgId(),certificate);
     }
 
 

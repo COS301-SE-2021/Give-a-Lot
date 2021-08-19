@@ -161,7 +161,7 @@ export default class AdminOrgs extends Component {
         // const adminUserRequestBody = {
         //     "adminUserEmail" : this.state.adminUserEmail
         // }
-        axios.get('http://localhost:8080/v1/organisation/get/organisations', config)
+        axios.get('http://localhost:8080/v1/organisation/get/organisations/temporal', config)
             .then(response =>{
                 console.log(response)
                 this.setState({organisations: response.data.response})

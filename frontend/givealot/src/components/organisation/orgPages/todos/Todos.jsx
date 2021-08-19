@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import "./OrgTodo.css"
+import "./todos.css"
 import data from "./Dataset.json"
 import Board from "react-trello";
 export class Todos extends Component {

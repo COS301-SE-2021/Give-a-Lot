@@ -7,11 +7,11 @@ import LockOpenIcon from '@material-ui/icons/LockOpen';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import {Link} from "react-router-dom";
 import FormError from "../../register/registerUser/FormError";
-import Admin from "../../Admin/Admin";
+/*import Admin from "../../Admin/Admin";
 import Organisation from "../../organisation/Organisaion";
-import Browse from "../../basicUser/browse/Browse"
+import Browse from "../../basicUser/browse/Browse"*/
 import { Redirect, Route } from "react-router";
-import { useHistory } from "react-router-dom";
+/*import { useHistory } from "react-router-dom";*/
 
 export class LoginBody extends Component {
 

@@ -1,5 +1,7 @@
 package com.GiveaLot.givealot;
 
+import com.GiveaLot.givealot.Blockchain.Repository.BlockChainRepository;
+import com.GiveaLot.givealot.Certificate.service.CertificateServiceImpl;
 import com.GiveaLot.givealot.Notification.dataclass.Mail;
 import com.GiveaLot.givealot.Notification.service.SendMailServiceImpl;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
@@ -12,17 +14,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.env.Environment;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import javax.mail.MessagingException;
+import java.io.File;
 import java.io.IOException;
 
 @SpringBootApplication
-public class GivealotApplication /*implements CommandLineRunner*/{
-
+public class GivealotApplication implements CommandLineRunner{
 
 	@Autowired
-	private SendMailServiceImpl sendMailService;
-
 	public static void main(String[] args) {
 		SpringApplication.run(GivealotApplication.class, args);
 	}
@@ -39,6 +40,12 @@ public class GivealotApplication /*implements CommandLineRunner*/{
 		System.out.println("Done");
 
 	}*/
+	@Override
+	public  void run(String... args) throws Exception {
+
+		CertificateServiceImpl certificateService = new CertificateServiceImpl(new SendMailServiceImpl(new JavaMailSenderImpl()));
+		certificateService.compareCertificate(new File("frontend/givealot/localFiles/20/certificate/CertificateComplete.pdf"));
+	}
 
 
 

@@ -14,20 +14,20 @@ public class Blockchain {
     @Column(
             name = "org_id",
             nullable = false,
-            columnDefinition = "INT"
+            columnDefinition = "BIGINTEGER"
     )
     long orgId;
 
     @Column(
             name = "index",
             nullable = false,
-            columnDefinition = "INT"
+            columnDefinition = "BIGINTEGER"
     )
     long index;
     @Column(
             name = "level",
             nullable = false,
-            columnDefinition = "INT"
+            columnDefinition = "BIGINTEGER"
     )
     long level;
     @Column(

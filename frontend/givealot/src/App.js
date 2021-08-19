@@ -1,26 +1,25 @@
 import './App.css';
-/*import Admin from "./components/admin/Admin"
 import "./components/basicUser/browse/css/browse.css";
 import "./components/basicUser/browse/css/recommended.css";
 import "./components/basicUser/browse/css/navbar.css";
 import "./components/basicUser/browse/css/overlay.css";
 import "./components/basicUser/browse/css/search.css";
 import Register from "./components/register/Register";
-import Home from "./components/basicUser/home/Home"*/
+import Home from "./components/basicUser/home/Home"
 import React from "react";
-/*import {Route, Switch} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import Login from "./components/login/Login";
 import VerifyHomePage from "./components/basicUser/home/VerifyHomePage";
 import RegisterUser from "./components/register/registerUser/RegisterUser";
 import RegisterOrganisation from "./components/register/registerOrganisation/RegisterOrganisation";
-import Browse from "./components/basicUser/browse/Browse"*/
+import Browse from "./components/basicUser/browse/Browse"
 import Organisation from "./components/organisation/Organisaion";
-// import AdminDash from './components/Admin/adminPages/dashboard/Dashboard'
+import Admin from "./components/Admin/Admin"
 
 function App() {
   return (
-   <div>
-       {/*<Switch>
+   <div className="MainContainer">
+       <Switch>
            <Route exact path="/">
                <Home />
            </Route>
@@ -45,14 +44,14 @@ function App() {
            <Route exact path="/admin">
                <Admin />
            </Route>
-           <Route exact path="/org">
+           <Route exact path="/organisation">
                <Organisation />
            </Route>
            <Route exact path="/home">
                <Home />
            </Route>
-       </Switch>*/}
-       <Organisation />
+       </Switch>
+       {/*<Organisation />*/}
    </div>
     
   );

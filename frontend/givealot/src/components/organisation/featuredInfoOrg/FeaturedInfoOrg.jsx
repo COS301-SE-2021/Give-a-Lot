@@ -1,16 +1,46 @@
 import React, { Component } from 'react'
 import "./featuredInfoOrg.css"
 import PeopleIcon from '@material-ui/icons/People';
-
+import axios from "axios";
 
 export class FeaturedInfoOrg extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            orgs:[],
+            users: []
+        }
+
+    }
+    componentDidMount(){
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        axios.get('http://localhost:8080/v1/organisation/get/organisations/temporal',  config)
+            .then(response =>{
+                console.log(response)
+                this.setState({orgs: response.data.response})
+                console.log(this.state.orgs)
+            })
+            .catch(error =>{
+                // console.log(error)
+                this.setState({error : 'Error Retrieving data'})
+            })
+
+    }
     render() {
+        const { orgs , users} = this.state
+
         return (
             <div className="featuredOrg">
                 <div className="featuredItemOrg">
-                   <span className="featuredTitleOrg"> Amount Donated</span>
+                   <span className="featuredTitleOrg"> Users</span>
                    <div className="featuredMoneyContainerOrg">
-                       <span className="featuredMoneyOrg">R0</span>
+                       <span className="featuredMoneyOrg">8</span>
                        <span className="featuredMoneyRateOrg">
                            <PeopleIcon className="featuredIconOrg"/>
                        </span>
@@ -21,9 +51,9 @@ export class FeaturedInfoOrg extends Component {
                 </div>
 
                 <div className="featuredItemOrg">
-                   <span className="featuredTitleOrg"> Reports</span>
+                   <span className="featuredTitleOrg"> Organisations</span>
                    <div className="featuredMoneyContainerOrg">
-                       <span className="featuredMoneyOrg">0</span>
+                       <span className="featuredMoneyOrg">{orgs.length}</span>
                        <span className="featuredMoneyRateOrg">
                            <PeopleIcon className="featuredIconOrg"/>
                        </span>
@@ -36,7 +66,7 @@ export class FeaturedInfoOrg extends Component {
                 <div className="featuredItemOrg">
                    <span className="featuredTitleOrg"> Notifications</span>
                    <div className="featuredMoneyContainerOrg">
-                       <span className="featuredMoneyOrg">4</span>
+                       <span className="featuredMoneyOrg">0</span>
                        <span className="featuredMoneyRateOrg">
                            <PeopleIcon className="featuredIconOrg"/>
                        </span>

@@ -1,7 +1,0 @@
-ID: 20210817165449447
-Date: 17-08-2021 16:54:49
-Reporter email: reporterEmail
-Organisation ID: 45
-Organisation Name: New Org
-Type: theft
-Description: they stole my money

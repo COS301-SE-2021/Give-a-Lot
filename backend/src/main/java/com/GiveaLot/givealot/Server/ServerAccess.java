@@ -284,25 +284,29 @@ public class ServerAccess {
     }
 
     public void uploadImageJPG(long orgId, String orgName, File image) throws Exception {
+
         ChannelSftp channelSftp = setupJsch();
         try {
 
-            image.renameTo(new File("backend/src/main/resources/TempDocument/image.jpg"));
+            if(!image.renameTo(new File("backend/src/main/resources/TempDocument/image.jpg"))){
+                //throw new Exception("Exception: Failed to interact with the server: Image could not be moved");
+            }
 
             channelSftp.connect();
-
-            //Query to certificate for number of images
 
             int imageNumber = organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfImages() + 1;
 
             String orgIdString = String.valueOf(orgId);
             String localFile = "frontend/givealot/localFiles/" + orgId + "/gallery/image" + imageNumber + ".jpg";
-
-            FileUtils.copyFile(image, new File(localFile));
+            File file = new File(localFile);
+            File temp = new File("backend/src/main/resources/TempDocument/image.jpg");
+            file.createNewFile();
+            FileUtils.copyFile(temp, new File(localFile));
 
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + imageNumber + ".jpg");
 
-            image.delete();
+            //image.delete();
+            temp.delete();
         }catch (Exception e){
             throw new Exception("Exception: Failed to interact with the server: " + e);
         }
@@ -369,12 +373,12 @@ public class ServerAccess {
     }
 
     public void uploadReport(long orgId, File report, String date) throws Exception {
-        System.out.println("test");
+
         ChannelSftp channelSftp = setupJsch();
         try {
-            System.out.println("test");
-            report.renameTo(new File("backend/src/main/resources/TempDocument/report.txt"));
-            System.out.println("test");
+
+            //report.renameTo(new File("backend/src/main/resources/TempDocument/report.txt"));
+
             channelSftp.connect();
 
 
@@ -386,14 +390,14 @@ public class ServerAccess {
 
             FileUtils.copyFile(report, new File(localFile));
 
-            System.out.println("test");
+
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Reports/report" + reportNumber + "-" + date +".txt");
 
         }catch (Exception e){
             e.printStackTrace();
         }
         finally {
-            report.delete();
+            //report.delete();
             channelSftp.exit();
             session.disconnect();
         }

@@ -74,28 +74,27 @@ public class OrganisationServiceImp implements OrganisationService {
     @Override /*tested all good - converted*/
     public getOrganisationsResponse getOrganisations(GetOrganisationsRequest request) throws Exception
     {
-        if(request == null)
-        {
-            throw new Exception("Exception: request not set");
-        }
-        if(request.getAdminUserEmail() == null)
-        {
-            throw new Exception("Exception: admin user field not set");
-        }
-        else if(request.getAdminUserEmail().isEmpty())
-        {
-            throw new Exception("Exception: admin user field is empty");
-        }
+        boolean temporal_solution = true;
 
-        User admin = userRepository.findUserByEmail(request.getAdminUserEmail());
+        if(!temporal_solution) {
+            if (request == null) {
+                throw new Exception("Exception: request not set");
+            }
+            if (request.getAdminUserEmail() == null) {
+                throw new Exception("Exception: admin user field not set");
+            } else if (request.getAdminUserEmail().isEmpty()) {
+                throw new Exception("Exception: admin user field is empty");
+            }
 
-        if(admin == null)
-            throw new Exception("Exception: user is not admin");
+            User admin = userRepository.findUserByEmail(request.getAdminUserEmail());
+
+            if (admin == null)
+                throw new Exception("Exception: user is not admin");
 
 
-        if(!admin.getAdmin())
-        {
-            throw new UserNotAuthorisedException("current user is not an admin");
+            if (!admin.getAdmin()) {
+                throw new UserNotAuthorisedException("current user is not an admin");
+            }
         }
 
         List<Organisations> res = organisationRepository.findAll();

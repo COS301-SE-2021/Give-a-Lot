@@ -136,8 +136,8 @@ public class LoginServiceImp implements LoginService{
     }
 
     @Override /*tested - works perfect*/
-    public LoginResponse loginAdminUser(LoginRequest request) throws Exception{
-
+    public LoginResponse loginAdminUser(LoginRequest request) throws Exception
+    {
         if(request == null)
         {
             throw new Exception("Exception: request object is not set");

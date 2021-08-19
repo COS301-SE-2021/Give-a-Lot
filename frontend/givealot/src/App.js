@@ -15,11 +15,10 @@ import RegisterUser from "./components/register/registerUser/RegisterUser";
 import RegisterOrganisation from "./components/register/registerOrganisation/RegisterOrganisation";
 import Browse from "./components/basicUser/browse/Browse"
 import Organisation from "./components/organisation/Organisaion";
-// import AdminDash from './components/Admin/adminPages/dashboard/Dashboard'
 
 function App() {
   return (
-   <div>
+   <div className="MainContainer">
        <Switch>
            <Route exact path="/">
                <Home />

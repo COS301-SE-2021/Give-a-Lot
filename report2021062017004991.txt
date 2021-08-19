@@ -1,6 +1,0 @@
-ID: 2021062017004991
-Date: 20-06-2021 17:00:49
-User email: CoolUser57
-Organisation: The Swindlers
-Type: Incorrect Profile Info
-Description: They provided incorrect addresses and contact information

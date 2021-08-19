@@ -4,6 +4,8 @@ import Organisation from './Organisation';
 
 function sector(props) 
 {
+
+    console.log("ORGA============================");
     console.log(props.organisations.organisations);
 
     let organisations_tmp = [];
@@ -14,7 +16,7 @@ function sector(props)
     for (let index = 0; index < props.organisations.organisations.length; index++)
     {
         let orgId = props.organisations.organisations[index].orgId;
-        let org_Name = props.organisations.organisations[index].name;
+        let org_Name = props.organisations.organisations[index].orgName;
         let orgRegistrationDate = props.organisations.organisations[index].dateAdded;
         let orgImgUrl = props.organisations.organisations[index].imgUrl;
 

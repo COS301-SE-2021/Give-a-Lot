@@ -1,30 +1,67 @@
-// import react from 'react';
+//import react from 'react';
 //import reactDOM from 'react-dom';
 import Sector from './browseSector/Sector';
 import Navbar from './nav/Navbar';
 import RecommendedOrg from "./recommended/Recommended";
 import OganisationView from "./popups/OrganisationView"
 import SearchController from "./search/searchController";
-import {getOranisations} from './Api/OrganisationJSON';
+//import {getOranisations} from './Api/OrganisationJSON';
+import {  useEffect } from "react";
+import OrganisationJSON from "./Api/OrganisationJSON";
+
 import {getRecommendedOrganisations} from './Api/RecommendedJSON';
 
 
 import React from "react"; /* function returning json object */
 
-
-
-
-function browse()
-{
+var renderlimit = 0;
+const Browse = () => {
     /* construct the browse page */
 
-    let sectors = [];
-    let json_res = getOranisations();
 
-    for(var i = 0; i < json_res.length; i++)
-    {
-        sectors.push(<Sector key={i} sector={json_res[i].sector} organisations={json_res[i]}/>);
+
+    let [responseData, setResponseData] = React.useState('')
+    const [ count, setCount ] = React.useState(0)
+  
+
+        // fetches data
+        /* useEffect(() => {
+           
+            OrganisationJSON.getData()
+            .then((response)=>{
+                setResponseData(response.data)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+        } */
+
+        useEffect(() =>
+            fetch("http://localhost:8080/v1/browse/sectors")
+                .then(response => response.json())
+                .then(setResponseData),
+                [] 
+        )
+
+
+        //fetchData();
+
+
+        
+   console.log(responseData); 
+    let sectors = [];
+    let json_res = responseData.object;
+    console.log(json_res);
+
+    if(json_res == undefined){}
+    else{
+        for(var i = 0; i < json_res.length; i++)
+        {
+            console.log(json_res[i].sector);
+            sectors.push(<Sector key={i} sector={json_res[i].sector} organisations={json_res[i]}/>);
+        } 
     }
+         
 
     /*construct the recommended section of the browse page*/
     let recommended_orgs = [];
@@ -68,4 +105,4 @@ function browse()
          );
 }
 
-export default browse;
+export default Browse;

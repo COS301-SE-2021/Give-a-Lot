@@ -47,7 +47,7 @@ export class Profile extends Component {
                     <h1 className="userTitle">Edit Information</h1>
                 </div>
                  <div className="userOrgContainer">
-                     {/*<div className="userShow">
+                     <div className="userShow">
                         <div className="userShowTop">
                             <img
                                 src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
@@ -55,8 +55,8 @@ export class Profile extends Component {
                                 className="userShowImg"
                             />
                             <div className="userShowTopTitle">
-                                <span className="userShowUsername">Anna Becker</span>
-                                <span className="userShowUserTitle">Software Engineer</span>
+                                <span className="userShowUsername">Gift of the givers</span>
+                                <span className="userShowUserTitle">giving back to the people</span>
                             </div>
                         </div>
                         <div className="userShowBottom">
@@ -83,24 +83,32 @@ export class Profile extends Component {
                                 <span className="userShowInfoTitle">Pretoria</span>
                             </div>
                         </div>
-                    </div>*/}
+                    </div>
                     <div className="userUpdate">
                         <span className="userUpdateTitle">Edit</span>
                         <form className="userUpdateForm">
                             <div className="userUpdateLeft">
                                 <div className="userUpdateItem">
-                                    <label>Username</label>
+                                    <label>Organisation name</label>
                                     <input
                                         type="text"
-                                        placeholder="annabeck99"
+                                        placeholder="Gift of the givers"
                                         className="userUpdateInput"
                                     />
                                 </div>
                                 <div className="userUpdateItem">
-                                    <label>Full Name</label>
+                                    <label>Contact person</label>
                                     <input
                                         type="text"
-                                        placeholder="Anna Becker"
+                                        placeholder="Tshilidzi Nekhavhambe"
+                                        className="userUpdateInput"
+                                    />
+                                </div>
+                                <div className="userUpdateItem">
+                                    <label>Contacts</label>
+                                    <input
+                                        type="text"
+                                        placeholder="081 456 675"
                                         className="userUpdateInput"
                                     />
                                 </div>
@@ -108,18 +116,11 @@ export class Profile extends Component {
                                     <label>Email</label>
                                     <input
                                         type="text"
-                                        placeholder="annabeck99@gmail.com"
+                                        placeholder="Givers@gmail.com"
                                         className="userUpdateInput"
                                     />
                                 </div>
-                                <div className="userUpdateItem">
-                                    <label>Phone</label>
-                                    <input
-                                        type="text"
-                                        placeholder="081 456 675"
-                                        className="userUpdateInput"
-                                    />
-                                </div>
+
                                 <div className="userUpdateItem">
                                     <label>Address</label>
                                     <input

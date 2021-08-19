@@ -1,14 +1,12 @@
-.calendar{
-
-    margin-top: 50px;
-    margin-left: 150px;
-}
-
-/*.calendar {
-    margin-top: 50px;
-    margin-left: 50px;
-
+/*.calendar{
+    flex: 4;
 }*/
+
+.calendar {
+    flex: 4;
+    margin-left: 10px;
+
+}
 
 .react-calendar {
     width: 800px;

@@ -11,6 +11,7 @@ import Admin from "../../Admin/Admin";
 import Organisation from "../../organisation/Organisaion";
 import Browse from "../../basicUser/browse/Browse"
 import { Redirect, Route } from "react-router";
+import { useHistory } from "react-router-dom";
 
 export class LoginBody extends Component {
 
@@ -99,12 +100,20 @@ export class LoginBody extends Component {
 
                 if (response.data.jwttoken==="general"){
                     /////redirect
-                    return <Redirect to="/home" />;
+                    // return <Redirect to="/home" />;
+                    // history.push("/");
                 }
                 else if (response.data.jwttoken==="admin"){
                     console.log("here is admin")
-                    return <Redirect to="/admin" />;
-                    // window.location.href = "/admin";
+                    return <Redirect push to="/admin" />
+
+                    // return <Redirect
+                    //     to={{
+                    //         pathname: "/admin",
+                    //         search: "?utm=your+face",
+                    //         state: { referrer: currentLocation }
+                    //     }}
+                    // />
                 }
                 else if (response.data.jwttoken==="organization"){
                     return <Redirect to="/org" />;

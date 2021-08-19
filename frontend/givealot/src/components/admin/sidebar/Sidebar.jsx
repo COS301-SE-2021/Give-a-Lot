@@ -25,7 +25,7 @@ export class Sidebar extends Component {
                             DashBoard
                         </h3> */}
                         <ul className="sidebarList">
-                            <Link to="/" className="link">
+                            <Link to="/dash" className="link">
                                 <li className="sidebarListItem active">
                                     <DashboardIcon className="sidebarIcon"/>
                                     Dashboard

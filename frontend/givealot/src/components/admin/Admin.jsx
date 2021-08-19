@@ -41,7 +41,7 @@ function Admin() {
                 <div className="container">
                     <Sidebar />
                     <Switch>
-                        <Route exact path="/">
+                        <Route exact path="/dash">
                             <Dashboard />
                         </Route>
                         <Route path="/adminUsers">

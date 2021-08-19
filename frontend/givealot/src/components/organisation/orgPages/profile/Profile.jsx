@@ -9,7 +9,6 @@ import {
     Publish,
 } from "@material-ui/icons";
 import axios from "axios";
-import DescriptionIcon from '@material-ui/icons/Description';
 
 export class Profile extends Component {
 
@@ -47,8 +46,8 @@ export class Profile extends Component {
                 <div className="userTitleContainer">
                     <h1 className="userTitle">Edit Information</h1>
                 </div>
-                <div className="userOrgContainer">
-                    <div className="userShow">
+                 <div className="userOrgContainer">
+                     <div className="userShow">
                         <div className="userShowTop">
                             <img
                                 src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
@@ -56,38 +55,32 @@ export class Profile extends Component {
                                 className="userShowImg"
                             />
                             <div className="userShowTopTitle">
-                                <span className="userShowUsername">Kid next door</span>
-                                <span className="userShowUserTitle">developers</span>
+                                <span className="userShowUsername">Gift of the givers</span>
+                                <span className="userShowUserTitle">giving back to the people</span>
                             </div>
                         </div>
                         <div className="userShowBottom">
-                            <span className="userShowTitle">Contact Details</span>
+                            <span className="userShowTitle">Account Details</span>
                             <div className="userShowInfo">
                                 <PermIdentity className="userShowIcon" />
-                                <span className="userShowInfoTitle">Madi</span>
+                                <span className="userShowInfoTitle">annabeck99</span>
                             </div>
+                            <div className="userShowInfo">
+                                <CalendarToday className="userShowIcon" />
+                                <span className="userShowInfoTitle">10.12.1999</span>
+                            </div>
+                            <span className="userShowTitle">Contact Details</span>
                             <div className="userShowInfo">
                                 <PhoneAndroid className="userShowIcon" />
-                                <span className="userShowInfoTitle">011234578</span>
-                            </div>
-                            <span className="userShowTitle">Organisation Details</span>
-                            <div className="userShowInfo">
-                                <DescriptionIcon className="userShowIcon" />
-                                <span className="userShowInfoTitle">
-                                    We are trying our best to keep it together
-                                    but in reality its tough, one day at a time.
-                                </span>
+                                <span className="userShowInfoTitle">081 456 675</span>
                             </div>
                             <div className="userShowInfo">
-                                <DescriptionIcon className="userShowIcon" />
-                                <span className="userShowInfoTitle">
-                                    When the code breaks, blame
-                                    the recent commit and push
-                                </span>
+                                <MailOutline className="userShowIcon" />
+                                <span className="userShowInfoTitle">annabeck99@gmail.com</span>
                             </div>
                             <div className="userShowInfo">
                                 <LocationSearching className="userShowIcon" />
-                                <span className="userShowInfoTitle">New York | USA</span>
+                                <span className="userShowInfoTitle">Pretoria</span>
                             </div>
                         </div>
                     </div>
@@ -96,18 +89,26 @@ export class Profile extends Component {
                         <form className="userUpdateForm">
                             <div className="userUpdateLeft">
                                 <div className="userUpdateItem">
-                                    <label>Username</label>
+                                    <label>Organisation name</label>
                                     <input
                                         type="text"
-                                        placeholder="annabeck99"
+                                        placeholder="Gift of the givers"
                                         className="userUpdateInput"
                                     />
                                 </div>
                                 <div className="userUpdateItem">
-                                    <label>Full Name</label>
+                                    <label>Contact person</label>
                                     <input
                                         type="text"
-                                        placeholder="Anna Becker"
+                                        placeholder="Tshilidzi Nekhavhambe"
+                                        className="userUpdateInput"
+                                    />
+                                </div>
+                                <div className="userUpdateItem">
+                                    <label>Contacts</label>
+                                    <input
+                                        type="text"
+                                        placeholder="081 456 675"
                                         className="userUpdateInput"
                                     />
                                 </div>
@@ -115,23 +116,16 @@ export class Profile extends Component {
                                     <label>Email</label>
                                     <input
                                         type="text"
-                                        placeholder="annabeck99@gmail.com"
+                                        placeholder="Givers@gmail.com"
                                         className="userUpdateInput"
                                     />
                                 </div>
-                                <div className="userUpdateItem">
-                                    <label>Phone</label>
-                                    <input
-                                        type="text"
-                                        placeholder="+1 123 456 67"
-                                        className="userUpdateInput"
-                                    />
-                                </div>
+
                                 <div className="userUpdateItem">
                                     <label>Address</label>
                                     <input
                                         type="text"
-                                        placeholder="New York | USA"
+                                        placeholder="Pretoria"
                                         className="userUpdateInput"
                                     />
                                 </div>

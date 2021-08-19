@@ -10,7 +10,7 @@ import FormError from "../../register/registerUser/FormError";
 // import Admin from "../../Admin/Admin";
 // import Organisation from "../../organisation/Organisaion";
 // import Browse from "../../basicUser/browse/Browse"
-import { Redirect, Route } from "react-router";
+import { Redirect, withRouter } from "react-router";
 // import { useHistory } from "react-router-dom";
 // import { withRouter } from 'react-router-dom'
 
@@ -100,19 +100,18 @@ export class LoginBody extends Component {
                 localStorage.setItem( "role" ,response.data.jwttoken)
 
                 if (response.data.jwttoken === "general") {
-                    // return <Redirect to="/" />;
-                    return <Redirect to={{ pathname: '/organisa'}} />
+                    this.props.history.push("/");
                 }
 
                 else if (response.data.jwttoken === "admin"){
                     console.log("here is admin")
-                    return <Redirect to='/admin' />
+                    this.props.history.push("/admin");
                 }
-                else if (response.data.jwttoken === "organization"){
-                    return <Redirect to="/org" />;
+                else if (response.data.jwttoken === "organisation"){
+                    this.props.history.push("/organisation");
                 }
                 else{
-                    return <Redirect to="/login" />;
+                    this.props.history.push("/browse");
                 }
             })
             .catch(error =>{
@@ -186,4 +185,4 @@ export class LoginBody extends Component {
     }
 }
 
-export default LoginBody
+export default withRouter(LoginBody);

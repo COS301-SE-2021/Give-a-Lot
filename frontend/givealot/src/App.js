@@ -20,7 +20,7 @@ import Organisation from "./components/organisation/Organisaion";
 function App() {
   return (
    <div>
-       {/*<Switch>
+       <Switch>
            <Route exact path="/">
                <Home />
            </Route>
@@ -45,14 +45,14 @@ function App() {
            <Route exact path="/admin">
                <Admin />
            </Route>
-           <Route exact path="/org">
+           <Route exact path="/organisation">
                <Organisation />
            </Route>
            <Route exact path="/home">
                <Home />
            </Route>
-       </Switch>*/}
-       <Organisation />
+       </Switch>
+       {/*<Organisation />*/}
    </div>
     
   );

@@ -21,7 +21,7 @@ import java.io.File;
 import java.io.IOException;
 
 @SpringBootApplication
-public class GivealotApplication implements CommandLineRunner{
+public class GivealotApplication {
 
 	@Autowired
 	public static void main(String[] args) {
@@ -40,12 +40,12 @@ public class GivealotApplication implements CommandLineRunner{
 		System.out.println("Done");
 
 	}*/
-	@Override
-	public  void run(String... args) throws Exception {
-
-		CertificateServiceImpl certificateService = new CertificateServiceImpl(new SendMailServiceImpl(new JavaMailSenderImpl()));
-		certificateService.compareCertificate(new File("frontend/givealot/localFiles/20/certificate/CertificateComplete.pdf"));
-	}
+//	@Override
+//	public  void run(String... args) throws Exception {
+//
+//		CertificateServiceImpl certificateService = new CertificateServiceImpl(new SendMailServiceImpl(new JavaMailSenderImpl()));
+//		certificateService.compareCertificate(new File("frontend/givealot/localFiles/20/certificate/CertificateComplete.pdf"));
+//	}
 
 
 

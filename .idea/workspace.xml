@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="admin orgs displaying" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="admin orgs displaying">
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/components/login/loginBody/LoginBody.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/components/login/loginBody/LoginBody.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -460,7 +463,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629342924793</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="admin orgs displaying">
+      <created>1629344383667</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1629344383667</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

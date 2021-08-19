@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import "./register.css"
+import "./Register.css"
 import PeopleIcon from '@material-ui/icons/People';
 import PersonIcon from '@material-ui/icons/Person';
 import {Link} from "react-router-dom";

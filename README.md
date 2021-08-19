@@ -101,7 +101,10 @@ phases of the project to the stakeholders of the Give a lot project.
 </ul>
 <br>
 
-
+## Demo 3
+*  [Demo Video]()
+*  [User Manual]()
+*  [Technical Installation]()
 ---
 
 

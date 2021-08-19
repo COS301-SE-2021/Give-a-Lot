@@ -7,6 +7,10 @@ import ListItemText from "@material-ui/core/ListItemText";
 import FeaturedHeader from "../../../featuredHeader/FeaturedHeader";
 import "./basic.css"
 import { Link } from "react-router-dom";
+import axios from "axios";
+import {LoginBody} from "../../../login/loginBody/LoginBody";
+// import {toast} from "react-toastify";
+import { Redirect, withRouter } from "react-router";
 
 
 export class Confirmation extends Component {
@@ -19,22 +23,44 @@ export class Confirmation extends Component {
         e.preventDefault();
         this.props.prevStep();
     };
+    submit = (e) =>{
+        e.preventDefault()
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        const RegisterOrganisationRequestBody = {
+            "orgName" : this.props.values.orgName,
+            "slogan" : this.props.values.slogan,
+            "orgDescription" : this.props.values.orgDescription,
+            "orgSector" : this.props.values.orgSector,
+            "orgEmail" : this.props.values.orgEmail,
+            "contactPerson" : this.props.values.contactPerson,
+            "contactNumber" : this.props.values.contactNumber,
+            "password" : this.props.values.password
+        }
+        console.log(this.props.values)
+        axios.post('http://localhost:8080/v1/organisation/add/org', RegisterOrganisationRequestBody, {config})
+            .then(response =>{
+                console.log(response)
+                this.props.history.push("/login");
+            })
+            .catch(error =>{
+                console.log(error)
+                // toast.success('Registration failed ')
+            })
+    }
 
     render() {
         const {
-            values: { slogan, orgEmail, sector, orgDescription, contactNumber, contactPerson, orgName }
+            values: { slogan, orgEmail, orgSector, orgDescription, contactNumber, contactPerson, orgName }
         } = this.props;
         return (
             <div className="RegisterOrganisation" style={{margin: "auto"}}>
                 <Fragment >
                     <FeaturedHeader />
-                    {/*<AppBar style={{ background: "#098F8F" }} position="sticky">*/}
-                    {/*    <Toolbar title="Enter Personal Information">*/}
-                    {/*        <Typography color="inherit" variant="h4">*/}
-                    {/*            Confirm Details*/}
-                    {/*        </Typography>*/}
-                    {/*    </Toolbar>*/}
-                    {/*</AppBar>*/}
 
                     <List
                         component="nav"
@@ -52,7 +78,7 @@ export class Confirmation extends Component {
                             <ListItemText primary="Email" secondary={orgEmail} />
                         </ListItem>
                         <ListItem className="confirmWords">
-                            <ListItemText primary="Sector" secondary={sector} />
+                            <ListItemText primary="Sector" secondary={orgSector} />
                         </ListItem>
                         <ListItem className="confirmWords">
                             <ListItemText primary="Description" secondary={orgDescription} />
@@ -83,14 +109,14 @@ export class Confirmation extends Component {
                         Back
                     </Button>
                     <Link to="/login" className="link">
-                        <Button
+                        <Button type="submit"
                             style={{
                                 background: "#3C61B8",
                                 color: "#FFFFFF",
                                 marginRight: "1em"
                             }}
                             label="Continue"
-                            onClick={this.proceed}
+                            onClick={this.submit}
                         >
                             Confirm and Continue
                         </Button>
@@ -109,4 +135,4 @@ export class Confirmation extends Component {
     }
 }
 
-export default Confirmation;
+export default withRouter(Confirmation);

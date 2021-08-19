@@ -1,4 +1,4 @@
-import './admin.css';
+import './Admin.css';
 import Topbar from './topbar/Topbar';
 import Sidebar from "./sidebar/Sidebar"
 import Dashboard from './adminPages/dashboard/Dashboard';
@@ -20,6 +20,19 @@ import OrgValidate from "./adminPages/infoValidation/OrgValidate"
 import AddOrg from "./adminPages/AddOrg/AddOrg";
 
 function Admin() {
+
+    const loggedInUser = {
+        "id" :localStorage.getItem("id"),
+        "role":localStorage.getItem("role")
+    };
+    console.log(loggedInUser)
+    if(localStorage.getItem("id") || loggedInUser.role!="admin")
+    {
+        ////unauthorized
+        console.log("user logged out or not admin")
+    }
+
+    ///console.log(foundUser)
     return (
         <Router>
             <div className="App">
@@ -36,9 +49,6 @@ function Admin() {
                         <Route path="/user/:userId">
                             <User />
                         </Route>
-                        {/*<Route path="/newUser">*/}
-                        {/*    <NewUser />*/}
-                        {/*</Route>*/}
                         <Route path="/adminOrgs">
                             <AdminOrgs />
                         </Route>
@@ -54,9 +64,6 @@ function Admin() {
                         <Route path="/todos">
                             <Todo />
                         </Route>
-                        {/*<Route path="/logout">*/}
-                        {/*    <NewUser />*/}
-                        {/*</Route>*/}
                         <Route path="/infoValidation">
                             <InfoValidation />
                         </Route>

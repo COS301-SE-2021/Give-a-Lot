@@ -4,17 +4,21 @@ import FeaturedHeader from "../../../featuredHeader/FeaturedHeader";
 // import "./RegisterOrganisation.css"
 import Button from '@material-ui/core/Button';
 // import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import axios from "axios";
+// import axios from "axios";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 import InputAdornment from "@material-ui/core/InputAdornment";
 // import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
 import DescriptionIcon from '@material-ui/icons/Description';
+import { withRouter } from "react-router";
+import {Confirmation} from "./Confirmation";
+
 
 export class OrganisationAbout extends Component {
 
     proceed = e => {
         e.preventDefault();
-        this.props.nextStep();
+        // this.props.nextStep();
+        this.props.history.push("/login");
     };
     back = e => {
         e.preventDefault();
@@ -27,9 +31,9 @@ export class OrganisationAbout extends Component {
         };
     }
 
-    changeHandler = (e) =>{
-        this.setState({[e.target.name] : e.target.value})
-    }
+    // changeHandler = (e) =>{
+    //     this.setState({[e.target.name] : e.target.value})
+    // }
 
     render() {
         const { values, handleChange } = this.props;
@@ -57,7 +61,7 @@ export class OrganisationAbout extends Component {
                         </div>
                         <div >
                             <OutlinedInput type="type"
-                               name="sector"
+                               name="orgSector"
                                defaultValue={values.orgSector}
                                // onChange={this.handleChange}
                                onChange={handleChange('orgSector')}
@@ -68,12 +72,12 @@ export class OrganisationAbout extends Component {
                                    </InputAdornment>
                                }
                             />
+
                         </div>
 
                         <div >
                             <OutlinedInput type="type"
-                                // label="Multiline"
-                               multiline
+                               multiline={true}
                                maxRows={50}
                                defaultValue={values.orgDescription}
                                // onChange={this.handleChange}
@@ -121,4 +125,4 @@ export class OrganisationAbout extends Component {
     }
 }
 
-export default OrganisationAbout
+export default withRouter(OrganisationAbout);

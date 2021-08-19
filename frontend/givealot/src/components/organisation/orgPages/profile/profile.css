@@ -7,7 +7,10 @@
     align-items: center;
     justify-content: space-between;
 }
-
+.userTitle {
+   color: slategrey;
+    margin-left: 50px;
+}
 .userAddButton {
     width: 80px;
     border: none;
@@ -22,6 +25,7 @@
 .userOrgContainer {
     display: flex;
     margin-top: 20px;
+
 }
 
 .userShow {
@@ -29,14 +33,18 @@
     padding: 20px;
     -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    margin-left: 50px;
 }
 
 .userUpdate {
     flex: 2;
     padding: 20px;
+
     -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
-    margin-left: 20px;
+    margin-left: 50px;
+    margin-right: 150px;
+
 }
 
 .userShowTop {
@@ -73,6 +81,7 @@
     font-size: 14px;
     font-weight: 600;
     color: rgb(175, 170, 170);
+
 }
 
 .userShowInfo{

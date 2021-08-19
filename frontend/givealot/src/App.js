@@ -1,5 +1,4 @@
 import './App.css';
-// import Admin from "./components/admin/Admin"
 import "./components/basicUser/browse/css/browse.css";
 import "./components/basicUser/browse/css/recommended.css";
 import "./components/basicUser/browse/css/navbar.css";
@@ -14,12 +13,13 @@ import VerifyHomePage from "./components/basicUser/home/VerifyHomePage";
 import RegisterUser from "./components/register/registerUser/RegisterUser";
 import RegisterOrganisation from "./components/register/registerOrganisation/RegisterOrganisation";
 import Browse from "./components/basicUser/browse/Browse"
- // import Organisation from "./components/organisation/Organisaion";
+import Organisation from "./components/organisation/Organisaion";
+import Admin from "./components/Admin/Admin"
 
 function App() {
   return (
-   <div>
-        <Switch>
+   <div className="MainContainer">
+       <Switch>
            <Route exact path="/">
                <Home />
            </Route>
@@ -41,8 +41,17 @@ function App() {
             <Route exact path="/browse">
                 <Browse />
             </Route>
+           <Route exact path="/admin">
+               <Admin />
+           </Route>
+           <Route exact path="/organisation">
+               <Organisation />
+           </Route>
+           <Route exact path="/home">
+               <Home />
+           </Route>
        </Switch>
-       {/*<Organisation/>*/}
+       {/*<Organisation />*/}
    </div>
     
   );

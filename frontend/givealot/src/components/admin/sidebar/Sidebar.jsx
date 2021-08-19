@@ -11,6 +11,11 @@ import InfoIcon from '@material-ui/icons/Info';
 import { Link } from "react-router-dom";
 
 export class Sidebar extends Component {
+
+     handleLogout = () => {
+         console.log("logged out")
+        localStorage.clear();
+    };
     render() {
         return (
             <div className="sidebar">
@@ -71,7 +76,7 @@ export class Sidebar extends Component {
 
                             <Link to="/logout" className="link">
                                 <li className="sidebarListItem">
-                                    <ExitToAppIcon className="sidebarIcon"/>
+                                    <ExitToAppIcon className="sidebarIcon" onClick={this.handleLogout()} />
                                     Logout
                                 </li>
                             </Link>

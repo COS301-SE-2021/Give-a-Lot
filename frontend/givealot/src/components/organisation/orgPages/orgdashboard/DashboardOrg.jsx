@@ -11,7 +11,7 @@ export class Dashboard extends Component {
         return (
             <div className="dashboard">
                 <FeaturedInfoOrg />
-                <Chart data={userData} title="Users" grid dataKey="Active User"/>
+                <Chart data={userData} title="Amount Donated" grid dataKey="Active User"/>
                 <div className="homeWidgets">
                 <WidgetsmOrg/>
                 <WidgetlgOrg/>

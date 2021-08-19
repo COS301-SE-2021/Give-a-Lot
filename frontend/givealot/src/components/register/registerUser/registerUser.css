@@ -51,3 +51,6 @@
     left: 50%;
     transform: translate(-50%,0);
 }
+.RegisterUserbutton:disabled {
+    opacity: 0.5;
+}

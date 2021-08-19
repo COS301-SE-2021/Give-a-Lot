@@ -67,6 +67,22 @@ public class OrganisationController
         }
     }
 
+    /*this function is meant to be removed in production */
+    @GetMapping("/get/organisations/temporal") /*tested all good*/
+    public ResponseEntity<getOrganisationsResponse> getOrganisationsTemporal()
+    {
+        getOrganisationsResponse response;
+        try
+        {
+            response = service.getOrganisations(null);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new getOrganisationsResponse("get_orgs_500_bad","failed: " + e, null), HttpStatus.OK);
+        }
+    }
+
     @PostMapping("/add/org") /*tested all good*/
     public ResponseEntity<generalOrganisationResponse> addOrganisation(@RequestBody @NonNull AddOrganisationRequest body)
     {

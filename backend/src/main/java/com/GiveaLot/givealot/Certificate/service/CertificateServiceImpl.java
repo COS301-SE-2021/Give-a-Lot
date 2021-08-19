@@ -3,6 +3,7 @@ package com.GiveaLot.givealot.Certificate.service;
 import com.GiveaLot.givealot.Blockchain.Repository.BlockChainRepository;
 import com.GiveaLot.givealot.Blockchain.dataclass.Blockchain;
 import com.GiveaLot.givealot.Blockchain.service.BlockchainService;
+import com.GiveaLot.givealot.Blockchain.service.BlockchainServiceImpl;
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
 import com.GiveaLot.givealot.Notification.dataclass.Mail;
@@ -20,6 +21,9 @@ import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.io.IOException;
+import java.math.BigInteger;
+import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -43,16 +47,19 @@ public class CertificateServiceImpl implements CertificateService {
     private BlockChainRepository blockChainRepository;
 
     @Autowired
-    private final ServerAccess access = new ServerAccess();
+    private ServerAccess access = new ServerAccess();
 
     @Autowired
     private final SendMailService service;
 
     @Autowired
-    public CertificateServiceImpl(SendMailService service)
-   {
+    public CertificateServiceImpl(BlockchainService blockchainService, OrganisationRepository organisationRepository, CertificateRepository certificateRepository, BlockChainRepository blockChainRepository, SendMailService service) {
+        this.blockchainService = blockchainService;
+        this.organisationRepository = organisationRepository;
+        this.certificateRepository = certificateRepository;
+        this.blockChainRepository = blockChainRepository;
         this.service = service;
-   }
+    }
 
     @Override
     public boolean addCertificate(long orgId, Certificate cert) throws Exception {
@@ -229,4 +236,16 @@ public class CertificateServiceImpl implements CertificateService {
         certificateRepository.updateAdminRenewal(orgId,true);
         return true;
     }
+
+    @Override
+    public boolean compareCertificate(File certificate) throws Exception {
+        Blockchain blockchain = blockChainRepository.selectBlockchainCertificateHash(
+                blockchainService.hashCertificate(certificate));
+        if (blockchain==null){
+            return false;
+        }
+        return blockchainService.compareCertificateHash(blockchain.getIndex(),blockchain.getOrgId(),certificate);
+    }
+
+
 }

@@ -1,3 +1,104 @@
+GET http://localhost:8080/v1/organisation/get/organisations/temporal
+
+<> 2021-08-19T021130.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/get/organisations/temporal
+
+<> 2021-08-19T021043.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/get/organisations/temporal
+
+<> 2021-08-19T015551.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/get/organisations/temporal
+
+<> 2021-08-19T015137.200.json
+
+###
+
+GET http://localhost:8080/get/organisations/temporal
+
+<> 2021-08-19T015007.404.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors
+
+<> 2021-08-19T010140.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/determine
+Content-Type: application/json
+
+{
+  "username" : "some@email.com",
+  "password" : "pass1234",
+  "role" : "default"
+}
+
+<> 2021-08-18T225758.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/determine
+Content-Type: application/json
+
+{
+  "username" : "some@email.com",
+  "password" : "pass1234",
+  "role" : "default"
+}
+
+<> 2021-08-18T225313.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/determine
+Content-Type: application/json
+
+{
+  "username" : "some@email.com",
+  "password" : "pass1234",
+  "role" : "default"
+}
+
+<> 2021-08-18T224555.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/determine
+Content-Type: application/json
+
+{
+  "username" : "some@email.com",
+  "password" : "pass1234",
+  "role" : "default"
+}
+
+<> 2021-08-18T222658.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/determine
+Content-Type: application/json
+
+{
+  "username" : "admin@email.com",
+  "password" : "pass1234",
+  "role" : "default"
+}
+
+<> 2021-08-18T222630.200.json
+
+###
+
 PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/tax_raf/false
 
 <> 2021-08-18T202727.200.json
@@ -276,116 +377,6 @@ PUT http://localhost:8080/v1/organisation/suspend/18
 PUT http://localhost:8080/v1/organisation/suspend/18
 
 <> 2021-08-18T065905.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/suspend/18
-
-<> 2021-08-18T065748.404.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "Kids next door",
-  "slogan" : "When the code breaks, blame the recent commit and push",
-  "orgDescription" : "We are trying our best to keep it together but in reality its tough, one day at a time.",
-  "orgSector" : "developers",
-  "orgEmail" : "contact@kidsnextdoor.com",
-  "contactPerson" : "Madi",
-  "contactNumber" : "0112345678",
-  "password" : "givepassword"
-}
-
-<> 2021-08-18T064536.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/18
-
-<> 2021-08-18T063129.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/sel/organisation/18
-
-<> 2021-08-18T063030.405.json
-
-###
-
-POST http://localhost:8080/v1/organisation/sel/organisation/18
-
-###
-
-POST http://localhost:8080/v1/organisation/get/organisations
-Content-Type: application/json
-
-{
-  "adminUserEmail" : "admin@email.com"
-}
-
-<> 2021-08-18T054714.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/get/organisations
-Content-Type: application/json
-
-{
-  "adminUserEmail" : ""
-}
-
-<> 2021-08-18T054653.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/get/organisations
-Content-Type: application/json
-
-{
-  "adminUserEmail" : "admin@email.com"
-}
-
-<> 2021-08-18T054615.200.json
-
-###
-
-POST http://localhost:8080/v1/user/get/users
-Content-Type: application/json
-
-{
-  "adminUserEmail" : "admin@email.com"
-}
-
-<> 2021-08-18T050012.200.json
-
-###
-
-POST http://localhost:8080/v1/login/user/general
-Content-Type: application/json
-
-{
-  "username" : "admin@email.com",
-  "password" : "pass1234",
-  "role" : "default"
-}
-
-<> 2021-08-18T044643.200.json
-
-###
-
-POST http://localhost:8080/v1/login/user/general
-Content-Type: application/json
-
-{
-  "username" : "admin@email.com",
-  "password" : "pass12345",
-  "role" : "default"
-}
-
-<> 2021-08-18T044634.200.json
 
 ###
 

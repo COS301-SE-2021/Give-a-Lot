@@ -1,5 +1,0 @@
-{
-  "message": "java.lang.Exception: user password is incorrect",
-  "success": false,
-  "jwttoken": null
-}

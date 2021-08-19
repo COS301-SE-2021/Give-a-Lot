@@ -1,0 +1,323 @@
+.certificate{
+    flex: 4;
+
+
+}
+.upgrade{
+    flex: 4;
+    padding: 4px;
+}
+.upgrade_container{
+    display: flex;
+
+}
+
+.temporary{
+    position: relative;
+    width: 700px;
+    height: 410px;
+    margin: 0 auto;
+    top: 70px;
+
+
+}
+.heading{
+    position: relative;
+    left: 250px;
+    display: flex;
+
+    width: 500px;
+    font-size: 30px;
+    font-family: "Segoe UI";
+
+}
+
+.certLink{
+    text-decoration: none;
+    color: white;
+
+}
+.certIcon{
+    margin-right: 5px;
+    font-size: 20px !important;
+}
+.level{
+    position: relative;
+    color: grey;
+
+
+}
+.status{
+    position: relative;
+    left: 10px;
+
+}
+
+.button{
+
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    top: 40px;
+    width: 200px;
+    height: 50px;
+    font-family: sans-serif;
+}
+.button1{
+    position: relative;
+    background-color: #2d9499;
+    left: 250px;
+
+}
+.button:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button:active {
+    background-color: #56a4a8;
+    transform: translateY(4px);
+}
+.button2{
+    position: relative;
+    background-color: #dae3e3;
+    color: black;
+    left: 400px;
+
+}
+
+/*///////////////////////////////Upgrade////////////////////////////////*/
+
+
+.upgrade_heading{
+    position: relative;
+    left: 80px;
+    display: flex;
+
+    width: 500px;
+    font-size: 30px;
+    font-family: "Segoe UI";
+
+}
+
+.upgrade_level{
+    color: grey;
+}
+.upgrade_status{
+    position: relative;
+    left: 10px;
+}
+
+.contain{
+    position: relative;
+    width: 520px;
+    height: 640px;
+    top: 40px;
+    left: 30px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+.contain2{
+    position: relative;
+    width: 460px;
+    height: 640px;
+    top: 40px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+
+    margin: 0 45px;
+}
+.upgrade_form{
+    display: flex;
+}
+.input1{
+    width: 300px;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+    margin-left: 10px;
+    margin-top: 15px;
+
+}
+
+.submit1 {
+    width: 80px;
+    background-color: #2d9499;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 15px;
+
+}
+
+.submit1:hover {
+    background-color: #1f5759;
+}
+
+.cross_Icon{
+    color: red;
+    font-size: 40px !important;
+}
+
+.tick_Icon{
+
+    color: green;
+    font-size: 40px !important;
+}
+
+.contain_Icon{
+    width: 40px;
+    margin-left: 10px;
+    margin-top: 15px;
+
+}
+.date1{
+
+    margin-top: 25px;
+    width: 450px;
+    display: flex;
+
+
+
+
+}
+.submit2 {
+    width: 80px;
+    background-color: #2d9499;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+}
+
+.submit2:hover {
+    background-color: #1f5759;
+}
+
+.upgrade_label{
+    position: relative;
+    color: gray;
+    top: 20px;
+    margin-bottom: 20px;
+    left: 20px;
+    font-size: 20px;
+
+}
+
+
+.upgrade_sublabel{
+    position: relative;
+    color: gray;
+    top: 20px;
+    margin-bottom: 20px;
+    left: 20px;
+    font-size: 12px;
+
+}
+
+.upgrade_form1{
+    position: relative;
+    display: flex;
+
+    top: 15px;
+    left: 35px;
+    width: 300px;
+    margin-top: 10px;
+}
+.img_submit {
+
+    width: 60px;
+    height: 30px;
+    background-color: #2d9499;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 20px;
+
+
+}
+
+.file_submit {
+
+    width: 60px;
+    height: 30px;
+    background-color: #2d9499;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-top: 15px;
+
+
+}
+
+
+.img_submit:hover {
+    background-color: #1f5759;
+}
+.file_submit:hover {
+    background-color: #1f5759;
+}
+
+.img_Icon{
+    width: 40px;
+    margin-left: 10px;
+}
+
+.file_Icon{
+    width: 40px;
+    margin-left: 10px;
+}
+
+._Icon{
+
+    color: red;
+    font-size: 30px !important;
+}
+
+._tick_Icon{
+
+    color: green;
+    font-size: 30px !important;
+}
+.f_tick_Icon{
+    margin-top: 15px;
+    color: green;
+    font-size: 30px !important;
+}
+
+.f_cross_Icon{
+    margin-top: 15px;
+    color: red;
+    font-size: 30px !important;
+}
+
+.form_file{
+    width: 180px;
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 15px;
+
+
+}
+
+
+
+
+

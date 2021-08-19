@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Givealot" uuid="ba52c94a-922b-4566-a659-4a8cd5d79e9a">
+    <data-source source="LOCAL" name="@hansken.db.elephantsql.com" uuid="94ab7076-7f8b-41a1-b8d4-b4b568fcb8a8">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://hansken.db.elephantsql.com:5432/iqvyaozz</jdbc-url>
+      <jdbc-url>jdbc:postgresql://hansken.db.elephantsql.com/</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="@hansken.db.elephantsql.com" uuid="2b224217-3c19-46dc-adaf-74f6d398e7a8">
+    <data-source source="LOCAL" name="postgres@209.97.142.151" uuid="c2115be9-a582-4130-8c1d-8deddc5027b3">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://hansken.db.elephantsql.com:5432/</jdbc-url>
+      <jdbc-url>jdbc:postgresql://209.97.142.151:5432/postgres</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

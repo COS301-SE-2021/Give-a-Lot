@@ -1,0 +1,6 @@
+{
+  "timestamp": "2021-08-14T14:14:08.138+00:00",
+  "status": 401,
+  "error": "Unauthorized",
+  "path": "/app/value"
+}

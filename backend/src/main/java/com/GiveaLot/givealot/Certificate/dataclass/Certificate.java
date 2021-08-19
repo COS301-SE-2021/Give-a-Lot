@@ -1,91 +1,122 @@
 package com.GiveaLot.givealot.Certificate.dataclass;
 
-public class Certificate {
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 
-    String nameOfOrganisation;
-    String descriptionOFOrganisation;
-    String Email;
-    String Address;
-    String Url;
-    Boolean isVerified;
-    Boolean addressIsValid;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Builder
+@AllArgsConstructor
+@Entity
+@Table(
+        name = "certificate"
+)
+public class Certificate {
+    @Column(
+            name = "date_created",
+            updatable = true,
+            nullable = false
+    )
+    String dateCreated;
+    @Column(
+            name = "date_expiry",
+            updatable = true,
+            nullable = false
+    )
+    String dateExpiry;
+    @Id
+    @Column(
+            name = "org_id",
+            updatable = false,
+            nullable = false
+    )
+    long org_id;
+
+    @Column(
+            name = "org_renewal",
+            updatable = false,
+            nullable = false
+    )
+    boolean orgRenewal;
+
+    @Column(
+            name = "admin_renewal",
+            updatable = true,
+            nullable = false
+    )
+    boolean adminRenewal;
+
+    @Column(
+            name = "points",
+            updatable = true,
+            nullable = false
+    )
+    int points;
 
     public Certificate(){
-        this.nameOfOrganisation = "";
-        this.descriptionOFOrganisation = "";
-        this.Email = "";
-        this.Address = "";
-        this.Url = "";
-        this.isVerified = false;
-        this.addressIsValid = false;
+        //Dependant on what will be on the certificate
+        this.dateCreated = "";
+        this.dateExpiry = "";
+        this.points = 0;
     }
 
-    public Certificate(String nameOfOrganisation, String descriptionOFOrganisation, String Email, String Address, String Url){
-        this.nameOfOrganisation = nameOfOrganisation;
-        this.descriptionOFOrganisation = descriptionOFOrganisation;
-        this.Email = Email;
-        this.Address = Address;
-        this.Url = Url;
-        this.isVerified = false;
-        this.addressIsValid = false;
+    public Certificate(long org_id, String dateCreated, String dateExpiry, int points){
+        this.org_id = org_id;
+        this.dateCreated = dateCreated;
+        this.dateExpiry = dateExpiry;
+        this.points = points;
+        this.adminRenewal = true;
+        this.orgRenewal = true;
     }
 
-    public String getNameOfOrganisation() {
-        return nameOfOrganisation;
+    public String getDateCreated() {
+        return dateCreated;
     }
 
-    public String getDescriptionOFOrganisation() {
-        return descriptionOFOrganisation;
+    public void setDateCreated(String dateCreated) {
+        this.dateCreated = dateCreated;
     }
 
-    public String getEmail() {
-        return Email;
+    public String getDateExpiry() {
+        return dateExpiry;
     }
 
-    public String getAddress() {
-        return Address;
+    public void setDateExpiry(String dateExpiry) {
+        this.dateExpiry = dateExpiry;
     }
 
-    public String getUrl() {
-        return Url;
+    public int getPoints() {
+        return points;
     }
 
-    public Boolean getVerified() {
-        return isVerified;
+    public long getOrgId() {
+        return org_id;
     }
 
-    public Boolean getAddressIsValid() {
-        return addressIsValid;
+    public void setOrgId(long org_id) {
+        this.org_id = org_id;
     }
 
-    public void setNameOfOrganisation(String nameOfOrganisation) {
-        this.nameOfOrganisation = nameOfOrganisation;
+    public boolean isOrgRenewal() {
+        return orgRenewal;
     }
 
-    public void setDescriptionOFOrganisation(String descriptionOFOrganisation) {
-        this.descriptionOFOrganisation = descriptionOFOrganisation;
+    public void setOrgRenewal(boolean orgRenewal) {
+        this.orgRenewal = orgRenewal;
     }
 
-    public void setEmail(String email) {
-        Email = email;
+    public boolean isAdminRenewal() {
+        return adminRenewal;
     }
 
-    public void setAddress(String address) {
-        Address = address;
+    public void setAdminRenewal(boolean adminRenewal) {
+        this.adminRenewal = adminRenewal;
     }
 
-    public void setUrl(String url) {
-        Url = url;
+    public void setPoints(int points) {
+        this.points = points;
     }
-
-    public void setVerified(Boolean verified) {
-        isVerified = verified;
-    }
-
-    public void setAddressIsValid(Boolean addressIsValid) {
-        this.addressIsValid = addressIsValid;
-    }
-
-
-
 }

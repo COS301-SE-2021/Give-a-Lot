@@ -1,4 +1,4 @@
-package com.GiveaLot.givealot;
+package com.givealot.givealot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

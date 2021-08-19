@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Report {
-    String orgId;
+    long orgId;
     String orgName;
     String reportDescription;
     String reportType;
@@ -13,11 +13,9 @@ public class Report {
     String date;
     String id;
 
-    public Report(){
 
-    }
-
-    public Report(String orgId, String reportDescription, String reportType, String reporterEmail){
+    public Report(long orgId, String orgName, String reportDescription, String reportType, String reporterEmail) {
+        //Standard Report
         this.orgId = orgId;
         this.orgName = orgName;
         this.reportDescription = reportDescription;
@@ -29,12 +27,14 @@ public class Report {
 
         Timestamp id = new Timestamp(System.currentTimeMillis());
 
-        this.id = id.toString().replaceAll("[^a-zA-Z0-9]", "");;
+        this.id = id.toString().replaceAll("[^a-zA-Z0-9]", "");
     }
 
-    /** Getters **/
+    /**
+     * Getters
+     **/
 
-    public String getOrgId() {
+    public long getOrgId() {
         return orgId;
     }
 
@@ -42,7 +42,7 @@ public class Report {
         return orgName;
     }
 
-    public String getReportDescription(){
+    public String getReportDescription() {
         return reportDescription;
     }
 
@@ -63,8 +63,9 @@ public class Report {
     }
 
 
-
-    /** Setters **/
+    /**
+     * Setters
+     **/
 
     public void setOrgName(String orgName) {
         this.orgName = orgName;
@@ -90,7 +91,9 @@ public class Report {
         this.id = id.toString().replaceAll("[^a-zA-Z0-9]", "");
     }
 
-    public void setOrgId(String orgId) {
+    public void setOrgId(long orgId) {
         this.orgId = orgId;
     }
+
+
 }

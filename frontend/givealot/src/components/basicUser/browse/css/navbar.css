@@ -1,0 +1,47 @@
+
+/*browse navbar styles*/
+
+.browse-navbar
+{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0);
+    margin-bottom: 35px;
+}
+
+.browse-navbar-icons
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.browse-navbar-icons>img
+{
+    width: 260px;
+    cursor: pointer;
+    position: relative;
+    left: -40px;
+
+}
+
+.menu1
+{
+    position: absolute;
+    right: 0;
+    top: 20px;
+    cursor: pointer;
+
+}
+
+.browse-section-label
+{
+    text-align: center;
+    background: #2d9499;
+    padding: 15px 0;
+    color: white;
+    font-size: 18px;
+
+}

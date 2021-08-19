@@ -20,6 +20,8 @@ import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -229,4 +231,14 @@ public class CertificateServiceImpl implements CertificateService {
         certificateRepository.updateAdminRenewal(orgId,true);
         return true;
     }
+
+    @Override
+    public boolean compareCertificate(File certificate) throws Exception {
+
+        Blockchain blockchain = blockChainRepository.selectBlockchainCertificateHash(
+                blockchainService.hashCertificate(certificate));
+        return blockchainService.compareCertificateHash(blockchain.getIndex(),blockchain.getOrgId(),certificate);
+    }
+
+
 }

@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="redirect" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="organisations controller revision">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Blockchain/service/BlockchainServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Certificate/dataclass/ContractConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gitignore" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +25,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
@@ -68,16 +76,29 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
-    <configuration name="generated-requests#17" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="17" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="generated-requests#21" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="21" runType="Run single request">
-      <method v="2" />
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="generated-requests#22" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="22" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#23" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="23" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests#27" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="27" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests#28" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="28" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#7" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="7" runType="Run single request">
@@ -92,11 +113,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests#28" />
+        <item itemvalue="HTTP Request.generated-requests#27" />
         <item itemvalue="HTTP Request.generated-requests#7" />
         <item itemvalue="HTTP Request.generated-requests#23" />
         <item itemvalue="HTTP Request.generated-requests#22" />
-        <item itemvalue="HTTP Request.generated-requests#21" />
-        <item itemvalue="HTTP Request.generated-requests#17" />
       </list>
     </recent_temporary>
   </component>
@@ -384,42 +405,28 @@
       <option name="project" value="LOCAL" />
       <updated>1629320181853</updated>
     </task>
-    <task id="LOCAL-00040" summary="organisations controller revision">
-      <created>1629326681696</created>
+    <task id="LOCAL-00040" summary="Fixing organisation points">
+      <created>1629327656636</created>
       <option name="number" value="00040" />
       <option name="presentableId" value="LOCAL-00040" />
       <option name="project" value="LOCAL" />
-      <updated>1629326681696</updated>
+      <updated>1629327656636</updated>
     </task>
-    <task id="LOCAL-00041" summary="organisations controller revision">
-      <created>1629326910169</created>
+    <task id="LOCAL-00041" summary="Fixing organisation points">
+      <created>1629327702103</created>
       <option name="number" value="00041" />
       <option name="presentableId" value="LOCAL-00041" />
       <option name="project" value="LOCAL" />
-      <updated>1629326910169</updated>
+      <updated>1629327702103</updated>
     </task>
-    <task id="LOCAL-00042" summary="redirect">
-      <created>1629327893819</created>
+    <task id="LOCAL-00042" summary="organisations controller revision">
+      <created>1629330985000</created>
       <option name="number" value="00042" />
       <option name="presentableId" value="LOCAL-00042" />
       <option name="project" value="LOCAL" />
-      <updated>1629327893819</updated>
+      <updated>1629330985000</updated>
     </task>
-    <task id="LOCAL-00043" summary="redirect">
-      <created>1629332054543</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1629332054543</updated>
-    </task>
-    <task id="LOCAL-00044" summary="redirect">
-      <created>1629332126265</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1629332126265</updated>
-    </task>
-    <option name="localTasksCounter" value="45" />
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -449,8 +456,9 @@
     <MESSAGE value="organisations controller revision - add socials" />
     <MESSAGE value="organisations controller revision - remove socials" />
     <MESSAGE value="organisations controller revision - tax" />
+    <MESSAGE value="organisations controller revision - add Organisation" />
+    <MESSAGE value="Fixing organisation points" />
     <MESSAGE value="organisations controller revision" />
-    <MESSAGE value="redirect" />
-    <option name="LAST_COMMIT_MESSAGE" value="redirect" />
+    <option name="LAST_COMMIT_MESSAGE" value="organisations controller revision" />
   </component>
 </project>

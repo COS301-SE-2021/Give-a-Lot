@@ -3,6 +3,7 @@ package com.GiveaLot.givealot.Certificate.service;
 import com.GiveaLot.givealot.Blockchain.Repository.BlockChainRepository;
 import com.GiveaLot.givealot.Blockchain.dataclass.Blockchain;
 import com.GiveaLot.givealot.Blockchain.service.BlockchainService;
+import com.GiveaLot.givealot.Blockchain.service.BlockchainServiceImpl;
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
 import com.GiveaLot.givealot.Notification.dataclass.Mail;
@@ -21,6 +22,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -234,10 +236,10 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     public boolean compareCertificate(File certificate) throws Exception {
-
+        BlockchainServiceImpl block = new BlockchainServiceImpl();
         Blockchain blockchain = blockChainRepository.selectBlockchainCertificateHash(
-                blockchainService.hashCertificate(certificate));
-        return blockchainService.compareCertificateHash(blockchain.getIndex(),blockchain.getOrgId(),certificate);
+                block.hashCertificate(certificate));
+        return block.compareCertificateHash(blockchain.getIndex(),blockchain.getOrgId(),certificate);
     }
 
 

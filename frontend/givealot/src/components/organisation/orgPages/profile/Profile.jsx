@@ -73,7 +73,7 @@ export class Profile extends Component {
 
                             <div className="userShowInfo">
                                 <PhoneAndroid className="userShowIcon" />
-                                <span className="userShowInfoTitle">081 456 675</span>
+                                <span className="userShowInfoTitle">Tshilidzi Nekhavhambe</span>
                             </div>
                             <div className="userShowInfo">
                                 <PhoneAndroid className="userShowIcon" />
@@ -81,11 +81,11 @@ export class Profile extends Component {
                             </div>
                             <div className="userShowInfo">
                                 <MailOutline className="userShowIcon" />
-                                <span className="userShowInfoTitle">annabeck99@gmail.com</span>
+                                <span className="userShowInfoTitle">Givers@gmail.com</span>
                             </div>
                             <div className="userShowInfo">
                                 <LocationSearching className="userShowIcon" />
-                                <span className="userShowInfoTitle">Pretoria</span>
+                                <span className="userShowInfoTitle">Pretoria, arcadia</span>
                             </div>
                         </div>
                     </div>
@@ -130,7 +130,7 @@ export class Profile extends Component {
                                     <label>Address</label>
                                     <input
                                         type="text"
-                                        placeholder="Pretoria"
+                                        placeholder="Pretoria, arcadia"
                                         className="userUpdateInput"
                                     />
                                 </div>

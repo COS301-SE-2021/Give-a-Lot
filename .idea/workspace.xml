@@ -4,25 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/controller/certificateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-08-18T065905.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-08-18T070326.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-08-18T072021.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-08-18T072223.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-08-18T072235.400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-08-18T072247.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-08-18T073255.404.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-08-18T073344.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-08-18T074450.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-08-18T075428.415.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-08-18T075444.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-08-19T062222.200.json" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/2021-08-19T062222.200.json" afterDir="false" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="organisations controller revision">
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-08-18T080442.200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-08-18T081440.200.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Browse/service/BrowseServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Browse/service/BrowseServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/Organisations.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/Organisations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Browse/service/BrowseServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Browse/service/BrowseServiceImp.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,10 +91,10 @@
     <configuration name="generated-requests#10" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="10" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#29" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="29" runType="Run single request">
+    <configuration name="generated-requests#33" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="33" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#31" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="31" runType="Run single request">
+    <configuration name="generated-requests#34" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="34" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#6" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="6" runType="Run single request">
@@ -123,11 +112,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests#34" />
+        <item itemvalue="HTTP Request.generated-requests#33" />
         <item itemvalue="HTTP Request.generated-requests#10" />
         <item itemvalue="HTTP Request.generated-requests#7" />
         <item itemvalue="HTTP Request.generated-requests#6" />
-        <item itemvalue="HTTP Request.generated-requests#29" />
-        <item itemvalue="HTTP Request.generated-requests#31" />
       </list>
     </recent_temporary>
   </component>
@@ -141,7 +130,7 @@
       <updated>1629230718911</updated>
       <workItem from="1629230737576" duration="39557000" />
       <workItem from="1629301692751" duration="18015000" />
-      <workItem from="1629341546581" duration="2397000" />
+      <workItem from="1629341546581" duration="8950000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <created>1629235654571</created>
@@ -451,7 +440,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629332012556</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="organisations controller revision">
+      <created>1629347243937</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1629347243937</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

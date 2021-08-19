@@ -154,7 +154,7 @@ public class BrowseServiceImp implements BrowseService{
 
                 for (Organisations org : tmpOrgs)
                 {
-                    browseSectorOrganisation.add(new browseSectorOrganisation(org.getOrgId(), org.getOrgName(),null, null));
+                    browseSectorOrganisation.add(new browseSectorOrganisation(org.getOrgId(), org.getOrgName(),"2021-08-19", org.getDirectory()));
                 }
                 res.add(new browseOrganisationsBySectorResponse(sector, browseSectorOrganisation));
             }/* don't throw an exception if the query failed, query other sectors instead*/

@@ -21,7 +21,11 @@ import com.GiveaLot.givealot.User.requests.GetUsersRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -30,6 +34,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 
 @Service
@@ -68,7 +73,6 @@ public class OrganisationServiceImp implements OrganisationService {
         this.organisationPointsRepository = organisationPointsRepository;
         this.certificateRepository = certificateRepository;
         this.userRepository = userRepository;
-
     }
 
     @Override /*tested all good - converted*/
@@ -587,12 +591,21 @@ public class OrganisationServiceImp implements OrganisationService {
 
         String name = organisation_tmp.getOrgName();
 
-        access.uploadAuditDocument(request.getOrgId(),name,request.getAudit());
+        File newFile = convert(request.getAudit());
+        access.uploadAuditDocument(request.getOrgId(),name,newFile);
 
         if (organisationInfoRepository.addAuditDoc(request.getOrgId(), "provided") != 1)
             throw new Exception("Exception: value field failed to update");
 
         return new generalOrganisationResponse("add_audoc_200_OK", "success");
+    }
+    public File convert(MultipartFile file) throws IOException {
+        File convFile = new File(Objects.requireNonNull(file.getOriginalFilename()));
+        convFile.createNewFile();
+        FileOutputStream fos = new FileOutputStream(convFile);
+        fos.write(file.getBytes());
+        fos.close();
+        return convFile;
     }
 
     @Override /*not fully integration tested, all good - converted*/

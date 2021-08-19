@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
 public interface OrganisationService {
     selectOrganisationResponse selectOrganisation(Long orgId) throws Exception;

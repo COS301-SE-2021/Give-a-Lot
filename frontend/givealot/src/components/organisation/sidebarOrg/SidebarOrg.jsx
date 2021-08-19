@@ -9,7 +9,10 @@ import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import ReportIcon from '@material-ui/icons/Report';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
+import AssignmentIcon from '@material-ui/icons/Assignment';
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import { Link } from "react-router-dom";
+
 
 
 export class SidebarOrg extends Component {
@@ -29,12 +32,12 @@ export class SidebarOrg extends Component {
                                 </li>
                             </Link>
 
-                            <Link to="/adminUsers" className="link">
+                           {/* <Link to="/adminUsers" className="link">
                                 <li className="sidebarListItemOrg">
                                     <PeopleOutlineIcon className="sidebarIconOrg"/>
                                     Users
                                 </li>
-                            </Link>
+                            </Link>*/}
 
                             <Link to="/profile" className="link">
                                 <li className="sidebarListItemOrg">
@@ -50,19 +53,25 @@ export class SidebarOrg extends Component {
                             {/*    </li>*/}
                             {/*</Link>*/}
 
-                            {/*<Link to="/calendar" className="link">*/}
-                            {/*    <li className="sidebarListItemOrg">*/}
-                            {/*        <CalendarTodayIcon className="sidebarIconOrg"/>*/}
-                            {/*        Calendar*/}
-                            {/*    </li>*/}
-                            {/*</Link>*/}
+                            <Link to="/calendar" className="link">
+                                <li className="sidebarListItemOrg">
+                                    <CalendarTodayIcon className="sidebarIconOrg"/>
+                                    Calendar
+                                </li>
+                            </Link>
 
-                            {/*<Link to="/todos" className="link">*/}
-                            {/*    <li className="sidebarListItemOrg">*/}
-                            {/*        <AssignmentIcon className="sidebarIconOrg"/>*/}
-                            {/*        To-do's*/}
-                            {/*    </li>*/}
-                            {/*</Link>*/}
+                            <Link to="/todos" className="link">
+                                <li className="sidebarListItemOrg">
+                                    <AssignmentIcon className="sidebarIconOrg"/>
+                                    To-do's
+                                </li>
+                            </Link>
+                            <Link to="/certificate" className="link">
+                                <li className="sidebarListItemOrg">
+                                    <VerifiedUserIcon className="sidebarIconOrg"/>
+                                    Certificate
+                                </li>
+                            </Link>
 
                             <Link to="/reports" className="link">
                                 <li className="sidebarListItemOrg">
@@ -71,12 +80,6 @@ export class SidebarOrg extends Component {
                                 </li>
                             </Link>
 
-                            <Link to="/certificate" className="link">
-                                <li className="sidebarListItemOrg">
-                                    <VerifiedUserIcon className="sidebarIconOrg"/>
-                                    Certificate
-                                </li>
-                            </Link>
 
                             <Link to="/logout" className="link">
                                 <li className="sidebarListItemOrg">

@@ -1,0 +1,77 @@
+{
+  "lanes": [
+    {
+      "id": "To do",
+      "title": "To do",
+      "label": "20/70",
+      "style": {
+        "width": 280
+      },
+      "cards": [
+        {
+          "id": "Location",
+          "title": "Add Location",
+          "label": "15 mins",
+          "description": "add organisation location"
+        },
+        {
+          "id": "Plan2",
+          "title": "Add images",
+          "label": "10 mins",
+          "description": "Add atleast 5 images"
+        },
+        {
+          "id": "Plan3",
+          "title": "Update details",
+          "label": "30 mins",
+          "description": "Update organisation details"
+        },
+        {
+          "id": "Plan4",
+          "title": "Upgrade certificate",
+          "label": "15 mins",
+          "description": "Add outstanding certificate details"
+        }
+      ]
+    },
+
+    {
+      "id": "In Progress",
+      "title": "In Progress",
+      "label": "0/0",
+      "style": {
+        "width": 280
+      },
+      "cards": [
+        {
+          "id": "Wip1",
+          "title": "Donation",
+          "label": "30 mins",
+          "description": "Update donation details"
+        }
+      ]
+    },
+    {
+      "id": "QA/Conformance ",
+      "title": "Completed",
+      "style": {
+        "width": 280
+      },
+      "label": "2/5",
+      "cards": [
+        {
+          "id": "Completed1",
+          "title": "Uploading profile picture",
+          "label": "5 mins",
+          "description": "Uploading the organisations profile picture"
+        },
+        {
+          "id": "Completed2",
+          "title": "Adding a slogan",
+          "label": "5 mins",
+          "description": "Adding the organisations slogan"
+        }
+      ]
+    }
+  ]
+}

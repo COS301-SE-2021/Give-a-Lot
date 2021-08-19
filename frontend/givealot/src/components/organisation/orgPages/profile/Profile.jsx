@@ -8,21 +8,46 @@ import {
     PhoneAndroid,
     Publish,
 } from "@material-ui/icons";
-// import { Link } from "react-router-dom";
+import axios from "axios";
 
 export class Profile extends Component {
 
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            org:[]
+        }
+    }
+
+    componentDidMount(){
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        axios.get('http://localhost:8080/v1/user/get/users', config)
+            .then(response =>{
+                console.log(response)
+                this.setState({org: response.data.response})
+                console.log(this.state.org)
+            })
+            .catch(error =>{
+                console.log(error)
+                this.setState({error : 'Error Retrieving data'})
+            })
+    }
+
     render() {
+        const { org } = this.state
         return (
             <div className="profileOrg">
                 <div className="userTitleContainer">
                     <h1 className="userTitle">Edit Information</h1>
-                    {/*<Link to="/newUser">*/}
-                    {/*    <button className="userAddButton">Create</button>*/}
-                    {/*</Link>*/}
                 </div>
-                <div className="userOrgContainer">
-                    <div className="userShow">
+                 <div className="userOrgContainer">
+                     <div className="userShow">
                         <div className="userShowTop">
                             <img
                                 src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
@@ -30,32 +55,37 @@ export class Profile extends Component {
                                 className="userShowImg"
                             />
                             <div className="userShowTopTitle">
-                                <span className="userShowUsername">Anna Becker</span>
-                                <span className="userShowUserTitle">Software Engineer</span>
+                                <span className="userShowUsername">Gift of the givers</span>
+                                <span className="userShowUserTitle">giving back to the people</span>
                             </div>
                         </div>
                         <div className="userShowBottom">
                             <span className="userShowTitle">Account Details</span>
                             <div className="userShowInfo">
                                 <PermIdentity className="userShowIcon" />
-                                <span className="userShowInfoTitle">annabeck99</span>
+                                <span className="userShowInfoTitle">Gift of the givers</span>
                             </div>
                             <div className="userShowInfo">
                                 <CalendarToday className="userShowIcon" />
-                                <span className="userShowInfoTitle">10.12.1999</span>
+                                <span className="userShowInfoTitle">19.08.2021</span>
                             </div>
                             <span className="userShowTitle">Contact Details</span>
+
                             <div className="userShowInfo">
                                 <PhoneAndroid className="userShowIcon" />
-                                <span className="userShowInfoTitle">+1 123 456 67</span>
+                                <span className="userShowInfoTitle">Tshilidzi Nekhavhambe</span>
+                            </div>
+                            <div className="userShowInfo">
+                                <PhoneAndroid className="userShowIcon" />
+                                <span className="userShowInfoTitle">081 456 675</span>
                             </div>
                             <div className="userShowInfo">
                                 <MailOutline className="userShowIcon" />
-                                <span className="userShowInfoTitle">annabeck99@gmail.com</span>
+                                <span className="userShowInfoTitle">Givers@gmail.com</span>
                             </div>
                             <div className="userShowInfo">
                                 <LocationSearching className="userShowIcon" />
-                                <span className="userShowInfoTitle">New York | USA</span>
+                                <span className="userShowInfoTitle">Pretoria, arcadia</span>
                             </div>
                         </div>
                     </div>
@@ -64,18 +94,26 @@ export class Profile extends Component {
                         <form className="userUpdateForm">
                             <div className="userUpdateLeft">
                                 <div className="userUpdateItem">
-                                    <label>Username</label>
+                                    <label>Organisation name</label>
                                     <input
                                         type="text"
-                                        placeholder="annabeck99"
+                                        placeholder="Gift of the givers"
                                         className="userUpdateInput"
                                     />
                                 </div>
                                 <div className="userUpdateItem">
-                                    <label>Full Name</label>
+                                    <label>Contact person</label>
                                     <input
                                         type="text"
-                                        placeholder="Anna Becker"
+                                        placeholder="Tshilidzi Nekhavhambe"
+                                        className="userUpdateInput"
+                                    />
+                                </div>
+                                <div className="userUpdateItem">
+                                    <label>Contacts</label>
+                                    <input
+                                        type="text"
+                                        placeholder="081 456 675"
                                         className="userUpdateInput"
                                     />
                                 </div>
@@ -83,23 +121,16 @@ export class Profile extends Component {
                                     <label>Email</label>
                                     <input
                                         type="text"
-                                        placeholder="annabeck99@gmail.com"
+                                        placeholder="Givers@gmail.com"
                                         className="userUpdateInput"
                                     />
                                 </div>
-                                <div className="userUpdateItem">
-                                    <label>Phone</label>
-                                    <input
-                                        type="text"
-                                        placeholder="+1 123 456 67"
-                                        className="userUpdateInput"
-                                    />
-                                </div>
+
                                 <div className="userUpdateItem">
                                     <label>Address</label>
                                     <input
                                         type="text"
-                                        placeholder="New York | USA"
+                                        placeholder="Pretoria, arcadia"
                                         className="userUpdateInput"
                                     />
                                 </div>

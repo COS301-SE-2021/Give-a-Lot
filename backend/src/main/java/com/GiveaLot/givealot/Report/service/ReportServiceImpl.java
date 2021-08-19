@@ -5,6 +5,7 @@ import com.GiveaLot.givealot.Organisation.response.selectOrganisationResponse;
 import com.GiveaLot.givealot.Report.dataclass.Report;
 import com.GiveaLot.givealot.Report.requests.createReportResponse;
 import com.GiveaLot.givealot.Server.ServerAccess;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

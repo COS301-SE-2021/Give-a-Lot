@@ -14,10 +14,11 @@
 
 .temporary{
     position: relative;
-    width: 700px;
+    width: 800px;
     height: 410px;
     margin: 0 auto;
     top: 70px;
+
 
 
 }
@@ -132,6 +133,10 @@
 }
 .upgrade_form{
     display: flex;
+}
+
+.upgrade_ngo_form{
+
 }
 .input1{
     width: 300px;

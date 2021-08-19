@@ -1,5 +1,6 @@
 package com.GiveaLot.givealot.Organisation.controller;
 
+import com.GiveaLot.givealot.Blockchain.service.BlockchainServiceImpl;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
@@ -15,7 +16,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.util.List;
 
 @RequestMapping("v1/organisation")
@@ -476,6 +479,7 @@ public class OrganisationController
             return new ResponseEntity<>(new numberOfImagesResponse("num_img_500_err","failed: " + e, null), HttpStatus.OK);
         }
     }
+
 
     @GetMapping("/points/{orgId}") /* all good - correctness not tested yet */
     public ResponseEntity<organisationPointsResponse> selectOrganisationPoints(@PathVariable("orgId") @NonNull long orgId)

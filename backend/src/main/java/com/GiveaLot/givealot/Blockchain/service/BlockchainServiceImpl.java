@@ -23,13 +23,13 @@ import java.security.NoSuchAlgorithmException;
 public class BlockchainServiceImpl implements BlockchainService {
 
 
-//    public final BlockChainRepository blockChainRepository;
+    public final BlockChainRepository blockChainRepository;
 
-//    @Autowired
-//    BlockchainServiceImpl(  BlockChainRepository blockchainDAOInterface)
-//    {
-//        this.blockChainRepository = blockchainDAOInterface;
-//    }
+    @Autowired
+    BlockchainServiceImpl(  BlockChainRepository blockChainRepository)
+    {
+        this.blockChainRepository = blockChainRepository;
+    }
 
     @Override
     public String[] uploadCertificate(long orgId, File certificate) throws Exception {
@@ -124,7 +124,8 @@ public class BlockchainServiceImpl implements BlockchainService {
         for (int i = 0; i < hashBytes.length; i++) {
             stringBuilder.append(Integer.toString((hashBytes[i] & 0xff) + 0x100, 16).substring(1));
         }
-        return stringBuilder.toString();    }
+        return stringBuilder.toString();
+    }
 
     @Override
     public Web3j buildWeb3jClient() {
@@ -154,9 +155,4 @@ public class BlockchainServiceImpl implements BlockchainService {
         ContractConfig config = new ContractConfig();
         return Credentials.create(config.getPRIVATE_KEY());    }
 
-    public static void main(String[] args) throws Exception {
-        BlockchainServiceImpl blockchainService = new BlockchainServiceImpl();
-        File file = new File("frontend/givealot/localFiles/20/certificate/CertificateComplete.pdf");
-        System.out.println(blockchainService.compareCertificateHash(5,20,file));
-    }
 }

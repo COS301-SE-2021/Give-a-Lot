@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import "./home.css";
-import logo from "../../admin/topbar/ID2.png"
+import logo from "../../Admin/topbar/ID2.png"
 import SearchIcon from '@material-ui/icons/Search';
 import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -20,7 +20,10 @@ export class HomeHeader extends Component {
                         <div className="Hometopright">
                             <div className="HometopbarIconContainer">
                                 <Link to="/verifyPage" className="link">
-                                    <SearchIcon/>
+                                    {/*<SearchIcon/>*/}
+                                    <Button variant="outlined" type="submit" className="home_button" style={{width: '200px'}}>
+                                        Verify Certificate
+                                    </Button>
                                 </Link>
                             </div>
                             <div className="HometopbarIconContainer">

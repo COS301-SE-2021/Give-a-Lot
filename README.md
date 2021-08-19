@@ -43,7 +43,7 @@
 
 <div style="margin-left: 4%">
 
-The team Peak Performers had the following mentor from <a href="https://5dt.com/"> Fifth Dimension Technologies </a> and the <a href="https://www.up.ac.za/"> University of Pretoria</a>:
+The team Kids next Door had the following mentor from Deep Sink </a> and the <a href="https://www.up.ac.za/"> University of Pretoria</a>:
 
 Industry Mentor:
 * Madimetja Shika:  madi@deepsinkpartners.com
@@ -52,6 +52,20 @@ University Mentor:
 * Mr Badat: la.badat@up.ac.za
 
 </div>
+<h1> Demo 3 Documentation</h1>
+ <br>
+
+ <a href="https://drive.google.com/file/d/1CFI2DA_V8gw9ytnAjD_ah1ak4lCGUfMN/view?usp=sharing"> Usability manual </a>
+ <br>
+ <a href="https://drive.google.com/file/d/1FmVqmprhwNykYTpffb8rgnJWLMl7B2wj/view?usp=sharing"> SRS document </a>
+  <br>
+
+ <a href="https://drive.google.com/file/d/1jG82jaJfu3bAgi71czitM4-QURK7ZHin/view?usp=sharing"> Technical installation document </a>
+  <br>
+
+ <a href=""> Architectural design document </a>
+
+
 
 # Demo Video Links
 

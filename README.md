@@ -23,6 +23,17 @@
 [Demo 2 Project Board]
 (https://github.com/COS301-SE-2021/Give-a-Lot/projects/2)
 <br>
+<h3>Demo 3 Documentation</h3>
+<a href="https://drive.google.com/file/d/1CFI2DA_V8gw9ytnAjD_ah1ak4lCGUfMN/view?usp=sharing"> User Manual </a>
+<br><br>
+<a href="https://drive.google.com/file/d/1jG82jaJfu3bAgi71czitM4-QURK7ZHin/view?usp=sharing"> Technical Installation Documents </a>
+<br><br>
+<a href="https://drive.google.com/file/d/1FmVqmprhwNykYTpffb8rgnJWLMl7B2wj/view?usp=sharing"> SRS Document </a>
+<br><br>
+
+<a href="https://drive.google.com/file/d/1KEjxb9IEYz-uaWCV3jwbreG89nyj_W5Z/view"> Architectural requirements document </a>
+
+
 
 
 ## Kids Next Door Team Members

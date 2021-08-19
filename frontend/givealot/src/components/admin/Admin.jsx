@@ -32,7 +32,6 @@ function Admin() {
         console.log("user logged out or not admin")
     }
 
-
     ///console.log(foundUser)
     return (
         <Router>
@@ -41,7 +40,7 @@ function Admin() {
                 <div className="container">
                     <Sidebar />
                     <Switch>
-                        <Route exact path="/dash">
+                        <Route exact path="/">
                             <Dashboard />
                         </Route>
                         <Route path="/adminUsers">
@@ -50,9 +49,6 @@ function Admin() {
                         <Route path="/user/:userId">
                             <User />
                         </Route>
-                        {/*<Route path="/newUser">*/}
-                        {/*    <NewUser />*/}
-                        {/*</Route>*/}
                         <Route path="/adminOrgs">
                             <AdminOrgs />
                         </Route>
@@ -68,9 +64,6 @@ function Admin() {
                         <Route path="/todos">
                             <Todo />
                         </Route>
-                        {/*<Route path="/logout">*/}
-                        {/*    <NewUser />*/}
-                        {/*</Route>*/}
                         <Route path="/infoValidation">
                             <InfoValidation />
                         </Route>

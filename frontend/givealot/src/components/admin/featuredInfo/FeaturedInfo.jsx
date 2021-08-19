@@ -33,28 +33,6 @@ export class FeaturedInfo extends Component {
 
     }
 
-    // getUsers(){
-    //     let config = {
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             'Access-Control-Allow-Origin': '*',
-    //         }
-    //     }
-    //     const adminUsersRequestBody = {
-    //         "adminUserEmail" : this.state.adminUserEmail
-    //     }
-    //     axios.post('http://localhost:8080/v1/user/get/users', adminUsersRequestBody ,config)
-    //         .then(response =>{
-    //             console.log(response)
-    //             this.setState({users: response.data.response})
-    //             console.log(this.state.users)
-    //         })
-    //         .catch(error =>{
-    //             // console.log(error)
-    //             this.setState({error : 'Error Retrieving data'})
-    //         })
-    // }
-
     render() {
 
         const { orgs , users} = this.state

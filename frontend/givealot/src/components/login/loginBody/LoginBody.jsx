@@ -7,11 +7,12 @@ import LockOpenIcon from '@material-ui/icons/LockOpen';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import {Link} from "react-router-dom";
 import FormError from "../../register/registerUser/FormError";
-import Admin from "../../Admin/Admin";
-import Organisation from "../../organisation/Organisaion";
-import Browse from "../../basicUser/browse/Browse"
+// import Admin from "../../Admin/Admin";
+// import Organisation from "../../organisation/Organisaion";
+// import Browse from "../../basicUser/browse/Browse"
 import { Redirect, Route } from "react-router";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
+// import { withRouter } from 'react-router-dom'
 
 export class LoginBody extends Component {
 
@@ -23,9 +24,11 @@ export class LoginBody extends Component {
             formErrors: {email: '', password: ''},
             emailValid: false,
             passwordValid: false,
-            formValid: false
+            formValid: false,
+            redirect: false
         }
     }
+
 
     changeHandler = (e) =>{
         // this.setState({[e.target.name] : e.target.value})
@@ -92,30 +95,20 @@ export class LoginBody extends Component {
                     "email":response.data.username,
                     "role":response.data.jwttoken
                 }
-
                 ////set local variables
                 localStorage.setItem( "id" ,response.data.id);
                 localStorage.setItem( "role" ,response.data.jwttoken)
 
-
-                if (response.data.jwttoken==="general"){
-                    /////redirect
-                    // return <Redirect to="/home" />;
-                    // history.push("/");
+                if (response.data.jwttoken === "general") {
+                    // return <Redirect to="/" />;
+                    return <Redirect to={{ pathname: '/organisa'}} />
                 }
-                else if (response.data.jwttoken==="admin"){
+
+                else if (response.data.jwttoken === "admin"){
                     console.log("here is admin")
-                    return <Redirect push to="/admin" />
-
-                    // return <Redirect
-                    //     to={{
-                    //         pathname: "/admin",
-                    //         search: "?utm=your+face",
-                    //         state: { referrer: currentLocation }
-                    //     }}
-                    // />
+                    return <Redirect to='/admin' />
                 }
-                else if (response.data.jwttoken==="organization"){
+                else if (response.data.jwttoken === "organization"){
                     return <Redirect to="/org" />;
                 }
                 else{

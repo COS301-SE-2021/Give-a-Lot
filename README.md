@@ -26,6 +26,12 @@
 [Demo 3 Project Board]
 (https://github.com/COS301-SE-2021/Give-a-Lot/projects/4)
 <br>
+<h3>Demo 2 Documentation</h3>
+<a href="https://drive.google.com/file/d/1Di_9bHOnuGjLVx-TSGUBZ4JJtTczgMHC/view?usp=sharing"> SRS Document </a>
+<br><br>
+<a href="https://drive.google.com/file/d/1UU7OfSolEBjiBHExVGGJ1PQzOEdpfhAW/view?usp=sharing"> Architectural requirements document </a>
+
+<br>
 <h3>Demo 3 Documentation</h3>
 <a href="https://drive.google.com/file/d/1CFI2DA_V8gw9ytnAjD_ah1ak4lCGUfMN/view?usp=sharing"> User Manual </a>
 <br><br>

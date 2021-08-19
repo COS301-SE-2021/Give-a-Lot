@@ -1,3 +1,116 @@
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "organisation name cert",
+  "slogan" : "shame neh",
+  "orgDescription" : "We are trying our best to keep it together but in reality its tough, one day at a time.",
+  "orgSector" : "developers",
+  "orgEmail" : "contact@okay.com",
+  "contactPerson" : "Madi",
+  "contactNumber" : "9234723823",
+  "password" : "givepassword"
+}
+
+<> 2021-08-19T062222.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/determine
+Content-Type: application/json
+
+{
+  "username" : "marie@gmail.com",
+  "password" : "biscuits",
+  "role" : "default"
+}
+
+<> 2021-08-19T061410.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/general
+Content-Type: application/json
+
+{
+  "username" : "rashiidahweira@gmail.com",
+  "password" : "kids123",
+  "role" : "default"
+}
+
+<> 2021-08-19T061108.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/general
+Content-Type: application/json
+
+{
+  "username" : "rashiidahweira@gmail.com",
+  "password" : "kids123",
+  "role" : "default"
+}
+
+<> 2021-08-19T061048.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/general
+Content-Type: application/json
+
+{
+  "username" : "rashidahweira@gmail.com",
+  "password" : "kids123",
+  "role" : "default"
+}
+
+<> 2021-08-19T060954.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/general
+Content-Type: application/json
+
+{
+  "username" : "admin@email.com",
+  "password" : "pass1234",
+  "role" : "default"
+}
+
+<> 2021-08-19T060908.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/get/organisations/temporal
+
+<> 2021-08-19T060828.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors
+
+<> 2021-08-19T041317.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors
+
+<> 2021-08-19T024646.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/get/organisations/temporal
+
+<> 2021-08-19T024631.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/get/organisations/temporal
+
+<> 2021-08-19T023223.200.json
+
+###
+
 GET http://localhost:8080/v1/organisation/get/organisations/temporal
 
 <> 2021-08-19T021130.200.json
@@ -288,95 +401,6 @@ Content-Type: application/json
 DELETE http://localhost:8080/v1/organisation/delete/address/18
 
 <> 2021-08-18T080442.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/add/address
-Content-Type: application/json
-
-{
-  "orgId": "18",
-  "address": "458 Give alot str, Pretoria, SA"
-}
-
-<> 2021-08-18T075444.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/add/address
-
-{
-  "orgId": "18",
-  "address": "458 Give alot str, Pretoria, SA"
-}
-
-<> 2021-08-18T075428.415.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/website/18
-
-<> 2021-08-18T074450.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/website
-Content-Type: application/json
-
-{
-  "orgId": "18",
-  "website": "www.someweb.org"
-}
-
-<> 2021-08-18T073344.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/website
-Content-Type: application/json
-
-{
-  "orgId": "18",
-  "website": "www.someweb.org"
-}
-
-<> 2021-08-18T073255.404.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/investigate/18
-
-<> 2021-08-18T072247.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/investigate/18d
-
-<> 2021-08-18T072235.400.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/investigate/18
-
-<> 2021-08-18T072223.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/activate/18
-
-<> 2021-08-18T072021.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/suspend/18
-
-<> 2021-08-18T070326.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/suspend/18
-
-<> 2021-08-18T065905.200.json
 
 ###
 

@@ -235,6 +235,9 @@ public class CertificateServiceImpl implements CertificateService {
     @Override
     public boolean compareCertificate(File certificate) throws Exception {
 
+        if(certificate == null)
+            throw new Exception("Exception: certificate object is null");
+
         Blockchain blockchain = blockChainRepository.selectBlockchainCertificateHash(
                 blockchainService.hashCertificate(certificate));
         return blockchainService.compareCertificateHash(blockchain.getIndex(),blockchain.getOrgId(),certificate);

@@ -19,7 +19,7 @@ import Browse from "./components/basicUser/browse/Browse"
 function App() {
   return (
    <div>
-        <Switch>
+      {/*  <Switch>
            <Route exact path="/">
                <Home />
            </Route>
@@ -42,7 +42,9 @@ function App() {
                 <Browse />
             </Route>
        </Switch>
-       {/*<Organisation/>*/}
+       <Organisation/>*/}
+
+       <Browse />
    </div>
     
   );

@@ -38,7 +38,7 @@ export default function Certificate() {
                 </Link>
             </button>
             <button className="button button2" onClick={DownloadC} ><GetAppIcon className="certIcon"/>Download</button>
-            {Dcertificate}
+
 
             <div className="temporary">
                 {/*} <embed className="image" src="Certificate%20(1).pdf" alt="cert" style={{width: "700px", height: "410px"}}/>*/}

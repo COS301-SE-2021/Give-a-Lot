@@ -1,5 +1,17 @@
 GET http://localhost:8080/v1/organisation/get/organisations/temporal
 
+<> 2021-08-19T021130.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/get/organisations/temporal
+
+<> 2021-08-19T021043.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/get/organisations/temporal
+
 <> 2021-08-19T015551.200.json
 
 ###
@@ -365,30 +377,6 @@ PUT http://localhost:8080/v1/organisation/suspend/18
 PUT http://localhost:8080/v1/organisation/suspend/18
 
 <> 2021-08-18T065905.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/suspend/18
-
-<> 2021-08-18T065748.404.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "Kids next door",
-  "slogan" : "When the code breaks, blame the recent commit and push",
-  "orgDescription" : "We are trying our best to keep it together but in reality its tough, one day at a time.",
-  "orgSector" : "developers",
-  "orgEmail" : "contact@kidsnextdoor.com",
-  "contactPerson" : "Madi",
-  "contactNumber" : "0112345678",
-  "password" : "givepassword"
-}
-
-<> 2021-08-18T064536.200.json
 
 ###
 

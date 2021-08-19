@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="route">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/components/organisation/orgPages/certificateOrg/Upgrade.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/components/organisation/orgPages/certificateOrg/Upgrade.jsx" afterDir="false" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="upgrade page">
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/components/admin/adminPages/adminOrgs/AdminOrgs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/components/admin/adminPages/adminOrgs/AdminOrgs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/components/register/registerOrganisation/registerOrgPages/Confirmation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/components/register/registerOrganisation/registerOrgPages/Confirmation.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/components/register/registerOrganisation/registerOrgPages/OrganisationAbout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/components/register/registerOrganisation/registerOrgPages/OrganisationAbout.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,13 +127,6 @@
       <updated>1629230718911</updated>
       <workItem from="1629230737576" duration="39557000" />
       <workItem from="1629301692751" duration="18015000" />
-    </task>
-    <task id="LOCAL-00006" summary="user and login system are complete">
-      <created>1629252237529</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1629252237529</updated>
     </task>
     <task id="LOCAL-00007" summary="user and login system are complete">
       <created>1629254855215</created>
@@ -475,7 +464,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629349653528</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="upgrade page">
+      <created>1629354266890</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1629354266890</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -511,6 +507,7 @@
     <MESSAGE value="admin orgs displaying" />
     <MESSAGE value="Role-based access" />
     <MESSAGE value="route" />
-    <option name="LAST_COMMIT_MESSAGE" value="route" />
+    <MESSAGE value="upgrade page" />
+    <option name="LAST_COMMIT_MESSAGE" value="upgrade page" />
   </component>
 </project>

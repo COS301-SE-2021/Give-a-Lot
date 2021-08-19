@@ -113,24 +113,24 @@ const columns = [
     { field: "orgSector", headerName: "Sector", width: 130 },
     { field: "orgEmail", headerName: "Email", width: 200 },
     { field: "orgId", headerName: "ID", width: 100 },
-    { field: "status", headerName: "Status", width: 130 },
+    // { field: "status", headerName: "Status", width: 130 },
     { field: "contactPerson", headerName: "Contact Person", width: 200 },
     { field: "contactNumber", headerName: "Number", width: 160 },
-
-    {
-        field: "action",
-        headerName: "Action",
-        width: 150,
-        renderCell: (params) => {
-            return (
-                <>
-                    <Link to={"/orgs/" + params.row.id}>
-                        <button className="OrgsListEdits">Edit</button>
-                    </Link>
-                </>
-            );
-        },
-    },
+    //
+    // {
+    //     field: "action",
+    //     headerName: "Action",
+    //     width: 150,
+    //     renderCell: (params) => {
+    //         return (
+    //             <>
+    //                 <Link to={"/orgs/" + params.row.id}>
+    //                     <button className="OrgsListEdits">Edit</button>
+    //                 </Link>
+    //             </>
+    //         );
+    //     },
+    // },
 ];
 export default class AdminOrgs extends Component {
     // const [data, info ,setData] = useState(userRows);
@@ -192,7 +192,7 @@ export default class AdminOrgs extends Component {
                         <TableCell align="right">Contact Person</TableCell>
                         <TableCell align="right">Contact Number</TableCell> */}
                                 <TableCell style={{paddingLeft:"60px"}} align="right" >Action</TableCell>
-                                <TableCell align="right">Status</TableCell>
+                                {/*<TableCell align="right">Status</TableCell>*/}
                             </TableRow>
                         </TableHead>
                         <TableBody>

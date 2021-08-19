@@ -9,16 +9,16 @@ import OutlinedInput from "@material-ui/core/OutlinedInput";
 import InputAdornment from "@material-ui/core/InputAdornment";
 // import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
 import DescriptionIcon from '@material-ui/icons/Description';
-//import InputLabel from '@material-ui/core/InputLabel';
-//import MenuItem from '@material-ui/core/MenuItem';
-//import Select from '@material-ui/core/Select';
+import { withRouter } from "react-router";
+import {Confirmation} from "./Confirmation";
 
 
 export class OrganisationAbout extends Component {
 
     proceed = e => {
         e.preventDefault();
-        this.props.nextStep();
+        // this.props.nextStep();
+        this.props.history.push("/login");
     };
     back = e => {
         e.preventDefault();
@@ -125,4 +125,4 @@ export class OrganisationAbout extends Component {
     }
 }
 
-export default OrganisationAbout
+export default withRouter(OrganisationAbout);

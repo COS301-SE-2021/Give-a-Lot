@@ -109,6 +109,5 @@ modules.xml
 /backend/src/main/resources/application.yml
 /backend/target/classes/application.properties
 /backend/target/classes/application.yml
-/backend/src/main/java/com/GiveaLot/givealot/Server/known_hosts
-/backend/src/main/java/com/GiveaLot/givealot/Server/ServerConfig.java
-/backend/src/main/java/com/GiveaLot/givealot/Certificate/dataclass/ContractConfig.java
+backend/src/main/java/com/GiveaLot/givealot/Server/ServerConfig.java
+backend/src/main/java/com/GiveaLot/givealot/Certificate/dataclass/ContractConfig.java

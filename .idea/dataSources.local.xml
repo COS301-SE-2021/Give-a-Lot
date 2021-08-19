@@ -5,7 +5,7 @@
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
       <schema-mapping />
     </data-source>
-    <data-source name="PostgreSQL - postgres@209.97.142.151" uuid="c2115be9-a582-4130-8c1d-8deddc5027b3">
+    <data-source name="postgres@209.97.142.151" uuid="c2115be9-a582-4130-8c1d-8deddc5027b3">
       <database-info product="PostgreSQL" version="12.8 (Ubuntu 12.8-0ubuntu0.20.04.1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.5" dbms="POSTGRES" exact-version="12.8" exact-driver-version="42.2">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
@@ -13,23 +13,13 @@
       <user-name>user</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="database" qname="postgres" />
+          <node kind="database">
+            <name qname="givealot" />
+            <name qname="postgres" />
+            <node kind="schema" qname="public" />
+          </node>
         </introspection-scope>
       </schema-mapping>
-    </data-source>
-    <data-source name="PostgreSQL" uuid="2589bd9a-99bf-4159-bef7-0a24b48a69f1">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
-      <schema-mapping />
-    </data-source>
-    <data-source name="PostgreSQL - postgres@localhost" uuid="f2d4e679-51f8-4225-add7-ee59fb369fb8">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
-      <schema-mapping />
-    </data-source>
-    <data-source name="@209.97.142.151" uuid="c4aa1701-6b08-4d2c-8e94-a4a66b4843ad">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
-      <secret-storage>master_key</secret-storage>
-      <user-name>user</user-name>
-      <schema-mapping />
     </data-source>
   </component>
 </project>

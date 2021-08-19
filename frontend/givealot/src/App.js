@@ -18,11 +18,9 @@ import Organisation from "./components/organisation/Organisaion";
 // import AdminDash from './components/Admin/adminPages/dashboard/Dashboard'
 
 function App() {
-
-
   return (
    <div>
-       <Switch>
+       {/*<Switch>
            <Route exact path="/">
                <Home />
            </Route>
@@ -44,18 +42,17 @@ function App() {
             <Route exact path="/browse">
                 <Browse />
             </Route>
-           {/*<Route path="/admin" >*/}
-           {/*    <Admin />*/}
-           {/*</Route>*/}
-           <Route path="/admin" render={Admin}  />
-           <Route exact path="/organisa">
+           <Route exact path="/admin">
+               <Admin />
+           </Route>
+           <Route exact path="/org">
                <Organisation />
            </Route>
-           {/*<Route exact path="/home">*/}
-           {/*    <Home />*/}
-           {/*</Route>*/}
-       </Switch>
-       {/*<Admin />*/}
+           <Route exact path="/home">
+               <Home />
+           </Route>
+       </Switch>*/}
+       <Organisation />
    </div>
     
   );

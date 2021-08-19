@@ -17,7 +17,7 @@ import javax.mail.MessagingException;
 import java.io.IOException;
 
 @SpringBootApplication
-public class GivealotApplication /*implements CommandLineRunner*/{
+public class GivealotApplication implements CommandLineRunner{
 
 
 	@Autowired
@@ -27,18 +27,17 @@ public class GivealotApplication /*implements CommandLineRunner*/{
 		SpringApplication.run(GivealotApplication.class, args);
 	}
 
-/*	@Override
+	@Override
 	public void run(String... args) {
 
 		System.out.println("Sending Email...");
 
 		Mail mail = new Mail("futuremoroke@gmail.com","testing","test");
 		sendMailService.sendMail(mail);
-	//sendEmail();
-			//sendEmailWithAttachment();
+	;
 		System.out.println("Done");
 
-	}*/
+	}
 
 
 

@@ -124,7 +124,8 @@ public class BlockchainServiceImpl implements BlockchainService {
         for (int i = 0; i < hashBytes.length; i++) {
             stringBuilder.append(Integer.toString((hashBytes[i] & 0xff) + 0x100, 16).substring(1));
         }
-        return stringBuilder.toString();    }
+        return stringBuilder.toString();
+    }
 
     @Override
     public Web3j buildWeb3jClient() {

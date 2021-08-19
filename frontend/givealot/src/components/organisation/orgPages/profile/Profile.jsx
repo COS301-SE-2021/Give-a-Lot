@@ -9,6 +9,7 @@ import {
     Publish,
 } from "@material-ui/icons";
 import axios from "axios";
+import DescriptionIcon from '@material-ui/icons/Description';
 
 export class Profile extends Component {
 
@@ -55,28 +56,34 @@ export class Profile extends Component {
                                 className="userShowImg"
                             />
                             <div className="userShowTopTitle">
-                                <span className="userShowUsername">Anna Becker</span>
-                                <span className="userShowUserTitle">Software Engineer</span>
+                                <span className="userShowUsername">Kid next door</span>
+                                <span className="userShowUserTitle">developers</span>
                             </div>
                         </div>
                         <div className="userShowBottom">
-                            <span className="userShowTitle">Account Details</span>
-                            <div className="userShowInfo">
-                                <PermIdentity className="userShowIcon" />
-                                <span className="userShowInfoTitle">annabeck99</span>
-                            </div>
-                            <div className="userShowInfo">
-                                <CalendarToday className="userShowIcon" />
-                                <span className="userShowInfoTitle">10.12.1999</span>
-                            </div>
                             <span className="userShowTitle">Contact Details</span>
                             <div className="userShowInfo">
-                                <PhoneAndroid className="userShowIcon" />
-                                <span className="userShowInfoTitle">+1 123 456 67</span>
+                                <PermIdentity className="userShowIcon" />
+                                <span className="userShowInfoTitle">Madi</span>
                             </div>
                             <div className="userShowInfo">
-                                <MailOutline className="userShowIcon" />
-                                <span className="userShowInfoTitle">annabeck99@gmail.com</span>
+                                <PhoneAndroid className="userShowIcon" />
+                                <span className="userShowInfoTitle">011234578</span>
+                            </div>
+                            <span className="userShowTitle">Organisation Details</span>
+                            <div className="userShowInfo">
+                                <DescriptionIcon className="userShowIcon" />
+                                <span className="userShowInfoTitle">
+                                    We are trying our best to keep it together
+                                    but in reality its tough, one day at a time.
+                                </span>
+                            </div>
+                            <div className="userShowInfo">
+                                <DescriptionIcon className="userShowIcon" />
+                                <span className="userShowInfoTitle">
+                                    When the code breaks, blame
+                                    the recent commit and push
+                                </span>
                             </div>
                             <div className="userShowInfo">
                                 <LocationSearching className="userShowIcon" />

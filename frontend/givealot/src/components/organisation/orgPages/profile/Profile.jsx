@@ -46,7 +46,7 @@ export class Profile extends Component {
                 <div className="userTitleContainer">
                     <h1 className="userTitle">Edit Information</h1>
                 </div>
-                <div className="userOrgContainer">
+                 <div className="userOrgContainer">
                     <div className="userShow">
                         <div className="userShowTop">
                             <img
@@ -72,7 +72,7 @@ export class Profile extends Component {
                             <span className="userShowTitle">Contact Details</span>
                             <div className="userShowInfo">
                                 <PhoneAndroid className="userShowIcon" />
-                                <span className="userShowInfoTitle">+1 123 456 67</span>
+                                <span className="userShowInfoTitle">081 456 675</span>
                             </div>
                             <div className="userShowInfo">
                                 <MailOutline className="userShowIcon" />
@@ -80,7 +80,7 @@ export class Profile extends Component {
                             </div>
                             <div className="userShowInfo">
                                 <LocationSearching className="userShowIcon" />
-                                <span className="userShowInfoTitle">New York | USA</span>
+                                <span className="userShowInfoTitle">Pretoria</span>
                             </div>
                         </div>
                     </div>
@@ -116,7 +116,7 @@ export class Profile extends Component {
                                     <label>Phone</label>
                                     <input
                                         type="text"
-                                        placeholder="+1 123 456 67"
+                                        placeholder="081 456 675"
                                         className="userUpdateInput"
                                     />
                                 </div>
@@ -124,7 +124,7 @@ export class Profile extends Component {
                                     <label>Address</label>
                                     <input
                                         type="text"
-                                        placeholder="New York | USA"
+                                        placeholder="Pretoria"
                                         className="userUpdateInput"
                                     />
                                 </div>

@@ -2,14 +2,15 @@ import React, { Component } from 'react'
 import "./featuredInfoOrg.css"
 import PeopleIcon from '@material-ui/icons/People';
 
+
 export class FeaturedInfoOrg extends Component {
     render() {
         return (
             <div className="featuredOrg">
                 <div className="featuredItemOrg">
-                   <span className="featuredTitleOrg"> Users</span>
+                   <span className="featuredTitleOrg"> Amount Donated</span>
                    <div className="featuredMoneyContainerOrg">
-                       <span className="featuredMoneyOrg">1234</span>
+                       <span className="featuredMoneyOrg">R0</span>
                        <span className="featuredMoneyRateOrg">
                            <PeopleIcon className="featuredIconOrg"/>
                        </span>
@@ -20,9 +21,9 @@ export class FeaturedInfoOrg extends Component {
                 </div>
 
                 <div className="featuredItemOrg">
-                   <span className="featuredTitleOrg"> Organisations</span>
+                   <span className="featuredTitleOrg"> Reports</span>
                    <div className="featuredMoneyContainerOrg">
-                       <span className="featuredMoneyOrg">1234</span>
+                       <span className="featuredMoneyOrg">0</span>
                        <span className="featuredMoneyRateOrg">
                            <PeopleIcon className="featuredIconOrg"/>
                        </span>
@@ -35,7 +36,7 @@ export class FeaturedInfoOrg extends Component {
                 <div className="featuredItemOrg">
                    <span className="featuredTitleOrg"> Notifications</span>
                    <div className="featuredMoneyContainerOrg">
-                       <span className="featuredMoneyOrg">1234</span>
+                       <span className="featuredMoneyOrg">4</span>
                        <span className="featuredMoneyRateOrg">
                            <PeopleIcon className="featuredIconOrg"/>
                        </span>

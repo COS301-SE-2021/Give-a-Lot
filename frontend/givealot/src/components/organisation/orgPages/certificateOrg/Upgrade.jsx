@@ -47,26 +47,34 @@ export class Upgrade extends Component {
          };*/
 
         this.state = {
-            startDate: new Date(),
-            orgId: "18",
+            startDate: "",
+            startDate2: new Date(),
+            orgId: "19",
             type: "instagram",
             url:"",
             website: "",
             address:"",
             reference:"",
             committee:"",
-            date:""
+            date:"",
+            ngoNumber:"",
         };
         this.handleChange = this.handleChange.bind(this);
         this.onFormSubmit = this.onFormSubmit.bind(this);
+
 
     }
 
     handleChange(date) {
         this.setState({startDate: date, date:document.getElementsByClassName("input3")[0].value} )
 
-
     }
+
+    /*handleNGOChange(date) {
+        this.setState({startDate2: date, date:document.getElementsByClassName("input4")[0].value} )
+        console.log(document.getElementsByClassName("input4")[0].value)
+
+    }*/
 
     onFormSubmit(e) {
         e.preventDefault();
@@ -99,10 +107,7 @@ export class Upgrade extends Component {
 
     };
 
-    handleDateInputChange = e => {
-        this.setState({date: e.target.value});
 
-    };
     handleInstaInputChange = e => {
         this.setState({url: e.target.value});
 
@@ -115,6 +120,17 @@ export class Upgrade extends Component {
         this.setState({committee: e.target.value});
 
     };
+
+    handleNGOInputChange = e => {
+        this.setState({ngoNumber: e.target.value});
+
+    };
+
+    handleDateInputChange = e => {
+        this.setState({date: e.target.value});
+
+    };
+
     handleFormChange = e => {
         e.preventDefault();
 
@@ -147,6 +163,7 @@ export class Upgrade extends Component {
             type: this.state.type,
             url: this.state.url,
         };
+        console.log(data)
         Axios
             .post("http://localhost:8080/v1/organisation/add/socials", data)
             .then(res => console.log(res))
@@ -175,6 +192,21 @@ export class Upgrade extends Component {
         };
         Axios
             .post("http://localhost:8080/v1/organisation/add/committee", data)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    };
+
+    handleNGOFormChange = e => {
+        e.preventDefault();
+        const data = {
+            orgId: this.state.orgId,
+            ngoNumber: this.state.ngoNumber,
+            date: this.state.date,
+
+        };
+        console.log(data)
+        Axios
+            .post("http://localhost:8080/v1/organisation/add/ngo", data)
             .then(res => console.log(res))
             .catch(err => console.log(err));
     };
@@ -239,8 +271,8 @@ export class Upgrade extends Component {
                             <label className="upgrade_sublabel">Enter Establishment date</label>
                         </div>
 
-                        <div className="upgrade_form">
-                            <form onSubmit={ this.onFormSubmit }>
+                        <div >
+                            <form onSubmit={ this.onFormSubmit } className="upgrade_form">
                                 <div >
                                     <DatePicker
                                         selected={ this.state.startDate }
@@ -346,20 +378,6 @@ export class Upgrade extends Component {
                             </div>
                         </form>
 
-                        <form className="upgrade_form" >
-                            <input
-                                name="registered_no"
-                                type="text"
-                                placeholder="Enter your registered NGO number"
-                                className="input1"
-                            />
-                            <input type="submit" value="Submit" className="submit1" onClick={this.onToast}/>
-                            {}
-                            <div className="form-group">
-                                <ToastContainer/>
-                            </div>
-                        </form>
-
                         <form className="upgrade_form" onSubmit={this.handleCommitteeFormChange}>
                             <input
                                 name="committee"
@@ -375,30 +393,44 @@ export class Upgrade extends Component {
                             </div>
                         </form>
 
+
+                        <div className="upgrade_form">
+                            <label className="upgrade_label">NGO Registration section</label>
+                        </div>
+
+                        <form  onSubmit={this.handleNGOFormChange}>
+                            <input
+                                name="registered_no"
+                                type="text"
+                                placeholder="Enter your registered NGO number"
+                                className="input1"
+                                onChange={this.handleNGOInputChange}
+
+                            />
+
+
                         <div className="upgrade_form">
                             <label className="upgrade_sublabel">Date the NGO was registered</label>
                         </div>
 
-                        <div className="upgrade_form">
-                            <form onSubmit={ this.onFormSubmit }>
-                                <div >
-                                    <DatePicker
-                                        selected={ this.state.startDate }
-                                        onChange={ this.handleChange }
-                                        name="startDate"
-                                        dateFormat="MM/dd/yyyy"
-                                        className="input1"
+
+                                <input
+                                        selected={ this.state.startDate2 }
+                                        type="text"
+                                        onChange={ this.handleDateInputChange }
+                                        placeholder="Enter Date NGO was registered"
+                                        name="startDate2"
+                                        className="input1 input4"
                                     />
 
+
+                                <input type="submit" value="Submit" className="submit1" onClick={this.onToast}/>
+                                {}
+                                <div className="form-group">
+                                    <ToastContainer/>
                                 </div>
 
                             </form>
-                            <input type="submit" value="Submit" className="submit1" onClick={this.onToast}/>
-                            {}
-                            <div className="form-group">
-                                <ToastContainer/>
-                            </div>
-                        </div>
 
 
                         <div className="upgrade_form">

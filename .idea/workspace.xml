@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="upgrade page">
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/components/admin/adminPages/adminOrgs/AdminOrgs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/components/admin/adminPages/adminOrgs/AdminOrgs.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/components/register/registerOrganisation/registerOrgPages/Confirmation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/components/register/registerOrganisation/registerOrgPages/Confirmation.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/components/register/registerOrganisation/registerOrgPages/OrganisationAbout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/components/register/registerOrganisation/registerOrgPages/OrganisationAbout.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="upgrade page" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -127,13 +123,6 @@
       <updated>1629230718911</updated>
       <workItem from="1629230737576" duration="39557000" />
       <workItem from="1629301692751" duration="18015000" />
-    </task>
-    <task id="LOCAL-00007" summary="user and login system are complete">
-      <created>1629254855215</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1629254855215</updated>
     </task>
     <task id="LOCAL-00008" summary="user and login system are complete">
       <created>1629255628305</created>
@@ -471,7 +460,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629354266890</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="upgrade page">
+      <created>1629354634257</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1629354634257</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

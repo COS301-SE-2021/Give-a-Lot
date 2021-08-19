@@ -20,7 +20,10 @@ export class HomeHeader extends Component {
                         <div className="Hometopright">
                             <div className="HometopbarIconContainer">
                                 <Link to="/verifyPage" className="link">
-                                    <SearchIcon/>
+                                    {/*<SearchIcon/>*/}
+                                    <Button variant="outlined" type="submit" className="home_button" style={{width: '200px'}}>
+                                        Verify Certificate
+                                    </Button>
                                 </Link>
                             </div>
                             <div className="HometopbarIconContainer">

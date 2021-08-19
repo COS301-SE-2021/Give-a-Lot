@@ -8,7 +8,9 @@ import FeaturedHeader from "../../../featuredHeader/FeaturedHeader";
 import "./basic.css"
 import { Link } from "react-router-dom";
 import axios from "axios";
+import {LoginBody} from "../../../login/loginBody/LoginBody";
 // import {toast} from "react-toastify";
+import { Redirect, withRouter } from "react-router";
 
 
 export class Confirmation extends Component {
@@ -43,6 +45,7 @@ export class Confirmation extends Component {
         axios.post('http://localhost:8080/v1/organisation/add/org', RegisterOrganisationRequestBody, {config})
             .then(response =>{
                 console.log(response)
+                this.props.history.push("/login");
             })
             .catch(error =>{
                 console.log(error)
@@ -132,4 +135,4 @@ export class Confirmation extends Component {
     }
 }
 
-export default Confirmation;
+export default withRouter(Confirmation);

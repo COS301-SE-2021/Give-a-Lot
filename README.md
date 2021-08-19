@@ -23,6 +23,9 @@
 [Demo 2 Project Board]
 (https://github.com/COS301-SE-2021/Give-a-Lot/projects/2)
 <br>
+[Demo 3 Project Board]
+(https://github.com/COS301-SE-2021/Give-a-Lot/projects/4)
+<br>
 <h3>Demo 3 Documentation</h3>
 <a href="https://drive.google.com/file/d/1CFI2DA_V8gw9ytnAjD_ah1ak4lCGUfMN/view?usp=sharing"> User Manual </a>
 <br><br>
@@ -54,7 +57,7 @@
 
 <div style="margin-left: 4%">
 
-The team Peak Performers had the following mentor from  Deepsink Partners </a> and the <a href="https://www.up.ac.za/"> University of Pretoria</a>:
+The team Peak Performers had the following mentor from <a href="https://5dt.com/"> Fifth Dimension Technologies </a> and the <a href="https://www.up.ac.za/"> University of Pretoria</a>:
 
 Industry Mentor:
 * Madimetja Shika:  madi@deepsinkpartners.com

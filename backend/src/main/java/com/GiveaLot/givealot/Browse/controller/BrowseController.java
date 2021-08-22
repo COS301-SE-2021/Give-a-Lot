@@ -1,41 +1,86 @@
 package com.GiveaLot.givealot.Browse.controller;
 
-import com.GiveaLot.givealot.Browse.BrowseServiceImp;
-import com.GiveaLot.givealot.Browse.rri.browseRequest;
-import com.GiveaLot.givealot.Browse.rri.browseResponse;
-import com.GiveaLot.givealot.Browse.browseResponseJSON;
+import com.GiveaLot.givealot.Browse.response.browseOrganisationsBySectorResponse;
+import com.GiveaLot.givealot.Browse.service.BrowseServiceImp;
+import com.GiveaLot.givealot.Organisation.model.Organisations;
+import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
+import com.GiveaLot.givealot.User.response.getUserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("browse")
-public class BrowseController
-{
-    private final BrowseServiceImp BrowseServiceImp;
+@CrossOrigin("*")
+@RequestMapping("v1/browse")
+public class BrowseController {
 
+    private BrowseServiceImp service;
+    private responseJSON response;
     @Autowired
-    public BrowseController(com.GiveaLot.givealot.Browse.BrowseServiceImp browseServiceImp)
+    BrowseController(BrowseServiceImp browseServiceImp, responseJSON response)
     {
-        BrowseServiceImp = browseServiceImp;
+        this.response = response;
+        this.service = browseServiceImp;
     }
 
-    @PostMapping
-    public List<browseResponseJSON> search()
+    @GetMapping("/sectors")
+    ResponseEntity<responseJSON> browseOrganisationsBySectors()
     {
-        browseResponse browseResponse;
+        response.setObject(null);
+
         try
         {
-            browseResponse = BrowseServiceImp.browse(new browseRequest());
-            return browseResponse.getOrganisations();
+           List<browseOrganisationsBySectorResponse> res = service.browseOrganisationsBySectors();
+
+           if(res != null)
+           {
+               response = new responseJSON("ok_org_br_200","success",res);
+               return new ResponseEntity<>(response,HttpStatus.OK);
+
+           }
+            response = new responseJSON("bad_org_br_500","unsuccess" ,null);
+
+            return new ResponseEntity<>(response,HttpStatus.OK);
         }
         catch (Exception e)
         {
-            /*return a list of null fields*/
-            return List.of(new browseResponseJSON(null,null,null,null,null,null,false));
+
+            response = new responseJSON("bad_org_br_500","Exception: browse failed due to " + e,null);
+
+            return new ResponseEntity<>(response,HttpStatus.OK);
+
+        }
+
+
+    }
+
+    @GetMapping("/sectors/{userId}")
+    ResponseEntity<responseJSON> browseOrganisationsRecommended(@PathVariable("userId")  @NonNull Long userId)
+    {
+        response.setObject(null);
+        try
+        {
+            List<Organisations> res = service.getRecommendedOrganisations(userId);
+
+            if(res != null)
+            {
+                response = new responseJSON("ok_org_br_200","success",res);
+                return new ResponseEntity<>(response,HttpStatus.OK);
+
+            }
+            response = new responseJSON("bad_org_br_500","unsuccessful",null);
+
+            return new ResponseEntity<>(response,HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            response = new responseJSON("bad_org_br_500","Exception: browse failed due to " + e,null);
+
+            return new ResponseEntity<>(response,HttpStatus.OK);
         }
     }
 }

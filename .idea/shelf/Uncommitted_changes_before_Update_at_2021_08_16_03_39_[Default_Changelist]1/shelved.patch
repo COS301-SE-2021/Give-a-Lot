@@ -1,0 +1,352 @@
+Index: backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgDonationInfoRequest.java
+===================================================================
+diff --git a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgDonationInfoRequest.java b/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgDonationInfoRequest.java
+deleted file mode 100644
+--- a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgDonationInfoRequest.java	
++++ /dev/null	
+@@ -1,31 +0,0 @@
+-package com.GiveaLot.givealot.Organisation.requests;
+-
+-import com.fasterxml.jackson.annotation.JsonProperty;
+-
+-public class AddOrgDonationInfoRequest {
+-
+-    private String orgId;
+-    private String orgInfo;
+-
+-    public AddOrgDonationInfoRequest(@JsonProperty String orgId,
+-                                     @JsonProperty String orgInfo) {
+-        this.orgId = orgId;
+-        this.orgInfo = orgInfo;
+-    }
+-
+-    public String getOrgId() {
+-        return orgId;
+-    }
+-
+-    public void setOrgId(String orgId) {
+-        this.orgId = orgId;
+-    }
+-
+-    public String getOrgInfo() {
+-        return orgInfo;
+-    }
+-
+-    public void setOrgInfo(String orgInfo) {
+-        this.orgInfo = orgInfo;
+-    }
+-}
+Index: backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgEstDateRequest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.GiveaLot.givealot.Organisation.requests;\r\n\r\nimport com.fasterxml.jackson.annotation.JsonProperty;\r\n\r\nimport java.util.Date;\r\n\r\npublic class AddOrgEstDateRequest {\r\n\r\n   private Date date;\r\n    private String orgId;\r\n\r\n    public AddOrgEstDateRequest(@JsonProperty Date date,\r\n                                @JsonProperty String orgId)\r\n    {\r\n        this.date = date;\r\n        this.orgId = orgId;\r\n    }\r\n\r\n    public Date getDate() {\r\n        return date;\r\n    }\r\n\r\n    public void setDate(Date date) {\r\n        this.date = date;\r\n    }\r\n\r\n    public String getOrgId() {\r\n        return orgId;\r\n    }\r\n\r\n    public void setOrgId(String orgId) {\r\n        this.orgId = orgId;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgEstDateRequest.java b/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgEstDateRequest.java
+--- a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgEstDateRequest.java	
++++ b/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgEstDateRequest.java	
+@@ -7,10 +7,10 @@
+ public class AddOrgEstDateRequest {
+ 
+    private Date date;
+-    private String orgId;
++    private long orgId;
+ 
+     public AddOrgEstDateRequest(@JsonProperty Date date,
+-                                @JsonProperty String orgId)
++                                @JsonProperty long orgId)
+     {
+         this.date = date;
+         this.orgId = orgId;
+@@ -24,11 +24,11 @@
+         this.date = date;
+     }
+ 
+-    public String getOrgId() {
++    public long getOrgId() {
+         return orgId;
+     }
+ 
+-    public void setOrgId(String orgId) {
++    public void setOrgId(long orgId) {
+         this.orgId = orgId;
+     }
+ }
+Index: backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgImageRequest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.GiveaLot.givealot.Organisation.requests;\r\n\r\nimport com.fasterxml.jackson.annotation.JsonProperty;\r\n\r\nimport java.io.File;\r\n\r\npublic class AddOrgImageRequest\r\n{\r\n    private String orgId;\r\n    private String image;\r\n\r\n    public AddOrgImageRequest(@JsonProperty String orgId,\r\n                              @JsonProperty String image)\r\n    {\r\n        this.orgId = orgId;\r\n        this.image = image;\r\n    }\r\n\r\n    public String getOrgId() {\r\n        return orgId;\r\n    }\r\n\r\n    public void setOrgId(String orgId) {\r\n        this.orgId = orgId;\r\n    }\r\n\r\n    public String getImage() {\r\n        return image;\r\n    }\r\n\r\n    public void setImage(String image) {\r\n        this.image = image;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgImageRequest.java b/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgImageRequest.java
+--- a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgImageRequest.java	
++++ b/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgImageRequest.java	
+@@ -6,29 +6,29 @@
+ 
+ public class AddOrgImageRequest
+ {
+-    private String orgId;
+-    private String image;
++    private long orgId;
++    private File image;
+ 
+-    public AddOrgImageRequest(@JsonProperty String orgId,
+-                              @JsonProperty String image)
++    public AddOrgImageRequest(@JsonProperty long orgId,
++                              @JsonProperty File image)
+     {
+         this.orgId = orgId;
+         this.image = image;
+     }
+ 
+-    public String getOrgId() {
++    public long getOrgId() {
+         return orgId;
+     }
+ 
+-    public void setOrgId(String orgId) {
++    public void setOrgId(long orgId) {
+         this.orgId = orgId;
+     }
+ 
+-    public String getImage() {
++    public File getImage() {
+         return image;
+     }
+ 
+-    public void setImage(String image) {
++    public void setImage(File image) {
+         this.image = image;
+     }
+ }
+Index: backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgNGORequest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.GiveaLot.givealot.Organisation.requests;\r\n\r\nimport com.fasterxml.jackson.annotation.JsonProperty;\r\n\r\nimport java.util.Date;\r\n\r\npublic class AddOrgNGORequest\r\n{\r\n    private String orgId;\r\n    private String ngoNumber;\r\n    private Date ngoDate;\r\n\r\n    public AddOrgNGORequest(@JsonProperty String orgId,\r\n                            @JsonProperty String ngoNumber,\r\n                            @JsonProperty Date ngoDate) {\r\n        this.orgId = orgId;\r\n        this.ngoNumber = ngoNumber;\r\n        this.ngoDate = ngoDate;\r\n    }\r\n\r\n    public String getOrgId() {\r\n        return orgId;\r\n    }\r\n\r\n    public void setOrgId(String orgId) {\r\n        this.orgId = orgId;\r\n    }\r\n\r\n    public String getNgoNumber() {\r\n        return ngoNumber;\r\n    }\r\n\r\n    public void setNgoNumber(String ngoNumber) {\r\n        this.ngoNumber = ngoNumber;\r\n    }\r\n\r\n    public Date getNgoDate() {\r\n        return ngoDate;\r\n    }\r\n\r\n    public void setNgoDate(Date ngoDate) {\r\n        this.ngoDate = ngoDate;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgNGORequest.java b/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgNGORequest.java
+--- a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgNGORequest.java	
++++ b/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgNGORequest.java	
+@@ -6,11 +6,11 @@
+ 
+ public class AddOrgNGORequest
+ {
+-    private String orgId;
++    private long orgId;
+     private String ngoNumber;
+     private Date ngoDate;
+ 
+-    public AddOrgNGORequest(@JsonProperty String orgId,
++    public AddOrgNGORequest(@JsonProperty long orgId,
+                             @JsonProperty String ngoNumber,
+                             @JsonProperty Date ngoDate) {
+         this.orgId = orgId;
+@@ -18,11 +18,11 @@
+         this.ngoDate = ngoDate;
+     }
+ 
+-    public String getOrgId() {
++    public long getOrgId() {
+         return orgId;
+     }
+ 
+-    public void setOrgId(String orgId) {
++    public void setOrgId(long orgId) {
+         this.orgId = orgId;
+     }
+ 
+Index: backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgTaxRefRequest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.GiveaLot.givealot.Organisation.requests;\r\n\r\nimport com.fasterxml.jackson.annotation.JsonProperty;\r\n\r\npublic class AddOrgTaxRefRequest {\r\n    private String orgId;\r\n    private String reference;\r\n\r\n    public AddOrgTaxRefRequest(@JsonProperty (\"orgId\") String orgId,\r\n                               @JsonProperty (\"reference\") String reference) {\r\n        this.orgId = orgId;\r\n        this.reference = reference;\r\n    }\r\n\r\n    public String getOrgId() {\r\n        return orgId;\r\n    }\r\n\r\n    public void setOrgId(String orgId) {\r\n        this.orgId = orgId;\r\n    }\r\n\r\n    public String getReference() {\r\n        return reference;\r\n    }\r\n\r\n    public void setReference(String reference) {\r\n        this.reference = reference;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgTaxRefRequest.java b/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgTaxRefRequest.java
+--- a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgTaxRefRequest.java	
++++ b/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgTaxRefRequest.java	
+@@ -2,29 +2,31 @@
+ 
+ import com.fasterxml.jackson.annotation.JsonProperty;
+ 
++import java.io.File;
++
+ public class AddOrgTaxRefRequest {
+-    private String orgId;
+-    private String reference;
++    private long orgId;
++    private File reference;
+ 
+-    public AddOrgTaxRefRequest(@JsonProperty ("orgId") String orgId,
+-                               @JsonProperty ("reference") String reference) {
++    public AddOrgTaxRefRequest(@JsonProperty ("orgId") long orgId,
++                               @JsonProperty ("reference") File reference) {
+         this.orgId = orgId;
+         this.reference = reference;
+     }
+ 
+-    public String getOrgId() {
++    public long getOrgId() {
+         return orgId;
+     }
+ 
+-    public void setOrgId(String orgId) {
++    public void setOrgId(long orgId) {
+         this.orgId = orgId;
+     }
+ 
+-    public String getReference() {
++    public File getReference() {
+         return reference;
+     }
+ 
+-    public void setReference(String reference) {
++    public void setReference(File reference) {
+         this.reference = reference;
+     }
+ }
+Index: backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgAuditInfoRequest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.GiveaLot.givealot.Organisation.requests;\r\n\r\nimport com.fasterxml.jackson.annotation.JsonProperty;\r\n\r\nimport java.io.File;\r\n\r\npublic class AddOrgAuditInfoRequest\r\n{\r\n    private String orgId;\r\n    private File audit;\r\n\r\n    public AddOrgAuditInfoRequest(@JsonProperty String orgId,\r\n                                  @JsonProperty File audit) {\r\n        this.orgId = orgId;\r\n        this.audit = audit;\r\n    }\r\n\r\n    public String getOrgId() {\r\n        return orgId;\r\n    }\r\n\r\n    public void setOrgId(String orgId) {\r\n        this.orgId = orgId;\r\n    }\r\n\r\n    public File getAudit() {\r\n        return audit;\r\n    }\r\n\r\n    public void setAudit(File audit) {\r\n        this.audit = audit;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgAuditInfoRequest.java b/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgAuditInfoRequest.java
+--- a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgAuditInfoRequest.java	
++++ b/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgAuditInfoRequest.java	
+@@ -6,20 +6,20 @@
+ 
+ public class AddOrgAuditInfoRequest
+ {
+-    private String orgId;
++    private long orgId;
+     private File audit;
+ 
+-    public AddOrgAuditInfoRequest(@JsonProperty String orgId,
++    public AddOrgAuditInfoRequest(@JsonProperty long orgId,
+                                   @JsonProperty File audit) {
+         this.orgId = orgId;
+         this.audit = audit;
+     }
+ 
+-    public String getOrgId() {
++    public long getOrgId() {
+         return orgId;
+     }
+ 
+-    public void setOrgId(String orgId) {
++    public void setOrgId(long orgId) {
+         this.orgId = orgId;
+     }
+ 
+Index: backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgAuditorRequest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.GiveaLot.givealot.Organisation.requests;\r\n\r\nimport com.fasterxml.jackson.annotation.JsonProperty;\r\n\r\npublic class AddOrgAuditorRequest {\r\n    private String orgId;\r\n    private String auditor;\r\n\r\n    public AddOrgAuditorRequest(@JsonProperty String orgId,\r\n                                @JsonProperty String auditor) {\r\n        this.orgId = orgId;\r\n        this.auditor = auditor;\r\n    }\r\n\r\n    public String getOrgId() {\r\n        return orgId;\r\n    }\r\n\r\n    public void setOrgId(String orgId) {\r\n        this.orgId = orgId;\r\n    }\r\n\r\n    public String getAuditor() {\r\n        return auditor;\r\n    }\r\n\r\n    public void setAuditor(String auditor) {\r\n        this.auditor = auditor;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgAuditorRequest.java b/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgAuditorRequest.java
+--- a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgAuditorRequest.java	
++++ b/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgAuditorRequest.java	
+@@ -3,20 +3,20 @@
+ import com.fasterxml.jackson.annotation.JsonProperty;
+ 
+ public class AddOrgAuditorRequest {
+-    private String orgId;
++    private long orgId;
+     private String auditor;
+ 
+-    public AddOrgAuditorRequest(@JsonProperty String orgId,
++    public AddOrgAuditorRequest(@JsonProperty long orgId,
+                                 @JsonProperty String auditor) {
+         this.orgId = orgId;
+         this.auditor = auditor;
+     }
+ 
+-    public String getOrgId() {
++    public long getOrgId() {
+         return orgId;
+     }
+ 
+-    public void setOrgId(String orgId) {
++    public void setOrgId(long orgId) {
+         this.orgId = orgId;
+     }
+ 
+Index: backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgCommitteeRequest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.GiveaLot.givealot.Organisation.requests;\r\n\r\nimport com.fasterxml.jackson.annotation.JsonProperty;\r\n\r\npublic class AddOrgCommitteeRequest {\r\n    private String orgId;\r\n    private String committee;\r\n\r\n    public AddOrgCommitteeRequest(@JsonProperty String orgId,\r\n                                  @JsonProperty String committee) {\r\n        this.orgId = orgId;\r\n        this.committee = committee;\r\n    }\r\n\r\n    public String getOrgId() {\r\n        return orgId;\r\n    }\r\n\r\n    public void setOrgId(String orgId) {\r\n        this.orgId = orgId;\r\n    }\r\n\r\n    public String getCommittee() {\r\n        return committee;\r\n    }\r\n\r\n    public void setCommittee(String committee) {\r\n        this.committee = committee;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgCommitteeRequest.java b/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgCommitteeRequest.java
+--- a/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgCommitteeRequest.java	
++++ b/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgCommitteeRequest.java	
+@@ -3,20 +3,20 @@
+ import com.fasterxml.jackson.annotation.JsonProperty;
+ 
+ public class AddOrgCommitteeRequest {
+-    private String orgId;
++    private long orgId;
+     private String committee;
+ 
+-    public AddOrgCommitteeRequest(@JsonProperty String orgId,
++    public AddOrgCommitteeRequest(@JsonProperty long orgId,
+                                   @JsonProperty String committee) {
+         this.orgId = orgId;
+         this.committee = committee;
+     }
+ 
+-    public String getOrgId() {
++    public long getOrgId() {
+         return orgId;
+     }
+ 
+-    public void setOrgId(String orgId) {
++    public void setOrgId(long orgId) {
+         this.orgId = orgId;
+     }
+ 
+Index: backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationInfoRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.GiveaLot.givealot.Organisation.repository;\r\nimport com.GiveaLot.givealot.Organisation.model.OrganisationInfo;\r\nimport org.springframework.data.jpa.repository.JpaRepository;\r\nimport org.springframework.data.jpa.repository.Modifying;\r\nimport org.springframework.data.jpa.repository.Query;\r\nimport org.springframework.stereotype.Repository;\r\nimport org.springframework.transaction.annotation.Transactional;\r\n\r\n/*\r\n*  Todo:\r\n*   1) select organisation info - done\r\n*   2) create organisation points field for an organisation - done\r\n*   3) add organisation website - done\r\n*   4) remove organisation website - done\r\n*   5) add org address - done\r\n*   6) remove org address - done\r\n*   7) add tax reference - done\r\n*   8) remove tax reference - done\r\n*   9) add twitter, facebook, instagram - done\r\n* */\r\n@Repository\r\npublic interface OrganisationInfoRepository extends JpaRepository<OrganisationInfo,Long>\r\n{\r\n    @Query(\"select i from OrganisationInfo i where i.orgId = ?1\")\r\n    OrganisationInfo selectOrganisationInfo(Long orgId);\r\n\r\n    @Modifying\r\n    @Transactional\r\n    @Query(\"UPDATE OrganisationInfo i SET i.orgWebsite = ?2 WHERE i.orgId = ?1\")\r\n    Integer addOrgWebsite(Long orgId, String url);\r\n\r\n    @Modifying\r\n    @Transactional\r\n    @Query(\"UPDATE OrganisationInfo i SET i.orgWebsite = null WHERE i.orgId = ?1\")\r\n    Integer removeOrgWebsite(Long orgId);\r\n\r\n    @Modifying\r\n    @Transactional\r\n    @Query(\"UPDATE OrganisationInfo i SET i.address = ?2 WHERE i.orgId = ?1\")\r\n    Integer addOrgAddress(Long orgId, String address);\r\n\r\n    @Modifying\r\n    @Transactional\r\n    @Query(\"UPDATE OrganisationInfo i SET i.address = null WHERE i.orgId = ?1\")\r\n    Integer removeOrgAddress(Long orgId);\r\n\r\n    @Modifying\r\n    @Transactional\r\n    @Query(\"UPDATE OrganisationInfo i SET i.taxReference = ?2 WHERE i.orgId = ?1\")\r\n    Integer addOrgTaxRef(Long orgId, String taxRef);\r\n\r\n    @Modifying\r\n    @Transactional\r\n    @Query(\"UPDATE OrganisationInfo i SET i.taxReference = null WHERE i.orgId = ?1\")\r\n    Integer removeOrgTaxRef(Long orgId);\r\n\r\n    @Modifying\r\n    @Transactional\r\n    @Query(\"UPDATE OrganisationInfo i SET i.twitter = ?2 WHERE i.orgId = ?1\")\r\n    Integer addTwitter(Long orgId, String handle);\r\n\r\n    @Modifying\r\n    @Transactional\r\n    @Query(\"UPDATE OrganisationInfo i SET i.instagram = ?2 WHERE i.orgId = ?1\")\r\n    Integer addInstagram(Long orgId, String handle);\r\n\r\n    @Modifying\r\n    @Transactional\r\n    @Query(\"UPDATE OrganisationInfo i SET i.facebook = ?2 WHERE i.orgId = ?1\")\r\n    Integer addFacebook(Long orgId, String handle);\r\n\r\n    @Modifying\r\n    @Transactional\r\n    @Query(\"UPDATE OrganisationInfo i SET i.twitter = null WHERE i.orgId = ?1\")\r\n    Integer removeTwitter(Long orgId);\r\n\r\n    @Modifying\r\n    @Transactional\r\n    @Query(\"UPDATE OrganisationInfo i SET i.instagram = null WHERE i.orgId = ?1\")\r\n    Integer removeInstagram(Long orgId);\r\n\r\n    @Modifying\r\n    @Transactional\r\n    @Query(\"UPDATE OrganisationInfo i SET i.facebook = null WHERE i.orgId = ?1\")\r\n    Integer removeFacebook(Long orgId);\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationInfoRepository.java b/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationInfoRepository.java
+--- a/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationInfoRepository.java	
++++ b/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationInfoRepository.java	
+@@ -46,8 +46,8 @@
+ 
+     @Modifying
+     @Transactional
+-    @Query("UPDATE OrganisationInfo i SET i.taxReference = ?2 WHERE i.orgId = ?1")
+-    Integer addOrgTaxRef(Long orgId, String taxRef);
++    @Query("UPDATE OrganisationInfo i SET i.auditorDetails = ?2 WHERE i.orgId = ?1")
++    Integer addOrgAuditor(Long orgId, String auditInfo);
+ 
+     @Modifying
+     @Transactional
+@@ -84,4 +84,14 @@
+     @Query("UPDATE OrganisationInfo i SET i.facebook = null WHERE i.orgId = ?1")
+     Integer removeFacebook(Long orgId);
+ 
++    @Modifying
++    @Transactional
++    @Query("UPDATE OrganisationInfo i SET i.facebook = ?2 WHERE i.orgId = ?1")
++    Integer addNGONumber(Long orgId, String handle);
++
++    @Modifying
++    @Transactional
++    @Query("UPDATE OrganisationInfo i SET i.facebook = ?2 WHERE i.orgId = ?1")
++    Integer addNGODate(Long orgId, String handle);
++
+ }

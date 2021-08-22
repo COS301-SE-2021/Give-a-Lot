@@ -1,0 +1,101 @@
+{
+  "code": "ok_org_br_200",
+  "message": "success",
+  "object": [
+    {
+      "sector": "Org Sector",
+      "organisations": [
+        {
+          "orgId": 18,
+          "orgName": "Org Name New22323422",
+          "dateAdded": null,
+          "imgUrl": null
+        },
+        {
+          "orgId": 20,
+          "orgName": "Org Name New",
+          "dateAdded": null,
+          "imgUrl": null
+        },
+        {
+          "orgId": 21,
+          "orgName": "Org Name New1",
+          "dateAdded": null,
+          "imgUrl": null
+        },
+        {
+          "orgId": 22,
+          "orgName": "Org Name New2",
+          "dateAdded": null,
+          "imgUrl": null
+        }
+      ]
+    },
+    {
+      "sector": "Rashiidah Weira",
+      "organisations": [
+        {
+          "orgId": 26,
+          "orgName": "University of Pretoria",
+          "dateAdded": null,
+          "imgUrl": null
+        }
+      ]
+    },
+    {
+      "sector": "babys",
+      "organisations": [
+        {
+          "orgId": 28,
+          "orgName": "mighty",
+          "dateAdded": null,
+          "imgUrl": null
+        }
+      ]
+    },
+    {
+      "sector": "developers",
+      "organisations": [
+        {
+          "orgId": 24,
+          "orgName": "Kids next door",
+          "dateAdded": null,
+          "imgUrl": null
+        }
+      ]
+    },
+    {
+      "sector": "dsfsdfds",
+      "organisations": [
+        {
+          "orgId": 27,
+          "orgName": "ffffff",
+          "dateAdded": null,
+          "imgUrl": null
+        }
+      ]
+    },
+    {
+      "sector": "hope givers",
+      "organisations": [
+        {
+          "orgId": 25,
+          "orgName": "givealot",
+          "dateAdded": null,
+          "imgUrl": null
+        }
+      ]
+    },
+    {
+      "sector": "loot",
+      "organisations": [
+        {
+          "orgId": 19,
+          "orgName": "The givers of pizza",
+          "dateAdded": null,
+          "imgUrl": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,382 @@
+Index: backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.GiveaLot.givealot.Certificate.service;\r\n\r\nimport com.GiveaLot.givealot.Blockchain.Repository.BlockChainRepository;\r\nimport com.GiveaLot.givealot.Blockchain.dataclass.Blockchain;\r\nimport com.GiveaLot.givealot.Blockchain.service.BlockchainService;\r\nimport com.GiveaLot.givealot.Certificate.dataclass.Certificate;\r\nimport com.GiveaLot.givealot.Certificate.repository.CertificateRepository;\r\nimport com.GiveaLot.givealot.Notification.dataclass.Mail;\r\nimport com.GiveaLot.givealot.Notification.service.SendMailService;\r\nimport com.GiveaLot.givealot.Organisation.model.Organisations;\r\nimport com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;\r\nimport com.GiveaLot.givealot.Server.ServerAccess;\r\nimport org.apache.pdfbox.Loader;\r\nimport org.apache.pdfbox.pdmodel.PDDocument;\r\nimport org.apache.pdfbox.pdmodel.PDDocumentCatalog;\r\nimport org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;\r\nimport org.apache.pdfbox.pdmodel.interactive.form.PDField;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.beans.factory.annotation.Configurable;\r\nimport org.springframework.stereotype.Service;\r\n\r\nimport java.io.File;\r\nimport java.text.DateFormat;\r\nimport java.text.SimpleDateFormat;\r\nimport java.util.ArrayList;\r\nimport java.util.Date;\r\nimport java.util.List;\r\n\r\n@Service\r\n@Configurable\r\npublic class CertificateServiceImpl implements CertificateService {\r\n\r\n    @Autowired\r\n    private BlockchainService blockchainService;\r\n\r\n    @Autowired\r\n    private OrganisationRepository organisationRepository;\r\n\r\n    @Autowired\r\n    private CertificateRepository certificateRepository;\r\n\r\n    @Autowired\r\n    private BlockChainRepository blockChainRepository;\r\n\r\n    @Autowired\r\n    private final ServerAccess access = new ServerAccess();\r\n\r\n    @Autowired\r\n    private final SendMailService service;\r\n\r\n    @Autowired\r\n    public CertificateServiceImpl(SendMailService service)\r\n   {\r\n        this.service = service;\r\n   }\r\n\r\n    @Override\r\n    public boolean addCertificate(long orgId, Certificate cert) throws Exception {\r\n\r\n        Organisations organisation = organisationRepository.selectOrganisationById(orgId);\r\n\r\n       boolean certificateCreated = createPDFDocument(cert,organisation,0);\r\n\r\n        if(!certificateCreated){\r\n            throw new Exception(\"Exception: Problem creating and storing certificate\");\r\n        }\r\n\r\n        File certificate = retrieveCertificate(orgId, organisation.getOrgName());\r\n\r\n        String[] result = blockchainService\r\n                .uploadCertificate(orgId, certificate);\r\n        String certificateHash = result[0];\r\n        String txHash = result[1];\r\n        long index = blockchainService.findCertificateIndex(orgId);\r\n\r\n        Blockchain blockchain = new Blockchain(orgId,index,0,txHash,certificateHash);\r\n\r\n        blockChainRepository.save(blockchain);\r\n\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public boolean updateCertificate(long orgId) throws Exception {\r\n\r\n        Organisations organisation = organisationRepository.selectOrganisationById(orgId);\r\n        Certificate cert = certificateRepository.selectCertificateById(orgId);\r\n        Blockchain blockchain = blockChainRepository.selectBlockchainOrgId(orgId);\r\n\r\n        boolean certificateCreated = createPDFDocument(cert,organisation,cert.getPoints());\r\n\r\n        if(!certificateCreated){\r\n            throw new Exception(\"Exception: Problem creating and storing certificate\");\r\n        }\r\n\r\n        File certificate = retrieveCertificate(orgId, organisation.getOrgName());\r\n\r\n        String[] result = blockchainService\r\n                .upgradeCertificate(0,orgId, certificate,0);\r\n\r\n        String certificateHash = result[0];\r\n        String txHash = result[1];\r\n\r\n        blockChainRepository.UpdateBlockchain(blockchain.getIndex(),blockchain.getLevel()+1,txHash,certificateHash,orgId);\r\n\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public File retrieveCertificate(long orgId, String orgName) throws Exception {\r\n        return access.downloadCertificate(orgId,orgName);\r\n    }\r\n\r\n    @Override\r\n    public boolean createPDFDocument(Certificate cert, Organisations organisation, int points) throws Exception {\r\n        access.downloadCertificateTemplate(points);\r\n\r\n        if (points!=0){\r\n            File deletion = new File(\"frontend/givealot/localFiles/\" + organisation.getOrgId() + \"certificate/CertificateComplete.pdf\");\r\n            deletion.delete();\r\n        }\r\n\r\n        String templateCertificate = \"backend/src/main/resources/TempCertificate/CertificateTemplate.pdf\";\r\n        String completeCertificate = \"frontend/givealot/localFiles/\" + organisation.getOrgId() + \"/certificate/CertificateComplete.pdf\";\r\n\r\n        /** Setup the pdf file **/\r\n\r\n        File template = new File(templateCertificate);\r\n\r\n        PDDocument document = Loader.loadPDF(template);\r\n        PDDocumentCatalog catalog = document.getDocumentCatalog();\r\n\r\n        PDAcroForm acroForm = catalog.getAcroForm();\r\n\r\n        /** Assign acroform fields **/\r\n\r\n        try {\r\n\r\n            if (acroForm != null) {\r\n\r\n                PDField field = (PDField) acroForm.getField(\"name\"); // Name\r\n                field.setValue(organisation.getOrgName().toUpperCase());\r\n\r\n                field = (PDField) acroForm.getField(\"slogan\"); // Slogan\r\n                field.setValue(organisation.getSlogan());\r\n\r\n\r\n                field = (PDField) acroForm.getField(\"created\"); // Date Created\r\n                field.setValue(cert.getDateCreated());\r\n\r\n                field = (PDField) acroForm.getField(\"expiry\"); // Date Expiry\r\n                field.setValue(cert.getDateExpiry());\r\n\r\n                acroForm.flatten();\r\n\r\n            }\r\n            System.out.println(\"works2\");\r\n        }catch (Exception e){\r\n            throw new Exception(\"Exception: unable to create certificate: \" + e);\r\n        }\r\n        System.out.println(\"works3\");\r\n\r\n        document.save(completeCertificate);\r\n        document.close();\r\n\r\n        access.uploadCertificate(organisation.getOrgId(), organisation.getOrgName());\r\n\r\n        File deletion1 = new File(templateCertificate);\r\n\r\n        deletion1.delete();\r\n\r\n        return true;\r\n\r\n    }\r\n\r\n    @Override\r\n    public boolean checkRenewal() throws Exception {\r\n        List<Certificate> certificateList = certificateRepository.findAll();\r\n\r\n        Date dateCurrent = new Date();\r\n        DateFormat format = new SimpleDateFormat(\"yyyy-MM-dd\");\r\n\r\n        List<Long> id = new ArrayList<>();\r\n        List<Date> expiry = new ArrayList<>();;\r\n\r\n        for (int i = 0; i < certificateList.size(); i++) {\r\n            id.add(certificateList.get(i).getOrgId());\r\n            expiry.add(format.parse(certificateList.get(i).getDateExpiry()));\r\n        }\r\n\r\n        for (int i = 0; i < id.size(); i++) {\r\n            if(expiry.get(i)==null)\r\n                throw new NullPointerException();\r\n\r\n            Date sqlDate = expiry.get(i);\r\n\r\n            boolean check = dateCurrent.after(sqlDate);\r\n            if (check) {\r\n                certificateRepository.updateOrgRenewal(id.get(i),false);\r\n                certificateRepository.updateAdminRenewal(id.get(i),false);\r\n            }\r\n        }\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public boolean CertificateExpiredEmail(String orgName, String orgEmail) throws Exception {\r\n        Mail mail = new Mail();\r\n\r\n        mail.setRecipient(orgEmail);\r\n        mail.setSubject(\"Givealot Certificate Expiried\");\r\n        mail.setMessage(\"Good day we hope this email finds you well,\\n We regret to inform you that your certificate has expired please log in to your portal to renew it\" +\r\n                \"\\n Kind Regards\\n\" +\r\n                \"Givalot Team\");\r\n\r\n        service.sendMail(mail);\r\n\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public boolean organisationRenewal(long orgId) throws Exception {\r\n        certificateRepository.updateOrgRenewal(orgId,true);\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public boolean adminRenewal(long orgId) throws Exception {\r\n        certificateRepository.updateAdminRenewal(orgId,true);\r\n        return true;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.java b/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.java
+--- a/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.java	(revision e2fc8963d3145d7dd0e08446eed5cfbd20022f29)
++++ b/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.java	(date 1629327307110)
+@@ -20,6 +20,8 @@
+ import org.springframework.stereotype.Service;
+ 
+ import java.io.File;
++import java.io.IOException;
++import java.security.NoSuchAlgorithmException;
+ import java.text.DateFormat;
+ import java.text.SimpleDateFormat;
+ import java.util.ArrayList;
+@@ -229,4 +231,14 @@
+         certificateRepository.updateAdminRenewal(orgId,true);
+         return true;
+     }
++
++    @Override
++    public boolean compareCertificate(File certificate) throws Exception {
++
++        Blockchain blockchain = blockChainRepository.selectBlockchainCertificateHash(
++                blockchainService.hashCertificate(certificate));
++        return blockchainService.compareCertificateHash(blockchain.getIndex(),blockchain.getOrgId(),certificate);
++    }
++
++
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"4b9aa9eb-1c51-4fff-a66d-6369e20637f5\" name=\"Default Changelist\" comment=\"Fixing organisation points\">\r\n      <change beforePath=\"$PROJECT_DIR$/gitignore\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gitignore\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1wrxsptsjnufcz3cfp3mAFSaILo\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"Git.Branch.Popup.ShowAllRemotes\" value=\"true\" />\r\n    <property name=\"RequestMappingsPanelOrder0\" value=\"0\" />\r\n    <property name=\"RequestMappingsPanelOrder1\" value=\"1\" />\r\n    <property name=\"RequestMappingsPanelWidth0\" value=\"75\" />\r\n    <property name=\"RequestMappingsPanelWidth1\" value=\"75\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/backend/src/main/resources\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateClassDialog.RecentsKey\">\r\n      <recent name=\"com.GiveaLot.givealot.Organisation.response\" />\r\n      <recent name=\"com.GiveaLot.givealot.Organisation.requests\" />\r\n    </key>\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Nqobani_Xpl\\Documents\\Course\\2021\\COS301\\capstone - restructured\\Give-a-Lot\\backend\\src\\main\\resources\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Nqobani_Xpl\\Documents\\Course\\2021\\COS301\\capstone - restructured\\Give-a-Lot\\backend\\src\\main\\java\\com\\GiveaLot\\givealot\\Blockchain\\dataclass\" />\r\n      <recent name=\"C:\\Users\\Nqobani_Xpl\\Documents\\Course\\2021\\COS301\\capstone - restructured\\Give-a-Lot\" />\r\n      <recent name=\"C:\\Users\\Nqobani_Xpl\\Documents\\Course\\2021\\COS301\\capstone - restructured\\Give-a-Lot\\backend\\target\\classes\\com\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Spring Boot.GivealotApplication\">\r\n    <configuration default=\"true\" type=\"ArquillianTestNG\" factoryName=\"\" nameIsGenerated=\"true\">\r\n      <option name=\"arquillianRunConfiguration\">\r\n        <value>\r\n          <option name=\"containerStateName\" value=\"\" />\r\n        </value>\r\n      </option>\r\n      <option name=\"TEST_OBJECT\" value=\"CLASS\" />\r\n      <properties />\r\n      <listeners />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"generated-requests#11\" type=\"HttpClient.HttpRequestRunConfigurationType\" factoryName=\"HTTP Request\" temporary=\"true\" path=\"$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http\" index=\"11\" runType=\"Run single request\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"generated-requests#12\" type=\"HttpClient.HttpRequestRunConfigurationType\" factoryName=\"HTTP Request\" temporary=\"true\" path=\"$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http\" index=\"12\" runType=\"Run single request\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"generated-requests#2\" type=\"HttpClient.HttpRequestRunConfigurationType\" factoryName=\"HTTP Request\" temporary=\"true\" path=\"$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http\" index=\"2\" runType=\"Run single request\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"generated-requests#36\" type=\"HttpClient.HttpRequestRunConfigurationType\" factoryName=\"HTTP Request\" temporary=\"true\" path=\"$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http\" index=\"36\" runType=\"Run single request\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"generated-requests#9\" type=\"HttpClient.HttpRequestRunConfigurationType\" factoryName=\"HTTP Request\" temporary=\"true\" path=\"$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http\" index=\"9\" runType=\"Run single request\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"GivealotApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\">\r\n      <module name=\"givealot\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.GiveaLot.givealot.GivealotApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"HTTP Request.generated-requests#12\" />\r\n        <item itemvalue=\"HTTP Request.generated-requests#9\" />\r\n        <item itemvalue=\"HTTP Request.generated-requests#11\" />\r\n        <item itemvalue=\"HTTP Request.generated-requests#2\" />\r\n        <item itemvalue=\"HTTP Request.generated-requests#36\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"bedf1f0c-bffb-43a4-949c-edb7f0ef26d0\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1629230718911</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1629230718911</updated>\r\n      <workItem from=\"1629230737576\" duration=\"30100000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"backup\">\r\n      <created>1629235654571</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1629235654571</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"backup\">\r\n      <created>1629238958828</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1629238958828</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"user and login system are complete\">\r\n      <created>1629246401295</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1629246401296</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"user and login system are complete\">\r\n      <created>1629246561936</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1629246561936</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"user and login system are complete\">\r\n      <created>1629248031231</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1629248031231</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"user and login system are complete\">\r\n      <created>1629252237529</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1629252237529</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"user and login system are complete\">\r\n      <created>1629254855215</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1629254855215</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"user and login system are complete\">\r\n      <created>1629255628305</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1629255628305</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"user and login system are complete\">\r\n      <created>1629255970866</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1629255970866</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"organisations api - get all users ready for frontend\">\r\n      <created>1629258479163</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1629258479163</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"organisations api - get all users ready for frontend\">\r\n      <created>1629261129675</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1629261129675</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"organisations controller revision\">\r\n      <created>1629261393018</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1629261393018</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"organisations controller revision - add Organisation\">\r\n      <created>1629261980094</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1629261980094</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"14\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"backup\" />\r\n    <MESSAGE value=\"user and login system are complete\" />\r\n    <MESSAGE value=\"organisations api - get all users ready for frontend\" />\r\n    <MESSAGE value=\"organisations controller revision\" />\r\n    <MESSAGE value=\"organisations controller revision - add Organisation\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"organisations controller revision - add Organisation\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision e2fc8963d3145d7dd0e08446eed5cfbd20022f29)
++++ b/.idea/workspace.xml	(date 1629327307496)
+@@ -5,7 +5,24 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="4b9aa9eb-1c51-4fff-a66d-6369e20637f5" name="Default Changelist" comment="Fixing organisation points">
+-      <change beforePath="$PROJECT_DIR$/gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/installation/Server Directory Files.zip" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateService.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/GiveaLot/givealot/User/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/GiveaLot/givealot/User/controller/UserControllerTest.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Organisation/controller/OrganisationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Organisation/controller/OrganisationController.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Organisation/requests/AddOrgAuditInfoRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Organisation/requests/AddOrgAuditInfoRequest.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Organisation/requests/AddOrgAuditorRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Organisation/requests/AddOrgAuditorRequest.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Organisation/requests/AddOrgCommitteeRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Organisation/requests/AddOrgCommitteeRequest.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Organisation/requests/AddOrgDonationInfoRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Organisation/requests/AddOrgDonationInfoRequest.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Organisation/requests/AddOrgTaxRefRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Organisation/requests/AddOrgTaxRefRequest.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Organisation/service/OrganisationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Organisation/service/OrganisationService.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/givealot/givealot/IntegrationTests/LoginControllerTest.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/givealot/givealot/Organisation/controller/OrganisationControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/givealot/givealot/Organisation/controller/OrganisationControllerTest.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/givealot/givealot/UnitTests/BrowseServiceImpTest.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/givealot/givealot/User/controller/UserControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/givealot/givealot/User/controller/UserControllerTest.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/givealot/givealot/User/service/UserServiceImpTest.class" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -61,12 +78,13 @@
+       <recent name="C:\Users\Nqobani_Xpl\Documents\Course\2021\COS301\capstone - restructured\Give-a-Lot\backend\src\main\resources" />
+     </key>
+     <key name="MoveFile.RECENT_KEYS">
++      <recent name="C:\Users\joshu\IdeaProjects\new\installation" />
+       <recent name="C:\Users\Nqobani_Xpl\Documents\Course\2021\COS301\capstone - restructured\Give-a-Lot\backend\src\main\java\com\GiveaLot\givealot\Blockchain\dataclass" />
+       <recent name="C:\Users\Nqobani_Xpl\Documents\Course\2021\COS301\capstone - restructured\Give-a-Lot" />
+       <recent name="C:\Users\Nqobani_Xpl\Documents\Course\2021\COS301\capstone - restructured\Give-a-Lot\backend\target\classes\com" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Spring Boot.GivealotApplication">
++  <component name="RunManager" selected="JUnit.UserControllerTest.testGetUsers">
+     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+       <option name="arquillianRunConfiguration">
+         <value>
+@@ -80,20 +98,51 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="generated-requests#11" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="11" runType="Run single request">
+-      <method v="2" />
++    <configuration name="OrganisationControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="givealot" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="com.GiveaLot.givealot.Organisation.controller.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="PACKAGE_NAME" value="com.GiveaLot.givealot.Organisation.controller" />
++      <option name="MAIN_CLASS_NAME" value="com.GiveaLot.givealot.Organisation.controller.OrganisationControllerTest" />
++      <option name="TEST_OBJECT" value="class" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
+     </configuration>
+-    <configuration name="generated-requests#12" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="12" runType="Run single request">
+-      <method v="2" />
+-    </configuration>
+-    <configuration name="generated-requests#2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" runType="Run single request">
+-      <method v="2" />
+-    </configuration>
+-    <configuration name="generated-requests#36" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="36" runType="Run single request">
+-      <method v="2" />
++    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="givealot" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="com.GiveaLot.givealot.User.controller.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="PACKAGE_NAME" value="com.GiveaLot.givealot.User.controller" />
++      <option name="MAIN_CLASS_NAME" value="com.GiveaLot.givealot.User.controller.UserControllerTest" />
++      <option name="TEST_OBJECT" value="class" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
+     </configuration>
+-    <configuration name="generated-requests#9" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="9" runType="Run single request">
+-      <method v="2" />
++    <configuration name="UserControllerTest.testGetUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="givealot" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="com.GiveaLot.givealot.User.controller.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="PACKAGE_NAME" value="com.GiveaLot.givealot.User.controller" />
++      <option name="MAIN_CLASS_NAME" value="com.GiveaLot.givealot.User.controller.UserControllerTest" />
++      <option name="METHOD_NAME" value="testGetUsers" />
++      <option name="TEST_OBJECT" value="method" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
+     </configuration>
+     <configuration name="GivealotApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+       <module name="givealot" />
+@@ -102,13 +151,35 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
++    <configuration name="Write tests for class OrganisationController" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration" activateToolWindowBeforeRun="false" temporary="true">
++      <module name="givealot" />
++      <settings run-config-name="Write tests for class OrganisationController" include-system-env-vars="true">
++        <jvm-args />
++        <selection-scope>class</selection-scope>
++        <selected-element key="com.GiveaLot.givealot.Organisation.controller.OrganisationController" />
++      </settings>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="Write tests for method OrganisationController.addOrganisation" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration" activateToolWindowBeforeRun="false" temporary="true">
++      <module name="givealot" />
++      <settings run-config-name="Write tests for method OrganisationController.addOrganisation" include-system-env-vars="true">
++        <jvm-args />
++        <selection-scope>method</selection-scope>
++        <selected-element key="com.GiveaLot.givealot.Organisation.controller.OrganisationController.addOrganisation:(Lcom/GiveaLot/givealot/Organisation/requests/AddOrganisationRequest;)Lorg/springframework/http/ResponseEntity;" />
++      </settings>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="HTTP Request.generated-requests#12" />
+-        <item itemvalue="HTTP Request.generated-requests#9" />
+-        <item itemvalue="HTTP Request.generated-requests#11" />
+-        <item itemvalue="HTTP Request.generated-requests#2" />
+-        <item itemvalue="HTTP Request.generated-requests#36" />
++        <item itemvalue="JUnit.UserControllerTest.testGetUsers" />
++        <item itemvalue="JUnit.OrganisationControllerTest" />
++        <item itemvalue="Diffblue Cover.Write tests for method OrganisationController.addOrganisation" />
++        <item itemvalue="Diffblue Cover.Write tests for class OrganisationController" />
++        <item itemvalue="JUnit.UserControllerTest" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -213,7 +284,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1629261980094</updated>
+     </task>
+-    <option name="localTasksCounter" value="14" />
++    <task id="LOCAL-00014" summary="Fixing organisation points">
++      <created>1629281118302</created>
++      <option name="number" value="00014" />
++      <option name="presentableId" value="LOCAL-00014" />
++      <option name="project" value="LOCAL" />
++      <updated>1629281118302</updated>
++    </task>
++    <option name="localTasksCounter" value="15" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -237,6 +315,7 @@
+     <MESSAGE value="organisations api - get all users ready for frontend" />
+     <MESSAGE value="organisations controller revision" />
+     <MESSAGE value="organisations controller revision - add Organisation" />
+-    <option name="LAST_COMMIT_MESSAGE" value="organisations controller revision - add Organisation" />
++    <MESSAGE value="Fixing organisation points" />
++    <option name="LAST_COMMIT_MESSAGE" value="Fixing organisation points" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\npackage com.GiveaLot.givealot.Certificate.service;\r\n\r\n\r\nimport com.GiveaLot.givealot.Certificate.dataclass.Certificate;\r\nimport com.GiveaLot.givealot.Organisation.model.Organisations;\r\nimport org.springframework.stereotype.Service;\r\n\r\nimport java.io.File;\r\n\r\n@Service\r\npublic interface CertificateService {\r\n\r\n  public boolean addCertificate(long orgId, Certificate certificate) throws Exception;\r\n\r\n    public boolean updateCertificate(long orgId) throws Exception;\r\n\r\n    public File retrieveCertificate(long orgId, String orgName) throws Exception;\r\n\r\n    //public boolean compare;\r\n\r\n    public boolean createPDFDocument(Certificate cert, Organisations organisation, int points) throws Exception;\r\n    public boolean checkRenewal() throws Exception;\r\n\r\n    public boolean CertificateExpiredEmail(String orgName, String orgEmail) throws Exception;\r\n\r\n    public boolean organisationRenewal(long orgId) throws Exception;\r\n\r\n    public boolean adminRenewal(long orgId) throws Exception;\r\n}\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateService.java b/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateService.java
+--- a/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateService.java	(revision e2fc8963d3145d7dd0e08446eed5cfbd20022f29)
++++ b/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateService.java	(date 1629327307116)
+@@ -7,6 +7,8 @@
+ import org.springframework.stereotype.Service;
+ 
+ import java.io.File;
++import java.io.IOException;
++import java.security.NoSuchAlgorithmException;
+ 
+ @Service
+ public interface CertificateService {
+@@ -27,6 +29,8 @@
+     public boolean organisationRenewal(long orgId) throws Exception;
+ 
+     public boolean adminRenewal(long orgId) throws Exception;
++
++    public boolean compareCertificate(File certificate) throws Exception;
+ }
+ 
+ 
+Index: backend/src/test/java/com/GiveaLot/givealot/User/controller/UserControllerTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.GiveaLot.givealot.User.controller;\r\n\r\nimport com.GiveaLot.givealot.Organisation.service.response.responseJSON;\r\nimport com.GiveaLot.givealot.User.requests.GetUserRequest;\r\nimport com.GiveaLot.givealot.User.requests.GetUsersRequest;\r\nimport com.GiveaLot.givealot.User.requests.RegisterUserRequest;\r\nimport com.GiveaLot.givealot.User.requests.ResetPasswordRequestRequest;\r\nimport com.GiveaLot.givealot.User.requests.SetAdminRequest;\r\nimport com.GiveaLot.givealot.User.service.UserServiceImp;\r\nimport com.fasterxml.jackson.databind.ObjectMapper;\r\nimport org.junit.jupiter.api.Test;\r\nimport org.junit.jupiter.api.extension.ExtendWith;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.boot.test.mock.mockito.MockBean;\r\nimport org.springframework.http.MediaType;\r\nimport org.springframework.test.context.ContextConfiguration;\r\nimport org.springframework.test.context.junit.jupiter.SpringExtension;\r\nimport org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;\r\nimport org.springframework.test.web.servlet.request.MockMvcRequestBuilders;\r\nimport org.springframework.test.web.servlet.result.MockMvcResultMatchers;\r\nimport org.springframework.test.web.servlet.setup.MockMvcBuilders;\r\n\r\n@ContextConfiguration(classes = {UserController.class})\r\n@ExtendWith(SpringExtension.class)\r\npublic class UserControllerTest {\r\n    @MockBean\r\n    private responseJSON responseJSON;\r\n\r\n    @Autowired\r\n    private UserController userController;\r\n\r\n    @MockBean\r\n    private UserServiceImp userServiceImp;\r\n\r\n    @Test\r\n    public void testAddUser() throws Exception {\r\n        MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post(\"/v1/user/register/user\")\r\n                .contentType(MediaType.APPLICATION_JSON);\r\n\r\n        ObjectMapper objectMapper = new ObjectMapper();\r\n        MockHttpServletRequestBuilder requestBuilder = contentTypeResult.content(\r\n                objectMapper.writeValueAsString(new RegisterUserRequest(\"Jane\", \"Doe\", \"jane.doe@example.org\", \"iloveyou\")));\r\n        MockMvcBuilders.standaloneSetup(this.userController)\r\n                .build()\r\n                .perform(requestBuilder)\r\n                .andExpect(MockMvcResultMatchers.status().isOk());\r\n    }\r\n\r\n    @Test\r\n    public void testAddUser2() throws Exception {\r\n        MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post(\"/v1/user/register/user\", \"Uri Vars\")\r\n                .contentType(MediaType.APPLICATION_JSON);\r\n\r\n        ObjectMapper objectMapper = new ObjectMapper();\r\n        MockHttpServletRequestBuilder requestBuilder = contentTypeResult.content(\r\n                objectMapper.writeValueAsString(new RegisterUserRequest(\"Jane\", \"Doe\", \"jane.doe@example.org\", \"iloveyou\")));\r\n        MockMvcBuilders.standaloneSetup(this.userController)\r\n                .build()\r\n                .perform(requestBuilder)\r\n                .andExpect(MockMvcResultMatchers.status().isOk());\r\n    }\r\n\r\n    @Test\r\n    public void testConstructor() {\r\n        // TODO: This test is incomplete.\r\n        //   Reason: Nothing to assert: the constructed class does not have observers (e.g. getters or public fields).\r\n        //   Add observers (e.g. getters or public fields) to the class.\r\n        //   See https://diff.blue/R002\r\n\r\n        UserServiceImp userServiceImp = new UserServiceImp();\r\n        new UserController(userServiceImp, new responseJSON());\r\n\r\n    }\r\n\r\n    @Test\r\n    public void testGetUser() throws Exception {\r\n        MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post(\"/v1/user/get/user\")\r\n                .contentType(MediaType.APPLICATION_JSON);\r\n\r\n        ObjectMapper objectMapper = new ObjectMapper();\r\n        MockHttpServletRequestBuilder requestBuilder = contentTypeResult\r\n                .content(objectMapper.writeValueAsString(new GetUserRequest(\"jane.doe@example.org\", \"Admin User\")));\r\n        MockMvcBuilders.standaloneSetup(this.userController)\r\n                .build()\r\n                .perform(requestBuilder)\r\n                .andExpect(MockMvcResultMatchers.status().isOk())\r\n                .andExpect(MockMvcResultMatchers.content().contentType(\"application/json\"))\r\n                .andExpect(MockMvcResultMatchers.content()\r\n                        .string(\"{\\\"message\\\":\\\"unsuccessful\\\",\\\"success\\\":false,\\\"response\\\":null,\\\"jwttoken\\\":null}\"));\r\n    }\r\n\r\n    @Test\r\n    public void testGetUsers() throws Exception {\r\n        MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.get(\"/v1/user/get/users\")\r\n                .contentType(MediaType.APPLICATION_JSON);\r\n\r\n        ObjectMapper objectMapper = new ObjectMapper();\r\n        MockHttpServletRequestBuilder requestBuilder = contentTypeResult\r\n                .content(objectMapper.writeValueAsString(new GetUsersRequest(\"Admin User\")));\r\n        MockMvcBuilders.standaloneSetup(this.userController)\r\n                .build()\r\n                .perform(requestBuilder)\r\n                .andExpect(MockMvcResultMatchers.status().isOk())\r\n                .andExpect(MockMvcResultMatchers.content().contentType(\"application/json\"))\r\n                .andExpect(MockMvcResultMatchers.content()\r\n                        .string(\"{\\\"message\\\":\\\"successful\\\",\\\"success\\\":true,\\\"response\\\":[],\\\"jwttoken\\\":\\\"1\\\"}\"));\r\n    }\r\n\r\n    @Test\r\n    public void testResetPassword() throws Exception {\r\n        MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post(\"/v1/user/resetPassword/user\")\r\n                .contentType(MediaType.APPLICATION_JSON);\r\n\r\n        ObjectMapper objectMapper = new ObjectMapper();\r\n        MockHttpServletRequestBuilder requestBuilder = contentTypeResult\r\n                .content(objectMapper.writeValueAsString(new ResetPasswordRequestRequest(\"jane.doe@example.org\", \"iloveyou\")));\r\n        MockMvcBuilders.standaloneSetup(this.userController)\r\n                .build()\r\n                .perform(requestBuilder)\r\n                .andExpect(MockMvcResultMatchers.status().isOk());\r\n    }\r\n\r\n    @Test\r\n    public void testSetAdmin() throws Exception {\r\n        MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post(\"/v1/user/setadmin/user\")\r\n                .contentType(MediaType.APPLICATION_JSON);\r\n\r\n        ObjectMapper objectMapper = new ObjectMapper();\r\n        MockHttpServletRequestBuilder requestBuilder = contentTypeResult\r\n                .content(objectMapper.writeValueAsString(new SetAdminRequest(\"jane.doe@example.org\", \"jane.doe@example.org\")));\r\n        MockMvcBuilders.standaloneSetup(this.userController)\r\n                .build()\r\n                .perform(requestBuilder)\r\n                .andExpect(MockMvcResultMatchers.status().isOk());\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/test/java/com/GiveaLot/givealot/User/controller/UserControllerTest.java b/backend/src/test/java/com/GiveaLot/givealot/User/controller/UserControllerTest.java
+--- a/backend/src/test/java/com/GiveaLot/givealot/User/controller/UserControllerTest.java	(revision e2fc8963d3145d7dd0e08446eed5cfbd20022f29)
++++ b/backend/src/test/java/com/GiveaLot/givealot/User/controller/UserControllerTest.java	(date 1629281367814)
+@@ -61,21 +61,54 @@
+     }
+ 
+     @Test
+-    public void testConstructor() {
+-        // TODO: This test is incomplete.
+-        //   Reason: Nothing to assert: the constructed class does not have observers (e.g. getters or public fields).
+-        //   Add observers (e.g. getters or public fields) to the class.
+-        //   See https://diff.blue/R002
++    public void testAddUser3() throws Exception {
++        MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/user/register/user")
++                .contentType(MediaType.APPLICATION_JSON);
+ 
+-        UserServiceImp userServiceImp = new UserServiceImp();
+-        new UserController(userServiceImp, new responseJSON());
++        ObjectMapper objectMapper = new ObjectMapper();
++        MockHttpServletRequestBuilder requestBuilder = contentTypeResult.content(
++                objectMapper.writeValueAsString(new RegisterUserRequest("Jane", "Doe", "jane.doe@example.org", "iloveyou")));
++        MockMvcBuilders.standaloneSetup(this.userController)
++                .build()
++                .perform(requestBuilder)
++                .andExpect(MockMvcResultMatchers.status().isOk());
++    }
+ 
++    @Test
++    public void testAddUser4() throws Exception {
++        MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/user/register/user", "Uri Vars")
++                .contentType(MediaType.APPLICATION_JSON);
++
++        ObjectMapper objectMapper = new ObjectMapper();
++        MockHttpServletRequestBuilder requestBuilder = contentTypeResult.content(
++                objectMapper.writeValueAsString(new RegisterUserRequest("Jane", "Doe", "jane.doe@example.org", "iloveyou")));
++        MockMvcBuilders.standaloneSetup(this.userController)
++                .build()
++                .perform(requestBuilder)
++                .andExpect(MockMvcResultMatchers.status().isOk());
+     }
+ 
+     @Test
+     public void testGetUser() throws Exception {
+         MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/user/get/user")
+                 .contentType(MediaType.APPLICATION_JSON);
++
++        ObjectMapper objectMapper = new ObjectMapper();
++        MockHttpServletRequestBuilder requestBuilder = contentTypeResult
++                .content(objectMapper.writeValueAsString(new GetUserRequest("jane.doe@example.org", "Admin User")));
++        MockMvcBuilders.standaloneSetup(this.userController)
++                .build()
++                .perform(requestBuilder)
++                .andExpect(MockMvcResultMatchers.status().isOk())
++                .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
++                .andExpect(MockMvcResultMatchers.content()
++                        .string("{\"message\":\"unsuccessful\",\"success\":false,\"response\":null,\"jwttoken\":null}"));
++    }
++
++    @Test
++    public void testGetUser2() throws Exception {
++        MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/user/get/user")
++                .contentType(MediaType.APPLICATION_JSON);
+ 
+         ObjectMapper objectMapper = new ObjectMapper();
+         MockHttpServletRequestBuilder requestBuilder = contentTypeResult
+@@ -93,6 +126,23 @@
+     public void testGetUsers() throws Exception {
+         MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.get("/v1/user/get/users")
+                 .contentType(MediaType.APPLICATION_JSON);
++
++        ObjectMapper objectMapper = new ObjectMapper();
++        MockHttpServletRequestBuilder requestBuilder = contentTypeResult
++                .content(objectMapper.writeValueAsString(new GetUsersRequest("Admin User")));
++        MockMvcBuilders.standaloneSetup(this.userController)
++                .build()
++                .perform(requestBuilder)
++                .andExpect(MockMvcResultMatchers.status().isOk())
++                .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
++                .andExpect(MockMvcResultMatchers.content()
++                        .string("{\"message\":\"successful\",\"success\":true,\"response\":[],\"jwttoken\":\"1\"}"));
++    }
++
++    @Test
++    public void testGetUsers2() throws Exception {
++        MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/user/get/users")
++                .contentType(MediaType.APPLICATION_JSON);
+ 
+         ObjectMapper objectMapper = new ObjectMapper();
+         MockHttpServletRequestBuilder requestBuilder = contentTypeResult
+@@ -110,6 +160,20 @@
+     public void testResetPassword() throws Exception {
+         MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/user/resetPassword/user")
+                 .contentType(MediaType.APPLICATION_JSON);
++
++        ObjectMapper objectMapper = new ObjectMapper();
++        MockHttpServletRequestBuilder requestBuilder = contentTypeResult
++                .content(objectMapper.writeValueAsString(new ResetPasswordRequestRequest("jane.doe@example.org", "iloveyou")));
++        MockMvcBuilders.standaloneSetup(this.userController)
++                .build()
++                .perform(requestBuilder)
++                .andExpect(MockMvcResultMatchers.status().isOk());
++    }
++
++    @Test
++    public void testResetPassword2() throws Exception {
++        MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/user/resetPassword/user")
++                .contentType(MediaType.APPLICATION_JSON);
+ 
+         ObjectMapper objectMapper = new ObjectMapper();
+         MockHttpServletRequestBuilder requestBuilder = contentTypeResult
+@@ -124,6 +188,20 @@
+     public void testSetAdmin() throws Exception {
+         MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/user/setadmin/user")
+                 .contentType(MediaType.APPLICATION_JSON);
++
++        ObjectMapper objectMapper = new ObjectMapper();
++        MockHttpServletRequestBuilder requestBuilder = contentTypeResult
++                .content(objectMapper.writeValueAsString(new SetAdminRequest("jane.doe@example.org", "jane.doe@example.org")));
++        MockMvcBuilders.standaloneSetup(this.userController)
++                .build()
++                .perform(requestBuilder)
++                .andExpect(MockMvcResultMatchers.status().isOk());
++    }
++
++    @Test
++    public void testSetAdmin2() throws Exception {
++        MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/user/setadmin/user")
++                .contentType(MediaType.APPLICATION_JSON);
+ 
+         ObjectMapper objectMapper = new ObjectMapper();
+         MockHttpServletRequestBuilder requestBuilder = contentTypeResult

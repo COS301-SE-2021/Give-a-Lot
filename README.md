@@ -101,8 +101,13 @@ phases of the project to the stakeholders of the Give a lot project.
    <ul>
     <li>Developer
       <ul>
-         <li>feature_getCatalogue</li>
+         <li>fontend_master</li>
+	      <li>frontend_develop</li>
      </ul>
+	    <ul>
+		    <li>backend_master</li>
+		    <li>backend_develop</li>
+	    </ul>
    </li>
   </ul>
  </li>

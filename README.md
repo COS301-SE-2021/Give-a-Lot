@@ -30,6 +30,8 @@
 <a href="https://drive.google.com/file/d/1Di_9bHOnuGjLVx-TSGUBZ4JJtTczgMHC/view?usp=sharing"> SRS Document </a>
 <br><br>
 <a href="https://drive.google.com/file/d/1UU7OfSolEBjiBHExVGGJ1PQzOEdpfhAW/view?usp=sharing"> Architectural requirements document </a>
+<br><br>
+<a href="https://drive.google.com/file/d/1F5go0s6Mo52JFyQfnXhLLjX11eyOPhpQ/view?usp=sharing">Coding Standards Documnet</a>
 
 <br>
 <h3>Demo 3 Documentation</h3>

@@ -1,0 +1,134 @@
+.registerOrganisation{
+    background-image: url("homeBackground.jpg");
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    object-fit: fill;
+
+}
+
+.registerCard{
+    padding: 65px 55px 54px 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wrap{
+    width: 500px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    /*margin-left: 450px;*/
+    padding: 65px 55px 54px 55px;
+
+}
+/*@media (max-width: 576px)*/
+/*.registerCard {*/
+/*    padding-left: 15px;*/
+/*    padding-right: 15px;*/
+/*}*/
+
+form {
+    display: block;
+    margin-top: 0em;
+}
+.headerTag{
+    display: block;
+    font-size: 25px;
+    color: #333;
+    line-height: 1.2;
+    text-align: center;
+    padding-bottom: 49px;
+}
+.input{
+    width: 100%;
+    /*position: relative;*/
+    border-bottom: 2px solid #d9d9d9;
+    margin-bottom: 23px;
+}
+.inputLabel{
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+    padding-left: 7px;
+}
+.input100{
+    font-size: 16px;
+    color: #333;
+    line-height: 1.2;
+    display: block;
+    width: 100%;
+    height: 55px;
+    background: 0 0;
+    padding: 0 7px 0 43px;
+    outline: none;
+    border: none;
+}
+.validateInput{
+    position: relative;
+}
+.focus-input100{
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+.focus-input100::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #7f7f7f;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s;
+}
+.button{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.wrap-btn{
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 1;
+    border-radius: 25px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.form-btn{
+    position: absolute;
+    z-index: -1;
+    width: 300%;
+    height: 100%;
+    background: #a64bf4;
+    /*background: -webkit-linear-gradient(right,#00dbde,#fc00ff,#00dbde,#fc00ff);*/
+}
+.register-btn{
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,31,1) 35%, rgba(0,212,255,1) 100%);
+
+}
+.button {
+    outline: none!important;
+    border: none;
+    color: white;
+    /*background: 0 0;*/
+}

@@ -4,50 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Last minute changes">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HELP.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/Database.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/givealot.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Blockchain/service/BlockchainServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Certificate/dataclass/ContractConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Server/ServerAccess.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/GiveaLot/givealot/Server/ServerConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/Code_Standards.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/Give_A_Lot__SRS.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/Give_A_Lot___Architectural_requirements_document.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/User_Manual.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/components/admin/Admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/components/admin/Admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/reportWebVitals.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/setupTests.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/itextpdf-5.5.13.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javax.ejb.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javax.jms.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javax.persistence.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javax.resource.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javax.servlet.jsp.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javax.servlet.jsp.jstl.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javax.transaction.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/mysql-connector-java-8.0.25.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/postgresql-42.2.22.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/protobuf-java-3.11.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report2021062017004991.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report20210620223411883.txt" beforeDir="false" />
-    </list>
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -132,6 +89,19 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

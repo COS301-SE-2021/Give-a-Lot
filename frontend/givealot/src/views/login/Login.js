@@ -5,7 +5,7 @@ function Login()
 {
     return (
         <div>
-            LOGIN PAGE - under construction
+            LOGIN PAGE - under construction.
         </div>
     );
 }

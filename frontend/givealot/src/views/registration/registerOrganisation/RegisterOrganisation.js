@@ -7,8 +7,6 @@ export class RegisterOrganisation extends Component {
                 Register Organisation
             </div>
             )
-
-
     }
 }
 

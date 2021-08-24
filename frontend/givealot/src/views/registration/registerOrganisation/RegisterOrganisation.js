@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../registerOrganisation/Styles/registerOrganisation.css";
+import { IoPersonOutline } from "react-icons/io5";
 
 export class RegisterOrganisation extends Component {
     render() {
@@ -9,14 +10,20 @@ export class RegisterOrganisation extends Component {
                    <div className="wrap">
                        <form className="form">
                        <span className="headerTag">
-                           Register
+                           Register Organisation
                        </span>
                            <div className="input alert-validate" data-validate="Username is required">
                                 <span className="inputLabel">
                                     Username
                                 </span>
-                               <input className="input100 validateInput" type="text" name="username" placeholder="Type your username" />
-                               <span className="focus-input100" data-symbol=""></span>
+                               <div style={{display: "flex"}}>
+                                   <IoPersonOutline className="registerIcon"/>
+                                   <input className="input100 validateInput" type="text" name="username" placeholder="Type your username" />
+                                   {/*<span className="focus-input100">*/}
+
+                               {/*</span>*/}
+                               </div>
+
                            </div>
 
                            <div className="input alert-validate" data-validate="Username is required">
@@ -24,7 +31,7 @@ export class RegisterOrganisation extends Component {
                                     Password
                                 </span>
                                <input className="input100 validateInput" type="text" name="username" placeholder="Type your username" />
-                               <span className="focus-input100" data-symbol=""></span>
+                               <span className="focus-input100" ></span>
                            </div>
                            <div className="button">
                                <div className="wrap-btn">

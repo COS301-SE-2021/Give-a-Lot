@@ -1,0 +1,258 @@
+/* For Desktop View */
+@media screen and (min-width: 1024px) {
+  #homeNav {
+    display: flex;
+    justify-content: space-between;
+
+    width: 98vw;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .loginDashBtn {
+    height: 30px;
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    top: 25px;
+    position: relative;
+  }
+
+  #logo {
+    width: 200px;
+  }
+
+  #main_content_container {
+    height: 400px;
+    display: flex;
+    position: relative;
+    left: 50%;
+
+    transform: translate(-50%, 80px);
+    flex-direction: column;
+  }
+
+  #main_head {
+    font-size: 28px;
+    text-align: center;
+    margin: 0;
+  }
+
+  #supporting_head {
+    margin: 0;
+    transform: translateY(15px);
+    font-size: 48px;
+
+    text-align: center;
+  }
+
+  #main_content_btns {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 100px);
+  }
+
+  .main_content_btns_inputTag {
+    margin: 5px;
+    height: 45px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+  }
+}
+
+/* For Desktop View - 1440p */
+@media screen and (min-width: 1440px) {
+  #main_content_container {
+    height: 400px;
+    display: flex;
+    position: relative;
+    left: 50%;
+
+    transform: translate(-50%, 120px);
+    flex-direction: column;
+  }
+}
+
+/* For Desktop View - ultrawide */
+
+@media screen and (min-device-width: 2560px) and (min-device-height: 1600px) {
+  .loginDashBtn {
+    height: 70px;
+    width: 240px;
+    border: none;
+    border-radius: 8px;
+    top: 25px;
+    position: relative;
+    font-size: 25px;
+  }
+
+  #logo {
+    width: 350px;
+  }
+
+  #main_head {
+    font-size: 48px;
+    text-align: center;
+    margin: 0;
+  }
+
+  #supporting_head {
+    margin: 0;
+    transform: translateY(15px);
+    font-size: 80px;
+
+    text-align: center;
+  }
+
+  #main_content_btns {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    position: relative;
+    left: 50%;
+
+    transform: translate(-50%, 200px);
+  }
+
+  .main_content_btns_inputTag {
+    margin: 15px 0 15px;
+    height: 95px;
+    border-radius: 10px;
+    border: none;
+
+    font-size: 32px;
+  }
+
+  #main_content_container {
+    height: 400px;
+    display: flex;
+    position: relative;
+    left: 50%;
+    top: 270px;
+    transform: translate(-50%, 0);
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-device-width: 1920px) and (min-device-height: 1080px) {
+  .loginDashBtn {
+    height: 55px;
+    width: 200px;
+    border: none;
+    border-radius: 8px;
+    top: 25px;
+    position: relative;
+    font-size: 25px;
+  }
+
+  #logo {
+    width: 300px;
+  }
+
+  #main_head {
+    font-size: 40px;
+    text-align: center;
+    margin: 0;
+  }
+
+  #supporting_head {
+    margin: 0;
+    transform: translateY(15px);
+    font-size: 62px;
+
+    text-align: center;
+  }
+
+  #main_content_btns {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    position: relative;
+    left: 50%;
+
+    transform: translate(-50%, 200px);
+  }
+
+  .main_content_btns_inputTag {
+    margin: 5px 0 5px;
+    height: 80px;
+    border-radius: 10px;
+    border: none;
+
+    font-size: 26px;
+  }
+
+  #main_content_container {
+    height: 400px;
+    display: flex;
+    position: relative;
+    left: 50%;
+    top: 220px;
+    transform: translate(-50%, 0);
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-device-width: 2560px) and (min-device-height: 1080px) {
+  .loginDashBtn {
+    height: 40px;
+    width: 170px;
+    border: none;
+    border-radius: 8px;
+    top: 25px;
+    position: relative;
+    font-size: 18px;
+  }
+
+  #logo {
+    width: 300px;
+  }
+
+  #main_head {
+    font-size: 30px;
+    text-align: center;
+    margin: 0;
+  }
+
+  #supporting_head {
+    margin: 0;
+    transform: translateY(15px);
+    font-size: 50px;
+
+    text-align: center;
+  }
+
+  #main_content_btns {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    position: relative;
+    left: 50%;
+
+    transform: translate(-50%, 200px);
+  }
+
+  .main_content_btns_inputTag {
+    margin: 5px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+
+    font-size: 18px;
+  }
+
+  #main_content_container {
+    height: 400px;
+    display: flex;
+    position: relative;
+    left: 50%;
+    top: 100px;
+    transform: translate(-50%, 0);
+    flex-direction: column;
+  }
+}

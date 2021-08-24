@@ -1,0 +1,302 @@
+/* For Mobile Phones Portrait or Landscape View */
+@media screen and (max-device-width: 640px) {
+  #homeNav {
+    display: flex;
+    justify-content: space-between;
+
+    width: 98vw;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .loginDashBtn {
+    height: 30px;
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    top: 10px;
+    right: 10px;
+    position: relative;
+  }
+
+  #logo {
+    width: 140px;
+  }
+
+  #main_content_container {
+    height: 400px;
+    display: flex;
+    position: relative;
+    left: 50%;
+    top: 50px;
+    transform: translate(-50%, 50px);
+    flex-direction: column;
+  }
+
+  #main_head {
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+  }
+
+  #supporting_head {
+    margin: 0;
+    transform: translateY(15px);
+    font-size: 38px;
+
+    text-align: center;
+  }
+
+  #main_content_btns {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 200px);
+  }
+
+  .main_content_btns_inputTag {
+    margin: 5px;
+    height: 45px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+  }
+}
+
+/* for smaller phones */
+@media screen and (max-device-width: 640px) and (max-device-height: 568px) {
+  #main_content_btns {
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 100px);
+  }
+
+  .main_content_btns_inputTag {
+    margin: 5px;
+    height: 45px;
+    border-radius: 10px;
+    border: none;
+    font-size: 13px;
+  }
+
+  #main_head {
+    font-size: 15px;
+    text-align: center;
+    margin: 0;
+  }
+
+  #supporting_head {
+    margin: 0;
+    transform: translateY(15px);
+    font-size: 28px;
+
+    text-align: center;
+  }
+}
+
+@media screen and (min-device-height: 812px) {
+  #homeNav {
+    display: flex;
+    justify-content: space-between;
+
+    width: 98vw;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .loginDashBtn {
+    height: 30px;
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    top: 10px;
+    right: 10px;
+    position: relative;
+  }
+
+  #logo {
+    width: 140px;
+  }
+
+  #main_content_container {
+    height: 400px;
+    display: flex;
+    position: relative;
+    left: 50%;
+
+    transform: translate(-50%, 150px);
+    flex-direction: column;
+  }
+
+  #main_head {
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+  }
+
+  #supporting_head {
+    margin: 0;
+    transform: translateY(15px);
+    font-size: 38px;
+
+    text-align: center;
+  }
+
+  #main_content_btns {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 200px);
+  }
+
+  .main_content_btns_inputTag {
+    margin: 5px;
+    height: 45px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-device-width: 414px) and (min-device-height: 736px) {
+  #homeNav {
+    display: flex;
+    justify-content: space-between;
+
+    width: 98vw;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .loginDashBtn {
+    height: 30px;
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    top: 10px;
+    right: 10px;
+    position: relative;
+  }
+
+  #logo {
+    width: 140px;
+  }
+
+  #main_content_container {
+    height: 400px;
+    display: flex;
+    position: relative;
+    left: 50%;
+
+    transform: translate(-50%, 150px);
+    flex-direction: column;
+  }
+
+  #main_head {
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+  }
+
+  #supporting_head {
+    margin: 0;
+    transform: translateY(15px);
+    font-size: 38px;
+
+    text-align: center;
+  }
+
+  #main_content_btns {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 170px);
+  }
+
+  .main_content_btns_inputTag {
+    margin: 5px;
+    height: 45px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-device-width: 375px) and (max-device-height: 667px) {
+  #homeNav {
+    display: flex;
+    justify-content: space-between;
+
+    width: 98vw;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .loginDashBtn {
+    height: 30px;
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    top: 10px;
+    right: 10px;
+    position: relative;
+  }
+
+  #logo {
+    width: 140px;
+  }
+
+  #main_content_container {
+    height: 400px;
+    display: flex;
+    position: relative;
+    left: 50%;
+
+    transform: translate(-50%, 80px);
+    flex-direction: column;
+  }
+
+  #main_head {
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+  }
+
+  #supporting_head {
+    margin: 0;
+    transform: translateY(15px);
+    font-size: 38px;
+
+    text-align: center;
+  }
+
+  #main_content_btns {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 130px);
+  }
+
+  .main_content_btns_inputTag {
+    margin: 5px;
+    height: 45px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+  }
+}

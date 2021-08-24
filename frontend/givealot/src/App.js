@@ -1,21 +1,22 @@
-import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
-import Register from "./components/register/Register";
-//import Registration from "./components/registration/Registration";
-import Login from './components/login/Login';
-import Admin from "./components/admin/Admin";
-import Organisation from "./components/organisation/Organisation";
-import BasicUser from "./components/basicUser/BasicUser";
-import OrganisationReport from './components/organisation/OrganisationReport';
-import BasicUserReport from "./components/basicUser/BasicUserReport";
 import './App.css';
+import Home from './views/home/Home';
+import Browse from './views/browse/Browse';
+import Dashboard from './views/dashboard/Dashboard';
+import Login from './views/login/Login';
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'; 
 
-function App() {
-    return (
-      <div className="App">
-        <Admin />
-      </div>
-   );
-  
+function App()
+{
+  return(
+    <Router>
+      <Switch>
+        <Route path="/" exact component={Home}/>
+        <Route path="/browse" exact component={Browse}/>
+        <Route path="/login" exact component={Login}/>
+        <Route path="/dashboard" exact component={Dashboard}/>
+      </Switch>
+    </Router>
+  );
 }
 
 export default App;

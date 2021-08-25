@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Register Organisation sector select">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/About.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -158,14 +157,7 @@
       <workItem from="1629339797985" duration="980000" />
       <workItem from="1629343930362" duration="7971000" />
       <workItem from="1629886755996" duration="10886000" />
-      <workItem from="1629908107064" duration="17982000" />
-    </task>
-    <task id="LOCAL-00019" summary="organisations controller revision">
-      <created>1629263769117</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1629263769117</updated>
+      <workItem from="1629908107064" duration="18287000" />
     </task>
     <task id="LOCAL-00020" summary="organisations controller revision - activate">
       <created>1629264097723</created>
@@ -503,7 +495,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629931813142</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="Register Organisation sector select">
+      <created>1629932230119</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1629932230119</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -61,7 +61,8 @@ export class RegisterOrganisation extends Component {
                                 <span className="inputLabel">
                                     Sector
                                 </span>
-                                <select value={values.orgSector} className="input100"  onChange={handleChange('orgSector')}>
+                                <select value={values.orgSector} className="input100" onChange={handleChange('orgSector')}>
+                                    <option>Enter Sector</option>
                                     <option value="A">Children</option>
                                     <option value="B">Youth</option>
                                     <option value="C">Security</option>

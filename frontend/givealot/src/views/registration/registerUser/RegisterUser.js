@@ -93,7 +93,7 @@ render() {
                            </span>
                             <div className="registerUserInput" data-validate="Username is required">
                                 <span className="registerUserInputLabel">
-                                    Fisrt Name
+                                    First Name
                                 </span>
                                 <div>
                                     <input
@@ -105,9 +105,9 @@ render() {
                                         onChange={this.handleChange}
                                     />
                                 </div>
-
+                                <span style={{float: "right", color: "red"}}>{this.state.fnameError}</span>
                             </div>
-                            <div className="error">{this.state.fnameError}</div>
+
 
                             <div className="registerUserInput" data-validate="Username is required">
                                 <span className="registerUserInputLabel">
@@ -123,9 +123,9 @@ render() {
                                         onChange={this.handleChange}
                                     />
                                 </div>
-
+                                <span style={{float: "right", color: "red"}}>{this.state.lnameError}</span>
                             </div>
-                            <div className="error">{this.state.lnameError}</div>
+
 
 
                             <div className="registerUserInput" data-validate="surname is required">
@@ -142,14 +142,15 @@ render() {
                                         onChange={this.handleChange}/>
 
                                 </div>
-
+                                <span style={{float: "right", color: "red"}}>{this.state.emailError}</span>
                             </div>
-                            <div className="error">{this.state.emailError}</div>
+
 
                             <div className="registerUserInput" data-validate="Username is required">
                                 <span className="registerUserInputLabel">
                                     Password
                                 </span>
+                                <div>
                                 <input
                                     className="registerUserInnerInput validate"
                                     type="password"
@@ -159,7 +160,8 @@ render() {
                                     onChange={this.handleChange}
                                 />
                             </div>
-                            <div className="error">{this.state.passwordError}</div>
+                            <span style={{float: "right", color: "red"}}>{this.state.passwordError}</span>
+                            </div>
 
                             <div className="wrapp-btn">
                                 <button className="registerUser-btn" type="submit">

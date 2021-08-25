@@ -51,7 +51,7 @@ function Login()
                                 </div>
 
                             <div className="BottomForm">
-                                <Link to={"/"} className="BottomLinker">
+                                <Link to={"/signUp"} className="BottomLinker">
                                     <span> Need an account?</span>
                                 </Link>
 

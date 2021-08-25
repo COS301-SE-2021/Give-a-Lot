@@ -145,9 +145,7 @@ LoginForm {
     text-decoration: none;
     color: #333;
 }
-BottomLinker:hover {
-    color: red;
-}
+
 
 .LoginIcon{
     color: #767676;

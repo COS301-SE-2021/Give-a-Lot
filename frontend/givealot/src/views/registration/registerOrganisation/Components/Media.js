@@ -41,14 +41,8 @@ export class RegisterOrganisation extends Component {
                                     Media
                                 </span>
                                 <div style={{display: "flex"}}>
-                                    {/*<IoPersonOutline className="registerIcon"/>*/}
-                                    {/*<input className="input100 validateInput"*/}
-                                    {/*       type="text" name="contactPerson"*/}
-                                    {/*       placeholder="Enter Organisation Contact Person"*/}
-                                    {/*       value={values.contactPerson}*/}
-                                    {/*       onChange={handleChange('contactPerson')}*/}
-                                    {/*/>*/}
-                                    <input type="file" id="img" name="img" accept="image/*" />
+                                    <input type="file" id="img" name="img" accept="image/*"/>
+                                    <span style={{float: "right", color: "red"}}><small>{this.props.imageError}</small></span>
                                 </div>
 
                             </div>

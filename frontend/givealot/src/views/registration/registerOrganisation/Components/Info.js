@@ -34,13 +34,15 @@ export class RegisterOrganisation extends Component {
                        </span>
                             <div className="input alert-validate" data-validate="Username is required">
                                 <span className="inputLabel">
-                                    Username
+                                    Organisation Name
                                 </span>
                                 <div style={{display: "flex"}}>
                                     {/*<IoPersonOutline className="registerIcon"/>*/}
                                     <input className="input100 validateInput"
                                            type="text" name="orgName"
                                            placeholder="Enter Organisation Name"
+                                           required
+                                           maxlength="45"
                                            value={values.orgName}
                                            onChange={handleChange('orgName')}
                                     />
@@ -55,6 +57,7 @@ export class RegisterOrganisation extends Component {
                                 <input className="input100 validateInput"
                                        type="text" name="orgEmail"
                                        placeholder="Enter Organisation Email"
+                                       required
                                        value={values.orgEmail}
                                        onChange={handleChange('orgEmail')}
                                 />
@@ -64,7 +67,8 @@ export class RegisterOrganisation extends Component {
                                     Password
                                 </span>
                                 <input className="input100 validateInput"
-                                       type="text" name="password"
+                                       required
+                                       type="password" name="password"
                                        placeholder="Enter Organisation Password"
                                        value={values.password}
                                        onChange={handleChange('password')}

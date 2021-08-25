@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import "../registerOrganisation/Styles/registerOrganisation.css";
-// import { IoPersonOutline } from "react-icons/io5";
-// import backgroundImg from "../../../assets/homeBackground.jpg";
 import Info from "./Components/Info";
 import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Media from "./Components/Media"
 
 export class RegisterOrganisation extends Component {
-
 
     state = {
         step: 1,
@@ -45,7 +42,7 @@ export class RegisterOrganisation extends Component {
     handleChange = input => e => {
         // console.log(e.target.value);
         this.setState({ [input]: e.target.value });
-        console.log(e.target.value);
+        // console.log(e.target.value);
     };
 
     render() {

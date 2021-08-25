@@ -5,6 +5,7 @@ import "../registerOrganisation/Styles/registerOrganisation.css";
 import Info from "./Components/Info";
 import About from "./Components/About";
 import Contact from "./Components/Contact";
+import Media from "./Components/Media"
 
 export class RegisterOrganisation extends Component {
 
@@ -82,15 +83,15 @@ export class RegisterOrganisation extends Component {
                         values={values}
                     />
                 );
-            // // case 4:
-            // //     return (
-            // //         <OrganisationMedia
-            // //             nextStep={this.nextStep}
-            // //             prevStep={this.prevStep}
-            // //             handleChange={this.handleChange}
-            // //             values={values}
-            // //         />
-            // //     );
+            case 4:
+                return (
+                    <Media
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                    />
+                );
             // case 4:
             //     return (
             //         <Confirmation

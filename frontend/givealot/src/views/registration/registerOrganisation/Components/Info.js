@@ -40,7 +40,7 @@ export class RegisterOrganisation extends Component {
                        <span className="headerTag">
                            Register Organisation
                        </span>
-                            <div className="input alert-validate" data-validate="Username is required">
+                            <div className="input alert-validate" >
                                 <span className="inputLabel">
                                     Organisation Name
                                 </span>

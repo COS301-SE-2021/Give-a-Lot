@@ -7,19 +7,16 @@ import static org.mockito.Mockito.mock;
 
 import com.GiveaLot.givealot.Organisation.controller.OrganisationController;
 import com.GiveaLot.givealot.Organisation.requests.AddOrgAddressRequest;
-import com.GiveaLot.givealot.Organisation.requests.AddOrgAuditInfoRequest;
 import com.GiveaLot.givealot.Organisation.requests.AddOrgAuditorRequest;
 import com.GiveaLot.givealot.Organisation.requests.AddOrgCommitteeRequest;
 import com.GiveaLot.givealot.Organisation.requests.AddOrgDonationInfoRequest;
 import com.GiveaLot.givealot.Organisation.requests.AddOrgEstDateRequest;
 import com.GiveaLot.givealot.Organisation.requests.AddOrgImageRequest;
-import com.GiveaLot.givealot.Organisation.requests.AddOrgTaxRefRequest;
 import com.GiveaLot.givealot.Organisation.requests.AddOrgWebsiteRequest;
 import com.GiveaLot.givealot.Organisation.requests.AddOrganisationRequest;
 import com.GiveaLot.givealot.Organisation.requests.AddSocialsRequest;
 import com.GiveaLot.givealot.Organisation.requests.GetOrganisationsRequest;
 import com.GiveaLot.givealot.Organisation.response.generalOrganisationResponse;
-import com.GiveaLot.givealot.Organisation.response.getOrganisationsResponse;
 import com.GiveaLot.givealot.Organisation.service.OrganisationServiceImp;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -152,19 +149,6 @@ public class OrganisationControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
-    @Test
-    public void testAddOrgTaxRef() throws Exception {
-        MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/organisation/add/taxref")
-                .contentType(MediaType.APPLICATION_JSON);
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        MockHttpServletRequestBuilder requestBuilder = contentTypeResult.content(objectMapper.writeValueAsString(
-                new AddOrgTaxRefRequest(123L, Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toFile())));
-        MockMvcBuilders.standaloneSetup(this.organisationController)
-                .build()
-                .perform(requestBuilder)
-                .andExpect(MockMvcResultMatchers.status().isOk());
-    }
 
     @Test
     public void testAddOrgWebsite() throws Exception {

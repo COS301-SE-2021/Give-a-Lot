@@ -99,12 +99,12 @@ export class RegisterOrganisation extends Component {
             }
         }
 
-        if(this.state.step > 4){
-            if(this.state.image){
-                isError = true;
-                errors.imageError = 'Input an image';
-            }
-        }
+        // if(this.state.step > 4){
+        //     if(this.state.image){
+        //         isError = true;
+        //         errors.imageError = 'Input an image';
+        //     }
+        // }
 
 
 
@@ -135,7 +135,7 @@ export class RegisterOrganisation extends Component {
                 orgDescriptionError: '',
                 contactPersonError: '',
                 contactNumberError: '',
-                imageError: ''
+                // imageError: ''
             })
         }
     };
@@ -209,7 +209,7 @@ export class RegisterOrganisation extends Component {
             case 4:
                 return (
                     <Media
-                        imageError={this.state.imageError}
+                        // imageError={this.state.imageError}
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}

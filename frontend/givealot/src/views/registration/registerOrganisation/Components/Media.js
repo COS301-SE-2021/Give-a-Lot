@@ -42,7 +42,7 @@ export class RegisterOrganisation extends Component {
                                 </span>
                                 <div style={{display: "flex"}}>
                                     <input type="file" id="img" name="img" accept="image/*"/>
-                                    <span style={{float: "right", color: "red"}}><small>{this.props.imageError}</small></span>
+                                    {/*<span style={{float: "right", color: "red"}}><small>{this.props.imageError}</small></span>*/}
                                 </div>
 
                             </div>

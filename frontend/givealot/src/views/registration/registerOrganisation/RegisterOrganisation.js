@@ -12,8 +12,11 @@ export class RegisterOrganisation extends Component {
         orgName : "",
         orgNameError: '',
         slogan : "",
+        sloganError: '',
         orgDescription : "",
+        orgDescriptionError: "",
         orgSector : "",
+        orgSectorError: '',
         orgEmail : "",
         orgEmailError : "",
         contactPerson : "",
@@ -30,9 +33,9 @@ export class RegisterOrganisation extends Component {
             orgNameError: '',
             orgEmailError : "",
             passwordError: '',
-            confirmError: '',
-            forenameError: '',
-            surnameError: '',
+            sloganError: '',
+            orgSectorError: '',
+            orgDescriptionError: '',
             usernameError: '',
             termsError: ''
         }
@@ -42,34 +45,36 @@ export class RegisterOrganisation extends Component {
             errors.orgEmailError = 'Please enter a valid email address';
         }
 
-        // if(this.state.step > 1){
-            if(this.state.password.length < 4){
-                isError = true;
-                errors.passwordError = 'Password must be at least 4 characters long';
-            }
+        if(this.state.password.length < 4){
+            isError = true;
+            errors.passwordError = 'Password must be at least 4 characters long';
+        }
 
             // if(this.state.password !== this.state.confirm){
             //     isError = true;
             //     errors.confirmError = 'Passwords must match';
             // }
-        // }
+        if(this.state.orgName.length < 1){
+            isError = true;
+            errors.orgNameError = 'orgName cannot be blank';
+        }
 
-        // if(this.state.step > 2){
-            if(this.state.orgName.length < 1){
+        if(this.state.step > 1){
+            if(this.state.slogan.length < 1){
                 isError = true;
-                errors.orgNameError = 'orgName cannot be blank';
+                errors.sloganError = 'slogan cannot be blank';
             }
 
-            // if(this.state.surname.length < 1){
-            //     isError = true;
-            //     errors.surnameError = 'Surname cannot be blank';
-            // }
-            //
-            // if(this.state.username.length < 1){
-            //     isError = true;
-            //     errors.usernameError = 'Username cannot be blank';
-            // }
-        // }
+            if(this.state.orgSector.length < 1){
+                isError = true;
+                errors.orgSectorError = 'Sector cannot be blank';
+            }
+
+            if(this.state.orgDescription.length < 1){
+                isError = true;
+                errors.orgDescriptionError = 'Description cannot be blank';
+            }
+        }
 
         // if(this.state.step > 3){
         //     if(this.state.terms === false){
@@ -100,9 +105,9 @@ export class RegisterOrganisation extends Component {
                 orgNameError: '',
                 orgEmailError: '',
                 passwordError: '',
-                confirmError: '',
-                forenameError: '',
-                surnameError: '',
+                sloganError: '',
+                orgSectorError: '',
+                orgDescriptionError: '',
                 usernameError: '',
                 termsError: ''
             })
@@ -155,6 +160,9 @@ export class RegisterOrganisation extends Component {
             case 2:
                 return (
                     <About
+                        sloganError={this.state.sloganError}
+                        orgSectorError={this.state.orgSectorError}
+                        orgDescriptionError={this.state.orgDescriptionError}
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}

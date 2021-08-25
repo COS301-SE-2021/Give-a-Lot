@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../Styles/registerOrganisation.css"
-import { IoPersonOutline } from "react-icons/io5";
+// import { IoPersonOutline } from "react-icons/io5";
 import backgroundImg from "../../../../assets/homeBackground.jpg";
 
 export class RegisterOrganisation extends Component {

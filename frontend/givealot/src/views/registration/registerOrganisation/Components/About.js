@@ -48,6 +48,7 @@ export class RegisterOrganisation extends Component {
                                            value={values.slogan}
                                            onChange={handleChange('slogan')}
                                     />
+                                    <span style={{float: "right", color: "red"}}><small>{this.props.sloganError}</small></span>
                                 </div>
 
                             </div>
@@ -62,8 +63,9 @@ export class RegisterOrganisation extends Component {
                                        value={values.orgSector}
                                        onChange={handleChange('orgSector')}
                                 />
+                                <span style={{float: "right", color: "red"}}><small>{this.props.orgSectorError}</small></span>
                             </div>
-                            <div className="input alert-validate" data-validate="Username is required">
+                            <div className="input alert-validate" >
                                 <span className="inputLabel">
                                     Description
                                 </span>
@@ -73,6 +75,7 @@ export class RegisterOrganisation extends Component {
                                        value={values.orgDescription}
                                        onChange={handleChange('orgDescription')}
                                 />
+                                <span style={{float: "right", color: "red"}}><small>{this.props.orgDescriptionError}</small></span>
                             </div>
                             <div className="button">
                                 <div className="formButton ">

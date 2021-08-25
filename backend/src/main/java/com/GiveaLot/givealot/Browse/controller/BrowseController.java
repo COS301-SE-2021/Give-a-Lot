@@ -52,7 +52,6 @@ public class BrowseController {
             response = new responseJSON("bad_org_br_500","Exception: browse failed due to " + e,null);
 
             return new ResponseEntity<>(response,HttpStatus.OK);
-
         }
 
 

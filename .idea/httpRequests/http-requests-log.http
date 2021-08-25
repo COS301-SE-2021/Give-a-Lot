@@ -1,3 +1,111 @@
+GET http://localhost:8080/v1/browse/sectors
+
+<> 2021-08-25T232548.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors
+
+<> 2021-08-25T232421.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "The people we trust",
+  "slogan" : "youth",
+  "orgDescription" : "Please excuse the description, this is for demonstration purposes",
+  "orgSector" : "developers",
+  "orgEmail" : "givealot@gmail.com",
+  "contactPerson" : "Nqobani Nhlengethwa",
+  "contactNumber" : "0112349908",
+  "password" : "Grandtheft@0934"
+}
+
+<> 2021-08-25T232054.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "The people we trust",
+  "slogan" : "youth",
+  "orgDescription" : "Please excuse the description, this is for demonstration purposes",
+  "orgSector" : "developers",
+  "orgEmail" : "givealot@gmail.com",
+  "contactPerson" : "Nqobani Nhlengethwa",
+  "contactNumber" : "0112349908",
+  "password" : "Grandtheft@0934"
+}
+
+<> 2021-08-25T231900.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "The people we trust",
+  "slogan" : "youth",
+  "orgDescription" : "Please excuse the description, this is for demonstration purposes",
+  "orgSector" : "developers",
+  "orgEmail" : "givealot@gmail.com",
+  "contactPerson" : "Nqobani Nhlengethwa",
+  "contactNumber" : "0112349908",
+  "password" : "Grandtheft@0934"
+}
+
+<> 2021-08-25T231301.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "The people we trust",
+  "slogan" : "youth",
+  "orgDescription" : "Please excuse the description, this is for demonstration purposes",
+  "orgSector" : "developers",
+  "orgEmail" : "givealot@gmail.com",
+  "contactPerson" : "Nqobani Nhlengethwa",
+  "contactNumber" : "0112349908",
+  "password" : "Grandtheft@0934"
+}
+
+<> 2021-08-25T230436.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "The people we trust",
+  "slogan" : "youth",
+  "orgDescription" : "Please excuse the description, this is for demonstration purposes",
+  "orgSector" : "developers",
+  "orgEmail" : "givealot@gmail.com",
+  "contactPerson" : "Nqobani Nhlengethwa",
+  "contactNumber" : "0112349908",
+  "password" : "Grandtheft@0934"
+}
+
+<> 2021-08-25T230330.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors
+
+<> 2021-08-25T222448.200.json
+
+###
+
 GET http://localhost:8080/v1/organisation/get/organisations/temporal
 
 <> 2021-08-19T021130.200.json
@@ -317,66 +425,6 @@ PUT http://localhost:8080/v1/organisation/add/address
 DELETE http://localhost:8080/v1/organisation/delete/website/18
 
 <> 2021-08-18T074450.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/website
-Content-Type: application/json
-
-{
-  "orgId": "18",
-  "website": "www.someweb.org"
-}
-
-<> 2021-08-18T073344.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/website
-Content-Type: application/json
-
-{
-  "orgId": "18",
-  "website": "www.someweb.org"
-}
-
-<> 2021-08-18T073255.404.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/investigate/18
-
-<> 2021-08-18T072247.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/investigate/18d
-
-<> 2021-08-18T072235.400.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/investigate/18
-
-<> 2021-08-18T072223.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/activate/18
-
-<> 2021-08-18T072021.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/suspend/18
-
-<> 2021-08-18T070326.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/suspend/18
-
-<> 2021-08-18T065905.200.json
 
 ###
 

@@ -34,41 +34,48 @@ export class RegisterOrganisation extends Component {
                        </span>
                             <div className="input alert-validate" data-validate="Username is required">
                                 <span className="inputLabel">
-                                    Username
+                                    Organisation Name
                                 </span>
                                 <div style={{display: "flex"}}>
                                     {/*<IoPersonOutline className="registerIcon"/>*/}
                                     <input className="input100 validateInput"
                                            type="text" name="orgName"
                                            placeholder="Enter Organisation Name"
+                                           required
+                                           maxlength="45"
                                            value={values.orgName}
                                            onChange={handleChange('orgName')}
                                     />
+                                    <span style={{float: "right", color: "red"}}><small>{this.props.orgNameError}</small></span>
                                 </div>
 
                             </div>
 
-                            <div className="input alert-validate" data-validate="Username is required">
+                            <div className="input alert-validate">
                                 <span className="inputLabel">
                                     Email
                                 </span>
                                 <input className="input100 validateInput"
                                        type="text" name="orgEmail"
                                        placeholder="Enter Organisation Email"
+                                       required
                                        value={values.orgEmail}
                                        onChange={handleChange('orgEmail')}
                                 />
+                                <span style={{float: "right", color: "red"}}><small>{this.props.orgEmailError}</small></span>
                             </div>
-                            <div className="input alert-validate" data-validate="Username is required">
+                            <div className="input alert-validate">
                                 <span className="inputLabel">
                                     Password
                                 </span>
                                 <input className="input100 validateInput"
-                                       type="text" name="password"
+                                       required
+                                       type="password" name="password"
                                        placeholder="Enter Organisation Password"
                                        value={values.password}
                                        onChange={handleChange('password')}
                                 />
+                                <span style={{float: "right", color: "red"}}><small>{this.props.passwordError}</small></span>
                             </div>
                             <div className="button">
                                     <div className="formButton ">

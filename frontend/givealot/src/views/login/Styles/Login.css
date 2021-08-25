@@ -117,7 +117,6 @@ LoginForm {
     width: 100%;
     text-transform: uppercase;
     display: flex;
-
     height: 50px;
     border: none;
     background-color: #861657;
@@ -132,8 +131,27 @@ LoginForm {
 .Login-btn:active {
     transform: translateY(4px);
 }
+.BottomForm{
+    display: flex;
+    padding: 10px;
+
+}
+
+.linker{
+    text-decoration: none;
+}
+
+.BottomLinker{
+    text-decoration: none;
+    color: #333;
+}
+BottomLinker:hover {
+    color: red;
+}
 
 .LoginIcon{
     color: #767676;
     /*padding: 10px;*/
 }
+
+

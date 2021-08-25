@@ -42,10 +42,24 @@ function Login()
                             </div>
 
                                 <div className="wrapper-btn">
-                                    <button className="Login-btn">
-                                        Login
-                                    </button>
+
+                                    <Link to={"/"} className="linker">
+                                        <button className="Login-btn">
+                                            Login
+                                        </button>
+                                    </Link>
                                 </div>
+
+                            <div className="BottomForm">
+                                <Link to={"/"} className="BottomLinker">
+                                    <span> Need an account?</span>
+                                </Link>
+
+                                <Link to={"/"} className="BottomLinker">
+                                    <span> Forgot password?</span>
+                                </Link>
+
+                            </div>
 
                         </form>
 

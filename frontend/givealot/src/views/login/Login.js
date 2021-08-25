@@ -19,7 +19,7 @@ function Login()
             <div className="Login" style={styles.main}>
                 <Logo/>
                 <Link to={"/"}>
-                <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
+                    <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
                 </Link>
                 <div className="LoginCard">
                     <div className="wrapper">

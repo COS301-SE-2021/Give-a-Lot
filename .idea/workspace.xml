@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="Last minute changes">
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-08-18T075428.415.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Cleared temporary organisations">
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +26,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="backend-develop" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,9 +40,6 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1wrxsptsjnufcz3cfp3mAFSaILo" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -59,7 +54,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/dataclass" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/src/main/resources" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -72,9 +67,9 @@
       <recent name="com.GiveaLot.givealot.Organisation.requests" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\joshu\Desktop\Give-a-Lot\backend\src\main\java\com\GiveaLot\givealot\Certificate\dataclass" />
-      <recent name="C:\Users\joshu\Desktop\Give-a-Lot\backend\src\main\java\com\GiveaLot\givealot\Server" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\backend\src\main\resources" />
+      <recent name="C:\Users\joshu\Desktop\Give-a-Lot\backend\src\main\java\com\GiveaLot\givealot\Server" />
+      <recent name="C:\Users\joshu\Desktop\Give-a-Lot\backend\src\main\java\com\GiveaLot\givealot\Certificate\dataclass" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\DemoMaterial" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\frontend\givealot\localFiles\20" />
     </key>
@@ -86,7 +81,7 @@
       <recent name="C:\Users\Nqobani_Xpl\Documents\Course\2021\COS301\capstone - restructured\Give-a-Lot\backend\src\main\java\com\GiveaLot\givealot\Blockchain\dataclass" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.GivealotApplication">
+  <component name="RunManager" selected="JUnit.GivealotApplicationTests">
     <configuration name="BlockchainServiceImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.GiveaLot.givealot.Blockchain.service.BlockchainServiceImpl" />
       <module name="givealot" />
@@ -119,11 +114,23 @@
     <configuration name="generated-requests#28" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="28" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#34" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="34" runType="Run single request">
-      <method v="2" />
-    </configuration>
     <configuration name="generated-requests#7" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="7" runType="Run single request">
       <method v="2" />
+    </configuration>
+    <configuration name="GivealotApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="givealot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.givealot.givealot.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.givealot.givealot" />
+      <option name="MAIN_CLASS_NAME" value="com.givealot.givealot.GivealotApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="GivealotApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="givealot" />
@@ -134,7 +141,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.generated-requests#34" />
+        <item itemvalue="JUnit.GivealotApplicationTests" />
         <item itemvalue="Application.BlockchainServiceImpl" />
         <item itemvalue="HTTP Request.generated-requests#28" />
         <item itemvalue="HTTP Request.generated-requests#27" />
@@ -484,7 +491,21 @@
       <option name="project" value="LOCAL" />
       <updated>1629745300440</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Cleared temporary organisations">
+      <created>1629883245240</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1629883245240</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Cleared temporary organisations">
+      <created>1629883358168</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1629883358168</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -518,6 +539,7 @@
     <MESSAGE value="organisations controller revision" />
     <MESSAGE value="Fixing organisation points" />
     <MESSAGE value="Last minute changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Last minute changes" />
+    <MESSAGE value="Cleared temporary organisations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleared temporary organisations" />
   </component>
 </project>

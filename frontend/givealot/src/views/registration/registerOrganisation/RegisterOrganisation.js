@@ -20,7 +20,9 @@ export class RegisterOrganisation extends Component {
         orgEmail : "",
         orgEmailError : "",
         contactPerson : "",
+        contactPersonError : "",
         contactNumber : "",
+        contactNumberError: '',
         password : "",
         passwordError: '',
 
@@ -36,8 +38,8 @@ export class RegisterOrganisation extends Component {
             sloganError: '',
             orgSectorError: '',
             orgDescriptionError: '',
-            usernameError: '',
-            termsError: ''
+            contactPersonError : "",
+            contactNumberError: ''
         }
 
         if(this.state.orgEmail.indexOf('@') === -1){
@@ -76,12 +78,18 @@ export class RegisterOrganisation extends Component {
             }
         }
 
-        // if(this.state.step > 3){
-        //     if(this.state.terms === false){
-        //         isError = true;
-        //         errors.termsError = 'Please accept the Terms and Conditions by ticking the checkbox';
-        //     }
-        // }
+        if(this.state.step > 2){
+            if(this.state.contactPerson.length < 1){
+                isError = true;
+                errors.contactPersonError = 'Contact person cannot be blank';
+            }
+            if (!this.state.contactNumber.match(/^[0-9]{10}$/)) {
+                isError = true;
+                errors.contactNumberError = "*Please enter valid mobile no.";
+            }
+        }
+
+
 
         this.setState({
             ...this.state,
@@ -108,8 +116,8 @@ export class RegisterOrganisation extends Component {
                 sloganError: '',
                 orgSectorError: '',
                 orgDescriptionError: '',
-                usernameError: '',
-                termsError: ''
+                contactPersonError: '',
+                contactNumberError: ''
             })
         }
     };
@@ -172,6 +180,8 @@ export class RegisterOrganisation extends Component {
             case 3:
                 return (
                     <Contact
+                        contactPersonError={this.state.contactPersonError}
+                        contactNumberError={this.state.contactNumberError}
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}

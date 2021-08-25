@@ -1,5 +1,11 @@
 GET http://localhost:8080/v1/browse/sectors
 
+<> 2021-08-25T234950.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors
+
 <> 2021-08-25T234019.200.json
 
 ###
@@ -414,17 +420,6 @@ Content-Type: application/json
 }
 
 <> 2021-08-18T075444.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/add/address
-
-{
-  "orgId": "18",
-  "address": "458 Give alot str, Pretoria, SA"
-}
-
-<> 2021-08-18T075428.415.json
 
 ###
 

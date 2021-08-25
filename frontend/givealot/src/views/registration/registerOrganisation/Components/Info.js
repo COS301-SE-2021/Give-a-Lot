@@ -98,8 +98,12 @@ export class RegisterOrganisation extends Component {
 
                             </div>
                         </form>
+                        <Link to={"/login"}
+                              className="BottomReg">
+                            <div style={{padding: "10px 0 0 20px"}}> I'm already a member! Sign In</div>
+                        </Link>
 
-                        <p style={{padding: "10px"}}>I'm already a member! <a data-toggle="tab" href="#signin">Sign In</a></p>
+                        {/*<p style={{padding: "10px"}}>I'm already a member! <a data-toggle="tab" href="#signin">Sign In</a></p>*/}
 
                     </div>
 

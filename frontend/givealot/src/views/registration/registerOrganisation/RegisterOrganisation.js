@@ -12,14 +12,21 @@ export class RegisterOrganisation extends Component {
         orgName : "",
         orgNameError: '',
         slogan : "",
+        sloganError: '',
         orgDescription : "",
+        orgDescriptionError: "",
         orgSector : "",
+        orgSectorError: '',
         orgEmail : "",
         orgEmailError : "",
         contactPerson : "",
+        contactPersonError : "",
         contactNumber : "",
+        contactNumberError: '',
         password : "",
         passwordError: '',
+        image: '',
+        imageError: ''
 
     };
 
@@ -30,11 +37,12 @@ export class RegisterOrganisation extends Component {
             orgNameError: '',
             orgEmailError : "",
             passwordError: '',
-            confirmError: '',
-            forenameError: '',
-            surnameError: '',
-            usernameError: '',
-            termsError: ''
+            sloganError: '',
+            orgSectorError: '',
+            orgDescriptionError: '',
+            contactPersonError : "",
+            contactNumberError: '',
+            imageError: ''
         }
 
         if(this.state.orgEmail.indexOf('@') === -1){
@@ -42,41 +50,63 @@ export class RegisterOrganisation extends Component {
             errors.orgEmailError = 'Please enter a valid email address';
         }
 
-        // if(this.state.step > 1){
-            if(this.state.password.length < 4){
-                isError = true;
-                errors.passwordError = 'Password must be at least 4 characters long';
-            }
+        if(this.state.password.length < 4){
+            isError = true;
+            errors.passwordError = 'Password must be at least 4 characters long';
+        }
 
             // if(this.state.password !== this.state.confirm){
             //     isError = true;
             //     errors.confirmError = 'Passwords must match';
             // }
-        // }
+        if(this.state.orgName.length < 1){
+            isError = true;
+            errors.orgNameError = 'orgName cannot be blank';
+        }
 
-        // if(this.state.step > 2){
-            if(this.state.orgName.length < 1){
+        if(this.state.step > 1){
+            if(this.state.slogan.length < 1){
                 isError = true;
-                errors.orgNameError = 'orgName cannot be blank';
+                errors.sloganError = 'slogan cannot be blank';
             }
 
-            // if(this.state.surname.length < 1){
-            //     isError = true;
-            //     errors.surnameError = 'Surname cannot be blank';
-            // }
-            //
-            // if(this.state.username.length < 1){
-            //     isError = true;
-            //     errors.usernameError = 'Username cannot be blank';
-            // }
-        // }
+            if(this.state.orgSector.length < 1){
+                isError = true;
+                errors.orgSectorError = 'Sector cannot be blank';
+            }
 
-        // if(this.state.step > 3){
-        //     if(this.state.terms === false){
+            if(this.state.orgDescription.length < 1){
+                isError = true;
+                errors.orgDescriptionError = 'Description cannot be blank';
+            }
+        }
+
+        if(this.state.step > 2){
+            if(this.state.contactPerson.length < 1){
+                isError = true;
+                errors.contactPersonError = 'Contact person cannot be blank';
+            }
+            if (!this.state.contactNumber.match(/^[0-9]{10}$/)) {
+                isError = true;
+                errors.contactNumberError = "Please enter valid mobile number";
+            }
+        }
+
+        if(this.state.step > 3){
+            if(this.state.contactPerson.length < 1){
+                isError = true;
+                errors.contactPersonError = 'Contact person cannot be blank';
+            }
+        }
+
+        // if(this.state.step > 4){
+        //     if(this.state.image){
         //         isError = true;
-        //         errors.termsError = 'Please accept the Terms and Conditions by ticking the checkbox';
+        //         errors.imageError = 'Input an image';
         //     }
         // }
+
+
 
         this.setState({
             ...this.state,
@@ -100,11 +130,12 @@ export class RegisterOrganisation extends Component {
                 orgNameError: '',
                 orgEmailError: '',
                 passwordError: '',
-                confirmError: '',
-                forenameError: '',
-                surnameError: '',
-                usernameError: '',
-                termsError: ''
+                sloganError: '',
+                orgSectorError: '',
+                orgDescriptionError: '',
+                contactPersonError: '',
+                contactNumberError: '',
+                // imageError: ''
             })
         }
     };
@@ -135,8 +166,8 @@ export class RegisterOrganisation extends Component {
     render() {
 
         const { step } = this.state;
-        const { orgName, slogan, orgDescription, orgSector, orgEmail, contactPerson, contactNumber, password } = this.state;
-        const values = { orgName, slogan, orgDescription, orgSector, orgEmail, contactPerson, contactNumber, password };
+        const { orgName, slogan, orgDescription, orgSector, orgEmail, contactPerson, contactNumber, password,image } = this.state;
+        const values = { orgName, slogan, orgDescription, orgSector, orgEmail, contactPerson, contactNumber, password,image };
         switch (step) {
             default:
                 return <h1>User Forms not working. Enable Javascript!</h1>;
@@ -155,6 +186,9 @@ export class RegisterOrganisation extends Component {
             case 2:
                 return (
                     <About
+                        sloganError={this.state.sloganError}
+                        orgSectorError={this.state.orgSectorError}
+                        orgDescriptionError={this.state.orgDescriptionError}
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}
@@ -164,6 +198,8 @@ export class RegisterOrganisation extends Component {
             case 3:
                 return (
                     <Contact
+                        contactPersonError={this.state.contactPersonError}
+                        contactNumberError={this.state.contactNumberError}
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}
@@ -173,6 +209,7 @@ export class RegisterOrganisation extends Component {
             case 4:
                 return (
                     <Media
+                        // imageError={this.state.imageError}
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}

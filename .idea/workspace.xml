@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Register Organisation Media Information">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/Info.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/Info.js" afterDir="false" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Register Organisation media page validation">
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/Media.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/Media.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/RegisterOrganisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/RegisterOrganisation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -159,35 +158,7 @@
       <workItem from="1629339797985" duration="980000" />
       <workItem from="1629343930362" duration="7971000" />
       <workItem from="1629886755996" duration="10886000" />
-      <workItem from="1629908107064" duration="4012000" />
-    </task>
-    <task id="LOCAL-00008" summary="user and login system are complete">
-      <created>1629255628305</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1629255628305</updated>
-    </task>
-    <task id="LOCAL-00009" summary="user and login system are complete">
-      <created>1629255970866</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1629255970866</updated>
-    </task>
-    <task id="LOCAL-00010" summary="organisations api - get all users ready for frontend">
-      <created>1629258479163</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1629258479163</updated>
-    </task>
-    <task id="LOCAL-00011" summary="organisations api - get all users ready for frontend">
-      <created>1629261129675</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1629261129675</updated>
+      <workItem from="1629908107064" duration="7787000" />
     </task>
     <task id="LOCAL-00012" summary="organisations controller revision">
       <created>1629261393018</created>
@@ -504,7 +475,35 @@
       <option name="project" value="LOCAL" />
       <updated>1629908252008</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Register Organisation info page validation">
+      <created>1629916630368</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1629916630368</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Register Organisation About page validation">
+      <created>1629919536087</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1629919536087</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Register Organisation contact page validation">
+      <created>1629920437915</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1629920437915</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Register Organisation media page validation">
+      <created>1629921157215</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1629921157216</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -542,6 +541,10 @@
     <MESSAGE value="Register Organisation basic Information" />
     <MESSAGE value="Register Organisation Contact Information" />
     <MESSAGE value="Register Organisation Media Information" />
-    <option name="LAST_COMMIT_MESSAGE" value="Register Organisation Media Information" />
+    <MESSAGE value="Register Organisation info page validation" />
+    <MESSAGE value="Register Organisation About page validation" />
+    <MESSAGE value="Register Organisation contact page validation" />
+    <MESSAGE value="Register Organisation media page validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Register Organisation media page validation" />
   </component>
 </project>

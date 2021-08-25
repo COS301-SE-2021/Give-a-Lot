@@ -48,11 +48,12 @@ export class RegisterOrganisation extends Component {
                                            value={values.contactPerson}
                                            onChange={handleChange('contactPerson')}
                                     />
+                                    <span style={{float: "right", color: "red"}}><small>{this.props.contactPersonError}</small></span>
                                 </div>
 
                             </div>
 
-                            <div className="input alert-validate" data-validate="Username is required">
+                            <div className="input alert-validate">
                                 <span className="inputLabel">
                                     Contact Number
                                 </span>
@@ -62,6 +63,7 @@ export class RegisterOrganisation extends Component {
                                        value={values.contactNumber}
                                        onChange={handleChange('contactNumber')}
                                 />
+                                <span style={{float: "right", color: "red"}}><small>{this.props.contactNumberError}</small></span>
                             </div>
 
                             <div className="button">

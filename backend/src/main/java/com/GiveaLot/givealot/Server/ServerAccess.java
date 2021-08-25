@@ -372,6 +372,113 @@ public class ServerAccess {
             session.disconnect();
         }
     }
+    public void uploadImageLogo(long orgId, String orgName, File image) throws Exception {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+
+            image.renameTo(new File("backend/src/main/resources/TempDocument/image.png"));
+
+            channelSftp.connect();
+
+            String orgIdString = String.valueOf(orgId);
+            String localFile = "frontend/givealot/localFiles/" + orgId + "gallery/logo.png";
+
+            FileUtils.copyFile(image, new File(localFile));
+
+            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/logo.png");
+
+            image.delete();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+    public void uploadImageQRCode(long orgId, String orgName, File image) throws Exception {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+
+            image.renameTo(new File("backend/src/main/resources/TempDocument/image.png"));
+
+            channelSftp.connect();
+            String orgIdString = String.valueOf(orgId);
+            String localFile = "frontend/givealot/localFiles/" + orgId + "gallery/QRCode.png";
+
+            FileUtils.copyFile(image, new File(localFile));
+
+            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/QRCode.png");
+
+
+            image.delete();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+    public void deleteQR(long orgId) throws JSchException {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            channelSftp.connect();
+            String orgIdString = String.valueOf(orgId);
+            String localFile = "frontend/givealot/localFiles/" + orgId + "gallery/QRCode.png";
+
+            File image = new File(localFile);
+
+            channelSftp.rm(remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/QRCode.png");
+            image.delete();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+
+    public void deleteLogo(long orgId) throws JSchException {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            channelSftp.connect();
+            String orgIdString = String.valueOf(orgId);
+            String localFile = "frontend/givealot/localFiles/" + orgId + "gallery/logo.png";
+
+            File image = new File(localFile);
+
+            channelSftp.rm(remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/logo.png");
+            image.delete();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+
+    public void deleteImage(long orgId, int number) throws JSchException {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            channelSftp.connect();
+            String orgIdString = String.valueOf(orgId);
+            String localFile = "frontend/givealot/localFiles/" + orgId + "gallery/image" + number + ".png";
+
+            File image = new File(localFile);
+
+            channelSftp.rm(remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + number + ".png");
+            image.delete();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
 
     public void uploadReport(long orgId, File report, String date) throws Exception {
 

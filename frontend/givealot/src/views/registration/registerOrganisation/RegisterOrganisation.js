@@ -3,6 +3,8 @@ import "../registerOrganisation/Styles/registerOrganisation.css";
 // import { IoPersonOutline } from "react-icons/io5";
 // import backgroundImg from "../../../assets/homeBackground.jpg";
 import Info from "./Components/Info";
+import About from "./Components/About";
+import Contact from "./Components/Contact";
 
 export class RegisterOrganisation extends Component {
 
@@ -62,24 +64,24 @@ export class RegisterOrganisation extends Component {
                     />
                 );
 
-            // case 2:
-            //     return (
-            //         <OrganisationContact
-            //             nextStep={this.nextStep}
-            //             prevStep={this.prevStep}
-            //             handleChange={this.handleChange}
-            //             values={values}
-            //         />
-            //     );
-            // case 3:
-            //     return (
-            //         <OrganisationAbout
-            //             nextStep={this.nextStep}
-            //             prevStep={this.prevStep}
-            //             handleChange={this.handleChange}
-            //             values={values}
-            //         />
-            //     );
+            case 2:
+                return (
+                    <About
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                    />
+                );
+            case 3:
+                return (
+                    <Contact
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                    />
+                );
             // // case 4:
             // //     return (
             // //         <OrganisationMedia

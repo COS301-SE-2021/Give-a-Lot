@@ -14,6 +14,10 @@ export class RegisterOrganisation extends Component {
         e.preventDefault();
         this.props.nextStep();
     };
+    back = e => {
+        e.preventDefault();
+        this.props.prevStep();
+    };
     constructor() {
         super();
         this.state = {
@@ -30,19 +34,19 @@ export class RegisterOrganisation extends Component {
                     <div className="wrap">
                         <form className="form">
                        <span className="headerTag">
-                           Register Organisation
+                           Register Organisation | About
                        </span>
                             <div className="input alert-validate" data-validate="Username is required">
                                 <span className="inputLabel">
-                                    Username
+                                    Slogan
                                 </span>
                                 <div style={{display: "flex"}}>
                                     {/*<IoPersonOutline className="registerIcon"/>*/}
                                     <input className="input100 validateInput"
-                                           type="text" name="orgName"
-                                           placeholder="Enter Organisation Name"
-                                           value={values.orgName}
-                                           onChange={handleChange('orgName')}
+                                           type="text" name="slogan"
+                                           placeholder="Enter Organisation Slogan"
+                                           value={values.slogan}
+                                           onChange={handleChange('slogan')}
                                     />
                                 </div>
 
@@ -50,41 +54,48 @@ export class RegisterOrganisation extends Component {
 
                             <div className="input alert-validate" data-validate="Username is required">
                                 <span className="inputLabel">
-                                    Email
+                                    Sector
                                 </span>
                                 <input className="input100 validateInput"
-                                       type="text" name="orgEmail"
-                                       placeholder="Enter Organisation Email"
-                                       value={values.orgEmail}
-                                       onChange={handleChange('orgEmail')}
+                                       type="text" name="orgSector"
+                                       placeholder="Enter Organisation Sector"
+                                       value={values.orgSector}
+                                       onChange={handleChange('orgSector')}
                                 />
                             </div>
                             <div className="input alert-validate" data-validate="Username is required">
                                 <span className="inputLabel">
-                                    Password
+                                    Description
                                 </span>
                                 <input className="input100 validateInput"
-                                       type="text" name="password"
-                                       placeholder="Enter Organisation Password"
-                                       value={values.password}
-                                       onChange={handleChange('password')}
+                                       type="text" name="orgDescription"
+                                       placeholder="Enter Organisation Description"
+                                       value={values.orgDescription}
+                                       onChange={handleChange('orgDescription')}
                                 />
                             </div>
                             <div className="button">
-                                    <div className="formButton ">
-                                        <button className="register-btn"
-                                                onClick={this.proceed}
-                                                label="Continue"
-                                        >
-                                            {" "}
-                                            next
-                                        </button>
-                                    </div>
+                                <div className="formButton ">
+                                    <button className="register-btn"
+                                            onClick={this.back}
+                                            label="back"
+                                    >
+                                        {" "}
+                                        back
+                                    </button>
+                                    <button className="register-btn"
+                                            onClick={this.proceed}
+                                            label="Continue"
+                                    >
+                                        {" "}
+                                        next
+                                    </button>
+                                </div>
 
                             </div>
                         </form>
 
-                        <p style={{padding: "10px"}}>I'm already a member! <a data-toggle="tab" href="#signin">Sign In</a></p>
+                        {/*<p style={{padding: "10px"}}>I'm already a member! <a data-toggle="tab" href="#signin">Sign In</a></p>*/}
 
                     </div>
 

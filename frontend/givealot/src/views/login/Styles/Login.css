@@ -133,7 +133,8 @@ LoginForm {
 }
 .BottomForm{
     display: flex;
-    padding: 10px;
+    justify-content: space-evenly;
+    padding: 15px;
 
 }
 

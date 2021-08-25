@@ -435,6 +435,38 @@ public class OrganisationServiceImp implements OrganisationService {
         return new generalOrganisationResponse("rem_addr_200_OK", "success");
     }
 
+    @Override
+    public generalOrganisationResponse addOrgLogo(AddOrgLogoRequest request) throws Exception {
+        if (request == null)
+            throw new Exception("Exception: request not set");
+
+        else if(request.getOrgId() == null)
+            throw new Exception("Provided ID is null");
+
+        else if (request.getImage() == null)
+            throw new Exception("Exception: tax reference not set");
+
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        Organisations organisation_tmp = organisationRepository.selectOrganisationById(request.getOrgId());
+
+        if(organisation_tmp == null)
+            throw new Exception("Exception: add image function did not finish, organisation does not exist");
+
+
+        String name = organisation_tmp.getOrgName();
+
+        access.uploadImageLogo(request.getOrgId(),name,request.getImage());
+
+        return new generalOrganisationResponse("add_logo_200_OK", "success");
+    }
+
+    @Override
+    public generalOrganisationResponse removeOrgLogo(Long orgId) throws Exception {
+        return null;
+    }
+
     @Override /*tested all good - converted*/
     public generalOrganisationResponse addOrgSocials(AddSocialsRequest request) throws Exception {
         if (request == null)
@@ -504,63 +536,6 @@ public class OrganisationServiceImp implements OrganisationService {
 
         return new generalOrganisationResponse("rem_soc_200_OK", "success");
     }
-
-    @Override /*not fully integration tested, all good - converted*/
-    public generalOrganisationResponse addOrgTaxRef(AddOrgTaxRefRequest request) throws Exception {
-        if (request == null)
-            throw new Exception("Exception: request not set");
-
-        if(request.getOrgId() == null)
-            throw new Exception("Exception: provided ID is null");
-
-        else if (request.getReference() == null)
-            throw new Exception("Exception: tax reference not set");
-
-        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
-            throw new Exception("Exception: Organisation ID does not exist");
-
-        Organisations organisation_tmp = organisationRepository.selectOrganisationById(request.getOrgId());
-
-        if(organisation_tmp == null)
-            throw new Exception("Exception: failed to proceed");
-
-        String name = organisation_tmp.getOrgName();
-
-        access.uploadTaxReference(request.getOrgId(),name,request.getReference());
-
-        if (organisationInfoRepository.addOrgTaxRef(request.getOrgId(), "provided") != 1)
-            throw new Exception("Exception: value field failed to update");
-
-        return new generalOrganisationResponse("add_tax_200_OK", "success");
-    }
-
-    @Override /*not fully integration tested, all good - converted*/
-    public generalOrganisationResponse removeOrgTaxRef(Long orgId) throws Exception {
-
-        if(orgId == null)
-            throw new Exception("Exception : the provided ID is null");
-
-        if (organisationRepository.selectOrganisationById(orgId) == null)
-            throw new Exception("Exception: Organisation ID does not exist");
-
-        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
-            /*
-             * Because organisation already exists, set the field
-             * */
-            OrganisationInfo organisationInfo = new OrganisationInfo();
-            organisationInfo.setOrgId(orgId);
-
-            organisationInfoRepository.save(organisationInfo);
-            throw new Exception("Exception: system level error, organisation info did not exist, rerun " +
-                    "the contract");
-        }
-
-        if (organisationInfoRepository.removeOrgTaxRef(orgId) != 1)
-            throw new Exception("Exception: tax reference field not updated");
-
-        return new generalOrganisationResponse("rem_tax_200_OK", "success");
-    }
-
 
     @Override /*not fully integration tested, all good - converted*/
     public generalOrganisationResponse addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception {
@@ -715,32 +690,105 @@ public class OrganisationServiceImp implements OrganisationService {
         return new generalOrganisationResponse("rem_cmt_200_OK", "success");
     }
 
-    @Override /*not implemented */
-    public generalOrganisationResponse addOrgDonationInfo(AddOrgDonationInfoRequest request) throws Exception {
-        if(request == null)
-        {
-            throw new Exception("Exception: request object is null");
-        }
-        else if(request.getOrgId() == null)
-        {
-            throw new Exception("Exception: provided ID is not set");
-        }
-        else if(request.getOrgInfo() == null)
-        {
-            throw new Exception("Exception: donation information is null");
-        }
+    @Override
+    public generalOrganisationResponse addOrgDonationURL(AddOrgDonationInfoRequest request) throws Exception {
+        if (request == null)
+            throw new Exception("Exception: request not set");
 
-        throw new Exception("Exception: donation is under construction");
+        else if(request.getOrgId() == null)
+            throw new Exception("Exception: ID is null");
+
+        else if (request.getOrgInfo() == null)
+            throw new Exception("Exception: value not set");
+
+        else if (request.getOrgInfo().isEmpty())
+            throw new Exception("Exception: invalid value length");
+
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.addOrgDonationURL(request.getOrgId(), request.getOrgInfo()) != 1)
+            throw new Exception("Exception: value field failed to update");
+
+        return new generalOrganisationResponse("add_don_200_ok", "success");
     }
 
-    @Override /*not implemented */
-    public generalOrganisationResponse removeOrgDonationInfo(Long orgId) throws Exception {
+    @Override
+    public generalOrganisationResponse removeOrgDonationURL(Long orgId) throws Exception {
         if(orgId == null)
-        {
-            throw new Exception("Exception: provided ID is not set");
+            throw new Exception("Exception: ID is null");
+
+        else if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+            /*
+             * Because organisation already exists, set the field
+             * */
+            OrganisationInfo organisationInfo = new OrganisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            organisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun " +
+                    "the contract");
         }
 
-        throw new Exception("Exception: donation is under construction");
+        if(organisationInfoRepository.removeOrgDonationURL(orgId) != 1)
+            throw new Exception("Exception: value field not updated");
+
+        return new generalOrganisationResponse("rem_don_200_ok", "success");
+    }
+
+    @Override
+    public generalOrganisationResponse addOrgDonationQRCode(AddOrgQRCodeRequest request) throws Exception {
+        if (request == null)
+            throw new Exception("Exception: request not set");
+
+        else if(request.getOrgId() == null)
+            throw new Exception("Provided ID is null");
+
+        else if (request.getImage() == null)
+            throw new Exception("Exception: tax reference not set");
+
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        Organisations organisation_tmp = organisationRepository.selectOrganisationById(request.getOrgId());
+
+        if(organisation_tmp == null)
+            throw new Exception("Exception: add image function did not finish, organisation does not exist");
+
+
+        String name = organisation_tmp.getOrgName();
+
+        access.uploadImageQRCode(request.getOrgId(),name,request.getImage());
+
+        return new generalOrganisationResponse("add_qr_200_OK", "success");
+    }
+
+    @Override
+    public generalOrganisationResponse removeOrgDonationQRCode(Long orgId) throws Exception {
+        if (orgId == null)
+            throw new Exception("Exception: provided ID is null");
+
+        else if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+            OrganisationInfo organisationInfo = new OrganisationInfo();
+            organisationInfo.setOrgId(orgId);
+            organisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun the contract");
+        }
+
+        OrganisationInfo organisation_tmp = organisationInfoRepository.selectOrganisationInfo(orgId);
+
+        access.deleteQR(orgId);
+
+        if (organisation_tmp == null)
+            throw new Exception("Exception: rare error occured, image not fully removed");
+
+        return new generalOrganisationResponse("rem_qr_200_OK", "success");
     }
 
     @Override
@@ -875,7 +923,7 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override /* all good, correctness not tested yet */
-    public generalOrganisationResponse removeOrgImage(Long orgId) throws Exception {
+    public generalOrganisationResponse removeOrgImage(Long orgId, int number) throws Exception {
 
         if (orgId == null)
             throw new Exception("Exception: provided ID is null");
@@ -898,6 +946,8 @@ public class OrganisationServiceImp implements OrganisationService {
 
         if (organisation_tmp == null)
             throw new Exception("Exception: rare error occured, image not fully removed");
+
+        access.deleteImage(orgId,number);
 
         int numImages = organisation_tmp.getNumberOfImages();
 
@@ -1197,29 +1247,29 @@ public class OrganisationServiceImp implements OrganisationService {
         }
         else if(type.equalsIgnoreCase("tax_raf"))
         {
-            Integer currentPoints = 0,dps = 5;
-            Integer res = confirmValidity ? organisationPointsRepository.taxRaf(orgId,true) : organisationPointsRepository.taxRaf(orgId,false);
-            if(res != 1)
-                throw new Exception("Exception: tax raf validity not confirmed");
-
-            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
-            if(certificate_tmp == null) /*perform rollback*/
-            {
-                res = confirmValidity ? organisationPointsRepository.taxRaf(orgId,false) : organisationPointsRepository.taxRaf(orgId,true);
-                if(res == 1)
-                    throw new Exception("Exception: error occurred, rollback action performed successfully");
-                else throw new Exception("Exception: error occurred, rollback action failed");
-            }else currentPoints = certificate_tmp.getPoints();
-
-            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
-
-            if(res != 1)
-            {
-                res = confirmValidity ? organisationPointsRepository.taxRaf(orgId,false) : organisationPointsRepository.taxRaf(orgId,true);
-                if(res == 1)
-                    throw new Exception("Exception: error occurred, rollback action performed successfully");
-                else throw new Exception("Exception: error occurred, rollback action failed");
-            }
+//            Integer currentPoints = 0,dps = 5;
+//            Integer res = confirmValidity ? organisationPointsRepository.taxRaf(orgId,true) : organisationPointsRepository.taxRaf(orgId,false);
+//            if(res != 1)
+//                throw new Exception("Exception: tax raf validity not confirmed");
+//
+//            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
+//            if(certificate_tmp == null) /*perform rollback*/
+//            {
+//                res = confirmValidity ? organisationPointsRepository.taxRaf(orgId,false) : organisationPointsRepository.taxRaf(orgId,true);
+//                if(res == 1)
+//                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+//                else throw new Exception("Exception: error occurred, rollback action failed");
+//            }else currentPoints = certificate_tmp.getPoints();
+//
+//            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+//
+//            if(res != 1)
+//            {
+//                res = confirmValidity ? organisationPointsRepository.taxRaf(orgId,false) : organisationPointsRepository.taxRaf(orgId,true);
+//                if(res == 1)
+//                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+//                else throw new Exception("Exception: error occurred, rollback action failed");
+//            }
         }
         else if(type.equalsIgnoreCase("website"))
         {

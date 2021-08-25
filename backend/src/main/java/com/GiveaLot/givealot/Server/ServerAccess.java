@@ -9,6 +9,7 @@ import com.jcraft.jsch.Session;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.GiveaLot.givealot.Server.ServerConfig;
 
 import java.io.File;
 import java.io.InputStream;
@@ -362,6 +363,113 @@ public class ServerAccess {
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + imageNumber + ".png");
 
 
+            image.delete();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+    public void uploadImageLogo(long orgId, String orgName, File image) throws Exception {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+
+            image.renameTo(new File("backend/src/main/resources/TempDocument/image.png"));
+
+            channelSftp.connect();
+
+            String orgIdString = String.valueOf(orgId);
+            String localFile = "frontend/givealot/localFiles/" + orgId + "gallery/logo.png";
+
+            FileUtils.copyFile(image, new File(localFile));
+
+            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/logo.png");
+
+            image.delete();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+    public void uploadImageQRCode(long orgId, String orgName, File image) throws Exception {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+
+            image.renameTo(new File("backend/src/main/resources/TempDocument/image.png"));
+
+            channelSftp.connect();
+            String orgIdString = String.valueOf(orgId);
+            String localFile = "frontend/givealot/localFiles/" + orgId + "gallery/QRCode.png";
+
+            FileUtils.copyFile(image, new File(localFile));
+
+            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/QRCode.png");
+
+
+            image.delete();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+    public void deleteQR(long orgId) throws JSchException {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            channelSftp.connect();
+            String orgIdString = String.valueOf(orgId);
+            String localFile = "frontend/givealot/localFiles/" + orgId + "gallery/QRCode.png";
+
+            File image = new File(localFile);
+
+            channelSftp.rm(remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/QRCode.png");
+            image.delete();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+
+    public void deleteLogo(long orgId) throws JSchException {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            channelSftp.connect();
+            String orgIdString = String.valueOf(orgId);
+            String localFile = "frontend/givealot/localFiles/" + orgId + "gallery/logo.png";
+
+            File image = new File(localFile);
+
+            channelSftp.rm(remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/logo.png");
+            image.delete();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+
+    public void deleteImage(long orgId, int number) throws JSchException {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            channelSftp.connect();
+            String orgIdString = String.valueOf(orgId);
+            String localFile = "frontend/givealot/localFiles/" + orgId + "gallery/image" + number + ".png";
+
+            File image = new File(localFile);
+
+            channelSftp.rm(remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + number + ".png");
             image.delete();
         }catch (Exception e){
             e.printStackTrace();

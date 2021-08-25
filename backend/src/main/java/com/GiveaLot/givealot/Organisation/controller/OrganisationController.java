@@ -233,36 +233,6 @@ public class OrganisationController
         }
     }
 
-    @PostMapping("/add/taxref") /* not tested */
-    public ResponseEntity<generalOrganisationResponse> addOrgTaxRef(@RequestBody AddOrgTaxRefRequest body)
-    {
-        generalOrganisationResponse response;
-        try
-        {
-            response = service.addOrgTaxRef(body);
-            return new ResponseEntity<>(response, HttpStatus.OK);
-        }
-        catch (Exception e)
-        {
-            return new ResponseEntity<>(new generalOrganisationResponse("add_tax_500_err","failed: " + e), HttpStatus.OK);
-        }
-    }
-
-    @DeleteMapping("/delete/taxref/{orgId}") /* not tested */
-    public ResponseEntity<generalOrganisationResponse> removeOrgTaxRef(@PathVariable("orgId")@NonNull Long orgId)
-    {
-        generalOrganisationResponse response;
-        try
-        {
-            response = service.removeOrgTaxRef(orgId);
-            return new ResponseEntity<>(response, HttpStatus.OK);
-        }
-        catch (Exception e)
-        {
-            return new ResponseEntity<>(new generalOrganisationResponse("rem_tax_500_err","failed: " + e), HttpStatus.OK);
-        }
-    }
-
     @PostMapping("/add/audit") /* not tested */
     public ResponseEntity<generalOrganisationResponse> addOrgAuditDoc(@RequestBody @NonNull AddOrgAuditInfoRequest body)
     {
@@ -359,7 +329,7 @@ public class OrganisationController
         generalOrganisationResponse response;
         try
         {
-            response = service.addOrgDonationInfo(body);
+            response = service.addOrgDonationURL(body);
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)
@@ -374,7 +344,7 @@ public class OrganisationController
         generalOrganisationResponse response;
         try
         {
-            response = service.removeOrgDonationInfo(orgId);
+            response = service.removeOrgDonationURL(orgId);
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)
@@ -450,10 +420,74 @@ public class OrganisationController
     @DeleteMapping("/delete/images/{orgId}")
     public ResponseEntity<generalOrganisationResponse> removeOrgImage(@PathVariable("orgId") @NonNull Long orgId)
     {
+        //Need to send the correct image number
+        int number = 0;
         generalOrganisationResponse response;
         try
         {
-            response = service.removeOrgImage(orgId);
+            response = service.removeOrgImage(orgId, number);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_img_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
+    @PostMapping("/add/logo") /* all good - correctness not tested yet */
+    public ResponseEntity<generalOrganisationResponse> addOrgLogo(@RequestBody @NonNull AddOrgLogoRequest body)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.addOrgLogo(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_est_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
+
+    @DeleteMapping("/delete/logo/{orgId}")
+    public ResponseEntity<generalOrganisationResponse> removeOrgLogo(@PathVariable("orgId") @NonNull Long orgId)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.removeOrgLogo(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_img_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
+    @PostMapping("/add/qrcode") /* all good - correctness not tested yet */
+    public ResponseEntity<generalOrganisationResponse> addOrgQRCode(@RequestBody @NonNull AddOrgQRCodeRequest body)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.addOrgDonationQRCode(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_est_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
+
+    @DeleteMapping("/delete/qrcode/{orgId}")
+    public ResponseEntity<generalOrganisationResponse> removeOrgQRCode(@PathVariable("orgId") @NonNull Long orgId)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.removeOrgDonationQRCode(orgId);
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)

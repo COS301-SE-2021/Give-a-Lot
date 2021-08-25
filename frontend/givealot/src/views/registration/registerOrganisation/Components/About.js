@@ -61,7 +61,7 @@ export class RegisterOrganisation extends Component {
                                 <span className="inputLabel">
                                     Sector
                                 </span>
-                                <select value={values.orgSector} className="inputLabel"  onChange={handleChange('orgSector')}>
+                                <select value={values.orgSector} className="input100"  onChange={handleChange('orgSector')}>
                                     <option value="A">Children</option>
                                     <option value="B">Youth</option>
                                     <option value="C">Security</option>
@@ -70,16 +70,17 @@ export class RegisterOrganisation extends Component {
                                 </select>
                                 <span style={{float: "right", color: "red"}}><small>{this.props.orgSectorError}</small></span>
                             </div>
-                            <div className="input alert-validate" >
+                            <div className="input alert-validate">
                                 <span className="inputLabel">
                                     Description
                                 </span>
-                                <input className="input100 validateInput"
-                                       type="text" name="orgDescription"
-                                       placeholder="Enter Organisation Description"
-                                       value={values.orgDescription}
-                                       onChange={handleChange('orgDescription')}
+                                <textarea cols="40" rows="5" className="input100"
+                                          type="text" name="orgDescription"
+                                            placeholder="Enter Organisation Description"
+                                            value={values.orgDescription}
+                                            onChange={handleChange('orgDescription')}
                                 />
+
                                 <span style={{float: "right", color: "red"}}><small>{this.props.orgDescriptionError}</small></span>
                             </div>
                             <div className="button">

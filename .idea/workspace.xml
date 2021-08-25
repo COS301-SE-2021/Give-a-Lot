@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Register Organisation media page validation minor changes">
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/Success.js" afterDir="false" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Register Organisation reload button">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/RegisterOrganisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/RegisterOrganisation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/Info.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/Info.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/Success.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/Success.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Styles/registerOrganisation.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Styles/registerOrganisation.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -162,14 +160,7 @@
       <workItem from="1629339797985" duration="980000" />
       <workItem from="1629343930362" duration="7971000" />
       <workItem from="1629886755996" duration="10886000" />
-      <workItem from="1629908107064" duration="11507000" />
-    </task>
-    <task id="LOCAL-00013" summary="organisations controller revision - add Organisation">
-      <created>1629261980094</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1629261980094</updated>
+      <workItem from="1629908107064" duration="13304000" />
     </task>
     <task id="LOCAL-00014" summary="organisations controller revision - suspend">
       <created>1629262817591</created>
@@ -507,7 +498,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629921272803</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="Register Organisation reload button">
+      <created>1629925113672</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1629925113672</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -550,6 +548,7 @@
     <MESSAGE value="Register Organisation contact page validation" />
     <MESSAGE value="Register Organisation media page validation" />
     <MESSAGE value="Register Organisation media page validation minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Register Organisation media page validation minor changes" />
+    <MESSAGE value="Register Organisation reload button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Register Organisation reload button" />
   </component>
 </project>

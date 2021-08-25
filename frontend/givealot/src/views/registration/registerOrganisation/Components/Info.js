@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import "../Styles/registerOrganisation.css"
 // import { IoPersonOutline } from "react-icons/io5";
 import backgroundImg from "../../../../assets/homeBackground.jpg";
+// import logo from "../../../../assets/logo/logo3_1.png"
+import Logo from "../../../login/Components/Logo"
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import {Link} from "react-router-dom";
 
 export class RegisterOrganisation extends Component {
     styles = {
@@ -26,6 +30,10 @@ export class RegisterOrganisation extends Component {
         const { values, handleChange, nextStep } = this.props;
         return (
             <div className="registerOrganisation" style={this.styles.main}>
+                <Logo/>
+                <Link to={"/signUp"}>
+                    <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
+                </Link>
                 <div className="registerCard">
                     <div className="wrap">
                         <form className="form">

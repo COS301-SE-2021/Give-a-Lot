@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import "../Styles/registerOrganisation.css"
-import { IoPersonOutline } from "react-icons/io5";
+// import { IoPersonOutline } from "react-icons/io5";
 import backgroundImg from "../../../../assets/homeBackground.jpg";
 import { IoReload } from "react-icons/io5";
+import Logo from "../../../login/Components/Logo";
+import {Link} from "react-router-dom";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 export class Success extends Component {
     styles = {
@@ -39,11 +42,12 @@ export class Success extends Component {
         const { loading } = this.state;
         return (
             <div className="registerOrganisation" style={this.styles.main}>
+                <Logo/>
                 <div className="registerCard">
                     <div className="wrap">
                         <form className="form">
                        <span className="headerTag">
-                           Registration was a sucsess
+                           Registration was a success
                        </span>
                             <div className="button">
                                 <div className="formButton ">

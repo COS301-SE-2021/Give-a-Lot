@@ -1,5 +1,11 @@
 GET http://localhost:8080/v1/browse/sectors
 
+<> 2021-08-25T234019.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors
+
 <> 2021-08-25T232548.200.json
 
 ###
@@ -419,12 +425,6 @@ PUT http://localhost:8080/v1/organisation/add/address
 }
 
 <> 2021-08-18T075428.415.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/website/18
-
-<> 2021-08-18T074450.200.json
 
 ###
 

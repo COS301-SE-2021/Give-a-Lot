@@ -89,7 +89,7 @@ public class OrganisationController
             response = service.addOrganisation(new Organisations(body.getOrgName(),
                     body.getSlogan(),body.getOrgDescription(),body.getOrgSector(),
                     body.getOrgEmail(),null,body.getStatus(),body.getContactPerson(),
-                    body.getContactNumber(), "givealot/organisations/", body.getPassword()));
+                    body.getContactNumber(), "givealot/organisations/", body.getPassword(),null));
             return new ResponseEntity<>(response,  HttpStatus.OK);
         }
         catch (Exception e)

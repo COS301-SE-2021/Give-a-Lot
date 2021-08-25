@@ -29,7 +29,7 @@ import java.util.concurrent.Callable;
  * or the org.web3j.codegen.SolidityFunctionWrapperGenerator in the 
  * <a href="https://github.com/web3j/web3j/tree/master/codegen">codegen module</a> to update.
  *
- * <p>Generated with web3j version 1.4.1.
+ * <p>Geneated with web3j version 1.4.1.
  */
 @SuppressWarnings("rawtypes")
 public class CertificateContract extends Contract {

@@ -188,6 +188,14 @@ public class OrganisationServiceImp implements OrganisationService {
         String salt = getMd5(organisation.getOrgEmail());
         String salted = getMd5(organisation.getPassword() + salt);
         organisation.setPassword(salted);
+
+        // save registration date
+        Date dateCurrent = new Date();
+        Date dateEx = new Date();
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String dateCreated = format.format(dateCurrent);
+
+        organisation.setDateAdded(dateCreated);
         organisationRepository.save(organisation);
 
         long id = organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()).getOrgId();
@@ -197,23 +205,14 @@ public class OrganisationServiceImp implements OrganisationService {
         organisationInfoRepository.save(new OrganisationInfo((long) id));
         organisationPointsRepository.save(new OrganisationPoints((long) id));
 
-        LocalDate date = LocalDate.now(); // registration date
-
         //organisation is saved at this point
-
-        // save dates
-        Date dateCurrent = new Date();
-        Date dateEx = new Date();
-        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        String dateCreated = format.format(dateCurrent);
-
         int year = dateCurrent.getYear();
         dateEx.setYear(year+1);
         String dateExpiry = format.format(dateEx);
 
         /** Create tables and directory **/
 
-        Certificate certificate;
+        /*Certificate certificate;
         try
         {
             ServerAccess access = new ServerAccess();
@@ -226,10 +225,10 @@ public class OrganisationServiceImp implements OrganisationService {
         }
 
         certificateRepository.save(certificate);
-        certificateService.addCertificate(id,certificate);
+        certificateService.addCertificate(id,certificate);*/
 
         /**Sending a verification email**/
-        System.out.println("Sending Email...");
+        /*System.out.println("Sending Email...");
 
         Mail mail = new Mail(organisation.getOrgEmail(),"Givealot SignUp Verification","Congratulations your organisation has successfully signed up to the Givealot platform" +
                 "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations" +
@@ -239,9 +238,7 @@ public class OrganisationServiceImp implements OrganisationService {
                 "Givealot Team");
 
         sendMailService.sendMail(mail);
-        System.out.println("Email sent successfully");
-
-
+        System.out.println("Email sent successfully");*/
         return new generalOrganisationResponse("add_org_200_ok", "success");
     }
 

@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import "../Styles/registerOrganisation.css"
 // import { IoPersonOutline } from "react-icons/io5";
 import backgroundImg from "../../../../assets/homeBackground.jpg";
+// import logo from "../../../../assets/logo/logo3_1.png"
+import Logo from "../../../login/Components/Logo"
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import {Link} from "react-router-dom";
 
 export class RegisterOrganisation extends Component {
     styles = {
@@ -26,13 +30,17 @@ export class RegisterOrganisation extends Component {
         const { values, handleChange, nextStep } = this.props;
         return (
             <div className="registerOrganisation" style={this.styles.main}>
+                <Logo/>
+                <Link to={"/signUp"}>
+                    <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
+                </Link>
                 <div className="registerCard">
                     <div className="wrap">
                         <form className="form">
                        <span className="headerTag">
                            Register Organisation
                        </span>
-                            <div className="input alert-validate" data-validate="Username is required">
+                            <div className="input alert-validate" >
                                 <span className="inputLabel">
                                     Organisation Name
                                 </span>
@@ -90,8 +98,12 @@ export class RegisterOrganisation extends Component {
 
                             </div>
                         </form>
+                        <Link to={"/login"}
+                              className="BottomReg">
+                            <div style={{padding: "10px 0 0 20px"}}> I'm already a member! Sign In</div>
+                        </Link>
 
-                        <p style={{padding: "10px"}}>I'm already a member! <a data-toggle="tab" href="#signin">Sign In</a></p>
+                        {/*<p style={{padding: "10px"}}>I'm already a member! <a data-toggle="tab" href="#signin">Sign In</a></p>*/}
 
                     </div>
 

@@ -14,12 +14,14 @@ const styles = {
 }
 
 const initialState = {
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
-    nameError: "",
+    fnameError: "",
+    lnameError: "",
     emailError: "",
-    passwordError: ""
+    passwordError: "",
 };
 
 class RegisterUser extends Component {
@@ -36,22 +38,32 @@ class RegisterUser extends Component {
     };
 
     validate = () => {
-        let nameError = "";
+        let fnameError = "";
+        let lnameError = "";
         let emailError = "";
-        // let passwordError = "";
+        let passwordError = "";
 
-        if (!this.state.name) {
-            nameError = "Name is required";
+        if (!this.state.firstName) {
+            fnameError = "first name is required";
+        }
+        if (!this.state.lastName) {
+            lnameError = "Last name is required";
         }
 
         if (!this.state.email.includes("@")) {
             emailError = "invalid email";
         }
 
-        if (emailError || nameError) {
-            this.setState({ emailError, nameError });
+        if(this.state.password.length <4) {
+           passwordError="Password must be greater than 4";
+        }
+
+        if (emailError || fnameError|| lnameError || passwordError) {
+            this.setState({ emailError, fnameError,lnameError, passwordError });
             return false;
         }
+
+
 
         return true;
     };
@@ -81,21 +93,39 @@ render() {
                            </span>
                             <div className="registerUserInput" data-validate="Username is required">
                                 <span className="registerUserInputLabel">
-                                    Name
+                                    Fisrt Name
                                 </span>
                                 <div>
                                     <input
                                         className="registerUserInnerInput validate"
                                         type="text"
-                                        name="name"
-                                        placeholder="Enter your full name"
+                                        name="firstName"
+                                        placeholder="Enter your first name"
                                         //value={this.state.name}
                                         onChange={this.handleChange}
                                     />
                                 </div>
 
                             </div>
-                            <div className="error">{this.state.nameError}</div>
+                            <div className="error">{this.state.fnameError}</div>
+
+                            <div className="registerUserInput" data-validate="Username is required">
+                                <span className="registerUserInputLabel">
+                                    Last Name
+                                </span>
+                                <div>
+                                    <input
+                                        className="registerUserInnerInput validate"
+                                        type="text"
+                                        name="lastName"
+                                        placeholder="Enter your last name"
+                                        //value={this.state.name}
+                                        onChange={this.handleChange}
+                                    />
+                                </div>
+
+                            </div>
+                            <div className="error">{this.state.lnameError}</div>
 
 
                             <div className="registerUserInput" data-validate="surname is required">

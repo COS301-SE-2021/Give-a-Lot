@@ -1,3 +1,11 @@
+#filters_mobile {
+  display: none;
+}
+
+#browse_filters {
+  display: flex;
+}
+
 #banner {
   height: 100vh;
   width: 100vw;

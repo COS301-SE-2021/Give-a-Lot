@@ -55,10 +55,10 @@
     flex-direction: column;
     padding: 0px 0 10px 10px;
     border-radius: 10px;
-    left: 10px;
-    top: 80px;
+    left: 20px;
+    top: 20px;
     position: absolute;
-    min-width: 150px;
+    min-width: 200px;
     background-color: white;
     z-index: 10;
     display: flex !important;
@@ -68,6 +68,7 @@
     font-weight: bold;
     color: #747397;
     margin-top: 10px;
+    font-size: 20px;
   }
 
   .browse_filter_sections > label {
@@ -122,24 +123,13 @@
     background: rgba(85, 85, 85, 0.719);
   }
 
-  #browse_filters_container {
-    border: 1px solid #747397;
-    display: flex;
-    flex-direction: column;
-    padding: 0px 0 10px 10px;
-    border-radius: 10px;
-    left: 10px;
-    position: absolute;
-    min-width: 150px;
-  }
-
   .browse_filter_sections > p {
     font-weight: bold;
     color: #747397;
   }
 
   .browse_filter_sections > label {
-    font-size: 12px;
+    font-size: 18px;
     position: relative;
     top: -2px;
     padding-left: 5px;
@@ -301,5 +291,44 @@
 
   .recommended_organisations_organisation_sector {
     text-decoration: underline;
+  }
+
+  #dark_backdrop_active_for_mobile {
+    background-color: #52525291;
+    top: -15px;
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    display: none;
+    z-index: 1;
+  }
+
+  #filters_mobile {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding: 2px 10px;
+    border-radius: 5px;
+
+    font-size: 15px;
+    z-index: 1;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #filters_mobile > img {
+    transform: translateX(3px);
+    color: black;
+    object-fit: fill;
+  }
+
+  #filters_mobile > p {
+    transform: translateY(2px);
+  }
+
+  #browse_filters {
+    display: none;
   }
 }

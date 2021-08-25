@@ -13,6 +13,7 @@ import browseCSS_desktop from "./Styles/browse_desktop.css";
 /* assets import */
 import logo from "../../assets/logo/logo3_1.png";
 import searchIcon from '../../assets/search_black_24dp.svg';
+import filterBtn_mobile from '../../assets/filter_list_black_24dp.svg';
 /* assets import end */
 
 /* components import */
@@ -26,6 +27,27 @@ function Browse ()
     {
         e.preventDefault();
         alert("searching for " + document.getElementById("browse_search_input").value);
+    }
+
+    const mobile_popUpControl_hide = event =>
+    {
+        event.preventDefault();
+        var dark_backdrop_active_for_mobile = document.getElementById("dark_backdrop_active_for_mobile");
+        var browse_filters = document.getElementById("browse_filters");
+
+        dark_backdrop_active_for_mobile.style.display = "none";
+        browse_filters.style.display = "none";
+    }
+
+    const mobile_popUpControl_display = event =>
+    {
+     
+        event.preventDefault();
+        var dark_backdrop_active_for_mobile = document.getElementById("dark_backdrop_active_for_mobile");
+        var browse_filters = document.getElementById("browse_filters");
+
+        dark_backdrop_active_for_mobile.style.display = "block";
+        browse_filters.style.display = "block";
     }
 
     const onKeyUp = event =>
@@ -60,7 +82,16 @@ function Browse ()
                     />
                 </div>
 
+            
+                <div id="dark_backdrop_active_for_mobile" onClick={mobile_popUpControl_hide}></div>
+
+
+                <div id="filters_mobile" onClick={mobile_popUpControl_display}>
+                    <p >filters</p><img  src={filterBtn_mobile} />
+                </div>
+                
                 <section id="browse_body_main">
+                    
                     <div id="browse_filters">
                         <div id="browse_filters_container">
                     

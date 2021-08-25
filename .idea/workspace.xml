@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="commit - frontend">
+    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="modified browse and add organisation. browse now displays the certificate level which the current organisation holds, add organisation model and service were modified to create a field for the organisation's creation date&#10;edit: added certificate level to the response.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/GivealotApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/GivealotApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +26,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="backend-develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,6 +40,9 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1wrxsptsjnufcz3cfp3mAFSaILo" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -55,7 +57,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Styles" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/dataclass" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -68,11 +70,11 @@
       <recent name="com.GiveaLot.givealot.Organisation.requests" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\rashi\Desktop\Give-a-Lot\frontend\givealot\src\views\registration\registerOrganisation\Styles" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\backend\src\main\java\com\GiveaLot\givealot\Certificate\dataclass" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\backend\src\main\java\com\GiveaLot\givealot\Server" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\backend\src\main\resources" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\DemoMaterial" />
+      <recent name="C:\Users\joshu\Desktop\Give-a-Lot\frontend\givealot\localFiles\20" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\DemoMaterial" />
@@ -115,6 +117,9 @@
     <configuration name="generated-requests#28" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="28" runType="Run single request">
       <method v="2" />
     </configuration>
+    <configuration name="generated-requests#34" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="34" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="generated-requests#7" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="7" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -125,19 +130,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Write tests for method OrganisationServiceImp.addOrganisation" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration" activateToolWindowBeforeRun="false" temporary="true">
-      <module name="givealot" />
-      <settings run-config-name="Write tests for method OrganisationServiceImp.addOrganisation" include-system-env-vars="true">
-        <jvm-args />
-        <selection-scope>method</selection-scope>
-        <selected-element key="com.GiveaLot.givealot.Organisation.service.OrganisationServiceImp.addOrganisation:(Lcom/GiveaLot/givealot/Organisation/model/Organisations;)Lcom/GiveaLot/givealot/Organisation/response/generalOrganisationResponse;" />
-      </settings>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests#34" />
         <item itemvalue="Application.BlockchainServiceImpl" />
         <item itemvalue="HTTP Request.generated-requests#28" />
         <item itemvalue="HTTP Request.generated-requests#27" />
@@ -481,25 +476,25 @@
       <updated>1629382056932</updated>
     </task>
     <task id="LOCAL-00047" summary="Last minute changes">
-      <created>1629831945960</created>
+      <created>1629745300440</created>
       <option name="number" value="00047" />
       <option name="presentableId" value="LOCAL-00047" />
       <option name="project" value="LOCAL" />
-      <updated>1629831945960</updated>
+      <updated>1629745300440</updated>
     </task>
-    <task id="LOCAL-00048" summary="commit - frontend">
-      <created>1629874013157</created>
+    <task id="LOCAL-00048" summary="modified browse and add organisation. browse now displays the certificate level which the current organisation holds, add organisation model and service were modified to create a field for the organisation's creation date&#10;edit: added certificate level to the response.">
+      <created>1629928350505</created>
       <option name="number" value="00048" />
       <option name="presentableId" value="LOCAL-00048" />
       <option name="project" value="LOCAL" />
-      <updated>1629874013157</updated>
+      <updated>1629928350505</updated>
     </task>
-    <task id="LOCAL-00049" summary="commit - frontend">
-      <created>1629883926659</created>
+    <task id="LOCAL-00049" summary="modified browse and add organisation. browse now displays the certificate level which the current organisation holds, add organisation model and service were modified to create a field for the organisation's creation date&#10;edit: added certificate level to the response.">
+      <created>1629928607437</created>
       <option name="number" value="00049" />
       <option name="presentableId" value="LOCAL-00049" />
       <option name="project" value="LOCAL" />
-      <updated>1629883926659</updated>
+      <updated>1629928607437</updated>
     </task>
     <option name="localTasksCounter" value="50" />
     <servers />
@@ -535,7 +530,7 @@
     <MESSAGE value="organisations controller revision" />
     <MESSAGE value="Fixing organisation points" />
     <MESSAGE value="Last minute changes" />
-    <MESSAGE value="commit - frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit - frontend" />
+    <MESSAGE value="modified browse and add organisation. browse now displays the certificate level which the current organisation holds, add organisation model and service were modified to create a field for the organisation's creation date&#10;edit: added certificate level to the response." />
+    <option name="LAST_COMMIT_MESSAGE" value="modified browse and add organisation. browse now displays the certificate level which the current organisation holds, add organisation model and service were modified to create a field for the organisation's creation date&#10;edit: added certificate level to the response." />
   </component>
 </project>

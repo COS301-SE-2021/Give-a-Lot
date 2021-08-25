@@ -37,7 +37,7 @@ function Login()
                                 <span className="LoginInputLabel">
                                     Password
                                 </span>
-                                <input className="innerInput validate" type="text" name="username" placeholder="Type your username" />
+                                <input className="innerInput validate" type="text" name="username" placeholder="Type your password" />
                                 <span className="focus-input" ></span>
                             </div>
 

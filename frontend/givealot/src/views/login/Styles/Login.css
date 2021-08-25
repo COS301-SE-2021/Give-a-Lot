@@ -1,5 +1,5 @@
-.registerOrganisation{
-    /*background-image: url("homeBackground.jpg");*/
+.Login{
+
     height: 100vh;
     background-size: cover;
     background-position: center;
@@ -7,67 +7,64 @@
 
 }
 
-.registerCard{
-    padding: 65px 55px 54px 55px;
-    display: flex;
+.LoginCard{
     align-items: center;
     justify-content: center;
+    padding: 65px 55px 54px 55px;
+    display: flex;
+
 }
-.wrap{
+.wrapper{
     width: 500px;
-    background: #fff;
     border-radius: 10px;
+    background: #fff;
+
     overflow: hidden;
-    /*margin-left: 450px;*/
     padding: 65px 55px 54px 55px;
 
 }
-/*@media (max-width: 576px)*/
-/*.registerCard {*/
-/*    padding-left: 15px;*/
-/*    padding-right: 15px;*/
-/*}*/
 
-form {
+LoginForm {
     display: block;
     margin-top: 0em;
 }
-.headerTag{
-    display: block;
-    font-size: 25px;
-    color: #333;
+.LoginHeader{
     line-height: 1.2;
     text-align: center;
     padding-bottom: 49px;
+    display: block;
+    font-size: 25px;
+    color: #333;
+
 }
-.input{
+.LoginInput{
     width: 100%;
-    /*position: relative;*/
     border-bottom: 2px solid #d9d9d9;
     margin-bottom: 23px;
 }
-.inputLabel{
+.LoginInputLabel{
     font-size: 14px;
     color: #333;
     line-height: 1.5;
     padding-left: 7px;
 }
-.input100{
-    font-size: 16px;
-    color: #333;
+.innerInput{
+
     line-height: 1.2;
     display: block;
     width: 100%;
     height: 55px;
+    font-size: 16px;
+    color: #333;
     background: 0 0;
     padding: 0 7px 0 43px;
     outline: none;
     border: none;
 }
-.validateInput{
+.validate{
     position: relative;
 }
-.focus-input100{
+.focus-input{
     position: absolute;
     display: block;
     width: 100%;
@@ -76,7 +73,7 @@ form {
     left: 0;
     pointer-events: none;
 }
-.focus-input100::before {
+.focus-input::before {
     content: "";
     display: block;
     position: absolute;
@@ -90,12 +87,12 @@ form {
     -moz-transition: all .4s;
     transition: all .4s;
 }
-.button{
+.LoginButton{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-.wrap-btn{
+.wrapper-btn{
     width: 100%;
     display: block;
     position: relative;
@@ -104,33 +101,56 @@ form {
     overflow: hidden;
     margin: 0 auto;
 }
-.form-btn{
+.Loginform-btn{
     position: absolute;
     z-index: -1;
     width: 300%;
     height: 100%;
 }
-.register-btn{
+.Login-btn{
     font-size: 16px;
     color: #fff;
     line-height: 1.2;
-    text-transform: uppercase;
-    display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 20px;
     width: 100%;
+    text-transform: uppercase;
+    display: flex;
     height: 50px;
-    /*background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,31,1) 35%, rgba(0,212,255,1) 100%);*/
-    background-color: #7c6d81;
-}
-.button {
-    outline: none!important;
     border: none;
-    color: white;
-    background: 0 0;
+    background-color: #861657;
+    background-image: linear-gradient(326deg, #7c6d81 0%, #ffa69e 74%);
+   /* background-image: linear-gradient(326deg, #7c6d81 0%, #861657 74%);*/
+   /* background-color: #7c6d81;*/
 }
-.registerIcon{
+.Login-btn:hover{
+    background-color: #7c6d81;
+    background-image: linear-gradient(356deg, #7c6d81 0%, #ffa69e 100%);
+}
+.Login-btn:active {
+    transform: translateY(4px);
+}
+.BottomForm{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 15px;
+
+}
+
+.linker{
+    text-decoration: none;
+}
+
+.BottomLinker{
+    text-decoration: none;
+    color: #333;
+}
+
+
+.LoginIcon{
     color: #767676;
     /*padding: 10px;*/
 }
+
+

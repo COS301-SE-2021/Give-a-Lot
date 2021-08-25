@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import {IoPersonOutline} from "react-icons/io5";
-import "../login/Styles/Login.css";
-import backgroundImg from "../../assets/homeBackground.jpg";
+import "./Styles/RegisterUser.css";
+import backgroundImg from "../../../assets/homeBackground.jpg";
 
 
 const styles = {
@@ -11,7 +11,7 @@ const styles = {
     }
 }
 
-function Login()
+function RegisterUser()
 {
     return (
         <div>
@@ -20,14 +20,27 @@ function Login()
                     <div className="wrapper">
                         <form className="LoginForm">
                        <span className="LoginHeader">
-                           Sign in
+                           Sign Up
                        </span>
                             <div className="LoginInput" data-validate="Username is required">
                                 <span className="LoginInputLabel">
-                                    Username
+                                    Name
                                 </span>
                                 <div >
-                                    <input className="innerInput validate" type="text" name="username" placeholder="Type your username" />
+                                    <input className="innerInput validate" type="text" name="username" placeholder="Type your full name" />
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div className="LoginInput" data-validate="surname is required">
+                                <span className="LoginInputLabel">
+                                    Email
+                                </span>
+                                <div >
+                                    <input className="innerInput validate" type="email" name="Email" placeholder="Type your Email" />
 
                                 </div>
 
@@ -38,28 +51,18 @@ function Login()
                                     Password
                                 </span>
                                 <input className="innerInput validate" type="text" name="username" placeholder="Type your password" />
-                                <span className="focus-input" ></span>
-                            </div>
-
-                                <div className="wrapper-btn">
-
-                                    <Link to={"/"} className="linker">
-                                        <button className="Login-btn">
-                                            Login
-                                        </button>
-                                    </Link>
-                                </div>
-
-                            <div className="BottomForm">
-                                <Link to={"/signUp"} className="BottomLinker">
-                                    <span> Need an account?</span>
-                                </Link>
-
-                                <Link to={"/"} className="BottomLinker">
-                                    <span> Forgot password?</span>
-                                </Link>
 
                             </div>
+
+                            <div className="wrapper-btn">
+
+                                <Link to={"/"} className="linker">
+                                    <button className="Login-btn" >
+                                        Sign Up
+                                    </button>
+                                </Link>
+                            </div>
+
 
                         </form>
 
@@ -71,4 +74,4 @@ function Login()
     );
 }
 
-export default Login;
+export default RegisterUser;

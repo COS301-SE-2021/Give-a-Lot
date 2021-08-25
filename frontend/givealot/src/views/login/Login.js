@@ -26,7 +26,7 @@ function Login()
                                 <span className="LoginInputLabel">
                                     Username
                                 </span>
-                                <div style={{display: "flex"}}>
+                                <div >
                                     <input className="innerInput validate" type="text" name="username" placeholder="Type your username" />
 
                                 </div>

@@ -1,5 +1,5 @@
 .Login{
-    //background-image: url("");
+
     height: 100vh;
     background-size: cover;
     background-position: center;
@@ -8,15 +8,17 @@
 }
 
 .LoginCard{
-    padding: 65px 55px 54px 55px;
-    display: flex;
     align-items: center;
     justify-content: center;
+    padding: 65px 55px 54px 55px;
+    display: flex;
+
 }
 .wrapper{
     width: 500px;
-    background: #fff;
     border-radius: 10px;
+    background: #fff;
+
     overflow: hidden;
     padding: 65px 55px 54px 55px;
 
@@ -27,12 +29,13 @@ LoginForm {
     margin-top: 0em;
 }
 .LoginHeader{
-    display: block;
-    font-size: 25px;
-    color: #333;
     line-height: 1.2;
     text-align: center;
     padding-bottom: 49px;
+    display: block;
+    font-size: 25px;
+    color: #333;
+
 }
 .LoginInput{
     width: 100%;
@@ -46,12 +49,13 @@ LoginForm {
     padding-left: 7px;
 }
 .innerInput{
-    font-size: 16px;
-    color: #333;
+
     line-height: 1.2;
     display: block;
     width: 100%;
     height: 55px;
+    font-size: 16px;
+    color: #333;
     background: 0 0;
     padding: 0 7px 0 43px;
     outline: none;
@@ -107,21 +111,28 @@ LoginForm {
     font-size: 16px;
     color: #fff;
     line-height: 1.2;
-    text-transform: uppercase;
-    display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 20px;
     width: 100%;
+    text-transform: uppercase;
+    display: flex;
+
     height: 50px;
     border: none;
     background-color: #861657;
     background-image: linear-gradient(326deg, #7c6d81 0%, #ffa69e 74%);
    /* background-image: linear-gradient(326deg, #7c6d81 0%, #861657 74%);*/
-
    /* background-color: #7c6d81;*/
 }
-.
+.Login-btn:hover{
+    background-color: #7c6d81;
+    background-image: linear-gradient(356deg, #7c6d81 0%, #ffa69e 100%);
+}
+.Login-btn:active {
+    transform: translateY(4px);
+}
+
 .LoginIcon{
     color: #767676;
     /*padding: 10px;*/

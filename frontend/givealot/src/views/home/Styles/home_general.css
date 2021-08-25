@@ -21,7 +21,7 @@
 
 .loginDashBtn {
   color: white;
-  background-color: #7c6d82;
+  background-color: #7c6d81;
   -webkit-appearance: none;
   cursor: pointer;
 }
@@ -47,7 +47,7 @@
 
 .main_content_btns_inputTag {
   color: white;
-  background-color: #7c6d82;
+  background-color: #7c6d81;
   -webkit-appearance: none;
   cursor: pointer;
   width: 100%;
@@ -56,6 +56,6 @@
 
 .main_content_btns_inputTag:hover {
   transition: 0.2s;
-  color: #7c6d82;
+  color: #7c6d81;
   background-color: white;
 }

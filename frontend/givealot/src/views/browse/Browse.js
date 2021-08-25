@@ -14,6 +14,7 @@ import browseCSS_desktop from "./Styles/browse_desktop.css";
 import logo from "../../assets/logo/logo3_1.png";
 import searchIcon from '../../assets/search_black_24dp.svg';
 import filterBtn_mobile from '../../assets/filter_list_black_24dp.svg';
+import ui_message_art from '../../assets/feedback-2044700_1280.jpg';
 /* assets import end */
 
 /* components import */
@@ -154,6 +155,15 @@ function Browse ()
                             </div>
                         </div>
 
+                        {/* this block was not a part of the initial design */}
+                        <div id="ui_element_message">
+                            <img src={ui_message_art}/>
+                            <div id="ui_element_message_text">
+                                <p id="ui_element_message_head">Find a cause that you care about</p>
+                                <p id="ui_element_message_subtext">The following organisations have been individually reviewed by givealot<img /></p>
+                            </div>
+                        </div>
+                        {/* this block was not a part of the initial design - end */}
 
                         <div id="default_organisations">
                             <div className="browse_sector">

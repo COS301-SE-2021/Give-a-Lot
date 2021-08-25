@@ -1,7 +1,7 @@
 /* For Mobile Phones Portrait or Landscape View */
 @media screen and (max-device-width: 640px) {
   #browseNavSection {
-    background-color: #747397;
+    background-color: #7c6d81;
     display: flex;
     position: relative;
     flex-direction: row;
@@ -36,12 +36,12 @@
     cursor: pointer;
     width: 40px;
     margin-left: 10px;
-    color: #747397;
+    color: #7c6d81;
   }
 
   #browse_search_input {
     border-radius: 20px;
-    border: 2px solid #747397;
+    border: 2px solid #7c6d81;
     height: 50px;
     width: 300px;
     outline: none;
@@ -49,7 +49,7 @@
   }
 
   #browse_filters_container {
-    border: 1px solid #747397;
+    border: 1px solid #7c6d81;
     /* display: flex; */
 
     flex-direction: column;
@@ -66,7 +66,7 @@
 
   .browse_filter_sections > p {
     font-weight: bold;
-    color: #747397;
+    color: #7c6d81;
     margin-top: 10px;
     font-size: 20px;
   }
@@ -115,7 +115,7 @@
 
   /* Handle */
   #browse_organisations::-webkit-scrollbar-thumb {
-    background: #747397;
+    background: #7c6d81;
   }
 
   /* Handle on hover */
@@ -125,7 +125,7 @@
 
   .browse_filter_sections > p {
     font-weight: bold;
-    color: #747397;
+    color: #7c6d81;
   }
 
   .browse_filter_sections > label {
@@ -179,7 +179,7 @@
 
   /* Handle */
   .browse_sector_organisations_container::-webkit-scrollbar-thumb {
-    background: #747397;
+    background: #7c6d81;
   }
 
   /* Handle on hover */
@@ -228,7 +228,7 @@
 
   /* Handle */
   .recommended_organisations_container::-webkit-scrollbar-thumb {
-    background: #747397;
+    background: #7c6d81;
   }
 
   /* Handle on hover */
@@ -239,7 +239,7 @@
   .browse_sector_name {
     font-size: 10px;
     margin-bottom: 10px;
-    background-color: #747397b6;
+    background-color: #7c6d81b6;
     display: inline-block;
     color: white;
     padding: 3px 10px;
@@ -258,7 +258,7 @@
     width: 100px;
     height: 80px;
     border-radius: 12px;
-    border: 1px solid #747397;
+    border: 1px solid #7c6d81;
     cursor: pointer;
   }
 
@@ -285,7 +285,7 @@
   }
 
   .sector_organisation_level {
-    color: #747397;
+    color: #7c6d81;
     font-weight: bold;
   }
 
@@ -330,5 +330,38 @@
 
   #browse_filters {
     display: none;
+  }
+
+  #ui_element_message {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    width: fit-content;
+    margin: 40px 0 20px 0;
+  }
+
+  #ui_element_message > img {
+    width: 150px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  #ui_element_message_text > p {
+    text-align: center;
+    color: #6b5d70;
+  }
+
+  #ui_element_message_head {
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: -1px;
+  }
+
+  #ui_element_message_subtext {
+    font-size: 13px;
   }
 }

@@ -61,12 +61,13 @@ export class RegisterOrganisation extends Component {
                                 <span className="inputLabel">
                                     Sector
                                 </span>
-                                <input className="input100 validateInput"
-                                       type="text" name="orgSector"
-                                       placeholder="Enter Organisation Sector"
-                                       value={values.orgSector}
-                                       onChange={handleChange('orgSector')}
-                                />
+                                <select value={values.orgSector} className="inputLabel"  onChange={handleChange('orgSector')}>
+                                    <option value="A">Children</option>
+                                    <option value="B">Youth</option>
+                                    <option value="C">Security</option>
+                                    <option value="C">Food drive</option>
+                                    <option value="C">Technology</option>
+                                </select>
                                 <span style={{float: "right", color: "red"}}><small>{this.props.orgSectorError}</small></span>
                             </div>
                             <div className="input alert-validate" >

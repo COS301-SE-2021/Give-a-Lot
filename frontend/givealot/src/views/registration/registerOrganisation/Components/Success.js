@@ -24,6 +24,7 @@ export class Success extends Component {
         }, 2000);
         /////axios submit request. input values are in values
         ////then redirect to login
+        console.log(this.props)
     };
 
     constructor() {

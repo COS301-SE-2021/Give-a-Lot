@@ -21,7 +21,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.io.File;
 
 @SpringBootApplication
-public class GivealotApplication implements CommandLineRunner {
+public class GivealotApplication /*implements CommandLineRunner*/ {
 
     @Autowired
     OrganisationRepository organisationRepository;
@@ -76,11 +76,11 @@ public class GivealotApplication implements CommandLineRunner {
 //	}
 
 	/** Compare valid certificate **/
-	@Override
-	public  void run(String... args) throws Exception {
-		File test = new File("frontend/givealot/localFiles/20/certificate/CertificateComplete.pdf");
-		System.out.println(certificateService.compareCertificate(test));
-	}
+//	@Override
+//	public  void run(String... args) throws Exception {
+//		File test = new File("frontend/givealot/localFiles/20/certificate/CertificateComplete.pdf");
+//		System.out.println(certificateService.compareCertificate(test));
+//	}
 
 	/** Compare invalid Certificate **/
 

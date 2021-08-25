@@ -105,7 +105,7 @@ render() {
                                         onChange={this.handleChange}
                                     />
                                 </div>
-                                <span style={{float: "right", color: "red"}}>{this.state.fnameError}</span>
+                                <span className="error">{this.state.fnameError}</span>
                             </div>
 
 
@@ -123,7 +123,7 @@ render() {
                                         onChange={this.handleChange}
                                     />
                                 </div>
-                                <span style={{float: "right", color: "red"}}>{this.state.lnameError}</span>
+                                <span className="error">{this.state.lnameError}</span>
                             </div>
 
 
@@ -142,7 +142,7 @@ render() {
                                         onChange={this.handleChange}/>
 
                                 </div>
-                                <span style={{float: "right", color: "red"}}>{this.state.emailError}</span>
+                                <span className="error">{this.state.emailError}</span>
                             </div>
 
 
@@ -160,7 +160,7 @@ render() {
                                     onChange={this.handleChange}
                                 />
                             </div>
-                            <span style={{float: "right", color: "red"}}>{this.state.passwordError}</span>
+                                <span className="error">{this.state.passwordError}</span>
                             </div>
 
                             <div className="wrapp-btn">

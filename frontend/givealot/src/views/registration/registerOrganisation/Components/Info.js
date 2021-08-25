@@ -46,11 +46,12 @@ export class RegisterOrganisation extends Component {
                                            value={values.orgName}
                                            onChange={handleChange('orgName')}
                                     />
+                                    <span style={{float: "right", color: "red"}}><small>{this.props.orgNameError}</small></span>
                                 </div>
 
                             </div>
 
-                            <div className="input alert-validate" data-validate="Username is required">
+                            <div className="input alert-validate">
                                 <span className="inputLabel">
                                     Email
                                 </span>
@@ -61,8 +62,9 @@ export class RegisterOrganisation extends Component {
                                        value={values.orgEmail}
                                        onChange={handleChange('orgEmail')}
                                 />
+                                <span style={{float: "right", color: "red"}}><small>{this.props.orgEmailError}</small></span>
                             </div>
-                            <div className="input alert-validate" data-validate="Username is required">
+                            <div className="input alert-validate">
                                 <span className="inputLabel">
                                     Password
                                 </span>
@@ -73,6 +75,7 @@ export class RegisterOrganisation extends Component {
                                        value={values.password}
                                        onChange={handleChange('password')}
                                 />
+                                <span style={{float: "right", color: "red"}}><small>{this.props.passwordError}</small></span>
                             </div>
                             <div className="button">
                                     <div className="formButton ">

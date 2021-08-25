@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import {IoPersonOutline} from "react-icons/io5";
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import "../login/Styles/Login.css";
 import backgroundImg from "../../assets/homeBackground.jpg";
+import Logo from "../login/Components/Logo"
 
 
 const styles = {
@@ -16,6 +17,10 @@ function Login()
     return (
         <div>
             <div className="Login" style={styles.main}>
+                <Logo/>
+                <Link to={"/"}>
+                <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
+                </Link>
                 <div className="LoginCard">
                     <div className="wrapper">
                         <form className="LoginForm">
@@ -27,7 +32,7 @@ function Login()
                                     Username
                                 </span>
                                 <div >
-                                    <input className="innerInput validate" type="text" name="username" placeholder="Type your username" />
+                                    <input className="innerInput validate" type="text" name="username" placeholder="Enter your username" />
 
                                 </div>
 
@@ -37,7 +42,7 @@ function Login()
                                 <span className="LoginInputLabel">
                                     Password
                                 </span>
-                                <input className="innerInput validate" type="text" name="username" placeholder="Type your password" />
+                                <input className="innerInput validate" type="text" name="username" placeholder="Enter your password" />
                                 <span className="focus-input" ></span>
                             </div>
 
@@ -55,7 +60,7 @@ function Login()
                                     <span> Need an account?</span>
                                 </Link>
 
-                                <Link to={"/"} className="BottomLinker">
+                                <Link  className="BottomLinker">
                                     <span> Forgot password?</span>
                                 </Link>
 

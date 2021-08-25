@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import "../Styles/SignUp.css"
+import "../registration/Styles/SignUp.css"
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import Logo from "../login/Components/Logo"
 
-import backgroundImg from "../../../assets/homeBackground.jpg";
+import backgroundImg from "../../assets/homeBackground.jpg";
 
 
 
@@ -17,6 +19,10 @@ function SignUp()
     return (
         <div>
             <div className="signup" style={styles.main}>
+                <Logo/>
+                <Link to={"/login"}>
+                    <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
+                </Link>
                 <div className="signupCard">
                     <div className="signupWrapper">
                         <form className="signupForm">
@@ -45,7 +51,7 @@ function SignUp()
 
                                 <div className="terms">
                                     <p>By signing up, you agree to Givealot's </p>
-                                    <Link to={"/"} className="BottomLink">
+                                    <Link  className="BottomLink">
                                         <p>Terms of service and privacy</p>
                                     </Link>
                                 </div>

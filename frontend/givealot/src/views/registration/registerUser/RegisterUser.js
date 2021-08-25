@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import {IoPersonOutline} from "react-icons/io5";
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import "./Styles/RegisterUser.css";
 import backgroundImg from "../../../assets/homeBackground.jpg";
+import Logo from "../../login/Components/Logo";
 
 
 const styles = {
@@ -16,6 +18,10 @@ function RegisterUser()
     return (
         <div>
             <div className="Login" style={styles.main}>
+                <Logo/>
+                <Link to={"/login"}>
+                    <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
+                </Link>
                 <div className="LoginCard">
                     <div className="wrapper">
                         <form className="LoginForm">
@@ -27,7 +33,7 @@ function RegisterUser()
                                     Name
                                 </span>
                                 <div >
-                                    <input className="innerInput validate" type="text" name="username" placeholder="Type your full name" />
+                                    <input className="innerInput validate" type="text" name="username" placeholder="Enter your full name" />
 
                                 </div>
 
@@ -40,7 +46,7 @@ function RegisterUser()
                                     Email
                                 </span>
                                 <div >
-                                    <input className="innerInput validate" type="email" name="Email" placeholder="Type your Email" />
+                                    <input className="innerInput validate" type="email" name="Email" placeholder="Enter your Email" />
 
                                 </div>
 
@@ -50,13 +56,13 @@ function RegisterUser()
                                 <span className="LoginInputLabel">
                                     Password
                                 </span>
-                                <input className="innerInput validate" type="text" name="username" placeholder="Type your password" />
+                                <input className="innerInput validate" type="text" name="username" placeholder="Enter your password" />
 
                             </div>
 
                             <div className="wrapper-btn">
 
-                                <Link to={"/"} className="linker">
+                                <Link to={"/login"} className="linker">
                                     <button className="Login-btn" >
                                         Sign Up
                                     </button>

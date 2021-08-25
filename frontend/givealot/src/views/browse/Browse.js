@@ -1,4 +1,4 @@
-import react from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 
@@ -24,6 +24,7 @@ import OrganisationRecommended from './Components/Organisation/OrganisationRecom
 
 function Browse ()
 {
+    const [organisations, setOrganisations] = useState([]);
     function searchOrganisation(e)
     {
         e.preventDefault();
@@ -60,6 +61,55 @@ function Browse ()
             searchOrganisation(event);
         }
     };
+
+    
+    /* fetch request - organisations by sections - start*/
+
+    /* 
+        REMEMBER HOOKS: ELSE GOOD LUCK TRYING TO SOLVE THE 
+                        INEVITABLE SHIT SHOW. 
+
+        TODO: update login to use tokens on the request URL
+    */
+    useEffect(() => {
+        fetch("https://dog.ceo/api/breeds/image/random")
+        .then(async response =>{
+
+            const data = await response.json();
+
+            if(!response.ok) /* error handling here */
+            {            
+                if(response.status == 500)
+                {
+                    alert("bad parameters, fatal");
+                }
+                else if(response.status == 401)
+                {
+                    alert("this token is unauthorized"); /* take them back to login */
+                }
+
+                if(typeof data !== 'undefined')
+                {
+                    alert(data.message);
+                }
+            }
+
+            alert("successfully fetched #1");
+            setOrganisations(data);
+        })
+        
+        .catch(error => {
+            alert("failed - organisations - sector")
+        });
+    }
+    ,[])
+
+    /* fetch request - organisations by sections - end*/
+
+
+    
+
+    console.log(organisations);
 
     return (
         <div>
@@ -98,49 +148,47 @@ function Browse ()
                     
                             <div className="browse_filter_sections">
                                 <p>sector</p>
-                                <input type="checkbox" id="sec_id1"  value="1"/>
-                                <label for="level1">children</label><br/>
+                                <input type="checkbox" id="level1"  value="1"/>
+                                <label htmlFor="level1">children</label><br/>
 
-                                <input type="checkbox" id="sec_id2" value="2"/>
-                                <label for="level2">youth</label><br/>
+                                <input type="checkbox" id="level2" value="2"/>
+                                <label htmlFor="level2">youth</label><br/>
 
-                                <input type="checkbox" id="sec_id3" value="3"/>
-                                <label for="level3">security</label><br/>
+                                <input type="checkbox" id="level3" value="3"/>
+                                <label htmlFor="level3">security</label><br/>
 
-                                <input type="checkbox" id="sec_id4" value="4"/>
-                                <label for="level4">food drive</label><br/>
+                                <input type="checkbox" id="level4" value="4"/>
+                                <label htmlFor="level4">food drive</label><br/>
 
-                                <input type="checkbox" id="sec_id5" value="5"/>
-                                <label for="level5">technology</label><br/>
+                                <input type="checkbox" id="level5" value="5"/>
+                                <label htmlFor="level5">technology</label><br/>
                             </div>
 
                             <div className="browse_filter_sections">
                                 <p>level</p>
 
                                 <input type="checkbox" id="level1" value="1"/>
-                                <label for="level1"> Level 1</label><br/>
+                                <label htmlFor="level1"> Level 1</label><br/>
 
                                 <input type="checkbox" id="level2" value="2"/>
-                                <label for="level2"> Level 2</label><br/>
+                                <label htmlFor="level2"> Level 2</label><br/>
 
                                 <input type="checkbox" id="level3" value="3"/>
-                                <label for="level3"> Level 3</label><br/>
+                                <label htmlFor="level3"> Level 3</label><br/>
 
                                 <input type="checkbox" id="level4" value="4"/>
-                                <label for="level4"> Level 4</label><br/>
+                                <label htmlFor="level4"> Level 4</label><br/>
 
                                 <input type="checkbox" id="level5" value="5"/>
-                                <label for="level5"> Level 5</label><br/>
+                                <label htmlFor="level5"> Level 5</label><br/>
                             </div>
                         </div>
                     </div>
 
-                    {/* fetch request here */}
 
-                    {/* 
-                        REMEMBER HOOKS: ELSE GOOD LUCK TRYING TO SOLVE THE 
-                                        INEVITABLE SHIT SHOW. 
-                    */}
+                  
+
+                    
 
                     <div id="browse_organisations">
                         <div id="recommended_organisations">

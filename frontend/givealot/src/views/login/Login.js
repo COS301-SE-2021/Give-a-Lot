@@ -117,7 +117,7 @@ class Login extends Component {
 
                             <div className="wrapper-btn">
 
-                                <button className="Login-btn" type="submit" onClick={this.handleButton}>
+                                <button className="Login-btn" type="submit">
                                     Login
                                 </button>
                                 {/*} <Link to={"/"} className="linker">

@@ -9,14 +9,24 @@ public class browseSectorOrganisation {
     private String orgName;
     private String dateAdded;
     private String imgUrl;
+    private String orgDescription;
     private Integer certificate_level;
 
-    public browseSectorOrganisation(Long orgId, String orgName, String dateAdded, String imgUrl, Integer certificate_level) {
+    public browseSectorOrganisation(Long orgId, String orgName, String dateAdded, String imgUrl, Integer certificate_level, String orgDescription) {
         this.orgId = orgId;
         this.orgName = orgName;
         this.dateAdded = dateAdded;
         this.imgUrl = imgUrl;
         this.certificate_level = certificate_level;
+        this.orgDescription = orgDescription;
+    }
+
+    public String getOrgDescription() {
+        return orgDescription;
+    }
+
+    public void setOrgDescription(String orgDescription) {
+        this.orgDescription = orgDescription;
     }
 
     public Integer getCertificate_level() {

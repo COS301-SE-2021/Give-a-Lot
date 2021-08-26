@@ -4,8 +4,6 @@ import "../Styles/registerOrganisation.css"
 import backgroundImg from "../../../../assets/homeBackground.jpg";
 import { IoReload } from "react-icons/io5";
 import Logo from "../../../login/Components/Logo";
-import {Link} from "react-router-dom";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 export class Success extends Component {
     styles = {

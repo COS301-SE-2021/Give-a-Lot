@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import "../Styles/registerOrganisation.css"
-import { IoPersonOutline } from "react-icons/io5";
+// import { IoPersonOutline } from "react-icons/io5";
 import backgroundImg from "../../../../assets/homeBackground.jpg";
 import Logo from "../../../login/Components/Logo";
-import {Link} from "react-router-dom";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 export class RegisterOrganisation extends Component {
     styles = {
@@ -74,14 +72,12 @@ export class RegisterOrganisation extends Component {
                                 <div className="formButton ">
                                     <button className="register-btn"
                                             onClick={this.back}
-                                            label="back"
                                     >
                                         {" "}
                                         back
                                     </button>
                                     <button className="register-btn"
                                             onClick={this.proceed}
-                                            label="Continue"
                                     >
                                         {" "}
                                         next
@@ -90,9 +86,6 @@ export class RegisterOrganisation extends Component {
 
                             </div>
                         </form>
-
-                        {/*<p style={{padding: "10px"}}>I'm already a member! <a data-toggle="tab" href="#signin">Sign In</a></p>*/}
-
                     </div>
 
                 </div>

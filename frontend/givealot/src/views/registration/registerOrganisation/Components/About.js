@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import "../Styles/registerOrganisation.css"
-import { IoPersonOutline } from "react-icons/io5";
+// import { IoPersonOutline } from "react-icons/io5";
 import backgroundImg from "../../../../assets/homeBackground.jpg";
 import Logo from "../../../login/Components/Logo";
-import {Link} from "react-router-dom";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import axios from 'axios'
-import Select from 'react-select';
 
 export class RegisterOrganisation extends Component {
     constructor() {
@@ -20,22 +17,6 @@ export class RegisterOrganisation extends Component {
         };
     }
 
-    // componentDidMount(){
-        // const res = await axios.get('http://localhost:8080/v1/organisation/get/sectors')
-        // const data = res.data
-        // console.log(data)
-
-        // const options = data.sectors.map(d => ({
-        //     "value" : d.id,
-        //     "label" : d.name
-        // }))
-        // this.setState({selectOptions: data})
-    // }
-
-    // componentDidMount(){
-    //     this.getOptions()
-    // }
-
     componentDidMount(){
         let config = {
             headers: {
@@ -43,19 +24,10 @@ export class RegisterOrganisation extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        // const adminUsersRequestBody = {
-        //     "adminUserEmail" : this.state.adminUserEmail
-        // }
         axios.get('http://localhost:8080/v1/organisation/get/sectors',  config)
             .then(response =>{
                 console.log(response)
-                // const options = response.data.sectors.map(d => ({
-                //     "value" : d.value,
-                //     // "label" : d.name
-                // }))
-                // this.setState({selectOptions: options})
                 this.setState({selectOptions: response.data.sectors})
-                // console.log(this.state.selectOptions)
             })
             .catch(error =>{
                 console.log(error)
@@ -84,11 +56,6 @@ export class RegisterOrganisation extends Component {
         console.log(this.state.selectOptions);
         for(let i=0; i < this.state.selectOptions.length; i++){
             console.log(this.state.selectOptions[i]);
-            // optionsTemp = this.state.selectOptions[i].map(i => ({
-            //     //     "value" : d.id,
-            //     //     "label" : d.name
-            // })
-            // optionsTemp.add(<option value={this.state.selectOptions[i]}>{this.state.selectOptions[i]}</option>)
         }
         console.log(optionsTemp);
         const { values, handleChange, nextStep } = this.props;
@@ -122,10 +89,6 @@ export class RegisterOrganisation extends Component {
                                 <span className="inputLabel">
                                     Sector
                                 </span>
-                                {/*<Select options={this.state.selectOptions}*/}
-                                {/*        className="input100"*/}
-                                {/*        onChange={handleChange('orgSector')}*/}
-                                {/*/>*/}
                                 <select value={values.orgSector} className="input100" onChange={handleChange('orgSector')}>
                                     <option key="kidsNextDoor">Enter Sector</option>
                                     {this.state.selectOptions.map((item) =>
@@ -151,14 +114,12 @@ export class RegisterOrganisation extends Component {
                                 <div className="formButton ">
                                     <button className="register-btn"
                                             onClick={this.back}
-                                            label="back"
                                     >
                                         {" "}
                                         back
                                     </button>
                                     <button className="register-btn"
                                             onClick={this.proceed}
-                                            label="Continue"
                                     >
                                         {" "}
                                         next
@@ -167,8 +128,6 @@ export class RegisterOrganisation extends Component {
 
                             </div>
                         </form>
-
-                        {/*<p style={{padding: "10px"}}>I'm already a member! <a data-toggle="tab" href="#signin">Sign In</a></p>*/}
 
                     </div>
 

@@ -255,11 +255,11 @@
   }
 
   .sector_organisation > img {
-    width: 100px;
+    width: 80px;
     height: 80px;
     border-radius: 12px;
-    border: 1px solid #7c6d81;
     cursor: pointer;
+    object-fit: fill;
   }
 
   .sector_organisation_meta {

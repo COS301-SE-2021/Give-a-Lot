@@ -20,6 +20,7 @@ import ui_message_art from '../../assets/feedback-2044700_1280.jpg';
 /* components import */
 import Organisation from './Components/Organisation/Organisation';
 import OrganisationRecommended from './Components/Organisation/OrganisationRecommended';
+import Sector from "./Components/BrowseBySector/Sector";
 /* components import end */
 
 function Browse ()
@@ -79,11 +80,11 @@ function Browse ()
 
             if(!response.ok) /* error handling here */
             {            
-                if(response.status == 500)
+                if(response.status === 500)
                 {
                     alert("bad parameters, fatal");
                 }
-                else if(response.status == 401)
+                else if(response.status === 401)
                 {
                     alert("this token is unauthorized"); /* take them back to login */
                 }
@@ -94,8 +95,15 @@ function Browse ()
                 }
             }
 
-            alert("successfully fetched #1");
-            setOrganisations(data);
+            if(data.message === "success") /*successfully fetched*/
+            {
+                setOrganisations(data.object);
+            }
+            else
+            {
+                alert("error occured: " + data.code);
+                setOrganisations([]);
+            }
         })
         
         .catch(error => {
@@ -103,13 +111,40 @@ function Browse ()
         });
     }
     ,[])
-
     /* fetch request - organisations by sections - end*/
 
 
-    
+    let organisations_by_sector = [];
 
-    console.log(organisations);
+    if(organisations !== undefined)
+    {
+        for (let i = 0; i < organisations.length; i++)
+        {
+            let sector = organisations[i].sector;
+            let organisations_for_the_sector = [];
+            for (let k = 0; k < organisations[i].organisations.length; k++)
+            {
+                let orgId = organisations[i].organisations[k].orgId;
+                let orgName = organisations[i].organisations[k].orgName;
+                let dateAdded = organisations[i].organisations[k].dateAdded;
+                let imgUrl = organisations[i].organisations[k].imgUrl;
+                let certificate_level = organisations[i].organisations[k].certificate_level;
+
+                organisations_for_the_sector.push(<Organisation orgId = {orgId}
+                                                                orgName= {orgName}
+                                                                dateAdded = {dateAdded}
+                                                                imgUrl = {imgUrl}
+                                                                certificate_level = {certificate_level}
+                                                                key={orgId}/>);
+                /*
+                   Note for future reference: sector takes a list of organisations as prop
+                */
+                organisations_by_sector.push(<Sector sector={"test sector"}
+                                                     organisations_for_sec={organisations_for_the_sector}
+                                                     key={sector}/>);
+            }
+        }
+    }
 
     return (
         <div>
@@ -133,9 +168,10 @@ function Browse ()
                     />
                 </div>
 
-            
-                <div id="dark_backdrop_active_for_mobile" onClick={mobile_popUpControl_hide}></div>
-
+                <div id="dark_backdrop_active_for_mobile" onClick={mobile_popUpControl_hide}>
+                    {/*this is used on the mobile version of the application,
+                       helps minimise the the filters */}
+                </div>
 
                 <div id="filters_mobile" onClick={mobile_popUpControl_display}>
                     <p >filters</p><img  src={filterBtn_mobile} />
@@ -186,10 +222,6 @@ function Browse ()
                     </div>
 
 
-                  
-
-                    
-
                     <div id="browse_organisations">
                         <div id="recommended_organisations">
                             <div className="recommended_section">
@@ -214,43 +246,7 @@ function Browse ()
                         {/* this block was not a part of the initial design - end */}
 
                         <div id="default_organisations">
-                            <div className="browse_sector">
-                                <p className="browse_sector_name">sector name</p>
-                                <div className="browse_sector_organisations_container">
-                                    <Organisation />
-                                    <Organisation />
-                                    <Organisation />
-                                    <Organisation />
-                                </div>
-                            </div> 
-
-                            <div className="browse_sector">
-                                <p className="browse_sector_name">sector name</p>
-                                <div className="browse_sector_organisations_container">
-                                    <Organisation />
-                                    <Organisation />           
-                                </div>
-                            </div> 
-
-                            <div className="browse_sector">
-                                <p className="browse_sector_name">sector name</p>
-                                <div className="browse_sector_organisations_container">
-                                    <Organisation />
-                                    <Organisation />
-                                    <Organisation />
-                                    <Organisation />
-                                </div>
-                            </div> 
-
-
-                            <div className="browse_sector">
-                                <p className="browse_sector_name">sector name</p>
-                                <div className="browse_sector_organisations_container">
-                                    <Organisation />
-                                    <Organisation />           
-                                    <Organisation />
-                                </div>
-                            </div> 
+                            {organisations_by_sector}
                         </div>
                     </div>
                 </section>

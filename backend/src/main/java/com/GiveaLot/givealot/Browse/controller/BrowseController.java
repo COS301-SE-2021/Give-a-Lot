@@ -42,7 +42,7 @@ public class BrowseController {
                response = new responseJSON("ok_org_br_200","success",res);
                return new ResponseEntity<>(response,HttpStatus.OK);
            }
-            response = new responseJSON("bad_org_br_500","unsuccess" ,null);
+            response = new responseJSON("bad_org_br_500","unsuccessful" ,null);
 
             return new ResponseEntity<>(response,HttpStatus.OK);
         }

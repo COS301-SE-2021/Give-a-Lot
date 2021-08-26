@@ -41,7 +41,38 @@ public class BrowseServiceImp implements BrowseService{
             *  based on what most users interact with
             */
 
-            throw new Exception("Exception: case under development");
+            List<String> orderedSectors = browseRecommenderRepository.getInteractionsbySector();
+
+            /*
+            * get top n sectors
+            */
+            final int n = 3;
+            List<String> sectors = new ArrayList<>();
+            for(int idx = 0; idx < n && idx < orderedSectors.size(); idx++)
+            {
+                sectors.add(idx,orderedSectors.get(idx));
+            }
+
+            /*
+             *  now pick at-most n organisations from each sector
+             */
+
+            // config
+            final int upper_bound = 5;
+            List<Organisations> response = new ArrayList<>();
+            for(String sector : sectors)
+            {
+                List<Organisations> organisations_by_sector_tmp = browseRepository.getOrganisationsBySector(sector);
+
+                if(organisations_by_sector_tmp == null) /* move on to the next sector*/
+                    continue;
+
+                for(int index = 0; index < organisations_by_sector_tmp.size() && index < upper_bound; index++)
+                    response.add(organisations_by_sector_tmp.get(index));
+            }
+
+            Collections.shuffle(response);
+            return response;
         }
         else
         {

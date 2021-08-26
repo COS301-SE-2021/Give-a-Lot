@@ -127,7 +127,7 @@ export class RegisterOrganisation extends Component {
                                 {/*        onChange={handleChange('orgSector')}*/}
                                 {/*/>*/}
                                 <select value={values.orgSector} className="input100" onChange={handleChange('orgSector')}>
-                                    <option key="wanda">Enter Sector</option>
+                                    <option key="kidsNextDoor">Enter Sector</option>
                                     {this.state.selectOptions.map((item) =>
                                         <option key={item} value={item}>{item}</option>
                                     )}

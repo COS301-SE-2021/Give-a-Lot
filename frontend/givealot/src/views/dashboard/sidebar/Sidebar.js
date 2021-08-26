@@ -2,6 +2,8 @@ import React from 'react'
 import "./styles/Sidebar.css"
 import {  Link} from "react-router-dom";
 import DashboardIcon from '@material-ui/icons/Dashboard';
+import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
+import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import { useLocation } from "react-router-dom";
 
 function Sidebar(){
@@ -32,7 +34,7 @@ function Sidebar(){
                             <li className={splitLocation[1] === "organisations" ? "active" : ""}>
                                 <Link to='/organisations' className="link">
                                     <li className="sidebarListItem ">
-                                        <DashboardIcon />
+                                        <PeopleOutlineIcon />
                                         Organisations
                                     </li>
                                 </Link>
@@ -40,7 +42,7 @@ function Sidebar(){
                             <li className={splitLocation[1] === "users" ? "active" : ""}>
                                 <Link to='/users' className="link">
                                     <li className="sidebarListItem ">
-                                        <DashboardIcon />
+                                        <PersonOutlineIcon />
                                         Users
                                     </li>
                                 </Link>

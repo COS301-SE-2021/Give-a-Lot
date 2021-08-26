@@ -4,6 +4,7 @@ import {  Link} from "react-router-dom";
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
+import DashboardOutlinedIcon from '@material-ui/icons/DashboardOutlined';
 import { useLocation } from "react-router-dom";
 
 function Sidebar(){
@@ -26,7 +27,7 @@ function Sidebar(){
                             <li className={splitLocation[1] === "featured" ? "active" : ""}>
                                 <Link to='/featured' className="link">
                                     <li className="sidebarListItem ">
-                                        <DashboardIcon />
+                                        <DashboardOutlinedIcon />
                                         Dashboard
                                     </li>
                                 </Link>

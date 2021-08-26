@@ -131,11 +131,6 @@ export class RegisterOrganisation extends Component {
                                     {this.state.selectOptions.map((item) =>
                                         <option key={item} value={item}>{item}</option>
                                     )}
-                                    {/*<option value="A">Children</option>*/}
-                                    {/*<option value="B">Youth</option>*/}
-                                    {/*<option value="C">Security</option>*/}
-                                    {/*<option value="C">Food drive</option>*/}
-                                    {/*<option value="C">Technology</option>*/}
                                 </select>
                                 <span style={{float: "right", color: "red"}}><small>{this.props.orgSectorError}</small></span>
                             </div>

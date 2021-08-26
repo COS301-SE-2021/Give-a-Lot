@@ -10,7 +10,7 @@ export class OrganisationsBody extends Component {
                     <div className="bodyItem">
                         <div className="cardHeader">
                             <span>Name here</span>
-                            <span>5</span>
+                            <span className="level levelNumber">5</span>
                         </div>
                         <div className="bodyContainer">
                             <span className="emailBody">email@gmail.com</span>

@@ -10,7 +10,7 @@
 .LoginCard{
     align-items: center;
     justify-content: center;
-    padding: 65px 55px 54px 55px;
+
     display: flex;
 
 
@@ -153,5 +153,9 @@ LoginForm {
     color: #767676;
     /*padding: 10px;*/
 }
+.loginError{
+    color: red;
+    float: right;
 
+}
 

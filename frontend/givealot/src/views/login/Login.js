@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Link } from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import "../login/Styles/Login.css";
@@ -12,7 +12,60 @@ const styles = {
     }
 }
 
-function Login()
+const initialState = {
+    username: "",
+    password: "",
+    usernameError: "",
+    passwordError: "",
+};
+
+class Login extends Component {
+
+    state = initialState;
+
+    handleChange = event => {
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
+    };
+
+    validate = () => {
+        let usernameError = "";
+        let passwordError = "";
+
+        if (!this.state.firstName) {
+            usernameError = "username is required";
+        }
+
+
+        if(this.state.password.length <4) {
+            passwordError="Password must be greater than 4";
+        }
+
+        if ( usernameError || passwordError) {
+            this.setState({ usernameError, passwordError });
+            return false;
+        }
+
+
+
+        return true;
+    };
+
+
+    handleSubmit = event => {
+        event.preventDefault();
+        const isValid = this.validate();
+        if (isValid) {
+            console.log(this.state);
+            // clear form
+            this.setState(initialState);
+        }
+    };
+render()
 {
     return (
         <div>
@@ -23,7 +76,7 @@ function Login()
                 </Link>
                 <div className="LoginCard">
                     <div className="wrapper">
-                        <form className="LoginForm">
+                        <form className="LoginForm" onSubmit={this.handleSubmit}>
                        <span className="LoginHeader">
                            Sign in
                        </span>
@@ -31,10 +84,17 @@ function Login()
                                 <span className="LoginInputLabel">
                                     Username
                                 </span>
-                                <div >
-                                    <input className="innerInput validate" type="text" name="username" placeholder="Enter your username" />
+                                <div>
+                                    <input
+                                        className="innerInput validate"
+                                        type="text"
+                                        name="username"
+                                        placeholder="Enter your username"
+                                        onChange={this.handleChange}
+                                    />
 
                                 </div>
+                                <span className="loginError">{this.state.usernameError}</span>
 
                             </div>
 
@@ -42,25 +102,37 @@ function Login()
                                 <span className="LoginInputLabel">
                                     Password
                                 </span>
-                                <input className="innerInput validate" type="text" name="username" placeholder="Enter your password" />
-                                <span className="focus-input" ></span>
+                                <div>
+                                    <input
+                                        className="innerInput validate"
+                                        type="password"
+                                        name="username"
+                                        placeholder="Enter your password"
+                                        onChange={this.handleChange}
+                                    />
+
+                                </div>
+                                <span className="loginError">{this.state.passwordError}</span>
                             </div>
 
-                                <div className="wrapper-btn">
+                            <div className="wrapper-btn">
 
-                                    <Link to={"/"} className="linker">
-                                        <button className="Login-btn">
-                                            Login
-                                        </button>
-                                    </Link>
-                                </div>
+                                <button className="Login-btn" type="submit">
+                                    Login
+                                </button>
+                                {/*} <Link to={"/"} className="linker">
+                                    <button className="Login-btn">
+                                        Login
+                                    </button>
+                                </Link>*/}
+                            </div>
 
                             <div className="BottomForm">
                                 <Link to={"/signUp"} className="BottomLinker">
                                     <span> Need an account?</span>
                                 </Link>
 
-                                <Link  className="BottomLinker">
+                                <Link className="BottomLinker">
                                     <span> Forgot password?</span>
                                 </Link>
 
@@ -74,6 +146,7 @@ function Login()
             </div>
         </div>
     );
+}
 }
 
 export default Login;

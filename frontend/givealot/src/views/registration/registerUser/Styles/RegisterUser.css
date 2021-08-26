@@ -10,7 +10,6 @@
 .registerUserCard{
     align-items: center;
     justify-content: center;
-    padding: 65px 55px 54px 55px;
     display: flex;
 
 
@@ -38,11 +37,25 @@
     color: #333;
 
 }
+
+.names{
+    display: flex;
+    justify-content: space-evenly;
+
+}
 .registerUserInput{
     width: 100%;
     border-bottom: 2px solid #d9d9d9;
     margin-bottom: 23px;
 }
+
+.registerUserInput1{
+    width: 45%;
+    border-bottom: 2px solid #d9d9d9;
+    margin-bottom: 23px;
+}
+
+
 .registerUserInputLabel{
     font-size: 14px;
     color: #333;

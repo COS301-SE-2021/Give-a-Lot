@@ -1,7 +1,8 @@
 .sidebar{
     flex: 1;
-    height: 100vh;
-    /*position: sticky;*/
+    /*height: 100vh;*/
+    height: calc(100vh - 4.375em);
+    position: sticky;
 }
 .sidebarWrapper{
     color: black;
@@ -14,9 +15,13 @@
     padding: 5px;
 }
 .sidebarListItem{
-    padding: 10px;
     cursor: pointer;
     display: flex;
     align-items: center;
     border-radius: 10px;
+    margin-left: 0.9375em;
+}
+.active{
+    background-color: #F0F2F7;
+    color: black;
 }

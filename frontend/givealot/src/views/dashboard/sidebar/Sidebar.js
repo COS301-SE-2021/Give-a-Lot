@@ -1,29 +1,57 @@
-import React, { Component } from 'react'
+import React from 'react'
 import "./styles/Sidebar.css"
-import { Link } from "react-router-dom";
+import {  Link} from "react-router-dom";
 import DashboardIcon from '@material-ui/icons/Dashboard';
+import { useLocation } from "react-router-dom";
 
-export class Sidebar extends Component {
+function Sidebar(){
 
-    render() {
+    //assigning location variable
+    const location = useLocation();
+
+    //destructuring pathname from location
+    const { pathname } = location;
+
+    //Javascript split method to get the name of the path in array
+    const splitLocation = pathname.split("/");
+
         return (
             <div className="sidebar">
                 <div className="sidebarWrapper">
                     <div className="sidebarMenu">
                         <ul className="sidebarList">
-                            <Link to="/organisations" className="link">
-                                <li className="sidebarListItem ">
-                                    <DashboardIcon className="sidebarIcon"/>
-                                    Dashboard
+                            {/*<Link exact activeClassName="active" to='/' >*/}
+                            {/*    <li className="sidebarListItem ">*/}
+                            {/*        <DashboardIcon className="sidebarIcon"/>*/}
+                            {/*        Dashboard*/}
+                            {/*    </li>*/}
+                            {/*</Link>*/}
+
+                            <ul>
+                                {/* Checking the current path name using javascript ternary operator and if true adding active classname to it */}
+                                <li className={splitLocation[1] === "organisations" ? "active" : ""}>
+                                    <Link to='/organisations' className="link">
+                                        <li className="sidebarListItem ">
+                                            <DashboardIcon className="sidebarIcon"/>
+                                            Dashboard
+                                        </li>
+                                    </Link>
                                 </li>
-                            </Link>
+                                <li className={splitLocation[1] === "users" ? "active" : ""}>
+                                    <Link to='/users' className="link">
+                                        <li className="sidebarListItem ">
+                                            <DashboardIcon className="sidebarIcon"/>
+                                            Users
+                                        </li>
+                                    </Link>
+                                </li>
+                            </ul>
 
                         </ul>
                     </div>
                 </div>
             </div>
         )
-    }
 }
 
 export default Sidebar

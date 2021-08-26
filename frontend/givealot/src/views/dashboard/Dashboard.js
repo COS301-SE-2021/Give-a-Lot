@@ -7,6 +7,7 @@ import Sidebar from "../dashboard/sidebar/Sidebar"
 import "./sidebar/styles/Dashboard.css"
 import Logo from "../login/Components/Logo"
 import Organisations from "./sidebar/Components/Organisations/Organisations"
+import Users from "./sidebar/Components/Users/Users"
 
 function Dashboard() {
     return (
@@ -18,6 +19,9 @@ function Dashboard() {
                     <Switch>
                         <Route exact path="/organisations">
                             <Organisations />
+                        </Route>
+                        <Route exact path="/users">
+                            <Users />
                         </Route>
                     </Switch>
                 </div>

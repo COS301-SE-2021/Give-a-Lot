@@ -65,7 +65,7 @@ class Login extends Component {
             this.setState(initialState);
         }
     };
-render()
+    render()
 {
     return (
         <div>
@@ -117,7 +117,7 @@ render()
 
                             <div className="wrapper-btn">
 
-                                <button className="Login-btn" type="submit">
+                                <button className="Login-btn" type="submit" onClick={this.handleButton}>
                                     Login
                                 </button>
                                 {/*} <Link to={"/"} className="linker">

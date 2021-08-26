@@ -18,33 +18,36 @@ public interface OrganisationService {
     generalOrganisationResponse reactivateOrganisation(Long orgId) throws Exception;
     generalOrganisationResponse investigateOrganisation(Long orgId) throws Exception;
     generalOrganisationResponse suspendOrganisation(Long orgId) throws Exception;
-    public getOrganisationsResponse getOrganisations(GetOrganisationsRequest request) throws Exception;
+    getOrganisationsResponse getOrganisations(GetOrganisationsRequest request) throws Exception;
     //Additional classes
     generalOrganisationResponse addOrgWebsite(AddOrgWebsiteRequest request) throws Exception;
     generalOrganisationResponse removeOrgWebsite(Long orgId) throws Exception;
     generalOrganisationResponse addOrgAddress(AddOrgAddressRequest request) throws Exception;
     generalOrganisationResponse removeOrgAddress(Long orgId) throws Exception;
+    generalOrganisationResponse addOrgLogo(AddOrgLogoRequest request) throws Exception;
+    generalOrganisationResponse removeOrgLogo(Long orgId) throws Exception;
     generalOrganisationResponse addOrgImage(AddOrgImageRequest request) throws Exception;
-    generalOrganisationResponse removeOrgImage(Long orgId) throws Exception;
+    generalOrganisationResponse removeOrgImage(Long orgId, int number) throws Exception;
     generalOrganisationResponse addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception;
     generalOrganisationResponse removeOrgAuditDoc(Long orgId) throws Exception;
-    generalOrganisationResponse addOrgTaxRef(AddOrgTaxRefRequest request) throws Exception;
-    generalOrganisationResponse removeOrgTaxRef(Long orgId) throws Exception;
     generalOrganisationResponse addOrgAuditor(AddOrgAuditorRequest request) throws Exception;
     generalOrganisationResponse removeOrgAuditor(Long orgId) throws Exception;
     generalOrganisationResponse addOrgCommittee(AddOrgCommitteeRequest request) throws Exception;
     generalOrganisationResponse removeOrgCommittee(Long orgId) throws Exception ;
-    generalOrganisationResponse addOrgDonationInfo(AddOrgDonationInfoRequest request) throws Exception;
-    generalOrganisationResponse removeOrgDonationInfo(Long orgId) throws Exception;
+    generalOrganisationResponse addOrgDonationURL(AddOrgDonationInfoRequest request) throws Exception;
+    generalOrganisationResponse removeOrgDonationURL(Long orgId) throws Exception;
+    generalOrganisationResponse addOrgDonationQRCode(AddOrgQRCodeRequest request) throws Exception;
+    generalOrganisationResponse removeOrgDonationQRCode(Long orgId) throws Exception;
     generalOrganisationResponse addOrgSocials(AddSocialsRequest request) throws Exception;
-    public generalOrganisationResponse removeOrgSocials(Long orgId, String type) throws Exception;
+    generalOrganisationResponse removeOrgSocials(Long orgId, String type) throws Exception;
     boolean addOrgNGO(AddOrgNGORequest request) throws Exception;
     boolean removeOrgNGO(long orgId) throws Exception;
     generalOrganisationResponse addOrgEstDate(AddOrgEstDateRequest request) throws Exception;
     generalOrganisationResponse removeOrgEstDate(Long orgId) throws Exception;
 
-    /*
-    * */
     generalOrganisationResponse confirmValidity(Long orgId,Long adminId,String type,boolean confirmValidity) throws Exception;
     numberOfImagesResponse numberOfImages(Long orgId) throws Exception;
+
+    generalOrganisationResponse addSector(AddSectorRequest request) throws Exception;
+    getSectorsResponse getSectors() throws Exception;
 }

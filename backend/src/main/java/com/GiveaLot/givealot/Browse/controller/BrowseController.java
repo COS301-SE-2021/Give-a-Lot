@@ -18,8 +18,9 @@ import java.util.List;
 @RequestMapping("v1/browse")
 public class BrowseController {
 
-    private BrowseServiceImp service;
+    private final BrowseServiceImp service;
     private responseJSON response;
+
     @Autowired
     BrowseController(BrowseServiceImp browseServiceImp, responseJSON response)
     {
@@ -40,7 +41,6 @@ public class BrowseController {
            {
                response = new responseJSON("ok_org_br_200","success",res);
                return new ResponseEntity<>(response,HttpStatus.OK);
-
            }
             response = new responseJSON("bad_org_br_500","unsuccess" ,null);
 
@@ -48,11 +48,8 @@ public class BrowseController {
         }
         catch (Exception e)
         {
-
             response = new responseJSON("bad_org_br_500","Exception: browse failed due to " + e,null);
-
-            return new ResponseEntity<>(response,HttpStatus.OK);
-
+            return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
         }
 
 

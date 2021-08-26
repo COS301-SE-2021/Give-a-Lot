@@ -48,11 +48,6 @@ public class OrganisationInfo
             unique = false)
 
     private String committeeDetails;
-    @Column(name = "tax_reference",
-            nullable = true,
-            unique = false)
-
-    private String taxReference;
     @Column(name = "audit_document",
             nullable = true,
             unique = false)
@@ -88,6 +83,12 @@ public class OrganisationInfo
             nullable = true,
             unique = false)
     private String establishmentDate;
+    @Column(
+            name = "donation_url",
+            nullable = true,
+            unique = false)
+    private String donationURL;
+
 
     public OrganisationInfo(Long orgId)
     {
@@ -106,6 +107,7 @@ public class OrganisationInfo
         this.facebook = null;
         this.instagram = null;
         this.establishmentDate = null;
+        this.donationURL = null;
     }
 
     public Integer getNumberOfReports() {
@@ -122,14 +124,6 @@ public class OrganisationInfo
 
     public void setWebsite(String website) {
         this.website = website;
-    }
-
-    public String getTaxReference() {
-        return taxReference;
-    }
-
-    public void setTaxReference(String taxReference) {
-        this.taxReference = taxReference;
     }
 
     public String getAuditDocument() {
@@ -190,6 +184,14 @@ public class OrganisationInfo
 
     public String getNGONumber() {
         return NGONumber;
+    }
+
+    public String getDonationURL() {
+        return donationURL;
+    }
+
+    public void setDonationURL(String donationURL) {
+        this.donationURL = donationURL;
     }
 
     public void setNGONumber(String NGONumber) {

@@ -84,7 +84,14 @@ public class Organisations {
     )
     private String password;
 
-    public Organisations(String orgName, String slogan, String orgDescription, String orgSector, String orgEmail, Long orgId, String status, String contactPerson, String contactNumber, String directory, String password) {
+    @Column(
+            name="date_added",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
+    private String dateAdded;
+
+    public Organisations(String orgName, String slogan, String orgDescription, String orgSector, String orgEmail, Long orgId, String status, String contactPerson, String contactNumber, String directory, String password, String date_added) {
         this.orgName = orgName;
         this.slogan = slogan;
         this.orgDescription = orgDescription;
@@ -96,6 +103,16 @@ public class Organisations {
         this.contactNumber = contactNumber;
         this.directory = directory;
         this.password = password;
+        this.dateAdded = date_added;
+    }
+
+
+    public String getDateAdded() {
+        return dateAdded;
+    }
+
+    public void setDateAdded(String dateAdded) {
+        this.dateAdded = dateAdded;
     }
 
     public Organisations(){}

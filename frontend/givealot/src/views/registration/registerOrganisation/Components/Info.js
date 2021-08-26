@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "../Styles/registerOrganisation.css"
 // import { IoPersonOutline } from "react-icons/io5";
 import backgroundImg from "../../../../assets/homeBackground.jpg";
-// import logo from "../../../../assets/logo/logo3_1.png"
 import Logo from "../../../login/Components/Logo"
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import {Link} from "react-router-dom";
@@ -88,7 +87,6 @@ export class RegisterOrganisation extends Component {
                                     <div className="formButton ">
                                         <button className="register-btn"
                                                 onClick={this.proceed}
-                                                label="Continue"
                                         >
                                             {" "}
                                             next
@@ -101,9 +99,6 @@ export class RegisterOrganisation extends Component {
                               className="BottomReg">
                             <div style={{padding: "10px 0 0 20px"}}> I'm already a member! Sign In</div>
                         </Link>
-
-                        {/*<p style={{padding: "10px"}}>I'm already a member! <a data-toggle="tab" href="#signin">Sign In</a></p>*/}
-
                     </div>
 
                 </div>

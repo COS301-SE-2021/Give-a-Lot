@@ -1,12 +1,40 @@
 import React, { Component } from "react";
 import "../Styles/registerOrganisation.css"
-import { IoPersonOutline } from "react-icons/io5";
+// import { IoPersonOutline } from "react-icons/io5";
 import backgroundImg from "../../../../assets/homeBackground.jpg";
 import Logo from "../../../login/Components/Logo";
-import {Link} from "react-router-dom";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import axios from 'axios'
 
 export class RegisterOrganisation extends Component {
+    constructor() {
+        super();
+        this.state = {
+            disabled: false,
+            selectOptions : [],
+            id: "",
+            name: '',
+            temp: []
+        };
+    }
+
+    componentDidMount(){
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        axios.get('http://localhost:8080/v1/organisation/get/sectors',  config)
+            .then(response =>{
+                console.log(response)
+                this.setState({selectOptions: response.data.sectors})
+            })
+            .catch(error =>{
+                console.log(error)
+                this.setState({error : 'Error Retrieving data'})
+            })
+    }
+
     styles = {
         main: {
             backgroundImage: `url(${backgroundImg})`
@@ -21,15 +49,15 @@ export class RegisterOrganisation extends Component {
         e.preventDefault();
         this.props.prevStep();
     };
-    constructor() {
-        super();
-        this.state = {
-            disabled: false
-        };
-    }
 
 
     render() {
+        let optionsTemp = [];
+        console.log(this.state.selectOptions);
+        for(let i=0; i < this.state.selectOptions.length; i++){
+            console.log(this.state.selectOptions[i]);
+        }
+        console.log(optionsTemp);
         const { values, handleChange, nextStep } = this.props;
         return (
             <div className="registerOrganisation" style={this.styles.main}>
@@ -62,12 +90,10 @@ export class RegisterOrganisation extends Component {
                                     Sector
                                 </span>
                                 <select value={values.orgSector} className="input100" onChange={handleChange('orgSector')}>
-                                    <option>Enter Sector</option>
-                                    <option value="A">Children</option>
-                                    <option value="B">Youth</option>
-                                    <option value="C">Security</option>
-                                    <option value="C">Food drive</option>
-                                    <option value="C">Technology</option>
+                                    <option key="kidsNextDoor">Enter Sector</option>
+                                    {this.state.selectOptions.map((item) =>
+                                        <option key={item} value={item}>{item}</option>
+                                    )}
                                 </select>
                                 <span style={{float: "right", color: "red"}}><small>{this.props.orgSectorError}</small></span>
                             </div>
@@ -88,14 +114,12 @@ export class RegisterOrganisation extends Component {
                                 <div className="formButton ">
                                     <button className="register-btn"
                                             onClick={this.back}
-                                            label="back"
                                     >
                                         {" "}
                                         back
                                     </button>
                                     <button className="register-btn"
                                             onClick={this.proceed}
-                                            label="Continue"
                                     >
                                         {" "}
                                         next
@@ -104,8 +128,6 @@ export class RegisterOrganisation extends Component {
 
                             </div>
                         </form>
-
-                        {/*<p style={{padding: "10px"}}>I'm already a member! <a data-toggle="tab" href="#signin">Sign In</a></p>*/}
 
                     </div>
 

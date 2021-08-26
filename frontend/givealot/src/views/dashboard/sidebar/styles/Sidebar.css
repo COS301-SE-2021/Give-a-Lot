@@ -1,0 +1,22 @@
+.sidebar{
+    flex: 1;
+    height: 100vh;
+    /*position: sticky;*/
+}
+.sidebarWrapper{
+    color: black;
+}
+.sidebarMenu{
+    margin-bottom: 10px;
+}
+.sidebarList{
+    list-style: none;
+    padding: 5px;
+}
+.sidebarListItem{
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}

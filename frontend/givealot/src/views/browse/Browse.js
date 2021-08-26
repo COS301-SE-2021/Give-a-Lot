@@ -113,15 +113,14 @@ function Browse ()
     ,[])
     /* fetch request - organisations by sections - end*/
 
-
     let organisations_by_sector = [];
-
     if(organisations !== undefined)
     {
         for (let i = 0; i < organisations.length; i++)
         {
             let sector = organisations[i].sector;
             let organisations_for_the_sector = [];
+
             for (let k = 0; k < organisations[i].organisations.length; k++)
             {
                 let orgId = organisations[i].organisations[k].orgId;
@@ -136,13 +135,14 @@ function Browse ()
                                                                 imgUrl = {imgUrl}
                                                                 certificate_level = {certificate_level}
                                                                 key={orgId}/>);
-                /*
-                   Note for future reference: sector takes a list of organisations as prop
-                */
-                organisations_by_sector.push(<Sector sector={"test sector"}
-                                                     organisations_for_sec={organisations_for_the_sector}
-                                                     key={sector}/>);
             }
+              /*
+                Note for future reference: sector takes a list of organisations as prop
+              */
+
+                organisations_by_sector.push(<Sector sector={sector}
+                organisations_for_sec={organisations_for_the_sector}
+                                                 key={sector}/>);
         }
     }
 
@@ -221,7 +221,6 @@ function Browse ()
                         </div>
                     </div>
 
-
                     <div id="browse_organisations">
                         <div id="recommended_organisations">
                             <div className="recommended_section">
@@ -230,7 +229,6 @@ function Browse ()
                                     <OrganisationRecommended />
                                     <OrganisationRecommended />
                                     <OrganisationRecommended />
-                                     
                                 </div>
                             </div>
                         </div>

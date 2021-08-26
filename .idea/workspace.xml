@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="modified browse and add organisation. browse now displays the certificate level which the current organisation holds, add organisation model and service were modified to create a field for the organisation's creation date" />
+    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="frontend - finished browse integration for organisation by sector. TODO: recommender" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -149,13 +149,6 @@
       <workItem from="1629339797985" duration="980000" />
       <workItem from="1629343930362" duration="7971000" />
       <workItem from="1629948512949" duration="9731000" />
-    </task>
-    <task id="LOCAL-00005" summary="user and login system are complete">
-      <created>1629248031231</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1629248031231</updated>
     </task>
     <task id="LOCAL-00006" summary="user and login system are complete">
       <created>1629252237529</created>
@@ -493,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629953065689</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="frontend - finished browse integration for organisation by sector. TODO: recommender">
+      <created>1629964731569</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1629964731569</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -529,6 +529,7 @@
     <MESSAGE value="Last minute changes" />
     <MESSAGE value="modified browse and add organisation. browse now displays the certificate level which the current organisation holds, add organisation model and service were modified to create a field for the organisation's creation date&#10;edit: added certificate level to the response." />
     <MESSAGE value="frontend intergration" />
-    <option name="LAST_COMMIT_MESSAGE" value="frontend intergration" />
+    <MESSAGE value="frontend - finished browse integration for organisation by sector. TODO: recommender" />
+    <option name="LAST_COMMIT_MESSAGE" value="frontend - finished browse integration for organisation by sector. TODO: recommender" />
   </component>
 </project>

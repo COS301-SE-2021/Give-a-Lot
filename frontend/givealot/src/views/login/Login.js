@@ -65,7 +65,7 @@ class Login extends Component {
             this.setState(initialState);
         }
     };
-render()
+    render()
 {
     return (
         <div>

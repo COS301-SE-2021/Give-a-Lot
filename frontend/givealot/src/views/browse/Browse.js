@@ -72,7 +72,7 @@ function Browse ()
         TODO: update login to use tokens on the request URL
     */
     useEffect(() => {
-        fetch("https://dog.ceo/api/breeds/image/random")
+        fetch("http://localhost:8080/v1/browse/sectors")
         .then(async response =>{
 
             const data = await response.json();

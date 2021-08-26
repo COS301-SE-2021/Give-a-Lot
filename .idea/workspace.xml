@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="frontend intergration">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_19_00_55_[Default_Changelist]/AddOrgAuditInfoRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_19_00_55_[Default_Changelist]/AddOrgAuditorRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_19_00_55_[Default_Changelist]/AddOrgCommitteeRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_19_00_55_[Default_Changelist]/AddOrgDonationInfoRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_19_00_55_[Default_Changelist]/AddOrgTaxRefRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_19_00_55_[Default_Changelist]/OrganisationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_19_00_55_[Default_Changelist]/OrganisationService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_19_00_55_[Default_Changelist]/OrganisationServiceImp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_19_00_55_[Default_Changelist]/Server Directory Files.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_19_00_55_[Default_Changelist]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +108,7 @@
     <configuration name="generated-requests#34" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="34" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#7" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="7" runType="Run single request">
+    <configuration name="generated-requests#35" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="35" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="GivealotApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -129,11 +120,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests#35" />
         <item itemvalue="HTTP Request.generated-requests#34" />
         <item itemvalue="Application.BlockchainServiceImpl" />
         <item itemvalue="HTTP Request.generated-requests#28" />
         <item itemvalue="HTTP Request.generated-requests#27" />
-        <item itemvalue="HTTP Request.generated-requests#7" />
       </list>
     </recent_temporary>
   </component>
@@ -149,14 +140,7 @@
       <workItem from="1629301692751" duration="18015000" />
       <workItem from="1629339797985" duration="980000" />
       <workItem from="1629343930362" duration="7971000" />
-      <workItem from="1629948512949" duration="521000" />
-    </task>
-    <task id="LOCAL-00003" summary="user and login system are complete">
-      <created>1629246401295</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1629246401296</updated>
+      <workItem from="1629948512949" duration="2648000" />
     </task>
     <task id="LOCAL-00004" summary="user and login system are complete">
       <created>1629246561936</created>
@@ -494,7 +478,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629930350484</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="frontend intergration">
+      <created>1629949458345</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1629949458345</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

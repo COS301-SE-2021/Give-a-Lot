@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import "../../styles/Organisations.css"
+import OrganisationsBody from "./OrganisationsBody";
 import SearchIcon from '@material-ui/icons/Search';
 import AddCircleOutlinedIcon from '@material-ui/icons/AddCircleOutlined';
 
@@ -20,7 +21,9 @@ export class Organisations extends Component {
                         <AddCircleOutlinedIcon/>
                     </div>
                     <div className="OrgBody">
-                        body
+                        <OrganisationsBody />
+                        <OrganisationsBody />
+                        <OrganisationsBody />
                     </div>
                 </div>
             </div>

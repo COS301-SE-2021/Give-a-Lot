@@ -8,11 +8,11 @@
     color: black;
 }
 .sidebarMenu{
-    margin-bottom: 10px;
+    margin-bottom: 0.7em;
 }
 .sidebarList{
     list-style: none;
-    padding: 5px;
+    padding: 0.8em;
 }
 .sidebarListItem{
     cursor: pointer;
@@ -20,8 +20,10 @@
     align-items: center;
     border-radius: 10px;
     margin-left: 0.9375em;
+    padding: 0.8em;
 }
 .active{
     background-color: #F0F2F7;
     color: black;
+    border-radius: 1em;
 }

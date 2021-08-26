@@ -20,33 +20,31 @@ function Sidebar(){
                 <div className="sidebarWrapper">
                     <div className="sidebarMenu">
                         <ul className="sidebarList">
-                            {/*<Link exact activeClassName="active" to='/' >*/}
-                            {/*    <li className="sidebarListItem ">*/}
-                            {/*        <DashboardIcon className="sidebarIcon"/>*/}
-                            {/*        Dashboard*/}
-                            {/*    </li>*/}
-                            {/*</Link>*/}
-
-                            <ul>
                                 {/* Checking the current path name using javascript ternary operator and if true adding active classname to it */}
-                                <li className={splitLocation[1] === "organisations" ? "active" : ""}>
-                                    <Link to='/organisations' className="link">
-                                        <li className="sidebarListItem ">
-                                            <DashboardIcon className="sidebarIcon"/>
-                                            Dashboard
-                                        </li>
-                                    </Link>
-                                </li>
-                                <li className={splitLocation[1] === "users" ? "active" : ""}>
-                                    <Link to='/users' className="link">
-                                        <li className="sidebarListItem ">
-                                            <DashboardIcon className="sidebarIcon"/>
-                                            Users
-                                        </li>
-                                    </Link>
-                                </li>
-                            </ul>
-
+                            <li className={splitLocation[1] === "featured" ? "active" : ""}>
+                                <Link to='/featured' className="link">
+                                    <li className="sidebarListItem ">
+                                        <DashboardIcon />
+                                        Dashboard
+                                    </li>
+                                </Link>
+                            </li>
+                            <li className={splitLocation[1] === "organisations" ? "active" : ""}>
+                                <Link to='/organisations' className="link">
+                                    <li className="sidebarListItem ">
+                                        <DashboardIcon />
+                                        Organisations
+                                    </li>
+                                </Link>
+                            </li>
+                            <li className={splitLocation[1] === "users" ? "active" : ""}>
+                                <Link to='/users' className="link">
+                                    <li className="sidebarListItem ">
+                                        <DashboardIcon />
+                                        Users
+                                    </li>
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>

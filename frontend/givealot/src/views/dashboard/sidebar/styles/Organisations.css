@@ -2,3 +2,29 @@
     flex: 4;
     background-color: #F0F2F7;
 }
+.OrgSearch{
+    float: right;
+    padding: 0.9em;
+}
+.header__input{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 999px;
+}
+.header__input > input{
+    border: none;
+    background-color: transparent;
+    outline-width: 0;
+}
+
+.OrgAdd{
+    display: flex;
+    padding: 6em;
+    cursor: pointer;
+}
+.OrgAdd > .MuiSvgIcon-root{
+    color: #0F61A7;
+}

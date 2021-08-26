@@ -1,3 +1,189 @@
+GET http://localhost:8080/v1/organisation/get/sectors
+
+<> 2021-08-26T123050.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/sector
+Content-Type: application/json
+
+{
+  "sector" : "other",
+  "adminId" : "some Id not checked for now"
+}
+
+<> 2021-08-26T123014.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/sector
+Content-Type: application/json
+
+{
+  "sector" : "civic issues",
+  "adminId" : "some Id not checked for now"
+}
+
+<> 2021-08-26T123007.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/sector
+Content-Type: application/json
+
+{
+  "sector" : "Sports and fitness",
+  "adminId" : "some Id not checked for now"
+}
+
+<> 2021-08-26T122954.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/sector
+Content-Type: application/json
+
+{
+  "sector" : "Human rights",
+  "adminId" : "some Id not checked for now"
+}
+
+<> 2021-08-26T122935.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/sector
+Content-Type: application/json
+
+{
+  "sector" : "health",
+  "adminId" : "some Id not checked for now"
+}
+
+<> 2021-08-26T122924.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/sector
+Content-Type: application/json
+
+{
+  "sector" : "disability",
+  "adminId" : "some Id not checked for now"
+}
+
+<> 2021-08-26T122913.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/sector
+Content-Type: application/json
+
+{
+  "sector" : "entertainment",
+  "adminId" : "some Id not checked for now"
+}
+
+<> 2021-08-26T122847.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/sector
+Content-Type: application/json
+
+{
+  "sector" : "entertainment",
+  "adminId" : "some Id not checked for now"
+}
+
+<> 2021-08-26T122743.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/sector
+Content-Type: application/json
+
+{
+  "sector" : "entertainment",
+  "adminId" : "some Id not checked for now"
+}
+
+<> 2021-08-26T122740.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/sector
+Content-Type: application/json
+
+{
+  "sector" : "faith and religion",
+  "adminId" : "some Id not checked for now"
+}
+
+<> 2021-08-26T122727.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/sector
+Content-Type: application/json
+
+{
+  "sector" : "old age",
+  "adminId" : "some Id not checked for now"
+}
+
+<> 2021-08-26T122717.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/sector
+Content-Type: application/json
+
+{
+  "sector" : "environment",
+  "adminId" : "some Id not checked for now"
+}
+
+<> 2021-08-26T122710.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/sector
+Content-Type: application/json
+
+{
+  "sector" : "education",
+  "adminId" : "some Id not checked for now"
+}
+
+<> 2021-08-26T122658.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/sector
+Content-Type: application/json
+
+{
+  "sector" : "children and youth affairs",
+  "adminId" : "some Id not checked for now"
+}
+
+<> 2021-08-26T122641.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/sector
+Content-Type: application/json
+
+{
+  "sector" : "children and youth affairs",
+  "adminId" : "some Id not checked for now"
+}
+
+<> 2021-08-26T122427.200.json
+
+###
+
 POST http://localhost:8080/v1/organisation/add/org
 Content-Type: application/json
 
@@ -330,119 +516,6 @@ PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/committee
 PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/auditor/true
 
 <> 2021-08-18T202544.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/audit/true
-
-<> 2021-08-18T202536.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/address/true
-
-<> 2021-08-18T202525.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/website/true
-
-<> 2021-08-18T202305.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/website/true
-
-<> 2021-08-18T202134.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/website/true
-
-<> 2021-08-18T201805.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/website/true
-
-<> 2021-08-18T201521.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/website/true
-
-<> 2021-08-18T201411.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/website/true
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/website/true
-
-<> 2021-08-18T201254.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/website/true
-
-<> 2021-08-18T194808.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/website/true
-
-<> 2021-08-18T194213.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/estdate/18
-
-<> 2021-08-18T190627.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/estdate
-Content-Type: application/json
-
-{
-  "date" : "2020/18/21",
-  "orgId" : "18"
-}
-
-<> 2021-08-18T185112.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/address
-Content-Type: application/json
-
-{
-  "orgId": "18",
-  "address": "458 Give alot str, Pretoria, SA"
-}
-
-<> 2021-08-18T175603.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/socials/18/facebook
-
-<> 2021-08-18T082301.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/socials
-Content-Type: application/json
-
-{
-  "socialType": "facebook",
-  "orgId" : "",
-  "url" : "someurlnotvalidated"
-}
-
-<> 2021-08-18T081447.200.json
 
 ###
 

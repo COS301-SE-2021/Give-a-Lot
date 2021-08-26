@@ -8,9 +8,11 @@ import com.GiveaLot.givealot.Notification.service.SendMailServiceImpl;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
+import com.GiveaLot.givealot.Organisation.model.Sectors;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Organisation.repository.organisationPointsRepository;
+import com.GiveaLot.givealot.Organisation.repository.sectorsRepository;
 import com.GiveaLot.givealot.Organisation.requests.*;
 import com.GiveaLot.givealot.Organisation.response.*;
 import com.GiveaLot.givealot.Server.ServerAccess;
@@ -30,6 +32,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 
 @Service
@@ -60,6 +63,9 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Autowired
     private SendMailServiceImpl sendMailService;
+
+    @Autowired
+    private sectorsRepository sectorsRepository;
 
     @Autowired
     public void setOrganisationServiceImp(OrganisationRepository organisationRepository, OrganisationInfoRepository organisationInfoRepository, organisationPointsRepository organisationPointsRepository, CertificateRepository certificateRepository, UserRepository userRepository){
@@ -1290,6 +1296,34 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("Exception: id does not exist");
 
         return new numberOfImagesResponse("num_img_200_OK", "success", res);
+    }
+
+    @Override
+    public generalOrganisationResponse addSector(AddSectorRequest request) throws Exception {
+        if(request == null)
+            throw new Exception("Exception: request is null");
+        else if(request.getSector() == null)
+            throw new Exception("Exception: sector field is null");
+        else if(request.getAdminId() == null)
+            throw new Exception("Exception: id field is null");
+        else
+        {
+            Sectors sector = new Sectors();
+            sector.setSector(request.getSector().toLowerCase().trim());
+            sector.setOrganisations(0);
+            sectorsRepository.save(sector);
+            return new generalOrganisationResponse("add_sec_200_OK","success");
+        }
+    }
+
+    @Override
+    public getSectorsResponse getSectors() throws Exception {
+        List<String> sectors = sectorsRepository.getSectors();
+        if(sectors != null)
+        {
+            return new getSectorsResponse("get_sec_200_OK", "success", sectors);
+        }
+        throw new Exception("Exception: no sectors found!");
     }
 
     /*helper*/

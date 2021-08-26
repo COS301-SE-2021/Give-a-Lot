@@ -491,4 +491,34 @@ public class OrganisationController
             return new ResponseEntity<>(new organisationPointsResponse("num_img_500_err","failed: " + e, null), HttpStatus.OK);
         }
     }
+
+    @PostMapping("/add/sector")
+    ResponseEntity<generalOrganisationResponse> addSector(@RequestBody  @NonNull AddSectorRequest request)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.addSector(request);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("add_sec_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+
+    @GetMapping("/get/sectors")
+    ResponseEntity<getSectorsResponse> getSectors()
+    {
+        getSectorsResponse response;
+        try
+        {
+            response = service.getSectors();
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new getSectorsResponse("get_sec_500_err","failed: " + e, null), HttpStatus.OK);
+        }
+    }
 }

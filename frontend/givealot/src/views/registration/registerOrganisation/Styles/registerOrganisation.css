@@ -18,11 +18,6 @@
     padding: 30px 30px 30px 30px;
 
 }
-/*@media (max-width: 576px)*/
-/*.registerCard {*/
-/*    padding-left: 15px;*/
-/*    padding-right: 15px;*/
-/*}*/
 
 form {
     display: block;
@@ -135,7 +130,14 @@ form {
     text-decoration: none;
     color: #333;
 }
-select{
 
+@media (max-width: 576px){
+    .registerCard {
+        /*padding-left: 15px;*/
+        /*padding-right: 15px;*/
+        padding: 15px 15px 15px 15px;
+    }
 }
+
+
 

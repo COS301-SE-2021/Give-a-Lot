@@ -5,8 +5,34 @@ import backgroundImg from "../../../../assets/homeBackground.jpg";
 import Logo from "../../../login/Components/Logo";
 import {Link} from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import axios from 'axios'
 
 export class RegisterOrganisation extends Component {
+    constructor() {
+        super();
+        this.state = {
+            disabled: false,
+            selectOptions : [],
+            id: "",
+            name: ''
+        };
+    }
+
+    async getOptions(){
+        const res = await axios.get('http://localhost:8080/v1/organisation/get/sectors')
+        const data = res.data
+
+        const options = data.map(d => ({
+            "value" : d.id,
+            "label" : d.name
+        }))
+        this.setState({selectOptions: options})
+    }
+
+    componentDidMount(){
+        this.getOptions()
+    }
+
     styles = {
         main: {
             backgroundImage: `url(${backgroundImg})`
@@ -21,12 +47,7 @@ export class RegisterOrganisation extends Component {
         e.preventDefault();
         this.props.prevStep();
     };
-    constructor() {
-        super();
-        this.state = {
-            disabled: false
-        };
-    }
+
 
 
     render() {
@@ -61,14 +82,17 @@ export class RegisterOrganisation extends Component {
                                 <span className="inputLabel">
                                     Sector
                                 </span>
-                                <select value={values.orgSector} className="input100" onChange={handleChange('orgSector')}>
-                                    <option>Enter Sector</option>
-                                    <option value="A">Children</option>
-                                    <option value="B">Youth</option>
-                                    <option value="C">Security</option>
-                                    <option value="C">Food drive</option>
-                                    <option value="C">Technology</option>
-                                </select>
+                                <select options={this.state.selectOptions}
+                                        onChange={handleChange('orgSector')}
+                                />
+                                {/*<select value={values.orgSector} className="input100" onChange={handleChange('orgSector')}>*/}
+                                {/*    <option>Enter Sector</option>*/}
+                                {/*    <option value="A">Children</option>*/}
+                                {/*    <option value="B">Youth</option>*/}
+                                {/*    <option value="C">Security</option>*/}
+                                {/*    <option value="C">Food drive</option>*/}
+                                {/*    <option value="C">Technology</option>*/}
+                                {/*</select>*/}
                                 <span style={{float: "right", color: "red"}}><small>{this.props.orgSectorError}</small></span>
                             </div>
                             <div className="input alert-validate">

@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Register Organisation sector select" />
+    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="Last minute changes">
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-08-18T075428.415.json" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,7 +26,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="backend-develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -38,6 +40,9 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1wrxsptsjnufcz3cfp3mAFSaILo" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -52,7 +57,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Styles" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/dataclass" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -65,11 +70,11 @@
       <recent name="com.GiveaLot.givealot.Organisation.requests" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\rashi\Desktop\Give-a-Lot\frontend\givealot\src\views\registration\registerOrganisation\Styles" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\backend\src\main\java\com\GiveaLot\givealot\Certificate\dataclass" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\backend\src\main\java\com\GiveaLot\givealot\Server" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\backend\src\main\resources" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\DemoMaterial" />
+      <recent name="C:\Users\joshu\Desktop\Give-a-Lot\frontend\givealot\localFiles\20" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\DemoMaterial" />
@@ -99,6 +104,9 @@
     <configuration name="generated-requests#28" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="28" runType="Run single request">
       <method v="2" />
     </configuration>
+    <configuration name="generated-requests#34" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="34" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="generated-requests#7" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="7" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -109,19 +117,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Write tests for method OrganisationServiceImp.addOrganisation" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration" activateToolWindowBeforeRun="false" temporary="true">
-      <module name="givealot" />
-      <settings run-config-name="Write tests for method OrganisationServiceImp.addOrganisation" include-system-env-vars="true">
-        <jvm-args />
-        <selection-scope>method</selection-scope>
-        <selected-element key="com.GiveaLot.givealot.Organisation.service.OrganisationServiceImp.addOrganisation:(Lcom/GiveaLot/givealot/Organisation/model/Organisations;)Lcom/GiveaLot/givealot/Organisation/response/generalOrganisationResponse;" />
-      </settings>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests#34" />
         <item itemvalue="Application.BlockchainServiceImpl" />
         <item itemvalue="HTTP Request.generated-requests#28" />
         <item itemvalue="HTTP Request.generated-requests#27" />
@@ -141,10 +139,160 @@
       <workItem from="1629301692751" duration="18015000" />
       <workItem from="1629339797985" duration="980000" />
       <workItem from="1629343930362" duration="7971000" />
-      <workItem from="1629886755996" duration="10886000" />
-      <workItem from="1629908107064" duration="18431000" />
-      <workItem from="1629973746087" duration="1451000" />
-      <workItem from="1629981856926" duration="1561000" />
+    </task>
+    <task id="LOCAL-00001" summary="backup">
+      <created>1629235654571</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1629235654571</updated>
+    </task>
+    <task id="LOCAL-00002" summary="backup">
+      <created>1629238958828</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1629238958828</updated>
+    </task>
+    <task id="LOCAL-00003" summary="user and login system are complete">
+      <created>1629246401295</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1629246401296</updated>
+    </task>
+    <task id="LOCAL-00004" summary="user and login system are complete">
+      <created>1629246561936</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1629246561936</updated>
+    </task>
+    <task id="LOCAL-00005" summary="user and login system are complete">
+      <created>1629248031231</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1629248031231</updated>
+    </task>
+    <task id="LOCAL-00006" summary="user and login system are complete">
+      <created>1629252237529</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1629252237529</updated>
+    </task>
+    <task id="LOCAL-00007" summary="user and login system are complete">
+      <created>1629254855215</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1629254855215</updated>
+    </task>
+    <task id="LOCAL-00008" summary="user and login system are complete">
+      <created>1629255628305</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1629255628305</updated>
+    </task>
+    <task id="LOCAL-00009" summary="user and login system are complete">
+      <created>1629255970866</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1629255970866</updated>
+    </task>
+    <task id="LOCAL-00010" summary="organisations api - get all users ready for frontend">
+      <created>1629258479163</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1629258479163</updated>
+    </task>
+    <task id="LOCAL-00011" summary="organisations api - get all users ready for frontend">
+      <created>1629261129675</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1629261129675</updated>
+    </task>
+    <task id="LOCAL-00012" summary="organisations controller revision">
+      <created>1629261393018</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1629261393018</updated>
+    </task>
+    <task id="LOCAL-00013" summary="organisations controller revision - add Organisation">
+      <created>1629261980094</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1629261980094</updated>
+    </task>
+    <task id="LOCAL-00014" summary="organisations controller revision - suspend">
+      <created>1629262817591</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1629262817591</updated>
+    </task>
+    <task id="LOCAL-00015" summary="organisations controller revision - suspend">
+      <created>1629262855812</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1629262855812</updated>
+    </task>
+    <task id="LOCAL-00016" summary="organisations controller revision - suspend">
+      <created>1629263038092</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1629263038093</updated>
+    </task>
+    <task id="LOCAL-00017" summary="organisations controller revision - suspend">
+      <created>1629263063619</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1629263063619</updated>
+    </task>
+    <task id="LOCAL-00018" summary="organisations controller revision">
+      <created>1629263360836</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1629263360836</updated>
+    </task>
+    <task id="LOCAL-00019" summary="organisations controller revision">
+      <created>1629263769117</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1629263769117</updated>
+    </task>
+    <task id="LOCAL-00020" summary="organisations controller revision - activate">
+      <created>1629264097723</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1629264097723</updated>
+    </task>
+    <task id="LOCAL-00021" summary="organisations controller revision - activate">
+      <created>1629264262713</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1629264262713</updated>
+    </task>
+    <task id="LOCAL-00022" summary="organisations controller revision - activate">
+      <created>1629264924333</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1629264924333</updated>
     </task>
     <task id="LOCAL-00023" summary="organisations controller revision - add website and remove website">
       <created>1629265692133</created>
@@ -315,181 +463,13 @@
       <updated>1629382056932</updated>
     </task>
     <task id="LOCAL-00047" summary="Last minute changes">
-      <created>1629831945960</created>
+      <created>1629745300440</created>
       <option name="number" value="00047" />
       <option name="presentableId" value="LOCAL-00047" />
       <option name="project" value="LOCAL" />
-      <updated>1629831945960</updated>
+      <updated>1629745300440</updated>
     </task>
-    <task id="LOCAL-00048" summary="Register organisation template created">
-      <created>1629844070766</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1629844070766</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Register organisation template created">
-      <created>1629845468519</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1629845468519</updated>
-    </task>
-    <task id="LOCAL-00050" summary="Register organisation template created">
-      <created>1629847712634</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1629847712635</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Register organisation template created">
-      <created>1629887002942</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1629887002942</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Register Organisation basic Information">
-      <created>1629890242876</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1629890242876</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Register Organisation Contact Information">
-      <created>1629891214564</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1629891214564</updated>
-    </task>
-    <task id="LOCAL-00054" summary="Register Organisation Media Information">
-      <created>1629892416349</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1629892416349</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Register Organisation Media Information">
-      <created>1629908210911</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1629908210911</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Register Organisation Media Information">
-      <created>1629908252008</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1629908252008</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Register Organisation info page validation">
-      <created>1629916630368</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1629916630368</updated>
-    </task>
-    <task id="LOCAL-00058" summary="Register Organisation About page validation">
-      <created>1629919536087</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1629919536087</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Register Organisation contact page validation">
-      <created>1629920437915</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1629920437915</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Register Organisation media page validation">
-      <created>1629921157215</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1629921157216</updated>
-    </task>
-    <task id="LOCAL-00061" summary="Register Organisation media page validation minor changes">
-      <created>1629921272803</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1629921272803</updated>
-    </task>
-    <task id="LOCAL-00062" summary="Register Organisation reload button">
-      <created>1629925113672</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1629925113672</updated>
-    </task>
-    <task id="LOCAL-00063" summary="Register Organisation logo and arrow button">
-      <created>1629927112373</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1629927112373</updated>
-    </task>
-    <task id="LOCAL-00064" summary="Register Organisation logo and arrow button minor changes">
-      <created>1629927649162</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1629927649162</updated>
-    </task>
-    <task id="LOCAL-00065" summary="Register Organisation logo and arrow button minor changes">
-      <created>1629928542837</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1629928542837</updated>
-    </task>
-    <task id="LOCAL-00066" summary="Register Organisation logo and arrow button minor changes">
-      <created>1629928641494</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1629928641494</updated>
-    </task>
-    <task id="LOCAL-00067" summary="Register Organisation sector select">
-      <created>1629931813142</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1629931813142</updated>
-    </task>
-    <task id="LOCAL-00068" summary="Register Organisation sector select">
-      <created>1629932230119</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1629932230119</updated>
-    </task>
-    <task id="LOCAL-00069" summary="Register Organisation sector select">
-      <created>1629932557622</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1629932557622</updated>
-    </task>
-    <task id="LOCAL-00070" summary="Register Organisation sector select">
-      <created>1629983354325</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1629983354325</updated>
-    </task>
-    <task id="LOCAL-00071" summary="Register Organisation sector select">
-      <created>1629983375161</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1629983375161</updated>
-    </task>
-    <option name="localTasksCounter" value="72" />
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -508,6 +488,9 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="backup" />
+    <MESSAGE value="user and login system are complete" />
+    <MESSAGE value="organisations api - get all users ready for frontend" />
     <MESSAGE value="organisations controller revision - add Organisation" />
     <MESSAGE value="organisations controller revision - suspend" />
     <MESSAGE value="organisations controller revision - activate" />
@@ -520,19 +503,6 @@
     <MESSAGE value="organisations controller revision" />
     <MESSAGE value="Fixing organisation points" />
     <MESSAGE value="Last minute changes" />
-    <MESSAGE value="Register organisation template created" />
-    <MESSAGE value="Register Organisation basic Information" />
-    <MESSAGE value="Register Organisation Contact Information" />
-    <MESSAGE value="Register Organisation Media Information" />
-    <MESSAGE value="Register Organisation info page validation" />
-    <MESSAGE value="Register Organisation About page validation" />
-    <MESSAGE value="Register Organisation contact page validation" />
-    <MESSAGE value="Register Organisation media page validation" />
-    <MESSAGE value="Register Organisation media page validation minor changes" />
-    <MESSAGE value="Register Organisation reload button" />
-    <MESSAGE value="Register Organisation logo and arrow button" />
-    <MESSAGE value="Register Organisation logo and arrow button minor changes" />
-    <MESSAGE value="Register Organisation sector select" />
-    <option name="LAST_COMMIT_MESSAGE" value="Register Organisation sector select" />
+    <option name="LAST_COMMIT_MESSAGE" value="Last minute changes" />
   </component>
 </project>

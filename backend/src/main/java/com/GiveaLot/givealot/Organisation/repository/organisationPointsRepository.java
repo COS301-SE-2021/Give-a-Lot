@@ -67,13 +67,18 @@ public interface organisationPointsRepository extends JpaRepository<Organisation
 
     @Modifying
     @Transactional
-    @Query("UPDATE OrganisationPoints op SET op.taxRefIsValid = ?2 WHERE op.orgId = ?1")
-    int taxRaf(long orgId, boolean value);
+    @Query("UPDATE OrganisationPoints op SET op.websiteIsValid = ?2 WHERE op.orgId = ?1")
+    int Website(long orgId, boolean value);
 
     @Modifying
     @Transactional
-    @Query("UPDATE OrganisationPoints op SET op.websiteIsValid = ?2 WHERE op.orgId = ?1")
-    int Website(long orgId, boolean value);
+    @Query("UPDATE OrganisationPoints op SET op.donationURLIsValid = ?2 WHERE op.orgId = ?1")
+    int DonationURL(long orgId, boolean value);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE OrganisationPoints op SET op.qrCodeIsValid = ?2 WHERE op.orgId = ?1")
+    int DonationQR(long orgId, boolean value);
 
 
 

@@ -1,0 +1,18 @@
+{
+  "code": "ok_org_br_200",
+  "message": "success",
+  "object": [
+    {
+      "sector": "developers",
+      "organisations": [
+        {
+          "orgId": 3,
+          "orgName": "The people we trust",
+          "dateAdded": "2021-08-25",
+          "imgUrl": null,
+          "certificate_level": null
+        }
+      ]
+    }
+  ]
+}

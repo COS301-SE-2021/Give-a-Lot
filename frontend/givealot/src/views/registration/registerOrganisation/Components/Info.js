@@ -50,7 +50,6 @@ export class RegisterOrganisation extends Component {
                                            type="text" name="orgName"
                                            placeholder="Enter Organisation Name"
                                            required
-                                           maxlength="45"
                                            value={values.orgName}
                                            onChange={handleChange('orgName')}
                                     />

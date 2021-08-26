@@ -130,6 +130,9 @@ form {
     text-decoration: none;
     color: #333;
 }
+.css-tlfecz-indicatorContainer {
+    border: none !important;
+}
 
 @media (max-width: 576px){
     .registerCard {

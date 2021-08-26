@@ -6,6 +6,7 @@ import Logo from "../../../login/Components/Logo";
 import {Link} from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import axios from 'axios'
+import Select from 'react-select';
 
 export class RegisterOrganisation extends Component {
     constructor() {
@@ -14,23 +15,52 @@ export class RegisterOrganisation extends Component {
             disabled: false,
             selectOptions : [],
             id: "",
-            name: ''
+            name: '',
+            temp: []
         };
     }
 
-    async getOptions(){
-        const res = await axios.get('http://localhost:8080/v1/organisation/get/sectors')
-        const data = res.data
+    // componentDidMount(){
+        // const res = await axios.get('http://localhost:8080/v1/organisation/get/sectors')
+        // const data = res.data
+        // console.log(data)
 
-        const options = data.map(d => ({
-            "value" : d.id,
-            "label" : d.name
-        }))
-        this.setState({selectOptions: options})
-    }
+        // const options = data.sectors.map(d => ({
+        //     "value" : d.id,
+        //     "label" : d.name
+        // }))
+        // this.setState({selectOptions: data})
+    // }
+
+    // componentDidMount(){
+    //     this.getOptions()
+    // }
 
     componentDidMount(){
-        this.getOptions()
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        // const adminUsersRequestBody = {
+        //     "adminUserEmail" : this.state.adminUserEmail
+        // }
+        axios.get('http://localhost:8080/v1/organisation/get/sectors',  config)
+            .then(response =>{
+                console.log(response)
+                // const options = response.data.sectors.map(d => ({
+                //     "value" : d.value,
+                //     // "label" : d.name
+                // }))
+                // this.setState({selectOptions: options})
+                this.setState({selectOptions: response.data.sectors})
+                // console.log(this.state.selectOptions)
+            })
+            .catch(error =>{
+                console.log(error)
+                this.setState({error : 'Error Retrieving data'})
+            })
     }
 
     styles = {
@@ -49,8 +79,18 @@ export class RegisterOrganisation extends Component {
     };
 
 
-
     render() {
+        let optionsTemp = [];
+        console.log(this.state.selectOptions);
+        for(let i=0; i < this.state.selectOptions.length; i++){
+            console.log(this.state.selectOptions[i]);
+            // optionsTemp = this.state.selectOptions[i].map(i => ({
+            //     //     "value" : d.id,
+            //     //     "label" : d.name
+            // })
+            // optionsTemp.add(<option value={this.state.selectOptions[i]}>{this.state.selectOptions[i]}</option>)
+        }
+        console.log(optionsTemp);
         const { values, handleChange, nextStep } = this.props;
         return (
             <div className="registerOrganisation" style={this.styles.main}>
@@ -82,17 +122,21 @@ export class RegisterOrganisation extends Component {
                                 <span className="inputLabel">
                                     Sector
                                 </span>
-                                <select options={this.state.selectOptions}
-                                        onChange={handleChange('orgSector')}
-                                />
-                                {/*<select value={values.orgSector} className="input100" onChange={handleChange('orgSector')}>*/}
-                                {/*    <option>Enter Sector</option>*/}
-                                {/*    <option value="A">Children</option>*/}
-                                {/*    <option value="B">Youth</option>*/}
-                                {/*    <option value="C">Security</option>*/}
-                                {/*    <option value="C">Food drive</option>*/}
-                                {/*    <option value="C">Technology</option>*/}
-                                {/*</select>*/}
+                                {/*<Select options={this.state.selectOptions}*/}
+                                {/*        className="input100"*/}
+                                {/*        onChange={handleChange('orgSector')}*/}
+                                {/*/>*/}
+                                <select value={values.orgSector} className="input100" onChange={handleChange('orgSector')}>
+                                    <option key="wanda">Enter Sector</option>
+                                    {this.state.selectOptions.map((item) =>
+                                        <option key={item} value={item}>{item}</option>
+                                    )}
+                                    {/*<option value="A">Children</option>*/}
+                                    {/*<option value="B">Youth</option>*/}
+                                    {/*<option value="C">Security</option>*/}
+                                    {/*<option value="C">Food drive</option>*/}
+                                    {/*<option value="C">Technology</option>*/}
+                                </select>
                                 <span style={{float: "right", color: "red"}}><small>{this.props.orgSectorError}</small></span>
                             </div>
                             <div className="input alert-validate">

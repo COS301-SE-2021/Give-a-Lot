@@ -17,12 +17,11 @@ export class Featured extends Component {
                             <Cards />
                             <Cards />
                         </div>
-
                         <Chart data={userData} title="Visits" grid dataKey="Active User"/>
                     </div>
-                    <div className="featuredBottom">
-                        bottom
-                    </div>
+                    {/*<div className="featuredBottom">*/}
+                    {/*    bottom*/}
+                    {/*</div>*/}
                 </div>
             </div>
         )

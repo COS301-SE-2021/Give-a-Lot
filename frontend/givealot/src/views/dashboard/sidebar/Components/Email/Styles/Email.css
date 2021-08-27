@@ -5,7 +5,6 @@
     justify-content: center;
     align-items: center;
 
-
 }
 
 .email-container{
@@ -21,7 +20,16 @@
     box-sizing: border-box;
 }
 
-input[type=text], select, textarea {
+/*input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    background-color: #F0F2F7;
+}*/
+
+.emailInput {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -30,12 +38,13 @@ input[type=text], select, textarea {
     background-color: #F0F2F7;
 }
 
-label {
+
+.emailLabel {
     padding: 12px 12px 12px 0;
     display: inline-block;
 }
 
-input[type=submit] {
+.emailSubmit {
     background-color: #7c6d81;
     color: white;
     padding: 12px 20px;
@@ -45,7 +54,7 @@ input[type=submit] {
     float: right;
 }
 
-input[type=submit]:hover {
+.emailSubmit:hover {
     background-color: #957b9e;
 }
 

@@ -8,13 +8,15 @@ import "./sidebar/styles/Dashboard.css"
 import Logo from "../login/Components/Logo"
 import Organisations from "./sidebar/Components/Organisations/Organisations"
 import Users from "./sidebar/Components/Users/Users"
+import Email from "./sidebar/Components/Email/Email"
 import Featured from "./sidebar/Components/Featured/Featured";
+import DashLogo from "../login/Components/DashLogo";
 
 function Dashboard() {
     return (
         <Router>
             <div className="Dashboard">
-                <Logo />
+                <DashLogo />
                 <div className="DashboardContainer">
                     <Sidebar />
                     <Switch>
@@ -26,6 +28,9 @@ function Dashboard() {
                         </Route>
                         <Route exact path="/users">
                             <Users />
+                        </Route>
+                        <Route exact path="/email">
+                            <Email />
                         </Route>
                     </Switch>
                 </div>

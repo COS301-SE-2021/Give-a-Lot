@@ -4,6 +4,7 @@ import {  Link} from "react-router-dom";
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
+import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
 import DashboardOutlinedIcon from '@material-ui/icons/DashboardOutlined';
 import { useLocation } from "react-router-dom";
 
@@ -46,6 +47,16 @@ function Sidebar(){
                                         <PersonOutlineIcon />
                                         Users
                                     </li>
+
+                                </Link>
+                            </li>
+                            <li className={splitLocation[1] === "email" ? "active" : ""}>
+                                <Link to='/email' className="link">
+                                    <li className="sidebarListItem ">
+                                        <EmailOutlinedIcon />
+                                        Email
+                                    </li>
+
                                 </Link>
                             </li>
                         </ul>

@@ -10,6 +10,7 @@ import Users from "./sidebar/Components/Users/Users"
 import Email from "./sidebar/Components/Email/Email"
 import Featured from "./sidebar/Components/Featured/Featured";
 import DashLogo from "../login/Components/DashLogo";
+import Reports from "../../views/dashboard/sidebar/Components/Report/Reports"
 
 function Dashboard() {
     return (
@@ -30,6 +31,9 @@ function Dashboard() {
                         </Route>
                         <Route exact path="/email">
                             <Email />
+                        </Route>
+                        <Route exact path="/report">
+                            <Reports />
                         </Route>
                     </Switch>
                 </div>

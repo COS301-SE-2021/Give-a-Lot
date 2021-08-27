@@ -1,15 +1,18 @@
 .report{
 
+    flex: 4;
+    background-color: #F0F2F7;
+
 }
 
-.header{
+/*.header{
     background-color: #e3e3e3;
     border-radius: 5px;
     display: flex;
     flex-basis: 25%;
     flex-grow: 0;
 
-}
+}*/
 
 .non{
     margin: 60px;
@@ -40,5 +43,7 @@
     background-color: #f6650b;
     color: white;
     width: 60px;
+    border: none;
+    padding: 5px;
 
 }

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import "./Reports.css"
-import Accordions from "./Accordions"
+import "../Report/Style/Reports.css"
+import Accordions from "../Report/Accordions"
 
 
 

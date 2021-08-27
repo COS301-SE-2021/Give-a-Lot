@@ -6,7 +6,7 @@ import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
 import DashboardOutlinedIcon from '@material-ui/icons/DashboardOutlined';
-import ReportIcon from '@material-ui/icons/Report';
+import ReportOutlinedIcon from '@material-ui/icons/ReportOutlined';
 import { useLocation } from "react-router-dom";
 
 function Sidebar(){
@@ -63,7 +63,7 @@ function Sidebar(){
                             <li className={splitLocation[1] === "report" ? "active" : ""}>
                                 <Link to='/report' className="link">
                                     <li className="sidebarListItem ">
-                                        <ReportIcon />
+                                        <ReportOutlinedIcon />
                                         Report
                                     </li>
 

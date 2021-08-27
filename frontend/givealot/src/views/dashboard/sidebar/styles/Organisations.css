@@ -126,6 +126,8 @@
 .drawerWrapper{
     display: flex;
     flex-direction: column;
+    /*color: white;*/
+    /*background-color: #0F61A7;*/
 }
 .drawerHeader{
     padding: 4em;

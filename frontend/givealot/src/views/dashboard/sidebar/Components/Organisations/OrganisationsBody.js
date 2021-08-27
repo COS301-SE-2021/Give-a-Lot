@@ -49,7 +49,6 @@ export class OrganisationsBody extends Component {
                             {/*</Popup>*/}
 
                             <button onClick={this.toggleDrawerStatus} className="btn manageButton">
-                                {/*{!isDrawerOpened ? <ReorderIcon /> : null }*/}
                                 Manage
                             </button>
 

@@ -28,7 +28,7 @@ export class Featured extends Component {
                             </div>
                             <div className="userInfoChart">
                                 <div className="userChart">Amount Donated</div>
-                                <div className="userNumbers">34444</div>
+                                <div className="userNumbers">R3444</div>
                             </div>
                         </div>
                     </div>

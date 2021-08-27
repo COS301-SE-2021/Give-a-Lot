@@ -58,7 +58,7 @@
     border: 1px solid black;
     background-color: transparent;
     color: black;
-    padding: 10px 10px;
+    padding: 10px ;
     cursor: pointer;
     border-radius: 50%;
 }
@@ -78,4 +78,47 @@
 .manageButton{
     border-color: white;
     color: white;
+}
+
+/*////////////////////////////////////////////////*/
+.modalPop {
+    font-size: 12px;
+    float: right;
+    width: 500px;
+    height: 100%;
+    background-color: #F0F2F7;
+    color: black;
+}
+.modalPop > .headerPop {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+}
+.modalPop > .contentPop {
+    width: 100%;
+    padding: 10px 5px;
+}
+.modalPop > .actions {
+    margin: auto;
+}
+.modalPop > .actions {
+    width: 100%;
+    padding: 10px 5px;
+    text-align: center;
+}
+.modalPop > .close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece;
+    color: red;
 }

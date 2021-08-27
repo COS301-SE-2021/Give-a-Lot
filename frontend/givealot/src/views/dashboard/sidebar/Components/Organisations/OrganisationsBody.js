@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import "../../styles/Organisations.css"
+import OrgPop from "./OrgPop"
+import Popup from "reactjs-popup";
 
 export class OrganisationsBody extends Component {
 
@@ -16,7 +18,13 @@ export class OrganisationsBody extends Component {
                             <span className="emailBody">email@gmail.com</span>
                         </div>
                         <div className="bodyButton">
-                            <button  className="btn manageButton"> Manage </button>
+                            <Popup modal
+                                   position="right"
+                                   trigger={<button className="btn manageButton">Manage</button>}
+                                >
+                                {close => <OrgPop close={close} />}
+                            </Popup>
+
                         </div>
                     </div>
                 </div>

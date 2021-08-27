@@ -7,16 +7,15 @@
     float: right;
     padding: 0.9em;
 }
-.header__input{
+.headerInputOrg{
     display: flex;
     align-items: center;
     background-color: white;
     padding: 10px;
-    margin-left: 10px;
     border-radius: 999px;
 }
-.header__input > input{
-    border: none;
+.headerInputOrg > input{
+    border: none !important;
     background-color: transparent;
     outline-width: 0;
 }

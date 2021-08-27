@@ -5,7 +5,6 @@ import {
 } from "react-router-dom";
 import Sidebar from "../dashboard/sidebar/Sidebar"
 import "./sidebar/styles/Dashboard.css"
-import Logo from "../login/Components/Logo"
 import Organisations from "./sidebar/Components/Organisations/Organisations"
 import Users from "./sidebar/Components/Users/Users"
 import Email from "./sidebar/Components/Email/Email"

@@ -4,6 +4,7 @@ import "../../styles/Organisations.css"
 // import Popup from "reactjs-popup";
 import { Drawer, Divider, IconButton }
     from '@material-ui/core';
+import CreateIcon from '@material-ui/icons/Create';
 
 export class OrganisationsBody extends Component {
 
@@ -57,8 +58,70 @@ export class OrganisationsBody extends Component {
                                 open={isDrawerOpened}
                                 onClose={this.closeDrawer}
                                 anchor="right"
+
                             >
-                                here are the stuff to manage
+                                <div className="drawerWrapper">
+                                    <div className="drawerHeader">
+                                        The Givers of Hope
+                                    </div>
+                                    <div className="drawerBodyNew">
+                                        <div className="bodyInfo">
+                                            <div className="bodyLeft">
+                                                Contact Person
+                                            </div>
+                                            <div className="bodyRight">
+                                                Kids Next Door
+                                            </div>
+                                        </div>
+                                        <div className="bodyInfo">
+                                            <div className="bodyLeft">
+                                                Contact Number
+                                            </div>
+                                            <div className="bodyRight">
+                                                0856675478
+                                            </div>
+                                        </div>
+                                        <div className="bodyInfo">
+                                            <div className="bodyLeft">
+                                                Email
+                                            </div>
+                                            <div className="bodyRight">
+                                                kids@gmail.com
+                                            </div>
+                                        </div>
+                                        <div className="bodyInfo">
+                                            <div className="bodyLeft">
+                                                Level
+                                            </div>
+                                            <div className="bodyRight">
+                                                5
+                                            </div>
+                                        </div>
+                                        <div className="bodyInfo">
+                                            <div className="bodyLeft">
+                                                Status
+                                            </div>
+                                            <div className="bodyRight">
+                                                <div className="bodyRightContent">
+                                                    <div className="bodyRight">
+                                                        Active
+                                                    </div>
+                                                    <div className="bodyRightIcon">
+                                                        <IconButton>
+                                                            <CreateIcon />
+                                                        </IconButton>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="manageButton">
+                                            <button className="buttonRemove">
+                                                Remove
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </Drawer>
 
                         </div>

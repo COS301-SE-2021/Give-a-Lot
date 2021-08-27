@@ -79,59 +79,6 @@
     color: white;
 }
 
-/*////////////////////////////////////////////////*/
-.modalPop {
-    font-size: 12px;
-    float: right;
-    width: 500px;
-    height: 100%;
-    background-color: #F0F2F7;
-    color: black;
-}
-.modalPop > .headerPop {
-    width: 100%;
-    border-bottom: 1px solid gray;
-    font-size: 18px;
-    text-align: center;
-    padding: 5px;
-}
-.modalPop > .contentPop {
-    width: 100%;
-    padding: 10px 5px;
-}
-.modalPop > .actions {
-    margin: auto;
-}
-.modalPop > .actions {
-    width: 100%;
-    padding: 10px 5px;
-    text-align: center;
-}
-.modalPop > .close {
-    cursor: pointer;
-    position: absolute;
-    display: block;
-    padding: 2px 5px;
-    line-height: 20px;
-    right: -10px;
-    top: -10px;
-    font-size: 24px;
-    background: #ffffff;
-    border-radius: 18px;
-    border: 1px solid #cfcece;
-    color: red;
-}
-
-/*/////////////////////////////////////////*/
-.drawerWrapper{
-    display: flex;
-    flex-direction: column;
-    /*color: white;*/
-    /*background-color: #0F61A7;*/
-}
-.drawerHeader{
-    padding: 4em;
-}
 .bodyInfo{
     display: flex;
     align-items: center;
@@ -159,4 +106,33 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.OrganisationsDash{
+    flex: 4;
+    background-color: #F0F2F7;
+
+}
+.table{
+    padding: 0.6em;
+    height: 100%;
+    width: 100%;
+}
+.UsersDash{
+    flex: 4;
+    background-color: #F0F2F7;
+}
+.OrgListEdits{
+    color: white;
+    background-color: #3bb077;
+    width: 50px;
+    /*padding: 10px 10px;*/
+    border-radius: 25px;
+}
+.MuiDataGrid-row.Mui-odd {
+    background-color: white;
+}
+
+.org{
+    flex: 4;
+    background-color: #F0F2F7;
 }

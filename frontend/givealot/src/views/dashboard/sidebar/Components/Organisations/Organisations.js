@@ -11,7 +11,7 @@ export class Organisations extends Component {
             <div className="organisations">
                 <div className="OrgWrapper">
                     <div className="OrgSearch">
-                        <div className="header__input">
+                        <div className="headerInputOrg">
                             <input placeholder="search organisation..." type="text" />
                             <SearchIcon/>
                         </div>

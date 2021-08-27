@@ -1,7 +1,48 @@
-import React, { Component } from 'react'
-import "../Email/Styles/Email.css"
+import React, { Component } from 'react';
+import "../Email/Styles/Email.css";
+import Axios from "axios";
+import {toast, ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export class Email extends Component {
+
+constructor(props) {
+    super(props);
+
+    this.state={
+        recipient:"",
+        subject:"",
+        message:"",
+        file:"",
+    };
+
+}
+
+    onFormSubmit(e) {
+        e.preventDefault();
+        const data = {
+            recipient: this.state.recipient,
+            subject: this.state.subject,
+            message: this.state.message,
+            file: this.state.file,
+
+        };
+        console.log(data)
+        Axios
+            .post("", data)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    }
+
+    onToast = () => {
+        toast.success('upload success',{
+            position: toast.POSITION.TOP_RIGHT
+
+        });
+    }
+
+
 
     render() {
         return (
@@ -9,55 +50,68 @@ export class Email extends Component {
                <div className="email-container">
 
                    <div className="_container">
-                       <form >
+                       <form onSubmit={this.onFormSubmit}>
                            <div className="row">
                                <div className="col-25">
-                                   <label >User Email</label>
+                                   <label className="emailLabel" >Recipient</label>
                                </div>
                                <div className="col-75">
                                    <input
+                                       className="emailInput"
                                        type="text"
                                        id="email"
                                        name="email"
                                        placeholder="User email.."
+                                       onChange={this.handleInputChange}
                                    />
                                </div>
                            </div>
                            <div className="row">
                                <div className="col-25">
-                                   <label >Subject</label>
+                                   <label className="emailLabel">Subject</label>
                                </div>
                                <div className="col-75">
                                    <input
-
+                                       className="emailInput"
                                        type="text"
                                        id="subject"
                                        name="subject"
                                        placeholder="Your subject.."
+                                       onChange={this.handleInputChange}
                                    />
                                </div>
                            </div>
 
                            <div className="row">
                                <div className="col-25">
-                                   <label >Message</label>
+                                   <label className="emailLabel">Message</label>
                                </div>
                                <div className="col-75">
                                    <textarea
+                                       className="emailInput"
                                        id="message"
                                        name="message"
                                        placeholder="Write something.."
+                                       onChange={this.handleInputChange}
                                        style={{height:"200px"}}/>
 
                                </div>
                            </div>
                            <div className="bottom_">
                                <div className="row">
-                                   <input type="file" />
+                                   <input
+
+                                       type="file"
+                                       name="file"
+                                       onChange={this.handleInputChange}
+                                   />
                                </div>
                                <div className="row">
-                               <input type="submit" value="Submit"/>
+                               <input   className="emailSubmit" type="submit" value="Submit" onClick={this.onToast}/>
                            </div>
+                           </div>
+                           <div className="form-group">
+                               <ToastContainer/>
                            </div>
 
                        </form>

@@ -27,7 +27,7 @@ function Dashboard() {
                         <Route exact path="/organisations">
                             <OrganisationsDash />
                         </Route>
-                        <Route exact path="/org">
+                        <Route path="/org/:orgId">
                             <Org />
                         </Route>
                         <Route exact path="/users">

@@ -11,18 +11,19 @@ import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 function App()
 {
   return(
-    <Router>
-      <Switch>
-        <Route path="/" exact component={Home}/>
-        <Route path="/browse" exact component={Browse}/>
-        <Route path="/login" exact component={Login}/>
-        <Route path="/signUp" exact component={SignUp}/>
-        <Route path="/registerOrg" exact component={RegisterOrg}/>
-        <Route path="/registerUser" exact component={RegisterUser}/>
-        <Route path="/dashboard" exact component={Dashboard}/>
-
-      </Switch>
-    </Router>
+    // <Router>
+    //   <Switch>
+    //     <Route path="/" exact component={Home}/>
+    //     <Route path="/browse" exact component={Browse}/>
+    //     <Route path="/login" exact component={Login}/>
+    //     <Route path="/signUp" exact component={SignUp}/>
+    //     <Route path="/registerOrg" exact component={RegisterOrg}/>
+    //     <Route path="/registerUser" exact component={RegisterUser}/>
+    //     <Route path="/dashboard" exact component={Dashboard}/>
+    //
+    //   </Switch>
+    // </Router>
+      <Dashboard />
   );
 }
 

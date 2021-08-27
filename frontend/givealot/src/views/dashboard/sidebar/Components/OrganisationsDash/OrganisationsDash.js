@@ -20,7 +20,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import IconButton from '@material-ui/core/IconButton';
 import { Link } from "react-router-dom";
 
-export default function App() {
+export default function OrganisationsDash() {
     const [isLoaded,setIsLoaded] = useState(false);
     const [rowData,setRowData] = useState([]);
     useEffect(() => {

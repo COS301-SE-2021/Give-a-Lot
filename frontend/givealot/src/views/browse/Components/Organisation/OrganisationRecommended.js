@@ -3,7 +3,6 @@ import react from 'react';
 
 function trim_description(descr)
 {
-
     let acceptableLength = 84;
     if(descr !== undefined) {
 

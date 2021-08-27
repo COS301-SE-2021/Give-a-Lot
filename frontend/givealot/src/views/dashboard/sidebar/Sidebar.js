@@ -30,7 +30,7 @@ function Sidebar(){
                                 <Link to='/featured' className="link">
                                     <li className="sidebarListItem ">
                                         <DashboardOutlinedIcon />
-                                        Dashboard
+                                        <div className="sideIcon" > Dashboard </div>
                                     </li>
                                 </Link>
                             </li>
@@ -38,7 +38,7 @@ function Sidebar(){
                                 <Link to='/organisations' className="link">
                                     <li className="sidebarListItem ">
                                         <PeopleOutlineIcon />
-                                        Organisations
+                                        <div className="sideIcon" > Organisations </div>
                                     </li>
                                 </Link>
                             </li>
@@ -46,7 +46,7 @@ function Sidebar(){
                                 <Link to='/users' className="link">
                                     <li className="sidebarListItem ">
                                         <PersonOutlineIcon />
-                                        Users
+                                        <div className="sideIcon" > Users </div>
                                     </li>
 
                                 </Link>
@@ -55,7 +55,7 @@ function Sidebar(){
                                 <Link to='/email' className="link">
                                     <li className="sidebarListItem ">
                                         <EmailOutlinedIcon />
-                                        Email
+                                        <div className="sideIcon" > Emails </div>
                                     </li>
 
                                 </Link>
@@ -64,7 +64,7 @@ function Sidebar(){
                                 <Link to='/report' className="link">
                                     <li className="sidebarListItem ">
                                         <ReportOutlinedIcon />
-                                        Report
+                                        <div className="sideIcon" > Reports </div>
                                     </li>
 
                                 </Link>

@@ -121,3 +121,42 @@
     border: 1px solid #cfcece;
     color: red;
 }
+
+/*/////////////////////////////////////////*/
+.drawerWrapper{
+    display: flex;
+    flex-direction: column;
+    /*color: white;*/
+    /*background-color: #0F61A7;*/
+}
+.drawerHeader{
+    padding: 4em;
+}
+.bodyInfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.bodyLeft{
+    padding: 1.5em;
+}
+.bodyRight{
+    padding: 1.5em;
+}
+.manageButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.buttonRemove{
+    color: white;
+    background-color: black;
+    padding: 0.5em;
+    width: 100px;
+    border-radius: 20px;
+}
+.bodyRightContent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

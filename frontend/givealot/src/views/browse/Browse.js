@@ -265,7 +265,7 @@ function Browse ()
                 
                 <section id="browse_body_main">
                     
-                    <div id="browse_filters">
+                    {/*<div id="browse_filters">
                         <div id="browse_filters_container">
                     
                             <div className="browse_filter_sections">
@@ -305,7 +305,7 @@ function Browse ()
                                 <label htmlFor="level5"> Level 5</label><br/>
                             </div>
                         </div>
-                    </div>
+                    </div>*/}
 
                     <div id="browse_organisations">
                         <div id="recommended_organisations">
@@ -330,6 +330,16 @@ function Browse ()
                         <div id="default_organisations">
                             {organisations_by_sector}
                         </div>
+
+                        {/* this block was not a part of the initial design */}
+                        <div id="ui_element_message">
+                            <img src={ui_message_art} alt={""}/>
+                            <div id="ui_element_message_text">
+                                <p id="ui_element_message_head">Find a cause that you care about</p>
+                                <p id="ui_element_message_subtext">The following organisations have been individually reviewed by givealot<img /></p>
+                            </div>
+                        </div>
+                        {/* this block was not a part of the initial design - end */}
                     </div>
                 </section>
                

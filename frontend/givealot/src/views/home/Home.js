@@ -30,8 +30,8 @@ function Home()
         <div id="banner" style={styles.main}>
             <div id="banner_filter">
                 <div id="homeNav">
-                    <img id="logo" src={logo} />
-                    {btnDisplayText != "Login" ? <Link to="/dashboard"><input className="loginDashBtn" type="button" name={currentUserId} value={btnDisplayText}/></Link> : <Link to="/login"><input className="loginDashBtn" type="button" name={currentUserId} value={btnDisplayText}/></Link> }
+                    <img id="logo" src={logo} alt={"logo"}/>
+                    {btnDisplayText !== "Login" ? <Link to="/dashboard"><input className="loginDashBtn" type="button" name={currentUserId} value={btnDisplayText}/></Link> : <Link to="/login"><input className="loginDashBtn" type="button" name={currentUserId} value={btnDisplayText}/></Link> }
                     
                 </div>
 

@@ -1,3 +1,21 @@
+GET http://localhost:8080/v1/browse/sectors/recommendations/default
+
+<> 2021-08-27T084649.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/lkkkj
+
+<> 2021-08-27T075137.401.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/12
+
+<> 2021-08-27T075127.200.json
+
+###
+
 GET http://localhost:8080/v1/browse/sectors/recommendations/12
 
 <> 2021-08-27T071925.200.json
@@ -277,24 +295,6 @@ GET http://localhost:8080/v1/browse/sectors/recommendations/default
 GET http://localhost:8080/v1/organisation/get/sectors
 
 <> 2021-08-27T043630.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/default
-
-<> 2021-08-27T043329.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/default
-
-<> 2021-08-27T042127.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/default
-
-<> 2021-08-27T041949.200.json
 
 ###
 

@@ -26,6 +26,8 @@ import Sector from "./Components/BrowseBySector/Sector";
 function Browse ()
 {
     const [organisations, setOrganisations] = useState([]);
+    const [recommendedOrganisations, setRecommendedOrganisations] = useState([]);
+
     function searchOrganisation(e)
     {
         e.preventDefault();
@@ -44,7 +46,6 @@ function Browse ()
 
     const mobile_popUpControl_display = event =>
     {
-     
         event.preventDefault();
         var dark_backdrop_active_for_mobile = document.getElementById("dark_backdrop_active_for_mobile");
         var browse_filters = document.getElementById("browse_filters");
@@ -127,6 +128,7 @@ function Browse ()
                 let orgName = organisations[i].organisations[k].orgName;
                 let dateAdded = organisations[i].organisations[k].dateAdded;
                 let imgUrl = organisations[i].organisations[k].imgUrl;
+                let orgDescription = organisations[i].organisations[k].orgDescription;
                 let certificate_level = organisations[i].organisations[k].certificate_level;
 
                 organisations_for_the_sector.push(<Organisation orgId = {orgId}
@@ -134,22 +136,105 @@ function Browse ()
                                                                 dateAdded = {dateAdded}
                                                                 imgUrl = {imgUrl}
                                                                 certificate_level = {certificate_level}
+                                                                orgDescription = {orgDescription}
                                                                 key={orgId}/>);
             }
-              /*
-                Note for future reference: sector takes a list of organisations as prop
-              */
+            /*
+              Note for future reference: sector takes a list of organisations as prop
+            */
 
-                organisations_by_sector.push(<Sector sector={sector}
-                organisations_for_sec={organisations_for_the_sector}
+            organisations_by_sector.push(<Sector sector={sector}
+                                                 organisations_for_sec={organisations_for_the_sector}
                                                  key={sector}/>);
         }
     }
 
+
+    /* fetch request - recommended - start*/
+
+    /*
+        REMEMBER HOOKS: ELSE GOOD LUCK TRYING TO SOLVE THE
+                        INEVITABLE SHIT SHOW.
+
+        TODO: update login to use tokens on the request URL
+    */
+    let user_id = "default"; /*TODO: pull this id from dom storage, if user is not logged in, use default*/
+
+    useEffect(() => {
+            fetch("http://localhost:8080/v1/browse/sectors/recommendations/"+user_id)
+                .then(async response =>{
+
+                    const data = await response.json();
+
+                    if(!response.ok) /* error handling here */
+                    {
+                        if(response.status === 500)
+                        {
+                            alert("bad parameters, fatal");
+                        }
+                        else if(response.status === 401)
+                        {
+                            alert("this token is unauthorized"); /* take them back to login */
+                        }
+
+                        if(typeof data !== 'undefined')
+                        {
+                            alert(data.message);
+                        }
+                    }
+
+                    if(data.message === "success") /*successfully fetched*/
+                    {
+                        setRecommendedOrganisations(data.object);
+                    }
+                    else
+                    {
+                        alert("error occured: " + data.code);
+                        setRecommendedOrganisations([]);
+                    }
+                })
+
+                .catch(error => {
+                    alert("failed - organisations - sector")
+                });
+        }
+        ,[])
+    /* fetch request - recommended - end*/
+
+    let organisations_recommended = [];
+    if(recommendedOrganisations !== undefined)
+    {
+        for (let k = 0; k < recommendedOrganisations.length; k++)
+        {
+            let orgId = recommendedOrganisations[k].orgId;
+            let orgName = recommendedOrganisations[k].orgName;
+            let dateAdded = recommendedOrganisations[k].dateAdded;
+            let imgUrl = recommendedOrganisations[k].imgUrl;
+            let certificate_level = recommendedOrganisations[k].certificate_level;
+            let org_sector = recommendedOrganisations[k].sector;
+            let orgDescription = recommendedOrganisations[k].orgDescription;
+
+            organisations_recommended.push(<OrganisationRecommended orgId = {orgId}
+                                                                    orgName= {orgName}
+                                                                    dateAdded = {dateAdded}
+                                                                    imgUrl = {imgUrl}
+                                                                    certificate_level = {certificate_level}
+                                                                    org_sector = {org_sector}
+                                                                    orgDescription = {orgDescription}
+                                                                    key={orgId}/>);
+            /*
+              Note for future reference: sector takes a list of organisations as prop
+            */
+
+            /*organisations_by_sector.push(<Sector sector={sector}
+                                                 organisations_for_sec={organisations_for_the_sector}
+                                                 key={sector}/>);*/
+        }
+    }
     return (
         <div>
             <div id="browseNavSection">
-                <Link to={"/"}><img id="browseLogo" src={logo} /></Link>
+                <Link to={"/"}><img id="browseLogo" src={logo} alt={"logo"} /></Link>
                 <p>browse organisations</p>
             </div>
 
@@ -165,6 +250,7 @@ function Browse ()
                     <img
                         src={searchIcon} 
                         onClick={searchOrganisation}
+                        alt={"search-icon"}
                     />
                 </div>
 
@@ -174,7 +260,7 @@ function Browse ()
                 </div>
 
                 <div id="filters_mobile" onClick={mobile_popUpControl_display}>
-                    <p >filters</p><img  src={filterBtn_mobile} />
+                    <p >filters</p><img  src={filterBtn_mobile} alt={"filter-icon"} />
                 </div>
                 
                 <section id="browse_body_main">
@@ -226,16 +312,14 @@ function Browse ()
                             <div className="recommended_section">
                                 <p className="browse_sector_name">Recommended for you</p>
                                 <div className="recommended_organisations_container">
-                                    <OrganisationRecommended />
-                                    <OrganisationRecommended />
-                                    <OrganisationRecommended />
+                                    {organisations_recommended}
                                 </div>
                             </div>
                         </div>
 
                         {/* this block was not a part of the initial design */}
                         <div id="ui_element_message">
-                            <img src={ui_message_art}/>
+                            <img src={ui_message_art} alt={""}/>
                             <div id="ui_element_message_text">
                                 <p id="ui_element_message_head">Find a cause that you care about</p>
                                 <p id="ui_element_message_subtext">The following organisations have been individually reviewed by givealot<img /></p>

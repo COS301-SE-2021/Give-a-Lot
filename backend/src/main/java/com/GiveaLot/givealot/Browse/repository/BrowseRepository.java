@@ -19,4 +19,8 @@ public interface BrowseRepository extends JpaRepository<Organisations,Long> {
 
 
 
+
+
+
+
 }

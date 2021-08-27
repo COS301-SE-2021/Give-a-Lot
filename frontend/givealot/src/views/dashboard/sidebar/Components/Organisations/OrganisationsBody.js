@@ -5,8 +5,6 @@ import "../../styles/Organisations.css"
 import { Drawer, Divider, IconButton }
     from '@material-ui/core';
 
-
-
 export class OrganisationsBody extends Component {
 
     constructor(props) {

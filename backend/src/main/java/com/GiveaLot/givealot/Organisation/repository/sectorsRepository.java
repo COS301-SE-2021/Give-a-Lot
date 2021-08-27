@@ -8,6 +8,12 @@ import java.util.List;
 
 public interface sectorsRepository extends JpaRepository<Sectors,String>
 {
-    @Query("SELECT distinct s.sector FROM Sectors AS s")
+    @Query("SELECT s.sector FROM Sectors AS s order by s.sector")
     List<String> getSectors();
+
+    @Query("SELECT s.sector FROM Sectors AS s order by s.organisations desc")
+    List<String> getSectorsDescendingByOrganisations();
+
+    @Query("SELECT distinct s FROM Sectors AS s where s.sector = ?1")
+    Sectors getSector(String sector);
 }

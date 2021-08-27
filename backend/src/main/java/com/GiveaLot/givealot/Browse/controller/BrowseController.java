@@ -55,13 +55,23 @@ public class BrowseController {
 
     }
 
-    @GetMapping("/sectors/{userId}")
-    ResponseEntity<responseJSON> browseOrganisationsRecommended(@PathVariable("userId")  @NonNull Long userId)
+    @GetMapping("/sectors/recommendations/{userId}")
+    ResponseEntity<responseJSON> browseOrganisationsRecommended(@PathVariable("userId") String userId)
     {
         response.setObject(null);
         try
         {
-            List<Organisations> res = service.getRecommendedOrganisations(userId);
+            for(int i = 0; i < userId.length(); i++)
+            {
+                if(!Character.isDigit(userId.charAt(i)))
+                {
+                    if(!userId.equalsIgnoreCase("default"))
+                        return new ResponseEntity<>(new responseJSON("bad_org_br_401","this id is not authorized", null),HttpStatus.UNAUTHORIZED);
+                    else userId = "-0342";
+                }
+            }
+
+            List<Organisations> res = service.getRecommendedOrganisations(Long.valueOf(userId));
 
             if(res != null)
             {

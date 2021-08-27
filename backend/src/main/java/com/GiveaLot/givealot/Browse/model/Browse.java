@@ -3,9 +3,7 @@ package com.GiveaLot.givealot.Browse.model;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Builder
 @AllArgsConstructor
@@ -14,21 +12,31 @@ import javax.persistence.Table;
 public class Browse
 {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "rec_id", nullable = false, unique = true)
+    public Long rec_id;
+
     private Long userId;
     private Integer interactions;
     private String  sector;
 
     public Browse(){
-        userId = null;
+       userId = null;
        interactions = null;
        sector = null;
+       rec_id = null;
     }
 
-    public Long getOrgId() {
+    public Long getRec_id() {
+        return rec_id;
+    }
+
+
+    public Long getUserId() {
         return userId;
     }
 
-    public void setOrgId(Long orgId) {
+    public void setUserId(Long orgId) {
         this.userId = orgId;
     }
 

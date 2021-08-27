@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 public interface OrganisationService {
-    selectOrganisationResponse selectOrganisation(Long orgId) throws Exception;
+    selectOrganisationResponse selectOrganisation(Long orgId, Long userId) throws Exception;
     selectOrganisationInfoResponse selectOrganisationInfo(Long orgId) throws Exception;
     organisationPointsResponse selectOrganisationPoints(Long orgId) throws Exception;
     generalOrganisationResponse addOrganisation(Organisations organisation) throws Exception;

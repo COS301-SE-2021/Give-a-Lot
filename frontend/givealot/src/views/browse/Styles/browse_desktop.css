@@ -9,7 +9,7 @@
     transform: translate(-50%, 0);
   }
   #browseNavSection {
-    background-color: #747397;
+    background-color: #7c6d81;
     display: flex;
     position: relative;
     flex-direction: row;
@@ -43,12 +43,12 @@
     cursor: pointer;
     width: 40px;
     margin-left: 10px;
-    color: #747397;
+    color: #7c6d81;
   }
 
   #browse_search_input {
     border-radius: 13px;
-    border: 2px solid #747397;
+    border: 2px solid #7c6d81;
     height: 35px;
     width: 200px;
     outline: none;
@@ -85,7 +85,7 @@
 
   /* Handle */
   #browse_organisations::-webkit-scrollbar-thumb {
-    background: #747397;
+    background: #7c6d814b;
   }
 
   /* Handle on hover */
@@ -94,7 +94,7 @@
   }
 
   #browse_filters_container {
-    border: 1px solid #747397;
+    border: 1px solid #7c6d81;
     display: flex;
     flex-direction: column;
     padding: 0px 0 10px 10px;
@@ -106,7 +106,7 @@
 
   .browse_filter_sections > p {
     font-weight: bold;
-    color: #747397;
+    color: #7c6d81;
   }
 
   .browse_filter_sections > label {
@@ -142,7 +142,7 @@
 
   /* Handle */
   #default_organisations::-webkit-scrollbar-thumb {
-    background: #747397;
+    background: #7c6d814b;
   }
 
   .browse_sector,
@@ -169,7 +169,7 @@
 
   /* Handle */
   .browse_sector_organisations_container::-webkit-scrollbar-thumb {
-    background: #747397;
+    background: #7c6d814b;
   }
 
   /* Handle on hover */
@@ -200,9 +200,13 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    overflow-x: scroll;
+    overflow: hidden;
     max-height: 350px;
     padding: 5px;
+  }
+
+  .recommended_organisations_container:hover {
+    overflow-x: scroll;
   }
 
   /* width */
@@ -218,7 +222,7 @@
 
   /* Handle */
   .recommended_organisations_container::-webkit-scrollbar-thumb {
-    background: #747397;
+    background: #7c6d814b;
   }
 
   /* Handle on hover */
@@ -229,7 +233,7 @@
   .browse_sector_name {
     font-size: 10px;
     margin-bottom: 10px;
-    background-color: #747397b6;
+    background-color: #7c6d81b6;
     display: inline-block;
     color: white;
     padding: 3px 10px;
@@ -245,10 +249,10 @@
   }
 
   .sector_organisation > img {
-    width: 100px;
+    width: 80px;
     height: 80px;
     border-radius: 12px;
-    border: 1px solid #747397;
+
     cursor: pointer;
   }
 
@@ -275,7 +279,7 @@
   }
 
   .sector_organisation_level {
-    color: #747397;
+    color: #7c6d81;
     font-weight: bold;
   }
 

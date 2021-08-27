@@ -22,6 +22,9 @@ export class Reports extends Component {
         }else {
             return (
                 <div className="report">
+                    <div className="reportHeader">
+                        Reports list
+                    </div>
                     <div className="accordion">
                         <Accordions
                             id="Report #1"

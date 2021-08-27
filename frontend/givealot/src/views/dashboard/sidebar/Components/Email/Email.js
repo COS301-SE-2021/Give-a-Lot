@@ -17,6 +17,9 @@ constructor(props) {
         file:"",
     };
 
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
+
 }
 
     onFormSubmit(e) {
@@ -36,11 +39,17 @@ constructor(props) {
     }
 
     onToast = () => {
-        toast.success('upload success',{
+        toast.success('Email sent',{
             position: toast.POSITION.TOP_RIGHT
 
         });
     }
+
+    handleInputChange = input => e => {
+
+        this.setState({ [input]: e.target.value });
+
+    };
 
 
 

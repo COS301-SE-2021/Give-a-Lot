@@ -1,3 +1,51 @@
+GET http://localhost:8080/v1/browse/sectors/recommendations/12
+
+<> 2021-08-27T071925.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/12
+
+<> 2021-08-27T071350.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/8
+
+<> 2021-08-27T070137.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/default
+
+<> 2021-08-27T070117.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/867
+
+<> 2021-08-27T070100.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/867
+
+<> 2021-08-27T064710.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/80
+
+<> 2021-08-27T064658.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/8
+
+<> 2021-08-27T064634.200.json
+
+###
+
 GET http://localhost:8080/v1/browse/sectors/recommendations/8
 
 <> 2021-08-27T062715.200.json
@@ -247,102 +295,6 @@ GET http://localhost:8080/v1/browse/sectors/recommendations/default
 GET http://localhost:8080/v1/browse/sectors/recommendations/default
 
 <> 2021-08-27T041949.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/get/sectors
-
-<> 2021-08-27T041941.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/get/sectors
-
-<> 2021-08-27T040443.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/default
-
-<> 2021-08-27T040436.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/default
-
-<> 2021-08-27T040036.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-"orgName" : "QuadPara Association of South Africa (QASA)",
-"slogan" : "we empower the young minds ",
-"orgDescription" : "The QuadPara Association of South Africa (QASA) is a non-profit organisation (NPO 000-881) of Quadriplegics and Paraplegics in South Africa. QASA’s mission is to be an effective “co-ordinating, policy-making and supporting organisation striving to prevent spinal cord injury and to improve the lives of quadriplegics and paraplegics by securing resources to advocate, educate, capacitate, support and mobilise",
-"orgSector" : "disability",
-"orgEmail" : "QASA@givealot.com",
-"contactPerson" : "Winnie Mashaba",
-"contactNumber" : "0637493443",
-"password" : "Password@123"
-}
-
-<> 2021-08-27T034137.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "National Council of & for Persons with Disabilities",
-  "slogan" : "we empower the young minds ",
-  "orgDescription" : "The National Council of and for Persons with Disabilities does advocacy work and services leading to an equitable and inclusive society. We are affiliated to the South African Disability Alliance, as well as Rehabilitation International. Our programmes cover the whole of South Africa.",
-  "orgSector" : "disability",
-  "orgEmail" : "CouncilDisabilities@givealot.com",
-  "contactPerson" : "Winnie Mashaba",
-  "contactNumber" : "0637493443",
-  "password" : "Password@123"
-}
-
-<> 2021-08-27T033949.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "PLAN International",
-  "slogan" : "we empower the young minds ",
-  "orgDescription" : "PLAN International is an organization that works in 76 countries to advance children’s rights. Their goals are to empower children to make changes, to drive change in practice and policy at various levels, to prepare children and communities to respond to crises and adversity, and to support safe and successful growth of children into adulthood.",
-  "orgSector" : "children and youth affairs",
-  "orgEmail" : "InternationalPlan@givealot.com",
-  "contactPerson" : "Meter Kran",
-  "contactNumber" : "0525372122",
-  "password" : "Password@123"
-}
-
-<> 2021-08-27T033449.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "Child Rights International Network (CRIN)",
-  "slogan" : "we empower the young minds ",
-  "orgDescription" : "CRIN is a think tank focusing on children’s rights through research, artwork, and advocacy. Their goals are to have children recognized as individuals with human rights, to build a collective to protect and defend children’s rights, and to seek justice for rights violations.",
-  "orgSector" : "children and youth affairs",
-  "orgEmail" : "ECPAT@givealot.com",
-  "contactPerson" : "Jacob Zuma",
-  "contactNumber" : "0728482334",
-  "password" : "Password@123"
-}
-
-<> 2021-08-27T033306.200.json
 
 ###
 

@@ -6,9 +6,9 @@
     display: flex;
     flex-direction: column;
 }
-.featuredTop{
-    display: flex;
-}
+/*.featuredTop{*/
+/*    display: flex;*/
+/*}*/
 .chartInfo{
     margin: 20px;
     padding: 20px;
@@ -37,4 +37,18 @@
     background-color: white;
     border: 1px solid gray;
 
+}
+.featuredCards{
+    padding: 0.4em;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.cardElement{
+    width: 15.625em;
+}
+.numberIcon{
+    display: flex;
+    align-items: center;
+    /*justify-content: space-between;*/
 }

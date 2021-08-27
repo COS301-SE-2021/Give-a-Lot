@@ -8,52 +8,58 @@ export class Email extends Component {
             <div className="email">
                <div className="email-container">
 
-                   <div className="container">
+                   <div className="_container">
                        <form >
                            <div className="row">
                                <div className="col-25">
-                                   <label >First Name</label>
+                                   <label >User Email</label>
                                </div>
                                <div className="col-75">
                                    <input
                                        type="text"
-                                       id="fname"
-                                       name="firstname"
-                                       placeholder="Your name.."
+                                       id="email"
+                                       name="email"
+                                       placeholder="User email.."
                                    />
                                </div>
                            </div>
-                           <div className="row">
-                               <div className="col-25">
-                                   <label >Last Name</label>
-                               </div>
-                               <div className="col-75">
-                                   <input
-
-                                       type="text"
-                                       id="lname"
-                                       name="lastname"
-                                       placeholder="Your last name.."
-                                   />
-                               </div>
-                           </div>
-
                            <div className="row">
                                <div className="col-25">
                                    <label >Subject</label>
                                </div>
                                <div className="col-75">
-                                   <textarea
+                                   <input
+
+                                       type="text"
                                        id="subject"
                                        name="subject"
+                                       placeholder="Your subject.."
+                                   />
+                               </div>
+                           </div>
+
+                           <div className="row">
+                               <div className="col-25">
+                                   <label >Message</label>
+                               </div>
+                               <div className="col-75">
+                                   <textarea
+                                       id="message"
+                                       name="message"
                                        placeholder="Write something.."
                                        style={{height:"200px"}}/>
 
                                </div>
                            </div>
-                           <div className="row">
+                           <div className="bottom_">
+                               <div className="row">
+                                   <input type="file" />
+                               </div>
+                               <div className="row">
                                <input type="submit" value="Submit"/>
                            </div>
+                           </div>
+
                        </form>
                    </div>
 

@@ -24,6 +24,8 @@ public interface UserRepository extends JpaRepository<User,Long> {
     @Query("SELECT s FROM User s WHERE s.id = ?1 AND s.isAdmin = True")
     User isAdmin(long user_id);
 
+
+
     ///////////////////////////////////////////////////////// UPDATE //////////////////////////////////////////////////////////
 
     @Modifying

@@ -11,14 +11,14 @@ import java.util.List;
 
 @Service
 public interface OrganisationService {
-    selectOrganisationResponse selectOrganisation(Long orgId) throws Exception;
+    selectOrganisationResponse selectOrganisation(Long orgId, Long userId) throws Exception;
     selectOrganisationInfoResponse selectOrganisationInfo(Long orgId) throws Exception;
     organisationPointsResponse selectOrganisationPoints(Long orgId) throws Exception;
     generalOrganisationResponse addOrganisation(Organisations organisation) throws Exception;
     generalOrganisationResponse reactivateOrganisation(Long orgId) throws Exception;
     generalOrganisationResponse investigateOrganisation(Long orgId) throws Exception;
     generalOrganisationResponse suspendOrganisation(Long orgId) throws Exception;
-    public getOrganisationsResponse getOrganisations(GetOrganisationsRequest request) throws Exception;
+    getOrganisationsResponse getOrganisations(GetOrganisationsRequest request) throws Exception;
     //Additional classes
     generalOrganisationResponse addOrgWebsite(AddOrgWebsiteRequest request) throws Exception;
     generalOrganisationResponse removeOrgWebsite(Long orgId) throws Exception;

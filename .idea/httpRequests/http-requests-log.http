@@ -1,186 +1,276 @@
+GET http://localhost:8080/v1/browse/sectors/recommendations/8
+
+<> 2021-08-27T062715.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/8
+
+<> 2021-08-27T060246.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/6/8
+
+<> 2021-08-27T060241.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/4
+
+<> 2021-08-27T060205.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/8
+
+<> 2021-08-27T060140.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/14/8
+
+<> 2021-08-27T060059.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/8
+
+<> 2021-08-27T060047.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/14/4
+
+<> 2021-08-27T060019.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/8
+
+<> 2021-08-27T055958.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/14/4
+
+<> 2021-08-27T055943.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/8
+
+<> 2021-08-27T055905.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/8
+
+<> 2021-08-27T054831.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/default
+
+<> 2021-08-27T054752.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/default
+
+<> 2021-08-27T054733.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/1
+
+<> 2021-08-27T054712.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/1
+
+<> 2021-08-27T054657.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/14/4
+
+<> 2021-08-27T054645.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/1
+
+<> 2021-08-27T054538.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/6/4
+
+<> 2021-08-27T054519.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/1
+
+<> 2021-08-27T054429.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/12/4
+
+<> 2021-08-27T054414.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/12/4
+
+<> 2021-08-27T054404.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/12/4
+
+<> 2021-08-27T054400.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/12/4
+
+<> 2021-08-27T054341.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/12/4
+
+<> 2021-08-27T054331.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/12/1
+
+<> 2021-08-27T054255.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/12/1
+
+<> 2021-08-27T053642.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/1
+
+<> 2021-08-27T053449.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/11/1
+
+<> 2021-08-27T053435.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/11/1
+
+<> 2021-08-27T053424.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/1
+
+<> 2021-08-27T053313.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/6/1
+
+<> 2021-08-27T053200.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/6/1
+
+<> 2021-08-27T053139.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/6/1
+
+<> 2021-08-27T053053.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/898/1
+
+<> 2021-08-27T053021.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/default
+
+<> 2021-08-27T044147.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/default
+
+<> 2021-08-27T044010.200.json
+
+###
+
+GET http://localhost:8080/v1/browse/sectors/recommendations/default
+
+<> 2021-08-27T043640.200.json
+
+###
+
 GET http://localhost:8080/v1/organisation/get/sectors
 
-<> 2021-08-26T123050.200.json
+<> 2021-08-27T043630.200.json
 
 ###
 
-POST http://localhost:8080/v1/organisation/add/sector
-Content-Type: application/json
+GET http://localhost:8080/v1/browse/sectors/recommendations/default
 
-{
-  "sector" : "other",
-  "adminId" : "some Id not checked for now"
-}
-
-<> 2021-08-26T123014.200.json
+<> 2021-08-27T043329.200.json
 
 ###
 
-POST http://localhost:8080/v1/organisation/add/sector
-Content-Type: application/json
+GET http://localhost:8080/v1/browse/sectors/recommendations/default
 
-{
-  "sector" : "civic issues",
-  "adminId" : "some Id not checked for now"
-}
-
-<> 2021-08-26T123007.200.json
+<> 2021-08-27T042127.200.json
 
 ###
 
-POST http://localhost:8080/v1/organisation/add/sector
-Content-Type: application/json
+GET http://localhost:8080/v1/browse/sectors/recommendations/default
 
-{
-  "sector" : "Sports and fitness",
-  "adminId" : "some Id not checked for now"
-}
-
-<> 2021-08-26T122954.200.json
+<> 2021-08-27T041949.200.json
 
 ###
 
-POST http://localhost:8080/v1/organisation/add/sector
-Content-Type: application/json
+GET http://localhost:8080/v1/organisation/get/sectors
 
-{
-  "sector" : "Human rights",
-  "adminId" : "some Id not checked for now"
-}
-
-<> 2021-08-26T122935.200.json
+<> 2021-08-27T041941.200.json
 
 ###
 
-POST http://localhost:8080/v1/organisation/add/sector
-Content-Type: application/json
+GET http://localhost:8080/v1/organisation/get/sectors
 
-{
-  "sector" : "health",
-  "adminId" : "some Id not checked for now"
-}
-
-<> 2021-08-26T122924.200.json
+<> 2021-08-27T040443.200.json
 
 ###
 
-POST http://localhost:8080/v1/organisation/add/sector
-Content-Type: application/json
+GET http://localhost:8080/v1/browse/sectors/recommendations/default
 
-{
-  "sector" : "disability",
-  "adminId" : "some Id not checked for now"
-}
-
-<> 2021-08-26T122913.200.json
+<> 2021-08-27T040436.200.json
 
 ###
 
-POST http://localhost:8080/v1/organisation/add/sector
-Content-Type: application/json
+GET http://localhost:8080/v1/browse/sectors/recommendations/default
 
-{
-  "sector" : "entertainment",
-  "adminId" : "some Id not checked for now"
-}
-
-<> 2021-08-26T122847.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/sector
-Content-Type: application/json
-
-{
-  "sector" : "entertainment",
-  "adminId" : "some Id not checked for now"
-}
-
-<> 2021-08-26T122743.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/sector
-Content-Type: application/json
-
-{
-  "sector" : "entertainment",
-  "adminId" : "some Id not checked for now"
-}
-
-<> 2021-08-26T122740.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/sector
-Content-Type: application/json
-
-{
-  "sector" : "faith and religion",
-  "adminId" : "some Id not checked for now"
-}
-
-<> 2021-08-26T122727.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/sector
-Content-Type: application/json
-
-{
-  "sector" : "old age",
-  "adminId" : "some Id not checked for now"
-}
-
-<> 2021-08-26T122717.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/sector
-Content-Type: application/json
-
-{
-  "sector" : "environment",
-  "adminId" : "some Id not checked for now"
-}
-
-<> 2021-08-26T122710.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/sector
-Content-Type: application/json
-
-{
-  "sector" : "education",
-  "adminId" : "some Id not checked for now"
-}
-
-<> 2021-08-26T122658.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/sector
-Content-Type: application/json
-
-{
-  "sector" : "children and youth affairs",
-  "adminId" : "some Id not checked for now"
-}
-
-<> 2021-08-26T122641.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/sector
-Content-Type: application/json
-
-{
-  "sector" : "children and youth affairs",
-  "adminId" : "some Id not checked for now"
-}
-
-<> 2021-08-26T122427.200.json
+<> 2021-08-27T040036.200.json
 
 ###
 
@@ -188,17 +278,35 @@ POST http://localhost:8080/v1/organisation/add/org
 Content-Type: application/json
 
 {
-  "orgName" : "Givealot and deep sink partners",
-  "slogan" : "youth",
-  "orgDescription" : "Give A Lot and deep sink partners are working with a talented group of computer science student to develop an application about charity. this application works well",
-  "orgSector" : "developers",
-  "orgEmail" : "deep@sink.com",
-  "contactPerson" : "Madi Madison",
-  "contactNumber" : "0112349908",
+"orgName" : "QuadPara Association of South Africa (QASA)",
+"slogan" : "we empower the young minds ",
+"orgDescription" : "The QuadPara Association of South Africa (QASA) is a non-profit organisation (NPO 000-881) of Quadriplegics and Paraplegics in South Africa. QASA’s mission is to be an effective “co-ordinating, policy-making and supporting organisation striving to prevent spinal cord injury and to improve the lives of quadriplegics and paraplegics by securing resources to advocate, educate, capacitate, support and mobilise",
+"orgSector" : "disability",
+"orgEmail" : "QASA@givealot.com",
+"contactPerson" : "Winnie Mashaba",
+"contactNumber" : "0637493443",
+"password" : "Password@123"
+}
+
+<> 2021-08-27T034137.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "National Council of & for Persons with Disabilities",
+  "slogan" : "we empower the young minds ",
+  "orgDescription" : "The National Council of and for Persons with Disabilities does advocacy work and services leading to an equitable and inclusive society. We are affiliated to the South African Disability Alliance, as well as Rehabilitation International. Our programmes cover the whole of South Africa.",
+  "orgSector" : "disability",
+  "orgEmail" : "CouncilDisabilities@givealot.com",
+  "contactPerson" : "Winnie Mashaba",
+  "contactNumber" : "0637493443",
   "password" : "Password@123"
 }
 
-<> 2021-08-26T090108.200.json
+<> 2021-08-27T033949.200.json
 
 ###
 
@@ -206,17 +314,17 @@ POST http://localhost:8080/v1/organisation/add/org
 Content-Type: application/json
 
 {
-  "orgName" : "Givealot and deep sink partners",
-  "slogan" : "youth",
-  "orgDescription" : "Give A Lot and deep sink partners are working with a talented group of computer science student to develop an application about charity. this application works well",
-  "orgSector" : "developers",
-  "orgEmail" : "deep@sink.com",
-  "contactPerson" : "Madi Madison",
-  "contactNumber" : "0112349908",
+  "orgName" : "PLAN International",
+  "slogan" : "we empower the young minds ",
+  "orgDescription" : "PLAN International is an organization that works in 76 countries to advance children’s rights. Their goals are to empower children to make changes, to drive change in practice and policy at various levels, to prepare children and communities to respond to crises and adversity, and to support safe and successful growth of children into adulthood.",
+  "orgSector" : "children and youth affairs",
+  "orgEmail" : "InternationalPlan@givealot.com",
+  "contactPerson" : "Meter Kran",
+  "contactNumber" : "0525372122",
   "password" : "Password@123"
 }
 
-<> 2021-08-26T085745.200.json
+<> 2021-08-27T033449.200.json
 
 ###
 
@@ -224,298 +332,17 @@ POST http://localhost:8080/v1/organisation/add/org
 Content-Type: application/json
 
 {
-  "orgName" : "Givealot and deep sink partners",
-  "slogan" : "youth",
-  "orgDescription" : "Give A Lot and deep sink partners are working with a talented group of computer science student to develop an application about charity. this application works well",
-  "orgSector" : "developers",
-  "orgEmail" : "givealot@gmail.com",
-  "contactPerson" : "Madi Madison",
-  "contactNumber" : "0112349908",
+  "orgName" : "Child Rights International Network (CRIN)",
+  "slogan" : "we empower the young minds ",
+  "orgDescription" : "CRIN is a think tank focusing on children’s rights through research, artwork, and advocacy. Their goals are to have children recognized as individuals with human rights, to build a collective to protect and defend children’s rights, and to seek justice for rights violations.",
+  "orgSector" : "children and youth affairs",
+  "orgEmail" : "ECPAT@givealot.com",
+  "contactPerson" : "Jacob Zuma",
+  "contactNumber" : "0728482334",
   "password" : "Password@123"
 }
 
-<> 2021-08-26T085709.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors
-
-<> 2021-08-26T085300.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors
-
-<> 2021-08-25T234019.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors
-
-<> 2021-08-25T232548.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors
-
-<> 2021-08-25T232421.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "The people we trust",
-  "slogan" : "youth",
-  "orgDescription" : "Please excuse the description, this is for demonstration purposes",
-  "orgSector" : "developers",
-  "orgEmail" : "givealot@gmail.com",
-  "contactPerson" : "Nqobani Nhlengethwa",
-  "contactNumber" : "0112349908",
-  "password" : "Grandtheft@0934"
-}
-
-<> 2021-08-25T232054.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "The people we trust",
-  "slogan" : "youth",
-  "orgDescription" : "Please excuse the description, this is for demonstration purposes",
-  "orgSector" : "developers",
-  "orgEmail" : "givealot@gmail.com",
-  "contactPerson" : "Nqobani Nhlengethwa",
-  "contactNumber" : "0112349908",
-  "password" : "Grandtheft@0934"
-}
-
-<> 2021-08-25T231900.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "The people we trust",
-  "slogan" : "youth",
-  "orgDescription" : "Please excuse the description, this is for demonstration purposes",
-  "orgSector" : "developers",
-  "orgEmail" : "givealot@gmail.com",
-  "contactPerson" : "Nqobani Nhlengethwa",
-  "contactNumber" : "0112349908",
-  "password" : "Grandtheft@0934"
-}
-
-<> 2021-08-25T231301.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "The people we trust",
-  "slogan" : "youth",
-  "orgDescription" : "Please excuse the description, this is for demonstration purposes",
-  "orgSector" : "developers",
-  "orgEmail" : "givealot@gmail.com",
-  "contactPerson" : "Nqobani Nhlengethwa",
-  "contactNumber" : "0112349908",
-  "password" : "Grandtheft@0934"
-}
-
-<> 2021-08-25T230436.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "The people we trust",
-  "slogan" : "youth",
-  "orgDescription" : "Please excuse the description, this is for demonstration purposes",
-  "orgSector" : "developers",
-  "orgEmail" : "givealot@gmail.com",
-  "contactPerson" : "Nqobani Nhlengethwa",
-  "contactNumber" : "0112349908",
-  "password" : "Grandtheft@0934"
-}
-
-<> 2021-08-25T230330.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors
-
-<> 2021-08-25T222448.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/get/organisations/temporal
-
-<> 2021-08-19T021130.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/get/organisations/temporal
-
-<> 2021-08-19T021043.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/get/organisations/temporal
-
-<> 2021-08-19T015551.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/get/organisations/temporal
-
-<> 2021-08-19T015137.200.json
-
-###
-
-GET http://localhost:8080/get/organisations/temporal
-
-<> 2021-08-19T015007.404.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors
-
-<> 2021-08-19T010140.200.json
-
-###
-
-POST http://localhost:8080/v1/login/user/determine
-Content-Type: application/json
-
-{
-  "username" : "some@email.com",
-  "password" : "pass1234",
-  "role" : "default"
-}
-
-<> 2021-08-18T225758.200.json
-
-###
-
-POST http://localhost:8080/v1/login/user/determine
-Content-Type: application/json
-
-{
-  "username" : "some@email.com",
-  "password" : "pass1234",
-  "role" : "default"
-}
-
-<> 2021-08-18T225313.200.json
-
-###
-
-POST http://localhost:8080/v1/login/user/determine
-Content-Type: application/json
-
-{
-  "username" : "some@email.com",
-  "password" : "pass1234",
-  "role" : "default"
-}
-
-<> 2021-08-18T224555.200.json
-
-###
-
-POST http://localhost:8080/v1/login/user/determine
-Content-Type: application/json
-
-{
-  "username" : "some@email.com",
-  "password" : "pass1234",
-  "role" : "default"
-}
-
-<> 2021-08-18T222658.200.json
-
-###
-
-POST http://localhost:8080/v1/login/user/determine
-Content-Type: application/json
-
-{
-  "username" : "admin@email.com",
-  "password" : "pass1234",
-  "role" : "default"
-}
-
-<> 2021-08-18T222630.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/tax_raf/false
-
-<> 2021-08-18T202727.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/tax_raf/true
-
-<> 2021-08-18T202654.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/ngo_number/true
-
-<> 2021-08-18T202647.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/ngo_date/true
-
-<> 2021-08-18T202642.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/twitter/true
-
-<> 2021-08-18T202634.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/instagram/true
-
-<> 2021-08-18T202625.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/facebook/true
-
-<> 2021-08-18T202616.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/establishment_date/true
-
-<> 2021-08-18T202605.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/committee/true
-
-<> 2021-08-18T202553.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/auditor/true
-
-<> 2021-08-18T202544.200.json
+<> 2021-08-27T033306.200.json
 
 ###
 

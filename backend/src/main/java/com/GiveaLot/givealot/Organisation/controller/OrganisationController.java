@@ -34,13 +34,13 @@ public class OrganisationController
     }
 
     /* tested - works */
-     @GetMapping("/sel/organisation/{orgId}") /*tested all good*/
-    public ResponseEntity<selectOrganisationResponse> selectOrganisation(@PathVariable("orgId") @NonNull Long orgId)
+     @GetMapping("/sel/organisation/{orgId}/{userId}") /*tested all good*/
+    public ResponseEntity<selectOrganisationResponse> selectOrganisation(@PathVariable("orgId") @NonNull Long orgId,@PathVariable("userId") @NonNull Long userId)
     {
         selectOrganisationResponse response;
         try
         {
-            response = service.selectOrganisation(orgId);
+            response = service.selectOrganisation(orgId,userId);
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)

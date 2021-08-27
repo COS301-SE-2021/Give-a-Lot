@@ -1,5 +1,7 @@
 package com.GiveaLot.givealot.Organisation.service;
 
+import com.GiveaLot.givealot.Browse.model.Browse;
+import com.GiveaLot.givealot.Browse.repository.BrowseRecommenderRepository;
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
 import com.GiveaLot.givealot.Certificate.service.CertificateService;
@@ -68,6 +70,9 @@ public class OrganisationServiceImp implements OrganisationService {
     private sectorsRepository sectorsRepository;
 
     @Autowired
+    private BrowseRecommenderRepository browseRecommenderRepository;
+
+    @Autowired
     public void setOrganisationServiceImp(OrganisationRepository organisationRepository, OrganisationInfoRepository organisationInfoRepository, organisationPointsRepository organisationPointsRepository, CertificateRepository certificateRepository, UserRepository userRepository){
         this.organisationRepository = organisationRepository;
         this.organisationInfoRepository = organisationInfoRepository;
@@ -96,7 +101,6 @@ public class OrganisationServiceImp implements OrganisationService {
             if (admin == null)
                 throw new Exception("Exception: user is not admin");
 
-
             if (!admin.getAdmin()) {
                 throw new UserNotAuthorisedException("current user is not an admin");
             }
@@ -110,14 +114,40 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override /*tested all good - converted*/
-    public selectOrganisationResponse selectOrganisation(Long orgId) throws Exception {
+    public selectOrganisationResponse selectOrganisation(Long orgId, Long userId) throws Exception {
 
-        if(orgId == null)
+        if(orgId == null || userId == null)
             throw new Exception("Exception: Id provided is null");
 
         Organisations res = organisationRepository.selectOrganisationById(orgId);
+        User user = userRepository.findUserById(userId);
+
+        if(user == null)
+            throw new Exception("Exception: invalid user id");
+
         if (res != null)
-            return new selectOrganisationResponse("sel_org_200_ok","success",res);
+        {
+            /*
+            * interactions are used to learn and make decisions about
+            * which organisations to recommend in the future for this user
+            */
+
+            Browse browse = browseRecommenderRepository.getRowByUserIdAndSector(userId,res.getOrgSector());
+            if(browse == null)
+            {
+                browse = new Browse();
+                browse.setUserId(userId);
+                browse.setSector(res.getOrgSector());
+                browse.setInteractions(1);
+                browseRecommenderRepository.save(browse);
+            }
+            else
+            {
+                browseRecommenderRepository.updateInteractions(userId,browse.getInteractions() + 1);
+            }
+
+            return new selectOrganisationResponse("sel_org_200_ok", "success", res);
+        }
         else throw new Exception("Exception: id does not exist, check spelling");
     }
 
@@ -190,12 +220,39 @@ public class OrganisationServiceImp implements OrganisationService {
         else if (organisation.getSlogan().isEmpty() || organisation.getSlogan().length()>255)
             throw new Exception("Exception: orgSlogan does not satisfy the database constraints");
 
-        // salts and hashes of passwords
+        List<String> get_current_sectors = sectorsRepository.getSectors();
+
+        /* this block updates the sectors table - start */
+        if(get_current_sectors == null)
+        {
+            throw new Exception("technical error: organisation cannot be classified");
+        }
+        else
+        {
+            boolean found = false;
+            for(String s : get_current_sectors)
+            {
+                if(s.equalsIgnoreCase(organisation.getOrgSector()))
+                {
+                   Sectors temp = sectorsRepository.getSector(s);
+                   temp.setOrganisations(temp.getOrganisations() + 1);
+                   sectorsRepository.save(temp);
+                    found = true;
+                }
+            }
+            if(!found)
+                throw new Exception("Sector not identified: select from the preset list or 'other' if yours is not showing");
+        }
+        /* this block updates the sectors table - end */
+
+        /* this block deals with password hashing - start */
+
         String salt = getMd5(organisation.getOrgEmail());
         String salted = getMd5(organisation.getPassword() + salt);
         organisation.setPassword(salted);
 
-        // save registration date
+        /* this block deals with password hashing - end */
+
         Date dateCurrent = new Date();
         Date dateEx = new Date();
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -203,6 +260,7 @@ public class OrganisationServiceImp implements OrganisationService {
 
         organisation.setDateAdded(dateCreated);
         organisationRepository.save(organisation);
+        /* save the organisation in the database */
 
         long id = organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()).getOrgId();
         String directory = "/home/ubuntu/Organisations/" + id;
@@ -212,13 +270,15 @@ public class OrganisationServiceImp implements OrganisationService {
         organisationPointsRepository.save(new OrganisationPoints((long) id));
 
         //organisation is saved at this point
-        int year = dateCurrent.getYear();
-        dateEx.setYear(year+1);
-        String dateExpiry = format.format(dateEx);
+        /* ideally we should revert the above changes on the
+         * database if the following systems fail*/
 
         /** Create tables and directory **/
 
         /*Certificate certificate;
+        int year = dateCurrent.getYear();
+        dateEx.setYear(year+1);
+        String dateExpiry = format.format(dateEx);
         try
         {
             ServerAccess access = new ServerAccess();

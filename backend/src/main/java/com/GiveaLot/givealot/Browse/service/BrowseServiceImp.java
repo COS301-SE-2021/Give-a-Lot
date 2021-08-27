@@ -6,6 +6,7 @@ import com.GiveaLot.givealot.Browse.response.browseOrganisationsBySectorResponse
 import com.GiveaLot.givealot.Browse.response.browseSectorOrganisation;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
+import com.GiveaLot.givealot.Organisation.repository.sectorsRepository;
 import com.GiveaLot.givealot.User.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,137 +31,101 @@ public class BrowseServiceImp implements BrowseService{
     @Autowired
     OrganisationRepository organisationRepository;
 
+    @Autowired
+    com.GiveaLot.givealot.Organisation.repository.sectorsRepository sectorsRepository;
+
     @Override
     public List<Organisations> getRecommendedOrganisations(Long userId) throws Exception {
         if(userId == null)
             throw new Exception("Exception: id is null, cannot continue");
-        else if(userRepository.findUserById(userId) == null)
+        else
         {
-            /* if the user is not logged in (default user id)
+            /* if the user is not logged in (default user id) or has not built any interactions yet
             *  pull random organisations
             *  based on what most users interact with
             */
+            List<String> orderedSectors = null;
 
-            List<String> orderedSectors = browseRecommenderRepository.getInteractionsbySector();
+            if(userRepository.findUserById(userId) == null || browseRecommenderRepository.getInteractionsForUser(userId).size() == 0) {
+                orderedSectors = browseRecommenderRepository.getInteractionsbySectorGeneral();
+            }
+            else if(userRepository.findUserById(userId) != null && browseRecommenderRepository.getInteractionsForUser(userId).size() == 0) {
+                orderedSectors = browseRecommenderRepository.getInteractionsbySectorGeneral();
+            }
+            else if(userRepository.findUserById(userId) != null) {
+                orderedSectors = browseRecommenderRepository.getInteractionsbySectorUser(userId);
+            }
+            else throw new Exception("Exception: abnormal - consult the backend team");
 
-            /*
-            * get top n sectors
-            */
             final int n = 3;
-            List<String> sectors = new ArrayList<>();
-            for(int idx = 0; idx < n && idx < orderedSectors.size(); idx++)
+            if(orderedSectors.size() > 0)
             {
-                sectors.add(idx,orderedSectors.get(idx));
+                /*
+                 * get top n sectors
+                 */
+                List<String> sectors = new ArrayList<>();
+                for (int idx = 0; idx < n && idx < orderedSectors.size(); idx++) {
+                    sectors.add(idx, orderedSectors.get(idx));
+                }
+
+                /*
+                 *  now pick at-most n organisations from each sector
+                 */
+
+                // config
+                final int upper_bound = 3;
+                List<Organisations> response = new ArrayList<>();
+                for (String sector : sectors)
+                {
+                    List<Organisations> organisations_by_sector_tmp = browseRepository.getOrganisationsBySector(sector);
+                    if (organisations_by_sector_tmp == null) /* move on to the next sector*/
+                        continue;
+
+                    for (int index = 0; index < organisations_by_sector_tmp.size() && index < upper_bound; index++)
+                        response.add(organisations_by_sector_tmp.get(index));
+                }
+
+                Collections.shuffle(response);
+                return response;
             }
-
-            /*
-             *  now pick at-most n organisations from each sector
-             */
-
-            // config
-            final int upper_bound = 5;
-            List<Organisations> response = new ArrayList<>();
-            for(String sector : sectors)
+            else
             {
-                List<Organisations> organisations_by_sector_tmp = browseRepository.getOrganisationsBySector(sector);
+               /*
+               *  get top n
+               */
 
-                if(organisations_by_sector_tmp == null) /* move on to the next sector*/
-                    continue;
+                orderedSectors = sectorsRepository.getSectorsDescendingByOrganisations();
 
-                for(int index = 0; index < organisations_by_sector_tmp.size() && index < upper_bound; index++)
-                    response.add(organisations_by_sector_tmp.get(index));
-            }
+               List<String> sectors = new LinkedList<>();
+                System.out.println("here now " + orderedSectors.size());
 
-            Collections.shuffle(response);
-            return response;
-        }
-        else
-        {
-            /*
-            *  get recommended organisations tailored for the current user
-            * */
-            List<String> tmp_sectors = browseRepository.getAllSectors();
-            if(tmp_sectors == null) /* possibly no organisations registered yet*/
-            {
-                /*no guesses, check
+                for (int idx = 0; idx < n && idx < orderedSectors.size(); idx++) {
+                    System.out.println(orderedSectors.get(idx));
+                    sectors.add(idx, orderedSectors.get(idx));
+                }
+
+                /*
+                *  now pick at-most n organisations from each sector
                 */
-                if(organisationRepository.getAllOrganisations() == null)
-                    return null;
-                else /* fatal error */
-                {
-                    throw new Exception("Exception: error fetching sectors");
+
+                // config
+                final int upper_bound = 5;
+                List<Organisations> response = new ArrayList<>();
+                for (String sector : sectors) {
+                    List<Organisations> organisations_by_sector_tmp = browseRepository.getOrganisationsBySector(sector);
+                    if (organisations_by_sector_tmp == null) /* move on to the next sector*/
+                        continue;
+
+                    for (int index = 0; index < organisations_by_sector_tmp.size() && index < upper_bound; index++)
+                        response.add(organisations_by_sector_tmp.get(index));
                 }
+
+                Collections.shuffle(response);
+                return response;
+
             }
-
-            List<Integer> tmp_interactions = new LinkedList<>();
-            for(String tmp_sector : tmp_sectors)
-            {
-                Integer interactions = browseRecommenderRepository.getInteractionsbySector(userId,tmp_sector);
-                if(interactions != null)
-                {
-                    System.out.println("debug msg: interactions from " + tmp_sector + " => " + interactions);
-                    tmp_interactions.add(interactions);
-                }
-                else {
-                    /*
-                    * recovery - remove sector and continue as normal
-                    * */
-                    tmp_sectors.remove(tmp_sector);
-                }
-            }
-
-            /*
-               sector arr       ["s1","s2","s3",......"s(i)"]
-               interactions arr [n1,  n2,  n3,......"n(i)"]
-             */
-
-            /*
-                sort interactions in descending order
-                bubble sort - O(n^2) worst case but should suffice for now
-             */
-            int i, j;
-            Integer tmp_iterations = null;
-            String temp_sector = null;
-
-            for(i = 0; i < tmp_interactions.size(); i++)
-            {
-                for(j = i+1; j < tmp_interactions.size(); j++)
-                {
-                    if(tmp_interactions.get(j) > tmp_interactions.get(i))
-                    {
-                        tmp_iterations = tmp_interactions.get(i);
-                        temp_sector = tmp_sectors.get(i);
-
-                        tmp_interactions.set(i,tmp_interactions.get(j));
-                        tmp_sectors.set(i,tmp_sectors.get(j));
-
-                        tmp_interactions.set(j,tmp_iterations);
-                        tmp_sectors.set(j,temp_sector);
-                    }
-                }
-            }
-
-            /*
-            *  now pick at-most n organisations from each sector
-            */
-
-            // config
-            final int upper_bound = 5;
-            List<Organisations> response = new ArrayList<>();
-            for(String sector : tmp_sectors)
-            {
-                List<Organisations> organisations_by_sector_tmp = browseRepository.getOrganisationsBySector(sector);
-
-                if(organisations_by_sector_tmp == null) /* move on to the next sector*/
-                    continue;
-
-                for(int index = 0; index < organisations_by_sector_tmp.size() && index < upper_bound; index++)
-                    response.add(organisations_by_sector_tmp.get(index));
-            }
-
-            Collections.shuffle(response);
-            return response;
         }
+
     }
 
     @Override

@@ -1,7 +1,9 @@
 package com.GiveaLot.givealot.User.service;
 
+import com.GiveaLot.givealot.Browse.repository.BrowseRecommenderRepository;
 import com.GiveaLot.givealot.Notification.dataclass.Mail;
 import com.GiveaLot.givealot.Notification.service.SendMailServiceImpl;
+import com.GiveaLot.givealot.Organisation.repository.sectorsRepository;
 import com.GiveaLot.givealot.User.dataclass.User;
 import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
 import com.GiveaLot.givealot.User.repository.UserRepository;
@@ -27,6 +29,12 @@ public class UserServiceImp implements UserService {
 
     @Autowired
     SendMailServiceImpl sendMailService;
+
+    @Autowired
+    BrowseRecommenderRepository browseRecommenderRepository;
+
+    @Autowired
+    sectorsRepository sectorsRepository;
 
     @Override /*tested - all good*/
     public userResponseGeneral Register(RegisterUserRequest request) throws Exception{
@@ -72,7 +80,16 @@ public class UserServiceImp implements UserService {
         String dateCreated = format.format(dateCurrent);
         newUser.setActivateDate(dateCreated);
 
+
+        /*save the new user in the database*/
         userRepository.save(newUser);
+
+
+        User tmp_user = userRepository.findUserByEmail(request.getEmail());
+        List<String> sectors = sectorsRepository.getSectors();
+
+
+
         /**Sending a verification email**/
         System.out.println("Sending Email...");
 

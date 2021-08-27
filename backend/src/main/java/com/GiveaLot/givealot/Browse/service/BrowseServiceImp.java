@@ -3,6 +3,7 @@ package com.GiveaLot.givealot.Browse.service;
 import com.GiveaLot.givealot.Browse.repository.BrowseRecommenderRepository;
 import com.GiveaLot.givealot.Browse.repository.BrowseRepository;
 import com.GiveaLot.givealot.Browse.response.browseOrganisationsBySectorResponse;
+import com.GiveaLot.givealot.Browse.response.browseRecommendedResponse;
 import com.GiveaLot.givealot.Browse.response.browseSectorOrganisation;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
@@ -35,7 +36,7 @@ public class BrowseServiceImp implements BrowseService{
     com.GiveaLot.givealot.Organisation.repository.sectorsRepository sectorsRepository;
 
     @Override
-    public List<Organisations> getRecommendedOrganisations(Long userId) throws Exception {
+    public List<browseRecommendedResponse> getRecommendedOrganisations(Long userId) throws Exception {
         if(userId == null)
             throw new Exception("Exception: id is null, cannot continue");
         else
@@ -46,16 +47,24 @@ public class BrowseServiceImp implements BrowseService{
             */
             List<String> orderedSectors = null;
 
-            if(userRepository.findUserById(userId) == null || browseRecommenderRepository.getInteractionsForUser(userId).size() == 0) {
+            /* -1 is a default - db can't store negatives as user ID, this
+            *   represents a user who has not signed in */
+            if(userRepository.findUserById(userId) == null && userId == -1) {
                 orderedSectors = browseRecommenderRepository.getInteractionsbySectorGeneral();
             }
+            /*
+            * new user, has not interactions record yet, suggest for them using the default strategy
+            */
             else if(userRepository.findUserById(userId) != null && browseRecommenderRepository.getInteractionsForUser(userId).size() == 0) {
                 orderedSectors = browseRecommenderRepository.getInteractionsbySectorGeneral();
             }
-            else if(userRepository.findUserById(userId) != null) {
+            /*
+            * this user does not exist
+            * */
+            else if(userRepository.findUserById(userId) != null && browseRecommenderRepository.getInteractionsForUser(userId).size() > 0) {
                 orderedSectors = browseRecommenderRepository.getInteractionsbySectorUser(userId);
             }
-            else throw new Exception("Exception: abnormal - consult the backend team");
+            else throw new Exception("Exception: user not registered");
 
             final int n = 3;
             if(orderedSectors.size() > 0)
@@ -74,7 +83,9 @@ public class BrowseServiceImp implements BrowseService{
 
                 // config
                 final int upper_bound = 3;
-                List<Organisations> response = new ArrayList<>();
+                List<browseRecommendedResponse> response = new LinkedList<>();
+
+
                 for (String sector : sectors)
                 {
                     List<Organisations> organisations_by_sector_tmp = browseRepository.getOrganisationsBySector(sector);
@@ -82,7 +93,15 @@ public class BrowseServiceImp implements BrowseService{
                         continue;
 
                     for (int index = 0; index < organisations_by_sector_tmp.size() && index < upper_bound; index++)
-                        response.add(organisations_by_sector_tmp.get(index));
+                    {
+                        response.add(new browseRecommendedResponse(organisations_by_sector_tmp.get(index).getOrgId(),
+                                                                    organisations_by_sector_tmp.get(index).getOrgName(),
+                                                                    organisations_by_sector_tmp.get(index).getDateAdded(),
+                                                                    null,
+                                                                    null,
+                                                                    organisations_by_sector_tmp.get(index).getOrgDescription(),
+                                                                    organisations_by_sector_tmp.get(index).getOrgSector()));
+                    }
                 }
 
                 Collections.shuffle(response);
@@ -109,15 +128,24 @@ public class BrowseServiceImp implements BrowseService{
                 */
 
                 // config
-                final int upper_bound = 5;
-                List<Organisations> response = new ArrayList<>();
-                for (String sector : sectors) {
+                final int upper_bound = 3;
+                List<browseRecommendedResponse> response = new ArrayList<>();
+                for (String sector : sectors)
+                {
                     List<Organisations> organisations_by_sector_tmp = browseRepository.getOrganisationsBySector(sector);
                     if (organisations_by_sector_tmp == null) /* move on to the next sector*/
                         continue;
 
                     for (int index = 0; index < organisations_by_sector_tmp.size() && index < upper_bound; index++)
-                        response.add(organisations_by_sector_tmp.get(index));
+                    {
+                        response.add(new browseRecommendedResponse(organisations_by_sector_tmp.get(index).getOrgId(),
+                                organisations_by_sector_tmp.get(index).getOrgName(),
+                                organisations_by_sector_tmp.get(index).getDateAdded(),
+                                null,
+                                null,
+                                organisations_by_sector_tmp.get(index).getOrgDescription(),
+                                organisations_by_sector_tmp.get(index).getOrgSector()));
+                    }
                 }
 
                 Collections.shuffle(response);

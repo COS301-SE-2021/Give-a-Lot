@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="fix the recommender - modified the user class, the controllers for the organisation system all to accommodate the recommender.&#10;Add organisation function was modified on the controllers">
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/Organisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/Organisation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/OrganisationRecommended.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/OrganisationRecommended.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/home/Home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/assets/feedback-2044700_1280.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/assets/filter_list_black_24dp.svg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -485,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629745300440</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="fix the recommender - modified the user class, the controllers for the organisation system all to accommodate the recommender.&#10;Add organisation function was modified on the controllers">
+      <created>1630082785385</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1630082785385</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,6 +522,7 @@
     <MESSAGE value="organisations controller revision" />
     <MESSAGE value="Fixing organisation points" />
     <MESSAGE value="Last minute changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Last minute changes" />
+    <MESSAGE value="fix the recommender - modified the user class, the controllers for the organisation system all to accommodate the recommender.&#10;Add organisation function was modified on the controllers" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix the recommender - modified the user class, the controllers for the organisation system all to accommodate the recommender.&#10;Add organisation function was modified on the controllers" />
   </component>
 </project>

@@ -23,6 +23,8 @@ import ui_message_art from '../../assets/feedback-2044700_1280.jpg';
 import Organisation from './Components/Organisation/Organisation';
 import OrganisationRecommended from './Components/Organisation/OrganisationRecommended';
 import Sector from "./Components/BrowseBySector/Sector";
+import Navbar from "./Components/Navbar/Navbar";
+import Footer from "./Components/Footer/Footer";
 /* components import end */
 
 function Browse ()
@@ -64,9 +66,8 @@ function Browse ()
         if (event.charCode === 13) {
             searchOrganisation(event);
         }
-    };
+    }
 
-    
     /* fetch request - organisations by sections - start*/
 
     /* 
@@ -235,10 +236,7 @@ function Browse ()
     }
     return (
         <div>
-            <div id="browseNavSection">
-                <Link to={"/"}><img id="browseLogo" src={logo} alt={"logo"} /></Link>
-                <p>browse organisations</p>
-            </div>
+            <Navbar/>
 
             <div id="browse_body">
                 <div id="browse_search_container">
@@ -345,40 +343,7 @@ function Browse ()
                     </div>
                 </section>
 
-                <div className="footer-clean">
-                    <footer>
-                        <div className="container">
-                            <div className="container2">
-                                <div className="">
-                                    <h3>Links</h3>
-                                    <ul>
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">verify certificate</a></li>
-
-                                    </ul>
-                                </div>
-                                <div className="">
-                                    <h3>About</h3>
-                                    <ul>
-                                        <li><a href="#">Deepsink</a></li>
-                                        <li><a href="#">Team</a></li>
-
-                                    </ul>
-                                </div>
-                                <div className="">
-                                    <h3>contact us</h3>
-                                    <ul>
-                                        <li><a href="#">contact@givealot.org</a></li>
-                                        <li><a href="#">011 234 5678</a></li>
-                                    </ul>
-                                </div>
-                                <div className="social">
-                                    <p className="copyright">Givealot © {new Date().getFullYear()}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </footer>
-                </div>
+                <Footer/>
             </div>
         </div>
     )

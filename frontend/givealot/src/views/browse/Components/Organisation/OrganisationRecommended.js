@@ -1,8 +1,10 @@
 import react from 'react';
-
+import {useHistory} from 'react-router-dom';
 
 function trim_description(descr)
 {
+
+
     let acceptableLength = 84;
     if(descr !== undefined) {
 
@@ -21,6 +23,14 @@ function trim_description(descr)
 
 export default function OrganisationRecommended(props)
 {
+    let history = useHistory();
+
+    const openOrganisation = el =>
+    {
+        el.preventDefault();
+        history.push("/organisation/" + el.target.id);
+    }
+
     let org_image = props.imgUrl;
     if(org_image === null)
     {
@@ -31,7 +41,7 @@ export default function OrganisationRecommended(props)
 
     return(
         <div className ="sector_organisation">
-        <img src={org_image} alt={"profile-image"}/>
+        <img src={org_image} alt={"profile-image"} id={props.orgId} onClick={e => openOrganisation(e,"id")}/>
             <div className="sector_organisation_meta">
                 <p className="sector_organisation_title">{props.orgName} - <span className="recommended_organisations_organisation_sector">{props.org_sector}</span> </p>
                 <p className="sector_organisation_descr">

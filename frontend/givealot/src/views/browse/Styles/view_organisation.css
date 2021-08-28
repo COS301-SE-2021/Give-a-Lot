@@ -1,0 +1,169 @@
+
+#view_organisation_container
+{
+    margin: 50px 10px;
+    display: flex;
+    flex-direction: row;
+}
+#view_header
+{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+
+
+#view_header_meta_content>div>p
+{
+
+    text-align: center;
+
+    color: #4b4250;
+    font-family: 'Raleway',sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 72px;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+#view_header_meta_content>img
+{
+    box-shadow: 3px 4px 5px 0px rgba(0, 0, 0, 0.38);
+    border-radius: 10px;
+    width: 150px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0);
+
+    margin-bottom: 20px;
+}
+
+#view_organisations_card
+{
+    color: #4b4250;
+    text-align: center;
+    font-family: 'Raleway',sans-serif;
+    display: flex;
+    flex-direction: column;
+
+    height: fit-content;
+    position: relative;
+    width: 100%;
+}
+
+
+#view_organisations_card > h1
+{
+    text-align: center;
+    color: #4b4250;
+    font-family: 'Raleway',sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
+
+    text-transform: uppercase;
+}
+
+#view_organisation
+{
+    max-width: 50vw;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+#myBtn
+{
+    margin-top: 10px;
+    transform: translateX(-30px);
+    background: #4b4250;
+    float: right;
+}
+
+#myBtn:hover
+{
+    background: #6b5d70;
+}
+
+#view_organisation_meta_body
+{
+    margin-top: 50px;
+}
+#view_organisation_meta_body_about
+{
+    color: #4b4250;
+    font-family: 'Raleway',sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 72px;
+    margin:  0;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+#more {display: none;}
+
+#twitterBtn
+{
+    background: #aab8c2;
+
+}
+
+#view_organisation_gallery>p
+{
+    text-align: right;
+    color: #4b4250;
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+
+#view_organisation_gallery
+{
+    width: 500px;
+    position: relative;
+   left: 50%;
+    transform: translate(-50%,0);
+}
+
+#imageCover
+{
+    width: 400px;
+    object-fit: fill;
+    position: relative;
+    left: 50%;transform: translate(-50%,0);
+    margin-top: 20px;
+    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.38);
+    border-radius: 10px;
+}
+
+
+/*
+  certificate
+*/
+
+#view_organisation_right
+{
+    width: 40vw;
+    height: 100%;
+    border: 2px solid green;
+}
+
+#certificate_container
+{
+    border: 3px solid deeppink;
+}
+
+#certificate_page
+{
+    width: 400px;
+    height: 200px;
+    border: 3px solid green;
+}
+
+.image
+{
+    border: #2d9499 3px solid;
+
+}

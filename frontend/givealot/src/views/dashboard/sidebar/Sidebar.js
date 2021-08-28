@@ -69,6 +69,16 @@ function Sidebar(){
 
                                 </Link>
                             </li>
+
+                            <li className={splitLocation[1] === "profile" ? "active" : ""}>
+                                <Link to='/profile' className="link">
+                                    <li className="sidebarListItem ">
+                                        <ReportOutlinedIcon />
+                                        Profile
+                                    </li>
+
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>

@@ -57,7 +57,6 @@ function Sidebar(){
                                         <EmailOutlinedIcon />
                                         <div className="sideIcon" > Emails </div>
                                     </li>
-
                                 </Link>
                             </li>
                             <li className={splitLocation[1] === "report" ? "active" : ""}>
@@ -66,7 +65,15 @@ function Sidebar(){
                                         <ReportOutlinedIcon />
                                         <div className="sideIcon" > Reports </div>
                                     </li>
+                                </Link>
+                            </li>
 
+                            <li className={splitLocation[1] === "todos" ? "active" : ""}>
+                                <Link to='/todos' className="link">
+                                    <li className="sidebarListItem ">
+                                        <ReportOutlinedIcon />
+                                        <div className="sideIcon" > Todos </div>
+                                    </li>
                                 </Link>
                             </li>
                         </ul>

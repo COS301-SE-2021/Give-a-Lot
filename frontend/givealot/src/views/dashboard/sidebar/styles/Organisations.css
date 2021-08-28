@@ -296,3 +296,16 @@
     display: flex;
     flex-direction: column;
 }
+/*.smooth-dnd-container.horizontal{*/
+/*    background-color: #3bb077;*/
+/*}*/
+.smooth-dnd-container.horizontal{
+    background-color: #F0F2F7;
+}
+.sc-jSgvzq eHFaPw react-trello-board{
+    background-color: #F0F2F7;
+}
+eHFaPw {
+    background-color: #F0F2F7 !important;
+
+}

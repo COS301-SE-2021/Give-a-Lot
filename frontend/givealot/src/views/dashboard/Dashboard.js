@@ -12,8 +12,9 @@ import Featured from "./sidebar/Components/Featured/Featured";
 import DashLogo from "../login/Components/DashLogo";
 import Reports from "../../views/dashboard/sidebar/Components/Report/Reports"
 import Org from "../dashboard/sidebar/Components/OrganisationsDash/Org"
-import Todos from "../dashboard/sidebar/Components/Todos/Todos"
-import Profile from "../../views/dashboard/sidebar/Components/Profile/Profile";
+// import Todos from "../dashboard/sidebar/Components/Todos/Todos"
+import Calendar from "../dashboard/sidebar/Components/Calendar/Calendar"
+import Validate from "../dashboard/sidebar/Components/Validate/Validate"
 
 function Dashboard() {
     return (
@@ -41,11 +42,11 @@ function Dashboard() {
                         <Route exact path="/report">
                             <Reports />
                         </Route>
-                        <Route exact path="/todos">
-                            <Todos />
+                        <Route exact path="/calendar">
+                            <Calendar />
                         </Route>
-                        <Route exact path="/profile">
-                            <Profile />
+                        <Route exact path="/validate">
+                            <Validate />
                         </Route>
                     </Switch>
                 </div>

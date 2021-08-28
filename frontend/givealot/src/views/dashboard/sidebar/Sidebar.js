@@ -1,13 +1,14 @@
 import React from 'react'
 import "./styles/Sidebar.css"
 import {  Link} from "react-router-dom";
-import DashboardIcon from '@material-ui/icons/Dashboard';
 import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
-import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
+// import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
 import DashboardOutlinedIcon from '@material-ui/icons/DashboardOutlined';
 import ReportOutlinedIcon from '@material-ui/icons/ReportOutlined';
 import { useLocation } from "react-router-dom";
+import CalendarTodayOutlinedIcon from '@material-ui/icons/CalendarTodayOutlined';
+import VerifiedUserOutlinedIcon from '@material-ui/icons/VerifiedUserOutlined';
 
 function Sidebar(){
 
@@ -51,14 +52,16 @@ function Sidebar(){
 
                                 </Link>
                             </li>
-                            <li className={splitLocation[1] === "email" ? "active" : ""}>
-                                <Link to='/email' className="link">
+
+                            <li className={splitLocation[1] === "validate" ? "active" : ""}>
+                                <Link to='/validate' className="link">
                                     <li className="sidebarListItem ">
-                                        <EmailOutlinedIcon />
-                                        <div className="sideIcon" > Emails </div>
+                                        <VerifiedUserOutlinedIcon />
+                                        <div className="sideIcon" > Validate </div>
                                     </li>
                                 </Link>
                             </li>
+
                             <li className={splitLocation[1] === "report" ? "active" : ""}>
                                 <Link to='/report' className="link">
                                     <li className="sidebarListItem ">
@@ -68,24 +71,32 @@ function Sidebar(){
                                 </Link>
                             </li>
 
-                            <li className={splitLocation[1] === "todos" ? "active" : ""}>
-                                <Link to='/todos' className="link">
+                            <li className={splitLocation[1] === "calendar" ? "active" : ""}>
+                                <Link to='/calendar' className="link">
                                     <li className="sidebarListItem ">
-                                        <ReportOutlinedIcon />
-                                        <div className="sideIcon" > Todos </div>
+                                        <CalendarTodayOutlinedIcon />
+                                        <div className="sideIcon" > Calendar </div>
                                     </li>
                                 </Link>
                             </li>
 
-                            <li className={splitLocation[1] === "profile" ? "active" : ""}>
-                                <Link to='/profile' className="link">
-                                    <li className="sidebarListItem ">
-                                        <ReportOutlinedIcon />
-                                        Profile
-                                    </li>
+                            {/*<li className={splitLocation[1] === "email" ? "active" : ""}>*/}
+                            {/*    <Link to='/email' className="link">*/}
+                            {/*        <li className="sidebarListItem ">*/}
+                            {/*            <EmailOutlinedIcon />*/}
+                            {/*            <div className="sideIcon" > Emails </div>*/}
+                            {/*        </li>*/}
+                            {/*    </Link>*/}
+                            {/*</li>*/}
 
-                                </Link>
-                            </li>
+                            {/*<li className={splitLocation[1] === "todos" ? "active" : ""}>*/}
+                            {/*    <Link to='/todos' className="link">*/}
+                            {/*        <li className="sidebarListItem ">*/}
+                            {/*            <ReportOutlinedIcon />*/}
+                            {/*            <div className="sideIcon" > Todos </div>*/}
+                            {/*        </li>*/}
+                            {/*    </Link>*/}
+                            {/*</li>*/}
                         </ul>
                     </div>
                 </div>

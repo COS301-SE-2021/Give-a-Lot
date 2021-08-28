@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import "../Profile/Styles/Profile.css"
+
 import {
     CalendarToday,
     LocationSearching,
@@ -16,22 +17,22 @@ export class Profile extends Component {
         super(props)
 
         this.state = {
-            org:[]
+            persons:[]
         }
     }
 
     componentDidMount(){
-        let config = {
+    /*    let config = {
             headers: {
                 "Content-Type": "application/json",
                 'Access-Control-Allow-Origin': '*',
             }
-        }
-        axios.get('http://localhost:8080/v1/user/get/users', config)
+        }*/
+        axios.get('http://localhost:8080/v1/user/get/users')
             .then(response =>{
                 console.log(response)
-                this.setState({org: response.data.response})
-                console.log(this.state.org)
+                const persons = response.data;
+                this.setState({ persons });
             })
             .catch(error =>{
                 console.log(error)
@@ -40,7 +41,7 @@ export class Profile extends Component {
     }
 
     render() {
-        const { org } = this.state
+
         return (
             <div className="profileOrg">
                 <div className="userTitleContainer">
@@ -51,7 +52,7 @@ export class Profile extends Component {
                         <div className="userShowTop">
 
                             <div className="userShowTopTitle">
-                                <span className="userShowUsername">Gift of the givers</span>
+                                <span className="userShowUsername"> { this.state.persons.map(person => <li key={1}>{person.name}</li>)}</span>
                                 <span className="userShowUserTitle">giving back to the people</span>
                             </div>
                         </div>

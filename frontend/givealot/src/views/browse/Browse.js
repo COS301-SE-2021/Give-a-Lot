@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 
 
 /* styles import */
+import browse_general_footer from "./Styles/browse_general_footer.css";
 import browseCSS_general from "./Styles/browse_general.css";
 import browseCSS_tablet from "./Styles/browse_tablet.css";
 import browseCSS_mobile_portrait from "./Styles/browse_mobile.css";
 import browseCSS_desktop from "./Styles/browse_desktop.css";
+
 /* styles import end */
 
 
@@ -342,8 +344,41 @@ function Browse ()
                         {/* this block was not a part of the initial design - end */}
                     </div>
                 </section>
-               
 
+                <div className="footer-clean">
+                    <footer>
+                        <div className="container">
+                            <div className="container2">
+                                <div className="">
+                                    <h3>Links</h3>
+                                    <ul>
+                                        <li><a href="#">Home</a></li>
+                                        <li><a href="#">verify certificate</a></li>
+
+                                    </ul>
+                                </div>
+                                <div className="">
+                                    <h3>About</h3>
+                                    <ul>
+                                        <li><a href="#">Deepsink</a></li>
+                                        <li><a href="#">Team</a></li>
+
+                                    </ul>
+                                </div>
+                                <div className="">
+                                    <h3>contact us</h3>
+                                    <ul>
+                                        <li><a href="#">contact@givealot.org</a></li>
+                                        <li><a href="#">011 234 5678</a></li>
+                                    </ul>
+                                </div>
+                                <div className="social">
+                                    <p className="copyright">Givealot © {new Date().getFullYear()}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
             </div>
         </div>
     )

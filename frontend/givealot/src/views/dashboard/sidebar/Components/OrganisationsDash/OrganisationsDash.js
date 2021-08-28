@@ -1,22 +1,6 @@
 // import React, { Component } from 'react'
 // import "../../styles/Organisations.css"
 //
-// export class Users extends Component {
-//
-//     render() {
-//         return (
-//             <div className="organisations">
-//                 users here
-//             </div>
-//         )
-//     }
-// }
-//
-// export default Users
-
-// import React, { Component } from 'react'
-// import "../../styles/Organisations.css"
-//
 // export class OrganisationsDash extends Component {
 //
 //     render() {
@@ -36,7 +20,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import IconButton from '@material-ui/core/IconButton';
 import { Link } from "react-router-dom";
 
-export default function Users() {
+export default function OrganisationsDash() {
     const [isLoaded,setIsLoaded] = useState(false);
     const [rowData,setRowData] = useState([]);
     useEffect(() => {
@@ -44,21 +28,37 @@ export default function Users() {
         axios
             .get('http://jsonplaceholder.typicode.com/users')
             .then((response) => {
-                setIsLoaded(true);
-                console.log(response.data);
-                setRowData(response.data);
-                response.data.forEach(user => {
-                });
+            setIsLoaded(true);
+            console.log(response.data);
+            setRowData(response.data);
+            response.data.forEach(user => {
             });
+        });
     }, []);
     const columns = [
         { field: "id", headerName: "ID", width: 100 },
-        { field: 'name', headerName: 'Name', width: 200 },
-        { field: 'username', headerName: 'User name', width: 200 },
-        { field: 'email', headerName: 'EMail', width: 200 },
-        { field: 'website', headerName: 'Website', width: 200 },
-
-    ];
+    { field: 'name', headerName: 'Name', width: 200 },
+    { field: 'username', headerName: 'User name', width: 200 },
+    { field: 'email', headerName: 'EMail', width: 200 },
+    { field: 'website', headerName: 'Website', width: 200 },
+        {
+            field: "action",
+            headerName: "Action",
+            width: 150,
+            renderCell: (params) => {
+                return (
+                    <>
+                        <Link to={"/org/" + params.row.id}>
+                        {/*    <button className="OrgListEdits">Edit</button>*/}
+                            <IconButton>
+                                <EditIcon />
+                            </IconButton>
+                        </Link>
+                    </>
+                );
+            },
+        },
+];
     return(
         <div className="OrganisationsDash">
             <div className="table">

@@ -18,11 +18,13 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    margin-left: 0.9375em;
     padding: 0.8em;
 }
+.sideIcon{
+    padding-left: 0.5em;
+}
 .active{
-    background-color: #7c6d81;
+    background-color: #957b9e;
     color: white;
     border-radius: 5px;
 }

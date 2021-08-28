@@ -79,59 +79,6 @@
     color: white;
 }
 
-/*////////////////////////////////////////////////*/
-.modalPop {
-    font-size: 12px;
-    float: right;
-    width: 500px;
-    height: 100%;
-    background-color: #F0F2F7;
-    color: black;
-}
-.modalPop > .headerPop {
-    width: 100%;
-    border-bottom: 1px solid gray;
-    font-size: 18px;
-    text-align: center;
-    padding: 5px;
-}
-.modalPop > .contentPop {
-    width: 100%;
-    padding: 10px 5px;
-}
-.modalPop > .actions {
-    margin: auto;
-}
-.modalPop > .actions {
-    width: 100%;
-    padding: 10px 5px;
-    text-align: center;
-}
-.modalPop > .close {
-    cursor: pointer;
-    position: absolute;
-    display: block;
-    padding: 2px 5px;
-    line-height: 20px;
-    right: -10px;
-    top: -10px;
-    font-size: 24px;
-    background: #ffffff;
-    border-radius: 18px;
-    border: 1px solid #cfcece;
-    color: red;
-}
-
-/*/////////////////////////////////////////*/
-.drawerWrapper{
-    display: flex;
-    flex-direction: column;
-    /*color: white;*/
-    /*background-color: #0F61A7;*/
-}
-.drawerHeader{
-    padding: 4em;
-}
 .bodyInfo{
     display: flex;
     align-items: center;
@@ -159,4 +106,193 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.OrganisationsDash{
+    flex: 4;
+    background-color: #F0F2F7;
+
+}
+.table{
+    padding: 0.6em;
+    height: 100%;
+    width: 100%;
+}
+.UsersDash{
+    flex: 4;
+    background-color: #F0F2F7;
+}
+.OrgListEdits{
+    color: white;
+    background-color: #3bb077;
+    width: 50px;
+    /*padding: 10px 10px;*/
+    border-radius: 25px;
+}
+.MuiDataGrid-row.Mui-odd {
+    background-color: white;
+}
+
+.org{
+    flex: 4;
+    background-color: #F0F2F7;
+}
+.OrgTitleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.OrgAddButton {
+    width: 80px;
+    border: none;
+    padding: 5px;
+    background-color: #2d9499;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+}
+
+.OrgContainer {
+    display: flex;
+    margin-top: 20px;
+}
+
+.OrgShow {
+    flex: 1;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+.OrgUpdate {
+    flex: 2;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    margin-left: 20px;
+}
+
+.OrgShowTop {
+    display: flex;
+    align-items: center;
+}
+
+.OrgShowImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.OrgShowTopTitle {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.OrgShowUsername {
+    font-weight: 600;
+}
+
+.OrgShowUserTitle {
+    font-weight: 300;
+}
+
+.OrgShowBottom{
+    margin-top: 20px;
+}
+
+.OrgShowTitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(175, 170, 170);
+}
+
+.OrgShowInfo{
+    display: flex;
+    align-items: center;
+    margin: 20px 0px;
+    color: #444;
+}
+
+.OrgShowIcon{
+    font-size: 16px !important;
+}
+
+.OrgShowInfoTitle{
+    margin-left: 10px;
+}
+
+.OrgUpdateTitle{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.OrgUpdateForm{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.OrgUpdateItem{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.OrgUpdateItem>label{
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.OrgUpdateInput{
+    border: none;
+    width: 250px;
+    height: 30px;
+    border-bottom: 1px solid gray;
+}
+
+.OrgUpdateRight{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.OrgUpdateUpload{
+    display: flex;
+    align-items: center;
+}
+
+.OrgUpdateImg{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.OrgUpdateIcon{
+    cursor: pointer;
+}
+
+.OrgUpdateButton{
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    background-color: #2d9499;
+    color: white;
+    font-weight: 600;
+    width: 10em;
+}
+.userUpdateImg{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+.OrgUpdateLeft{
+    display: flex;
+    flex-direction: column;
 }

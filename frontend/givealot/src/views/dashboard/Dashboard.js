@@ -5,13 +5,14 @@ import {
 } from "react-router-dom";
 import Sidebar from "../dashboard/sidebar/Sidebar"
 import "./sidebar/styles/Dashboard.css"
-import Organisations from "./sidebar/Components/Organisations/Organisations"
+import OrganisationsDash from "./sidebar/Components/OrganisationsDash/OrganisationsDash"
 import Users from "./sidebar/Components/Users/Users"
 import Email from "./sidebar/Components/Email/Email"
 import Featured from "./sidebar/Components/Featured/Featured";
 import DashLogo from "../login/Components/DashLogo";
-import Reports from "../dashboard/sidebar/Components/Report/Reports";
-import Profile from "../dashboard/sidebar/Components/Profile/Profile";
+import Reports from "../../views/dashboard/sidebar/Components/Report/Reports"
+import Org from "../dashboard/sidebar/Components/OrganisationsDash/Org"
+import Profile from "../../views/dashboard/sidebar/Components/Profile/Profile";
 
 function Dashboard() {
     return (
@@ -25,7 +26,10 @@ function Dashboard() {
                             <Featured />
                         </Route>
                         <Route exact path="/organisations">
-                            <Organisations />
+                            <OrganisationsDash />
+                        </Route>
+                        <Route path="/org/:orgId">
+                            <Org />
                         </Route>
                         <Route exact path="/users">
                             <Users />

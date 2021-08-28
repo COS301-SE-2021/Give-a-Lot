@@ -82,6 +82,7 @@ class Dropzone extends Component {
                 {/*/>*/}
                 <CloudUploadIcon
                     className="Icon"
+                    style={{backgroundColor: "transparent"}}
                 />
                 <span>Upload</span>
             </div>

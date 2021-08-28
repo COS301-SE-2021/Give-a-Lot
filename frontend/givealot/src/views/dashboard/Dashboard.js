@@ -13,6 +13,7 @@ import DashLogo from "../login/Components/DashLogo";
 import Reports from "../../views/dashboard/sidebar/Components/Report/Reports"
 import Org from "../dashboard/sidebar/Components/OrganisationsDash/Org"
 import Todos from "../dashboard/sidebar/Components/Todos/Todos"
+import Calendar from "../dashboard/sidebar/Components/Calendar/Calendar"
 
 function Dashboard() {
     return (
@@ -40,8 +41,8 @@ function Dashboard() {
                         <Route exact path="/report">
                             <Reports />
                         </Route>
-                        <Route exact path="/todos">
-                            <Todos />
+                        <Route exact path="/calendar">
+                            <Calendar />
                         </Route>
                     </Switch>
                 </div>

@@ -39,7 +39,7 @@ function Home()
                     <p id="main_head">safe and verified donations</p>
                     <p id="supporting_head">Your hub for verified charities</p>
                     <div id="main_content_btns">
-                       <Link to={"/"}>
+                       <Link to={"/verifyCertificate"}>
                             <input className="main_content_btns_inputTag" type="button" name={currentUserId} value="verify certificate"/>   
                         </Link> 
 

@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="Dashboard admin Organisation table">
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Todos/Todos.js" afterDir="false" />
+    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="Dashboard todo board">
+      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/verifyCertificate/VerifyCertificate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/verifyCertificate/dropzone/Dropezone.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/verifyCertificate/dropzone/Dropzone.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/verifyCertificate/progress/Progress.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/verifyCertificate/progress/Progress.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/verifyCertificate/styles/VerifyCert.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/Dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Users/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Users/Users.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/styles/Organisations.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/styles/Organisations.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/home/Home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,13 +162,6 @@
       <workItem from="1629301692751" duration="18015000" />
       <workItem from="1629339797985" duration="980000" />
       <workItem from="1629343930362" duration="7971000" />
-    </task>
-    <task id="LOCAL-00006" summary="user and login system are complete">
-      <created>1629252237529</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1629252237529</updated>
     </task>
     <task id="LOCAL-00007" summary="user and login system are complete">
       <created>1629254855215</created>
@@ -502,7 +499,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630107872671</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Dashboard todo board">
+      <created>1630168740216</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1630168740216</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -542,6 +546,7 @@
     <MESSAGE value="Dashboard cards finalised" />
     <MESSAGE value="Dashboard cards few changes" />
     <MESSAGE value="Dashboard admin Organisation table" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dashboard admin Organisation table" />
+    <MESSAGE value="Dashboard todo board" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dashboard todo board" />
   </component>
 </project>

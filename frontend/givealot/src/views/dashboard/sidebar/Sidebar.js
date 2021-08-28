@@ -8,6 +8,7 @@ import DashboardOutlinedIcon from '@material-ui/icons/DashboardOutlined';
 import ReportOutlinedIcon from '@material-ui/icons/ReportOutlined';
 import { useLocation } from "react-router-dom";
 import CalendarTodayOutlinedIcon from '@material-ui/icons/CalendarTodayOutlined';
+import VerifiedUserOutlinedIcon from '@material-ui/icons/VerifiedUserOutlined';
 
 function Sidebar(){
 
@@ -49,6 +50,15 @@ function Sidebar(){
                                         <div className="sideIcon" > Users </div>
                                     </li>
 
+                                </Link>
+                            </li>
+
+                            <li className={splitLocation[1] === "validate" ? "active" : ""}>
+                                <Link to='/validate' className="link">
+                                    <li className="sidebarListItem ">
+                                        <VerifiedUserOutlinedIcon />
+                                        <div className="sideIcon" > Validate </div>
+                                    </li>
                                 </Link>
                             </li>
 

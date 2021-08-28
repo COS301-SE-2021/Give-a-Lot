@@ -12,6 +12,7 @@ import Featured from "./sidebar/Components/Featured/Featured";
 import DashLogo from "../login/Components/DashLogo";
 import Reports from "../../views/dashboard/sidebar/Components/Report/Reports"
 import Org from "../dashboard/sidebar/Components/OrganisationsDash/Org"
+import Todos from "../dashboard/sidebar/Components/Todos/Todos"
 import Profile from "../../views/dashboard/sidebar/Components/Profile/Profile";
 
 function Dashboard() {
@@ -39,6 +40,9 @@ function Dashboard() {
                         </Route>
                         <Route exact path="/report">
                             <Reports />
+                        </Route>
+                        <Route exact path="/todos">
+                            <Todos />
                         </Route>
                         <Route exact path="/profile">
                             <Profile />

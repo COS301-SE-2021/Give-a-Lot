@@ -1,40 +1,8 @@
-// import React, { Component } from 'react'
-// import "../../styles/Organisations.css"
-//
-// export class Users extends Component {
-//
-//     render() {
-//         return (
-//             <div className="organisations">
-//                 users here
-//             </div>
-//         )
-//     }
-// }
-//
-// export default Users
-
-// import React, { Component } from 'react'
-// import "../../styles/Organisations.css"
-//
-// export class OrganisationsDash extends Component {
-//
-//     render() {
-//         return (
-//             <div className="organisations">
-//                 orgs here
-//             </div>
-//         )
-//     }
-// }
-//
-// export default OrganisationsDash
-
 import React, {useState, useEffect} from "react";
 import { DataGrid } from '@material-ui/data-grid';
-import EditIcon from '@material-ui/icons/Edit';
-import IconButton from '@material-ui/core/IconButton';
-import { Link } from "react-router-dom";
+// import EditIcon from '@material-ui/icons/Edit';
+// import IconButton from '@material-ui/core/IconButton';
+// import { Link } from "react-router-dom";
 
 export default function Users() {
     const [isLoaded,setIsLoaded] = useState(false);

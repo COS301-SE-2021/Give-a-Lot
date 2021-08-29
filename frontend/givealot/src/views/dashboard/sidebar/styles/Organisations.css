@@ -19,16 +19,42 @@
     background-color: transparent;
     outline-width: 0;
 }
+/*.OrganisationsDash > p{*/
+/*    padding: 2em;*/
+/*}*/
 
 .OrgAdd{
     display: flex;
-    padding-top: 6em;
-    padding-left: 6em;
-    padding-bottom: 2em;
     cursor: pointer;
+    align-items: center;
+    padding: 2em;
+    justify-content: space-between;
 }
-.OrgAdd > .MuiSvgIcon-root{
-    color: #0F61A7;
+
+.buttonAdd{
+    /*border: 2px solid #957b9e;*/
+    background-color: #957b9e !important;
+    color: white !important;
+    /*display: flex;*/
+}
+
+.header__input{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    border-radius: 999px;
+}
+
+.header__input > input{
+    border: none;
+    /*border: 2px solid #957b9e;*/
+    background-color: transparent;
+    outline-width: 0;
+}
+
+.buttonAdd > .MuiSvgIcon-root{
+    color: #957b9e;
 }
 .OrgBody{
     display: flex;

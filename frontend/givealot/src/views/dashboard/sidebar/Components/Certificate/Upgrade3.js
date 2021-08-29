@@ -18,7 +18,7 @@ const styles = theme => ({
     },
 });
 
-export class Upgrade2 extends Component {
+export class Upgrade3 extends Component {
 
     constructor (props) {
         super(props)
@@ -41,4 +41,4 @@ export class Upgrade2 extends Component {
         );
     }
 }
-export default withStyles(styles)(Upgrade2);
+export default withStyles(styles)(Upgrade3);

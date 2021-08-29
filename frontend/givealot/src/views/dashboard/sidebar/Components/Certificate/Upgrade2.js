@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
 import "./Style/Certificate.css";
-
-import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
-import Button from '@material-ui/core/Button';
 import 'date-fns';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
@@ -11,22 +8,17 @@ import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
-import Paper from '@material-ui/core/Paper';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
 import Axios from "axios";
 
 const styles = theme => ({
     button: {
         margin: theme.spacing(1),
     },
-    root: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        '& > *': {
-            margin: theme.spacing(1),
-            width: theme.spacing(16),
-            height: theme.spacing(16),
-        },
-    },
+
 });
 
 export class Upgrade2 extends Component {
@@ -59,8 +51,17 @@ export class Upgrade2 extends Component {
                     <div className="progress_empty"></div>
                     <div className="progress_empty"></div>
                     <div className="progress6"> <StarOutlineIcon fontSize="large"/></div>
-
                 </div>
+
+                <Card className="upgrade_card" variant="outlined">
+                    <CardContent>
+
+
+                    </CardContent>
+                    <CardActions>
+                        <Button size="small">Learn More</Button>
+                    </CardActions>
+                </Card>
 
 
             </div>

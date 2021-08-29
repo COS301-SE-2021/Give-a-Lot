@@ -21,7 +21,7 @@ import AddCircleOutlinedIcon from "@material-ui/icons/AddCircleOutlined";
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
-import Avatar from '@material-ui/core/Avatar';
+// import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import "../../styles/Organisations.css"
@@ -30,10 +30,12 @@ export default function OrganisationsDash() {
     return(
         <div className="OrganisationsDash">
             <div className="OrgAdd">
-                <Button variant="contained" className="buttonAdd">
-                    Add Organisation
-                    <AddCircleOutlinedIcon/>
-                </Button>
+                <Link to={"/addOrg"} className="link">
+                    <Button variant="contained" className="buttonAdd">
+                        Add Organisation
+                        <AddCircleOutlinedIcon/>
+                    </Button>
+                </Link>
                 <div>
                     <div className="header__input">
                         <input placeholder="search organisation" type="text" />

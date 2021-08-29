@@ -15,6 +15,7 @@ import Org from "../dashboard/sidebar/Components/OrganisationsDash/Org"
 // import Todos from "../dashboard/sidebar/Components/Todos/Todos"
 import Calendar from "../dashboard/sidebar/Components/Calendar/Calendar"
 import Validate from "../dashboard/sidebar/Components/Validate/Validate"
+import AddOrg from "../dashboard/sidebar/Components/OrganisationsDash/AddOrg"
 
 function Dashboard() {
     return (
@@ -48,6 +49,10 @@ function Dashboard() {
                         <Route exact path="/validate">
                             <Validate />
                         </Route>
+                        <Route exact path="/addOrg">
+                            <AddOrg />
+                        </Route>
+
                     </Switch>
                 </div>
             </div>

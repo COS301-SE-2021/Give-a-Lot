@@ -332,6 +332,23 @@
     background-color: #F0F2F7 !important;
 
 }
-/*.MuiDataGrid-root .MuiDataGrid-cell--textLeft {*/
-/*    background-color: #9D1C1C;*/
-/*}*/
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2em;
+    width: 600px;
+}
+.AddHeader{
+    line-height: 1.2;
+    text-align: center;
+    padding-bottom: 1em;
+    display: block;
+    font-size: 25px;
+    /*color: #333;*/
+}
+.addBtn{
+    color: white;
+    background-color: #9D1C1C;
+}

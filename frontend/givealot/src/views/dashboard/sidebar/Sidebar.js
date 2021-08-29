@@ -3,6 +3,7 @@ import "./styles/Sidebar.css"
 import {  Link} from "react-router-dom";
 import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
+import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 // import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
 import DashboardOutlinedIcon from '@material-ui/icons/DashboardOutlined';
 import ReportOutlinedIcon from '@material-ui/icons/ReportOutlined';
@@ -77,6 +78,28 @@ function Sidebar(){
                                         <CalendarTodayOutlinedIcon />
                                         <div className="sideIcon" > Calendar </div>
                                     </li>
+                                </Link>
+                            </li>
+
+
+                            <li className={splitLocation[1] === "profile" ? "active" : ""}>
+                                <Link to='/profile' className="link">
+                                    <li className="sidebarListItem ">
+                                        <AccountCircleOutlinedIcon />
+                                       <div className="sideIcon" > Profile</div>
+                                    </li>
+
+                                </Link>
+                            </li>
+
+
+                            <li className={splitLocation[1] === "certificate" ? "active" : ""}>
+                                <Link to='/certificate' className="link">
+                                    <li className="sidebarListItem ">
+                                        <AccountCircleOutlinedIcon />
+                                        <div className="sideIcon" > Certificate</div>
+                                    </li>
+
                                 </Link>
                             </li>
 

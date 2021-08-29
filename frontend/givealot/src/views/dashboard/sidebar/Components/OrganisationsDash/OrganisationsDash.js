@@ -14,14 +14,14 @@
 //
 // export default OrganisationsDash
 
-import React, {useState, useEffect} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import AddCircleOutlinedIcon from "@material-ui/icons/AddCircleOutlined";
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
-import CardMedia from '@material-ui/core/CardMedia'
+import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import "../../styles/Organisations.css"
@@ -44,12 +44,11 @@ export default function OrganisationsDash() {
 
             <div className="table">
                 <Card style={{margin: "1em"}}>
-                    <CardMedia style={{height: 0}}
-                               // image={props.course.fields.courseImage.fields.file.url}
-                               // title={props.course.fields.title}
-                    />
                     <CardContent>
                         <Typography gutterBottom variant="headline" component="h4">
+                            {/*<Avatar aria-label="recipe" >*/}
+                            {/*    R*/}
+                            {/*</Avatar>*/}
                             Organisation Name
                         </Typography>
                         <Typography style={{display: "flex", alignContent: "center", justifyContent: "space-between"}}>

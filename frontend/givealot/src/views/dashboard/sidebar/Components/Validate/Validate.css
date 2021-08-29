@@ -2,3 +2,20 @@
     flex: 4;
     background-color: #F0F2F7;
 }
+.buttonValid{
+    color: #957b9e;
+    border: 2px solid #957b9e;
+}
+.buttonValidView{
+    color: white;
+    background-color: #957b9e;
+}
+.valid{
+    color: #957b9e;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+.validateInfo{
+    margin: 1em;
+}

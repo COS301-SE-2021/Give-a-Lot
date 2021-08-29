@@ -10,6 +10,7 @@ import {
     Publish,
 } from "@material-ui/icons";
 import axios from "axios";
+import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 
 export class Profile extends Component {
 
@@ -45,15 +46,16 @@ export class Profile extends Component {
         return (
             <div className="profileOrg">
                 <div className="userTitleContainer">
-                    <h1 className="userTitle">Edit Information</h1>
+                    <div className="userTitle">Edit Information</div>
                 </div>
                 <div className="userOrgContainer">
                     <div className="userShow">
                         <div className="userShowTop">
 
+
                             <div className="userShowTopTitle">
-                                <span className="userShowUsername"> { this.state.persons.map(person => <li key={1}>{person.name}</li>)}</span>
-                                <span className="userShowUserTitle">giving back to the people</span>
+                                <span className="userShowUsername">Gift of the givers</span>
+                                <span className="userShowUserTitle">giving back to the people </span>
                             </div>
                         </div>
                         <div className="userShowBottom">

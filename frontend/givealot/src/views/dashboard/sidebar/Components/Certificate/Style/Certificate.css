@@ -74,31 +74,31 @@
 
 }
 
-.progress1{
-    border: 1px solid red;
+.progress{
+    display: flex;
+    margin-left: 30px;
+
+}
+
+.progress_complete{
+
+    background-color: green;
     width: 130px;
     height: 20px;
+    margin-left: 3px;
+
 }
-.progress2{
-    border: 1px solid red;
+.progress_empty{
+    border: 1px solid black;
     width: 130px;
     height: 20px;
+    margin-left: 3px;
 }
-.progress3{
-    border: 1px solid red;
-    width: 130px;
-    height: 20px;
+
+.progress6{
+    margin-top: -7px;
 }
-.progress4{
-    border: 1px solid red;
-    width: 130px;
-    height: 20px;
-}
-.progress5{
-    border: 1px solid red;
-    width: 130px;
-    height: 20px;
-}
+
 
 .upgrade_level{
     color: grey;

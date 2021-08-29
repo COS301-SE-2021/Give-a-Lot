@@ -10,11 +10,22 @@ import { withStyles } from '@material-ui/core/styles'
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';
+import StarOutlineIcon from '@material-ui/icons/StarOutline';
+import Paper from '@material-ui/core/Paper';
 import Axios from "axios";
 
 const styles = theme => ({
     button: {
         margin: theme.spacing(1),
+    },
+    root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        '& > *': {
+            margin: theme.spacing(1),
+            width: theme.spacing(16),
+            height: theme.spacing(16),
+        },
     },
 });
 
@@ -42,12 +53,12 @@ export class Upgrade2 extends Component {
                 </div>
 
                 <div className="progress">
-                    <div className="progress1">1</div>
-                    <div className="progress2">2</div>
-                    <div className="progress3">3</div>
-                    <div className="progress4">4</div>
-                    <div className="progress5">5</div>
-
+                    <div className="progress_complete"></div>
+                    <div className="progress_complete"></div>
+                    <div className="progress_complete"></div>
+                    <div className="progress_empty"></div>
+                    <div className="progress_empty"></div>
+                    <div className="progress6"> <StarOutlineIcon fontSize="large"/></div>
 
                 </div>
 

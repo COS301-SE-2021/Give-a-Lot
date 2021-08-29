@@ -6,8 +6,6 @@ import Grid from "@material-ui/core/Grid";
 
 export class AddOrg extends Component {
 
-
-
     render() {
         return (
             <div className="organisations">

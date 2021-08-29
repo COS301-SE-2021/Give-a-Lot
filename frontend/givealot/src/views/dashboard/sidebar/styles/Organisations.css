@@ -181,7 +181,11 @@
 
 .OrgContainer {
     display: flex;
-    margin-top: 20px;
+    margin: 3em;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+
 }
 
 .OrgShow {
@@ -350,5 +354,5 @@
 }
 .addBtn{
     color: white;
-    background-color: #9D1C1C;
+    background-color: #957b9e;
 }

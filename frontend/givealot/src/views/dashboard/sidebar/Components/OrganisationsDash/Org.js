@@ -53,58 +53,58 @@ export class Org extends Component {
                         </div>
                     </div>
 
-                    <div className="OrgUpdate">
-                        <span className="OrgUpdateTitle">Edit</span>
-                        <form className="OrgUpdateForm">
-                            <div className="OrgUpdateLeft">
-                                <div className="OrgUpdateItem">
-                                    <label>Username</label>
-                                    <input
-                                        type="text"
-                                        placeholder="annabeck99"
-                                        className="userUpdateInput"
-                                    />
-                                </div>
-                                <div className="OrgUpdateItem">
-                                    <label>Full Name</label>
-                                    <input
-                                        type="text"
-                                        placeholder="Anna Becker"
-                                        className="OrgUpdateInput"
-                                    />
-                                </div>
-                                <div className="OrgUpdateItem">
-                                    <label>Email</label>
-                                    <input
-                                        type="text"
-                                        placeholder="annabeck99@gmail.com"
-                                        className="OrgUpdateInput"
-                                    />
-                                </div>
-                                <div className="OrgUpdateItem">
-                                    <label>Phone</label>
-                                    <input
-                                        type="text"
-                                        placeholder="+1 123 456 67"
-                                        className="OrgUpdateInput"
-                                    />
-                                </div>
-                                <div className="OrgUpdateItem">
-                                    <label>Address</label>
-                                    <input
-                                        type="text"
-                                        placeholder="New York | USA"
-                                        className="OrgUpdateInput"
-                                    />
-                                </div>
-                                <div style={{padding: "0.4em"}}>
-                                    <button className="OrgUpdateButton">Update</button>
-                                </div>
+                    {/*<div className="OrgUpdate">*/}
+                    {/*    <span className="OrgUpdateTitle">Edit</span>*/}
+                    {/*    <form className="OrgUpdateForm">*/}
+                    {/*        <div className="OrgUpdateLeft">*/}
+                    {/*            <div className="OrgUpdateItem">*/}
+                    {/*                <label>Username</label>*/}
+                    {/*                <input*/}
+                    {/*                    type="text"*/}
+                    {/*                    placeholder="annabeck99"*/}
+                    {/*                    className="userUpdateInput"*/}
+                    {/*                />*/}
+                    {/*            </div>*/}
+                    {/*            <div className="OrgUpdateItem">*/}
+                    {/*                <label>Full Name</label>*/}
+                    {/*                <input*/}
+                    {/*                    type="text"*/}
+                    {/*                    placeholder="Anna Becker"*/}
+                    {/*                    className="OrgUpdateInput"*/}
+                    {/*                />*/}
+                    {/*            </div>*/}
+                    {/*            <div className="OrgUpdateItem">*/}
+                    {/*                <label>Email</label>*/}
+                    {/*                <input*/}
+                    {/*                    type="text"*/}
+                    {/*                    placeholder="annabeck99@gmail.com"*/}
+                    {/*                    className="OrgUpdateInput"*/}
+                    {/*                />*/}
+                    {/*            </div>*/}
+                    {/*            <div className="OrgUpdateItem">*/}
+                    {/*                <label>Phone</label>*/}
+                    {/*                <input*/}
+                    {/*                    type="text"*/}
+                    {/*                    placeholder="+1 123 456 67"*/}
+                    {/*                    className="OrgUpdateInput"*/}
+                    {/*                />*/}
+                    {/*            </div>*/}
+                    {/*            <div className="OrgUpdateItem">*/}
+                    {/*                <label>Address</label>*/}
+                    {/*                <input*/}
+                    {/*                    type="text"*/}
+                    {/*                    placeholder="New York | USA"*/}
+                    {/*                    className="OrgUpdateInput"*/}
+                    {/*                />*/}
+                    {/*            </div>*/}
+                    {/*            <div style={{padding: "0.4em"}}>*/}
+                    {/*                <button className="OrgUpdateButton">Update</button>*/}
+                    {/*            </div>*/}
 
-                            </div>
+                    {/*        </div>*/}
 
-                        </form>
-                    </div>
+                    {/*    </form>*/}
+                    {/*</div>*/}
                 </div>
             </div>
         )

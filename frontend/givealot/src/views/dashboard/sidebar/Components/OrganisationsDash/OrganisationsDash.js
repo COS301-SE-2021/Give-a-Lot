@@ -77,9 +77,11 @@ export default function OrganisationsDash() {
                     </CardContent>
 
                     <CardActions>
-                        <Button size="small" color="primary"  target="_blank">
-                            View
-                        </Button>
+                        <Link to={"/org"} className="link">
+                            <Button size="small" color="primary"  target="_blank">
+                                View
+                            </Button>
+                        </Link>
                     </CardActions>
                 </Card>
             </div>

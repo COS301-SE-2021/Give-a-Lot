@@ -15,6 +15,10 @@ import Org from "../dashboard/sidebar/Components/OrganisationsDash/Org"
 import Profile from "../dashboard/sidebar/Components/Profile/Profile"
 import Certificate from "../dashboard/sidebar/Components/Certificate/Certificate"
 import Upgrade from "../dashboard/sidebar/Components/Certificate/Upgrade"
+import Upgrade2 from "../dashboard/sidebar/Components/Certificate/Upgrade2"
+import Upgrade3 from "../dashboard/sidebar/Components/Certificate/Upgrade3"
+import Upgrade4 from "../dashboard/sidebar/Components/Certificate/Upgrade4"
+import Upgrade5 from "../dashboard/sidebar/Components/Certificate/Upgrade5"
 // import Todos from "../dashboard/sidebar/Components/Todos/Todos"
 import Calendar from "../dashboard/sidebar/Components/Calendar/Calendar"
 import Validate from "../dashboard/sidebar/Components/Validate/Validate"
@@ -59,6 +63,18 @@ function Dashboard() {
                         </Route>
                         <Route exact path="/upgrade">
                             <Upgrade />
+                        </Route>
+                        <Route exact path="/upgrade2">
+                            <Upgrade2 />
+                        </Route>
+                        <Route exact path="/upgrade3">
+                            <Upgrade3 />
+                        </Route>
+                        <Route exact path="/upgrade4">
+                            <Upgrade4 />
+                        </Route>
+                        <Route exact path="/upgrade5">
+                            <Upgrade5 />
                         </Route>
                     </Switch>
                 </div>

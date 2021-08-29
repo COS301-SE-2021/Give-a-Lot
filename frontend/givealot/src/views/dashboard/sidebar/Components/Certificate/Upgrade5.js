@@ -18,7 +18,7 @@ const styles = theme => ({
     },
 });
 
-export class Upgrade2 extends Component {
+export class Upgrade5 extends Component {
 
     constructor (props) {
         super(props)
@@ -32,28 +32,11 @@ export class Upgrade2 extends Component {
     render(){
         const { classes } = this.props;
 
-
-
         return (
             <div className="upgrade">
-                <div className="upgradeTitle">
-                    <p className="upgradeTitle1">Current level:</p>
-                    <p className="upgradeTitle2">One</p>
-                </div>
-
-                <div className="progress">
-                    <div className="progress1">1</div>
-                    <div className="progress2">2</div>
-                    <div className="progress3">3</div>
-                    <div className="progress4">4</div>
-                    <div className="progress5">5</div>
-
-
-                </div>
-
 
             </div>
         );
     }
 }
-export default withStyles(styles)(Upgrade2);
+export default withStyles(styles)(Upgrade5);

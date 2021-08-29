@@ -1,6 +1,6 @@
 import React from 'react'
-import "./certificate.css"
-//import cert from "./CertificateComplete.pdf";
+import "./Style/Certificate.css"
+import cert from "./Style/CertificateComplete.pdf";
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";

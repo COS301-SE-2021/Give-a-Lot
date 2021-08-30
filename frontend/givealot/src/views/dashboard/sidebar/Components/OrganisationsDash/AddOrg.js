@@ -1,150 +1,130 @@
 import React, { Component } from 'react'
 import "../../styles/Organisations.css"
-import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
 
 export class AddOrg extends Component {
 
     render() {
         return (
             <div className="organisations">
-                <Card className="form">
-                    {/*<div className="form">*/}
-                        {/*<form noValidate autoComplete="off">*/}
-                        <span className="AddHeader">
-                               Add Organisation
-                        </span>
-
-                        {/*</form>*/}
-                        <form noValidate className="form">
-                            <Grid container spacing={24}>
-                                {/*<Grid item xs={4}>*/}
-                                <TextField
-                                    variant="outlined"
-                                    margin="normal"
-                                    required
-                                    fullWidth
-                                    id="orgName"
-                                    label="Organisation Name"
-                                    name="orgName"
-                                    // autoComplete="orgName"
-                                    autoFocus
-
-                                />
-                                <TextField
-                                    variant="outlined"
-                                    margin="normal"
-                                    required
-                                    fullWidth
-                                    name="slogan"
-                                    label="Slogan"
-                                    type="slogan"
-                                    id="slogan"
-                                    // autoComplete="current-password"
-                                />
-                                {/*</Grid>*/}
-                                <TextField
-                                    variant="outlined"
-                                    margin="normal"
-                                    required
-                                    fullWidth
-                                    id="orgDescription"
-                                    label="Description"
-                                    name="orgDescription"
-                                    // autoComplete="email"
-                                    autoFocus
-                                    multiline
-                                    rows={4}
-                                />
-                                <Grid item xs={4} spacing={4}>
+                <div  style={{display: "flex", alignItems: "center", justifyContent: "center", marginTop: "1em"}}>
+                    <Card style={{width: "50%"}}>
+                        <CardContent>
+                            <Typography style={{margin: "1em", color: "#957b9e"}}>
+                                Organisation Name
+                            </Typography>
+                            <form>
+                                <Grid>
                                     <TextField
-                                        variant="outlined"
-                                        margin="normal"
-                                        required
+                                        id="outlined-full-width"
+                                        label="Label"
+                                        style={{ margin: 8 }}
+                                        placeholder="Placeholder"
                                         fullWidth
-                                        id="email"
-                                        label="Email Address"
-                                        name="email"
-                                        // autoComplete="email"
-                                        autoFocus
+                                        margin="normal"
+                                        InputLabelProps={{
+                                            shrink: true,
+                                        }}
+                                        variant="outlined"
                                     />
                                 </Grid>
-                                <Grid item xs={2}>
-
-                                </Grid>
-                                <Grid item xs={4} spacing={4}>
+                                <Grid>
                                     <TextField
-                                        variant="outlined"
-                                        margin="normal"
-                                        required
+                                        id="outlined-full-width"
+                                        label="Label"
+                                        style={{ margin: 8 }}
+                                        placeholder="Placeholder"
                                         fullWidth
-                                        name="password"
-                                        label="Password"
-                                        type="password"
-                                        id="password"
-                                        // autoComplete="current-password"
+                                        margin="normal"
+                                        InputLabelProps={{
+                                            shrink: true,
+                                        }}
+                                        variant="outlined"
                                     />
                                 </Grid>
-
-                                {/*<Grid item xs={4}>*/}
-                                <TextField
-                                    variant="outlined"
-                                    margin="normal"
-                                    required
-                                    fullWidth
-                                    id="contactPerson"
-                                    label="Contact Person"
-                                    name="contactPerson"
-                                    // autoComplete="contactPerson"
-                                    autoFocus
-                                />
-                                {/*</Grid>*/}
-
-                                <Grid item xs={4}>
+                                <Grid>
                                     <TextField
-                                        variant="outlined"
-                                        margin="normal"
-                                        required
+                                        id="outlined-full-width"
+                                        label="Label"
+                                        style={{ margin: 8 }}
+                                        placeholder="Placeholder"
                                         fullWidth
-                                        id="contactNumber"
-                                        label="Contact Number"
-                                        name="contactNumber"
-                                        // autoComplete="email"
-                                        autoFocus
+                                        margin="normal"
+                                        InputLabelProps={{
+                                            shrink: true,
+                                        }}
+                                        variant="outlined"
                                     />
                                 </Grid>
-                                <Grid item xs={2}>
-
-                                </Grid>
-                                <Grid item xs={4}>
+                                <Grid>
                                     <TextField
-                                        variant="outlined"
-                                        margin="normal"
-                                        required
+                                        id="outlined-full-width"
+                                        label="Label"
+                                        style={{ margin: 8 }}
+                                        placeholder="Placeholder"
                                         fullWidth
-                                        id="orgSector"
-                                        label="Sector"
-                                        name="orgSector"
-                                        // autoComplete="email"
-                                        autoFocus
+                                        margin="normal"
+                                        InputLabelProps={{
+                                            shrink: true,
+                                        }}
+                                        variant="outlined"
                                     />
                                 </Grid>
+                                <Grid>
+                                    {/*<InputLabel htmlFor="outlined-age-native-simple">Sector</InputLabel>*/}
+                                    <Select
+                                        // htmlFor="outlined-age-native-simple"
+                                        variant="outlined"
+                                        native
+                                        style={{ margin: 8 }}
+                                        // value={state.age}
+                                        // onChange={handleChange}
+                                        label="Age"
+                                        fullWidth
+                                        placeholder="Placeholder"
+                                        InputLabelProps={{
+                                            shrink: true,
+                                        }}
+                                    >
+                                        <option aria-label="None" value="" />
+                                        <option value={10}>Ten</option>
+                                        <option value={20}>Twenty</option>
+                                        <option value={30}>Thirty</option>
+                                    </Select>
+                                </Grid>
+                                <Grid>
+                                    <TextField
+                                        style={{ margin: 8 }}
+                                        placeholder="Description"
+                                        fullWidth
+                                        multiline
+                                        maxRows={4}
+                                        margin="normal"
+                                        InputLabelProps={{
+                                            shrink: true,
+                                        }}
+                                        variant="outlined"
 
-                            </Grid>
-
-                            <Button type="submit"
-                                    fullWidth variant="contained"
-                                // color="#957b9e"
-                                    className="addBtn"
-                            >
-                                Add Organisation
-
-                            </Button>
-                        </form>
-                    {/*</div>*/}
-                </Card>
+                                        id="outlined-textarea"
+                                        label="Multiline Placeholder"
+                                    />
+                                </Grid>
+                                <Grid>
+                                    <Button variant="contained" className="addBtn">
+                                        Submit
+                                    </Button>
+                                </Grid>
+                            </form>
+                        </CardContent>
+                    </Card>
+                </div>
 
             </div>
         )

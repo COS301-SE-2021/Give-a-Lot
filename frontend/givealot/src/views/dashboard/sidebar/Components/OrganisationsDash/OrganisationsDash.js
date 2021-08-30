@@ -90,7 +90,7 @@ export class OrganisationsDash extends Component {
                                 <TableContainer component={Paper}>
                                     <Table >
                                         <TableHead>
-                                            {/*table head here*/}
+
                                         </TableHead>
                                         <TableBody>
                                             {org.map((item, index) =>{

@@ -357,8 +357,9 @@
     /*color: #333;*/
 }
 .addBtn{
-    color: white;
-    background-color: #957b9e;
+    color: white !important;
+    background-color: #957b9e !important;
+    width: 100%
 }
 .orgListEdits{
     color: white;

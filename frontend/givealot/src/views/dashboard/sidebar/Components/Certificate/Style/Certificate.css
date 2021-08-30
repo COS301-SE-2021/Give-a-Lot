@@ -153,6 +153,10 @@
     font-size: 16px;
     color: #7c6d81;
 }
+
+.social_media{
+    display: flex;
+}
 .upgrade_Button{
 
     justify-content: center;
@@ -165,6 +169,7 @@
     color: #fff;
     padding: 0 20px;
     width: 200px;
+    margin-top: 10px;
     text-transform: uppercase;
     border-radius: 10px;
     height: 40px;

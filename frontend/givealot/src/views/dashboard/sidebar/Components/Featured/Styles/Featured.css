@@ -6,9 +6,7 @@
     display: flex;
     flex-direction: column;
 }
-/*.featuredTop{*/
-/*    display: flex;*/
-/*}*/
+
 .chartInfo{
     margin: 20px;
     padding: 20px;
@@ -19,10 +17,13 @@
     padding: 20px;
     -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    background-color: white;
+    color: #957b9e;
 }
 
 .chartTitle {
     margin-bottom: 20px;
+    color: #957b9e;
 }
 .userInfoChart{
     display: flex;
@@ -38,13 +39,13 @@
 
 }
 .featuredCards{
-    padding: 0.4em;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    margin: 1em;
 }
 .cardElement{
-    width: 12.625em;
+    width: 13.625em;
     -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 }
@@ -52,4 +53,52 @@
     display: flex;
     align-items: center;
     /*justify-content: space-between;*/
+}
+.cardIconUser{
+    color: white !important;
+    margin-bottom: 1rem;
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 50%;
+    padding: 1em;
+    background: linear-gradient(to bottom right, #9e88f5 0%, #6259ca 100%) !important;
+}
+.cardIconOrg{
+    color: white !important;
+    margin-bottom: 1rem;
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 50%;
+    padding: 1em;
+    background-image: linear-gradient(to bottom right, #f1bf64 0%, #f71d36 100%) !important;
+}
+.cardIconReports{
+    color: white !important;
+    margin-bottom: 1rem;
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 50%;
+    padding: 1em;
+    background: linear-gradient(to bottom right, #9070ff 0%, #ff5d9e 100%) !important;
+}
+.cardIconNotifications{
+    color: white !important;
+    margin-bottom: 1rem;
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 50%;
+    padding: 1em;
+    background: linear-gradient(to bottom right, #4be8d4 0%, #129bd2 100%) !important;
 }

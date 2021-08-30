@@ -491,3 +491,7 @@
     }
 
 }
+.headers{
+    position: sticky;
+    z-index: 999;
+}

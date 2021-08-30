@@ -1,5 +1,6 @@
 .sidebar{
-    flex: 1;
+    /*flex: 1;*/
+    width: 14.5em;
     /*height: 100vh;*/
     height: calc(100vh - 4.375em);
     position: sticky;
@@ -28,3 +29,16 @@
     color: white;
     border-radius: 5px;
 }
+/*.cardIcom{*/
+/*    background-color: #957b9e;*/
+/*    padding: 15px;*/
+/*    border-radius: 50%;*/
+/*    color: white !important;*/
+/*    background: linear-gradient(to bottom right, #9e88f5 0%, #6259ca 100%) !important;*/
+/*    margin-bottom: 1rem;*/
+/*    width: 4rem;*/
+/*    height: 4rem;*/
+/*    line-height: 4rem;*/
+/*    text-align: center;*/
+/*    font-size: 24px;*/
+/*}*/

@@ -134,13 +134,7 @@ form {
     border: none !important;
 }
 
-@media (max-width: 576px){
-    .registerCard {
-        /*padding-left: 15px;*/
-        /*padding-right: 15px;*/
-        padding: 15px 15px 15px 15px;
-    }
-}
+
 
 
 

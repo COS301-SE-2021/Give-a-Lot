@@ -19,16 +19,46 @@
     background-color: transparent;
     outline-width: 0;
 }
+/*.OrganisationsDash > p{*/
+/*    padding: 2em;*/
+/*}*/
 
 .OrgAdd{
     display: flex;
-    padding-top: 6em;
-    padding-left: 6em;
-    padding-bottom: 2em;
     cursor: pointer;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1em;
 }
-.OrgAdd > .MuiSvgIcon-root{
-    color: #0F61A7;
+
+.buttonAdd{
+    background-color: #957b9e !important;
+    color: white !important;
+}
+.userTitle{
+    margin-top: 1em;
+    padding-left: 1em;
+    color: #957b9e;
+    font-size: xx-large;
+}
+
+.header__input{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    border-radius: 999px;
+}
+
+.header__input > input{
+    border: none;
+    /*border: 2px solid #957b9e;*/
+    background-color: transparent;
+    outline-width: 0;
+}
+
+.buttonAdd > .MuiSvgIcon-root{
+    color: #957b9e;
 }
 .OrgBody{
     display: flex;
@@ -155,7 +185,11 @@
 
 .OrgContainer {
     display: flex;
-    margin-top: 20px;
+    margin: 3em;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+
 }
 
 .OrgShow {
@@ -306,6 +340,32 @@
     background-color: #F0F2F7 !important;
 
 }
-/*.MuiDataGrid-root .MuiDataGrid-cell--textLeft {*/
-/*    background-color: #9D1C1C;*/
-/*}*/
+.form{
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    align-items: center;
+    justify-content: center;
+    /*margin: 2em;*/
+    width: 600px;
+}
+.AddHeader{
+    line-height: 1.2;
+    text-align: center;
+    padding-bottom: 1em;
+    display: block;
+    font-size: 25px;
+    /*color: #333;*/
+}
+.addBtn{
+    color: white !important;
+    background-color: #957b9e !important;
+    width: 100%
+}
+.orgListEdits{
+    color: white;
+    background-color: #957b9e;
+    border-radius: 1em;
+}
+.orgListDeletes{
+    color: red;
+}

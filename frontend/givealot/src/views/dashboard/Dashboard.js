@@ -23,6 +23,8 @@ import Upgrade1 from "./sidebar/Components/Certificate/Upgrade1"
 // import Todos from "../dashboard/sidebar/Components/Todos/Todos"
 import Calendar from "../dashboard/sidebar/Components/Calendar/Calendar"
 import Validate from "../dashboard/sidebar/Components/Validate/Validate"
+import AddOrg from "../dashboard/sidebar/Components/OrganisationsDash/AddOrg"
+import OrgValidate from "../dashboard/sidebar/Components/Validate/OrgValidate"
 
 function Dashboard() {
     return (
@@ -38,7 +40,7 @@ function Dashboard() {
                         <Route exact path="/organisations">
                             <OrganisationsDash />
                         </Route>
-                        <Route path="/org/:orgId">
+                        <Route path="/org">
                             <Org />
                         </Route>
                         <Route exact path="/users">
@@ -79,6 +81,12 @@ function Dashboard() {
                         </Route>
                         <Route exact path="/upgrade1">
                             <Upgrade1 />
+                        </Route>
+                        <Route exact path="/addOrg">
+                            <AddOrg />
+                        </Route>
+                        <Route exact path="/orgValidate">
+                            <OrgValidate />
                         </Route>
                     </Switch>
                 </div>

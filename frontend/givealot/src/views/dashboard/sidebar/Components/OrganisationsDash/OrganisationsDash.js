@@ -14,66 +14,116 @@
 //
 // export default OrganisationsDash
 
-import React, {useState, useEffect} from "react";
-import { DataGrid } from '@material-ui/data-grid';
-import EditIcon from '@material-ui/icons/Edit';
-import IconButton from '@material-ui/core/IconButton';
+import React , { Component } from 'react'
 import { Link } from "react-router-dom";
+import SearchIcon from "@material-ui/icons/Search";
+import AddCircleOutlinedIcon from "@material-ui/icons/AddCircleOutlined";
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button'
+import { DeleteOutline } from "@material-ui/icons";
+import "../../styles/Organisations.css"
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import axios from 'axios'
+import EditIcon from '@material-ui/icons/Edit';
 
-export default function OrganisationsDash() {
-    const [isLoaded,setIsLoaded] = useState(false);
-    const [rowData,setRowData] = useState([]);
-    useEffect(() => {
-        const axios = require('axios').default;
-        axios
-            .get('http://jsonplaceholder.typicode.com/users')
-            .then((response) => {
-            setIsLoaded(true);
-            console.log(response.data);
-            setRowData(response.data);
-            response.data.forEach(user => {
-            });
-        });
-    }, []);
-    const columns = [
-        { field: "id", headerName: "ID", width: 100 },
-    { field: 'name', headerName: 'Name', width: 200 },
-    { field: 'username', headerName: 'User name', width: 200 },
-    { field: 'email', headerName: 'EMail', width: 200 },
-    { field: 'website', headerName: 'Website', width: 200 },
-        {
-            field: "action",
-            headerName: "Action",
-            width: 150,
-            renderCell: (params) => {
-                return (
-                    <>
-                        <Link to={"/org/" + params.row.id}>
-                        {/*    <button className="OrgListEdits">Edit</button>*/}
-                            <IconButton>
-                                <EditIcon />
-                            </IconButton>
+export class OrganisationsDash extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            org:[],
+            error: "",
+        }
+    }
+    componentDidMount(){
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        // const adminUsersRequestBody = {
+        //     "adminUserEmail" : this.state.adminUserEmail
+        // }
+        axios.get('http://jsonplaceholder.typicode.com/users',  config)
+            .then(response =>{
+                // console.log(response)
+                this.setState({org: response.data})
+                console.log(this.state.org)
+            })
+            .catch(error =>{
+                console.log(error)
+                this.setState({error : 'Error Retrieving data'})
+            })
+    }
+
+    // handleDelete = (id) => {
+    //     setData(data.filter((item) => item.id !== id));
+    // };
+
+    render () {
+        const { org } = this.state
+        return(
+                <div className="OrganisationsDash">
+                    <div className="OrgAdd">
+                        <Link to={"/addOrg"} className="link">
+                            <Button variant="contained" className="buttonAdd">
+                                Add Organisation
+                                <AddCircleOutlinedIcon/>
+                            </Button>
                         </Link>
-                    </>
-                );
-            },
-        },
-];
-    return(
-        <div className="OrganisationsDash">
-            <div className="table">
-                <div style={{ display: 'flex', height: '100%' }}>
-                    <div style={{ flexGrow: 1 }}>
-                        <DataGrid
-                            columns={columns}
-                            rows={rowData}
-                            id='id'
-                            pageSize={15}
-                        />
+                        <div className="header__input">
+                            <input placeholder="search organisation" type="text" />
+                            <SearchIcon/>
+                        </div>
+                    </div>
+                    <div className="table">
+                        <Grid container spacing={3}>
+                            <Grid item xs={12} >
+                                <TableContainer component={Paper}>
+                                    <Table >
+                                        <TableHead>
+
+                                        </TableHead>
+                                        <TableBody>
+                                            {org.map((item, index) =>{
+                                                return(
+                                                    <TableRow>
+                                                        <TableCell><Avatar aria-label="recipe" src="https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg" /> </TableCell>
+                                                        <TableCell>{item.name}</TableCell>
+                                                        <TableCell>{item.username}</TableCell>
+                                                        <TableCell>{item.email}</TableCell>
+                                                        <TableCell>
+                                                            <Link to={"/org"}>
+                                                                <EditIcon />
+                                                                {/*Edit</CreateIcon>*/}
+                                                            </Link>
+                                                             <DeleteOutline
+                                                               className="orgListDeletes"
+                                                              // onClick={() => handleDelete(params.row.id)}
+                                                             />
+                                                        </TableCell>
+                                                    </TableRow>
+                                                    )
+                                            })}
+                                        </TableBody>
+                                    </Table>
+                                </TableContainer>
+                            </Grid>
+                        </Grid>
                     </div>
                 </div>
+            );
+    }
 
-            </div>
-        </div>
-    );
+
 }
+
+export default OrganisationsDash

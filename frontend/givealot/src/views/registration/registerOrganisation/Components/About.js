@@ -82,7 +82,6 @@ export class RegisterOrganisation extends Component {
                                     />
                                     <span style={{float: "right", color: "red"}}><small>{this.props.sloganError}</small></span>
                                 </div>
-
                             </div>
 
                             <div className="input alert-validate" data-validate="Username is required">

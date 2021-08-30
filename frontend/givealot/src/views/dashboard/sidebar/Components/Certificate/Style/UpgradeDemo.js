@@ -1,6 +1,6 @@
+
 import React, {Component} from 'react';
 import "./Style/Certificate.css";
-
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import Button from '@material-ui/core/Button';
 import 'date-fns';

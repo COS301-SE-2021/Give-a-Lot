@@ -18,7 +18,7 @@ export class Certificate extends Component {
     constructor (props) {
         super(props)
         this.state={
-            level: 3,
+            level: 1,
 
         };
     }
@@ -29,7 +29,7 @@ export class Certificate extends Component {
 
         let upgrade
         if (this.state.level===0){
-            upgrade= <Link to="/upgrade" className="certLink"  >
+            upgrade= <Link to="/upgrade0" className="certLink"  >
                 <Button
                     variant="contained"
                     color="secondary"
@@ -41,7 +41,7 @@ export class Certificate extends Component {
                 </Button>
             </Link>
         }else if (this.state.level===1) {
-            upgrade = <Link to="/upgrade2" className="certLink">
+            upgrade = <Link to="/upgrade1" className="certLink">
                 <Button
                     variant="contained"
                     color="secondary"
@@ -53,7 +53,7 @@ export class Certificate extends Component {
                 </Button>
             </Link>
         }else if (this.state.level===2) {
-            upgrade = <Link to="/upgrade3" className="certLink">
+            upgrade = <Link to="/upgrade2" className="certLink">
                 <Button
                     variant="contained"
                     color="secondary"
@@ -65,7 +65,7 @@ export class Certificate extends Component {
                 </Button>
             </Link>
         }else if (this.state.level===3) {
-            upgrade = <Link to="/upgrade4" className="certLink">
+            upgrade = <Link to="/upgrade3" className="certLink">
                 <Button
                     variant="contained"
                     color="secondary"
@@ -77,7 +77,7 @@ export class Certificate extends Component {
                 </Button>
             </Link>
         }else if (this.state.level===4) {
-            upgrade = <Link to="/upgrade5" className="certLink">
+            upgrade = <Link to="/upgrade4" className="certLink">
                 <Button
                     variant="contained"
                     color="secondary"

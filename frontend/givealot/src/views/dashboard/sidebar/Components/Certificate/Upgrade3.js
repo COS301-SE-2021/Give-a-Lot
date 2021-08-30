@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import "./Style/Certificate.css";
 import 'date-fns';
-import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { withStyles ,makeStyles } from '@material-ui/core/styles'
 import {toast, ToastContainer} from "react-toastify";
@@ -10,8 +9,13 @@ import 'react-datepicker/dist/react-datepicker.css';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import TextField from "@material-ui/core/TextField";
 import Axios from "axios";
+
 
 const styles = theme => ({
 
@@ -23,40 +27,33 @@ const styles = theme => ({
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
         width: "25ch"
+    },formControl: {
+        margin: theme.spacing(1),
+        minWidth: 145,
+    },
+    selectEmpty: {
+        marginTop: theme.spacing(2),
     },
 
 });
 
 
-export class Upgrade2 extends Component {
+export class Upgrade3 extends Component {
 
     constructor (props) {
         super(props)
         this.state={
             orgId:"",
-            startDate: new Date(),
-            donation:"",
-
-
+            SocialMedia:"",
+            address:"",
+            name:"",
+            contacts:"",
 
         };
-        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleDateChange(date) {
-        this.setState({startDate: date, date:document.getElementsByClassName("input3")[0].value} )
-
-    }
-
-    handleInputChange = input => e => {
-
-        this.setState({ [input]: e.target.value });
-
-    };
-
-    handleChange = TextField => e => {
-
-        this.setState({ [TextField]: e.target.value });
+    handleSocialChange = e => {
+        this.setState({SocialMedia: e.target.value});
 
     };
 
@@ -64,8 +61,8 @@ export class Upgrade2 extends Component {
         e.preventDefault();
         const data = {
             orgId: this.state.orgId,
-            date: this.state.date,
-            donation: this.state.donation,
+            website: this.state.website,
+            address: this.state.address,
         };
         Axios
             .post("", data)
@@ -102,42 +99,84 @@ export class Upgrade2 extends Component {
                     <div className="progress6"> <StarOutlineIcon fontSize="large"/></div>
                 </div>
 
-                <Card className="upgrade_card1" variant="outlined">
+                <Card className="upgrade_card" variant="outlined">
                     <CardContent>
                         <div className={classes.root}>
                             <form onSubmit={this.handleFormSubmit}>
-                                <span className="upgrade_header1">
+                                <span className="upgrade_header">
                                     fill in
                                  </span>
                                 <div>
+                                    <div className="social_media">
+                                        <div>
 
-                                    <div >
-                                        <span className="upgrade_label">
-                                            Establishment date
-                                         </span>
-                                        <DatePicker
+                                            <FormControl variant="outlined" className={classes.formControl}>
+                                                <InputLabel id="demo-controlled-open-select-label">Social media</InputLabel>
+                                                <Select
+                                                    labelId="demo-simple-select-outlined-label"
+                                                    id="demo-simple-select-outlined"
+                                                    value={this.SocialMedia}
+                                                    onChange={this.handleSocialChange}
+                                                    label="Social Media"
 
-                                            className="upgrade_date"
-                                            selected={ this.state.startDate }
-                                            onChange={ this.handleDateChange }
-                                            name="startDate"
-                                            dateFormat="MM/dd/yyyy"
+
+                                                >
+                                                    <MenuItem value="">
+                                                        <em>None</em>
+                                                    </MenuItem>
+                                                    <MenuItem value={"Facebook"}>Facebook</MenuItem>
+                                                    <MenuItem value={"Instagram"}>Instagram</MenuItem>
+                                                    <MenuItem value={"Twitter"}>Twitter</MenuItem>
+                                                </Select>
+                                            </FormControl>
+
+                                        </div>
+                                        <TextField
+                                            id="outlined-full-width"
+                                            label="Social media"
+                                            style={{ margin: 8 }}
+                                            placeholder="Enter your social media url..."
+
                                             fullWidth
-
-                                        />
-                                    </div>
-                                    <div>
-                                        <span className="upgrade_label">
-                                            Donation confirmation
-                                         </span>
-                                        <input
-                                            className="upgrade_date"
-                                            type="file"
-                                            name="file"
-                                            onChange={this.handleInputChange}
+                                            margin="normal"
+                                            InputLabelProps={{
+                                                shrink: true,
+                                            }}
+                                            variant="outlined"
+                                            onChange={this.handleChange}
                                         />
                                     </div>
 
+                                    <TextField
+                                        id="outlined-full-width"
+                                        label="Full name"
+                                        name="name"
+                                        style={{ margin: 8 }}
+                                        placeholder="Enter Committee member name..."
+
+                                        fullWidth
+                                        margin="normal"
+                                        InputLabelProps={{
+                                            shrink: true,
+                                        }}
+                                        variant="outlined"
+                                        onChange={this.handleChange}
+                                    />
+                                    <TextField
+                                        id="outlined-full-width"
+                                        label="Contacts"
+                                        name="contacts"
+                                        style={{ margin: 8 }}
+                                        placeholder="Enter Committee member phone number..."
+
+                                        fullWidth
+                                        margin="normal"
+                                        InputLabelProps={{
+                                            shrink: true,
+                                        }}
+                                        variant="outlined"
+                                        onChange={this.handleChange}
+                                    />
                                 </div>
                                 <div className="upgrade_Button">
                                     <button className="upgrade-btn" type="submit" onClick={this.onToast}>
@@ -160,5 +199,4 @@ export class Upgrade2 extends Component {
         );
     }
 }
-export default withStyles(styles)(Upgrade2);
-
+export default withStyles(styles)(Upgrade3);

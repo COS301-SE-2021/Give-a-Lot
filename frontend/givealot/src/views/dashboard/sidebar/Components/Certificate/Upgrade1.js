@@ -27,7 +27,7 @@ const styles = theme => ({
 });
 
 
-export class Upgrade4 extends Component {
+export class Upgrade1 extends Component {
 
     constructor (props) {
         super(props)
@@ -75,14 +75,14 @@ export class Upgrade4 extends Component {
             <div className="upgrade">
                 <div className="upgradeTitle">
                     <p className="upgradeTitle1">Current level:</p>
-                    <p className="upgradeTitle2">Four</p>
+                    <p className="upgradeTitle2">One</p>
                 </div>
 
                 <div className="progress">
                     <div className="progress_complete"/>
-                    <div className="progress_complete"/>
-                    <div className="progress_complete"/>
-                    <div className="progress_complete"/>
+                    <div className="progress_empty"/>
+                    <div className="progress_empty"/>
+                    <div className="progress_empty"/>
                     <div className="progress_empty"/>
                     <div className="progress6"> <StarOutlineIcon fontSize="large"/></div>
                 </div>
@@ -94,32 +94,38 @@ export class Upgrade4 extends Component {
                                 <span className="upgrade_header">
                                     fill in
                                  </span>
-                                <div>
+                            <div>
 
-                                    <div>
-                                        <span className="upgrade_label">
-                                            Upload images
-                                         </span>
-                                        <input
-                                            className="upgrade_date"
-                                            accept="image/*"
-                                            id="contained-button-file"
-                                            multiple
-                                            type="file"
-                                        />
-                                    </div>
-                                    <div>
-                                        <span className="upgrade_label">
-                                            Donation confirmation
-                                         </span>
-                                        <input
-                                            className="upgrade_date"
-                                            type="file"
-                                            name="file"
-                                            onChange={this.handleInputChange}
-                                        />
-                                    </div>
-                                </div>
+                                <TextField
+                                    id="outlined-full-width"
+                                    label="Website"
+                                    style={{ margin: 8 }}
+                                    placeholder="Enter your website url.."
+                                    helperText="Full width!"
+                                    fullWidth
+                                    margin="normal"
+                                    InputLabelProps={{
+                                        shrink: true,
+                                    }}
+                                    variant="outlined"
+                                    onChange={this.handleChange}
+                                />
+                                <TextField
+                                    id="outlined-full-width"
+                                    label="Address"
+                                    name="address"
+                                    style={{ margin: 8 }}
+                                    placeholder="Enter your address"
+                                    helperText="Full width!"
+                                    fullWidth
+                                    margin="normal"
+                                    InputLabelProps={{
+                                        shrink: true,
+                                    }}
+                                    variant="outlined"
+                                    onChange={this.handleChange}
+                                />
+                            </div>
                                 <div className="upgrade_Button">
                                     <button className="upgrade-btn" type="submit" onClick={this.onToast}>
                                         Submit
@@ -141,4 +147,4 @@ export class Upgrade4 extends Component {
         );
     }
 }
-export default withStyles(styles)(Upgrade4);
+export default withStyles(styles)(Upgrade1);

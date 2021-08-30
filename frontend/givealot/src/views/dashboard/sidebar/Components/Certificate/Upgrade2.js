@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import "./Style/Certificate.css";
 import 'date-fns';
+import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { withStyles ,makeStyles } from '@material-ui/core/styles'
 import {toast, ToastContainer} from "react-toastify";
@@ -9,7 +10,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import TextField from "@material-ui/core/TextField";
+
 import Axios from "axios";
 
 const styles = theme => ({
@@ -33,11 +34,25 @@ export class Upgrade2 extends Component {
         super(props)
         this.state={
             orgId:"",
-            website: "",
-            address:"",
+            startDate: new Date(),
+            donation:"",
+
+
 
         };
+        this.handleDateChange = this.handleDateChange.bind(this);
     }
+
+    handleDateChange(date) {
+        this.setState({startDate: date, date:document.getElementsByClassName("input3")[0].value} )
+
+    }
+
+    handleInputChange = input => e => {
+
+        this.setState({ [input]: e.target.value });
+
+    };
 
     handleChange = TextField => e => {
 
@@ -49,8 +64,8 @@ export class Upgrade2 extends Component {
         e.preventDefault();
         const data = {
             orgId: this.state.orgId,
-            website: this.state.website,
-            address: this.state.address,
+            date: this.state.date,
+            donation: this.state.donation,
         };
         Axios
             .post("", data)
@@ -87,45 +102,44 @@ export class Upgrade2 extends Component {
                     <div className="progress6"> <StarOutlineIcon fontSize="large"/></div>
                 </div>
 
-                <Card className="upgrade_card" variant="outlined">
+                <Card className="upgrade_card1" variant="outlined">
                     <CardContent>
                         <div className={classes.root}>
                             <form onSubmit={this.handleFormSubmit}>
-                                <span className="upgrade_header">
+                                <span className="upgrade_header1">
                                     fill in
                                  </span>
-                            <div>
+                                <div>
 
-                                <TextField
-                                    id="outlined-full-width"
-                                    label="Website"
-                                    style={{ margin: 8 }}
-                                    placeholder="Enter your website url.."
-                                    helperText="Full width!"
-                                    fullWidth
-                                    margin="normal"
-                                    InputLabelProps={{
-                                        shrink: true,
-                                    }}
-                                    variant="outlined"
-                                    onChange={this.handleChange}
-                                />
-                                <TextField
-                                    id="outlined-full-width"
-                                    label="Address"
-                                    name="address"
-                                    style={{ margin: 8 }}
-                                    placeholder="Enter your address"
-                                    helperText="Full width!"
-                                    fullWidth
-                                    margin="normal"
-                                    InputLabelProps={{
-                                        shrink: true,
-                                    }}
-                                    variant="outlined"
-                                    onChange={this.handleChange}
-                                />
-                            </div>
+                                    <div >
+                                        <span className="upgrade_label">
+                                            Establishment date
+                                         </span>
+                                        <DatePicker
+
+                                            className="upgrade_date input3"
+                                            selected={ this.state.startDate }
+                                            onChange={ this.handleDateChange }
+                                            name="startDate"
+                                            dateFormat="MM/dd/yyyy"
+                                            fullWidth
+
+
+                                        />
+                                    </div>
+                                    <div>
+                                        <span className="upgrade_label">
+                                            Donation confirmation
+                                         </span>
+                                        <input
+                                            className="upgrade_date"
+                                            type="file"
+                                            name="file"
+                                            onChange={this.handleInputChange}
+                                        />
+                                    </div>
+
+                                </div>
                                 <div className="upgrade_Button">
                                     <button className="upgrade-btn" type="submit" onClick={this.onToast}>
                                         Submit
@@ -148,3 +162,4 @@ export class Upgrade2 extends Component {
     }
 }
 export default withStyles(styles)(Upgrade2);
+

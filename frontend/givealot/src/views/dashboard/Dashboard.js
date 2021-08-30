@@ -14,11 +14,12 @@ import Reports from "../../views/dashboard/sidebar/Components/Report/Reports"
 import Org from "../dashboard/sidebar/Components/OrganisationsDash/Org"
 import Profile from "../dashboard/sidebar/Components/Profile/Profile"
 import Certificate from "../dashboard/sidebar/Components/Certificate/Certificate"
-import Upgrade from "../dashboard/sidebar/Components/Certificate/Upgrade"
-import Upgrade2 from "../dashboard/sidebar/Components/Certificate/Upgrade2"
-import Upgrade3 from "../dashboard/sidebar/Components/Certificate/Upgrade3"
-import Upgrade4 from "../dashboard/sidebar/Components/Certificate/Upgrade4"
-import Upgrade5 from "../dashboard/sidebar/Components/Certificate/Upgrade5"
+import Upgrade from "./sidebar/Components/Certificate/Upgrade4"
+import Upgrade2 from "./sidebar/Components/Certificate/Upgrade2"
+import Upgrade3 from "./sidebar/Components/Certificate/Upgrade3"
+import Upgrade4 from "./sidebar/Components/Certificate/Upgrade4"
+import Upgrade0 from "./sidebar/Components/Certificate/Upgrade0"
+import Upgrade1 from "./sidebar/Components/Certificate/Upgrade1"
 // import Todos from "../dashboard/sidebar/Components/Todos/Todos"
 import Calendar from "../dashboard/sidebar/Components/Calendar/Calendar"
 import Validate from "../dashboard/sidebar/Components/Validate/Validate"
@@ -61,8 +62,8 @@ function Dashboard() {
                         <Route exact path="/certificate">
                             <Certificate />
                         </Route>
-                        <Route exact path="/upgrade">
-                            <Upgrade />
+                        <Route exact path="/upgrade4">
+                            <Upgrade4 />
                         </Route>
                         <Route exact path="/upgrade2">
                             <Upgrade2 />
@@ -70,11 +71,14 @@ function Dashboard() {
                         <Route exact path="/upgrade3">
                             <Upgrade3 />
                         </Route>
-                        <Route exact path="/upgrade4">
-                            <Upgrade4 />
+                        <Route exact path="/upgrade3">
+                            <Upgrade3 />
                         </Route>
-                        <Route exact path="/upgrade5">
-                            <Upgrade5 />
+                        <Route exact path="/upgrade0">
+                            <Upgrade0 />
+                        </Route>
+                        <Route exact path="/upgrade1">
+                            <Upgrade1 />
                         </Route>
                     </Switch>
                 </div>

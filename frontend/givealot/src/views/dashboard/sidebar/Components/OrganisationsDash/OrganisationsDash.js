@@ -33,19 +33,15 @@ import Grid from '@material-ui/core/Grid';
 import axios from 'axios'
 import EditIcon from '@material-ui/icons/Edit';
 
-// export default function OrganisationsDash() {
 export class OrganisationsDash extends Component {
 
     constructor(props) {
         super(props)
-
         this.state = {
             org:[],
             error: "",
         }
-
     }
-
     componentDidMount(){
         let config = {
             headers: {

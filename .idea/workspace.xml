@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="view organisation code clean up">
+    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="view admin dashboard code clean up">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Cards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Chart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Featured.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Featured.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Styles/Featured.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Styles/Featured.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/AddOrg.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/AddOrg.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/OrganisationsDash.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/OrganisationsDash.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Users/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Users/Users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/Validate.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/Validate.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/styles/Organisations.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/styles/Organisations.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/styles/Sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/styles/Sidebar.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,14 +143,7 @@
       <workItem from="1629339797985" duration="980000" />
       <workItem from="1629343930362" duration="7971000" />
       <workItem from="1630314366565" duration="12536000" />
-      <workItem from="1630330282069" duration="4177000" />
-    </task>
-    <task id="LOCAL-00020" summary="organisations controller revision - activate">
-      <created>1629264097723</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1629264097723</updated>
+      <workItem from="1630330282069" duration="6683000" />
     </task>
     <task id="LOCAL-00021" summary="organisations controller revision - activate">
       <created>1629264262713</created>
@@ -494,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630327421785</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="view admin dashboard code clean up">
+      <created>1630347244946</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1630347244946</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -513,7 +507,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="organisations controller revision - add socials" />
     <MESSAGE value="organisations controller revision - remove socials" />
     <MESSAGE value="organisations controller revision - tax" />
     <MESSAGE value="organisations controller revision - add Organisation" />
@@ -538,6 +531,7 @@
     <MESSAGE value="Add Organisation minor changes" />
     <MESSAGE value="view organisation" />
     <MESSAGE value="view organisation code clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="view organisation code clean up" />
+    <MESSAGE value="view admin dashboard code clean up" />
+    <option name="LAST_COMMIT_MESSAGE" value="view admin dashboard code clean up" />
   </component>
 </project>

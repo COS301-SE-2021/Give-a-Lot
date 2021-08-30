@@ -19,3 +19,14 @@
 .validateInfo{
     margin: 1em;
 }
+.validBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1em;
+}
+.name{
+    color: #957b9e;
+    font-size: xx-large;
+}

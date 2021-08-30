@@ -356,3 +356,11 @@
     color: white;
     background-color: #957b9e;
 }
+.orgListEdits{
+    color: white;
+    background-color: #957b9e;
+    border-radius: 1em;
+}
+.orgListDeletes{
+    color: red;
+}

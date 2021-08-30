@@ -11,13 +11,7 @@ export class Featured extends Component {
             <div className="featured">
                 <div className="featuredBody">
                     <div className="featuredTop">
-                        <div className="featuredCards">
-                            <Cards />
-                            <Cards />
-                            <Cards />
-                            <Cards />
-                            <Cards />
-                        </div>
+                        <Cards />
                         <Chart data={userData} title="Visits" grid dataKey="Active User"/>
                     </div>
                     {/*<div className="featuredBottom">*/}

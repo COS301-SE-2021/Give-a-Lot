@@ -7,8 +7,8 @@
     border: 2px solid #957b9e;
 }
 .buttonValidView{
-    color: white;
-    background-color: #957b9e;
+    color: white !important;
+    background-color: #957b9e !important;
 }
 .valid{
     color: #957b9e;

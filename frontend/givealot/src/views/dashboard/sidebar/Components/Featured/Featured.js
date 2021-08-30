@@ -16,6 +16,7 @@ export class Featured extends Component {
                             <Cards />
                             <Cards />
                             <Cards />
+                            <Cards />
                         </div>
                         <Chart data={userData} title="Visits" grid dataKey="Active User"/>
                     </div>

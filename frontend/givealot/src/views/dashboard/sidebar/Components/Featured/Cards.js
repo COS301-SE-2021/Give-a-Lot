@@ -5,23 +5,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 
-// const styles = {
-//     root: {
-//         minWidth: 275,
-//     },
-//     bullet: {
-//         display: 'inline-block',
-//         margin: '0 2px',
-//         transform: 'scale(0.8)',
-//     },
-//     title: {
-//         fontSize: 14,
-//     },
-//     pos: {
-//         marginBottom: 12,
-//     },
-// };
-
 export class Cards extends Component {
 
     render() {

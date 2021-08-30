@@ -6,9 +6,7 @@
     display: flex;
     flex-direction: column;
 }
-/*.featuredTop{*/
-/*    display: flex;*/
-/*}*/
+
 .chartInfo{
     margin: 20px;
     padding: 20px;
@@ -19,10 +17,13 @@
     padding: 20px;
     -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    background-color: white;
+    color: #957b9e;
 }
 
 .chartTitle {
     margin-bottom: 20px;
+    color: #957b9e;
 }
 .userInfoChart{
     display: flex;
@@ -38,13 +39,13 @@
 
 }
 .featuredCards{
-    padding: 0.4em;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    margin: 1em;
 }
 .cardElement{
-    width: 12.625em;
+    width: 13.625em;
     -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 }

@@ -31,6 +31,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios'
+import EditIcon from '@material-ui/icons/Edit';
 
 // export default function OrganisationsDash() {
 export class OrganisationsDash extends Component {
@@ -103,9 +104,10 @@ export class OrganisationsDash extends Component {
                                                         <TableCell>{item.name}</TableCell>
                                                         <TableCell>{item.username}</TableCell>
                                                         <TableCell>{item.email}</TableCell>
-                                                        <TableCell style={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
+                                                        <TableCell>
                                                             <Link to={"/org"}>
-                                                                <button className="orgListEdits">Edit</button>
+                                                                <EditIcon />
+                                                                {/*Edit</CreateIcon>*/}
                                                             </Link>
                                                              <DeleteOutline
                                                                className="orgListDeletes"

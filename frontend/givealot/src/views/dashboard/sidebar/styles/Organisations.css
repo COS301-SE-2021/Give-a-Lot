@@ -27,15 +27,19 @@
     display: flex;
     cursor: pointer;
     align-items: center;
-    padding: 2em;
     justify-content: space-between;
+    margin: 1em;
 }
 
 .buttonAdd{
-    /*border: 2px solid #957b9e;*/
     background-color: #957b9e !important;
     color: white !important;
-    /*display: flex;*/
+}
+.userTitle{
+    margin-top: 1em;
+    padding-left: 1em;
+    color: #957b9e;
+    font-size: xx-large;
 }
 
 .header__input{

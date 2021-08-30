@@ -15,12 +15,7 @@
 // export default OrganisationsDash
 
 import React , { Component } from 'react'
-import { Link } from "react-router-dom";
-import SearchIcon from "@material-ui/icons/Search";
-import AddCircleOutlinedIcon from "@material-ui/icons/AddCircleOutlined";
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button'
-import { DeleteOutline } from "@material-ui/icons";
 import "../../styles/Organisations.css"
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -67,6 +62,9 @@ export class Users extends Component {
         const { users } = this.state
         return(
             <div className="OrganisationsDash">
+                <div className="userTitle">
+                    All Users
+                </div>
                 <div className="table">
                     <Grid container spacing={3}>
                         <Grid item xs={12} >

@@ -9,11 +9,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import TextField from "@material-ui/core/TextField";
-import { purple } from '@material-ui/core/colors';
+
 import Axios from "axios";
 
 const styles = theme => ({
@@ -31,14 +28,56 @@ const styles = theme => ({
 });
 
 
-export class Upgrade3 extends Component {
+export class Upgrade2 extends Component {
 
     constructor (props) {
         super(props)
         this.state={
-            level: 3,
+            orgId:"",
+            startDate: new Date(),
+            donation:"",
+
+
 
         };
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleDateChange(date) {
+        this.setState({startDate: date, date:document.getElementsByClassName("input3")[0].value} )
+
+    }
+
+    handleInputChange = input => e => {
+
+        this.setState({ [input]: e.target.value });
+
+    };
+
+    handleChange = TextField => e => {
+
+        this.setState({ [TextField]: e.target.value });
+
+    };
+
+    handleFormSubmit = e => {
+        e.preventDefault();
+        const data = {
+            orgId: this.state.orgId,
+            date: this.state.date,
+            donation: this.state.donation,
+        };
+        Axios
+            .post("", data)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    };
+
+    onToast = () => {
+        toast.success('Submit successful',{
+            position: toast.POSITION.TOP_RIGHT
+
+        });
     }
 
 
@@ -51,7 +90,7 @@ export class Upgrade3 extends Component {
             <div className="upgrade">
                 <div className="upgradeTitle">
                     <p className="upgradeTitle1">Current level:</p>
-                    <p className="upgradeTitle2">One</p>
+                    <p className="upgradeTitle2">Three</p>
                 </div>
 
                 <div className="progress">
@@ -63,45 +102,50 @@ export class Upgrade3 extends Component {
                     <div className="progress6"> <StarOutlineIcon fontSize="large"/></div>
                 </div>
 
-                <Card className="upgrade_card" variant="outlined">
+                <Card className="upgrade_card1" variant="outlined">
                     <CardContent>
                         <div className={classes.root}>
-                            <form>
-                                <span className="upgrade_header">
+                            <form onSubmit={this.handleFormSubmit}>
+                                <span className="upgrade_header1">
                                     fill in
                                  </span>
                                 <div>
-                                    <TextField
-                                        id="outlined-full-width"
-                                        label="Website"
-                                        style={{ margin: 8 }}
-                                        placeholder="Enter your website url.."
-                                        helperText="Full width!"
-                                        fullWidth
-                                        margin="normal"
-                                        InputLabelProps={{
-                                            shrink: true,
-                                        }}
-                                        variant="outlined"
-                                    />
-                                    <TextField
-                                        id="outlined-full-width"
-                                        label="Address"
-                                        style={{ margin: 8 }}
-                                        placeholder="Enter your address"
-                                        helperText="Full width!"
-                                        fullWidth
-                                        margin="normal"
-                                        InputLabelProps={{
-                                            shrink: true,
-                                        }}
-                                        variant="outlined"
-                                    />
+
+                                    <div >
+                                        <span className="upgrade_label">
+                                            Establishment date
+                                         </span>
+                                        <DatePicker
+
+                                            className="upgrade_date"
+                                            selected={ this.state.startDate }
+                                            onChange={ this.handleDateChange }
+                                            name="startDate"
+                                            dateFormat="MM/dd/yyyy"
+                                            fullWidth
+
+                                        />
+                                    </div>
+                                    <div>
+                                        <span className="upgrade_label">
+                                            Donation confirmation
+                                         </span>
+                                        <input
+                                            className="upgrade_date"
+                                            type="file"
+                                            name="file"
+                                            onChange={this.handleInputChange}
+                                        />
+                                    </div>
+
                                 </div>
                                 <div className="upgrade_Button">
-                                    <button className="upgrade-btn" type="submit">
+                                    <button className="upgrade-btn" type="submit" onClick={this.onToast}>
                                         Submit
                                     </button>
+                                </div>
+                                <div className="form-group">
+                                    <ToastContainer/>
                                 </div>
 
                             </form>
@@ -116,5 +160,5 @@ export class Upgrade3 extends Component {
         );
     }
 }
-export default withStyles(styles)(Upgrade3);
+export default withStyles(styles)(Upgrade2);
 

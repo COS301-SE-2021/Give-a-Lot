@@ -216,22 +216,6 @@ export class Upgrade extends Component {
 
 
 
-                        <form className="upgrade_form" onSubmit={this.handleAddressFormChange}>
-                            <input
-                                name="address"
-                                type="text"
-                                placeholder="Enter your address.."
-                                className="input1"
-                                onChange={this.handleAddressInputChange}
-                            />
-
-                            <input type="submit" value="Submit" className="submit1" onClick={this.onToast}/>
-                            { }
-                            <div className="form-group">
-                                <ToastContainer/>
-                            </div>
-
-                        </form>
 
                         <div className="upgrade_form">
                             <label className="upgrade_sublabel">Enter Establishment date</label>

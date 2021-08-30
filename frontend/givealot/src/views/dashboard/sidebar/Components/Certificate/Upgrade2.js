@@ -75,13 +75,13 @@ export class Upgrade2 extends Component {
             <div className="upgrade">
                 <div className="upgradeTitle">
                     <p className="upgradeTitle1">Current level:</p>
-                    <p className="upgradeTitle2">One</p>
+                    <p className="upgradeTitle2">Two</p>
                 </div>
 
                 <div className="progress">
                     <div className="progress_complete"/>
                     <div className="progress_complete"/>
-                    <div className="progress_complete"/>
+                    <div className="progress_empty"/>
                     <div className="progress_empty"/>
                     <div className="progress_empty"/>
                     <div className="progress6"> <StarOutlineIcon fontSize="large"/></div>

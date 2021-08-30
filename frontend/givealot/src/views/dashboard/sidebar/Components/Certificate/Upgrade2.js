@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import "./Style/Certificate.css";
 import 'date-fns';
-import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { withStyles ,makeStyles } from '@material-ui/core/styles'
 import {toast, ToastContainer} from "react-toastify";
@@ -9,11 +8,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import TextField from "@material-ui/core/TextField";
-import { purple } from '@material-ui/core/colors';
 import Axios from "axios";
 
 const styles = theme => ({
@@ -36,9 +32,37 @@ export class Upgrade2 extends Component {
     constructor (props) {
         super(props)
         this.state={
-            level: 0,
+            orgId:"",
+            website: "",
+            address:"",
 
         };
+    }
+
+    handleChange = TextField => e => {
+
+        this.setState({ [TextField]: e.target.value });
+
+    };
+
+    handleFormSubmit = e => {
+        e.preventDefault();
+        const data = {
+            orgId: this.state.orgId,
+            website: this.state.website,
+            address: this.state.address,
+        };
+        Axios
+            .post("", data)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    };
+
+    onToast = () => {
+        toast.success('Submit successful',{
+            position: toast.POSITION.TOP_RIGHT
+
+        });
     }
 
 
@@ -66,8 +90,12 @@ export class Upgrade2 extends Component {
                 <Card className="upgrade_card" variant="outlined">
                     <CardContent>
                         <div className={classes.root}>
-                            <form>
+                            <form onSubmit={this.handleFormSubmit}>
+                                <span className="upgrade_header">
+                                    fill in
+                                 </span>
                             <div>
+
                                 <TextField
                                     id="outlined-full-width"
                                     label="Website"
@@ -80,10 +108,12 @@ export class Upgrade2 extends Component {
                                         shrink: true,
                                     }}
                                     variant="outlined"
+                                    onChange={this.handleChange}
                                 />
                                 <TextField
                                     id="outlined-full-width"
                                     label="Address"
+                                    name="address"
                                     style={{ margin: 8 }}
                                     placeholder="Enter your address"
                                     helperText="Full width!"
@@ -93,21 +123,23 @@ export class Upgrade2 extends Component {
                                         shrink: true,
                                     }}
                                     variant="outlined"
+                                    onChange={this.handleChange}
                                 />
                             </div>
                                 <div className="upgrade_Button">
-                                    <button className="upgrade-btn" type="submit">
+                                    <button className="upgrade-btn" type="submit" onClick={this.onToast}>
                                         Submit
                                     </button>
+                                </div>
+                                <div className="form-group">
+                                    <ToastContainer/>
                                 </div>
 
                             </form>
                         </div>
 
                     </CardContent>
-                    <CardActions>
-                        <Button size="small">Learn More</Button>
-                    </CardActions>
+
                 </Card>
 
 

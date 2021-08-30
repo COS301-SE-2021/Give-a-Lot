@@ -67,6 +67,9 @@ export class Upgrade3 extends Component {
                     <CardContent>
                         <div className={classes.root}>
                             <form>
+                                <span className="upgrade_header">
+                                    fill in
+                                 </span>
                                 <div>
                                     <TextField
                                         id="outlined-full-width"
@@ -105,9 +108,7 @@ export class Upgrade3 extends Component {
                         </div>
 
                     </CardContent>
-                    <CardActions>
-                        <Button size="small">Learn More</Button>
-                    </CardActions>
+
                 </Card>
 
 

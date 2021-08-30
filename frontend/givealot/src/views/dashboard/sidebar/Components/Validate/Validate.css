@@ -32,4 +32,12 @@
 .name{
     color: #957b9e;
     font-size: xx-large;
+    /*margin: 2em;*/
+}
+.validBody{
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }

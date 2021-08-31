@@ -110,7 +110,7 @@ export class Upgrade4 extends Component {
                                     </div>
                                     <div>
                                         <span className="upgrade_label_logo">
-                                            Audit finacial document
+                                            Audit financial document
                                          </span>
                                         <input
                                             className="upgrade_logo"

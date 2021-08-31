@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="update">
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/OrganisationTimeLineItem/OrganisationTimeLineItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/PDFCert.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/loader/Loader.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/loader/Loader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_desktop.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_desktop.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_general.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_general.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_general_footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_general_footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_mobile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_tablet.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/view_organisation.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/view_organisation.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,21 +159,7 @@
       <workItem from="1629339797985" duration="980000" />
       <workItem from="1629343930362" duration="7971000" />
       <workItem from="1630374578592" duration="13973000" />
-      <workItem from="1630405088383" duration="21541000" />
-    </task>
-    <task id="LOCAL-00005" summary="user and login system are complete">
-      <created>1629248031231</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1629248031231</updated>
-    </task>
-    <task id="LOCAL-00006" summary="user and login system are complete">
-      <created>1629252237529</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1629252237529</updated>
+      <workItem from="1630405088383" duration="23184000" />
     </task>
     <task id="LOCAL-00007" summary="user and login system are complete">
       <created>1629254855215</created>
@@ -518,7 +490,21 @@
       <option name="project" value="LOCAL" />
       <updated>1630190419142</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="update">
+      <created>1630438883735</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1630438883735</updated>
+    </task>
+    <task id="LOCAL-00055" summary="update">
+      <created>1630438922272</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1630438922272</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

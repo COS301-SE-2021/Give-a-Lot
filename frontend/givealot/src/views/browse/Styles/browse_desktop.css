@@ -166,12 +166,10 @@
     top: 30px;
     box-sizing: content-box;
     width: 103%;
-
   }
 
   #default_organisations:hover {
     transition: all 0.5s;
-
   }
 
   #default_organisations::-webkit-scrollbar {

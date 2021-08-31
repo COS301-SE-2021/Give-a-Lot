@@ -78,13 +78,13 @@ public class CertificateServiceImpl implements CertificateService {
 
         File certificate = retrieveCertificate(orgId, organisation.getOrgName());
 
-        /*String[] result = blockchainService
+        String[] result = blockchainService
                 .uploadCertificate(orgId, certificate);
         String certificateHash = result[0];
         String txHash = result[1];
-        long index = blockchainService.findCertificateIndex(orgId);*/
+        long index = blockchainService.findCertificateIndex(orgId);
 
-        Blockchain blockchain = new Blockchain(112293,1234,2,"ffdfd3344rf44t4ffgfgf33","certfg5654iffgficfgatfgfgeHash");
+        Blockchain blockchain = new Blockchain(orgId,index,0,txHash,certificateHash);
 
         blockChainRepository.save(blockchain);
 

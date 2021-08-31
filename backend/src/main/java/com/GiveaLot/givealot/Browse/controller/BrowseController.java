@@ -2,15 +2,11 @@ package com.GiveaLot.givealot.Browse.controller;
 
 import com.GiveaLot.givealot.Browse.response.browseOrganisationsBySectorResponse;
 import com.GiveaLot.givealot.Browse.response.browseRecommendedResponse;
-import com.GiveaLot.givealot.Browse.response.browseSectorOrganisation;
 import com.GiveaLot.givealot.Browse.service.BrowseServiceImp;
-import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
-import com.GiveaLot.givealot.User.response.getUserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

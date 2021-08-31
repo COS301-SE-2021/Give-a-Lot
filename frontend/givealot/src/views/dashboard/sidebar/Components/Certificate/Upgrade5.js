@@ -40,31 +40,13 @@ export class Upgrade5 extends Component {
     constructor (props) {
         super(props)
         this.state={
-            orgId:"",
-            website: "",
-            address:"",
+
 
         };
     }
 
-    handleChange = TextField => e => {
 
-        this.setState({ [TextField]: e.target.value });
 
-    };
-
-    handleFormSubmit = e => {
-        e.preventDefault();
-        const data = {
-            orgId: this.state.orgId,
-            website: this.state.website,
-            address: this.state.address,
-        };
-        Axios
-            .post("", data)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
-    };
 
     onToast = () => {
         toast.success('Submit successful',{

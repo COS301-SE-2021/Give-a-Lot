@@ -10,6 +10,7 @@ import ReportOutlinedIcon from '@material-ui/icons/ReportOutlined';
 import { useLocation } from "react-router-dom";
 import CalendarTodayOutlinedIcon from '@material-ui/icons/CalendarTodayOutlined';
 import VerifiedUserOutlinedIcon from '@material-ui/icons/VerifiedUserOutlined';
+import Logo from "../../login/Components/DashLogo"
 
 function Sidebar(){
 
@@ -27,6 +28,7 @@ function Sidebar(){
                 <div className="sidebarWrapper">
                     <div className="sidebarMenu">
                         <ul className="sidebarList">
+                            <Logo style={{margin: "3.5em"}}/>
                                 {/* Checking the current path name using javascript ternary operator and if true adding active classname to it */}
                             <li className={splitLocation[1] === "featured" ? "active" : ""}>
                                 <Link to='/featured' className="link">

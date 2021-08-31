@@ -10,9 +10,13 @@ import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.GiveaLot.givealot.Server.ServerConfig;
+import org.springframework.web.multipart.MultipartFile;
 
+
+import javax.mail.Multipart;
 import java.io.File;
 import java.io.InputStream;
+import java.nio.file.Files;
 
 @Service
 public class ServerAccess {
@@ -22,9 +26,9 @@ public class ServerAccess {
 
     ServerConfig config = new ServerConfig();
 
-    private String remoteHost = config.getRemoteHost();
-    private String username = config.getUsername();
-    private String password = config.getPassword();
+    private final String remoteHost = config.getRemoteHost();
+    private final String username = config.getUsername();
+    private final String password = config.getPassword();
 
     private String remoteDir = "/home/ubuntu/";
 

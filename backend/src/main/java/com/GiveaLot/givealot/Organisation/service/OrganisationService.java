@@ -26,7 +26,7 @@ public interface OrganisationService {
     generalOrganisationResponse removeOrgAddress(Long orgId) throws Exception;
     generalOrganisationResponse addOrgLogo(AddOrgLogoRequest request) throws Exception;
     generalOrganisationResponse removeOrgLogo(Long orgId) throws Exception;
-    generalOrganisationResponse addOrgImage(AddOrgImageRequest request) throws Exception;
+    generalOrganisationResponse addOrgImage(AddOrgImageMultipartRequest request) throws Exception;
     generalOrganisationResponse removeOrgImage(Long orgId, int number) throws Exception;
     generalOrganisationResponse addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception;
     generalOrganisationResponse removeOrgAuditDoc(Long orgId) throws Exception;

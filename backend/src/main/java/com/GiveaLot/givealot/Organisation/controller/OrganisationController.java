@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -401,10 +402,33 @@ public class OrganisationController
         }
     }
 
+//    @PostMapping("/add/image") /* all good - correctness not tested yet */
+//    public ResponseEntity<generalOrganisationResponse> addOrgImage(@RequestBody @NonNull AddOrgImageRequest body)
+//    {
+//        generalOrganisationResponse response;
+//        try
+//        {
+//            response = service.addOrgImage(body);
+//            return new ResponseEntity<>(response, HttpStatus.OK);
+//        }
+//        catch (Exception e)
+//        {
+//            return new ResponseEntity<>(new generalOrganisationResponse("rem_est_500_err","failed: " + e), HttpStatus.OK);
+//        }
+//    }
+
     @PostMapping("/add/image") /* all good - correctness not tested yet */
-    public ResponseEntity<generalOrganisationResponse> addOrgImage(@RequestBody @NonNull AddOrgImageRequest body)
+    public ResponseEntity<generalOrganisationResponse> addOrgImage(@RequestBody @NonNull AddOrgImageMultipartRequest body)
     {
+
         generalOrganisationResponse response;
+        List<MultipartFile> images = body.getImages();
+
+        if (images!=null && images.size()>0){
+            for (MultipartFile image : images){
+
+            }
+        }
         try
         {
             response = service.addOrgImage(body);

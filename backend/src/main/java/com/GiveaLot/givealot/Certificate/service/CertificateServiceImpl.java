@@ -3,7 +3,6 @@ package com.GiveaLot.givealot.Certificate.service;
 import com.GiveaLot.givealot.Blockchain.Repository.BlockChainRepository;
 import com.GiveaLot.givealot.Blockchain.dataclass.Blockchain;
 import com.GiveaLot.givealot.Blockchain.service.BlockchainService;
-import com.GiveaLot.givealot.Blockchain.service.BlockchainServiceImpl;
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
 import com.GiveaLot.givealot.Notification.dataclass.Mail;
@@ -11,19 +10,21 @@ import com.GiveaLot.givealot.Notification.service.SendMailService;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Server.ServerAccess;
-import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
 import org.apache.pdfbox.pdmodel.interactive.form.PDField;
+import org.apache.pdfbox.rendering.ImageType;
+import org.apache.pdfbox.rendering.PDFRenderer;
+import org.apache.pdfbox.tools.imageio.ImageIOUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.math.BigInteger;
-import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -134,7 +135,7 @@ public class CertificateServiceImpl implements CertificateService {
 
         File template = new File(templateCertificate);
 
-        PDDocument document = Loader.loadPDF(template);
+        PDDocument document = PDDocument.load(template);
         PDDocumentCatalog catalog = document.getDocumentCatalog();
 
         PDAcroForm acroForm = catalog.getAcroForm();
@@ -161,14 +162,14 @@ public class CertificateServiceImpl implements CertificateService {
                 acroForm.flatten();
 
             }
-            System.out.println("works2");
         }catch (Exception e){
             throw new Exception("Exception: unable to create certificate: " + e);
         }
-        System.out.println("works3");
 
         document.save(completeCertificate);
         document.close();
+
+        imageCreator(completeCertificate,organisation.getOrgId());
 
         access.uploadCertificate(organisation.getOrgId(), organisation.getOrgName());
 
@@ -178,6 +179,20 @@ public class CertificateServiceImpl implements CertificateService {
 
         return true;
 
+    }
+
+    public boolean imageCreator(String filepath, long orgId) throws IOException {
+        PDDocument document = PDDocument.load(new File(filepath));
+        PDFRenderer pdfRenderer = new PDFRenderer(document);
+        for (int page = 0; page < document.getNumberOfPages(); ++page)
+        {
+            BufferedImage bim = pdfRenderer.renderImageWithDPI(page, 300, ImageType.RGB);
+
+            // suffix in filename will be used as the file format
+            ImageIOUtil.writeImage(bim, "frontend/givealot/localFiles/" + orgId+ "/certificate/CertificateImage.png", 300);
+        }
+        document.close();
+        return true;
     }
 
     @Override
@@ -237,15 +252,30 @@ public class CertificateServiceImpl implements CertificateService {
         return true;
     }
 
+//    @Override
+//    public boolean compareCertificate(File certificate) throws Exception {
+//        Blockchain blockchain = blockChainRepository.selectBlockchainCertificateHash(
+//                blockchainService.hashCertificate(certificate));
+//        if (blockchain==null){
+//            return false;
+//        }
+//        return blockchainService.compareCertificateHash(blockchain.getIndex(),blockchain.getOrgId(),certificate);
+//    }
+
     @Override
-    public boolean compareCertificate(File certificate) throws Exception {
+    public boolean compareCertificate(MultipartFile certificate) throws Exception {
+        File certCmp = new File("backend/src/main/resources/TempCertificate/TempCompareCertificate.pdf");
+        certificate.transferTo(certCmp);
         Blockchain blockchain = blockChainRepository.selectBlockchainCertificateHash(
-                blockchainService.hashCertificate(certificate));
+                blockchainService.hashCertificate(certCmp));
         if (blockchain==null){
             return false;
         }
-        return blockchainService.compareCertificateHash(blockchain.getIndex(),blockchain.getOrgId(),certificate);
+        return blockchainService.compareCertificateHash(blockchain.getIndex(),blockchain.getOrgId(),certCmp);
     }
+
+
+
 
 
 }

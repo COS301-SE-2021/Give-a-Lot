@@ -21,7 +21,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.io.File;
 
 @SpringBootApplication
-public class GivealotApplication /*implements CommandLineRunner*/ {
+public class GivealotApplication implements CommandLineRunner {
 
     @Autowired
     OrganisationRepository organisationRepository;
@@ -57,23 +57,23 @@ public class GivealotApplication /*implements CommandLineRunner*/ {
 
     /** Add an organisation **/
 
-//	@Override
-//	public  void run(String... args) throws Exception {
-//		Organisations organisations = new Organisations();
-//		organisations.setOrgId(123L);
-//		organisations.setPassword("iloveyou");
-//		organisations.setContactNumber("Contact Number");
-//		organisations.setOrgEmail("futuremoroke@gmail.com");
-//		organisations.setStatus("Status");
-//		organisations.setOrgSector("Animals");
-//		organisations.setContactPerson("Contact Person");
-//		organisations.setSlogan("Slogan");
-//		organisations.setOrgDescription("Org Description");
-//		organisations.setOrgName("The Kgomotso Inc.");
-//		organisations.setDirectory("/tmp");
-//		organisationService.addOrganisation(organisations);
-//
-//	}
+	@Override
+	public  void run(String... args) throws Exception {
+		Organisations organisations = new Organisations();
+		organisations.setOrgId(123L);
+		organisations.setPassword("iloveyou");
+		organisations.setContactNumber("Contact Number");
+		organisations.setOrgEmail("hithere@gmail.com");
+		organisations.setStatus("Status");
+		organisations.setOrgSector("Animals");
+		organisations.setContactPerson("Contact Person");
+		organisations.setSlogan("Slogan");
+		organisations.setOrgDescription("Org Description");
+		organisations.setOrgName("The Hippie Inc.");
+		organisations.setDirectory("/tmp");
+		organisationService.addOrganisation(organisations);
+
+	}
 
 	/** Compare valid certificate **/
 //	@Override

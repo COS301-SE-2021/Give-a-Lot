@@ -21,7 +21,13 @@ const styles = theme => ({
 
     root: {
         display: "flex",
-        flexWrap: "wrap"
+        flexWrap: "wrap",
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: '#957b9e',
+                borderWidth: 2
+            },
+        },
     },
     textField: {
         marginLeft: theme.spacing(1),
@@ -29,6 +35,7 @@ const styles = theme => ({
         width: "25ch"
     },formControl: {
         margin: theme.spacing(1),
+
         minWidth: 149,
     },
     selectEmpty: {
@@ -135,7 +142,7 @@ export class Upgrade3 extends Component {
                                             id="outlined-full-width"
                                             label="Social media"
                                             style={{ margin: 8 }}
-                                            placeholder="Enter your social media url..."
+                                            placeholder="Enter your first social media url..."
 
                                             fullWidth
                                             margin="normal"
@@ -175,8 +182,7 @@ export class Upgrade3 extends Component {
                                             id="outlined-full-width"
                                             label="Social media"
                                             style={{ margin: 8 }}
-                                            placeholder="Enter your social media url..."
-
+                                            placeholder="Enter your second social media url..."
                                             fullWidth
                                             margin="normal"
                                             InputLabelProps={{

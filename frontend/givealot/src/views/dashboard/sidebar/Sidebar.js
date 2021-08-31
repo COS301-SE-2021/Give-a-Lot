@@ -28,7 +28,7 @@ function Sidebar(){
                 <div className="sidebarWrapper">
                     <div className="sidebarMenu">
                         <ul className="sidebarList">
-                            <Logo style={{margin: "3.5em"}}/>
+                            {/*<Logo style={{margin: "3.5em"}}/>*/}
                                 {/* Checking the current path name using javascript ternary operator and if true adding active classname to it */}
                             <li className={splitLocation[1] === "featured" ? "active" : ""}>
                                 <Link to='/featured' className="link">

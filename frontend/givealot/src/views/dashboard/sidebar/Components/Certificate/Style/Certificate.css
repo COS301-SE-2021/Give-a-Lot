@@ -195,7 +195,8 @@
     border-radius: 5px;
     color: gray;
     margin-bottom: 20px;
-    border: 1px solid gray;
+    border: 2px solid #957b9e;
+
 }
 .upgrade-btn:hover{
     background-color: #9f8aa6;

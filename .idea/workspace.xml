@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="view validate information loop finalised">
+    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="view validate information page created">
+      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/data.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/AddOrg.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/AddOrg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/Validate.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/Validate.css" afterDir="false" />
     </list>
@@ -101,6 +104,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="generated-requests#27" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="27" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -143,14 +157,8 @@
       <workItem from="1629339797985" duration="980000" />
       <workItem from="1629343930362" duration="7971000" />
       <workItem from="1630314366565" duration="12536000" />
-      <workItem from="1630330282069" duration="17124000" />
-    </task>
-    <task id="LOCAL-00026" summary="organisations controller revision - add socials">
-      <created>1629267828348</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1629267828348</updated>
+      <workItem from="1630330282069" duration="17488000" />
+      <workItem from="1630388313976" duration="4265000" />
     </task>
     <task id="LOCAL-00027" summary="organisations controller revision - remove socials">
       <created>1629267850946</created>
@@ -488,7 +496,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630362000335</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="view validate information page created">
+      <created>1630364022540</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1630364022540</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,7 +522,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="organisations controller revision" />
     <MESSAGE value="Fixing organisation points" />
     <MESSAGE value="Last minute changes" />
     <MESSAGE value="fix the recommender - modified the user class, the controllers for the organisation system all to accommodate the recommender.&#10;Add organisation function was modified on the controllers" />
@@ -532,6 +546,7 @@
     <MESSAGE value="view admin dashboard color" />
     <MESSAGE value="view admin dashboard Add organisation" />
     <MESSAGE value="view validate information loop finalised" />
-    <option name="LAST_COMMIT_MESSAGE" value="view validate information loop finalised" />
+    <MESSAGE value="view validate information page created" />
+    <option name="LAST_COMMIT_MESSAGE" value="view validate information page created" />
   </component>
 </project>

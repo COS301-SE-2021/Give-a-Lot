@@ -8,7 +8,7 @@
 }
 .buttonValidView{
     color: white !important;
-    background-color: #957b9e !important;
+    background-color: lightgreen !important;
 }
 .valid{
     color: #957b9e;
@@ -35,9 +35,12 @@
     /*margin: 2em;*/
 }
 .validBody{
-    padding: 2em;
+    /*padding: 2em;*/
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    /*align-items: center;*/
+}
+.buttonValidViewDeny{
+    color: white !important;
+    background-color: red !important;
+    margin-left: 0.8em;
 }

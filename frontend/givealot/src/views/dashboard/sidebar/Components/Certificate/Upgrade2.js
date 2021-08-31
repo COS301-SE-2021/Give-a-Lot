@@ -12,6 +12,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
 import Axios from "axios";
+import TextField from "@material-ui/core/TextField";
 
 const styles = theme => ({
 
@@ -41,7 +42,7 @@ export class Upgrade2 extends Component {
         this.state={
             orgId:"",
             startDate: new Date(),
-            donation:"",
+            paypal:"",
 
 
 
@@ -133,14 +134,27 @@ export class Upgrade2 extends Component {
 
                                         />
                                     </div>
+                                    <TextField
+                                        id="outlined-full-width"
+                                        label="Paypal link"
+                                        style={{ margin: 8 }}
+                                        placeholder="Enter  paypal link..."
+                                        fullWidth
+                                        margin="normal"
+                                        InputLabelProps={{
+                                            shrink: true,
+                                        }}
+                                        variant="outlined"
+                                        onChange={this.handleChange}
+                                    />
                                     <div>
-                                        <span className="upgrade_label">
-                                            Donation confirmation
+                                        <span className="upgrade_label_logo">
+                                            QR code
                                          </span>
                                         <input
-                                            className="upgrade_date"
+                                            className="upgrade_logo"
                                             type="file"
-                                            name="file"
+                                            name="QRcode"
                                             onChange={this.handleInputChange}
                                         />
                                     </div>

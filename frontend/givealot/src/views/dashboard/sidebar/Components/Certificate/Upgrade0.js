@@ -29,7 +29,7 @@ const styles = theme => ({
     textField: {
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
-        width: "25ch"
+        width: "30ch"
     },
 
 });
@@ -147,11 +147,11 @@ export class Upgrade0 extends Component {
                                         onChange={this.handleChange}
                                     />
                                     <div>
-                                        <span className="upgrade_label">
+                                        <span className="upgrade_label_logo">
                                             Logo
                                          </span>
                                         <input
-                                            className="upgrade_date"
+                                            className="upgrade_logo"
                                             type="file"
                                             name="file"
                                             onChange={this.handleInputChange}

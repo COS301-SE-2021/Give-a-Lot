@@ -75,6 +75,8 @@
 
 }
 
+
+
 .progress{
     display: flex;
     margin-left: 30px;
@@ -84,7 +86,7 @@
 
 .progress_complete{
 
-    background-color: green;
+    background-color: #957b9e;
     width: 130px;
     height: 20px;
     margin-left:8px;
@@ -113,6 +115,8 @@
     position: relative;
     width: 600px;
     margin: 30px;
+
+
     -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 }
@@ -180,7 +184,7 @@
     border-radius: 10px;
     height: 40px;
     border: none;
-    background-color: #7c6d81;
+    background-color: #957b9e;
 
 }
 .upgrade_date{

@@ -16,12 +16,20 @@ const styles = theme => ({
 
     root: {
         display: "flex",
-        flexWrap: "wrap"
+        flexWrap: "wrap",
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: '#957b9e',
+                borderWidth: 2
+            },
+        },
     },
     textField: {
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
-        width: "25ch"
+        width: "30ch",
+
+
     },
 
 });
@@ -92,7 +100,7 @@ export class Upgrade1 extends Component {
                         <div className={classes.root}>
                             <form onSubmit={this.handleFormSubmit}>
                                 <span className="upgrade_header">
-                                    fill in
+                                    Additional credentials needed to Upgrade
                                  </span>
                             <div>
 
@@ -101,7 +109,7 @@ export class Upgrade1 extends Component {
                                     label="Website"
                                     style={{ margin: 8 }}
                                     placeholder="Enter your website url.."
-                                    helperText="Full width!"
+
                                     fullWidth
                                     margin="normal"
                                     InputLabelProps={{
@@ -115,8 +123,8 @@ export class Upgrade1 extends Component {
                                     label="Address"
                                     name="address"
                                     style={{ margin: 8 }}
-                                    placeholder="Enter your address"
-                                    helperText="Full width!"
+                                    placeholder="Enter your address.."
+
                                     fullWidth
                                     margin="normal"
                                     InputLabelProps={{

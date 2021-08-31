@@ -10,7 +10,6 @@
 .LoginCard{
     align-items: center;
     justify-content: center;
-
     display: flex;
 
 
@@ -20,11 +19,11 @@
     border-radius: 10px;
     background: #fff;
     overflow: hidden;
-    padding: 65px 55px 54px 55px;
+    padding: 30px 30px 30px 30px;
 
 }
 
-LoginForm {
+.LoginForm {
     display: block;
     margin-top: 0em;
 }
@@ -325,3 +324,174 @@ LoginForm {
 
 }
 
+
+/* mobile media query*/
+
+@media screen and (max-device-width: 640px) {
+
+    .Login{
+
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        object-fit: fill;
+
+    }
+
+    .LoginCard{
+        align-items: center;
+        justify-content: center;
+        padding: 25px 25px 25px 25px;
+        display: flex;
+
+
+    }
+    .wrapper{
+        width: 500px;
+        border-radius: 10px;
+        background: #fff;
+
+        overflow: hidden;
+        padding: 65px 55px 54px 55px;
+
+    }
+
+    LoginForm {
+        display: block;
+        margin-top: 0em;
+    }
+    .LoginHeader{
+        line-height: 1.2;
+        text-align: center;
+        padding-bottom: 49px;
+        display: block;
+        font-size: 25px;
+        color: #333;
+
+    }
+    .LoginInput{
+        width: 100%;
+        border-bottom: 2px solid #d9d9d9;
+        margin-bottom: 23px;
+    }
+    .LoginInputLabel{
+        font-size: 14px;
+        color: #333;
+        line-height: 1.5;
+        padding-left: 7px;
+    }
+    .innerInput{
+
+        line-height: 1.2;
+        display: block;
+        width: 100%;
+        height: 55px;
+        font-size: 16px;
+        color: #333;
+        background: 0 0;
+        padding: 0 7px 0 43px;
+        outline: none;
+        border: none;
+    }
+    .validate{
+        position: relative;
+    }
+    .focus-input{
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+    }
+    .focus-input::before {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #7f7f7f;
+        -webkit-transition: all .4s;
+        -o-transition: all .4s;
+        -moz-transition: all .4s;
+        transition: all .4s;
+    }
+    .LoginButton{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .wrapper-btn{
+        width: 100%;
+        display: block;
+        position: relative;
+        z-index: 1;
+        border-radius: 25px;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+    .Loginform-btn{
+        position: absolute;
+        z-index: -1;
+        width: 300%;
+        height: 100%;
+    }
+    .Login-btn{
+        font-size: 16px;
+        color: #fff;
+        line-height: 1.2;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+        width: 100%;
+        text-transform: uppercase;
+        display: flex;
+        height: 50px;
+        border: none;
+        background-color: #861657;
+        background-image: linear-gradient(326deg, #7c6d81 0%, #ffa69e 74%);
+        /* background-image: linear-gradient(326deg, #7c6d81 0%, #861657 74%);*/
+        /* background-color: #7c6d81;*/
+    }
+    .Login-btn:hover{
+        background-color: #7c6d81;
+        background-image: linear-gradient(356deg, #7c6d81 0%, #ffa69e 100%);
+    }
+    .Login-btn:active {
+        transform: translateY(4px);
+    }
+    .BottomForm{
+        display: flex;
+        justify-content: space-evenly;
+        padding: 15px;
+
+    }
+
+    .linker{
+        text-decoration: none;
+    }
+
+    .BottomLinker{
+        text-decoration: none;
+        color: #333;
+    }
+
+
+    .LoginIcon{
+        color: #767676;
+        /*padding: 10px;*/
+    }
+    .loginError{
+        color: red;
+        float: right;
+
+    }
+
+}
+.headers{
+    position: sticky;
+    z-index: 999;
+}

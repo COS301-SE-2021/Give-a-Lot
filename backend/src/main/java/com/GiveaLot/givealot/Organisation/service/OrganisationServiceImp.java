@@ -25,7 +25,11 @@ import com.GiveaLot.givealot.User.requests.GetUsersRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -275,7 +279,7 @@ public class OrganisationServiceImp implements OrganisationService {
 
         /** Create tables and directory **/
 
-        /*Certificate certificate;
+        Certificate certificate;
         int year = dateCurrent.getYear();
         dateEx.setYear(year+1);
         String dateExpiry = format.format(dateEx);
@@ -291,7 +295,7 @@ public class OrganisationServiceImp implements OrganisationService {
         }
 
         certificateRepository.save(certificate);
-        certificateService.addCertificate(id,certificate);*/
+        certificateService.addCertificate(id,certificate);
 
         /**Sending a verification email**/
         /*System.out.println("Sending Email...");
@@ -956,15 +960,16 @@ public class OrganisationServiceImp implements OrganisationService {
         return new generalOrganisationResponse("rem_est_200_OK", "success");
     }
 
-    @Override /*all good*/
-    public generalOrganisationResponse addOrgImage(AddOrgImageRequest request) throws Exception {
+
+    @Override
+    public generalOrganisationResponse addOrgImage(AddOrgImageMultipartRequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request not set");
 
         else if(request.getOrgId() == null)
             throw new Exception("Provided ID is null");
 
-        else if (request.getImage() == null)
+        else if (request.getImages() == null)
             throw new Exception("Exception: tax reference not set");
 
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
@@ -978,15 +983,30 @@ public class OrganisationServiceImp implements OrganisationService {
 
         String name = organisation_tmp.getOrgName();
 
-        access.uploadImageJPG(request.getOrgId(),name,request.getImage());
+        List<MultipartFile> images = request.getImages();
+
+        int numberOFNewImages = 0;
+        File file = new File("src/main/resources/targetFile.jpg");
+
+        for (MultipartFile image: images) {
+
+            try (OutputStream os = new FileOutputStream(file)) {
+                os.write(image.getBytes());
+            }
+            access.uploadImageJPG(request.getOrgId(),name,file);
+            numberOFNewImages++;
+        }
+
+
 
         int numImages = organisationInfoRepository.selectOrganisationInfo(request.getOrgId()).getNumberOfImages();
 
-        if (organisationInfoRepository.incrementImage(request.getOrgId(), numImages + 1) != 1)
+        if (organisationInfoRepository.incrementImage(request.getOrgId(), numImages + numberOFNewImages) != 1)
             throw new Exception("Exception: value field failed to update");
 
         return new generalOrganisationResponse("add_img_200_OK", "success");
     }
+
 
     @Override /* all good, correctness not tested yet */
     public generalOrganisationResponse removeOrgImage(Long orgId, int number) throws Exception {

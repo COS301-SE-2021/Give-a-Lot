@@ -5,6 +5,7 @@ package com.GiveaLot.givealot.Certificate.service;
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,7 +31,7 @@ public interface CertificateService {
 
     public boolean adminRenewal(long orgId) throws Exception;
 
-    public boolean compareCertificate(File certificate) throws Exception;
+  public boolean compareCertificate(MultipartFile certificate) throws Exception;
 }
 
 

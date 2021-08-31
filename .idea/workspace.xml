@@ -5,8 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="fix the recommender - modified the user class, the controllers for the organisation system all to accommodate the recommender.&#10;Add organisation function was modified on the controllers">
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/assets/feedback-2044700_1280.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/assets/filter_list_black_24dp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/Controller/CertificateController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/AddOrgImageMultipartRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/TempCertificate/TempCompareCertificate.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_itextpdf_itextpdf_5_5_13_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__info_picocli_picocli_4_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_pdfbox_pdfbox_3_0_0_RC1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_pdfbox_pdfbox_app_3_0_0_RC1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_pdfbox_pdfbox_debugger_3_0_0_RC1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/GivealotApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/GivealotApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/GiveaLot/givealot/IntegrationTests/OrganisationControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/GiveaLot/givealot/IntegrationTests/OrganisationControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +85,9 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.GiveaLot.givealot.Organisation.response" />
@@ -84,6 +107,11 @@
       <recent name="C:\Users\Nqobani_Xpl\Documents\Course\2021\COS301\capstone - restructured\Give-a-Lot\backend\src\main\java\com\GiveaLot\givealot\Certificate\dataclass" />
       <recent name="C:\Users\Nqobani_Xpl\Documents\Course\2021\COS301\capstone - restructured\Give-a-Lot\backend\src\main\java\com\GiveaLot\givealot\Blockchain\dataclass" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean install" />
+    </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
     <configuration name="BlockchainServiceImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -110,16 +138,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="generated-requests#27" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="27" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="generated-requests#28" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="28" runType="Run single request">
-      <method v="2" />
-    </configuration>
     <configuration name="generated-requests#34" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="34" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#37" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="37" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests#46" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="46" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests#47" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="47" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="GivealotApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -131,11 +159,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests#47" />
+        <item itemvalue="HTTP Request.generated-requests#46" />
         <item itemvalue="HTTP Request.generated-requests#37" />
         <item itemvalue="HTTP Request.generated-requests#34" />
         <item itemvalue="Application.BlockchainServiceImpl" />
-        <item itemvalue="HTTP Request.generated-requests#28" />
-        <item itemvalue="HTTP Request.generated-requests#27" />
       </list>
     </recent_temporary>
   </component>

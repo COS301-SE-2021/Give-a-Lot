@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -402,9 +403,10 @@ public class OrganisationController
     }
 
     @PostMapping("/add/image") /* all good - correctness not tested yet */
-    public ResponseEntity<generalOrganisationResponse> addOrgImage(@RequestBody @NonNull AddOrgImageRequest body)
+    public ResponseEntity<generalOrganisationResponse> addOrgImage(@RequestBody @NonNull AddOrgImageMultipartRequest body)
     {
         generalOrganisationResponse response;
+        List<MultipartFile> images = body.getImages();
         try
         {
             response = service.addOrgImage(body);

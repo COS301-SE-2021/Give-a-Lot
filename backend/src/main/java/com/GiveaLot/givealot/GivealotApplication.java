@@ -57,23 +57,24 @@ public class GivealotApplication /*implements CommandLineRunner*/ {
 
     /** Add an organisation **/
 
-//	@Override
-//	public  void run(String... args) throws Exception {
-//		Organisations organisations = new Organisations();
-//		organisations.setOrgId(123L);
-//		organisations.setPassword("iloveyou");
-//		organisations.setContactNumber("Contact Number");
-//		organisations.setOrgEmail("futuremoroke@gmail.com");
-//		organisations.setStatus("Status");
-//		organisations.setOrgSector("Animals");
-//		organisations.setContactPerson("Contact Person");
-//		organisations.setSlogan("Slogan");
-//		organisations.setOrgDescription("Org Description");
-//		organisations.setOrgName("The Kgomotso Inc.");
-//		organisations.setDirectory("/tmp");
-//		organisationService.addOrganisation(organisations);
-//
-//	}
+/*	@Override
+	public  void run(String... args) throws Exception {
+		Organisations organisations = new Organisations();
+		organisations.setOrgId(123L);
+		organisations.setPassword("iloveyou");
+		organisations.setContactNumber("Contact Number");
+		organisations.setOrgEmail("test123@gmail.com");
+		organisations.setStatus("Status");
+		organisations.setOrgSector("disability");
+		organisations.setContactPerson("Contact Person");
+		organisations.setSlogan("Slogan");
+		organisations.setOrgDescription("Org Descripti Description  Descriptionon");
+		organisations.setOrgName("The Kgomotso  Kgomotso Kgomotso Inc.");
+		organisations.setDirectory("/tmp");
+        organisations.setDateAdded("2020-01-01");
+		organisationService.addOrganisation(organisations);
+
+	}*/
 
 	/** Compare valid certificate **/
 //	@Override

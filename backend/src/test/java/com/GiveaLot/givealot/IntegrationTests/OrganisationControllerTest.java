@@ -189,7 +189,7 @@ public class OrganisationControllerTest {
         actualPerformResult.andExpect(MockMvcResultMatchers.status().is(400));
     }
 
-    @Test
+   /* @Test
     public void testAddOrgImage() {
         OrganisationServiceImp service = mock(OrganisationServiceImp.class);
         OrganisationController organisationController = new OrganisationController(service, new responseJSON());
@@ -199,7 +199,7 @@ public class OrganisationControllerTest {
         assertEquals("<200 OK OK,[]>", actualAddOrgImageResult.toString());
         assertEquals(HttpStatus.OK, actualAddOrgImageResult.getStatusCode());
         assertTrue(actualAddOrgImageResult.getHeaders().isEmpty());
-    }
+    }*/
 
 
     @Test

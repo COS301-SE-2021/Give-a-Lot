@@ -59,12 +59,16 @@ export class OrgValidate extends Component {
                                                 {item.name}
                                             </Typography>
                                             <Typography style={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
-                                                <Button variant="contained" className="buttonValidViewAccept">
-                                                    Accept
-                                                </Button>
-                                                <Button variant="contained" className="buttonValidViewDeny">
-                                                    Deny
-                                                </Button>
+                                                <Grid>
+                                                    <Button variant="contained" className="buttonValidViewAccept">
+                                                        Accept
+                                                    </Button>
+                                                </Grid>
+                                                <Grid style={{marginLeft: "1em"}}>
+                                                    <Button variant="contained" className="buttonValidViewDeny">
+                                                        Deny
+                                                    </Button>
+                                                </Grid>
                                             </Typography>
 
                                         </Typography>

@@ -13,7 +13,7 @@ export class AddOrg extends Component {
     render() {
         return (
             <div className="organisations">
-                <div  style={{display: "flex", alignItems: "center", justifyContent: "center", marginTop: "1em"}}>
+                <div  style={{display: "flex", alignItems: "center", justifyContent: "center", marginTop: "1em", flexGrow: 1}}>
                     <Card style={{width: "50%"}}>
                         <CardContent>
                             <Typography style={{margin: "1em", color: "#957b9e"}}>

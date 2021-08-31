@@ -1,8 +1,14 @@
 .organisations{
     flex: 4;
     background-color: #F0F2F7;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
 }
-
+.DashboardContainer{
+    flex: 4;
+}
 .OrgSearch{
     float: right;
     padding: 0.9em;

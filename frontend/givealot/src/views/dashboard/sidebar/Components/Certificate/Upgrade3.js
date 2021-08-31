@@ -29,7 +29,7 @@ const styles = theme => ({
         width: "25ch"
     },formControl: {
         margin: theme.spacing(1),
-        minWidth: 145,
+        minWidth: 149,
     },
     selectEmpty: {
         marginTop: theme.spacing(2),
@@ -104,20 +104,60 @@ export class Upgrade3 extends Component {
                         <div className={classes.root}>
                             <form onSubmit={this.handleFormSubmit}>
                                 <span className="upgrade_header">
-                                    fill in
+                                    Additional credentials needed to Upgrade
                                  </span>
                                 <div>
                                     <div className="social_media">
                                         <div>
 
                                             <FormControl variant="outlined" className={classes.formControl}>
-                                                <InputLabel id="demo-controlled-open-select-label">Social media</InputLabel>
+                                                <InputLabel id="demo-controlled-open-select-label">Social platform</InputLabel>
                                                 <Select
                                                     labelId="demo-simple-select-outlined-label"
                                                     id="demo-simple-select-outlined"
                                                     value={this.SocialMedia}
                                                     onChange={this.handleSocialChange}
-                                                    label="Social Media"
+                                                    label="Social platform"
+
+
+                                                >
+                                                    <MenuItem value="">
+                                                        <em>None</em>
+                                                    </MenuItem>
+                                                    <MenuItem value={"Facebook"}>Facebook</MenuItem>
+                                                    <MenuItem value={"Instagram"}>Instagram</MenuItem>
+                                                    <MenuItem value={"Twitter"}>Twitter</MenuItem>
+                                                </Select>
+                                            </FormControl>
+
+                                        </div>
+                                        <TextField
+                                            id="outlined-full-width"
+                                            label="Social media"
+                                            style={{ margin: 8 }}
+                                            placeholder="Enter your social media url..."
+
+                                            fullWidth
+                                            margin="normal"
+                                            InputLabelProps={{
+                                                shrink: true,
+                                            }}
+                                            variant="outlined"
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+
+                                    <div className="social_media">
+                                        <div>
+
+                                            <FormControl variant="outlined" className={classes.formControl}>
+                                                <InputLabel id="demo-controlled-open-select-label">Social platform</InputLabel>
+                                                <Select
+                                                    labelId="demo-simple-select-outlined-label"
+                                                    id="demo-simple-select-outlined"
+                                                    value={this.SocialMedia}
+                                                    onChange={this.handleSocialChange}
+                                                    label="Social platform"
 
 
                                                 >

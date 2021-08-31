@@ -18,7 +18,13 @@ const styles = theme => ({
 
     root: {
         display: "flex",
-        flexWrap: "wrap"
+        flexWrap: "wrap",
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: '#957b9e',
+                borderWidth: 2
+            },
+        },
     },
     textField: {
         marginLeft: theme.spacing(1),
@@ -108,7 +114,7 @@ export class Upgrade0 extends Component {
                         <div className={classes.root}>
                             <form onSubmit={this.handleFormSubmit}>
                                 <span className="upgrade_header1">
-                                    fill in
+                                    Additional credentials needed to Upgrade
                                  </span>
                                 <div>
 

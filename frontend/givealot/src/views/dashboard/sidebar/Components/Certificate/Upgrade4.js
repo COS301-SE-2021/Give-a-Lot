@@ -9,6 +9,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import { FormHelperText } from '@material-ui/core';
 import TextField from "@material-ui/core/TextField";
 import Axios from "axios";
 
@@ -22,6 +23,9 @@ const styles = theme => ({
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
         width: "25ch"
+    },
+    formControl: {
+        margin: theme.spacing.unit * 3
     },
 
 });
@@ -106,7 +110,9 @@ export class Upgrade4 extends Component {
                                             id="contained-button-file"
                                             multiple
                                             type="file"
+
                                         />
+                                        <FormHelperText className="helper">labelPlacement start</FormHelperText>
                                     </div>
                                     <div>
                                         <span className="upgrade_label_logo">

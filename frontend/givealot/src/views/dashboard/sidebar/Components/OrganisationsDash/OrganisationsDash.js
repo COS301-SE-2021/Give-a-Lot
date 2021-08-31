@@ -1,19 +1,3 @@
-// import React, { Component } from 'react'
-// import "../../styles/Organisations.css"
-//
-// export class OrganisationsDash extends Component {
-//
-//     render() {
-//         return (
-//             <div className="organisations">
-//                 orgs here
-//             </div>
-//         )
-//     }
-// }
-//
-// export default OrganisationsDash
-
 import React , { Component } from 'react'
 import { Link } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
@@ -32,6 +16,12 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios'
 import EditIcon from '@material-ui/icons/Edit';
+import DashHeader from "../../DashHeader/DashHeader";
+import Dialog from "@material-ui/core/Dialog";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import TextField from "@material-ui/core/TextField";
+import AddOrg from "./AddOrg";
 
 export class OrganisationsDash extends Component {
 
@@ -40,8 +30,26 @@ export class OrganisationsDash extends Component {
         this.state = {
             org:[],
             error: "",
+            open: false,
+            openAdd: false
         }
     }
+
+    openDialog() {
+        this.setState({ open: true });
+    }
+    openDialogAdd() {
+        this.setState({ openAdd: true });
+    }
+
+    handleClose = () => {
+        this.setState({ open: false });
+    };
+
+    handleCloseAdd = () => {
+        this.setState({ openAdd: false });
+    };
+
     componentDidMount(){
         let config = {
             headers: {
@@ -63,22 +71,49 @@ export class OrganisationsDash extends Component {
                 this.setState({error : 'Error Retrieving data'})
             })
     }
-
-    // handleDelete = (id) => {
-    //     setData(data.filter((item) => item.id !== id));
-    // };
-
     render () {
         const { org } = this.state
         return(
                 <div className="OrganisationsDash">
+                    {/*<DashHeader />*/}
                     <div className="OrgAdd">
-                        <Link to={"/addOrg"} className="link">
-                            <Button variant="contained" className="buttonAdd">
+                        {/*<Link to={"/addOrg"} className="link">*/}
+                            <Button variant="contained" className="buttonAdd" onClick={this.openDialogAdd.bind(this)}>
                                 Add Organisation
                                 <AddCircleOutlinedIcon/>
                             </Button>
-                        </Link>
+                        <Dialog onClose={this.handleCloseAdd.bind(this)} open={this.state.openAdd} onEnter={console.log("Hey.")}>
+                            <DialogTitle>Add Organisation</DialogTitle>
+                            <DialogContent>
+                                <AddOrg />
+                            </DialogContent>
+                        </Dialog>
+                        {/*</Link>*/}
+                        <Button variant="contained" className="buttonAdd" onClick={this.openDialog.bind(this)}>
+                            Create Sector
+                            <AddCircleOutlinedIcon/>
+                        </Button>
+                        <Dialog onClose={this.handleClose.bind(this)} open={this.state.open} onEnter={console.log("Hey.")}>
+                            <DialogTitle>Create a Sector</DialogTitle>
+                            <DialogContent>
+                                <form>
+                                    <Grid>
+                                        <TextField
+                                            id="outlined-full-width"
+                                            label="Label"
+                                            style={{ margin: 8 }}
+                                            placeholder="Enter Sector name"
+                                            fullWidth
+                                            margin="normal"
+                                            InputLabelProps={{
+                                                shrink: true,
+                                            }}
+                                            variant="outlined"
+                                        />
+                                    </Grid>
+                                </form>
+                            </DialogContent>
+                        </Dialog>
                         <div className="header__input">
                             <input placeholder="search organisation" type="text" />
                             <SearchIcon/>

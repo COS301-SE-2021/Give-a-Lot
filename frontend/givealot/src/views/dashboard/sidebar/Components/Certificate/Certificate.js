@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SaveIcon from '@material-ui/icons/Save';
+import DashHeader from "../../DashHeader/DashHeader";
 
 
 const styles = theme => ({
@@ -104,6 +105,7 @@ export class Certificate extends Component {
 
     return (
         <div className="certificate">
+
             {upgrade}
 
             <Button

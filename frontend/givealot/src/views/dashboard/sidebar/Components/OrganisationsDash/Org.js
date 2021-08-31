@@ -42,7 +42,7 @@ export class Org extends Component {
     render() {
         return (
             <div className="org">
-
+                    org here
             </div>
         )
     }

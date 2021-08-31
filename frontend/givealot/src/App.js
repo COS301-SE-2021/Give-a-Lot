@@ -7,7 +7,6 @@ import SignUp from './views/registration/SignUp'
 import RegisterOrg from './views/registration/registerOrganisation/RegisterOrganisation'
 import RegisterUser from './views/registration/registerUser/RegisterUser'
 import VerifyCertificate from './views/verifyCertificate/VerifyCertificate'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import ViewOrganisation from "./views/browse/Components/Organisation/ViewOrganisation";
 
@@ -24,7 +23,8 @@ function App()
         <Route path="/registerUser" exact component={RegisterUser}/>
         <Route path="/dashboard" exact component={Dashboard}/>
         <Route path="/organisation/:id" exact component={ViewOrganisation} />
-
+      </Switch>
+    </Router>
   );
 }
 

@@ -30,7 +30,7 @@ function Dashboard() {
     return (
         <Router>
             <div className="Dashboard">
-                {/*<DashLogo />*/}
+                <DashLogo />
                 <div className="DashboardContainer">
                     <Sidebar />
                     <Switch>

@@ -59,7 +59,7 @@ export class OrgValidate extends Component {
                                                 {item.name}
                                             </Typography>
                                             <Typography style={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
-                                                <Button variant="contained" className="buttonValidView">
+                                                <Button variant="contained" className="buttonValidViewAccept">
                                                     Accept
                                                 </Button>
                                                 <Button variant="contained" className="buttonValidViewDeny">

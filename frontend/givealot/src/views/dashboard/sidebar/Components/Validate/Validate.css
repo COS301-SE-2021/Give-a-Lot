@@ -8,6 +8,10 @@
 }
 .buttonValidView{
     color: white !important;
+    background-color: #957b9e !important;
+}
+.buttonValidViewAccept{
+    color: white !important;
     background-color: lightgreen !important;
 }
 .valid{

@@ -92,7 +92,7 @@ export class Upgrade4 extends Component {
                         <div className={classes.root}>
                             <form onSubmit={this.handleFormSubmit}>
                                 <span className="upgrade_header">
-                                    fill in
+                                   Additional credentials needed to Upgrade
                                  </span>
                                 <div>
 
@@ -109,11 +109,11 @@ export class Upgrade4 extends Component {
                                         />
                                     </div>
                                     <div>
-                                        <span className="upgrade_label">
-                                            Donation confirmation
+                                        <span className="upgrade_label_logo">
+                                            Audit finacial document
                                          </span>
                                         <input
-                                            className="upgrade_date"
+                                            className="upgrade_logo"
                                             type="file"
                                             name="file"
                                             onChange={this.handleInputChange}

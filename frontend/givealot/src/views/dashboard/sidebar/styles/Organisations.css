@@ -386,3 +386,33 @@
     justify-content: center;
     /*width: 50%;*/
 }
+.orgCard{
+    margin: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.userTitleOrg{
+    margin-bottom:1em;
+    font-size: 30px;
+    color: #515151;
+}
+.orgDetailsS{
+    display: flex;
+    /*flex-grow: 2;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+}
+.card1{
+    flex: 1;
+}
+.card2{
+    flex: 1;
+    margin-left: 1em;
+}
+._orgButtons{
+    padding: 0.8em;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}

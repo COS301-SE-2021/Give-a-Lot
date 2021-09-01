@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="Minor adjustments">
+    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="Create sector on admin portal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/OrganisationsDash.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/OrganisationsDash.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/Org.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/Org.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/styles/Organisations.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/styles/Organisations.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,14 +150,8 @@
       <workItem from="1629343930362" duration="7971000" />
       <workItem from="1630374578592" duration="13973000" />
       <workItem from="1630405088383" duration="23184000" />
-      <workItem from="1630491021144" duration="2163000" />
-    </task>
-    <task id="LOCAL-00009" summary="user and login system are complete">
-      <created>1629255970866</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1629255970866</updated>
+      <workItem from="1630491021144" duration="2559000" />
+      <workItem from="1630499867538" duration="3633000" />
     </task>
     <task id="LOCAL-00010" summary="organisations api - get all users ready for frontend">
       <created>1629258479163</created>
@@ -494,7 +489,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630492200718</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Create sector on admin portal">
+      <created>1630493658096</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1630493658096</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,6 +533,7 @@
     <MESSAGE value="fix the recommender - modified the user class, the controllers for the organisation system all to accommodate the recommender.&#10;Add organisation function was modified on the controllers" />
     <MESSAGE value="update" />
     <MESSAGE value="Minor adjustments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor adjustments" />
+    <MESSAGE value="Create sector on admin portal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create sector on admin portal" />
   </component>
 </project>

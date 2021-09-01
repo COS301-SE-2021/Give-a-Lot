@@ -25,15 +25,17 @@ import Calendar from "../dashboard/sidebar/Components/Calendar/Calendar"
 import Validate from "../dashboard/sidebar/Components/Validate/Validate"
 import AddOrg from "../dashboard/sidebar/Components/OrganisationsDash/AddOrg"
 import OrgValidate from "../dashboard/sidebar/Components/Validate/OrgValidate"
+import DashHeader from "./sidebar/DashHeader/DashHeader"
 
 function Dashboard() {
     return (
         <Router>
             <div className="Dashboard">
-                <DashLogo />
+                {/*<DashHeader />*/}
                 <div className="DashboardContainer">
                     <Sidebar />
                     <Switch>
+                        {/*<DashHeader />*/}
                         <Route exact path="/featured">
                             <Featured />
                         </Route>

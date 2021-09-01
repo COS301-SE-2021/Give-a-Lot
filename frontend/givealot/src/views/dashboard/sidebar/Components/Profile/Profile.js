@@ -11,6 +11,7 @@ import {
 } from "@material-ui/icons";
 import axios from "axios";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
+import Dash from "../../DashHeader/DashHeader"
 
 export class Profile extends Component {
 
@@ -45,6 +46,7 @@ export class Profile extends Component {
 
         return (
             <div className="profileOrg">
+                <Dash />
                 <div className="userTitleContainer">
                     <div className="userTitle">Edit Information</div>
                 </div>

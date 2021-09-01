@@ -6,9 +6,9 @@ import "../Styles/Login.css"
 function DashLogo()
 {
     return(
-        <div style={{width: "200px", marginLeft: "15px", height: "4em"}} className="headers">
+        <div className="headers">
             <Link to={"/"}>
-                <img id="logo" src={logo} />
+                <img id="logo" src={logo} style={{height: "70px", width: "130px"}}/>
             </Link>
         </div>
     );

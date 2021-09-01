@@ -9,91 +9,111 @@ import Typography from '@material-ui/core/Typography';
 import Select from '@material-ui/core/Select';
 import axios from "axios";
 
+const initialState = {
+    orgName : "",
+    orgNameError: '',
+    slogan : "",
+    sloganError: '',
+    orgDescription : "",
+    orgDescriptionError: "",
+    orgSector : "",
+    orgSectorError: '',
+    orgEmail : "",
+    orgEmailError : "",
+    contactPerson : "",
+    contactPersonError : "",
+    contactNumber : "",
+    contactNumberError: '',
+    password : "",
+    passwordError: '',
+    image: '',
+    imageError: '',
+    sectorS: []
+};
+
 export class AddOrg extends Component {
+    state = initialState;
 
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            orgName : "",
-            orgNameError: '',
-            slogan : "",
-            sloganError: '',
-            orgDescription : "",
-            orgDescriptionError: "",
-            orgSector : "",
-            orgSectorError: '',
-            orgEmail : "",
-            orgEmailError : "",
-            contactPerson : "",
-            contactPersonError : "",
-            contactNumber : "",
-            contactNumberError: '',
-            password : "",
-            passwordError: '',
-            image: '',
-            imageError: '',
-            sectorS: []
-        }
-    }
+    // constructor(props) {
+    //     super(props)
+    //
+    //     this.state = {
+    //         orgName : "",
+    //         orgNameError: '',
+    //         slogan : "",
+    //         sloganError: '',
+    //         orgDescription : "",
+    //         orgDescriptionError: "",
+    //         orgSector : "",
+    //         orgSectorError: '',
+    //         orgEmail : "",
+    //         orgEmailError : "",
+    //         contactPerson : "",
+    //         contactPersonError : "",
+    //         contactNumber : "",
+    //         contactNumberError: '',
+    //         password : "",
+    //         passwordError: '',
+    //         image: '',
+    //         imageError: '',
+    //         sectorS: []
+    //     }
+    // }
 
     validated = () => {
         let isErrors = false;
-        const error = {
-            orgNameError: '',
-            orgEmailError : "",
-            passwordError: '',
-            sloganError: '',
-            orgSectorError: '',
-            orgDescriptionError: '',
-            contactPersonError : "",
-            contactNumberError: '',
-            imageError: ''
-        }
+
+            let orgNameError = '';
+            let orgEmailError = "";
+            let passwordError = '';
+            let sloganError = '';
+            let orgSectorError = '';
+            let orgDescriptionError = '';
+            let contactPersonError = "";
+            let contactNumberError = '';
+            let imageError = '';
+
         if(this.state.orgEmail.indexOf('@') === -1){
-            isErrors = true;
-            error.orgEmailError = 'Please enter a valid email address';
+            // isErrors = true;
+            orgEmailError = 'Please enter a valid email address';
         }
         if(this.state.password.length < 4){
-            isErrors = true;
-            error.passwordError = 'Password must be at least 4 characters long';
+            // isErrors = true;
+            passwordError = 'Password must be at least 4 characters long';
         }
         if(this.state.orgName.length < 1){
-            isErrors = true;
-            error.orgNameError = 'orgName cannot be blank';
+            // isErrors = true;
+            orgNameError = 'orgName cannot be blank';
         }
         if(this.state.slogan.length < 1){
-            isErrors = true;
-            error.sloganError = 'slogan cannot be blank';
+            // isErrors = true;
+            sloganError = 'slogan cannot be blank';
         }
 
         if(this.state.orgSector.length < 1){
-            isErrors = true;
-            error.orgSectorError = 'Sector cannot be blank';
+            // isErrors = true;
+            orgSectorError = 'Sector cannot be blank';
         }
 
         if(this.state.orgDescription.length < 1){
-            isErrors = true;
-            error.orgDescriptionError = 'Description cannot be blank';
-        }
-        if(this.state.contactPerson.length < 1){
-            isErrors = true;
-            error.contactPersonError = 'Contact person cannot be blank';
+            // isErrors = true;
+            orgDescriptionError = 'Description cannot be blank';
         }
         if (!this.state.contactNumber.match(/^[0-9]{10}$/)) {
-            isErrors = true;
-            error.contactNumberError = "Please enter valid mobile number";
+            // isErrors = true;
+            contactNumberError = "Please enter valid mobile number";
         }
         if(this.state.contactPerson.length < 1){
-            isErrors = true;
-            error.contactPersonError = 'Contact person cannot be blank';
+            // isErrors = true;
+            contactPersonError = 'Contact person cannot be blank';
         }
 
-        // this.setState({
-        //     ...this.state,
-        //     ...errors
-        // })
-        return isErrors;
+        if (orgEmailError || contactPersonError || contactNumberError || orgDescriptionError || orgSectorError || sloganError || orgNameError || passwordError) {
+            this.setState({ orgEmailError, contactPersonError,contactNumberError, orgDescriptionError, orgSectorError, sloganError, orgNameError, passwordError});
+            return false;
+        }
+
+        return true;
     }
 
     changeHandler = (e) =>{
@@ -125,7 +145,7 @@ export class AddOrg extends Component {
     }
 
     submitHandler = (e) =>{
-        e.preventDefault()
+        // e.preventDefault()
         // const err = this.validated()
         // if(!err){
         //     this.setState({
@@ -139,22 +159,32 @@ export class AddOrg extends Component {
         //         contactNumberError: '',
         //         // imageError: ''
         //     })
-        //     console.log(this.state)}
+            // console.log(this.state)
+            // let config = {
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //         'Access-Control-Allow-Origin': '*',
+            //     }
+            // }
+            // console.log(this.state)
+            // axios.post('http://localhost:8080/v1/organisation/add/org', this.state, config)
+            //     .then(response =>{
+            //         console.log(response)
+            //     })
+            //     .catch(error =>{
+            //         console.log(error)
+            //     })
+        // }
 
-            let config = {
-                headers: {
-                    "Content-Type": "application/json",
-                    'Access-Control-Allow-Origin': '*',
-                }
-            }
-        console.log(this.state)
-        axios.post('http://localhost:8080/v1/organisation/add/org', this.state, config)
-            .then(response =>{
-                console.log(response)
-            })
-            .catch(error =>{
-                console.log(error)
-            })
+        e.preventDefault();
+        const isValid = this.validated();
+        if (isValid) {
+            console.log(this.state);
+            // clear form
+            this.setState(initialState);
+        }
+
+
     }
 
     render() {

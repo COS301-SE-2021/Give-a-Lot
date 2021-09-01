@@ -83,7 +83,7 @@ export class Level1 extends Component {
             <div className="upgrade">
 
 
-                <Card className="upgrade_card" variant="outlined">
+                <Card className="upgrade_cardd" variant="outlined">
                     <CardContent>
                         <div className={classes.root}>
                             <form onSubmit={this.handleFormSubmit}>
@@ -123,7 +123,7 @@ export class Level1 extends Component {
                                 />
                             </div>
                                 <div className="upgrade_Button">
-                                    <button className="upgrade-btn" type="submit" onClick={this.onToast}>
+                                    <button className="upgrade-btnn" type="submit" onClick={this.onToast}>
                                         Submit
                                     </button>
                                 </div>

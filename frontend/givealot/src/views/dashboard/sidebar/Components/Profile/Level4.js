@@ -70,7 +70,7 @@ export class Level4 extends Component {
         return (
             <div className="upgrade">
 
-                <Card className="upgrade_card" variant="outlined">
+                <Card className="upgrade_cardd" variant="outlined">
                     <CardContent>
                         <div className={classes.root}>
                             <form onSubmit={this.handleFormSubmit}>
@@ -84,7 +84,7 @@ export class Level4 extends Component {
                                             Upload images
                                          </span>
                                         <input
-                                            className="upgrade_date"
+                                            className="upgrade_datee"
                                             accept="image/*"
                                             id="contained-button-file"
                                             multiple
@@ -98,7 +98,7 @@ export class Level4 extends Component {
                                             Audit financial document
                                          </span>
                                         <input
-                                            className="upgrade_logo"
+                                            className="upgrade_logoo"
                                             type="file"
                                             name="file"
                                             onChange={this.handleInputChange}
@@ -106,7 +106,7 @@ export class Level4 extends Component {
                                     </div>
                                 </div>
                                 <div className="upgrade_Button">
-                                    <button className="upgrade-btn" type="submit" onClick={this.onToast}>
+                                    <button className="upgrade-btnn" type="submit" onClick={this.onToast}>
                                         Submit
                                     </button>
                                 </div>

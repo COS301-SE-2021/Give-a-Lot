@@ -6,8 +6,10 @@ import Accordions from "../Report/Accordions"
 
 export class Reports extends Component {
     state={
-        count: 3
+        count: 4
     };
+
+
 
     render()
     {
@@ -44,6 +46,14 @@ export class Reports extends Component {
                      the master-builder of human happiness. No one rejects, "
                         />
 
+                        <Accordions
+                            id="Report #3"
+                            title="Fraud report"
+                            description=" dislikes, or avoids pleasure itself, because it is pleasure, but because
+                      those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.
+                       Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain,
+                        but because occasionally circumstances occur in which toil and pain can procure him some great pleasure."
+                        />
                         <Accordions
                             id="Report #3"
                             title="Fraud report"

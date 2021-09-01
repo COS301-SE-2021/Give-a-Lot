@@ -3,15 +3,18 @@ import "./Style/Certificate.css";
 import {Link} from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
-import DeleteIcon from '@material-ui/icons/Delete';
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import SaveIcon from '@material-ui/icons/Save';
+import pic from "./Style/cert5Complete.png"
 import DashHeader from "../../DashHeader/DashHeader";
 
 
 const styles = theme => ({
     button: {
-        margin: theme.spacing(1),
+        margin: theme.spacing(4),
+
     },
+
 });
 
 export class Certificate extends Component {
@@ -34,9 +37,10 @@ export class Certificate extends Component {
                 <Button
                     variant="contained"
                     color="secondary"
+                    style={{backgroundColor: " #957b9e"}}
                     size="large"
                     className={classes.button}
-                    startIcon={<DeleteIcon />}
+                    startIcon={<ArrowUpwardIcon style={{backgroundColor: " #957b9e"}}/>}
                 >
                     Upgrade
                 </Button>
@@ -46,9 +50,10 @@ export class Certificate extends Component {
                 <Button
                     variant="contained"
                     color="secondary"
+                    style={{backgroundColor: " #957b9e"}}
                     size="large"
                     className={classes.button}
-                    startIcon={<DeleteIcon/>}
+                    startIcon={<ArrowUpwardIcon style={{backgroundColor: " #957b9e"}}/>}
                 >
                     Upgrade
                 </Button>
@@ -58,9 +63,10 @@ export class Certificate extends Component {
                 <Button
                     variant="contained"
                     color="secondary"
+                    style={{backgroundColor: " #957b9e"}}
                     size="large"
                     className={classes.button}
-                    startIcon={<DeleteIcon/>}
+                    startIcon={<ArrowUpwardIcon style={{backgroundColor: " #957b9e"}}/>}
                 >
                     Upgrade
                 </Button>
@@ -70,9 +76,10 @@ export class Certificate extends Component {
                 <Button
                     variant="contained"
                     color="secondary"
+                    style={{backgroundColor: " #957b9e"}}
                     size="large"
                     className={classes.button}
-                    startIcon={<DeleteIcon/>}
+                    startIcon={<ArrowUpwardIcon style={{backgroundColor: " #957b9e"}}/>}
                 >
                     Upgrade
                 </Button>
@@ -82,9 +89,10 @@ export class Certificate extends Component {
                 <Button
                     variant="contained"
                     color="secondary"
+                    style={{backgroundColor: " #957b9e"}}
                     size="large"
                     className={classes.button}
-                    startIcon={<DeleteIcon/>}
+                    startIcon={<ArrowUpwardIcon style={{backgroundColor: " #957b9e"}}/>}
                 >
                     Upgrade
                 </Button>
@@ -94,9 +102,10 @@ export class Certificate extends Component {
                 <Button
                     variant="contained"
                     color="secondary"
+                    style={{backgroundColor: " #957b9e"}}
                     size="large"
                     className={classes.button}
-                    startIcon={<DeleteIcon/>}
+                    startIcon={<ArrowUpwardIcon style={{backgroundColor: " #957b9e"}}/>}
                 >
                     Upgrade
                 </Button>
@@ -106,28 +115,32 @@ export class Certificate extends Component {
     return (
         <div className="certificate">
 
-            {upgrade}
 
-            <Button
-                variant="contained"
-                color="primary"
-                size="large"
-                className={classes.button}
-                startIcon={<SaveIcon />}
-            >
-                Download
-            </Button>
+            <div className="view">
+                {upgrade}
+
+                <Button
+                    variant="outlined"
+                    size="large"
+                    style={{border: '3px solid', borderColor: "#957b9e", color: " #957b9e"}}
+
+                    className={classes.button}
+                    startIcon={<SaveIcon />}
+                >
+                    Download
+
+                </Button>
+
+            </div>
+
+            <div className="display">
+                <img src={pic} height={566} width={733}/>
+            </div>
 
 
-            <Button
-                variant="contained"
-                color="default"
-                size="large"
-                className={classes.button}
-                startIcon={<SaveIcon />}
-            >
-                View
-            </Button>
+
+
+
         </div>
     );
     }

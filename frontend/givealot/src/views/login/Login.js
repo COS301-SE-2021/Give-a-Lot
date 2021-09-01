@@ -62,7 +62,13 @@ class Login extends Component {
         if (isValid) {
             console.log(this.state);
             // clear form
-            this.setState(initialState);
+            //this.setState(initialState);
+
+            const data = {
+
+            }
+
+
         }
     };
     render()

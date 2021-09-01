@@ -5,6 +5,7 @@ import "./Styles/RegisterUser.css";
 import backgroundImg from "../../../assets/homeBackground.jpg";
 import Logo from "../../login/Components/Logo";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import axios from "axios";
 
 
 
@@ -76,7 +77,18 @@ class RegisterUser extends Component {
         if (isValid) {
             console.log(this.state);
             // clear form
-            this.setState(initialState);
+            //this.setState(initialState);
+            const data = {
+                firstName: this.state.firstName,
+                lastName: this.state.lastName,
+                email: this.state.email,
+                password: this.state.password,
+            };
+            axios.post("http://localhost:8080/v1/user/register/user", data)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+
+
         }
     };
 

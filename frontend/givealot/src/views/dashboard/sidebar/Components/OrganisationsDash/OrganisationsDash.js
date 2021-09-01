@@ -33,7 +33,7 @@ export class OrganisationsDash extends Component {
             error: "",
             open: false,
             openAdd: false,
-            getSectors: []
+            getSector: []
         }
     }
 
@@ -70,7 +70,7 @@ export class OrganisationsDash extends Component {
                 // console.log(this.state.org)
             })
             .catch(error =>{
-                console.log(error)
+                // console.log(error)
                 this.setState({error : 'Error Retrieving data'})
             })
     }
@@ -81,19 +81,18 @@ export class OrganisationsDash extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        axios.get('http://jsonplaceholder.typicode.com/users',  config)
+        axios.get('http://localhost:8080/v1/organisation/get/sectors',  config)
             .then(response =>{
                 // console.log(response)
-                this.setState({getSectors: response.data})
-                console.log(this.state.getSectors)
+                this.setState({getSector: response.data.sectors})
             })
             .catch(error =>{
-                console.log(error)
+                // console.log(error)
                 this.setState({error : 'Error Retrieving data'})
             })
     }
     render () {
-        const { org, getSectors } = this.state
+        const { org, getSector } = this.state
         return(
                 <div className="OrganisationsDash">
                     {/*<DashHeader />*/}
@@ -103,7 +102,7 @@ export class OrganisationsDash extends Component {
                                 Add Organisation
                                 <AddCircleOutlinedIcon/>
                             </Button>
-                                <Dialog onClose={this.handleCloseAdd.bind(this)} open={this.state.openAdd} onEnter={console.log("Hey.")}>
+                                <Dialog onClose={this.handleCloseAdd.bind(this)} open={this.state.openAdd}>
                                     <DialogTitle>Add Organisation</DialogTitle>
                                     <DialogContent>
                                         <AddOrg />
@@ -114,7 +113,7 @@ export class OrganisationsDash extends Component {
                                 Create Sector
                                 <AddCircleOutlinedIcon/>
                             </Button>
-                                <Dialog onClose={this.handleClose.bind(this)} open={this.state.open} onEnter={console.log("Hey.")} style={{width: "100%"}}>
+                                <Dialog onClose={this.handleClose.bind(this)} open={this.state.open} style={{width: "100%"}}>
                                     <DialogTitle>Create a Sector</DialogTitle>
                                     <DialogContent style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
                                         <Grid>
@@ -136,14 +135,11 @@ export class OrganisationsDash extends Component {
                                         <Grid style={{marginLeft: "4em"}}>
                                             <h4 style={{marginBottom: "1em"}}>View Available Sectors</h4>
                                             <div style={{width: "100%"}}>
-                                                {getSectors.map((sector, index) =>{
+                                                {getSector.map((sector) =>{
                                                     return(
-                                                        <div>
-                                                            <p>
-                                                                {sector.name}
-                                                            </p>
-                                                        </div>
-
+                                                        <p key={sector} value={sector}>
+                                                            {sector}
+                                                        </p>
                                                     )
                                                 })}
                                             </div>

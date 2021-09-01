@@ -49,10 +49,10 @@
     padding-left: 500px;
 }
 .userTitle{
-    margin-top: 1em;
-    padding-left: 1em;
-    color: #957b9e;
+    color: #957b9e !important;
     font-size: xx-large;
+    margin-top: 1em;
+    margin-left: 1em;
 }
 
 .header__input{
@@ -421,4 +421,8 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+}
+.error{
+    color: red;
+    float: right;
 }

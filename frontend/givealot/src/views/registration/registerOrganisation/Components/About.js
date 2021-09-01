@@ -24,7 +24,7 @@ export class RegisterOrganisation extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        axios.get('http://localhost:8080/v1/organisation/get/sectors',  config)
+        axios.get('http://localhost:8080/v1/organisation/get/sectors', config)
             .then(response =>{
                 console.log(response)
                 this.setState({selectOptions: response.data.sectors})

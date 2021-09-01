@@ -108,6 +108,13 @@
     margin-left:8px;
 }
 
+
+.progress7{
+    margin-top: -7px;
+    margin-left:8px;
+    background-color: #bc7dd1;
+}
+
 .upgrade_card{
     justify-content: center;
     align-items: center;
@@ -201,7 +208,7 @@
 .helper{
     position: relative;
     float: right;
-    margin-top: -15px;
+    padding:10px;
 }
 .social_media{
     display: flex;

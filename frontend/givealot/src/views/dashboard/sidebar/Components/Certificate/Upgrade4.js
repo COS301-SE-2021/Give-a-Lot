@@ -112,7 +112,7 @@ export class Upgrade4 extends Component {
                                             type="file"
 
                                         />
-                                        <FormHelperText className="helper">labelPlacement start</FormHelperText>
+                                        {/* <FormHelperText className="helper">labelPlacement start</FormHelperText>*/}
                                     </div>
                                     <div>
                                         <span className="upgrade_label_logo">

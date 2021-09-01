@@ -21,7 +21,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.io.File;
 
 @SpringBootApplication
-public class GivealotApplication /*implements CommandLineRunner*/ {
+public class GivealotApplication implements CommandLineRunner {
 
     @Autowired
     OrganisationRepository organisationRepository;
@@ -53,28 +53,31 @@ public class GivealotApplication /*implements CommandLineRunner*/ {
 
 
 
-
+//    @Override
+//    public  void run(String... args) throws Exception {
+//        System.out.println(blockchainService.deploySmartContract());
+//    }
 
     /** Add an organisation **/
 
-//	@Override
-//	public  void run(String... args) throws Exception {
-//		Organisations organisations = new Organisations();
-//		organisations.setOrgId(123L);
-//		organisations.setPassword("iloveyou");
-//		organisations.setContactNumber("Contact Number");
-//		organisations.setOrgEmail("test123666@gmail.com");
-//		organisations.setStatus("Status");
-//		organisations.setOrgSector("disability");
-//		organisations.setContactPerson("Contact Person");
-//		organisations.setSlogan("Slogan");
-//		organisations.setOrgDescription("Org Description");
-//		organisations.setOrgName("The Working Inc.");
-//		organisations.setDirectory("/tmp");
-//        organisations.setDateAdded("2020-01-01");
-//		organisationService.addOrganisation(organisations);
-//
-//	}
+	@Override
+	public  void run(String... args) throws Exception {
+		Organisations organisations = new Organisations();
+		organisations.setOrgId(123L);
+		organisations.setPassword("iloveyou");
+		organisations.setContactNumber("Contact Number");
+		organisations.setOrgEmail("joshua@gmail.com");
+		organisations.setStatus("Status");
+		organisations.setOrgSector("disability");
+		organisations.setContactPerson("Contact Person");
+		organisations.setSlogan("Slogan");
+		organisations.setOrgDescription("Org Description");
+		organisations.setOrgName("The CaptainCo Inc.");
+		organisations.setDirectory("/tmp");
+        organisations.setDateAdded("2020-01-01");
+		organisationService.addOrganisation(organisations);
+
+	}
 
 	/** Compare valid certificate **/
 //	@Override

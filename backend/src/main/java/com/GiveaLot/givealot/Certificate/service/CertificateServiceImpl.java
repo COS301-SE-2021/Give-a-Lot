@@ -11,6 +11,7 @@ import com.GiveaLot.givealot.Notification.service.SendMailService;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Server.ServerAccess;
+import org.apache.commons.io.FileUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
@@ -25,7 +26,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
@@ -257,9 +260,14 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     public boolean compareCertificate(MultipartFile certificate) throws Exception {
-        File certCmp = new File("backend/src/main/resources/TempCertificate/TempCompareCertificate.pdf");
+        File certCmp = new File("TempCompareCertificate.pdf");
+        if (!certCmp.exists()){
+            certCmp.createNewFile();
+        }
+        try (OutputStream os = new FileOutputStream(certCmp)) {
+            os.write(certificate.getBytes());
+        }
 
-        certificate.transferTo(certCmp);
         Blockchain blockchain = blockChainRepository.selectBlockchainCertificateHash(
                 blockchainService.hashCertificate(certCmp));
         if (blockchain==null){

@@ -224,16 +224,16 @@
 }
 
 #level5{
-    border: 1px solid red;
+
     width: 130px;
     height: 130px;
-    margin-left: 80px;
+    margin-left: 120px;
 
 }
 
 #complete_label1
 {
-    margin-left: -50px;
+    margin-left: -20px;
     font-size: 30px;
     color: #373638;
     font-weight: bold;
@@ -243,10 +243,10 @@
 
 #complete_label2{
     font-size: 14px;
-    color: #373638;
-    border: 1px solid red;
-    padding: 15px;
-    width: 300px;
+    background-color: #d9eee1;
+    padding: 12px;
+    width: 370px;
+    border-radius: 8px;
 
 }
 

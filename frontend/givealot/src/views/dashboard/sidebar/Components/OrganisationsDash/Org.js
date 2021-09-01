@@ -108,13 +108,13 @@ export class Org extends Component {
                         </CardContent>
                         <Typography className="_orgButtons">
                             <Button variant="contained" color="primary">
-                                Primary
+                                Activate
+                            </Button>
+                            <Button variant="contained" style={{color: "white", backgroundColor: "orange"}}>
+                                Investigate
                             </Button>
                             <Button variant="contained" color="secondary">
-                                Secondary
-                            </Button>
-                            <Button variant="contained" color="secondary">
-                                Secondary
+                                Suspend
                             </Button>
                         </Typography>
 

@@ -93,7 +93,7 @@ export class Level3 extends Component {
             <div className="upgrade">
 
 
-                <Card className="upgrade_card3" variant="outlined">
+                <Card className="upgrade_card33" variant="outlined">
                     <CardContent>
                         <div className={classes.root}>
                             <form onSubmit={this.handleFormSubmit}>
@@ -101,7 +101,7 @@ export class Level3 extends Component {
                                     Additional credentials needed to Upgrade
                                  </span>
                                 <div>
-                                    <div className="social_media">
+                                    <div className="social_mediaa">
                                         <div>
 
                                             <FormControl variant="outlined" className={classes.formControl}>
@@ -141,7 +141,7 @@ export class Level3 extends Component {
                                         />
                                     </div>
 
-                                    <div className="social_media">
+                                    <div className="social_mediaa">
                                         <div>
 
                                             <FormControl variant="outlined" className={classes.formControl}>
@@ -179,7 +179,7 @@ export class Level3 extends Component {
                                             onChange={this.handleChange}
                                         />
                                     </div>
-                                    <div className="social_media">
+                                    <div className="social_mediaa">
                                         <TextField
                                             id="outlined-full-width"
                                             label="Director"
@@ -212,7 +212,7 @@ export class Level3 extends Component {
                                         />
 
                                     </div>
-                                    <div className="social_media">
+                                    <div className="social_mediaa">
                                         <TextField
                                             id="outlined-full-width"
                                             label="Deputy director"
@@ -249,7 +249,7 @@ export class Level3 extends Component {
 
                                 </div>
                                 <div className="upgrade_Button">
-                                    <button className="upgrade-btn" type="submit" onClick={this.onToast}>
+                                    <button className="upgrade-btnn" type="submit" onClick={this.onToast}>
                                         Submit
                                     </button>
                                 </div>

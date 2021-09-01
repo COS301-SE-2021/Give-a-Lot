@@ -96,7 +96,7 @@ export class Level2 extends Component {
         return (
             <div className="upgrade">
 
-                <Card className="upgrade_card11" variant="outlined">
+                <Card className="upgrade_card111" variant="outlined">
                     <CardContent>
                         <div className={classes.root}>
                             <form onSubmit={this.handleFormSubmit}>

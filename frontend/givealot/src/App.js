@@ -23,6 +23,7 @@ function App()
         <Route path="/registerUser" exact component={RegisterUser}/>
         <Route path="/dashboard" exact component={Dashboard}/>
         <Route path="/organisation/:id" exact component={ViewOrganisation} />
+        <Route path="/verifyCertificate" exact component={VerifyCertificate} />
       </Switch>
     </Router>
   );

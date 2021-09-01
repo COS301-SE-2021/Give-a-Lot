@@ -179,8 +179,20 @@ export class AddOrg extends Component {
         e.preventDefault();
         const isValid = this.validated();
         if (isValid) {
-            console.log(this.state);
-            // clear form
+            let config = {
+                headers: {
+                    "Content-Type": "application/json",
+                    'Access-Control-Allow-Origin': '*',
+                }
+            }
+            console.log(this.state)
+            axios.post('http://localhost:8080/v1/organisation/add/org', this.state, config)
+                .then(response =>{
+                    console.log(response)
+                })
+                .catch(error =>{
+                    console.log(error)
+                })
             this.setState(initialState);
         }
 

@@ -46,7 +46,7 @@
     background-color: white !important;
     color: #957b9e !important;
     border: 1px solid #957b9e;
-    padding-left: 500px;
+    margin-left: 2em !important;
 }
 .userTitle{
     color: #957b9e !important;

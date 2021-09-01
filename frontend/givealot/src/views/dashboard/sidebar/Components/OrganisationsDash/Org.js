@@ -18,13 +18,13 @@ export class Org extends Component {
     }
 
     componentDidMount(){
-        /*    let config = {
-                headers: {
-                    "Content-Type": "application/json",
-                    'Access-Control-Allow-Origin': '*',
-                }
-            }*/
-        axios.get('http://localhost:8080/v1/user/get/users')
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        axios.get('http://localhost:8080/v1/user/get/users', config)
             .then(response =>{
                 console.log(response)
                 const orgS = response.data;

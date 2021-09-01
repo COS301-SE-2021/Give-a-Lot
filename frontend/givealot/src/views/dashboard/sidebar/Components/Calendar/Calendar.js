@@ -1,20 +1,3 @@
-// import React, { Component } from 'react';
-// import "./styles/Calendar.css"
-//
-// export class Calendar extends Component {
-//
-//
-//     render() {
-//         return (
-//             <div className="calendar">
-//                 calendar here
-//             </div>
-//         )
-//     }
-// }
-//
-// export default Calendar
-
 import React from 'react'
 import Paper from '@material-ui/core/Paper';
 import { ViewState, EditingState } from '@devexpress/dx-react-scheduler';
@@ -31,6 +14,7 @@ import {
 
 import "./styles/Calendar.css"
 import { appointments } from "./data"
+import DashHeader from "../../DashHeader/DashHeader";
 
 export default class DemoApp extends React.Component {
 
@@ -87,6 +71,7 @@ export default class DemoApp extends React.Component {
         } = this.state;
         return (
             <div className="calendar">
+                {/*<DashHeader />*/}
                 <Paper>
                     <Scheduler
                         data={data}

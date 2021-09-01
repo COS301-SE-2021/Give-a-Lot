@@ -4,7 +4,7 @@ import Navbar from "../Navbar/Navbar";
 import Button from '@material-ui/core/Button';
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
-//import TwitterIcon from '../../../../assets/icons/twitter.png';
+// import TwitterIcon from '../../../../assets/icons/twitter.png';
 import InstagramIcon from '@material-ui/icons/Instagram';
 
 import view_organisation from '../../Styles/view_organisation.css';

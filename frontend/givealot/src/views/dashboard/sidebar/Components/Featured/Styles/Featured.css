@@ -1,6 +1,7 @@
 .featured{
     flex: 4;
     background-color: #F0F2F7;
+    height: 100%;
 }
 .featuredBody{
     display: flex;

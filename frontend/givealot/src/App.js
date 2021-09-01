@@ -10,6 +10,7 @@ import VerifyCertificate from './views/verifyCertificate/VerifyCertificate'
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import ViewOrganisation from "./views/browse/Components/Organisation/ViewOrganisation";
 
+
 function App()
 {
   return(
@@ -23,6 +24,7 @@ function App()
         <Route path="/registerUser" exact component={RegisterUser}/>
         <Route path="/dashboard" exact component={Dashboard}/>
         <Route path="/organisation/:id" exact component={ViewOrganisation} />
+        <Route path="/verifyCertificate" exact component={VerifyCertificate} />
       </Switch>
     </Router>*/
 

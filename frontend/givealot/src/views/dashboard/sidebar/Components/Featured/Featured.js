@@ -3,6 +3,7 @@ import "./Styles/Featured.css"
 import Chart from "./Chart"
 import Cards from "./Cards"
 import { userData} from "../../../../../DummyData";
+import DashHeader from "../../DashHeader/DashHeader";
 
 export class Featured extends Component {
 
@@ -10,6 +11,7 @@ export class Featured extends Component {
         return (
             <div className="featured">
                 <div className="featuredBody">
+                    {/*<DashHeader />*/}
                     <div className="featuredTop">
                         <Cards />
                         <Chart data={userData} title="Visits" grid dataKey="Active User"/>

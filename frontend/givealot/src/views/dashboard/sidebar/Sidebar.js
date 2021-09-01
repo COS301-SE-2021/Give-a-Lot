@@ -55,7 +55,6 @@ function Sidebar(){
                                             <PersonOutlineIcon />
                                             <div className="sideIcon" > Users </div>
                                         </li>
-
                                     </Link>
                                 </li>
 

@@ -1,19 +1,3 @@
-// import React, { Component } from 'react'
-// import "../../styles/Organisations.css"
-//
-// export class OrganisationsDash extends Component {
-//
-//     render() {
-//         return (
-//             <div className="organisations">
-//                 orgs here
-//             </div>
-//         )
-//     }
-// }
-//
-// export default OrganisationsDash
-
 import React , { Component } from 'react'
 import { Link } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
@@ -32,6 +16,13 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios'
 import EditIcon from '@material-ui/icons/Edit';
+import DashHeader from "../../DashHeader/DashHeader";
+import Dialog from "@material-ui/core/Dialog";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import TextField from "@material-ui/core/TextField";
+import AddOrg from "./AddOrg";
+import Card from '@material-ui/core/Card';
 
 export class OrganisationsDash extends Component {
 
@@ -40,49 +31,129 @@ export class OrganisationsDash extends Component {
         this.state = {
             org:[],
             error: "",
+            open: false,
+            openAdd: false,
+            getSectors: []
         }
     }
+
+    openDialog() {
+        this.setState({ open: true });
+    }
+    openDialogAdd() {
+        this.setState({ openAdd: true });
+    }
+
+    handleClose = () => {
+        this.setState({ open: false });
+    };
+
+    handleCloseAdd = () => {
+        this.setState({ openAdd: false });
+    };
+
     componentDidMount(){
+        this.getSectors();
+        this.getOrganisations();
+    }
+    getOrganisations(){
         let config = {
             headers: {
                 "Content-Type": "application/json",
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        // const adminUsersRequestBody = {
-        //     "adminUserEmail" : this.state.adminUserEmail
-        // }
         axios.get('http://jsonplaceholder.typicode.com/users',  config)
             .then(response =>{
                 // console.log(response)
                 this.setState({org: response.data})
-                console.log(this.state.org)
+                // console.log(this.state.org)
             })
             .catch(error =>{
                 console.log(error)
                 this.setState({error : 'Error Retrieving data'})
             })
     }
-
-    // handleDelete = (id) => {
-    //     setData(data.filter((item) => item.id !== id));
-    // };
-
+    getSectors(){
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        axios.get('http://jsonplaceholder.typicode.com/users',  config)
+            .then(response =>{
+                // console.log(response)
+                this.setState({getSectors: response.data})
+                console.log(this.state.getSectors)
+            })
+            .catch(error =>{
+                console.log(error)
+                this.setState({error : 'Error Retrieving data'})
+            })
+    }
     render () {
-        const { org } = this.state
+        const { org, getSectors } = this.state
         return(
                 <div className="OrganisationsDash">
+                    {/*<DashHeader />*/}
                     <div className="OrgAdd">
-                        <Link to={"/addOrg"} className="link">
-                            <Button variant="contained" className="buttonAdd">
+                        {/*<Link to={"/addOrg"} className="link">*/}
+                            <Button variant="contained" className="buttonAdd" onClick={this.openDialogAdd.bind(this)}>
                                 Add Organisation
                                 <AddCircleOutlinedIcon/>
                             </Button>
-                        </Link>
-                        <div className="header__input">
-                            <input placeholder="search organisation" type="text" />
-                            <SearchIcon/>
+                                <Dialog onClose={this.handleCloseAdd.bind(this)} open={this.state.openAdd} onEnter={console.log("Hey.")}>
+                                    <DialogTitle>Add Organisation</DialogTitle>
+                                    <DialogContent>
+                                        <AddOrg />
+                                    </DialogContent>
+                                </Dialog>
+                        {/*</Link>*/}
+                            <Button variant="contained" className="buttonAddSector" onClick={this.openDialog.bind(this)}>
+                                Create Sector
+                                <AddCircleOutlinedIcon/>
+                            </Button>
+                                <Dialog onClose={this.handleClose.bind(this)} open={this.state.open} onEnter={console.log("Hey.")} style={{width: "100%"}}>
+                                    <DialogTitle>Create a Sector</DialogTitle>
+                                    <DialogContent style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                        <Grid>
+                                            <form>
+                                                <TextField
+                                                    id="outlined-full-width"
+                                                    label="Label"
+                                                    style={{ margin: 8 }}
+                                                    placeholder="Enter Sector name"
+                                                    fullWidth
+                                                    margin="normal"
+                                                    InputLabelProps={{
+                                                        shrink: true,
+                                                    }}
+                                                    variant="outlined"
+                                                />
+                                            </form>
+                                        </Grid>
+                                        <Grid style={{marginLeft: "4em"}}>
+                                            <h4 style={{marginBottom: "1em"}}>View Available Sectors</h4>
+                                            <div style={{width: "100%"}}>
+                                                {getSectors.map((sector, index) =>{
+                                                    return(
+                                                        <div>
+                                                            <p>
+                                                                {sector.name}
+                                                            </p>
+                                                        </div>
+
+                                                    )
+                                                })}
+                                            </div>
+                                        </Grid>
+                                    </DialogContent>
+                                </Dialog>
                         </div>
+                    <div className="header__input">
+                        <input placeholder="search organisation" type="text" />
+                        <SearchIcon/>
                     </div>
                     <div className="table">
                         <Grid container spacing={3}>

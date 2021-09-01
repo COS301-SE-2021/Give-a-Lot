@@ -19,14 +19,6 @@ const styles = theme => ({
         display: "flex",
         flexWrap: "wrap"
     },
-    textField: {
-        marginLeft: theme.spacing(1),
-        marginRight: theme.spacing(1),
-        width: "25ch"
-    },
-    formControl: {
-        margin: theme.spacing.unit * 3
-    },
 
 });
 

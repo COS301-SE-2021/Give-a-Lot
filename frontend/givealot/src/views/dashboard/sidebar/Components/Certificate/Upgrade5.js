@@ -9,9 +9,10 @@ import 'react-datepicker/dist/react-datepicker.css';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import { FormHelperText } from '@material-ui/core';
-import TextField from "@material-ui/core/TextField";
+import Complete from "../Certificate/Style/complete.png";
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import Axios from "axios";
+import logo from "../../../../../assets/logo/logo3_1.png";
 
 const styles = theme => ({
 
@@ -91,8 +92,23 @@ export class Upgrade5 extends Component {
                     <div className="progress6"> <StarOutlineIcon fontSize="large"/></div>
                 </div>
 
-                <Card className="upgrade_card" variant="outlined">
+                <Card className="upgrade_card4" variant="outlined">
                     <CardContent>
+                        <div>
+                            <span id="complete_label1">
+                                Done!
+                            </span>
+
+                        </div>
+
+                        <div>
+                            <img id="level5" src={Complete} />
+                        </div>
+                        <div id="complete_label2">
+                            < CheckCircleIcon className="checkIcon" />
+                                UPGRADE COMPLETED
+
+                        </div>
 
 
 

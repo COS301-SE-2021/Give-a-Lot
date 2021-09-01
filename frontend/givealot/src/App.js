@@ -10,6 +10,7 @@ import VerifyCertificate from './views/verifyCertificate/VerifyCertificate'
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import ViewOrganisation from "./views/browse/Components/Organisation/ViewOrganisation";
 
+
 function App()
 {
   return(

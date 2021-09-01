@@ -14,9 +14,9 @@ import Reports from "../../views/dashboard/sidebar/Components/Report/Reports"
 import Org from "../dashboard/sidebar/Components/OrganisationsDash/Org"
 import Profile from "../dashboard/sidebar/Components/Profile/Profile"
 import Certificate from "../dashboard/sidebar/Components/Certificate/Certificate"
-import Upgrade from "./sidebar/Components/Certificate/Upgrade4"
 import Upgrade2 from "./sidebar/Components/Certificate/Upgrade2"
 import Upgrade3 from "./sidebar/Components/Certificate/Upgrade3"
+import Upgrade5 from "./sidebar/Components/Certificate/Upgrade5"
 import Upgrade4 from "./sidebar/Components/Certificate/Upgrade4"
 import Upgrade0 from "./sidebar/Components/Certificate/Upgrade0"
 import Upgrade1 from "./sidebar/Components/Certificate/Upgrade1"
@@ -66,8 +66,8 @@ function Dashboard() {
                         <Route exact path="/certificate">
                             <Certificate />
                         </Route>
-                        <Route exact path="/upgrade4">
-                            <Upgrade4 />
+                        <Route exact path="/upgrade1">
+                            <Upgrade1 />
                         </Route>
                         <Route exact path="/upgrade2">
                             <Upgrade2 />
@@ -75,14 +75,14 @@ function Dashboard() {
                         <Route exact path="/upgrade3">
                             <Upgrade3 />
                         </Route>
-                        <Route exact path="/upgrade3">
-                            <Upgrade3 />
+                        <Route exact path="/upgrade4">
+                            <Upgrade4 />
+                        </Route>
+                        <Route exact path="/upgrade5">
+                            <Upgrade5 />
                         </Route>
                         <Route exact path="/upgrade0">
                             <Upgrade0 />
-                        </Route>
-                        <Route exact path="/upgrade1">
-                            <Upgrade1 />
                         </Route>
                         <Route exact path="/addOrg">
                             <AddOrg />

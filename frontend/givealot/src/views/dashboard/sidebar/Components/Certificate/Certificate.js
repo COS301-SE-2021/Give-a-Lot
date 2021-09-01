@@ -19,7 +19,7 @@ export class Certificate extends Component {
     constructor (props) {
         super(props)
         this.state={
-            level: 3,
+            level: 5,
 
         };
     }
@@ -90,7 +90,7 @@ export class Certificate extends Component {
                 </Button>
             </Link>
         } else if (this.state.level===5) {
-            upgrade = <Link to="/upgrade" className="certLink">
+            upgrade = <Link to="/upgrade5" className="certLink">
                 <Button
                     variant="contained"
                     color="secondary"

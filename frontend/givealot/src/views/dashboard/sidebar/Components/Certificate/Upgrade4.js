@@ -9,6 +9,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import { FormHelperText } from '@material-ui/core';
 import TextField from "@material-ui/core/TextField";
 import Axios from "axios";
 
@@ -17,11 +18,6 @@ const styles = theme => ({
     root: {
         display: "flex",
         flexWrap: "wrap"
-    },
-    textField: {
-        marginLeft: theme.spacing(1),
-        marginRight: theme.spacing(1),
-        width: "25ch"
     },
 
 });
@@ -92,7 +88,7 @@ export class Upgrade4 extends Component {
                         <div className={classes.root}>
                             <form onSubmit={this.handleFormSubmit}>
                                 <span className="upgrade_header">
-                                    fill in
+                                   Additional credentials needed to Upgrade
                                  </span>
                                 <div>
 
@@ -106,14 +102,16 @@ export class Upgrade4 extends Component {
                                             id="contained-button-file"
                                             multiple
                                             type="file"
+
                                         />
+                                        {/* <FormHelperText className="helper">labelPlacement start</FormHelperText>*/}
                                     </div>
                                     <div>
-                                        <span className="upgrade_label">
-                                            Donation confirmation
+                                        <span className="upgrade_label_logo">
+                                            Audit financial document
                                          </span>
                                         <input
-                                            className="upgrade_date"
+                                            className="upgrade_logo"
                                             type="file"
                                             name="file"
                                             onChange={this.handleInputChange}

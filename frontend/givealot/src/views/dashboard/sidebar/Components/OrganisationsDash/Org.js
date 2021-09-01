@@ -39,6 +39,9 @@ export class Org extends Component {
     render() {
         return (
             <div className="org">
+                {/*<Typography style={{width: "100%", height: "8em"}}>*/}
+                    <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" style={{width: "100%", height: "30%"}}/>
+                {/*</Typography>*/}
                 <div className="orgCard">
                     <Card className="card1">
                         <CardContent>

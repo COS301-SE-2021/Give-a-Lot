@@ -34,32 +34,6 @@ const initialState = {
 export class AddOrg extends Component {
     state = initialState;
 
-    // constructor(props) {
-    //     super(props)
-    //
-    //     this.state = {
-    //         orgName : "",
-    //         orgNameError: '',
-    //         slogan : "",
-    //         sloganError: '',
-    //         orgDescription : "",
-    //         orgDescriptionError: "",
-    //         orgSector : "",
-    //         orgSectorError: '',
-    //         orgEmail : "",
-    //         orgEmailError : "",
-    //         contactPerson : "",
-    //         contactPersonError : "",
-    //         contactNumber : "",
-    //         contactNumberError: '',
-    //         password : "",
-    //         passwordError: '',
-    //         image: '',
-    //         imageError: '',
-    //         sectorS: []
-    //     }
-    // }
-
     validated = () => {
         let isErrors = false;
 
@@ -145,37 +119,6 @@ export class AddOrg extends Component {
     }
 
     submitHandler = (e) =>{
-        // e.preventDefault()
-        // const err = this.validated()
-        // if(!err){
-        //     this.setState({
-        //         orgNameError: '',
-        //         orgEmailError: '',
-        //         passwordError: '',
-        //         sloganError: '',
-        //         orgSectorError: '',
-        //         orgDescriptionError: '',
-        //         contactPersonError: '',
-        //         contactNumberError: '',
-        //         // imageError: ''
-        //     })
-            // console.log(this.state)
-            // let config = {
-            //     headers: {
-            //         "Content-Type": "application/json",
-            //         'Access-Control-Allow-Origin': '*',
-            //     }
-            // }
-            // console.log(this.state)
-            // axios.post('http://localhost:8080/v1/organisation/add/org', this.state, config)
-            //     .then(response =>{
-            //         console.log(response)
-            //     })
-            //     .catch(error =>{
-            //         console.log(error)
-            //     })
-        // }
-
         e.preventDefault();
         const isValid = this.validated();
         if (isValid) {
@@ -195,8 +138,6 @@ export class AddOrg extends Component {
                 })
             this.setState(initialState);
         }
-
-
     }
 
     render() {

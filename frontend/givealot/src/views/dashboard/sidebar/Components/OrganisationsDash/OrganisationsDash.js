@@ -31,6 +31,7 @@ export class OrganisationsDash extends Component {
         this.state = {
             org:[],
             error: "",
+            sectorName: "",
             open: false,
             openAdd: false,
             getSector: []
@@ -91,8 +92,30 @@ export class OrganisationsDash extends Component {
                 this.setState({error : 'Error Retrieving data'})
             })
     }
+
+    changeHandler = (e) =>{
+        this.setState({[e.target.name] : e.target.value})
+    }
+
+    submitSector = (e) =>{
+        e.preventDefault();
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        axios.post('http://localhost:8080/v1/organisation/get/sectors', this.state.sectorName ,config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
     render () {
-        const { org, getSector } = this.state
+        const { org, getSector, sectorName } = this.state
         return(
                 <div className="OrganisationsDash">
                     {/*<DashHeader />*/}
@@ -117,18 +140,17 @@ export class OrganisationsDash extends Component {
                                     <DialogTitle>Create a Sector</DialogTitle>
                                     <DialogContent style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
                                         <Grid>
-                                            <form>
+                                            <form onSubmit={this.submitSector}>
                                                 <TextField
                                                     id="outlined-full-width"
-                                                    label="Label"
+                                                    label="Enter Sector"
                                                     style={{ margin: 8 }}
                                                     placeholder="Enter Sector name"
                                                     fullWidth
                                                     margin="normal"
-                                                    InputLabelProps={{
-                                                        shrink: true,
-                                                    }}
                                                     variant="outlined"
+                                                    onChange={this.changeHandler}
+                                                    value={sectorName}
                                                 />
                                             </form>
                                         </Grid>

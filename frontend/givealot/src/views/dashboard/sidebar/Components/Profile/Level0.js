@@ -94,7 +94,7 @@ export class Level0 extends Component {
         return (
             <div className="upgrade">
 
-                <Card className="upgrade_card1" variant="outlined">
+                <Card className="upgrade_card11" variant="outlined">
                     <CardContent>
                         <div className={classes.root}>
                             <form onSubmit={this.handleFormSubmit}>
@@ -109,7 +109,7 @@ export class Level0 extends Component {
                                          </span>
                                         <DatePicker
 
-                                            className="upgrade_date input3"
+                                            className="upgrade_datee input3"
                                             selected={ this.state.startDate }
                                             onChange={ this.handleDateChange }
                                             name="startDate"
@@ -136,7 +136,7 @@ export class Level0 extends Component {
                                             Logo
                                          </span>
                                         <input
-                                            className="upgrade_logo"
+                                            className="upgrade_logoo"
                                             type="file"
                                             name="file"
                                             onChange={this.handleInputChange}
@@ -145,7 +145,7 @@ export class Level0 extends Component {
 
                                 </div>
                                 <div className="upgrade_Button">
-                                    <button className="upgrade-btn" type="submit" onClick={this.onToast}>
+                                    <button className="upgrade-btnn" type="submit" onClick={this.onToast}>
                                         Submit
                                     </button>
                                 </div>

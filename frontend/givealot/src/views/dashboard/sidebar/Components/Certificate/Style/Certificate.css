@@ -164,6 +164,20 @@
     box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 }
 
+.upgrade_card11{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+    width: 800px;
+    Height: 450px;
+    margin: 120px;
+    margin-top: 30px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+
 .upgrade_card3{
     justify-content: center;
     align-items: center;
@@ -199,7 +213,14 @@
     font-size: 16px;
     color: #7c6d81;
 }
-
+.upgrade_header1{
+    /* line-height: 1.2;*/
+    text-align: center;
+    margin-bottom: 49px;
+    display: block;
+    font-size: 20px;
+    color: #7c6d81;
+}
 .upgrade_label{
 
     position: relative;
@@ -214,6 +235,22 @@
     transform: translate(6px,15px);
     z-index: 10;
 }
+
+.upgrade_label1{
+
+    position: relative;
+    margin: 5px;
+    left: 10px;
+    display: block;
+    font-size: 14px;
+    color: #7c6d81;
+    width: fit-content;
+    padding: 0 2px;
+    background-color: white;
+    transform: translate(6px,15px);
+    z-index: 10;
+}
+
 
 .upgrade_label_logo{
 
@@ -293,6 +330,20 @@
     background-color: #957b9e;
 
 }
+
+.upgrade-btnn{
+    font-size: 16px;
+    color: #fff;
+    padding: 0 20px;
+    width: 230px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    border-radius: 10px;
+    height: 40px;
+    border: none;
+    background-color: #957b9e;
+
+}
 .upgrade_date{
     position: relative;
     width:500px;
@@ -306,9 +357,35 @@
 
 }
 
+.upgrade_datee{
+    position: relative;
+    width:650px;
+    height: 55px;
+    padding: 15px;
+    left:10px;
+    border-radius: 5px;
+    color: gray;
+    margin-bottom: 10px;
+    border: 2px solid #957b9e;
+
+}
+
 .upgrade_logo{
     position: relative;
     width:500px;
+    height: 55px;
+    padding: 15px;
+    left:10px;
+    border-radius: 5px;
+    color: gray;
+    margin-bottom: 10px;
+    margin-top: -16px;
+    border: 2px solid #957b9e;
+
+}
+.upgrade_logoo{
+    position: relative;
+    width:650px;
     height: 55px;
     padding: 15px;
     left:10px;

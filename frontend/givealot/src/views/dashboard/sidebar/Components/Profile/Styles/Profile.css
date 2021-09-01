@@ -157,7 +157,7 @@
     border: none;
     padding: 6px;
     cursor: pointer;
-    background-color: #2d9499;
+    background-color: #957b9e;
     color: white;
     font-weight: 600;
 }
@@ -165,4 +165,27 @@
 .levels{
     display: flex;
 
+}
+
+.line{
+    display: flex;
+    padding : 50px
+
+
+
+}
+.profile_line{
+
+    width: 380px;
+    height: 5px;
+    margin-left: 3px;
+    background-color: #957b9e;
+
+}
+
+.line_title{
+    padding : 0 8px;
+    margin-top: -6px;
+    color: #262626;
+    font-family: Verdana;
 }

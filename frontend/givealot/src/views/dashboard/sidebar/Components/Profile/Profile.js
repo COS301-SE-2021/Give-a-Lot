@@ -15,6 +15,7 @@ import {
     Publish,
 } from "@material-ui/icons";
 import axios from "axios";
+import StarOutlineIcon from "@material-ui/icons/StarOutline";
 // import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 // import Dash from "../../DashHeader/DashHeader"
 
@@ -148,7 +149,12 @@ export class Profile extends Component {
                         </form>
                     </div>
                 </div>
+                <div className="line">
+                    <div className="profile_line"/>
+                    <div className="line_title"> Certificate Updates </div>
+                    <div className="profile_line"/>
 
+                </div>
                 <div >
                     <Level0 />
                     <Level1 />

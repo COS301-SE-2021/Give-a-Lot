@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import SaveIcon from '@material-ui/icons/Save';
+import pic from "./Style/cert5Complete.png"
 import DashHeader from "../../DashHeader/DashHeader";
 
 
@@ -132,8 +133,8 @@ export class Certificate extends Component {
 
             </div>
 
-            <div>
-
+            <div className="display">
+                <img src={pic} height={566} width={733}/>
             </div>
 
 

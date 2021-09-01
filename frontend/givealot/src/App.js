@@ -13,7 +13,7 @@ import ViewOrganisation from "./views/browse/Components/Organisation/ViewOrganis
 function App()
 {
   return(
-    <Router>
+    /*<Router>
       <Switch>
         <Route path="/" exact component={Home}/>
         <Route path="/browse" exact component={Browse}/>
@@ -24,7 +24,9 @@ function App()
         <Route path="/dashboard" exact component={Dashboard}/>
         <Route path="/organisation/:id" exact component={ViewOrganisation} />
       </Switch>
-    </Router>
+    </Router>*/
+
+      <Dashboard />
   );
 }
 

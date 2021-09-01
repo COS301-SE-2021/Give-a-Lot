@@ -98,7 +98,7 @@ function Sidebar(){
                                 </li>
 
 
-                                <li className={splitLocation[1] === "certificate" ? "active" : ""}>
+                                <li className={splitLocation[1] === "certificate" || splitLocation[1] === "upgrade5" || splitLocation[1] === "upgrade0"|| splitLocation[1] === "upgrade1"|| splitLocation[1] === "upgrade2"|| splitLocation[1] === "upgrade3"|| splitLocation[1] === "upgrade4" ? "active" : ""}>
                                     <Link to='/certificate' className="link">
                                         <li className="sidebarListItem ">
                                             <VerifiedUserOutlinedIcon />

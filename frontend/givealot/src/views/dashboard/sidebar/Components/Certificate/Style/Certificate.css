@@ -5,6 +5,12 @@
 
 
 }
+.view{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
 .upgrade{
     flex: 4;
     padding: 5px;

@@ -22,6 +22,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import TextField from "@material-ui/core/TextField";
 import AddOrg from "./AddOrg";
+import Card from '@material-ui/core/Card';
 
 export class OrganisationsDash extends Component {
 
@@ -31,7 +32,8 @@ export class OrganisationsDash extends Component {
             org:[],
             error: "",
             open: false,
-            openAdd: false
+            openAdd: false,
+            getSectors: []
         }
     }
 
@@ -51,20 +53,39 @@ export class OrganisationsDash extends Component {
     };
 
     componentDidMount(){
+        this.getSectors();
+        this.getOrganisations();
+    }
+    getOrganisations(){
         let config = {
             headers: {
                 "Content-Type": "application/json",
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        // const adminUsersRequestBody = {
-        //     "adminUserEmail" : this.state.adminUserEmail
-        // }
         axios.get('http://jsonplaceholder.typicode.com/users',  config)
             .then(response =>{
                 // console.log(response)
                 this.setState({org: response.data})
-                console.log(this.state.org)
+                // console.log(this.state.org)
+            })
+            .catch(error =>{
+                console.log(error)
+                this.setState({error : 'Error Retrieving data'})
+            })
+    }
+    getSectors(){
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        axios.get('http://jsonplaceholder.typicode.com/users',  config)
+            .then(response =>{
+                // console.log(response)
+                this.setState({getSectors: response.data})
+                console.log(this.state.getSectors)
             })
             .catch(error =>{
                 console.log(error)
@@ -72,7 +93,7 @@ export class OrganisationsDash extends Component {
             })
     }
     render () {
-        const { org } = this.state
+        const { org, getSectors } = this.state
         return(
                 <div className="OrganisationsDash">
                     {/*<DashHeader />*/}
@@ -93,11 +114,11 @@ export class OrganisationsDash extends Component {
                             Create Sector
                             <AddCircleOutlinedIcon/>
                         </Button>
-                        <Dialog onClose={this.handleClose.bind(this)} open={this.state.open} onEnter={console.log("Hey.")}>
+                        <Dialog onClose={this.handleClose.bind(this)} open={this.state.open} onEnter={console.log("Hey.")} style={{width: "100%"}}>
                             <DialogTitle>Create a Sector</DialogTitle>
-                            <DialogContent>
-                                <form>
-                                    <Grid>
+                            <DialogContent style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                <Grid>
+                                    <form>
                                         <TextField
                                             id="outlined-full-width"
                                             label="Label"
@@ -110,8 +131,19 @@ export class OrganisationsDash extends Component {
                                             }}
                                             variant="outlined"
                                         />
-                                    </Grid>
-                                </form>
+                                    </form>
+                                </Grid>
+                                <Grid style={{marginLeft: "4em"}}>
+                                    {getSectors.map((sector, index) =>{
+                                        return(
+                                            <Card>
+                                                {sector.name}
+                                                {sector.name}
+                                            </Card>
+
+                                        )
+                                    })}
+                                </Grid>
                             </DialogContent>
                         </Dialog>
                         <div className="header__input">

@@ -103,53 +103,57 @@ export class OrganisationsDash extends Component {
                                 Add Organisation
                                 <AddCircleOutlinedIcon/>
                             </Button>
-                        <Dialog onClose={this.handleCloseAdd.bind(this)} open={this.state.openAdd} onEnter={console.log("Hey.")}>
-                            <DialogTitle>Add Organisation</DialogTitle>
-                            <DialogContent>
-                                <AddOrg />
-                            </DialogContent>
-                        </Dialog>
+                                <Dialog onClose={this.handleCloseAdd.bind(this)} open={this.state.openAdd} onEnter={console.log("Hey.")}>
+                                    <DialogTitle>Add Organisation</DialogTitle>
+                                    <DialogContent>
+                                        <AddOrg />
+                                    </DialogContent>
+                                </Dialog>
                         {/*</Link>*/}
-                        <Button variant="contained" className="buttonAdd" onClick={this.openDialog.bind(this)}>
-                            Create Sector
-                            <AddCircleOutlinedIcon/>
-                        </Button>
-                        <Dialog onClose={this.handleClose.bind(this)} open={this.state.open} onEnter={console.log("Hey.")} style={{width: "100%"}}>
-                            <DialogTitle>Create a Sector</DialogTitle>
-                            <DialogContent style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-                                <Grid>
-                                    <form>
-                                        <TextField
-                                            id="outlined-full-width"
-                                            label="Label"
-                                            style={{ margin: 8 }}
-                                            placeholder="Enter Sector name"
-                                            fullWidth
-                                            margin="normal"
-                                            InputLabelProps={{
-                                                shrink: true,
-                                            }}
-                                            variant="outlined"
-                                        />
-                                    </form>
-                                </Grid>
-                                <Grid style={{marginLeft: "4em"}}>
-                                    {getSectors.map((sector, index) =>{
-                                        return(
-                                            <Card>
-                                                {sector.name}
-                                                {sector.name}
-                                            </Card>
+                            <Button variant="contained" className="buttonAddSector" onClick={this.openDialog.bind(this)}>
+                                Create Sector
+                                <AddCircleOutlinedIcon/>
+                            </Button>
+                                <Dialog onClose={this.handleClose.bind(this)} open={this.state.open} onEnter={console.log("Hey.")} style={{width: "100%"}}>
+                                    <DialogTitle>Create a Sector</DialogTitle>
+                                    <DialogContent style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                        <Grid>
+                                            <form>
+                                                <TextField
+                                                    id="outlined-full-width"
+                                                    label="Label"
+                                                    style={{ margin: 8 }}
+                                                    placeholder="Enter Sector name"
+                                                    fullWidth
+                                                    margin="normal"
+                                                    InputLabelProps={{
+                                                        shrink: true,
+                                                    }}
+                                                    variant="outlined"
+                                                />
+                                            </form>
+                                        </Grid>
+                                        <Grid style={{marginLeft: "4em"}}>
+                                            <h4 style={{marginBottom: "1em"}}>View Available Sectors</h4>
+                                            <div style={{width: "100%"}}>
+                                                {getSectors.map((sector, index) =>{
+                                                    return(
+                                                        <div>
+                                                            <p>
+                                                                {sector.name}
+                                                            </p>
+                                                        </div>
 
-                                        )
-                                    })}
-                                </Grid>
-                            </DialogContent>
-                        </Dialog>
-                        <div className="header__input">
-                            <input placeholder="search organisation" type="text" />
-                            <SearchIcon/>
+                                                    )
+                                                })}
+                                            </div>
+                                        </Grid>
+                                    </DialogContent>
+                                </Dialog>
                         </div>
+                    <div className="header__input">
+                        <input placeholder="search organisation" type="text" />
+                        <SearchIcon/>
                     </div>
                     <div className="table">
                         <Grid container spacing={3}>

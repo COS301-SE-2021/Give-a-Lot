@@ -33,7 +33,6 @@
 .OrgAdd{
     display: flex;
     align-items: center;
-    justify-content: space-between;
     margin: 1em;
     /*margin-top: 4.5em;*/
     /*margin-left: 1em;*/
@@ -43,6 +42,12 @@
     background-color: #957b9e !important;
     color: white !important;
 }
+.buttonAddSector{
+    background-color: white !important;
+    color: #957b9e !important;
+    border: 1px solid #957b9e;
+    padding-left: 500px;
+}
 .userTitle{
     margin-top: 1em;
     padding-left: 1em;
@@ -51,6 +56,7 @@
 }
 
 .header__input{
+    float: right;
     display: flex;
     align-items: center;
     background-color: white;

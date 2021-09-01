@@ -106,7 +106,7 @@ export class Upgrade5 extends Component {
                         </div>
                         <div id="complete_label2">
                             < CheckCircleIcon className="checkIcon" />
-                                UPGRADE COMPLETED
+                                SUCCESS! Certificate upgrade completed
 
                         </div>
 

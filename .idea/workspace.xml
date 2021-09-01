@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="add organisation plus input validation for adding an organisation, api for fetching users">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/AddOrg.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/AddOrg.js" afterDir="false" />
+    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="create sector button spaced">
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/OrganisationsDash.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/OrganisationsDash.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,21 +161,7 @@
       <workItem from="1630405088383" duration="23184000" />
       <workItem from="1630491021144" duration="2559000" />
       <workItem from="1630499867538" duration="6464000" />
-      <workItem from="1630519787294" duration="13152000" />
-    </task>
-    <task id="LOCAL-00015" summary="organisations controller revision - suspend">
-      <created>1629262855812</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1629262855812</updated>
-    </task>
-    <task id="LOCAL-00016" summary="organisations controller revision - suspend">
-      <created>1629263038092</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1629263038093</updated>
+      <workItem from="1630519787294" duration="14992000" />
     </task>
     <task id="LOCAL-00017" summary="organisations controller revision - suspend">
       <created>1629263063619</created>
@@ -507,7 +492,21 @@
       <option name="project" value="LOCAL" />
       <updated>1630534984263</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="add organisation form validation check">
+      <created>1630536502339</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1630536502339</updated>
+    </task>
+    <task id="LOCAL-00065" summary="create sector button spaced">
+      <created>1630538348613</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1630538348613</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -526,7 +525,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="backup" />
     <MESSAGE value="user and login system are complete" />
     <MESSAGE value="organisations api - get all users ready for frontend" />
     <MESSAGE value="organisations controller revision - add Organisation" />
@@ -550,6 +548,8 @@
     <MESSAGE value="Organisation view page on admin button color" />
     <MESSAGE value="Organisation page minor changes" />
     <MESSAGE value="add organisation plus input validation for adding an organisation, api for fetching users" />
-    <option name="LAST_COMMIT_MESSAGE" value="add organisation plus input validation for adding an organisation, api for fetching users" />
+    <MESSAGE value="add organisation form validation check" />
+    <MESSAGE value="create sector button spaced" />
+    <option name="LAST_COMMIT_MESSAGE" value="create sector button spaced" />
   </component>
 </project>

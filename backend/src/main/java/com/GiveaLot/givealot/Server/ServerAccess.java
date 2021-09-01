@@ -234,56 +234,6 @@ public class ServerAccess {
         }
     }
 
-    public void uploadTaxReference(long orgId, String orgName, File document) throws Exception {
-        ChannelSftp channelSftp = setupJsch();
-        try {
-
-            document.renameTo(new File("backend/src/main/resources/TempDocument/taxRef.pdf"));
-
-            channelSftp.connect();
-
-            String orgIdString = String.valueOf(orgId);
-            String localFile = "backend/src/main/resources/TempDocument/taxRef.pdf";
-
-            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Documents" + "/" + orgName.replaceAll("\\s+", "") + "TaxReference.pdf");
-
-            File deletion = new File(localFile);
-            deletion.delete();
-        }catch (Exception e){
-            throw new Exception("Exception: Failed to interact with the server");
-        }
-        finally {
-            channelSftp.exit();
-            session.disconnect();
-        }
-    }
-
-    public File downloadTaxRef(long orgId, String orgName) throws Exception {
-        ChannelSftp channelSftp = setupJsch();
-        try {
-            channelSftp.connect();
-
-            String orgIdString = String.valueOf(orgId);
-
-            String templateLocation;
-
-            templateLocation = remoteDir + "Organisations/" + orgIdString + "/" + "Documents" + "/" + orgName.replaceAll("\\s+", "") + "TaxReference.pdf";
-
-            File fileLocation = new File(orgName.replaceAll("\\s+", "") + "TaxReference.pdf");
-            InputStream stream = channelSftp.get(templateLocation);
-            FileUtils.copyInputStreamToFile(stream, fileLocation);
-
-            return fileLocation;
-
-        }catch (Exception e){
-            throw new Exception("Exception: Failed to download certificate");
-        }
-        finally {
-            channelSftp.exit();
-            session.disconnect();
-        }
-    }
-
     public void uploadImageJPG(long orgId, String orgName, File image) throws Exception {
 
         ChannelSftp channelSftp = setupJsch();

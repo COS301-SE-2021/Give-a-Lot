@@ -66,13 +66,13 @@ public class GivealotApplication implements CommandLineRunner {
 		organisations.setOrgId(123L);
 		organisations.setPassword("iloveyou");
 		organisations.setContactNumber("Contact Number");
-		organisations.setOrgEmail("joshua@gmail.com");
+		organisations.setOrgEmail("meeetest3@gmail.com");
 		organisations.setStatus("Status");
 		organisations.setOrgSector("disability");
 		organisations.setContactPerson("Contact Person");
 		organisations.setSlogan("Slogan");
 		organisations.setOrgDescription("Org Description");
-		organisations.setOrgName("The CaptainCo Inc.");
+		organisations.setOrgName("The Worker Co.");
 		organisations.setDirectory("/tmp");
         organisations.setDateAdded("2020-01-01");
 		organisationService.addOrganisation(organisations);

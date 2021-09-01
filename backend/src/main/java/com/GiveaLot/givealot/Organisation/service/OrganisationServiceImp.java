@@ -308,6 +308,16 @@ public class OrganisationServiceImp implements OrganisationService {
 
         sendMailService.sendMail(mail);
         System.out.println("Email sent successfully");*/
+        System.out.println(organisation.getOrgName().replaceAll("\\s+", "") + "Certificate.pdf");
+        if (new File(organisation.getOrgName().replaceAll("\\s+", "") + "Certificate.pdf").delete()){
+            System.out.println("#######################################################################################");
+            System.out.println("Deleted");
+            System.out.println("#######################################################################################");
+        }else {
+            System.out.println("#######################################################################################");
+            System.out.println("Failed");
+            System.out.println("#######################################################################################");
+        }
         return new generalOrganisationResponse("add_org_200_ok", "success");
     }
 

@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 import "../Profile/Styles/Profile.css"
+import Level0 from "./Level0"
+import Level1 from "./Level1"
+import Level2 from "./Level2"
+import Level3 from "./Level3"
+import Level4 from "./Level4"
 
 import {
     CalendarToday,
@@ -143,6 +148,22 @@ export class Profile extends Component {
                         </form>
                     </div>
                 </div>
+
+                <div >
+                    <Level0 />
+                    <Level1 />
+
+                </div>
+                <div >
+                    <Level2 />
+                    <Level3 />
+                </div>
+                <div >
+                    <Level4 />
+
+                </div>
+
+
             </div>
         )
     }

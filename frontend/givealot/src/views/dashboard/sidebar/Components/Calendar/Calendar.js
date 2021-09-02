@@ -22,7 +22,7 @@ export default class DemoApp extends React.Component {
         super(props);
         this.state = {
             data: appointments,
-            currentDate: '2018-06-27',
+            date: '',
 
             addedAppointment: {},
             appointmentChanges: {},
@@ -64,6 +64,15 @@ export default class DemoApp extends React.Component {
             return { data };
         });
     }
+
+    componentDidMount() {
+        this.getDate();
+    }
+
+    getDate = () => {
+        let date = new Date().toDateString();
+        this.setState({ date });
+    };
 
     render() {
         const {

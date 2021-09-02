@@ -16,13 +16,13 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios'
 import EditIcon from '@material-ui/icons/Edit';
-import DashHeader from "../../DashHeader/DashHeader";
+// import DashHeader from "../../DashHeader/DashHeader";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import TextField from "@material-ui/core/TextField";
 import AddOrg from "./AddOrg";
-import Card from '@material-ui/core/Card';
+import Divider from '@material-ui/core/Divider';
 
 export class OrganisationsDash extends Component {
 
@@ -137,7 +137,7 @@ export class OrganisationsDash extends Component {
                                 <AddCircleOutlinedIcon/>
                             </Button>
                                 <Dialog onClose={this.handleClose.bind(this)} open={this.state.open} style={{width: "100%"}}>
-                                    <DialogTitle>Create a Sector</DialogTitle>
+                                    <DialogTitle style={{color: "#957b9e"}}>Create a Sector</DialogTitle>
                                     <DialogContent style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
                                         <Grid>
                                             <form onSubmit={this.submitSector}>
@@ -152,20 +152,25 @@ export class OrganisationsDash extends Component {
                                                     onChange={this.changeHandler}
                                                     value={sectorName}
                                                 />
+                                                <Button variant="contained" className="buttonAdd" type="submit">
+                                                    Submit
+                                                </Button>
                                             </form>
+                                            <Divider style={{marginTop: "2em"}}/>
+                                            <Grid>
+                                                <div style={{marginBottom: "1em",marginTop: "1em", color: "#957b9e",fontSize: "x-large"}}>View Available Sectors</div>
+                                                <div>
+                                                    {getSector.map((sector) =>{
+                                                        return(
+                                                            <li key={sector} value={sector}>
+                                                                {sector}
+                                                            </li>
+                                                        )
+                                                    })}
+                                                </div>
+                                            </Grid>
                                         </Grid>
-                                        <Grid style={{marginLeft: "4em"}}>
-                                            <h4 style={{marginBottom: "1em"}}>View Available Sectors</h4>
-                                            <div style={{width: "100%"}}>
-                                                {getSector.map((sector) =>{
-                                                    return(
-                                                        <p key={sector} value={sector}>
-                                                            {sector}
-                                                        </p>
-                                                    )
-                                                })}
-                                            </div>
-                                        </Grid>
+
                                     </DialogContent>
                                 </Dialog>
                         </div>

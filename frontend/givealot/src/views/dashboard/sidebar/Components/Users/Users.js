@@ -81,6 +81,8 @@ export class Users extends Component {
                                                     <TableCell>{item.name}</TableCell>
                                                     <TableCell>{item.username}</TableCell>
                                                     <TableCell>{item.email}</TableCell>
+                                                    <TableCell>{item.username}</TableCell>
+                                                    <TableCell>{item.email}</TableCell>
                                                 </TableRow>
                                             )
                                         })}

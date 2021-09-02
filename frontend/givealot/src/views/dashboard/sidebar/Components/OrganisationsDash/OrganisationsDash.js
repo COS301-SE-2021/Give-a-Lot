@@ -207,10 +207,10 @@ export class OrganisationsDash extends Component {
                                                                 <EditIcon />
                                                                 {/*Edit</CreateIcon>*/}
                                                             </Link>
-                                                            <DeleteOutline
-                                                                className="orgListDeletes"
-                                                                // onClick={() => handleDelete(params.row.id)}
-                                                            />
+                                                            {/*<DeleteOutline*/}
+                                                            {/*    className="orgListDeletes"*/}
+                                                            {/*    // onClick={() => handleDelete(params.row.id)}*/}
+                                                            {/*/>*/}
                                                         </TableCell>
                                                     </TableRow>
                                                 )

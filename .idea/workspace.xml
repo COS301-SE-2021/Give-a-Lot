@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="Admin Organisations updated">
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Users/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Users/Users.js" afterDir="false" />
+    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="Admin Users updated">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/OrganisationsDash.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/OrganisationsDash.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,14 +153,7 @@
       <workItem from="1630491021144" duration="2559000" />
       <workItem from="1630499867538" duration="6464000" />
       <workItem from="1630519787294" duration="15559000" />
-      <workItem from="1630570331827" duration="17699000" />
-    </task>
-    <task id="LOCAL-00024" summary="organisations controller revision - add address">
-      <created>1629266188397</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1629266188397</updated>
+      <workItem from="1630570331827" duration="18935000" />
     </task>
     <task id="LOCAL-00025" summary="organisations controller revision - add socials">
       <created>1629267451423</created>
@@ -496,7 +491,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630596341858</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Admin Users updated">
+      <created>1630596681847</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1630596681847</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +517,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="organisations controller revision - activate" />
     <MESSAGE value="organisations controller revision - add website and remove website" />
     <MESSAGE value="organisations controller revision - add address" />
     <MESSAGE value="organisations controller revision - add socials" />
@@ -540,6 +541,7 @@
     <MESSAGE value="create sector list items" />
     <MESSAGE value="Organisation table updated" />
     <MESSAGE value="Admin Organisations updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Admin Organisations updated" />
+    <MESSAGE value="Admin Users updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Admin Users updated" />
   </component>
 </project>

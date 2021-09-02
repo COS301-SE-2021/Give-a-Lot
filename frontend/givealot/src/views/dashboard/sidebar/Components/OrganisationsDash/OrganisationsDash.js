@@ -4,7 +4,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import AddCircleOutlinedIcon from "@material-ui/icons/AddCircleOutlined";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button'
-import { DeleteOutline } from "@material-ui/icons";
+// import { DeleteOutline } from "@material-ui/icons";
 import "../../styles/Organisations.css"
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios'
@@ -15,8 +15,8 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import TextField from "@material-ui/core/TextField";
 import AddOrg from "./AddOrg";
 import Divider from '@material-ui/core/Divider';
-import {IconButton} from "@material-ui/core";
-import Card from '@material-ui/core/Card';
+// import {IconButton} from "@material-ui/core";
+// import Card from '@material-ui/core/Card';
 import TableContainer from "@material-ui/core/TableContainer";
 import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";

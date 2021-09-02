@@ -8,6 +8,10 @@ import Typography from '@material-ui/core/Typography';
 import CardActions from '@material-ui/core/CardActions';
 import {Link} from "react-router-dom";
 import axios from "axios";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogContent from "@material-ui/core/DialogContent";
+import AddOrg from "../OrganisationsDash/AddOrg";
+import Dialog from "@material-ui/core/Dialog";
 
 export class OrgValidate extends Component {
 
@@ -16,8 +20,16 @@ export class OrgValidate extends Component {
         this.state = {
             validation:[],
             error: "",
+            open: false,
         }
     }
+    openValid() {
+        this.setState({ open: true });
+    }
+    handleCloseValid = () => {
+        this.setState({ open: false });
+    }
+
     componentDidMount(){
         let config = {
             headers: {
@@ -52,14 +64,9 @@ export class OrgValidate extends Component {
                     <div className="table">
                         {validation.map((item, index) =>{
                             return(
-                                <Card style={{margin: "1em"}}>
+                                <Card style={{margin: "1em", width: "100%"}}>
                                     <CardContent>
                                         <Typography className="valid">
-                                            {/*<Typography>*/}
-                                            {/*    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Ym9va3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"*/}
-                                            {/*         style={{width: "100px", height: "100px"}}*/}
-                                            {/*    />*/}
-                                            {/*</Typography>*/}
                                             <Typography component="p">
                                                 {/*{src && <Avatar src={src} />*/}
                                                 {item.name}
@@ -71,15 +78,22 @@ export class OrgValidate extends Component {
                                                     </Button>
                                                 </Grid>
                                                 <Grid style={{marginLeft: "1em"}}>
-                                                    <Button variant="contained" className="buttonValidViewDeny">
+                                                    <Button variant="contained" className="buttonValidViewDeny" onClick={this.openValid.bind(this)}>
                                                         Deny
                                                     </Button>
                                                 </Grid>
-                                            </Typography>
+                                                <Dialog onClose={this.handleCloseValid.bind(this)} open={this.state.open}>
+                                                    <DialogTitle>Reason for Denial</DialogTitle>
+                                                    <DialogContent>
+                                                        Organisation is under investigation
+                                                    </DialogContent>
+                                                </Dialog>
 
+                                            </Typography>
                                         </Typography>
                                     </CardContent>
                                 </Card>
+
                             )
                         })}
                     </div>

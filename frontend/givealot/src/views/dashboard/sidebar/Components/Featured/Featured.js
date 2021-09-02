@@ -87,7 +87,6 @@ export class Featured extends Component {
         return (
             <div className="featured">
                 <div className="featuredBody">
-                    {/*<DashHeader />*/}
                     <div className="featuredTop">
                         <Cards />
                         <div style={{display: "flex", flexDirection: "column"}}>
@@ -98,7 +97,6 @@ export class Featured extends Component {
                                 <Chart data={userData} title="Organisations who registered on the system" grid dataKey="Active User" />
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

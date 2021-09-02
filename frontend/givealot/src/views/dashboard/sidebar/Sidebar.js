@@ -28,9 +28,7 @@ function Sidebar(){
                 <div className="sidebarWrapper">
                     <div className="sidebarMenu">
                         <ul className="sidebarList">
-                            {/*<div style={{minHeight: "64px"}}>*/}
-                                <Logo/>
-                            {/*</div>*/}
+                            <Logo/>
                             <ul className="MuListPadding MuListRoot">
                                 {/* Checking the current path name using javascript ternary operator and if true adding active classname to it */}
                                 <li className={splitLocation[1] === "featured" ? "active" : ""} style={{}}>

@@ -1,11 +1,6 @@
 .sidebar{
-    /*flex: 1;*/
-    /*!*width: 14.5em;*!*/
-    /*height: 90vh;*/
-    /*margin-bottom: 0;*/
-    /*position: sticky;*/
-    /*top: 0;*/
-    top: 0;
+    /*top: 65px;*/
+    top:0;
     /*flex: 1;*/
     width: 14em;
     height: 100%;

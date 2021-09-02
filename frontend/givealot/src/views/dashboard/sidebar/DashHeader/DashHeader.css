@@ -1,24 +1,3 @@
-/*.app-header {*/
-/*    position: fixed;*/
-/*    left: 0;*/
-/*    right: 0;*/
-/*    top: 0;*/
-/*    width: 100%;*/
-/*    display: -webkit-box;*/
-/*    display: -ms-flexbox;*/
-/*    display: flex;*/
-/*    z-index: 999 !important;*/
-/*    border-bottom: 1px solid #eaedf1;*/
-/*    background: #ffffff;*/
-/*    -webkit-transition: padding-left 0.3s ease;*/
-/*    transition: padding-left 0.3s ease;*/
-/*}*/
-/*.header {*/
-/*    background: #fff;*/
-/*    padding-top: .75rem;*/
-/*    padding-bottom: .75rem;*/
-/*    border-bottom: 1px solid #eaedf1;*/
-/*}*/
 .DashHeader{
     display: flex;
     position: relative;
@@ -30,4 +9,27 @@
     position: fixed;
     top: 0;
     z-index: 1000;
+    height: 65px;
 }
+.topRight{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.iconsAndHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.topBarIconContainer{
+    cursor: pointer;
+}
+.topBarIconContainer > .MuiSvgIcon-root{
+    color: #957b9e;
+    font-size: xx-large;
+}
+
+.topBarIconContainer:hover > .MuiSvgIcon-root{
+    color:#2e81f4;
+}
+

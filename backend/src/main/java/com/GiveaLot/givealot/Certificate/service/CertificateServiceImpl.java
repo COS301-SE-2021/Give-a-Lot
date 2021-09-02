@@ -110,7 +110,7 @@ public class CertificateServiceImpl implements CertificateService {
         File certificate = retrieveCertificate(orgId, organisation.getOrgName());
 
         String[] result = blockchainService
-                .upgradeCertificate(0,orgId, certificate,0);
+                .upgradeCertificate(blockchain.getIndex(),orgId, certificate,blockchain.getLevel());
 
         String certificateHash = result[0];
         String txHash = result[1];
@@ -130,12 +130,12 @@ public class CertificateServiceImpl implements CertificateService {
         access.downloadCertificateTemplate(points);
 
         if (points!=0){
-            File deletion = new File("frontend/givealot/localFiles/" + organisation.getOrgId() + "certificate/CertificateComplete.pdf");
+            File deletion = new File("frontend/givealot/src/localFiles/" + organisation.getOrgId() + "certificate/CertificateComplete.pdf");
             deletion.delete();
         }
 
         String templateCertificate = "backend/src/main/resources/TempCertificate/CertificateTemplate.pdf";
-        String completeCertificate = "frontend/givealot/localFiles/" + organisation.getOrgId() + "/certificate/CertificateComplete.pdf";
+        String completeCertificate = "frontend/givealot/src/localFiles/" + organisation.getOrgId() + "/certificate/CertificateComplete.pdf";
 
         /** Setup the pdf file **/
 
@@ -195,7 +195,7 @@ public class CertificateServiceImpl implements CertificateService {
             BufferedImage bim = pdfRenderer.renderImageWithDPI(page, 300, ImageType.RGB);
 
             // suffix in filename will be used as the file format
-            ImageIOUtil.writeImage(bim, "frontend/givealot/localFiles/" + orgId+ "/certificate/CertificateImage.png", 300);
+            ImageIOUtil.writeImage(bim, "frontend/givealot/src/localFiles/" + orgId+ "/certificate/CertificateImage.png", 300);
         }
         document.close();
         return true;

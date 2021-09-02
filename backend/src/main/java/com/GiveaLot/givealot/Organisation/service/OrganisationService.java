@@ -30,8 +30,6 @@ public interface OrganisationService {
     generalOrganisationResponse removeOrgImage(Long orgId, int number) throws Exception;
     generalOrganisationResponse addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception;
     generalOrganisationResponse removeOrgAuditDoc(Long orgId) throws Exception;
-    generalOrganisationResponse addOrgAuditor(AddOrgAuditorRequest request) throws Exception;
-    generalOrganisationResponse removeOrgAuditor(Long orgId) throws Exception;
     generalOrganisationResponse addOrgCommittee(AddOrgCommitteeRequest request) throws Exception;
     generalOrganisationResponse removeOrgCommittee(Long orgId) throws Exception ;
     generalOrganisationResponse addOrgDonationURL(AddOrgDonationInfoRequest request) throws Exception;

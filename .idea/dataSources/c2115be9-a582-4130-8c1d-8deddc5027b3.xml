@@ -1430,7 +1430,7 @@ true posixrules
 13127||-9223372036854775808|U|G
 13127||10|U|G</Grants>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1495</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1481</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|16524|16526|1
 sequence|table|16582|16584|1
@@ -1513,7 +1513,7 @@ sequence|table|16603|16605|1
       <Comment>standard public schema</Comment>
       <StateNumber>275</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1496</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1482</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <sequence id="19" parent="18" name="organisations_org_id_seq">
@@ -1552,7 +1552,7 @@ sequence|table|16603|16605|1
     <table id="25" parent="18" name="organisation_info">
       <ObjectId>16443</ObjectId>
       <Owner>user</Owner>
-      <StateNumber>1493</StateNumber>
+      <StateNumber>1460</StateNumber>
     </table>
     <table id="26" parent="18" name="organisation_points">
       <ObjectId>16611</ObjectId>
@@ -1766,9 +1766,9 @@ sequence|table|16603|16605|1
     </column>
     <column id="56" parent="25" name="ngo_date">
       <Position>2</Position>
-      <DataType>text|0s</DataType>
-      <StateNumber>1493</StateNumber>
-      <TypeId>25</TypeId>
+      <DataType>timestamp|0s</DataType>
+      <StateNumber>565</StateNumber>
+      <TypeId>1114</TypeId>
     </column>
     <column id="57" parent="25" name="ngonumber">
       <Position>3</Position>
@@ -1853,13 +1853,13 @@ sequence|table|16603|16605|1
     <column id="70" parent="25" name="donationurlis_valid">
       <Position>18</Position>
       <DataType>boolean|0s</DataType>
-      <StateNumber>1493</StateNumber>
+      <StateNumber>1460</StateNumber>
       <DefaultExpression>false</DefaultExpression>
       <TypeId>16</TypeId>
     </column>
     <index id="71" parent="25" name="organisation_info_pkey">
       <ObjectId>16449</ObjectId>
-      <StateNumber>1493</StateNumber>
+      <StateNumber>565</StateNumber>
       <ColNames>org_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>

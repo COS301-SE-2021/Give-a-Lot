@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface organisationPointsRepository extends JpaRepository<OrganisationPoints,Long> {
 
     @Query("SELECT DISTINCT op.numberOfImages FROM OrganisationPoints AS op WHERE op.orgId = ?1")
-    Integer getNumberOfEmages(Long orgId);
+    Integer getNumberOfImages(Long orgId);
 
 
     @Query("select op from OrganisationPoints op where op.orgId = ?1")

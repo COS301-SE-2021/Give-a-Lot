@@ -36,7 +36,7 @@ public class OrganisationPoints {
     {
 
     }
-    public OrganisationPoints(String Long, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean auditorIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, String socialMediaType, boolean estDateIsValid, int numberOfImages, boolean donationURLIsValid, boolean qrCodeIsValid) {
+    public OrganisationPoints( Long orgId, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean auditorIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, String socialMediaType, boolean estDateIsValid, int numberOfImages, boolean donationURLIsValid, boolean qrCodeIsValid) {
         this.orgId = orgId;
 
         this.addressIsValid = addressIsValid;

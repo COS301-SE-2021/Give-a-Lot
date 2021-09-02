@@ -1,15 +1,16 @@
 package com.GiveaLot.givealot.Organisation.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 
 public class AddOrgQRCodeRequest {
     private Long orgId;
-    private File image;
+    private MultipartFile image;
 
     public AddOrgQRCodeRequest(@JsonProperty Long orgId,
-                              @JsonProperty File image)
+                              @JsonProperty MultipartFile image)
     {
         this.orgId = orgId;
         this.image = image;
@@ -23,11 +24,11 @@ public class AddOrgQRCodeRequest {
         this.orgId = orgId;
     }
 
-    public File getImage() {
+    public MultipartFile getImage() {
         return image;
     }
 
-    public void setImage(File image) {
+    public void setImage(MultipartFile image) {
         this.image = image;
     }
 }

@@ -17,7 +17,6 @@ public class CertificateController {
 
     @PostMapping("/certificate/compare")
     public boolean compareCertificate(@RequestBody @NonNull MultipartFile certificate) throws Exception {
-
        try
        {
            return  service.compareCertificate(certificate);
@@ -27,6 +26,5 @@ public class CertificateController {
            System.out.println("ooops: " + e);
            return false;
        }
-
     }
 }

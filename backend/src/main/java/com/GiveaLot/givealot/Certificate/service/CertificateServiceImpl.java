@@ -264,6 +264,7 @@ public class CertificateServiceImpl implements CertificateService {
         if (!certCmp.exists()){
             certCmp.createNewFile();
         }
+
         try (OutputStream os = new FileOutputStream(certCmp)) {
             os.write(certificate.getBytes());
         }

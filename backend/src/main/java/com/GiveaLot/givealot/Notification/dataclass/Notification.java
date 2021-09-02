@@ -3,10 +3,7 @@ package com.GiveaLot.givealot.Notification.dataclass;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
 
@@ -25,12 +22,9 @@ public class Notification {
         String dateCreated;
 
         @Id
-        @Column(
-                name = "notification_id",
-                updatable = false,
-                nullable = false
-        )
-        String notification_id;
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "notification_id", nullable = false, unique = true)
+        Long notification_id;
 
     @Column(
             name = "org_id",
@@ -67,7 +61,7 @@ public class Notification {
         Description = description;
         this.notificationType = notificationType;
     }
-    public Notification(String dateCreated, String notification_id, long org_id, boolean open, String description, String notificationType) {
+    public Notification(String dateCreated, Long notification_id, long org_id, boolean open, String description, String notificationType) {
         this.dateCreated = dateCreated;
         this.notification_id = notification_id;
         this.org_id = org_id;
@@ -89,11 +83,11 @@ public class Notification {
         this.dateCreated = dateCreated;
     }
 
-    public String getNotification_id() {
+    public Long getNotification_id() {
         return notification_id;
     }
 
-    public void setNotification_id(String notification_id) {
+    public void setNotification_id(Long notification_id) {
         this.notification_id = notification_id;
     }
 

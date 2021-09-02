@@ -16,11 +16,11 @@ public interface NotificationRepository extends JpaRepository<Notification,Long>
     List<Notification> getAllNotifications();
 
     @Query("SELECT o from Notification as o where o.notification_id=?1")
-    Notification selectNotificationById(String notificationID);
+    Notification selectNotificationById(Long notificationID);
 
     @Modifying
     @Transactional
     @Query("UPDATE Notification o set o.isOpen=true where o.notification_id=?1")
-    boolean removeNotificationByNotification_id(String notification_id);
+    boolean removeNotificationByNotification_id(Long notification_id);
 
 }

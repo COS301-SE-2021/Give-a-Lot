@@ -40,8 +40,11 @@ public interface OrganisationService {
     generalOrganisationResponse removeOrgDonationQRCode(Long orgId) throws Exception;
     generalOrganisationResponse addOrgSocials(AddSocialsRequest request) throws Exception;
     generalOrganisationResponse removeOrgSocials(Long orgId, String type) throws Exception;
-    boolean addOrgNGO(AddOrgNGORequest request) throws Exception;
+    generalOrganisationResponse addOrgNGO(AddOrgNGORequest request) throws Exception;
     boolean removeOrgNGO(long orgId) throws Exception;
+    generalOrganisationResponse addOrgNGODate(AddOrgNGORequest request) throws Exception;
+    generalOrganisationResponse removeNGDate(Long orgId) throws Exception;
+
     generalOrganisationResponse addOrgEstDate(AddOrgEstDateRequest request) throws Exception;
     generalOrganisationResponse removeOrgEstDate(Long orgId) throws Exception;
 

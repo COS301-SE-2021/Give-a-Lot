@@ -353,6 +353,48 @@ public class OrganisationController
             return new ResponseEntity<>(new generalOrganisationResponse("rem_don_500_err","failed: " + e), HttpStatus.OK);
         }
     }
+    @PostMapping("/add/ngopdate") /* tested - works */
+    public  ResponseEntity<generalOrganisationResponse> addOrgNGODate(@RequestBody @NonNull AddOrgNGORequest body)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.addOrgNGODate(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("add_ngo_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+    @DeleteMapping("/delete/ngodate/{orgId}") /*tested - works */
+    public ResponseEntity<generalOrganisationResponse> removeOrgNGODate(@PathVariable("orgId") @NonNull Long orgId)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.removeNGDate(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_ngo_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+    @PostMapping("/add/orgNgo") /* tested - works */
+    public  ResponseEntity<generalOrganisationResponse> addOrgNGO(@RequestBody @NonNull AddOrgNGORequest body)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.addOrgNGO(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("add_ngo_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
 
     @PostMapping("/add/estdate") /* tested - works */
     public  ResponseEntity<generalOrganisationResponse> addOrgEstDate(@RequestBody @NonNull AddOrgEstDateRequest body)
@@ -557,4 +599,17 @@ public class OrganisationController
             return new ResponseEntity<>(new getSectorsResponse("get_sec_500_err","failed: " + e, null), HttpStatus.OK);
         }
     }
+
+/*    @PostMapping("/upgrade/upload/logo")
+    public boolean upgradeUploadLogo(@RequestBody @NonNull MultipartFile logo) throws Exception {
+        try
+        {
+            return  ;
+        }
+        catch (Exception e)
+        {
+            System.out.println("ooops: " + e);
+            return false;
+        }
+    }*/
 }

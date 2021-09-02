@@ -2,8 +2,6 @@ package com.GiveaLot.givealot.Notification.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Date;
-
 public class AddNotificationRequest {
     private    String dateCreated ;
     private    String  notification_id;
@@ -29,7 +27,7 @@ public class AddNotificationRequest {
         this.dateCreated = dateCreated;
     }
 
-    public String getNotification_id() {
+    public Long getNotification_id() {
         return notification_id;
     }
 

@@ -513,7 +513,6 @@ public class OrganisationServiceImp implements OrganisationService {
 
         return new generalOrganisationResponse("rem_addr_200_OK", "success");
     }
-
     @Override
     public generalOrganisationResponse addOrgLogo(AddOrgLogoRequest request) throws Exception {
         if (request == null)
@@ -871,7 +870,7 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public boolean addOrgNGO(AddOrgNGORequest request) throws Exception {
+    public  generalOrganisationResponse addOrgNGO(AddOrgNGORequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request not set");
         else if (request.getNgoNumber() == null)
@@ -885,10 +884,10 @@ public class OrganisationServiceImp implements OrganisationService {
 
         if (organisationInfoRepository.addNGONumber(request.getOrgId(), request.getNgoNumber()) != 1)
             throw new Exception("Exception: value field failed to update");
-        if (organisationInfoRepository.addNGODate(request.getOrgId(), request.getNgoDate()) != 1)
+        if (addOrgNGODate(request)==null)
             throw new Exception("Exception: value field failed to update");
 
-        return true;
+        return new generalOrganisationResponse("add_ngo_200_OK","success");
     }
 
     @Override
@@ -912,6 +911,60 @@ public class OrganisationServiceImp implements OrganisationService {
 
         return true;
     }
+
+    @Override
+    public generalOrganisationResponse addOrgNGODate(AddOrgNGORequest request) throws Exception {
+        if (request == null)
+            throw new Exception("Exception: request not set");
+
+        else if (request.getNgoDate()== null)
+            throw new Exception("Exception: value not set");
+
+        else if (request.getNgoDate().isEmpty())
+            throw new Exception("Exception: date field is empty");
+
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        String Str [] = (request.getNgoDate()).split("/");
+
+        String tmp_date = "";
+
+        if(Str.length == 3)
+        {
+            tmp_date = Str[2] + "-" + Str[1] + "-" + Str[0];
+        }
+        else throw new Exception("Exception: Invalid date provided");
+
+        if (organisationInfoRepository.addNGODate(request.getOrgId(), tmp_date) != 1)
+            throw new Exception("Exception: value field failed to update");
+
+        return new generalOrganisationResponse("add_ngo_200_OK","success");
+    }
+
+    @Override
+    public generalOrganisationResponse removeNGDate(Long orgId) throws Exception {
+        if(orgId == null)
+            throw new Exception("Exception: provided ID is null");
+
+        else if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+            /*
+             * Because organisation already exists, set the field
+             * */
+            OrganisationInfo organisationInfo = new OrganisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            organisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun the contract");
+        }
+
+        if (organisationInfoRepository.removeNGODate(orgId) != 1)
+            throw new Exception("Exception: tax reference field not updated");
+
+        return new generalOrganisationResponse("rem_est_200_OK", "success");    }
 
     @Override /*tested - works well */
     public generalOrganisationResponse addOrgEstDate(AddOrgEstDateRequest request) throws Exception {

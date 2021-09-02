@@ -1,16 +1,12 @@
 package com.GiveaLot.givealot.Notification.controller;
 
-import com.GiveaLot.givealot.Notification.*;
-import com.GiveaLot.givealot.Notification.dataclass.Notification;
 import com.GiveaLot.givealot.Notification.requests.AddNotificationRequest;
 import com.GiveaLot.givealot.Notification.requests.GetNotificationsRequest;
 import com.GiveaLot.givealot.Notification.response.GetNotificationsResponse;
 import com.GiveaLot.givealot.Notification.response.generalNotificationResponse;
 import com.GiveaLot.givealot.Notification.response.getNumberOfNotificationsResponse;
 import com.GiveaLot.givealot.Notification.service.notificationServiceImpl;
-
-import com.GiveaLot.givealot.Notification.service.response.responseJSON;
-import com.GiveaLot.givealot.Organisation.response.generalOrganisationResponse;
+import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -77,7 +73,7 @@ public class NotificationsController {
     }
 
     @PutMapping("/remove/notification")
-    public ResponseEntity<generalNotificationResponse> removeNotification(@PathVariable("notification_id") @NonNull String notification_id)
+    public ResponseEntity<generalNotificationResponse> removeNotification(@PathVariable("notification_id") @NonNull Long notification_id)
     {
         generalNotificationResponse response;
         try

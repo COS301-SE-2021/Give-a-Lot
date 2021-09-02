@@ -1,3 +1,133 @@
+POST http://localhost:8080/v1/organisation/add/orgNgo
+Content-Type: application/json
+
+{
+  "orgId":6,
+  "ngoNumber":"123-456",
+  "ngoDate":"2018/12/23"
+}
+
+<> 2021-09-02T201647.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/ngopdate
+Content-Type: application/json
+
+{
+"orgId":6,
+"ngoNumber":"123-456",
+"ngoDate":"2020/05/23"
+}
+
+<> 2021-09-02T195747.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/ngopdate
+Content-Type: application/json
+
+{
+"orgId":6,
+"ngoNumber":"123-456",
+"ngoDate":"2020/05/23"
+}
+
+<> 2021-09-02T195010.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/ngopdate
+Content-Type: application/json
+
+{
+"orgId":6,
+"ngoNumber":"123-456",
+"ngoDate":"2020/05/23"
+}
+
+<> 2021-09-02T194620.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/ngopdate
+Content-Type: application/json
+
+{
+"orgId":6,
+"ngoNumber":"123-456",
+"ngoDate":"2020/05/23"
+}
+
+<> 2021-09-02T194610.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/ngopdate
+Content-Type: application/json
+
+{
+"orgId":6,
+"ngoNumber":"123-456",
+"ngoDate":"2020-05-23"
+}
+
+<> 2021-09-02T194533.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/ngopdate
+Content-Type: application/json
+
+{
+"orgId":6,
+"ngoNumber":"123-456",
+"ngoDate":"2020/05/23"
+}
+
+<> 2021-09-02T194501.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/ngopdate
+Content-Type: application/json
+
+{
+"orgId":6,
+"ngoNumber":"123-456",
+"ngoDate":"2020/05/23"
+}
+
+<> 2021-09-02T194035.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/ngopdate
+Content-Type: application/json
+
+{
+"orgId":6,
+"ngoNumber":"123-456",
+"ngoDate":"2020-05-23"
+}
+
+<> 2021-09-02T193909.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/ngopdate
+Content-Type: application/json
+
+{
+"orgId":6,
+"ngoNumber":"123-456",
+"ngoDate":"2020-05-23"
+}
+
+<> 2021-09-02T193735.404.json
+
+###
+
 POST http://localhost:8080/v1/organisation/add/org
 Content-Type: application/json
 
@@ -295,66 +425,6 @@ GET http://localhost:8080/v1/organisation/sel/organisation/12/4
 GET http://localhost:8080/v1/organisation/sel/organisation/12/4
 
 <> 2021-08-27T054341.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/12/4
-
-<> 2021-08-27T054331.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/12/1
-
-<> 2021-08-27T054255.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/12/1
-
-<> 2021-08-27T053642.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/1
-
-<> 2021-08-27T053449.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/11/1
-
-<> 2021-08-27T053435.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/11/1
-
-<> 2021-08-27T053424.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/1
-
-<> 2021-08-27T053313.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/6/1
-
-<> 2021-08-27T053200.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/6/1
-
-<> 2021-08-27T053139.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/6/1
-
-<> 2021-08-27T053053.200.json
 
 ###
 

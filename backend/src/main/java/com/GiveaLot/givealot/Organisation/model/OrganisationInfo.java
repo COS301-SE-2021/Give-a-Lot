@@ -62,7 +62,7 @@ public class OrganisationInfo
             nullable = true,
             unique = false)
 
-    private Date NGODate;
+    private String NGODate;
     @Column(name = "twitter",
             nullable = true,
             unique = false)
@@ -134,11 +134,11 @@ public class OrganisationInfo
         this.auditDocument = auditDocument;
     }
 
-    public Date getNGODate() {
+    public String getNGODate() {
         return NGODate;
     }
 
-    public void setNGODate(Date NGODate) {
+    public void setNGODate(String NGODate) {
         this.NGODate = NGODate;
     }
 

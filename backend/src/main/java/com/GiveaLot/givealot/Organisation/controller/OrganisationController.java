@@ -449,12 +449,18 @@ public class OrganisationController
     }
 
     @PostMapping("/add/logo") /* all good - correctness not tested yet */
-    public ResponseEntity<generalOrganisationResponse> addOrgLogo(@RequestBody @NonNull AddOrgLogoRequest body)
+    public ResponseEntity<generalOrganisationResponse> addOrgLogo( @RequestParam("image") MultipartFile image)
     {
+
         generalOrganisationResponse response;
         try
         {
-            response = service.addOrgLogo(body);
+            System.out.println("=================================");
+            System.out.println(image);
+            System.out.println("=================================");
+
+            response = service.addOrgLogo(new AddOrgLogoRequest(6L,image));
+
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)

@@ -19,6 +19,7 @@ public class CertificateController {
     public boolean compareCertificate(@RequestBody @NonNull MultipartFile certificate) throws Exception {
        try
        {
+           System.out.println(certificate);
            return  service.compareCertificate(certificate);
        }
        catch (Exception e)

@@ -13,8 +13,12 @@ import com.GiveaLot.givealot.Notification.response.GetNotificationsResponse;
 import com.GiveaLot.givealot.Notification.response.generalNotificationResponse;
 import com.GiveaLot.givealot.Notification.response.getNumberOfNotificationsResponse;
 
+import com.GiveaLot.givealot.Notification.response.levelOneInformationResponse;
+import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
+import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
+import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import com.GiveaLot.givealot.User.dataclass.User;
 import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
 import com.GiveaLot.givealot.User.repository.UserRepository;
@@ -41,6 +45,8 @@ public class notificationServiceImpl implements notificationService{
     @Autowired
     BlockChainRepository blockChainRepository;
 
+    @Autowired
+    OrganisationInfoRepository organisationInfoRepository;
     @Override
     public GetNotificationsResponse getNotifications(GetNotificationsRequest request) throws Exception {
         boolean temporal_solution = true;
@@ -122,6 +128,39 @@ public class notificationServiceImpl implements notificationService{
     }
 
     @Override
+    public responseJSON getLevelInformation(Long orgid) throws Exception {
+        if(orgid == null)
+            throw new Exception("organisation id is null");
+
+        Organisations organisations = organisationRepository.selectOrganisationById(orgid);
+
+        if(organisations == null)
+        {
+            throw new Exception("organisation does not exist");
+        }
+        Blockchain blockchain = blockChainRepository.selectBlockchainOrgId(orgid);
+        if(blockchain == null)
+        {
+            throw new Exception("organisation does not exist");
+        }
+        long level  = blockchain.getLevel();
+
+        if(level == 0)
+        {
+            String logoUrl = "localfiles/"+orgid+"/Gallery/logo.png";
+            OrganisationInfo organisationInfo = organisationInfoRepository.selectOrganisationInfo(orgid);
+            if(organisationInfo == null)
+            {
+                throw new Exception("organisation information does not exist");
+            }
+            String ngoNumber = organisationInfo.getNGONumber();
+            String ngoRegistrationDate = organisationInfo.getNGODate();
+            return new responseJSON("get_level_200_OK","success",new levelOneInformationResponse(logoUrl,ngoNumber,ngoRegistrationDate));
+        }
+        return null;
+    }
+
+    @Override
     public generalNotificationResponse updateNotification(UpdateNotificationRequest request)throws Exception{
         if(request == null)
             throw new Exception("request is null");
@@ -167,8 +206,16 @@ public class notificationServiceImpl implements notificationService{
 
         notification.setDescription(description);
         notification.setOrg_id(organisations.getOrgId());
+
         notification.setOpen(false);
+
         notification.setNotificationType("update");
+
+        Date dateCurrent = new Date();
+        Date dateEx = new Date();
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String dateCreated = format.format(dateCurrent);
+        notification.setDateCreated(dateCreated);
 
         notificationRepository.save(notification);
 

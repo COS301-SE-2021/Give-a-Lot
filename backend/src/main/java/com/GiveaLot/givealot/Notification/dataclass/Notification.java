@@ -21,10 +21,10 @@ public class Notification {
                 )
         String dateCreated;
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "notification_id", nullable = false, unique = true)
-        Long notification_id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "notification_id", nullable = false, unique = true)
+    public Long notification_id;
 
     @Column(
             name = "org_id",

@@ -1,3 +1,117 @@
+POST http://localhost:8080/v1/notifications/get/level_information
+Content-Type: application/json
+
+{
+  "orgId":32
+}
+
+<> 2021-09-02T234149.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/get/notifications
+Content-Type: application/json
+
+{
+  "adminUserEmail":"admin@email.com"
+}
+
+<> 2021-09-02T225653.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/update/notifications
+Content-Type: application/json
+
+{
+  "org_id":32
+}
+
+<> 2021-09-02T225241.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/update/notifications
+Content-Type: application/json
+
+{
+  "org_id":32
+}
+
+<> 2021-09-02T224842.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/update/notifications
+Content-Type: application/json
+
+{
+  "org_id":32
+}
+
+<> 2021-09-02T224703.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/update/notifications
+Content-Type: application/json
+
+{
+  "org_id":32
+}
+
+<> 2021-09-02T224244.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/orgNgo
+Content-Type: application/json
+
+{
+  "orgId":32,
+  "ngoNumber":"123-456",
+  "ngoDate":"2018/12/23"
+}
+
+<> 2021-09-02T224223.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/update/notifications
+Content-Type: application/json
+
+{
+  "org_id":32
+}
+
+<> 2021-09-02T223837.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/update/notifications
+Content-Type: application/json
+
+{
+  "org_id":32
+}
+
+<> 2021-09-02T223205.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/orgNgo
+Content-Type: application/json
+
+{
+  "orgId":32,
+  "ngoNumber":"123-456",
+  "ngoDate":"2018/12/23"
+}
+
+<> 2021-09-02T223153.200.json
+
+###
+
 POST http://localhost:8080/v1/organisation/add/orgNgo
 Content-Type: application/json
 
@@ -365,66 +479,6 @@ GET http://localhost:8080/v1/browse/sectors/recommendations/default
 GET http://localhost:8080/v1/browse/sectors/recommendations/default
 
 <> 2021-08-27T054733.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/1
-
-<> 2021-08-27T054712.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/1
-
-<> 2021-08-27T054657.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/14/4
-
-<> 2021-08-27T054645.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/1
-
-<> 2021-08-27T054538.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/6/4
-
-<> 2021-08-27T054519.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/1
-
-<> 2021-08-27T054429.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/12/4
-
-<> 2021-08-27T054414.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/12/4
-
-<> 2021-08-27T054404.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/12/4
-
-<> 2021-08-27T054400.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/12/4
-
-<> 2021-08-27T054341.200.json
 
 ###
 

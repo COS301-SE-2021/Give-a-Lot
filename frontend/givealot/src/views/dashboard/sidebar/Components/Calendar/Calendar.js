@@ -11,10 +11,8 @@ import {
     AllDayPanel,
     ConfirmationDialog,
 } from '@devexpress/dx-react-scheduler-material-ui';
-
 import "./styles/Calendar.css"
 import { appointments } from "./data"
-import DashHeader from "../../DashHeader/DashHeader";
 
 export default class DemoApp extends React.Component {
 
@@ -80,8 +78,8 @@ export default class DemoApp extends React.Component {
         } = this.state;
         return (
             <div className="calendar">
-                {/*<DashHeader />*/}
-                <Paper>
+
+                <Paper style={{margin: "1.5em", width: "95%"}}>
                     <Scheduler
                         data={data}
                         height={660}

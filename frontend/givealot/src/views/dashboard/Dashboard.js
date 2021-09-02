@@ -42,7 +42,7 @@ function Dashboard() {
                         <Route exact path="/organisations">
                             <OrganisationsDash />
                         </Route>
-                        <Route path="/org">
+                        <Route path="/org/:id">
                             <Org />
                         </Route>
                         <Route exact path="/users">
@@ -87,7 +87,7 @@ function Dashboard() {
                         <Route exact path="/addOrg">
                             <AddOrg />
                         </Route>
-                        <Route exact path="/orgValidate">
+                        <Route exact path="/orgValidate/:id">
                             <OrgValidate />
                         </Route>
                     </Switch>

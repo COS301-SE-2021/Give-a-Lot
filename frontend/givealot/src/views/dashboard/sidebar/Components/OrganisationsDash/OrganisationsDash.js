@@ -210,14 +210,9 @@ export class OrganisationsDash extends Component {
                                                         <TableCell>{item.email}</TableCell>
                                                         <TableCell>{item.username}</TableCell>
                                                         <TableCell>
-                                                            <Link to={"/org"}>
+                                                            <Link to={"/org/" + item.id} className="link">
                                                                 <EditIcon />
-                                                                {/*Edit</CreateIcon>*/}
                                                             </Link>
-                                                            {/*<DeleteOutline*/}
-                                                            {/*    className="orgListDeletes"*/}
-                                                            {/*    // onClick={() => handleDelete(params.row.id)}*/}
-                                                            {/*/>*/}
                                                         </TableCell>
                                                     </TableRow>
                                                 )

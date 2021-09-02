@@ -51,7 +51,7 @@ export class Validate extends Component {
                                 <Typography component="p">
                                     {item.name}
                                 </Typography>
-                                <Link to={"/orgValidate"} className="link">
+                                <Link to={"/orgValidate/" + item.id} className="link">
                                     <Button size="small" variant="outlined" className="buttonValid" >
                                         Request to Upgrade to level 1
                                     </Button>

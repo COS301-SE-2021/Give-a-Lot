@@ -71,7 +71,7 @@ export default function Accordions({id,title, description}) {
                 >
                     <Typography className={classes.heading}>
                         <ReportIcon className="iconReport"/>
-                        {id}
+                       Report {id}
                     </Typography>
 
                     <Typography className={classes.secondaryHeading}>

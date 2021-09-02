@@ -120,7 +120,7 @@ export class Upgrade3 extends Component {
                         <div className={classes.root}>
                             <form onSubmit={this.handleFormSubmit}>
                                 <span className="upgrade_header">
-                                    Additional credentials needed to Upgrade
+                                    Additional credentials needed to Upgrade to level 4
                                  </span>
                                 <div>
                                     <div className="social_media">

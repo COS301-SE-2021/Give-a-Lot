@@ -296,10 +296,16 @@ public class ServerAccess {
         }
     }
 
-    public void uploadImagePNG(long orgId, String orgName, File image) throws Exception {
+    public void uploadImagePNG(long orgId, String orgName, MultipartFile imageMPF) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
-
+            File image = new File("backend/src/main/resources/TempDocument/TempImg.png");
+            if (!image.exists()){
+                image.createNewFile();
+            }
+            try (OutputStream os = new FileOutputStream(image)) {
+                os.write(imageMPF.getBytes());
+            }
             image.renameTo(new File("backend/src/main/resources/TempDocument/image.png"));
 
             channelSftp.connect();
@@ -358,7 +364,7 @@ public class ServerAccess {
     public void uploadImageQRCode(long orgId, String orgName, MultipartFile imageMPF) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
-            File image = new File("backend/src/main/resources/TempDocument/TempLogoImg.png");
+            File image = new File("backend/src/main/resources/TempDocument/TempQRImg.png");
             if (!image.exists()){
                 image.createNewFile();
             }

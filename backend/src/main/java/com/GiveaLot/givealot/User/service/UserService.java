@@ -4,6 +4,7 @@ import com.GiveaLot.givealot.User.dataclass.User;
 import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
 import com.GiveaLot.givealot.User.requests.*;
 import com.GiveaLot.givealot.User.response.UserResponse;
+import com.GiveaLot.givealot.User.response.getNumberofUsersResponse;
 import com.GiveaLot.givealot.User.response.userResponseGeneral;
 import org.springframework.stereotype.Service;
 
@@ -19,4 +20,6 @@ public interface UserService {
 
     User getUser(GetUserRequest request)throws UserNotAuthorisedException,Exception;
     List<User> GetUsers(GetUsersRequest request) throws UserNotAuthorisedException,Exception;
+
+    getNumberofUsersResponse getNumberOfUser(GetUsersRequest request)throws Exception;
 }

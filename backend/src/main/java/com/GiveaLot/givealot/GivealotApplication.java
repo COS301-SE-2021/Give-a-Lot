@@ -21,7 +21,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.io.File;
 
 @SpringBootApplication
-public class GivealotApplication implements CommandLineRunner {
+public class GivealotApplication{
 
     @Autowired
     OrganisationRepository organisationRepository;
@@ -60,31 +60,14 @@ public class GivealotApplication implements CommandLineRunner {
 
     /** Add an organisation **/
 
-	@Override
-	public  void run(String... args) throws Exception {
-		Organisations organisations = new Organisations();
-		organisations.setOrgId(123L);
-		organisations.setPassword("iloveyou");
-		organisations.setContactNumber("Contact Number");
-		organisations.setOrgEmail("meeetest3@gmail.com");
-		organisations.setStatus("Status");
-		organisations.setOrgSector("disability");
-		organisations.setContactPerson("Contact Person");
-		organisations.setSlogan("Slogan");
-		organisations.setOrgDescription("Org Description");
-		organisations.setOrgName("The Worker Co.");
-		organisations.setDirectory("/tmp");
-        organisations.setDateAdded("2020-01-01");
-		organisationService.addOrganisation(organisations);
 
-	}
 
 	/** Compare valid certificate **/
 //	@Override
 //	public  void run(String... args) throws Exception {
 //		File test = new File("frontend/givealot/localFiles/20/certificate/CertificateComplete.pdf");
 //		System.out.println(certificateService.compareCertificate(test));
-//	}
+//	}b
 
 	/** Compare invalid Certificate **/
 

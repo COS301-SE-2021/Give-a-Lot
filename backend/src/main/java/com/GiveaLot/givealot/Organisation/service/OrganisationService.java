@@ -50,4 +50,6 @@ public interface OrganisationService {
 
     generalOrganisationResponse addSector(AddSectorRequest request) throws Exception;
     getSectorsResponse getSectors() throws Exception;
+
+    getNumberOfOrganisationsResponse getNumberOfOrganisations(GetOrganisationsRequest request)throws Exception;
 }

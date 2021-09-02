@@ -22,6 +22,16 @@ public interface organisationPointsRepository extends JpaRepository<Organisation
 
     @Modifying
     @Transactional
+    @Query("UPDATE OrganisationPoints op SET op.donationUrlIsValid = ?2 WHERE op.orgId = ?1")
+    int DonationUrl(long orgId, boolean value);
+
+    @Modifying
+    @Transactional
+    @Query("update OrganisationPoints op set op.points = ?2 where op.orgId = ?1")
+    int updatePoints(Long orgId, int points);
+
+    @Modifying
+    @Transactional
     @Query("UPDATE OrganisationPoints op SET op.auditIsValid = ?2 WHERE op.orgId = ?1")
     int Audit(long orgId, boolean value);
 
@@ -39,6 +49,11 @@ public interface organisationPointsRepository extends JpaRepository<Organisation
     @Transactional
     @Query("UPDATE OrganisationPoints op SET op.estDateIsValid = ?2 WHERE op.orgId = ?1")
     int EstablishmentDate(long orgId, boolean value);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE OrganisationPoints op SET op.qr_code_is_valid = ?2 WHERE op.orgId = ?1")
+    int QRCodeIsValid(long orgId, boolean value);
 
     @Modifying
     @Transactional

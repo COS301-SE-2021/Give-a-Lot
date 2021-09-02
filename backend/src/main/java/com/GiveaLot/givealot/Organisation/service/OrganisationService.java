@@ -43,7 +43,7 @@ public interface OrganisationService {
     generalOrganisationResponse addOrgEstDate(AddOrgEstDateRequest request) throws Exception;
     generalOrganisationResponse removeOrgEstDate(Long orgId) throws Exception;
 
-    generalOrganisationResponse confirmValidity(Long orgId,Long adminId,String type,boolean confirmValidity) throws Exception;
+    generalOrganisationResponse confirmValidity(confirmInfomationValidityRequest request)throws Exception;
     numberOfImagesResponse numberOfImages(Long orgId) throws Exception;
 
     generalOrganisationResponse addSector(AddSectorRequest request) throws Exception;

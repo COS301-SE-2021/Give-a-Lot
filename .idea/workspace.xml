@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="fix the recommender - modified the user class, the controllers for the organisation system all to accommodate the recommender.&#10;Add organisation function was modified on the controllers">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Browse/response/browseRecommendedResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-08-27T071350.200.json" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/2021-08-27T071350.200.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/requests/confirmInfomationValidityRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-09-02T094623.200.json" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/2021-09-02T094623.200.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Browse/controller/BrowseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Browse/controller/BrowseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Browse/service/BrowseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Browse/service/BrowseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Browse/service/BrowseServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Browse/service/BrowseServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationPoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationPoints.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationInfoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationInfoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/organisationPointsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/organisationPointsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Report/controller/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Report/controller/ReportController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +40,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master_backend" />
+        <entry key="$PROJECT_DIR$" value="frontend-develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -97,16 +104,21 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="generated-requests#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" runType="Run single request">
+      <method v="2" />
     </configuration>
     <configuration name="generated-requests#36" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="36" runType="Run single request">
       <method v="2" />
@@ -115,9 +127,6 @@
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#38" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="38" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="generated-requests#46" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="46" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#47" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="47" runType="Run single request">
@@ -145,11 +154,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests#1" />
         <item itemvalue="HTTP Request.generated-requests#37" />
         <item itemvalue="HTTP Request.generated-requests#38" />
         <item itemvalue="HTTP Request.generated-requests#47" />
         <item itemvalue="HTTP Request.generated-requests#36" />
-        <item itemvalue="HTTP Request.generated-requests#46" />
       </list>
     </recent_temporary>
   </component>

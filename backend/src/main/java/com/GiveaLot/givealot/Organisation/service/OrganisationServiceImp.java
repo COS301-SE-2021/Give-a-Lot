@@ -977,18 +977,18 @@ public class OrganisationServiceImp implements OrganisationService {
     * points
     */
 
-    @Override /*tested - works well */
-    public generalOrganisationResponse confirmValidity(Long orgId,Long adminId,String type,boolean confirmValidity) throws Exception
+    @Override /*tested - works well api endpoints provided*/
+    public generalOrganisationResponse confirmValidity(confirmInfomationValidityRequest request) throws Exception
     {
-        if(orgId == null)
+        if(request.getOrgId() == null)
             throw new Exception("Exception: organisation id is not set");
-        else if(adminId == null)
+        else if(request.getAdminId() == null)
             throw new Exception("Exception: admin id is not set");
-        else if(type == null)
+        else if(request.getType() == null)
             throw new Exception("Exception: type is not set");
-        else if(type.isEmpty())
+        else if(request.getType().isEmpty())
             throw new Exception("Exception: type is empty");
-        else if(userRepository.isAdmin(adminId) == null)
+        else if(userRepository.isAdmin(request.getAdminId()) == null)
             throw new Exception("Exception: user unauthorized");
         /*
         * check if ID belongs to user
@@ -998,318 +998,374 @@ public class OrganisationServiceImp implements OrganisationService {
         * true: for valid
         * false: invalid
         * */
-        if(type.equalsIgnoreCase("address"))
+        if(request.getType().equalsIgnoreCase("address"))
         {
             Integer dps = 10, currentPoints = 0;
-            int res = confirmValidity ? organisationPointsRepository.Address(orgId,true) : organisationPointsRepository.Address(orgId,false);
+            int res = request.isValid() ? organisationPointsRepository.Address(request.getOrgId(),true) : organisationPointsRepository.Address(request.getOrgId(),false);
             if(res != 1)
                 throw new Exception("Exception: address validity not confirmed");
 
-            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
-            if(certificate_tmp == null) /*perform rollback*/
+            /*get current organisation points*/
+            OrganisationPoints organisationPoints = organisationPointsRepository.selectOrganisationPoints(request.getOrgId());
+            if(organisationPoints == null) /*perform rollback*/
             {
-                res = confirmValidity ? organisationPointsRepository.Address(orgId,false) : organisationPointsRepository.Address(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.Address(request.getOrgId(),false) : organisationPointsRepository.Address(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
-            else currentPoints = certificate_tmp.getPoints();
+            else currentPoints = organisationPoints.getPoints();
 
-            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+            res = request.isValid() ? certificateRepository.updatePoints(request.getOrgId(),currentPoints + dps) : certificateRepository.updatePoints(request.getOrgId(),currentPoints - dps);
 
             if(res != 1)
             {
-                res = confirmValidity ? organisationPointsRepository.Address(orgId,false) : organisationPointsRepository.Address(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.Address(request.getOrgId(),false) : organisationPointsRepository.Address(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
-
         }
-        else if(type.equalsIgnoreCase("audit"))
+        else if(request.getType().equalsIgnoreCase("audit"))
         {
             Integer currentPoints = 0, dps = 15;
-            Integer res = confirmValidity ? organisationPointsRepository.Audit(orgId,true) : organisationPointsRepository.Audit(orgId,false);
+            Integer res = request.isValid() ? organisationPointsRepository.Audit(request.getOrgId(),true) : organisationPointsRepository.Audit(request.getOrgId(),false);
             if(res != 1)
                 throw new Exception("Exception: audit validity not confirmed");
 
-            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
-            if(certificate_tmp == null) /*perform rollback*/
+            OrganisationPoints organisationPoints = organisationPointsRepository.selectOrganisationPoints(request.getOrgId());
+            if(organisationPoints == null) /*perform rollback*/
             {
-                res = confirmValidity ? organisationPointsRepository.Audit(orgId,false) : organisationPointsRepository.Audit(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.Audit(request.getOrgId(),false) : organisationPointsRepository.Audit(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
-            else currentPoints = certificate_tmp.getPoints();
+            else currentPoints = organisationPoints.getPoints();
 
-                    res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+                    res = request.isValid() ? certificateRepository.updatePoints(request.getOrgId(),currentPoints + dps) : certificateRepository.updatePoints(request.getOrgId(),currentPoints - dps);
 
             if(res != 1)
             {
-                res = confirmValidity ? organisationPointsRepository.Audit(orgId,false) : organisationPointsRepository.Audit(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.Audit(request.getOrgId(),false) : organisationPointsRepository.Audit(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
         }
-        else if(type.equalsIgnoreCase("auditor"))
+        else if(request.getType().equalsIgnoreCase("auditor"))
         {
             Integer currentPoints = 0,dps = 10;
-            Integer res = confirmValidity ? organisationPointsRepository.Auditor(orgId,true) : organisationPointsRepository.Auditor(orgId,false);
+            Integer res = request.isValid() ? organisationPointsRepository.Auditor(request.getOrgId(),true) : organisationPointsRepository.Auditor(request.getOrgId(),false);
             if(res != 1)
                 throw new Exception("Exception: auditor validity not confirmed");
 
-            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
-            if(certificate_tmp == null) /*perform rollback*/
+            OrganisationPoints organisationPoints = organisationPointsRepository.selectOrganisationPoints(request.getOrgId());
+            if(organisationPoints == null) /*perform rollback*/
             {
-                res = confirmValidity ? organisationPointsRepository.Auditor(orgId,false) : organisationPointsRepository.Auditor(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.Auditor(request.getOrgId(),false) : organisationPointsRepository.Auditor(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
-            }else currentPoints = certificate_tmp.getPoints();
+            }else currentPoints = organisationPoints.getPoints();
 
-            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+            res = request.isValid() ? certificateRepository.updatePoints(request.getOrgId(),currentPoints + dps) : certificateRepository.updatePoints(request.getOrgId(),currentPoints - dps);
 
             if(res != 1)
             {
-                res = confirmValidity ? organisationPointsRepository.Auditor(orgId,false) : organisationPointsRepository.Auditor(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.Auditor(request.getOrgId(),false) : organisationPointsRepository.Auditor(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
         }
-        else if(type.equalsIgnoreCase("committee"))
+        else if(request.getType().equalsIgnoreCase("committee"))
         {
             Integer currentPoints = 0,dps = 5;
-            Integer res = confirmValidity ? organisationPointsRepository.Committee(orgId,true) : organisationPointsRepository.Committee(orgId,false);
+            Integer res = request.isValid() ? organisationPointsRepository.Committee(request.getOrgId(),true) : organisationPointsRepository.Committee(request.getOrgId(),false);
             if(res != 1)
                 throw new Exception("Exception: committee validity not confirmed");
 
-            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
-            if(certificate_tmp == null) /*perform rollback*/
+            OrganisationPoints organisationPoints = organisationPointsRepository.selectOrganisationPoints(request.getOrgId());
+            if(organisationPoints == null) /*perform rollback*/
             {
-                res = confirmValidity ? organisationPointsRepository.Committee(orgId,false) : organisationPointsRepository.Committee(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.Committee(request.getOrgId(),false) : organisationPointsRepository.Committee(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
-            }else currentPoints = certificate_tmp.getPoints();
+            }else currentPoints = organisationPoints.getPoints();
 
-            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+            res = request.isValid() ? certificateRepository.updatePoints(request.getOrgId(),currentPoints + dps) : certificateRepository.updatePoints(request.getOrgId(),currentPoints - dps);
 
             if(res != 1)
             {
-                res = confirmValidity ? organisationPointsRepository.Committee(orgId,false) : organisationPointsRepository.Committee(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.Committee(request.getOrgId(),false) : organisationPointsRepository.Committee(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
         }
-        else if(type.equalsIgnoreCase("establishment_date"))
+        else if(request.getType().equalsIgnoreCase("establishment_date"))
         {
             Integer currentPoints = 0,dps = 5;
-            Integer res = confirmValidity ? organisationPointsRepository.EstablishmentDate(orgId,true) : organisationPointsRepository.EstablishmentDate(orgId,false);
+            Integer res = request.isValid() ? organisationPointsRepository.EstablishmentDate(request.getOrgId(),true) : organisationPointsRepository.EstablishmentDate(request.getOrgId(),false);
             if(res != 1)
                 throw new Exception("Exception: establishment date validity not confirmed");
 
-            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
-            if(certificate_tmp == null) /*perform rollback*/
+            OrganisationPoints organisationPoints = organisationPointsRepository.selectOrganisationPoints(request.getOrgId());
+            if(organisationPoints == null) /*perform rollback*/
             {
-                res = confirmValidity ? organisationPointsRepository.EstablishmentDate(orgId,false) : organisationPointsRepository.EstablishmentDate(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.EstablishmentDate(request.getOrgId(),false) : organisationPointsRepository.EstablishmentDate(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
-            }else currentPoints = certificate_tmp.getPoints();
+            }else currentPoints = organisationPoints.getPoints();
 
-            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+            res = request.isValid() ? certificateRepository.updatePoints(request.getOrgId(),currentPoints + dps) : certificateRepository.updatePoints(request.getOrgId(),currentPoints - dps);
 
             if(res != 1)
             {
-                res = confirmValidity ? organisationPointsRepository.EstablishmentDate(orgId,false) : organisationPointsRepository.EstablishmentDate(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.EstablishmentDate(request.getOrgId(),false) : organisationPointsRepository.EstablishmentDate(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
         }
-        else if(type.equalsIgnoreCase("facebook"))
+        else if(request.getType().equalsIgnoreCase("facebook"))
         {
             Integer currentPoints = 0,dps = 5;
-            Integer res = confirmValidity ? organisationPointsRepository.Facebook(orgId,true) : organisationPointsRepository.Facebook(orgId,false);
+            Integer res = request.isValid() ? organisationPointsRepository.Facebook(request.getOrgId(),true) : organisationPointsRepository.Facebook(request.getOrgId(),false);
             if(res != 1)
                 throw new Exception("Exception: facebook validity not confirmed");
 
-            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
-            if(certificate_tmp == null) /*perform rollback*/
+            OrganisationPoints organisationPoints = organisationPointsRepository.selectOrganisationPoints(request.getOrgId());
+            if(organisationPoints == null) /*perform rollback*/
             {
-                res = confirmValidity ? organisationPointsRepository.Facebook(orgId,false) : organisationPointsRepository.Facebook(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.Facebook(request.getOrgId(),false) : organisationPointsRepository.Facebook(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
-            }else currentPoints = certificate_tmp.getPoints();
+            }else currentPoints = organisationPoints.getPoints();
 
-            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+            res = request.isValid() ? certificateRepository.updatePoints(request.getOrgId(),currentPoints + dps) : certificateRepository.updatePoints(request.getOrgId(),currentPoints - dps);
 
             if(res != 1)
             {
-                res = confirmValidity ? organisationPointsRepository.Facebook(orgId,false) : organisationPointsRepository.Facebook(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.Facebook(request.getOrgId(),false) : organisationPointsRepository.Facebook(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
         }
-        else if(type.equalsIgnoreCase("instagram"))
+        else if(request.getType().equalsIgnoreCase("instagram"))
         {
             Integer currentPoints = 0,dps = 5;
-            Integer res = confirmValidity ? organisationPointsRepository.Instagram(orgId,true) : organisationPointsRepository.Instagram(orgId,false);
+            Integer res = request.isValid() ? organisationPointsRepository.Instagram(request.getOrgId(),true) : organisationPointsRepository.Instagram(request.getOrgId(),false);
             if(res != 1)
                 throw new Exception("Exception: instagram validity not confirmed");
 
-            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
-            if(certificate_tmp == null) /*perform rollback*/
+            OrganisationPoints organisationPoints = organisationPointsRepository.selectOrganisationPoints(request.getOrgId());
+            if(organisationPoints == null) /*perform rollback*/
             {
-                res = confirmValidity ? organisationPointsRepository.Instagram(orgId,false) : organisationPointsRepository.Instagram(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.Instagram(request.getOrgId(),false) : organisationPointsRepository.Instagram(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
-            else currentPoints = certificate_tmp.getPoints();
-            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+            else currentPoints = organisationPoints.getPoints();
+            res = request.isValid() ? certificateRepository.updatePoints(request.getOrgId(),currentPoints + dps) : certificateRepository.updatePoints(request.getOrgId(),currentPoints - dps);
 
             if(res != 1)
             {
-                res = confirmValidity ? organisationPointsRepository.Instagram(orgId,false) : organisationPointsRepository.Instagram(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.Instagram(request.getOrgId(),false) : organisationPointsRepository.Instagram(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
         }
-        else if(type.equalsIgnoreCase("twitter"))
+        else if(request.getType().equalsIgnoreCase("twitter"))
         {
             Integer currentPoints = 0,dps = 5;
-            Integer res = confirmValidity ? organisationPointsRepository.Twitter(orgId,true) : organisationPointsRepository.Twitter(orgId,false);
+            Integer res = request.isValid() ? organisationPointsRepository.Twitter(request.getOrgId(),true) : organisationPointsRepository.Twitter(request.getOrgId(),false);
             if(res != 1)
                 throw new Exception("Exception: twitter validity not confirmed");
 
-            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
-            if(certificate_tmp == null) /*perform rollback*/
+            OrganisationPoints organisationPoints = organisationPointsRepository.selectOrganisationPoints(request.getOrgId());
+            if(organisationPoints == null) /*perform rollback*/
             {
-                res = confirmValidity ? organisationPointsRepository.Twitter(orgId,false) : organisationPointsRepository.Twitter(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.Twitter(request.getOrgId(),false) : organisationPointsRepository.Twitter(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
-            }else currentPoints = certificate_tmp.getPoints();
+            }else currentPoints = organisationPoints.getPoints();
 
-            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+            res = request.isValid() ? certificateRepository.updatePoints(request.getOrgId(),currentPoints + dps) : certificateRepository.updatePoints(request.getOrgId(),currentPoints - dps);
 
             if(res != 1)
             {
-                res = confirmValidity ? organisationPointsRepository.Twitter(orgId,false) : organisationPointsRepository.Twitter(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.Twitter(request.getOrgId(),false) : organisationPointsRepository.Twitter(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
         }
-        else if(type.equalsIgnoreCase("ngo_date"))
+        else if(request.getType().equalsIgnoreCase("ngo_date"))
         {
             Integer currentPoints = 0,dps = 5;
-            Integer res = confirmValidity ? organisationPointsRepository.NGO_Date(orgId,true) : organisationPointsRepository.NGO_Date(orgId,false);
+            Integer res = request.isValid() ? organisationPointsRepository.NGO_Date(request.getOrgId(),true) : organisationPointsRepository.NGO_Date(request.getOrgId(),false);
             if(res != 1)
                 throw new Exception("Exception: NGO date validity not confirmed");
 
-            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
-            if(certificate_tmp == null) /*perform rollback*/
+            OrganisationPoints organisationPoints = organisationPointsRepository.selectOrganisationPoints(request.getOrgId());
+            if(organisationPoints == null) /*perform rollback*/
             {
-                res = confirmValidity ? organisationPointsRepository.NGO_Date(orgId,false) : organisationPointsRepository.NGO_Date(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.NGO_Date(request.getOrgId(),false) : organisationPointsRepository.NGO_Date(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
-            }else currentPoints = certificate_tmp.getPoints();
+            }else currentPoints = organisationPoints.getPoints();
 
-            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+            res = request.isValid() ? certificateRepository.updatePoints(request.getOrgId(),currentPoints + dps) : certificateRepository.updatePoints(request.getOrgId(),currentPoints - dps);
 
             if(res != 1)
             {
-                res = confirmValidity ? organisationPointsRepository.NGO_Date(orgId,false) : organisationPointsRepository.NGO_Date(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.NGO_Date(request.getOrgId(),false) : organisationPointsRepository.NGO_Date(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
         }
-        else if(type.equalsIgnoreCase("ngo_number"))
+        else if(request.getType().equalsIgnoreCase("ngo_number"))
         {
             Integer currentPoints = 0,dps = 5;
-            Integer res = confirmValidity ? organisationPointsRepository.NGO_Number(orgId,true) : organisationPointsRepository.NGO_Number(orgId,false);
+            Integer res = request.isValid() ? organisationPointsRepository.NGO_Number(request.getOrgId(),true) : organisationPointsRepository.NGO_Number(request.getOrgId(),false);
             if(res != 1)
                 throw new Exception("Exception: NGO number validity not confirmed");
 
-            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
-            if(certificate_tmp == null) /*perform rollback*/
+            OrganisationPoints organisationPoints = organisationPointsRepository.selectOrganisationPoints(request.getOrgId());
+            if(organisationPoints == null) /*perform rollback*/
             {
-                res = confirmValidity ? organisationPointsRepository.NGO_Number(orgId,false) : organisationPointsRepository.NGO_Number(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.NGO_Number(request.getOrgId(),false) : organisationPointsRepository.NGO_Number(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
-            }else currentPoints = certificate_tmp.getPoints();
+            }else currentPoints = organisationPoints.getPoints();
 
-            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+            res = request.isValid() ? certificateRepository.updatePoints(request.getOrgId(),currentPoints + dps) : certificateRepository.updatePoints(request.getOrgId(),currentPoints - dps);
 
             if(res != 1)
             {
-                res = confirmValidity ? organisationPointsRepository.NGO_Number(orgId,false) : organisationPointsRepository.NGO_Number(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.NGO_Number(request.getOrgId(),false) : organisationPointsRepository.NGO_Number(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
         }
-        else if(type.equalsIgnoreCase("tax_raf"))
+        else if(request.getType().equalsIgnoreCase("tax_raf"))
         {
             Integer currentPoints = 0,dps = 5;
-            Integer res = confirmValidity ? organisationPointsRepository.taxRaf(orgId,true) : organisationPointsRepository.taxRaf(orgId,false);
+            Integer res = request.isValid() ? organisationPointsRepository.taxRaf(request.getOrgId(),true) : organisationPointsRepository.taxRaf(request.getOrgId(),false);
             if(res != 1)
                 throw new Exception("Exception: tax raf validity not confirmed");
 
-            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
-            if(certificate_tmp == null) /*perform rollback*/
+            OrganisationPoints organisationPoints = organisationPointsRepository.selectOrganisationPoints(request.getOrgId());
+            if(organisationPoints == null) /*perform rollback*/
             {
-                res = confirmValidity ? organisationPointsRepository.taxRaf(orgId,false) : organisationPointsRepository.taxRaf(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.taxRaf(request.getOrgId(),false) : organisationPointsRepository.taxRaf(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
-            }else currentPoints = certificate_tmp.getPoints();
+            }else currentPoints = organisationPoints.getPoints();
 
-            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+            res = request.isValid() ? certificateRepository.updatePoints(request.getOrgId(),currentPoints + dps) : certificateRepository.updatePoints(request.getOrgId(),currentPoints - dps);
 
             if(res != 1)
             {
-                res = confirmValidity ? organisationPointsRepository.taxRaf(orgId,false) : organisationPointsRepository.taxRaf(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.taxRaf(request.getOrgId(),false) : organisationPointsRepository.taxRaf(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
         }
-        else if(type.equalsIgnoreCase("website"))
+        else if(request.getType().equalsIgnoreCase("website"))
         {
             Integer currentPoints = 0,dps = 10;
-            Integer res = confirmValidity ? organisationPointsRepository.Website(orgId,true) : organisationPointsRepository.Website(orgId,false);
+            Integer res = request.isValid() ? organisationPointsRepository.Website(request.getOrgId(),true) : organisationPointsRepository.Website(request.getOrgId(),false);
 
             if(res != 1)
                 throw new Exception("Exception: website validity not confirmed");
 
-            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
-            if(certificate_tmp == null) /*perform rollback*/
+            OrganisationPoints organisationPoints = organisationPointsRepository.selectOrganisationPoints(request.getOrgId());
+            if(organisationPoints == null) /*perform rollback*/
             {
-                res = confirmValidity ? organisationPointsRepository.Website(orgId,false) : organisationPointsRepository.Website(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.Website(request.getOrgId(),false) : organisationPointsRepository.Website(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
-            else currentPoints = certificate_tmp.getPoints();
+            else currentPoints = organisationPoints.getPoints();
 
-            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+            res = request.isValid() ? certificateRepository.updatePoints(request.getOrgId(),currentPoints + dps) : certificateRepository.updatePoints(request.getOrgId(),currentPoints - dps);
 
             if(res != 1)
             {
-                res = confirmValidity ? organisationPointsRepository.Website(orgId,false) : organisationPointsRepository.Website(orgId,true);
+                res = request.isValid() ? organisationPointsRepository.Website(request.getOrgId(),false) : organisationPointsRepository.Website(request.getOrgId(),true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }
+        }
+        else if(request.getType().equalsIgnoreCase("donation_url"))
+        {
+            Integer currentPoints = 0,dps = 10;
+            Integer res = request.isValid() ? organisationPointsRepository.DonationUrl(request.getOrgId(),true) : organisationPointsRepository.DonationUrl(request.getOrgId(),false);
+
+            if(res != 1)
+                throw new Exception("Exception: donation url validity not confirmed");
+
+            OrganisationPoints organisationPoints = organisationPointsRepository.selectOrganisationPoints(request.getOrgId());
+            if(organisationPoints == null) /*perform rollback*/
+            {
+                res = request.isValid() ? organisationPointsRepository.DonationUrl(request.getOrgId(),false) : organisationPointsRepository.DonationUrl(request.getOrgId(),true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }
+            else currentPoints = organisationPoints.getPoints();
+
+            res = request.isValid() ? certificateRepository.updatePoints(request.getOrgId(),currentPoints + dps) : certificateRepository.updatePoints(request.getOrgId(),currentPoints - dps);
+
+            if(res != 1)
+            {
+                res = request.isValid() ? organisationPointsRepository.DonationUrl(request.getOrgId(),false) : organisationPointsRepository.DonationUrl(request.getOrgId(),true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }
+        }
+        else if(request.getType().equalsIgnoreCase("qr_code"))
+        {
+            Integer currentPoints = 0,dps = 10;
+            Integer res = request.isValid() ? organisationPointsRepository.QRCodeIsValid(request.getOrgId(),true) : organisationPointsRepository.QRCodeIsValid(request.getOrgId(),false);
+
+            if(res != 1)
+                throw new Exception("Exception: qr code validity not confirmed");
+
+            OrganisationPoints organisationPoints = organisationPointsRepository.selectOrganisationPoints(request.getOrgId());
+            if(organisationPoints == null) /*perform rollback*/
+            {
+                res = request.isValid() ? organisationPointsRepository.QRCodeIsValid(request.getOrgId(),false) : organisationPointsRepository.QRCodeIsValid(request.getOrgId(),true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }
+            else currentPoints = organisationPoints.getPoints();
+
+            res = request.isValid() ? certificateRepository.updatePoints(request.getOrgId(),currentPoints + dps) : certificateRepository.updatePoints(request.getOrgId(),currentPoints - dps);
+
+            if(res != 1)
+            {
+                res = request.isValid() ? organisationPointsRepository.QRCodeIsValid(request.getOrgId(),false) : organisationPointsRepository.QRCodeIsValid(request.getOrgId(),true);
                 if(res == 1)
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");

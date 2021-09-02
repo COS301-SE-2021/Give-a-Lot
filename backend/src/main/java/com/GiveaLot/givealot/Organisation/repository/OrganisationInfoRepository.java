@@ -167,6 +167,4 @@ public interface OrganisationInfoRepository extends JpaRepository<OrganisationIn
     @Transactional
     @Query("UPDATE OrganisationInfo i SET i.facebook = null WHERE i.orgId = ?1")
     Integer removeFacebook(Long orgId);
-
-
 }

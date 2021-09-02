@@ -22,7 +22,6 @@ public class ReportController {
    @PostMapping("/organisation")
    public ResponseEntity<createReportResponse> createReport(@RequestBody createReportRequest request)
    {
-
       createReportResponse createReportResponse;
       try {
          Report report = new Report(request.getOrgId(), request.getReportDescription(),request.getOrgName() ,request.getReportType(),request.getReporterEmail());

@@ -28,47 +28,30 @@ public class OrganisationPoints {
     private boolean facebookIsValid;
     private boolean instagramIsValid;
     private boolean estDateIsValid;
+    private boolean donationUrlIsValid;
     private int numberOfImages;
     private String socialMediaType;
-
+    private boolean qr_code_is_valid;
 
     public OrganisationPoints()
     {
 
     }
-    public OrganisationPoints(String Long, int points, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean taxRefIsValid, boolean auditorIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, String socialMediaType, boolean estDateIsValid, int numberOfImages) {
-        this.orgId = orgId;
-        this.points = points;
-        this.addressIsValid = addressIsValid;
-        this.websiteIsValid = websiteIsValid;
-        this.auditIsValid = auditIsValid;
-        this.taxRefIsValid = taxRefIsValid;
-        this.auditorIsValid = auditorIsValid;
-        this.committeeIsValid = committeeIsValid;
-        this.ngoNoIsValid = ngoNoIsValid;
-        this.ngoDateIsValid = ngoDateIsValid;
-        this.estDateIsValid = estDateIsValid;
-        this.numberOfImages = numberOfImages;
-        this.socialMediaType = socialMediaType;
+
+    public boolean isQr_code_is_valid() {
+        return qr_code_is_valid;
     }
 
-    public OrganisationPoints(Long orgId, int points, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean taxRefIsValid, boolean auditorIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, boolean instagramIsValid, boolean facebookIsValid, boolean twitterIsValid, boolean estDateIsValid, int numberOfImages) {
-        this.orgId = orgId;
-        this.points = points;
-        this.addressIsValid = addressIsValid;
-        this.websiteIsValid = websiteIsValid;
-        this.auditIsValid = auditIsValid;
-        this.taxRefIsValid = taxRefIsValid;
-        this.auditorIsValid = auditorIsValid;
-        this.committeeIsValid = committeeIsValid;
-        this.ngoNoIsValid = ngoNoIsValid;
-        this.ngoDateIsValid = ngoDateIsValid;
-        this.estDateIsValid = estDateIsValid;
-        this.instagramIsValid = instagramIsValid;
-        this.facebookIsValid = facebookIsValid;
-        this.twitterIsValid = twitterIsValid;
-        this.numberOfImages = numberOfImages;
+    public void setQr_code_is_valid(boolean qr_code_is_valid) {
+        this.qr_code_is_valid = qr_code_is_valid;
+    }
 
+    public boolean isDonationUrlIsValid() {
+        return donationUrlIsValid;
+    }
+
+    public void setDonationUrlIsValid(boolean donationUrlIsValid) {
+        this.donationUrlIsValid = donationUrlIsValid;
     }
 
     public OrganisationPoints(long org_id) {

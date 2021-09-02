@@ -15,7 +15,7 @@ public interface notificationService {
 
     GetNotificationsResponse getNotifications(GetNotificationsRequest request) throws Exception;
     generalNotificationResponse addNotifications(AddNotificationRequest request)throws Exception;
-    generalNotificationResponse  removeNotifications(RemoveNotificationRequest request)throws Exception;
+    generalNotificationResponse  removeNotifications(String id)throws Exception;
     getNumberOfNotificationsResponse numberOfNotifications(GetNotificationsRequest request)throws Exception;
 
 }

@@ -5,20 +5,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 
 public class AddNotificationRequest {
-              String dateCreated ;
-    String  notification_id;
-              Long   org_id;
-              boolean   isOpen;
-              int  numberOfNotifications;
-              String  description;
-             String notificationType;
+    private    String dateCreated ;
+    private    String  notification_id;
+    private    Long   org_id;
+    private   boolean   isOpen;
+    private    int  numberOfNotifications;
+    private    String  description;
+    private   String notificationType;
 
-    public AddNotificationRequest(@JsonProperty("dateCreated") String dateCreated, @JsonProperty("notification_id") String notification_id,@JsonProperty("organisation_id") Long org_id,@JsonProperty("isOpen") boolean isOpen,@JsonProperty("numberOfNotifications") int numberOfNotifications,@JsonProperty("description") String description,@JsonProperty("notification_type") String notificationType) {
-        this.dateCreated = dateCreated;
-        this.notification_id = notification_id;
+    public AddNotificationRequest(@JsonProperty("organisation_id") Long org_id,@JsonProperty("isOpen") boolean isOpen,@JsonProperty("description") String description,@JsonProperty("notification_type") String notificationType) {
+
         this.org_id = org_id;
         this.isOpen = isOpen;
-        this.numberOfNotifications = numberOfNotifications;
         this.description = description;
         this.notificationType = notificationType;
     }

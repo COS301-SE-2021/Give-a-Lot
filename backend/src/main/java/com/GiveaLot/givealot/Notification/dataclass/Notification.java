@@ -45,12 +45,6 @@ public class Notification {
         )
         boolean isOpen;
 
-        @Column(
-                name = "numberOfNotifications",
-                updatable = true,
-                nullable = false
-        )
-        int numberOfNotifications;
 
     @Column(
             name = "Description",
@@ -66,21 +60,18 @@ public class Notification {
     )
     String notificationType;
 
-    public Notification(String dateCreated, String notification_id, long org_id, boolean isOpen, String description, String notificationType) {
-        this.dateCreated = dateCreated;
+    public Notification( long org_id, boolean isOpen, String description, String notificationType) {
         this.notification_id = notification_id;
         this.org_id = org_id;
         this.isOpen = isOpen;
         Description = description;
         this.notificationType = notificationType;
     }
-
-    public Notification(String dateCreated, String notification_id, long org_id, boolean isOpen, int numberOfNotifications, String description, String notificationType) {
+    public Notification(String dateCreated, String notification_id, long org_id, boolean open, String description, String notificationType) {
         this.dateCreated = dateCreated;
         this.notification_id = notification_id;
         this.org_id = org_id;
-        this.isOpen = isOpen;
-        this.numberOfNotifications = numberOfNotifications;
+        this.isOpen = open;
         Description = description;
         this.notificationType = notificationType;
     }
@@ -88,6 +79,7 @@ public class Notification {
     public Notification() {
 
     }
+
 
     public String getDateCreated() {
         return dateCreated;
@@ -119,14 +111,6 @@ public class Notification {
 
     public void setOpen(boolean open) {
         isOpen = open;
-    }
-
-    public int getNumberOfNotifications() {
-        return numberOfNotifications;
-    }
-
-    public void setNumberOfNotifications(int numberOfNotifications) {
-        this.numberOfNotifications = numberOfNotifications;
     }
 
     public String getDescription() {

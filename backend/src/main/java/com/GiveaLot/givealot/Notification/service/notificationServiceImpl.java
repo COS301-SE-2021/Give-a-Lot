@@ -95,12 +95,12 @@ public class notificationServiceImpl implements notificationService{
         return new generalNotificationResponse("add_notification_200_ok", "success");    }
 
     @Override
-    public generalNotificationResponse removeNotifications(RemoveNotificationRequest request) throws Exception {
+    public generalNotificationResponse removeNotifications(String id) throws Exception {
 
-        if(request == null)
+        if(id == null)
             throw new Exception("invalid notification object: null");
 
-        if(notificationRepository.removeNotificationByNotification_id(request.getNotification_id()))
+        if(notificationRepository.removeNotificationByNotification_id(id))
         return new generalNotificationResponse("remove_notification_200_ok", "success");
         else
         throw new Exception("An error has occured");

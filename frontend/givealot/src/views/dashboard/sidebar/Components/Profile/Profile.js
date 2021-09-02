@@ -25,18 +25,19 @@ export class Profile extends Component {
         super(props)
 
         this.state = {
-            persons:[]
+            persons:[],
+            id:1,
         }
     }
 
     componentDidMount(){
-    /*    let config = {
+       let config = {
             headers: {
                 "Content-Type": "application/json",
                 'Access-Control-Allow-Origin': '*',
             }
-        }*/
-        axios.get('http://localhost:8080/v1/user/get/users')
+        }
+        axios.get('http://localhost:8080/v1/user/get/users/1', config)
             .then(response =>{
                 console.log(response)
                 const persons = response.data;
@@ -49,7 +50,7 @@ export class Profile extends Component {
     }
 
     render() {
-
+        const { persons } = this.state
         return (
             <div className="profileOrg">
                 {/*<Dash />*/}

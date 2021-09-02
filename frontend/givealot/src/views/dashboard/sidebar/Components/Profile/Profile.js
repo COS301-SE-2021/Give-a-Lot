@@ -37,11 +37,12 @@ export class Profile extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        axios.get('http://localhost:8080/v1/user/get/users/1', config)
+        console.log("something")
+        axios.get('http://jsonplaceholder.typicode.com/users', config)
             .then(response =>{
-                console.log(response)
-                const persons = response.data;
+                const persons = response.data[0].id;
                 this.setState({ persons });
+                console.log(persons)
             })
             .catch(error =>{
                 console.log(error)

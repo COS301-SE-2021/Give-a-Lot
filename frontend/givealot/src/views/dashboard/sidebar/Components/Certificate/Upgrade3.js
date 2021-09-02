@@ -65,13 +65,23 @@ export class Upgrade3 extends Component {
 
     handleFormSubmit = e => {
         e.preventDefault();
-        const data = {
+        const socialData = {
+            orgId: this.state.orgId,
+            website: this.state.website,
+            address: this.state.address,
+        };
+        const committeeData = {
             orgId: this.state.orgId,
             website: this.state.website,
             address: this.state.address,
         };
         Axios
-            .post("", data)
+            .post("", socialData)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+
+        Axios
+            .post("", committeeData)
             .then(res => console.log(res))
             .catch(err => console.log(err));
     };
@@ -157,7 +167,7 @@ export class Upgrade3 extends Component {
                                         <div>
 
                                             <FormControl variant="outlined" className={classes.formControl}>
-                                                <InputLabel id="demo-controlled-open-select-label">Social platform</InputLabel>
+                                                <InputLabel id="demo-controlled-open-select-label">Social media platform</InputLabel>
                                                 <Select
                                                     labelId="demo-simple-select-outlined-label"
                                                     id="demo-simple-select-outlined"

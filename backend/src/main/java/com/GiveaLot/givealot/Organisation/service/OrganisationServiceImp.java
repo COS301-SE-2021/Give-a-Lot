@@ -672,55 +672,6 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override /*not fully integration tested, all good - converted*/
-    public generalOrganisationResponse addOrgAuditor(AddOrgAuditorRequest request) throws Exception {
-        if (request == null)
-            throw new Exception("Exception: request not set");
-
-        if(request.getOrgId() == null)
-            throw new Exception("Exception: privided ID is null");
-
-        else if (request.getAuditor() == null)
-            throw new Exception("Exception: value not set");
-
-        else if (request.getAuditor().isEmpty())
-            throw new Exception("Exception: invalid value length");
-
-        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
-            throw new Exception("Exception: Organisation ID does not exist");
-
-        if (organisationInfoRepository.addAuditor(request.getOrgId(), request.getAuditor()) != 1)
-            throw new Exception("Exception: value field failed to update");
-
-        return new generalOrganisationResponse("add_aud_200_OK", "success");
-    }
-
-    @Override /*not fully integration tested, all good - converted*/
-    public generalOrganisationResponse removeOrgAuditor(Long orgId) throws Exception
-    {
-        if(orgId == null)
-            throw new Exception("Exception: provided ID is null");
-
-        if (organisationRepository.selectOrganisationById(orgId) == null)
-            throw new Exception("Exception: Organisation ID does not exist");
-
-        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
-            /*
-             * Because organisation already exists, set the field
-             * */
-            OrganisationInfo organisationInfo = new OrganisationInfo();
-            organisationInfo.setOrgId(orgId);
-
-            organisationInfoRepository.save(organisationInfo);
-            throw new Exception("Exception: system level error, organisation info did not exist, rerun the contract");
-        }
-
-        if (organisationInfoRepository.removeAuditor(orgId) != 1)
-            throw new Exception("Exception: tax reference field not updated");
-
-        return new generalOrganisationResponse("rem_audr_200_OK", "success");
-    }
-
-    @Override /*not fully integration tested, all good - converted*/
     public generalOrganisationResponse addOrgCommittee(AddOrgCommitteeRequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request not set");

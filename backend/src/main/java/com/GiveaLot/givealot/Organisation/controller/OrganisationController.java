@@ -264,36 +264,6 @@ public class OrganisationController
         }
     }
 
-    @PostMapping("/add/auditor") /* not tested */
-    public ResponseEntity<generalOrganisationResponse> addOrgAuditor(@RequestBody @NonNull AddOrgAuditorRequest body)
-    {
-        generalOrganisationResponse response;
-        try
-        {
-            response = service.addOrgAuditor(body);
-            return new ResponseEntity<>(response, HttpStatus.OK);
-        }
-        catch (Exception e)
-        {
-            return new ResponseEntity<>(new generalOrganisationResponse("add_audr_500_err","failed: " + e), HttpStatus.OK);
-        }
-    }
-
-    @DeleteMapping("/delete/auditor/{orgId}") /* not tested */
-    public ResponseEntity<generalOrganisationResponse> removeOrgAuditor(@PathVariable("orgId") @NonNull long orgId)
-    {
-        generalOrganisationResponse response;
-        try
-        {
-            response = service.removeOrgAuditor(orgId);
-            return new ResponseEntity<>(response, HttpStatus.OK);
-        }
-        catch (Exception e)
-        {
-            return new ResponseEntity<>(new generalOrganisationResponse("rem_audr_500_err","failed: " + e), HttpStatus.OK);
-        }
-    }
-
     @PostMapping("/add/committee") /* not tested */
     public ResponseEntity<generalOrganisationResponse>  addOrgCommittee(@RequestBody @NonNull AddOrgCommitteeRequest body)
     {

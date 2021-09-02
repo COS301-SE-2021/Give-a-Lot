@@ -10,9 +10,12 @@ import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.GiveaLot.givealot.Server.ServerConfig;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.OutputStream;
 
 @Service
 public class ServerAccess {
@@ -322,10 +325,16 @@ public class ServerAccess {
             session.disconnect();
         }
     }
-    public void uploadImageLogo(long orgId, String orgName, File image) throws Exception {
+    public void uploadImageLogo(long orgId, String orgName, MultipartFile imageMPF) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
-
+            File image = new File("backend/src/main/resources/TempDocument/TempLogoImg.png");
+            if (!image.exists()){
+                image.createNewFile();
+            }
+            try (OutputStream os = new FileOutputStream(image)) {
+                os.write(imageMPF.getBytes());
+            }
             image.renameTo(new File("backend/src/main/resources/TempDocument/image.png"));
 
             channelSftp.connect();
@@ -346,10 +355,16 @@ public class ServerAccess {
             session.disconnect();
         }
     }
-    public void uploadImageQRCode(long orgId, String orgName, File image) throws Exception {
+    public void uploadImageQRCode(long orgId, String orgName, MultipartFile imageMPF) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
-
+            File image = new File("backend/src/main/resources/TempDocument/TempLogoImg.png");
+            if (!image.exists()){
+                image.createNewFile();
+            }
+            try (OutputStream os = new FileOutputStream(image)) {
+                os.write(imageMPF.getBytes());
+            }
             image.renameTo(new File("backend/src/main/resources/TempDocument/image.png"));
 
             channelSftp.connect();

@@ -119,78 +119,86 @@ export class OrganisationsDash extends Component {
         const { org, getSector, sectorName } = this.state
         return(
                 <div className="OrganisationsDash">
-                    {/*<DashHeader />*/}
+                    <div className="userTitle">
+                        All Organisations on Give Alot
+                    </div>
                     <div className="OrgAdd">
-                        {/*<Link to={"/addOrg"} className="link">*/}
+                        <div className="orgAddBtn" style={{display: "flex", alignItems: "center", alignContent: "space-between"}}>
                             <Button variant="contained" className="buttonAdd" onClick={this.openDialogAdd.bind(this)}>
                                 Add Organisation
                                 <AddCircleOutlinedIcon/>
                             </Button>
-                                <Dialog onClose={this.handleCloseAdd.bind(this)} open={this.state.openAdd}>
-                                    <DialogTitle>Add Organisation</DialogTitle>
-                                    <DialogContent>
-                                        <AddOrg />
-                                    </DialogContent>
-                                </Dialog>
-                        {/*</Link>*/}
+                            <Dialog onClose={this.handleCloseAdd.bind(this)} open={this.state.openAdd}>
+                                <DialogTitle>Add Organisation</DialogTitle>
+                                <DialogContent>
+                                    <AddOrg />
+                                </DialogContent>
+                            </Dialog>
                             <Button variant="contained" className="buttonAddSector" onClick={this.openDialog.bind(this)}>
                                 Create Sector
                                 <AddCircleOutlinedIcon/>
                             </Button>
-                                <Dialog onClose={this.handleClose.bind(this)} open={this.state.open} style={{width: "100%"}}>
-                                    <DialogTitle style={{color: "#957b9e"}}>Create a Sector</DialogTitle>
-                                    <DialogContent style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                            <Dialog onClose={this.handleClose.bind(this)} open={this.state.open} style={{width: "100%"}}>
+                                <DialogTitle style={{color: "#957b9e"}}>Create a Sector</DialogTitle>
+                                <DialogContent style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                    <Grid>
+                                        <form onSubmit={this.submitSector}>
+                                            <TextField
+                                                id="outlined-full-width"
+                                                label="Sector"
+                                                style={{ margin: 8 }}
+                                                placeholder="Sector"
+                                                fullWidth
+                                                margin="normal"
+                                                // InputLabelProps={{
+                                                //     shrink: true,
+                                                // }}
+                                                variant="outlined"
+                                                name="sectorName"
+                                                onChange={this.changeHandler}
+                                                value={sectorName}
+                                            />
+                                            <Button variant="contained" className="buttonAdd" type="submit">
+                                                Submit
+                                            </Button>
+                                        </form>
+                                        <Divider style={{marginTop: "2em"}}/>
                                         <Grid>
-                                            <form onSubmit={this.submitSector}>
-                                                <TextField
-                                                    id="outlined-full-width"
-                                                    label="Sector"
-                                                    style={{ margin: 8 }}
-                                                    placeholder="Sector"
-                                                    fullWidth
-                                                    margin="normal"
-                                                    // InputLabelProps={{
-                                                    //     shrink: true,
-                                                    // }}
-                                                    variant="outlined"
-                                                    name="sectorName"
-                                                    onChange={this.changeHandler}
-                                                    value={sectorName}
-                                                />
-                                                <Button variant="contained" className="buttonAdd" type="submit">
-                                                    Submit
-                                                </Button>
-                                            </form>
-                                            <Divider style={{marginTop: "2em"}}/>
-                                            <Grid>
-                                                <div style={{marginBottom: "1em",marginTop: "1em", color: "#957b9e",fontSize: "x-large"}}>View Available Sectors</div>
-                                                <div>
-                                                    {getSector.map((sector) =>{
-                                                        return(
-                                                            <li key={sector} value={sector}>
-                                                                {sector}
-                                                            </li>
-                                                        )
-                                                    })}
-                                                </div>
-                                            </Grid>
+                                            <div style={{marginBottom: "1em",marginTop: "1em", color: "#957b9e",fontSize: "x-large"}}>View Available Sectors</div>
+                                            <div>
+                                                {getSector.map((sector) =>{
+                                                    return(
+                                                        <li key={sector} value={sector}>
+                                                            {sector}
+                                                        </li>
+                                                    )
+                                                })}
+                                            </div>
                                         </Grid>
+                                    </Grid>
 
-                                    </DialogContent>
-                                </Dialog>
+                                </DialogContent>
+                            </Dialog>
                         </div>
-                    <div className="header__input">
-                        <input placeholder="search organisation" type="text" />
-                        <SearchIcon/>
+                        <div className="header__input">
+                            <input placeholder="search organisation" type="text" />
+                            <SearchIcon/>
+                        </div>
                     </div>
+
 
                     <div className="table">
                         <Grid container spacing={3}>
                             <Grid item xs={12} >
                                 <TableContainer component={Paper}>
                                     <Table >
-                                        <TableHead>
-
+                                        <TableHead style={{backgroundColor: "#957b9e"}}>
+                                            <TableCell></TableCell>
+                                            <TableCell style={{color: "white"}}>Name</TableCell>
+                                            <TableCell style={{color: "white"}}>email</TableCell>
+                                            <TableCell style={{color: "white"}}>Contact person</TableCell>
+                                            <TableCell style={{color: "white"}}>Contact NUmber</TableCell>
+                                            <TableCell style={{color: "white"}}>Action</TableCell>
                                         </TableHead>
                                         <TableBody>
                                             {org.map((item, index) =>{
@@ -201,7 +209,6 @@ export class OrganisationsDash extends Component {
                                                         <TableCell>{item.username}</TableCell>
                                                         <TableCell>{item.email}</TableCell>
                                                         <TableCell>{item.username}</TableCell>
-                                                        <TableCell>{item.name}</TableCell>
                                                         <TableCell>
                                                             <Link to={"/org"}>
                                                                 <EditIcon />

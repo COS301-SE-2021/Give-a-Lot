@@ -90,7 +90,15 @@ export class Featured extends Component {
                     {/*<DashHeader />*/}
                     <div className="featuredTop">
                         <Cards />
-                        <Chart data={userData} title="Visits" grid dataKey="Active User"/>
+                        <div style={{display: "flex", flexDirection: "column"}}>
+                            <div className="dashGraph">
+                                <Chart data={userData} title="Users who registered on the system" grid dataKey="Active User" />
+                            </div>
+                            <div className="dashGraph">
+                                <Chart data={userData} title="Organisations who registered on the system" grid dataKey="Active User" />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

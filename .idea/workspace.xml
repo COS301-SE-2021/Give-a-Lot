@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="create sector button spaced">
+    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="Organisation table updated">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Featured.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Featured.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Styles/Featured.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Styles/Featured.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/OrganisationsDash.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/OrganisationsDash.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,17 +102,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="generated-requests#28" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="28" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -161,49 +154,8 @@
       <workItem from="1630405088383" duration="23184000" />
       <workItem from="1630491021144" duration="2559000" />
       <workItem from="1630499867538" duration="6464000" />
-      <workItem from="1630519787294" duration="14992000" />
-    </task>
-    <task id="LOCAL-00017" summary="organisations controller revision - suspend">
-      <created>1629263063619</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1629263063619</updated>
-    </task>
-    <task id="LOCAL-00018" summary="organisations controller revision">
-      <created>1629263360836</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1629263360836</updated>
-    </task>
-    <task id="LOCAL-00019" summary="organisations controller revision">
-      <created>1629263769117</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1629263769117</updated>
-    </task>
-    <task id="LOCAL-00020" summary="organisations controller revision - activate">
-      <created>1629264097723</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1629264097723</updated>
-    </task>
-    <task id="LOCAL-00021" summary="organisations controller revision - activate">
-      <created>1629264262713</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1629264262713</updated>
-    </task>
-    <task id="LOCAL-00022" summary="organisations controller revision - activate">
-      <created>1629264924333</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1629264924333</updated>
+      <workItem from="1630519787294" duration="15559000" />
+      <workItem from="1630570331827" duration="17208000" />
     </task>
     <task id="LOCAL-00023" summary="organisations controller revision - add website and remove website">
       <created>1629265692133</created>
@@ -506,7 +458,49 @@
       <option name="project" value="LOCAL" />
       <updated>1630538348613</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="create sector axios request">
+      <created>1630539058142</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1630539058142</updated>
+    </task>
+    <task id="LOCAL-00067" summary="create sector list items">
+      <created>1630579277804</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1630579277805</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Organisation table updated">
+      <created>1630585948409</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1630585948409</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Organisation table updated">
+      <created>1630589504388</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1630589504388</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Organisation table updated">
+      <created>1630592500759</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1630592500759</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Organisation table updated">
+      <created>1630592599042</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1630592599042</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -525,9 +519,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="user and login system are complete" />
-    <MESSAGE value="organisations api - get all users ready for frontend" />
-    <MESSAGE value="organisations controller revision - add Organisation" />
     <MESSAGE value="organisations controller revision - suspend" />
     <MESSAGE value="organisations controller revision - activate" />
     <MESSAGE value="organisations controller revision - add website and remove website" />
@@ -550,6 +541,9 @@
     <MESSAGE value="add organisation plus input validation for adding an organisation, api for fetching users" />
     <MESSAGE value="add organisation form validation check" />
     <MESSAGE value="create sector button spaced" />
-    <option name="LAST_COMMIT_MESSAGE" value="create sector button spaced" />
+    <MESSAGE value="create sector axios request" />
+    <MESSAGE value="create sector list items" />
+    <MESSAGE value="Organisation table updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Organisation table updated" />
   </component>
 </project>

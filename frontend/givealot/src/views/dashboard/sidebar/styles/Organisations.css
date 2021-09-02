@@ -56,7 +56,7 @@
 }
 
 .header__input{
-    float: right;
+    float: right !important;
     display: flex;
     align-items: center;
     background-color: white;
@@ -159,9 +159,10 @@
     height: 100%
 }
 .table{
-    padding: 0.6em;
+    padding-top: 3.5em;
     height: 100%;
     width: 100%;
+    /*margin: 5em !important;*/
 }
 .UsersDash{
     flex: 4;
@@ -425,4 +426,33 @@
 .error{
     color: red;
     float: right;
+}
+.listRow{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    border-bottom: 1px solid #957b9e;
+    /*cursor: pointer;*/
+    z-index: 999;
+}
+.listRow:hover{
+    border-top: 1px solid #957b9e;
+    box-shadow: 0px 4px 4px -2px rgba(0,0,0,0.24);
+}
+.listOptions{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.information{
+    display: flex;
+    /*align-items: center;*/
+    /*justify-content: space-between;*/
+}
+.information > p{
+    width: 200px;
+}
+.iconsOption{
+    display: flex;
 }

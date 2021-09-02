@@ -23,6 +23,8 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import TextField from "@material-ui/core/TextField";
 import AddOrg from "./AddOrg";
 import Divider from '@material-ui/core/Divider';
+import CheckBoxOutlineBlankOutlinedIcon from '@material-ui/icons/CheckBoxOutlineBlankOutlined';
+import {IconButton} from "@material-ui/core";
 
 export class OrganisationsDash extends Component {
 
@@ -173,45 +175,78 @@ export class OrganisationsDash extends Component {
 
                                     </DialogContent>
                                 </Dialog>
+                        {/*<div className="header__input">*/}
+                        {/*    <input placeholder="search organisation" type="text" />*/}
+                        {/*    <SearchIcon/>*/}
+                        {/*</div>*/}
                         </div>
                     <div className="header__input">
                         <input placeholder="search organisation" type="text" />
                         <SearchIcon/>
                     </div>
-                    <div className="table">
-                        <Grid container spacing={3}>
-                            <Grid item xs={12} >
-                                <TableContainer component={Paper}>
-                                    <Table >
-                                        <TableHead>
 
-                                        </TableHead>
-                                        <TableBody>
-                                            {org.map((item, index) =>{
-                                                return(
-                                                    <TableRow>
-                                                        <TableCell><Avatar aria-label="recipe" src="https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg" /> </TableCell>
-                                                        <TableCell>{item.name}</TableCell>
-                                                        <TableCell>{item.username}</TableCell>
-                                                        <TableCell>{item.email}</TableCell>
-                                                        <TableCell>
-                                                            <Link to={"/org"}>
-                                                                <EditIcon />
-                                                                {/*Edit</CreateIcon>*/}
-                                                            </Link>
-                                                             <DeleteOutline
-                                                               className="orgListDeletes"
-                                                              // onClick={() => handleDelete(params.row.id)}
-                                                             />
-                                                        </TableCell>
-                                                    </TableRow>
-                                                    )
-                                            })}
-                                        </TableBody>
-                                    </Table>
-                                </TableContainer>
-                            </Grid>
-                        </Grid>
+                    <div className="table">
+                        {/*<Grid container spacing={3}>*/}
+                        {/*    <Grid item xs={12} >*/}
+                        {/*        <TableContainer component={Paper}>*/}
+                        {/*            <Table >*/}
+                        {/*                <TableHead>*/}
+
+                        {/*                </TableHead>*/}
+                        {/*                <TableBody>*/}
+                        {/*                    {org.map((item, index) =>{*/}
+                        {/*                        return(*/}
+                        {/*                            <TableRow>*/}
+                        {/*                                <TableCell><Avatar aria-label="recipe" src="https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg" /> </TableCell>*/}
+                        {/*                                <TableCell>{item.name}</TableCell>*/}
+                        {/*                                <TableCell>{item.username}</TableCell>*/}
+                        {/*                                <TableCell>{item.email}</TableCell>*/}
+                        {/*                                <TableCell>*/}
+                        {/*                                    <Link to={"/org"}>*/}
+                        {/*                                        <EditIcon />*/}
+                        {/*                                        /!*Edit</CreateIcon>*!/*/}
+                        {/*                                    </Link>*/}
+                        {/*                                     <DeleteOutline*/}
+                        {/*                                       className="orgListDeletes"*/}
+                        {/*                                      // onClick={() => handleDelete(params.row.id)}*/}
+                        {/*                                     />*/}
+                        {/*                                </TableCell>*/}
+                        {/*                            </TableRow>*/}
+                        {/*                            )*/}
+                        {/*                    })}*/}
+                        {/*                </TableBody>*/}
+                        {/*            </Table>*/}
+                        {/*        </TableContainer>*/}
+                        {/*    </Grid>*/}
+                        {/*</Grid>*/}
+
+                        {org.map((item, index) =>{
+                            return(
+                                <div className="listRow">
+                                    <div className="listOptions">
+                                        <div className="iconsOption">
+                                            <Link to={"/org"}>
+                                                <IconButton>
+                                                    <EditIcon />
+                                                </IconButton>
+                                            </Link>
+                                            <IconButton>
+                                                <DeleteOutline />
+                                            </IconButton>
+                                        </div>
+
+                                        <div className="information">
+                                            <p>{item.name}</p>
+                                            <p>{item.username}</p>
+                                            <p>{item.username}</p>
+                                            <p>{item.email}</p>
+                                            <p>{item.email}</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
             );

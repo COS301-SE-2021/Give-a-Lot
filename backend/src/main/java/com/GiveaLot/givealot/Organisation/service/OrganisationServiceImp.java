@@ -1430,7 +1430,7 @@ public class OrganisationServiceImp implements OrganisationService {
         else if(organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: id does not exist");
 
-        Integer res = organisationPointsRepository.getNumberOfEmages(orgId);
+        Integer res = organisationPointsRepository.getNumberOfImages(orgId);
         if(res != 1)
             throw new Exception("Exception: id does not exist");
 

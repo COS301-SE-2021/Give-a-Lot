@@ -6,23 +6,24 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button'
 import { DeleteOutline } from "@material-ui/icons";
 import "../../styles/Organisations.css"
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios'
 import EditIcon from '@material-ui/icons/Edit';
-import DashHeader from "../../DashHeader/DashHeader";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import TextField from "@material-ui/core/TextField";
 import AddOrg from "./AddOrg";
+import Divider from '@material-ui/core/Divider';
+import {IconButton} from "@material-ui/core";
 import Card from '@material-ui/core/Card';
+import TableContainer from "@material-ui/core/TableContainer";
+import Paper from "@material-ui/core/Paper";
+import Table from "@material-ui/core/Table";
+import TableHead from "@material-ui/core/TableHead";
+import TableBody from "@material-ui/core/TableBody";
+import TableRow from "@material-ui/core/TableRow";
+import TableCell from "@material-ui/core/TableCell";
 
 export class OrganisationsDash extends Component {
 
@@ -137,35 +138,44 @@ export class OrganisationsDash extends Component {
                                 <AddCircleOutlinedIcon/>
                             </Button>
                                 <Dialog onClose={this.handleClose.bind(this)} open={this.state.open} style={{width: "100%"}}>
-                                    <DialogTitle>Create a Sector</DialogTitle>
+                                    <DialogTitle style={{color: "#957b9e"}}>Create a Sector</DialogTitle>
                                     <DialogContent style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
                                         <Grid>
                                             <form onSubmit={this.submitSector}>
                                                 <TextField
                                                     id="outlined-full-width"
-                                                    label="Enter Sector"
+                                                    label="Sector"
                                                     style={{ margin: 8 }}
-                                                    placeholder="Enter Sector name"
+                                                    placeholder="Sector"
                                                     fullWidth
                                                     margin="normal"
+                                                    // InputLabelProps={{
+                                                    //     shrink: true,
+                                                    // }}
                                                     variant="outlined"
+                                                    name="sectorName"
                                                     onChange={this.changeHandler}
                                                     value={sectorName}
                                                 />
+                                                <Button variant="contained" className="buttonAdd" type="submit">
+                                                    Submit
+                                                </Button>
                                             </form>
+                                            <Divider style={{marginTop: "2em"}}/>
+                                            <Grid>
+                                                <div style={{marginBottom: "1em",marginTop: "1em", color: "#957b9e",fontSize: "x-large"}}>View Available Sectors</div>
+                                                <div>
+                                                    {getSector.map((sector) =>{
+                                                        return(
+                                                            <li key={sector} value={sector}>
+                                                                {sector}
+                                                            </li>
+                                                        )
+                                                    })}
+                                                </div>
+                                            </Grid>
                                         </Grid>
-                                        <Grid style={{marginLeft: "4em"}}>
-                                            <h4 style={{marginBottom: "1em"}}>View Available Sectors</h4>
-                                            <div style={{width: "100%"}}>
-                                                {getSector.map((sector) =>{
-                                                    return(
-                                                        <p key={sector} value={sector}>
-                                                            {sector}
-                                                        </p>
-                                                    )
-                                                })}
-                                            </div>
-                                        </Grid>
+
                                     </DialogContent>
                                 </Dialog>
                         </div>
@@ -173,6 +183,7 @@ export class OrganisationsDash extends Component {
                         <input placeholder="search organisation" type="text" />
                         <SearchIcon/>
                     </div>
+
                     <div className="table">
                         <Grid container spacing={3}>
                             <Grid item xs={12} >
@@ -189,18 +200,20 @@ export class OrganisationsDash extends Component {
                                                         <TableCell>{item.name}</TableCell>
                                                         <TableCell>{item.username}</TableCell>
                                                         <TableCell>{item.email}</TableCell>
+                                                        <TableCell>{item.username}</TableCell>
+                                                        <TableCell>{item.name}</TableCell>
                                                         <TableCell>
                                                             <Link to={"/org"}>
                                                                 <EditIcon />
                                                                 {/*Edit</CreateIcon>*/}
                                                             </Link>
-                                                             <DeleteOutline
-                                                               className="orgListDeletes"
-                                                              // onClick={() => handleDelete(params.row.id)}
-                                                             />
+                                                            <DeleteOutline
+                                                                className="orgListDeletes"
+                                                                // onClick={() => handleDelete(params.row.id)}
+                                                            />
                                                         </TableCell>
                                                     </TableRow>
-                                                    )
+                                                )
                                             })}
                                         </TableBody>
                                     </Table>

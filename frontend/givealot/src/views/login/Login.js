@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import "../login/Styles/Login.css";
 import backgroundImg from "../../assets/homeBackground.jpg";
-import Logo from "../login/Components/Logo"
+import Logo from "../login/Components/Logo";
+import axios from "axios"
 
 
 const styles = {
@@ -13,9 +14,9 @@ const styles = {
 }
 
 const initialState = {
-    username: "",
+    email: "",
     password: "",
-    usernameError: "",
+    emailError: "",
     passwordError: "",
 };
 
@@ -33,11 +34,12 @@ class Login extends Component {
     };
 
     validate = () => {
-        let usernameError = "";
+        let emailError = "";
         let passwordError = "";
 
-        if (!this.state.firstName) {
-            usernameError = "username is required";
+
+        if (!this.state.email.includes("@")) {
+            emailError = "invalid email";
         }
 
 
@@ -45,12 +47,10 @@ class Login extends Component {
             passwordError="Password must be greater than 4";
         }
 
-        if ( usernameError || passwordError) {
-            this.setState({ usernameError, passwordError });
+        if ( emailError || passwordError) {
+            this.setState({ emailError, passwordError });
             return false;
         }
-
-
 
         return true;
     };
@@ -65,13 +65,44 @@ class Login extends Component {
             //this.setState(initialState);
 
             const data = {
+                "username" : this.state.email,
+                "password" : this.state.password,
+                "role" : "default"
+            }
+            localStorage.clear();
+            axios.post('http://localhost:8080/v1/login/user/determine', data )
+                .then(response =>{
+                    console.log(response.data)
+                    const loggedUser={
+                        "id":response.data.id,
+                        "email":response.data.username,
+                        "role":response.data.jwttoken
+                    }
+                    localStorage.setItem( "id" ,response.data.id);
+                    localStorage.setItem( "role" ,response.data.jwttoken)
 
+                    if (response.data.jwttoken === "general") {
+                        this.props.history.push("/");
+                    }else if (response.data.jwttoken === "admin"){
+                        console.log("here is admin")
+                        this.props.history.push("/admin");
+                    }
+                    else if (response.data.jwttoken === "organisation"){
+                        this.props.history.push("/organisation");
+                    }
+                    else{
+                        this.props.history.push("/browse");
+                    }
+                })
+                .catch(error =>{
+                    console.log(error)
+                })
             }
 
 
-        }
-    };
-    render()
+        };
+
+render()
 {
     return (
         <div>
@@ -88,19 +119,19 @@ class Login extends Component {
                        </span>
                             <div className="LoginInput" data-validate="Username is required">
                                 <span className="LoginInputLabel">
-                                    Username
+                                    Email
                                 </span>
                                 <div>
                                     <input
                                         className="innerInput validate"
-                                        type="text"
-                                        name="username"
-                                        placeholder="Enter your username"
+                                        type="email"
+                                        name="email"
+                                        placeholder="Enter your email"
                                         onChange={this.handleChange}
                                     />
 
                                 </div>
-                                <span className="loginError">{this.state.usernameError}</span>
+                                <span className="loginError">{this.state.emailError}</span>
 
                             </div>
 
@@ -112,7 +143,7 @@ class Login extends Component {
                                     <input
                                         className="innerInput validate"
                                         type="password"
-                                        name="username"
+                                        name="password"
                                         placeholder="Enter your password"
                                         onChange={this.handleChange}
                                     />

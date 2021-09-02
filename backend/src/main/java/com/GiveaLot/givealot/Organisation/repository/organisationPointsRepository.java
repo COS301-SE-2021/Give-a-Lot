@@ -4,8 +4,10 @@ import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+@Repository
 public interface organisationPointsRepository extends JpaRepository<OrganisationPoints,Long> {
 
     @Query("SELECT DISTINCT op.numberOfImages FROM OrganisationPoints AS op WHERE op.orgId = ?1")

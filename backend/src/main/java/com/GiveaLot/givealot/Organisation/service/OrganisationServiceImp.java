@@ -1465,6 +1465,11 @@ public class OrganisationServiceImp implements OrganisationService {
         throw new Exception("Exception: no sectors found!");
     }
 
+    @Override
+    public getNumberOfOrganisationsResponse getNumberOfOrganisations(GetOrganisationsRequest request) throws Exception {
+        return new getNumberOfOrganisationsResponse("get_num_org_200_OK","success",getOrganisations(request).getResponse().size());
+    }
+
     /*helper*/
     public String getMd5(String input) {
         try {

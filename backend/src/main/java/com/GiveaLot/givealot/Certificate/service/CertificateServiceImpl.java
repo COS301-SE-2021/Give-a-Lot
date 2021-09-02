@@ -110,7 +110,7 @@ public class CertificateServiceImpl implements CertificateService {
         File certificate = retrieveCertificate(orgId, organisation.getOrgName());
 
         String[] result = blockchainService
-                .upgradeCertificate(0,orgId, certificate,0);
+                .upgradeCertificate(blockchain.getIndex(),orgId, certificate,blockchain.getLevel());
 
         String certificateHash = result[0];
         String txHash = result[1];

@@ -5,36 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Added files">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/GivealotApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/GivealotApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationPoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationPoints.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/organisationPointsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/organisationPointsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/localFiles/20/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/localFiles/20/gallery/image1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/localFiles/20/gallery/image2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/localFiles/20/gallery/image3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/localFiles/20/gallery/image4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/localFiles/20/reports/report2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/localFiles/20/reports/report3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/localFiles/20/reports/report4.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/localFiles/22/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/localFiles/22/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/localFiles/23/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/localFiles/23/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/localFiles/24/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/localFiles/24/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/localFiles/25/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/localFiles/25/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/localFiles/26/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/localFiles/26/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/localFiles/27/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/localFiles/27/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/localFiles/45/reports/report56.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,20 +165,6 @@
       <workItem from="1629301692751" duration="18015000" />
       <workItem from="1629339797985" duration="980000" />
       <workItem from="1629343930362" duration="7971000" />
-    </task>
-    <task id="LOCAL-00003" summary="user and login system are complete">
-      <created>1629246401295</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1629246401296</updated>
-    </task>
-    <task id="LOCAL-00004" summary="user and login system are complete">
-      <created>1629246561936</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1629246561936</updated>
     </task>
     <task id="LOCAL-00005" summary="user and login system are complete">
       <created>1629248031231</created>
@@ -538,7 +495,21 @@
       <option name="project" value="LOCAL" />
       <updated>1629884557800</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Added files">
+      <created>1630588992938</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1630588992938</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Added files">
+      <created>1630588998988</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1630588998988</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -573,6 +544,7 @@
     <MESSAGE value="Fixing organisation points" />
     <MESSAGE value="Last minute changes" />
     <MESSAGE value="Cleared temporary organisations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleared temporary organisations" />
+    <MESSAGE value="Added files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added files" />
   </component>
 </project>

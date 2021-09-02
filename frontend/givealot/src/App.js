@@ -14,7 +14,7 @@ import ViewOrganisation from "./views/browse/Components/Organisation/ViewOrganis
 function App()
 {
   return(
-    <Router>
+    /*<Router>
       <Switch>
         <Route path="/" exact component={Home}/>
         <Route path="/browse" exact component={Browse}/>
@@ -26,8 +26,8 @@ function App()
         <Route path="/organisation/:id" exact component={ViewOrganisation} />
         <Route path="/verifyCertificate" exact component={VerifyCertificate} />
       </Switch>
-    </Router>
-
+    </Router>*/
+      <Dashboard />
   );
 }
 

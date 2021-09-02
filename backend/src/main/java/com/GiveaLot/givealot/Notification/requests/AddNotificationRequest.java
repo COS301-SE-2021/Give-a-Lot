@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AddNotificationRequest {
     private    String dateCreated ;
-    private    String  notification_id;
+    private    Long  notification_id;
     private    Long   org_id;
     private   boolean   isOpen;
     private    int  numberOfNotifications;
@@ -31,7 +31,7 @@ public class AddNotificationRequest {
         return notification_id;
     }
 
-    public void setNotification_id(String notification_id) {
+    public void setNotification_id(Long notification_id) {
         this.notification_id = notification_id;
     }
 

@@ -20,14 +20,14 @@ export class OrgValidate extends Component {
         this.state = {
             validation:[],
             error: "",
-            open: false,
+            openValid: false,
         }
     }
     openValid() {
-        this.setState({ open: true });
+        this.setState({ openValid: true });
     }
     handleCloseValid = () => {
-        this.setState({ open: false });
+        this.setState({ openValid: false });
     }
 
     componentDidMount(){
@@ -82,13 +82,12 @@ export class OrgValidate extends Component {
                                                         Deny
                                                     </Button>
                                                 </Grid>
-                                                <Dialog onClose={this.handleCloseValid.bind(this)} open={this.state.open}>
+                                                <Dialog onClose={this.handleCloseValid.bind(this)} open={this.state.openValid}>
                                                     <DialogTitle>Reason for Denial</DialogTitle>
                                                     <DialogContent>
                                                         Organisation is under investigation
                                                     </DialogContent>
                                                 </Dialog>
-
                                             </Typography>
                                         </Typography>
                                     </CardContent>

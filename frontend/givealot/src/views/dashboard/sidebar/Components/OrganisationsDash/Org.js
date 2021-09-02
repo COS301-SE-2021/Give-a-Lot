@@ -36,6 +36,18 @@ export class Org extends Component {
             })
     }
 
+    handleActivate() {
+
+    }
+
+    handleInvestigate() {
+
+    }
+
+    handleSuspend() {
+
+    }
+
     render() {
         return (
             <div className="org">
@@ -107,13 +119,17 @@ export class Org extends Component {
                             </Typography>
                         </CardContent>
                         <Typography className="_orgButtons">
-                            <Button variant="contained" color="primary">
+                            <Button variant="contained" color="primary" onclick={this.handleActivate}>
                                 Activate
                             </Button>
-                            <Button variant="contained" style={{color: "white", backgroundColor: "orange"}}>
+                            <Button variant="contained" style={{color: "white", backgroundColor: "orange"}}
+                                    onclick={this.handleInvestigate}
+                            >
                                 Investigate
                             </Button>
-                            <Button variant="contained" color="secondary">
+                            <Button variant="contained" color="secondary"
+                                    onclick={this.handleSuspend}
+                            >
                                 Suspend
                             </Button>
                         </Typography>
@@ -123,6 +139,7 @@ export class Org extends Component {
             </div>
         )
     }
+// <button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
 }
 
 export default Org

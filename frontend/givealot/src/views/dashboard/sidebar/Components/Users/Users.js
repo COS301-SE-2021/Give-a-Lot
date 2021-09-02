@@ -63,15 +63,19 @@ export class Users extends Component {
         return(
             <div className="OrganisationsDash">
                 <div className="userTitle">
-                    All Users
+                    All Basic Users on Give Alot
                 </div>
                 <div className="table">
                     <Grid container spacing={3}>
                         <Grid item xs={12} >
                             <TableContainer component={Paper}>
                                 <Table >
-                                    <TableHead>
-                                        {/*table head here*/}
+                                    <TableHead style={{backgroundColor: "#957b9e"}}>
+                                        <TableCell></TableCell>
+                                        <TableCell style={{color: "white"}}>Name</TableCell>
+                                        <TableCell style={{color: "white"}}>email</TableCell>
+                                        <TableCell style={{color: "white"}}>Contact person</TableCell>
+                                        <TableCell style={{color: "white"}}>Contact NUmber</TableCell>
                                     </TableHead>
                                     <TableBody>
                                         {users.map((item, index) =>{
@@ -82,7 +86,6 @@ export class Users extends Component {
                                                     <TableCell>{item.username}</TableCell>
                                                     <TableCell>{item.email}</TableCell>
                                                     <TableCell>{item.username}</TableCell>
-                                                    <TableCell>{item.email}</TableCell>
                                                 </TableRow>
                                             )
                                         })}

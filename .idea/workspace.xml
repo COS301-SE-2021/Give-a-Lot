@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="table pushed up a bit on the admin page">
+    <list default="true" id="282cb738-a9af-4960-a61e-ffd2bac8a359" name="Default Changelist" comment="validate redirection fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/styles/Sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/styles/Sidebar.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,14 +154,8 @@
       <workItem from="1630570331827" duration="26637000" />
       <workItem from="1630623814851" duration="109000" />
       <workItem from="1630666405297" duration="64000" />
-      <workItem from="1630675386710" duration="5398000" />
-    </task>
-    <task id="LOCAL-00034" summary="organisations controller revision">
-      <created>1629307514261</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1629307514261</updated>
+      <workItem from="1630675386710" duration="7172000" />
+      <workItem from="1630696308934" duration="755000" />
     </task>
     <task id="LOCAL-00035" summary="organisations controller revision">
       <created>1629307983396</created>
@@ -500,7 +493,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630682765088</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="validate redirection fixed">
+      <created>1630683805811</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1630683805812</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,7 +519,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Last minute changes" />
     <MESSAGE value="fix the recommender - modified the user class, the controllers for the organisation system all to accommodate the recommender.&#10;Add organisation function was modified on the controllers" />
     <MESSAGE value="update" />
     <MESSAGE value="Minor adjustments" />
@@ -544,6 +543,7 @@
     <MESSAGE value="header slight change" />
     <MESSAGE value="log out button created" />
     <MESSAGE value="table pushed up a bit on the admin page" />
-    <option name="LAST_COMMIT_MESSAGE" value="table pushed up a bit on the admin page" />
+    <MESSAGE value="validate redirection fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="validate redirection fixed" />
   </component>
 </project>

@@ -63,6 +63,15 @@ export class Upgrade3 extends Component {
 
     };
 
+    handleChange = event => {
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
+    };
+
     handleFormSubmit = e => {
         e.preventDefault();
         const socialData = {

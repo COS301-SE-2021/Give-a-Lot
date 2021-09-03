@@ -40,9 +40,10 @@ export class Upgrade0 extends Component {
     constructor (props) {
         super(props)
         this.state={
-            orgId:"",
+            orgId:6,
             startDate: new Date(),
-            donation:"",
+            ngoNumber:"",
+            ngoDate:"",
 
 
 
@@ -51,7 +52,7 @@ export class Upgrade0 extends Component {
     }
 
     handleDateChange(date) {
-        this.setState({startDate: date, date:document.getElementsByClassName("input3")[0].value} )
+        this.setState({startDate: date, ngoDate:document.getElementsByClassName("input3")[0].value} )
 
     }
 
@@ -61,21 +62,26 @@ export class Upgrade0 extends Component {
 
     };
 
-    handleChange = TextField => e => {
-
-        this.setState({ [TextField]: e.target.value });
-
+    handleChange = event => {
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
     };
 
     handleFormSubmit = e => {
         e.preventDefault();
         const data = {
             orgId: this.state.orgId,
-            date: this.state.date,
-            donation: this.state.donation,
+            ngoDate: this.state.ngoDate,
+            ngoNumber: this.state.ngoNumber,
+
         };
+        console.log(data)
         Axios
-            .post("", data)
+            .post("http://localhost:8080/v1/organisation/add/ngopdate", data)
             .then(res => console.log(res))
             .catch(err => console.log(err));
     };
@@ -128,7 +134,7 @@ export class Upgrade0 extends Component {
                                             selected={ this.state.startDate }
                                             onChange={ this.handleDateChange }
                                             name="startDate"
-                                            dateFormat="MM/dd/yyyy"
+                                            dateFormat="yyyy/MM/dd"
                                             fullWidth
 
                                         />
@@ -137,6 +143,7 @@ export class Upgrade0 extends Component {
                                         id="outlined-full-width"
                                         label="Registration number"
                                         style={{ margin: 8 }}
+                                        name="ngoNumber"
                                         placeholder="Enter registration.."
                                         fullWidth
                                         margin="normal"

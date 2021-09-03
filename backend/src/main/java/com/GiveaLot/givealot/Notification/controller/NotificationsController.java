@@ -3,14 +3,12 @@ package com.GiveaLot.givealot.Notification.controller;
 import com.GiveaLot.givealot.Notification.requests.AddNotificationRequest;
 import com.GiveaLot.givealot.Notification.requests.GetNotificationsRequest;
 import com.GiveaLot.givealot.Notification.requests.UpdateNotificationRequest;
-import com.GiveaLot.givealot.Notification.requests.levelOneInformationRequest;
+import com.GiveaLot.givealot.Notification.requests.levelsRequest;
 import com.GiveaLot.givealot.Notification.response.GetNotificationsResponse;
 import com.GiveaLot.givealot.Notification.response.generalNotificationResponse;
 import com.GiveaLot.givealot.Notification.response.getNumberOfNotificationsResponse;
-import com.GiveaLot.givealot.Notification.response.levelOneInformationResponse;
 import com.GiveaLot.givealot.Notification.service.notificationServiceImpl;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -107,7 +105,7 @@ public class NotificationsController {
     }
 
     @PostMapping("/get/level_information")
-    public ResponseEntity<responseJSON> getNumberOfNotificationsResponse(@RequestBody @NonNull levelOneInformationRequest body)
+    public ResponseEntity<responseJSON> getNumberOfNotificationsResponse(@RequestBody @NonNull levelsRequest body)
     {
         responseJSON response;
         try

@@ -9,11 +9,8 @@ import com.GiveaLot.givealot.Notification.requests.AddNotificationRequest;
 import com.GiveaLot.givealot.Notification.requests.GetNotificationsRequest;
 import com.GiveaLot.givealot.Notification.requests.RemoveNotificationRequest;
 import com.GiveaLot.givealot.Notification.requests.UpdateNotificationRequest;
-import com.GiveaLot.givealot.Notification.response.GetNotificationsResponse;
-import com.GiveaLot.givealot.Notification.response.generalNotificationResponse;
-import com.GiveaLot.givealot.Notification.response.getNumberOfNotificationsResponse;
+import com.GiveaLot.givealot.Notification.response.*;
 
-import com.GiveaLot.givealot.Notification.response.levelOneInformationResponse;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
@@ -144,19 +141,60 @@ public class notificationServiceImpl implements notificationService{
             throw new Exception("organisation does not exist");
         }
         long level  = blockchain.getLevel();
-
+        OrganisationInfo organisationInfo = organisationInfoRepository.selectOrganisationInfo(orgid);
+        if(organisationInfo == null)
+        {
+            throw new Exception("organisation information does not exist");
+        }
         if(level == 0)
         {
             String logoUrl = "localfiles/"+orgid+"/Gallery/logo.png";
-            OrganisationInfo organisationInfo = organisationInfoRepository.selectOrganisationInfo(orgid);
-            if(organisationInfo == null)
-            {
-                throw new Exception("organisation information does not exist");
-            }
+
             String ngoNumber = organisationInfo.getNGONumber();
             String ngoRegistrationDate = organisationInfo.getNGODate();
             return new responseJSON("get_level_200_OK","success",new levelOneInformationResponse(logoUrl,ngoNumber,ngoRegistrationDate));
         }
+      else  if(level == 1)
+        {
+            String websiteUrl = organisationInfo.getWebsite();
+            String address = organisationInfo.getAddress();
+            return new responseJSON("get_level_200_OK","success",new levelTwoInformationResponse(websiteUrl,address));
+        }
+        else  if(level == 2)
+        {
+            String establishementDate = organisationInfo.getEstablishmentDate();
+            String donation_url = organisationInfo.getDonationURL();
+            return new responseJSON("get_level_200_OK","success",new levelThreeInformationResponse(establishementDate,donation_url));
+
+        }
+        else  if(level == 3)
+        {
+                String committee_details = organisationInfo.getCommitteeDetails();
+                String twitter = organisationInfo.getTwitter();
+                String facebook = organisationInfo.getFacebook();
+                String instagram = organisationInfo.getInstagram();
+
+                //You can only upload two social Media's so toggle between the one's you can upload
+                if(twitter == null)
+                {
+                    return new responseJSON("get_level_200_OK","success",new levelFourInformationResponse(committee_details,facebook,instagram));
+                }
+                else if(facebook == null)
+                {
+                    return new responseJSON("get_level_200_OK","success",new levelFourInformationResponse(committee_details,twitter,instagram));
+                }
+                else {
+                    return new responseJSON("get_level_200_OK","success",new levelFourInformationResponse(committee_details,twitter,facebook));
+
+                }
+
+        }
+        else  if(level == 4)
+        {
+
+        }
+        else
+            return null;
         return null;
     }
 

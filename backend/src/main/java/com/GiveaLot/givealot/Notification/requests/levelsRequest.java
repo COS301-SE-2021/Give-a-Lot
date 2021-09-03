@@ -2,10 +2,10 @@ package com.GiveaLot.givealot.Notification.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class levelOneInformationRequest {
+public class levelsRequest {
     Long orgId;
 
-    public levelOneInformationRequest(@JsonProperty("orgId") Long orgId) {
+    public levelsRequest(@JsonProperty("orgId")Long orgId) {
         this.orgId = orgId;
     }
 
@@ -13,7 +13,7 @@ public class levelOneInformationRequest {
         return orgId;
     }
 
-    public void setOrgId(Long orgId) {
+    public void setOrg_id(Long orgId) {
         this.orgId = orgId;
     }
 }

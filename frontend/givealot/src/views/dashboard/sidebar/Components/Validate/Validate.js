@@ -14,6 +14,7 @@ export class Validate extends Component {
         this.state = {
             valid:[],
             error: "",
+            adminUserEmail:'admin@email.com',
         }
     }
     componentDidMount(){
@@ -23,14 +24,19 @@ export class Validate extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        axios.get('http://jsonplaceholder.typicode.com/users',  config)
+
+        const adminUsersRequestBody = {
+            "adminUserEmail" : this.state.adminUserEmail
+        }
+
+        axios.post('http://localhost:8080/v1/notifications/get/notifications', adminUsersRequestBody  ,config)
             .then(response =>{
-                this.setState({valid: response.data})
-                console.log(this.state.valid)
+                this.setState({valid: response.data.response})
+                console.log(response)
             })
             .catch(error =>{
                 console.log(error)
-                this.setState({error : 'Error Retrieving data'})
+                // this.setState({error : 'Error Retrieving data'})
             })
     }
 
@@ -47,22 +53,22 @@ export class Validate extends Component {
                         return(
                     <Card style={{margin: "1em"}}>
                         <CardContent>
-                            <Typography className="valid">
-                                <Typography >
-                                    {item.name}
-                                </Typography>
+                            <div className="valid">
+                                <div >
+                                    {item.dateCreated}
+                                </div>
                                 <Link to={"/orgValidate"} className="link">
                                     <Button size="small" variant="outlined" className="buttonValid" >
-                                        Request to Upgrade to level 1
+                                        {item.description}
                                     </Button>
                                 </Link>
 
-                                <Link to={"/orgValidate/" + item.id} className="link">
+                                <Link to={"/orgValidate/" + item.org_id} className="link">
                                     <Button variant="contained" className="buttonValidView">
                                         View
                                     </Button>
                                 </Link>
-                            </Typography>
+                            </div>
                         </CardContent>
                     </Card>
                         )

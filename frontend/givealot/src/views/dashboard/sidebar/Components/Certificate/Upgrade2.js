@@ -46,6 +46,7 @@ export class Upgrade2 extends Component {
 
 
 
+
         };
         this.handleDateChange = this.handleDateChange.bind(this);
     }
@@ -72,7 +73,7 @@ export class Upgrade2 extends Component {
         const data = {
             orgId: this.state.orgId,
             date: this.state.date,
-            donation: this.state.donation,
+            paypal: this.state.paypal,
         };
         Axios
             .post("", data)

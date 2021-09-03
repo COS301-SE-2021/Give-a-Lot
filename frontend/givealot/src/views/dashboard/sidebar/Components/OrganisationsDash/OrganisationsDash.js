@@ -191,11 +191,11 @@ export class OrganisationsDash extends Component {
                                     <Table >
                                         <TableHead style={{backgroundColor: "#957b9e"}}>
                                             <TableCell></TableCell>
-                                            <TableCell style={{color: "white"}}>Name</TableCell>
-                                            <TableCell style={{color: "white"}}>email</TableCell>
-                                            <TableCell style={{color: "white"}}>Contact person</TableCell>
-                                            <TableCell style={{color: "white"}}>Contact NUmber</TableCell>
-                                            <TableCell style={{color: "white"}}>Action</TableCell>
+                                            <TableCell style={{color: "white", fontWeight: "bold"}}>Name</TableCell>
+                                            <TableCell style={{color: "white", fontWeight: "bold"}}>email</TableCell>
+                                            <TableCell style={{color: "white", fontWeight: "bold"}}>Contact person</TableCell>
+                                            <TableCell style={{color: "white", fontWeight: "bold"}}>Contact NUmber</TableCell>
+                                            <TableCell style={{color: "white", fontWeight: "bold"}}>Action</TableCell>
                                         </TableHead>
                                         <TableBody>
                                             {org.map((item, index) =>{

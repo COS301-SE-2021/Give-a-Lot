@@ -5,6 +5,12 @@
 
 
 }
+
+/*.wrap_upgrade{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}*/
 .view{
     justify-content: center;
     align-items: center;
@@ -128,14 +134,14 @@
     background-color: #bc7dd1;
 }
 
-.progress{
+.progress_four{
     display: flex;
     margin-left: 30px;
 
 
 }
 
-.progress_complete{
+.progress_complete_four{
 
     background-color: #957b9e;
     width: 130px;
@@ -145,7 +151,7 @@
 
 
 }
-.progress_empty{
+.progress_empty_four{
     border: 1px solid black;
     width: 130px;
     height: 20px;
@@ -154,13 +160,13 @@
 
 }
 
-.progress6{
+.progress6_four{
     margin-top: -7px;
     margin-left:8px;
 }
 
 
-.progress7{
+.progress7_four{
     margin-top: -7px;
     margin-left:8px;
     background-color: #bc7dd1;

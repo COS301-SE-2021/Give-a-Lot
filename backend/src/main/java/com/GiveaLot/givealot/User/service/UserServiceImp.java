@@ -8,6 +8,7 @@ import com.GiveaLot.givealot.User.dataclass.User;
 import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
 import com.GiveaLot.givealot.User.repository.UserRepository;
 import com.GiveaLot.givealot.User.requests.*;
+import com.GiveaLot.givealot.User.response.GetActivationDateResponse;
 import com.GiveaLot.givealot.User.response.UserResponse;
 import com.GiveaLot.givealot.User.response.getNumberofUsersResponse;
 import com.GiveaLot.givealot.User.response.userResponseGeneral;
@@ -250,6 +251,17 @@ public class UserServiceImp implements UserService {
         return new getNumberofUsersResponse(true,"success","1",GetUsers(request).size());
 
     }
+/*
+
+    @Override
+    public GetActivationDateResponse getDateByMonth(GetActivationDateRequest request) throws Exception {
+            if(request == null)
+                throw new Exception("request is null");
+
+            return new GetActivationDateResponse("getDateMonth_ok",true,)
+
+    }
+*/
 
 
     public String getMd5(String input) {

@@ -3,10 +3,20 @@ package com.GiveaLot.givealot.Notification.response;
 public class levelThreeInformationResponse {
     String establishmentDate;
     String donation_url;
+    Long level;
 
-    public levelThreeInformationResponse(String establishmentDate, String donation_url) {
+    public levelThreeInformationResponse(Long level,String establishmentDate, String donation_url) {
         this.establishmentDate = establishmentDate;
         this.donation_url = donation_url;
+        this.level = level;
+    }
+
+    public Long getLevel() {
+        return level;
+    }
+
+    public void setLevel(Long level) {
+        this.level = level;
     }
 
     public String getEstablishmentDate() {

@@ -5,6 +5,14 @@ public class levelOneInformationResponse {
     String url;
     String ngoNumber;
     String ngoDate;
+    Long level;
+
+    public levelOneInformationResponse( Long level, String url, String ngoNumber, String ngoDate) {
+        this.url = url;
+        this.ngoNumber = ngoNumber;
+        this.ngoDate = ngoDate;
+        this.level = level;
+    }
 
     public levelOneInformationResponse(String url, String ngoNumber, String ngoDate) {
         this.url = url;

@@ -98,7 +98,7 @@ public class UserController {
     }
 
     @PostMapping("/get/users") /*tested all good*/
-    public ResponseEntity<UserResponse>  getUsers(@RequestBody @NonNull GetUsersRequest body)
+    public ResponseEntity<UserResponse>  getActivationDate(@RequestBody @NonNull GetUsersRequest body)
     {
         UserResponse userResponse;
         try

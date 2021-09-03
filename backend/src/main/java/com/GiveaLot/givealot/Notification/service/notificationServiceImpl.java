@@ -5,10 +5,7 @@ import com.GiveaLot.givealot.Blockchain.Repository.BlockChainRepository;
 import com.GiveaLot.givealot.Blockchain.dataclass.Blockchain;
 import com.GiveaLot.givealot.Notification.dataclass.Notification;
 import com.GiveaLot.givealot.Notification.repository.NotificationRepository;
-import com.GiveaLot.givealot.Notification.requests.AddNotificationRequest;
-import com.GiveaLot.givealot.Notification.requests.GetNotificationsRequest;
-import com.GiveaLot.givealot.Notification.requests.RemoveNotificationRequest;
-import com.GiveaLot.givealot.Notification.requests.UpdateNotificationRequest;
+import com.GiveaLot.givealot.Notification.requests.*;
 import com.GiveaLot.givealot.Notification.response.*;
 
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
@@ -29,7 +26,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class notificationServiceImpl implements notificationService{
+public class notificationServiceImpl implements notificationService {
 
     @Autowired
     NotificationRepository notificationRepository;
@@ -44,11 +41,12 @@ public class notificationServiceImpl implements notificationService{
 
     @Autowired
     OrganisationInfoRepository organisationInfoRepository;
+
     @Override
     public GetNotificationsResponse getNotifications(GetNotificationsRequest request) throws Exception {
         boolean temporal_solution = true;
 
-        if(!temporal_solution) {
+        if (!temporal_solution) {
             if (request == null) {
                 throw new Exception("Exception: request not set");
             }
@@ -69,30 +67,29 @@ public class notificationServiceImpl implements notificationService{
         }
 
         List<Notification> res = notificationRepository.getAllNotifications();
-        if(res == null)
+        if (res == null)
             throw new Exception("Exception: there are no notifications");
 
-        return new GetNotificationsResponse("get_notifications_200_ok","success",res);
+        return new GetNotificationsResponse("get_notifications_200_ok", "success", res);
     }
 
     @Override
     public generalNotificationResponse addNotifications(AddNotificationRequest request) throws Exception {
-        if(request == null)
+        if (request == null)
             throw new Exception("invalid notification object: null");
 
-        if(request.getNotificationType() == null||
-                request.getOrg_id() == null|| request.getDescription()== null
-               )
+        if (request.getNotificationType() == null ||
+                request.getOrg_id() == null || request.getDescription() == null
+        )
             throw new Exception("invalid field provided: null");
 
-        if(!request.getNotificationType().equals("update") || !request.getNotificationType().equals("report"))
-        {
+        if (!request.getNotificationType().equals("update") || !request.getNotificationType().equals("report")) {
             throw new Exception("invalid field provided: null");
 
         }
         request.setOpen(false);
 
-        if(notificationRepository.selectNotificationById(request.getNotification_id()) != null)
+        if (notificationRepository.selectNotificationById(request.getNotification_id()) != null)
             throw new Exception("Notification already exists");
 
         Date dateCurrent = new Date();
@@ -101,143 +98,118 @@ public class notificationServiceImpl implements notificationService{
         String dateCreated = format.format(dateCurrent);
 
         request.setDateCreated(dateCreated);
-        Notification notification = new Notification(request.getDateCreated(),request.getNotification_id(),request.getOrg_id(),request.isOpen(),request.getDescription(),request.getNotificationType());
+        Notification notification = new Notification(request.getDateCreated(), request.getNotification_id(), request.getOrg_id(), request.isOpen(), request.getDescription(), request.getNotificationType());
         notificationRepository.save(notification);
 
-        return new generalNotificationResponse("add_notification_200_ok", "success");    }
+        return new generalNotificationResponse("add_notification_200_ok", "success");
+    }
 
     @Override
     public generalNotificationResponse removeNotifications(Long id) throws Exception {
 
-        if(id == null)
+        if (id == null)
             throw new Exception("invalid notification object: null");
 
-        if(notificationRepository.removeNotificationByNotification_id(id))
-        return new generalNotificationResponse("remove_notification_200_ok", "success");
+        if (notificationRepository.removeNotificationByNotification_id(id))
+            return new generalNotificationResponse("remove_notification_200_ok", "success");
         else
-        throw new Exception("An error has occured");
+            throw new Exception("An error has occured");
 
     }
 
     @Override
     public getNumberOfNotificationsResponse numberOfNotifications(GetNotificationsRequest request) throws Exception {
-        return new getNumberOfNotificationsResponse("get_number_notifications_ok","success",getNotifications(request).getResponse().size());
+        return new getNumberOfNotificationsResponse("get_number_notifications_ok", "success", getNotifications(request).getResponse().size());
     }
 
     @Override
     public responseJSON getLevelInformation(Long orgid) throws Exception {
-        if(orgid == null)
+        if (orgid == null)
             throw new Exception("organisation id is null");
 
         Organisations organisations = organisationRepository.selectOrganisationById(orgid);
 
-        if(organisations == null)
-        {
+        if (organisations == null) {
             throw new Exception("organisation does not exist");
         }
         Blockchain blockchain = blockChainRepository.selectBlockchainOrgId(orgid);
-        if(blockchain == null)
-        {
+        if (blockchain == null) {
             throw new Exception("organisation does not exist");
         }
-        long level  = blockchain.getLevel();
+        long level = blockchain.getLevel();
         OrganisationInfo organisationInfo = organisationInfoRepository.selectOrganisationInfo(orgid);
-        if(organisationInfo == null)
-        {
+        if (organisationInfo == null) {
             throw new Exception("organisation information does not exist");
         }
-        if(level == 0)
-        {
-            String logoUrl = "localfiles/"+orgid+"/Gallery/logo.png";
+        if (level == 0) {
+            String logoUrl = "localfiles/" + orgid + "/Gallery/logo.png";
 
             String ngoNumber = organisationInfo.getNGONumber();
             String ngoRegistrationDate = organisationInfo.getNGODate();
-            return new responseJSON("get_level_200_OK","success",new levelOneInformationResponse(logoUrl,ngoNumber,ngoRegistrationDate));
-        }
-      else  if(level == 1)
-        {
+            return new responseJSON("get_level_200_OK", "success", new levelOneInformationResponse(1L,logoUrl, ngoNumber, ngoRegistrationDate));
+        } else if (level == 1) {
             String websiteUrl = organisationInfo.getWebsite();
             String address = organisationInfo.getAddress();
-            return new responseJSON("get_level_200_OK","success",new levelTwoInformationResponse(websiteUrl,address));
-        }
-        else  if(level == 2)
-        {
+            return new responseJSON("get_level_200_OK", "success", new levelTwoInformationResponse(2L,websiteUrl, address));
+        } else if (level == 2) {
             String establishementDate = organisationInfo.getEstablishmentDate();
             String donation_url = organisationInfo.getDonationURL();
-            return new responseJSON("get_level_200_OK","success",new levelThreeInformationResponse(establishementDate,donation_url));
+            return new responseJSON("get_level_200_OK", "success", new levelThreeInformationResponse(3L,establishementDate, donation_url));
 
-        }
-        else  if(level == 3)
-        {
-                String committee_details = organisationInfo.getCommitteeDetails();
-                String twitter = organisationInfo.getTwitter();
-                String facebook = organisationInfo.getFacebook();
-                String instagram = organisationInfo.getInstagram();
+        } else if (level == 3) {
+            String committee_details = organisationInfo.getCommitteeDetails();
+            String twitter = organisationInfo.getTwitter();
+            String facebook = organisationInfo.getFacebook();
+            String instagram = organisationInfo.getInstagram();
 
-                //You can only upload two social Media's so toggle between the one's you can upload
-                if(twitter == null)
-                {
-                    return new responseJSON("get_level_200_OK","success",new levelFourInformationResponse(committee_details,facebook,instagram));
-                }
-                else if(facebook == null)
-                {
-                    return new responseJSON("get_level_200_OK","success",new levelFourInformationResponse(committee_details,twitter,instagram));
-                }
-                else {
-                    return new responseJSON("get_level_200_OK","success",new levelFourInformationResponse(committee_details,twitter,facebook));
+            //You can only upload two social Media's so toggle between the one's you can upload
+            if (twitter == null) {
+                return new responseJSON("get_level_200_OK", "success", new levelFourInformationResponse(4L,committee_details, facebook, instagram));
+            } else if (facebook == null) {
+                return new responseJSON("get_level_200_OK", "success", new levelFourInformationResponse(4L,committee_details, twitter, instagram));
+            } else {
+                return new responseJSON("get_level_200_OK", "success", new levelFourInformationResponse(4L,committee_details, twitter, facebook));
 
-                }
+            }
 
-        }
-        else  if(level == 4)
-        {
+        } else if (level == 4) {
 
-        }
-        else
+        } else
             return null;
         return null;
     }
 
     @Override
-    public generalNotificationResponse updateNotification(UpdateNotificationRequest request)throws Exception{
-        if(request == null)
+    public generalNotificationResponse updateNotification(UpdateNotificationRequest request) throws Exception {
+        if (request == null)
             throw new Exception("request is null");
 
-        if(request.getOrg_id() == null)
+        if (request.getOrg_id() == null)
             throw new Exception("request id is null");
 
         Organisations organisations = organisationRepository.getById(request.getOrg_id());
-        if(organisations == null)
+        if (organisations == null)
             throw new Exception("organisation does not exist");
 
-        String description ="";
+        String description = "";
         String orgName = organisations.getOrgName();
 
         Blockchain blockchain = blockChainRepository.selectBlockchainOrgId(organisations.getOrgId());
 
-        if(blockchain == null)
+        if (blockchain == null)
             throw new Exception("blockchain does not exist");
 
 
-        if(blockchain.getLevel() ==0)
-        {
-            description = orgName+" requesting to upgrade to level 1";
-        }
-        else if(blockchain.getLevel() ==1)
-        {
-            description = orgName+" requesting to upgrade to level 2";
-        }
-        else if(blockchain.getLevel() ==2)
-        {
-            description = orgName+" requesting to upgrade to level 3";
-        }
-        else  if(blockchain.getLevel() ==3)
-        {
-            description = orgName+" requesting to upgrade to level 4";
-        }
-        else  if(blockchain.getLevel() ==4)
-        {
-            description = orgName+" requesting to upgrade to level 5";
+        if (blockchain.getLevel() == 0) {
+            description = orgName + " requesting to upgrade to level 1";
+        } else if (blockchain.getLevel() == 1) {
+            description = orgName + " requesting to upgrade to level 2";
+        } else if (blockchain.getLevel() == 2) {
+            description = orgName + " requesting to upgrade to level 3";
+        } else if (blockchain.getLevel() == 3) {
+            description = orgName + " requesting to upgrade to level 4";
+        } else if (blockchain.getLevel() == 4) {
+            description = orgName + " requesting to upgrade to level 5";
         }
 
         Notification notification = new Notification();
@@ -260,6 +232,19 @@ public class notificationServiceImpl implements notificationService{
 //send email to organisation and admin
 
         return new generalNotificationResponse("update_notification_200_ok", "success");
+
+    }
+
+    @Override
+    public GetLevelResponse getLevel(GetLevelRequest request) throws Exception {
+        if (request == null)
+            throw new Exception("request is null");
+        if (organisationRepository.getById(request.getOrgid()) == null) {
+            throw new Exception("organisation does not exist");
+        }
+        Blockchain blockchain = blockChainRepository.selectBlockchainOrgId(request.getOrgid());
+
+        return new GetLevelResponse("get_level_ok", "success", blockchain.getLevel());
 
     }
 }

@@ -21,11 +21,14 @@ import com.GiveaLot.givealot.Server.ServerAccess;
 import com.GiveaLot.givealot.User.dataclass.User;
 import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
 import com.GiveaLot.givealot.User.repository.UserRepository;
-import com.GiveaLot.givealot.User.requests.GetUsersRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -275,7 +278,7 @@ public class OrganisationServiceImp implements OrganisationService {
 
         /** Create tables and directory **/
 
-        /*Certificate certificate;
+        Certificate certificate;
         int year = dateCurrent.getYear();
         dateEx.setYear(year+1);
         String dateExpiry = format.format(dateEx);
@@ -291,7 +294,7 @@ public class OrganisationServiceImp implements OrganisationService {
         }
 
         certificateRepository.save(certificate);
-        certificateService.addCertificate(id,certificate);*/
+        certificateService.addCertificate(id,certificate);
 
         /**Sending a verification email**/
         /*System.out.println("Sending Email...");
@@ -305,6 +308,16 @@ public class OrganisationServiceImp implements OrganisationService {
 
         sendMailService.sendMail(mail);
         System.out.println("Email sent successfully");*/
+        System.out.println(organisation.getOrgName().replaceAll("\\s+", "") + "Certificate.pdf");
+        if (new File(organisation.getOrgName().replaceAll("\\s+", "") + "Certificate.pdf").delete()){
+            System.out.println("#######################################################################################");
+            System.out.println("Deleted");
+            System.out.println("#######################################################################################");
+        }else {
+            System.out.println("#######################################################################################");
+            System.out.println("Failed");
+            System.out.println("#######################################################################################");
+        }
         return new generalOrganisationResponse("add_org_200_ok", "success");
     }
 
@@ -500,7 +513,6 @@ public class OrganisationServiceImp implements OrganisationService {
 
         return new generalOrganisationResponse("rem_addr_200_OK", "success");
     }
-
     @Override
     public generalOrganisationResponse addOrgLogo(AddOrgLogoRequest request) throws Exception {
         if (request == null)
@@ -510,7 +522,7 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("Provided ID is null");
 
         else if (request.getImage() == null)
-            throw new Exception("Exception: tax reference not set");
+            throw new Exception("Exception: image reference not set");
 
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
@@ -656,55 +668,6 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("Exception: tax reference field not updated");
 
         return new generalOrganisationResponse("rem_audoc_200_OK", "success");
-    }
-
-    @Override /*not fully integration tested, all good - converted*/
-    public generalOrganisationResponse addOrgAuditor(AddOrgAuditorRequest request) throws Exception {
-        if (request == null)
-            throw new Exception("Exception: request not set");
-
-        if(request.getOrgId() == null)
-            throw new Exception("Exception: privided ID is null");
-
-        else if (request.getAuditor() == null)
-            throw new Exception("Exception: value not set");
-
-        else if (request.getAuditor().isEmpty())
-            throw new Exception("Exception: invalid value length");
-
-        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
-            throw new Exception("Exception: Organisation ID does not exist");
-
-        if (organisationInfoRepository.addAuditor(request.getOrgId(), request.getAuditor()) != 1)
-            throw new Exception("Exception: value field failed to update");
-
-        return new generalOrganisationResponse("add_aud_200_OK", "success");
-    }
-
-    @Override /*not fully integration tested, all good - converted*/
-    public generalOrganisationResponse removeOrgAuditor(Long orgId) throws Exception
-    {
-        if(orgId == null)
-            throw new Exception("Exception: provided ID is null");
-
-        if (organisationRepository.selectOrganisationById(orgId) == null)
-            throw new Exception("Exception: Organisation ID does not exist");
-
-        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
-            /*
-             * Because organisation already exists, set the field
-             * */
-            OrganisationInfo organisationInfo = new OrganisationInfo();
-            organisationInfo.setOrgId(orgId);
-
-            organisationInfoRepository.save(organisationInfo);
-            throw new Exception("Exception: system level error, organisation info did not exist, rerun the contract");
-        }
-
-        if (organisationInfoRepository.removeAuditor(orgId) != 1)
-            throw new Exception("Exception: tax reference field not updated");
-
-        return new generalOrganisationResponse("rem_audr_200_OK", "success");
     }
 
     @Override /*not fully integration tested, all good - converted*/
@@ -858,7 +821,7 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public boolean addOrgNGO(AddOrgNGORequest request) throws Exception {
+    public  generalOrganisationResponse addOrgNGO(AddOrgNGORequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request not set");
         else if (request.getNgoNumber() == null)
@@ -872,10 +835,10 @@ public class OrganisationServiceImp implements OrganisationService {
 
         if (organisationInfoRepository.addNGONumber(request.getOrgId(), request.getNgoNumber()) != 1)
             throw new Exception("Exception: value field failed to update");
-        if (organisationInfoRepository.addNGODate(request.getOrgId(), request.getNgoDate()) != 1)
+        if (addOrgNGODate(request)==null)
             throw new Exception("Exception: value field failed to update");
 
-        return true;
+        return new generalOrganisationResponse("add_ngo_200_OK","success");
     }
 
     @Override
@@ -899,6 +862,60 @@ public class OrganisationServiceImp implements OrganisationService {
 
         return true;
     }
+
+    @Override
+    public generalOrganisationResponse addOrgNGODate(AddOrgNGORequest request) throws Exception {
+        if (request == null)
+            throw new Exception("Exception: request not set");
+
+        else if (request.getNgoDate()== null)
+            throw new Exception("Exception: value not set");
+
+        else if (request.getNgoDate().isEmpty())
+            throw new Exception("Exception: date field is empty");
+
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        String Str [] = (request.getNgoDate()).split("/");
+
+        String tmp_date = "";
+
+        if(Str.length == 3)
+        {
+            tmp_date = Str[2] + "-" + Str[1] + "-" + Str[0];
+        }
+        else throw new Exception("Exception: Invalid date provided");
+
+        if (organisationInfoRepository.addNGODate(request.getOrgId(), tmp_date) != 1)
+            throw new Exception("Exception: value field failed to update");
+
+        return new generalOrganisationResponse("add_ngo_200_OK","success");
+    }
+
+    @Override
+    public generalOrganisationResponse removeNGDate(Long orgId) throws Exception {
+        if(orgId == null)
+            throw new Exception("Exception: provided ID is null");
+
+        else if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+            /*
+             * Because organisation already exists, set the field
+             * */
+            OrganisationInfo organisationInfo = new OrganisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            organisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun the contract");
+        }
+
+        if (organisationInfoRepository.removeNGODate(orgId) != 1)
+            throw new Exception("Exception: tax reference field not updated");
+
+        return new generalOrganisationResponse("rem_est_200_OK", "success");    }
 
     @Override /*tested - works well */
     public generalOrganisationResponse addOrgEstDate(AddOrgEstDateRequest request) throws Exception {
@@ -956,15 +973,16 @@ public class OrganisationServiceImp implements OrganisationService {
         return new generalOrganisationResponse("rem_est_200_OK", "success");
     }
 
-    @Override /*all good*/
-    public generalOrganisationResponse addOrgImage(AddOrgImageRequest request) throws Exception {
+
+    @Override
+    public generalOrganisationResponse addOrgImage(AddOrgImageMultipartRequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request not set");
 
         else if(request.getOrgId() == null)
             throw new Exception("Provided ID is null");
 
-        else if (request.getImage() == null)
+        else if (request.getImages() == null)
             throw new Exception("Exception: tax reference not set");
 
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
@@ -978,15 +996,30 @@ public class OrganisationServiceImp implements OrganisationService {
 
         String name = organisation_tmp.getOrgName();
 
-        access.uploadImageJPG(request.getOrgId(),name,request.getImage());
+        List<MultipartFile> images = request.getImages();
+
+        int numberOFNewImages = 0;
+        File file = new File("src/main/resources/targetFile.jpg");
+
+        for (MultipartFile image: images) {
+
+            try (OutputStream os = new FileOutputStream(file)) {
+                os.write(image.getBytes());
+            }
+            access.uploadImageJPG(request.getOrgId(),name,file);
+            numberOFNewImages++;
+        }
+
+
 
         int numImages = organisationInfoRepository.selectOrganisationInfo(request.getOrgId()).getNumberOfImages();
 
-        if (organisationInfoRepository.incrementImage(request.getOrgId(), numImages + 1) != 1)
+        if (organisationInfoRepository.incrementImage(request.getOrgId(), numImages + numberOFNewImages) != 1)
             throw new Exception("Exception: value field failed to update");
 
         return new generalOrganisationResponse("add_img_200_OK", "success");
     }
+
 
     @Override /* all good, correctness not tested yet */
     public generalOrganisationResponse removeOrgImage(Long orgId, int number) throws Exception {
@@ -1401,7 +1434,7 @@ public class OrganisationServiceImp implements OrganisationService {
         else if(organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("Exception: id does not exist");
 
-        Integer res = organisationPointsRepository.getNumberOfEmages(orgId);
+        Integer res = organisationPointsRepository.getNumberOfImages(orgId);
         if(res != 1)
             throw new Exception("Exception: id does not exist");
 
@@ -1434,6 +1467,11 @@ public class OrganisationServiceImp implements OrganisationService {
             return new getSectorsResponse("get_sec_200_OK", "success", sectors);
         }
         throw new Exception("Exception: no sectors found!");
+    }
+
+    @Override
+    public getNumberOfOrganisationsResponse getNumberOfOrganisations(GetOrganisationsRequest request) throws Exception {
+        return new getNumberOfOrganisationsResponse("get_num_org_200_OK","success",getOrganisations(request).getResponse().size());
     }
 
     /*helper*/

@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -263,36 +264,6 @@ public class OrganisationController
         }
     }
 
-    @PostMapping("/add/auditor") /* not tested */
-    public ResponseEntity<generalOrganisationResponse> addOrgAuditor(@RequestBody @NonNull AddOrgAuditorRequest body)
-    {
-        generalOrganisationResponse response;
-        try
-        {
-            response = service.addOrgAuditor(body);
-            return new ResponseEntity<>(response, HttpStatus.OK);
-        }
-        catch (Exception e)
-        {
-            return new ResponseEntity<>(new generalOrganisationResponse("add_audr_500_err","failed: " + e), HttpStatus.OK);
-        }
-    }
-
-    @DeleteMapping("/delete/auditor/{orgId}") /* not tested */
-    public ResponseEntity<generalOrganisationResponse> removeOrgAuditor(@PathVariable("orgId") @NonNull long orgId)
-    {
-        generalOrganisationResponse response;
-        try
-        {
-            response = service.removeOrgAuditor(orgId);
-            return new ResponseEntity<>(response, HttpStatus.OK);
-        }
-        catch (Exception e)
-        {
-            return new ResponseEntity<>(new generalOrganisationResponse("rem_audr_500_err","failed: " + e), HttpStatus.OK);
-        }
-    }
-
     @PostMapping("/add/committee") /* not tested */
     public ResponseEntity<generalOrganisationResponse>  addOrgCommittee(@RequestBody @NonNull AddOrgCommitteeRequest body)
     {
@@ -352,6 +323,48 @@ public class OrganisationController
             return new ResponseEntity<>(new generalOrganisationResponse("rem_don_500_err","failed: " + e), HttpStatus.OK);
         }
     }
+    @PostMapping("/add/ngopdate") /* tested - works */
+    public  ResponseEntity<generalOrganisationResponse> addOrgNGODate(@RequestBody @NonNull AddOrgNGORequest body)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.addOrgNGODate(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("add_ngo_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+    @DeleteMapping("/delete/ngodate/{orgId}") /*tested - works */
+    public ResponseEntity<generalOrganisationResponse> removeOrgNGODate(@PathVariable("orgId") @NonNull Long orgId)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.removeNGDate(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_ngo_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+    @PostMapping("/add/orgNgo") /* tested - works */
+    public  ResponseEntity<generalOrganisationResponse> addOrgNGO(@RequestBody @NonNull AddOrgNGORequest body)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.addOrgNGO(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("add_ngo_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
 
     @PostMapping("/add/estdate") /* tested - works */
     public  ResponseEntity<generalOrganisationResponse> addOrgEstDate(@RequestBody @NonNull AddOrgEstDateRequest body)
@@ -402,9 +415,10 @@ public class OrganisationController
     }
 
     @PostMapping("/add/image") /* all good - correctness not tested yet */
-    public ResponseEntity<generalOrganisationResponse> addOrgImage(@RequestBody @NonNull AddOrgImageRequest body)
+    public ResponseEntity<generalOrganisationResponse> addOrgImage(@RequestBody @NonNull AddOrgImageMultipartRequest body)
     {
         generalOrganisationResponse response;
+        List<MultipartFile> images = body.getImages();
         try
         {
             response = service.addOrgImage(body);
@@ -435,12 +449,18 @@ public class OrganisationController
     }
 
     @PostMapping("/add/logo") /* all good - correctness not tested yet */
-    public ResponseEntity<generalOrganisationResponse> addOrgLogo(@RequestBody @NonNull AddOrgLogoRequest body)
+    public ResponseEntity<generalOrganisationResponse> addOrgLogo( @RequestParam("image") MultipartFile image)
     {
+
         generalOrganisationResponse response;
         try
         {
-            response = service.addOrgLogo(body);
+            System.out.println("=================================");
+            System.out.println(image);
+            System.out.println("=================================");
+
+            response = service.addOrgLogo(new AddOrgLogoRequest(6L,image));
+
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)
@@ -555,4 +575,17 @@ public class OrganisationController
             return new ResponseEntity<>(new getSectorsResponse("get_sec_500_err","failed: " + e, null), HttpStatus.OK);
         }
     }
+
+/*    @PostMapping("/upgrade/upload/logo")
+    public boolean upgradeUploadLogo(@RequestBody @NonNull MultipartFile logo) throws Exception {
+        try
+        {
+            return  ;
+        }
+        catch (Exception e)
+        {
+            System.out.println("ooops: " + e);
+            return false;
+        }
+    }*/
 }

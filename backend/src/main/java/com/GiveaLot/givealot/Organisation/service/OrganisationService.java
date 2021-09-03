@@ -26,12 +26,10 @@ public interface OrganisationService {
     generalOrganisationResponse removeOrgAddress(Long orgId) throws Exception;
     generalOrganisationResponse addOrgLogo(AddOrgLogoRequest request) throws Exception;
     generalOrganisationResponse removeOrgLogo(Long orgId) throws Exception;
-    generalOrganisationResponse addOrgImage(AddOrgImageRequest request) throws Exception;
+    generalOrganisationResponse addOrgImage(AddOrgImageMultipartRequest request) throws Exception ;
     generalOrganisationResponse removeOrgImage(Long orgId, int number) throws Exception;
     generalOrganisationResponse addOrgAuditDoc(AddOrgAuditInfoRequest request) throws Exception;
     generalOrganisationResponse removeOrgAuditDoc(Long orgId) throws Exception;
-    generalOrganisationResponse addOrgAuditor(AddOrgAuditorRequest request) throws Exception;
-    generalOrganisationResponse removeOrgAuditor(Long orgId) throws Exception;
     generalOrganisationResponse addOrgCommittee(AddOrgCommitteeRequest request) throws Exception;
     generalOrganisationResponse removeOrgCommittee(Long orgId) throws Exception ;
     generalOrganisationResponse addOrgDonationURL(AddOrgDonationInfoRequest request) throws Exception;
@@ -40,8 +38,11 @@ public interface OrganisationService {
     generalOrganisationResponse removeOrgDonationQRCode(Long orgId) throws Exception;
     generalOrganisationResponse addOrgSocials(AddSocialsRequest request) throws Exception;
     generalOrganisationResponse removeOrgSocials(Long orgId, String type) throws Exception;
-    boolean addOrgNGO(AddOrgNGORequest request) throws Exception;
+    generalOrganisationResponse addOrgNGO(AddOrgNGORequest request) throws Exception;
     boolean removeOrgNGO(long orgId) throws Exception;
+    generalOrganisationResponse addOrgNGODate(AddOrgNGORequest request) throws Exception;
+    generalOrganisationResponse removeNGDate(Long orgId) throws Exception;
+
     generalOrganisationResponse addOrgEstDate(AddOrgEstDateRequest request) throws Exception;
     generalOrganisationResponse removeOrgEstDate(Long orgId) throws Exception;
 
@@ -50,4 +51,6 @@ public interface OrganisationService {
 
     generalOrganisationResponse addSector(AddSectorRequest request) throws Exception;
     getSectorsResponse getSectors() throws Exception;
+
+    getNumberOfOrganisationsResponse getNumberOfOrganisations(GetOrganisationsRequest request)throws Exception;
 }

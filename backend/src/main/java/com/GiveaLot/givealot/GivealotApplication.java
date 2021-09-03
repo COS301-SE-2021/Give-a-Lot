@@ -53,25 +53,29 @@ public class GivealotApplication /*implements CommandLineRunner*/ {
 
 
 
-
+//    @Override
+//    public  void run(String... args) throws Exception {
+//        System.out.println(blockchainService.deploySmartContract());
+//    }
 
     /** Add an organisation **/
 
 //	@Override
 //	public  void run(String... args) throws Exception {
-//		Organisations organisations = new Organisations();
-//		organisations.setOrgId(123L);
-//		organisations.setPassword("iloveyou");
-//		organisations.setContactNumber("Contact Number");
-//		organisations.setOrgEmail("futuremoroke@gmail.com");
-//		organisations.setStatus("Status");
-//		organisations.setOrgSector("Animals");
-//		organisations.setContactPerson("Contact Person");
-//		organisations.setSlogan("Slogan");
-//		organisations.setOrgDescription("Org Description");
-//		organisations.setOrgName("The Kgomotso Inc.");
-//		organisations.setDirectory("/tmp");
-//		organisationService.addOrganisation(organisations);
+//        Organisations organisations = new Organisations();
+//        organisations.setOrgId(123L);
+//        organisations.setPassword("Pistol");
+//        organisations.setContactNumber("Contact Number");
+//        organisations.setOrgEmail("Pistol@gmail.com");
+//        organisations.setStatus("Status");
+//        organisations.setOrgSector("environment");
+//        organisations.setContactPerson("Contact Person");
+//        organisations.setSlogan("Slogan");
+//        organisations.setOrgDescription("Founded in 1975 and reorganized in 1999, Pistol serves approximately 500 students or scholars in the Washington, D.C. metro area at five sites. Its budget is $1.7 million and there is a current staff of 20. With the assistance of 300 volunteer mentors, Higher Achievement scholars spend 650 hours per year in after-school and summer instruction. In 2006, Higher Achievement plans to begin a process of regional scaling with a long-term goal of a national scaling initiative. Higher Achievement is currently engaged in a highly-regarded randomized study run by Public/Private Ventures to measure the tangible outcomes of its efforts.");
+//        organisations.setOrgName("Pistol");
+//        organisations.setDirectory("/tmp");
+//        organisations.setDateAdded("2020-01-01");
+//        organisationService.addOrganisation(organisations);
 //
 //	}
 

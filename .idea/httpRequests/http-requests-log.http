@@ -1,3 +1,348 @@
+POST http://localhost:8080/v1/notifications/get/level_information
+Content-Type: application/json
+
+{
+  "orgId":23
+}
+
+<> 2021-09-03T021048.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/get/level_information
+Content-Type: application/json
+
+{
+  "orgId":32
+}
+
+<> 2021-09-02T234149.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/get/notifications
+Content-Type: application/json
+
+{
+  "adminUserEmail":"admin@email.com"
+}
+
+<> 2021-09-02T225653.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/update/notifications
+Content-Type: application/json
+
+{
+  "org_id":32
+}
+
+<> 2021-09-02T225241.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/update/notifications
+Content-Type: application/json
+
+{
+  "org_id":32
+}
+
+<> 2021-09-02T224842.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/update/notifications
+Content-Type: application/json
+
+{
+  "org_id":32
+}
+
+<> 2021-09-02T224703.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/update/notifications
+Content-Type: application/json
+
+{
+  "org_id":32
+}
+
+<> 2021-09-02T224244.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/orgNgo
+Content-Type: application/json
+
+{
+  "orgId":32,
+  "ngoNumber":"123-456",
+  "ngoDate":"2018/12/23"
+}
+
+<> 2021-09-02T224223.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/update/notifications
+Content-Type: application/json
+
+{
+  "org_id":32
+}
+
+<> 2021-09-02T223837.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/update/notifications
+Content-Type: application/json
+
+{
+  "org_id":32
+}
+
+<> 2021-09-02T223205.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/orgNgo
+Content-Type: application/json
+
+{
+  "orgId":32,
+  "ngoNumber":"123-456",
+  "ngoDate":"2018/12/23"
+}
+
+<> 2021-09-02T223153.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/orgNgo
+Content-Type: application/json
+
+{
+  "orgId":6,
+  "ngoNumber":"123-456",
+  "ngoDate":"2018/12/23"
+}
+
+<> 2021-09-02T201647.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/ngopdate
+Content-Type: application/json
+
+{
+"orgId":6,
+"ngoNumber":"123-456",
+"ngoDate":"2020/05/23"
+}
+
+<> 2021-09-02T195747.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/ngopdate
+Content-Type: application/json
+
+{
+"orgId":6,
+"ngoNumber":"123-456",
+"ngoDate":"2020/05/23"
+}
+
+<> 2021-09-02T195010.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/ngopdate
+Content-Type: application/json
+
+{
+"orgId":6,
+"ngoNumber":"123-456",
+"ngoDate":"2020/05/23"
+}
+
+<> 2021-09-02T194620.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/ngopdate
+Content-Type: application/json
+
+{
+"orgId":6,
+"ngoNumber":"123-456",
+"ngoDate":"2020/05/23"
+}
+
+<> 2021-09-02T194610.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/ngopdate
+Content-Type: application/json
+
+{
+"orgId":6,
+"ngoNumber":"123-456",
+"ngoDate":"2020-05-23"
+}
+
+<> 2021-09-02T194533.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/ngopdate
+Content-Type: application/json
+
+{
+"orgId":6,
+"ngoNumber":"123-456",
+"ngoDate":"2020/05/23"
+}
+
+<> 2021-09-02T194501.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/ngopdate
+Content-Type: application/json
+
+{
+"orgId":6,
+"ngoNumber":"123-456",
+"ngoDate":"2020/05/23"
+}
+
+<> 2021-09-02T194035.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/ngopdate
+Content-Type: application/json
+
+{
+"orgId":6,
+"ngoNumber":"123-456",
+"ngoDate":"2020-05-23"
+}
+
+<> 2021-09-02T193909.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/ngopdate
+Content-Type: application/json
+
+{
+"orgId":6,
+"ngoNumber":"123-456",
+"ngoDate":"2020-05-23"
+}
+
+<> 2021-09-02T193735.404.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+"orgName" : "This is the certificate bla",
+"slogan" : "we empower the young minds ",
+"orgDescription" : "The fkfkfk k kfgkk gkfg kgkf gkfkg gkfglflkgkf kfgkgk flkgflk gkf flkg lkfglkflkf kgfglkflklkf lkfglkf lk lkfglkf lkg fgofogo fgfg",
+"orgSector" : "disability",
+"orgEmail" : "certificate@givealot.com",
+"contactPerson" : "Winnie Mashaba",
+"contactNumber" : "0637493443",
+"password" : "Password@123"
+}
+
+<> 2021-08-31T231853.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+"orgName" : "This is the certificate bla",
+"slogan" : "we empower the young minds ",
+"orgDescription" : "The fkfkfk k kfgkk gkfg kgkf gkfkg gkfglflkgkf kfgkgk flkgflk gkf flkg lkfglkflkf kgfglkflklkf lkfglkf lk lkfglkf lkg fgofogo fgfg",
+"orgSector" : "disability",
+"orgEmail" : "certificate@givealot.com",
+"contactPerson" : "Winnie Mashaba",
+"contactNumber" : "0637493443",
+"password" : "Password@123"
+}
+
+<> 2021-08-31T230829.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+"orgName" : "This is the certificate bla",
+"slogan" : "we empower the young minds ",
+"orgDescription" : "The fkfkfk k kfgkk gkfg kgkf gkfkg gkfglflkgkf kfgkgk flkgflk gkf flkg lkfglkflkf kgfglkflklkf lkfglkf lk lkfglkf lkg fgofogo fgfg",
+"orgSector" : "disability",
+"orgEmail" : "certificate@givealot.com",
+"contactPerson" : "Winnie Mashaba",
+"contactNumber" : "0637493443",
+"password" : "Password@123"
+}
+
+<> 2021-08-31T230429.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "National Council of & for Persons with Disabilities",
+  "slogan" : "we empower the young minds ",
+  "orgDescription" : "The National Council of and for Persons with Disabilities does advocacy work and services leading to an equitable and inclusive society. We are affiliated to the South African Disability Alliance, as well as Rehabilitation International. Our programmes cover the whole of South Africa.",
+  "orgSector" : "disability",
+  "orgEmail" : "CouncilDisabilities@givealot.com",
+  "contactPerson" : "Winnie Mashaba",
+  "contactNumber" : "0637493443",
+  "password" : "Password@123"
+}
+
+<> 2021-08-31T230412.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+"orgName" : "This is the certificate bla",
+"slogan" : "we empower the young minds ",
+"orgDescription" : "The fkfkfk k kfgkk gkfg kgkf gkfkg gkfglflkgkf kfgkgk flkgflk gkf flkg lkfglkflkf kgfglkflklkf lkfglkf lk lkfglkf lkg fgofogo fgfg",
+"orgSector" : "disability",
+"orgEmail" : "certificate@givealot.com",
+"contactPerson" : "Winnie Mashaba",
+"contactNumber" : "0637493443",
+"password" : "Password@123"
+}
+
+<> 2021-08-31T225206.200.json
+
+###
+
 GET http://localhost:8080/v1/browse/sectors/recommendations/default
 
 <> 2021-08-27T084649.200.json
@@ -139,162 +484,6 @@ GET http://localhost:8080/v1/browse/sectors/recommendations/8
 GET http://localhost:8080/v1/browse/sectors/recommendations/default
 
 <> 2021-08-27T054752.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/default
-
-<> 2021-08-27T054733.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/1
-
-<> 2021-08-27T054712.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/1
-
-<> 2021-08-27T054657.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/14/4
-
-<> 2021-08-27T054645.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/1
-
-<> 2021-08-27T054538.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/6/4
-
-<> 2021-08-27T054519.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/1
-
-<> 2021-08-27T054429.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/12/4
-
-<> 2021-08-27T054414.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/12/4
-
-<> 2021-08-27T054404.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/12/4
-
-<> 2021-08-27T054400.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/12/4
-
-<> 2021-08-27T054341.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/12/4
-
-<> 2021-08-27T054331.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/12/1
-
-<> 2021-08-27T054255.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/12/1
-
-<> 2021-08-27T053642.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/1
-
-<> 2021-08-27T053449.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/11/1
-
-<> 2021-08-27T053435.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/11/1
-
-<> 2021-08-27T053424.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/1
-
-<> 2021-08-27T053313.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/6/1
-
-<> 2021-08-27T053200.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/6/1
-
-<> 2021-08-27T053139.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/6/1
-
-<> 2021-08-27T053053.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/898/1
-
-<> 2021-08-27T053021.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/default
-
-<> 2021-08-27T044147.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/default
-
-<> 2021-08-27T044010.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/default
-
-<> 2021-08-27T043640.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/get/sectors
-
-<> 2021-08-27T043630.200.json
 
 ###
 

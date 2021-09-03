@@ -104,6 +104,7 @@ public class BlockchainServiceImpl implements BlockchainService {
 
     @Override
     public boolean compareCertificateHash(long index, long orgId, File certificate) throws Exception {
+
         String blockchainCertificateHash = retrieveCertificateHash(index, orgId);
         String uploadCertificateHash = hashCertificate(certificate);
         return blockchainCertificateHash.equals(uploadCertificateHash);
@@ -153,5 +154,7 @@ public class BlockchainServiceImpl implements BlockchainService {
     public Credentials getCredentialsFromPrivateKey() {
         ContractConfig config = new ContractConfig();
         return Credentials.create(config.getPRIVATE_KEY());    }
+
+
 
 }

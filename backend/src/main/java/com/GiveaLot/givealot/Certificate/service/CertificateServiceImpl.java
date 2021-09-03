@@ -11,17 +11,24 @@ import com.GiveaLot.givealot.Notification.service.SendMailService;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Server.ServerAccess;
-import org.apache.pdfbox.Loader;
+import org.apache.commons.io.FileUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
 import org.apache.pdfbox.pdmodel.interactive.form.PDField;
+import org.apache.pdfbox.rendering.ImageType;
+import org.apache.pdfbox.rendering.PDFRenderer;
+import org.apache.pdfbox.tools.imageio.ImageIOUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
@@ -103,7 +110,7 @@ public class CertificateServiceImpl implements CertificateService {
         File certificate = retrieveCertificate(orgId, organisation.getOrgName());
 
         String[] result = blockchainService
-                .upgradeCertificate(0,orgId, certificate,0);
+                .upgradeCertificate(blockchain.getIndex(),orgId, certificate,blockchain.getLevel());
 
         String certificateHash = result[0];
         String txHash = result[1];
@@ -123,18 +130,18 @@ public class CertificateServiceImpl implements CertificateService {
         access.downloadCertificateTemplate(points);
 
         if (points!=0){
-            File deletion = new File("frontend/givealot/localFiles/" + organisation.getOrgId() + "certificate/CertificateComplete.pdf");
+            File deletion = new File("frontend/givealot/src/localFiles/" + organisation.getOrgId() + "certificate/CertificateComplete.pdf");
             deletion.delete();
         }
 
         String templateCertificate = "backend/src/main/resources/TempCertificate/CertificateTemplate.pdf";
-        String completeCertificate = "frontend/givealot/localFiles/" + organisation.getOrgId() + "/certificate/CertificateComplete.pdf";
+        String completeCertificate = "frontend/givealot/src/localFiles/" + organisation.getOrgId() + "/certificate/CertificateComplete.pdf";
 
         /** Setup the pdf file **/
 
         File template = new File(templateCertificate);
 
-        PDDocument document = Loader.loadPDF(template);
+        PDDocument document = PDDocument.load(template);
         PDDocumentCatalog catalog = document.getDocumentCatalog();
 
         PDAcroForm acroForm = catalog.getAcroForm();
@@ -161,14 +168,14 @@ public class CertificateServiceImpl implements CertificateService {
                 acroForm.flatten();
 
             }
-            System.out.println("works2");
         }catch (Exception e){
             throw new Exception("Exception: unable to create certificate: " + e);
         }
-        System.out.println("works3");
 
         document.save(completeCertificate);
         document.close();
+
+        imageCreator(completeCertificate,organisation.getOrgId());
 
         access.uploadCertificate(organisation.getOrgId(), organisation.getOrgName());
 
@@ -178,6 +185,20 @@ public class CertificateServiceImpl implements CertificateService {
 
         return true;
 
+    }
+
+    public boolean imageCreator(String filepath, long orgId) throws IOException {
+        PDDocument document = PDDocument.load(new File(filepath));
+        PDFRenderer pdfRenderer = new PDFRenderer(document);
+        for (int page = 0; page < document.getNumberOfPages(); ++page)
+        {
+            BufferedImage bim = pdfRenderer.renderImageWithDPI(page, 300, ImageType.RGB);
+
+            // suffix in filename will be used as the file format
+            ImageIOUtil.writeImage(bim, "frontend/givealot/src/localFiles/" + orgId+ "/certificate/CertificateImage.png", 300);
+        }
+        document.close();
+        return true;
     }
 
     @Override
@@ -238,13 +259,22 @@ public class CertificateServiceImpl implements CertificateService {
     }
 
     @Override
-    public boolean compareCertificate(File certificate) throws Exception {
+    public boolean compareCertificate(MultipartFile certificate) throws Exception {
+        File certCmp = new File("TempCompareCertificate.pdf");
+        if (!certCmp.exists()){
+            certCmp.createNewFile();
+        }
+
+        try (OutputStream os = new FileOutputStream(certCmp)) {
+            os.write(certificate.getBytes());
+        }
+
         Blockchain blockchain = blockChainRepository.selectBlockchainCertificateHash(
-                blockchainService.hashCertificate(certificate));
+                blockchainService.hashCertificate(certCmp));
         if (blockchain==null){
             return false;
         }
-        return blockchainService.compareCertificateHash(blockchain.getIndex(),blockchain.getOrgId(),certificate);
+        return blockchainService.compareCertificateHash(blockchain.getIndex(),blockchain.getOrgId(),certCmp);
     }
 
 

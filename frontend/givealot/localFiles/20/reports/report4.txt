@@ -1,7 +1,0 @@
-ID: 20210819154400105
-Date: 19-08-2021 15:44:00
-Reporter email: thequestion@gmail.com
-Organisation ID: 20
-Organisation Name: The New Org
-Type: Fraud
-Description: this organisation has been stealing money

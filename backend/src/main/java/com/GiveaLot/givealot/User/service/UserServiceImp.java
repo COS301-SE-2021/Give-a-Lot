@@ -9,6 +9,7 @@ import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
 import com.GiveaLot.givealot.User.repository.UserRepository;
 import com.GiveaLot.givealot.User.requests.*;
 import com.GiveaLot.givealot.User.response.UserResponse;
+import com.GiveaLot.givealot.User.response.getNumberofUsersResponse;
 import com.GiveaLot.givealot.User.response.userResponseGeneral;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -243,6 +244,14 @@ public class UserServiceImp implements UserService {
             return userRepository.findAll();
         }
 
+    @Override
+    public getNumberofUsersResponse getNumberOfUser(GetUsersRequest request) throws Exception {
+
+        return new getNumberofUsersResponse(true,"success","1",GetUsers(request).size());
+
+    }
+
+
     public String getMd5(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -261,4 +270,5 @@ public class UserServiceImp implements UserService {
         }
 
     }
+
 }

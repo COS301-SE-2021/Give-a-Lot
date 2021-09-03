@@ -117,10 +117,10 @@ function Sidebar(){
                                     </Link>
                                 </li>
 
-                                <li className={splitLocation[1] === "email" ? "active" : ""}>
+                                <li className={splitLocation[1] === "email" ? "active" : ""}  onClick={handleLogOut}>
                                     {/*<Link to='/email' className="link">*/}
                                         <li className="sidebarListItem ">
-                                            <ExitToAppOutlinedIcon onClick={handleLogOut}/>
+                                            <ExitToAppOutlinedIcon/>
                                             <div className="sideIcon" > Logout </div>
                                         </li>
                                     {/*</Link>*/}

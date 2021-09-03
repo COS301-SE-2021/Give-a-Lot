@@ -98,6 +98,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="generated-requests#28" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="28" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -156,20 +169,7 @@
       <workItem from="1630666405297" duration="64000" />
       <workItem from="1630675386710" duration="7172000" />
       <workItem from="1630696308934" duration="1744000" />
-    </task>
-    <task id="LOCAL-00037" summary="organisations controller revision">
-      <created>1629316585116</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1629316585116</updated>
-    </task>
-    <task id="LOCAL-00038" summary="organisations controller revision">
-      <created>1629319541850</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1629319541850</updated>
+      <workItem from="1630698445824" duration="264000" />
     </task>
     <task id="LOCAL-00039" summary="organisations controller revision">
       <created>1629320181852</created>
@@ -500,7 +500,21 @@
       <option name="project" value="LOCAL" />
       <updated>1630697564424</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="validate redirection fixed">
+      <created>1630698551028</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1630698551029</updated>
+    </task>
+    <task id="LOCAL-00087" summary="validate redirection fixed">
+      <created>1630698682972</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1630698682972</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

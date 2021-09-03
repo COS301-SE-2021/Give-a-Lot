@@ -47,10 +47,13 @@ export class Upgrade1 extends Component {
         };
     }
 
-    handleChange = TextField => e => {
-
-        this.setState({ [TextField]: e.target.value });
-
+    handleChange = event => {
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
     };
 
     handleFormSubmit = e => {

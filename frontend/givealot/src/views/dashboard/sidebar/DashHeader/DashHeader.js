@@ -17,16 +17,11 @@ function DashHeader()
             <div className="dashHeader">
                 <div style={{height: "65px"}}>
                     <Typography className="iconsAndHeader">
-                        <div className="dashHeaderLogo">
-                            <Logo />
+                        <div className="topBarIconContainer">
+                            <AccountCircleIcon />
                         </div>
-                        <div className="topRight">
-                            <div className="topBarIconContainer">
-                                <AccountCircleIcon />
-                            </div>
-                            <div className="topBarIconContainer">
-                                <SettingsIcon style={{marginLeft: "0.5em"}}/>
-                            </div>
+                        <div className="topBarIconContainer">
+                            <SettingsIcon style={{marginLeft: "0.5em"}}/>
                         </div>
                     </Typography>
                 </div>

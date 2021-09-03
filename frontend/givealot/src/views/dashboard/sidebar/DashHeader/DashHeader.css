@@ -11,6 +11,7 @@
     top: 0;
     z-index: 1000;
     height: 65px;
+    left: 14em;
 }
 .headersOrg{
     position: fixed;
@@ -24,15 +25,17 @@
     border-left: none;
     border-right: none;
 }
-.topRight{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+/*.topRight{*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: space-between;*/
+/*    float: right;*/
+/*}*/
 .iconsAndHeader{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    float: right;
 }
 .topBarIconContainer{
     cursor: pointer;

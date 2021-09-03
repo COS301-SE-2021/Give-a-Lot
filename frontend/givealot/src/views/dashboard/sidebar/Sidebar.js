@@ -11,8 +11,20 @@ import { useLocation } from "react-router-dom";
 import CalendarTodayOutlinedIcon from '@material-ui/icons/CalendarTodayOutlined';
 import VerifiedUserOutlinedIcon from '@material-ui/icons/VerifiedUserOutlined';
 import Logo from "../../login/Components/DashLogo"
+import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
+import CardGiftcardOutlinedIcon from '@material-ui/icons/CardGiftcardOutlined';
+import { useHistory } from "react-router-dom";
+
 
 function Sidebar(){
+
+    function handleLogOut() {
+        sessionStorage.setItem("userToken", '');
+        sessionStorage.clear();
+        history.push("/login"); // whichever component you want it to route to
+    }
+
+    let history = useHistory();
 
     //assigning location variable
     const location = useLocation();
@@ -98,21 +110,21 @@ function Sidebar(){
                                 <li className={splitLocation[1] === "certificate" || splitLocation[1] === "upgrade5" || splitLocation[1] === "upgrade0"|| splitLocation[1] === "upgrade1"|| splitLocation[1] === "upgrade2"|| splitLocation[1] === "upgrade3"|| splitLocation[1] === "upgrade4" ? "active" : ""}>
                                     <Link to='/certificate' className="link">
                                         <li className="sidebarListItem ">
-                                            <VerifiedUserOutlinedIcon />
+                                            <CardGiftcardOutlinedIcon />
                                             <div className="sideIcon" > Certificate</div>
                                         </li>
 
                                     </Link>
                                 </li>
 
-                                {/*<li className={splitLocation[1] === "email" ? "active" : ""}>*/}
-                                {/*    <Link to='/email' className="link">*/}
-                                {/*        <li className="sidebarListItem ">*/}
-                                {/*            <EmailOutlinedIcon />*/}
-                                {/*            <div className="sideIcon" > Emails </div>*/}
-                                {/*        </li>*/}
-                                {/*    </Link>*/}
-                                {/*</li>*/}
+                                <li className={splitLocation[1] === "email" ? "active" : ""}>
+                                    {/*<Link to='/email' className="link">*/}
+                                        <li className="sidebarListItem ">
+                                            <ExitToAppOutlinedIcon onClick={handleLogOut}/>
+                                            <div className="sideIcon" > Logout </div>
+                                        </li>
+                                    {/*</Link>*/}
+                                </li>
 
                                 {/*<li className={splitLocation[1] === "todos" ? "active" : ""}>*/}
                                 {/*    <Link to='/todos' className="link">*/}

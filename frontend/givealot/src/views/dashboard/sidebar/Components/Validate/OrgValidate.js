@@ -5,12 +5,9 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import CardActions from '@material-ui/core/CardActions';
-import {Link} from "react-router-dom";
 import axios from "axios";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
-import AddOrg from "../OrganisationsDash/AddOrg";
 import Dialog from "@material-ui/core/Dialog";
 
 export class OrgValidate extends Component {
@@ -37,9 +34,6 @@ export class OrgValidate extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        // const adminUsersRequestBody = {
-        //     "adminUserEmail" : this.state.adminUserEmail
-        // }
         axios.get('http://jsonplaceholder.typicode.com/users',  config)
             .then(response =>{
                 // console.log(response)
@@ -51,7 +45,6 @@ export class OrgValidate extends Component {
                 this.setState({error : 'Error Retrieving data'})
             })
     }
-
 
     render() {
         const { validation } = this.state
@@ -92,12 +85,10 @@ export class OrgValidate extends Component {
                                         </Typography>
                                     </CardContent>
                                 </Card>
-
                             )
                         })}
                     </div>
                 </div>
-
             </div>
         )
     }

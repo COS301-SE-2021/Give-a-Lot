@@ -2,6 +2,7 @@
     display: flex;
     position: relative;
     align-items: center;
+    flex-direction: column;
 }
 .dashHeader{
     background-color: white;
@@ -10,6 +11,18 @@
     top: 0;
     z-index: 1000;
     height: 65px;
+}
+.headersOrg{
+    position: fixed;
+    top: 65px;
+    left: 14em;
+    z-index: 123456;
+    background-color: white;
+    height: 50px;
+    width: calc(100% - 14em);
+    border: 1px solid  #957b9e;
+    border-left: none;
+    border-right: none;
 }
 .topRight{
     display: flex;

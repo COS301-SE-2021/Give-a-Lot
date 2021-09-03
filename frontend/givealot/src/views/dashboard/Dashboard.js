@@ -35,7 +35,6 @@ function Dashboard() {
                 <div className="DashboardContainer">
                     <Sidebar />
                     <Switch>
-                        {/*<DashHeader />*/}
                         <Route exact path="/featured">
                             <Featured />
                         </Route>

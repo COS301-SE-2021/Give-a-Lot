@@ -15,7 +15,7 @@ function DashHeader()
     return(
         <div className="DashHeader">
             <div className="dashHeader">
-                <Card style={{height: "65px"}}>
+                <div style={{height: "65px"}}>
                     <Typography className="iconsAndHeader">
                         <div className="dashHeaderLogo">
                             <Logo />
@@ -29,9 +29,11 @@ function DashHeader()
                             </div>
                         </div>
                     </Typography>
-                </Card>
-
+                </div>
             </div>
+            <Typography className="headersOrg">
+                here is the other part
+            </Typography>
         </div>
     );
 }

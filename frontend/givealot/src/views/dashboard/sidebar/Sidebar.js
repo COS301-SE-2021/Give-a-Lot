@@ -31,7 +31,7 @@ function Sidebar(){
                             <Logo/>
                             <ul className="MuListPadding MuListRoot">
                                 {/* Checking the current path name using javascript ternary operator and if true adding active classname to it */}
-                                <li className={splitLocation[1] === "featured" ? "active" : ""} style={{}}>
+                                <li className={splitLocation[1] === "featured" ? "active" : ""}>
                                     <Link to='/featured' className="link">
                                         <li className="sidebarListItem ">
                                             <DashboardOutlinedIcon />

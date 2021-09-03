@@ -2,6 +2,8 @@
     flex: 4;
     background-color: #F0F2F7;
     height: 100%;
+    /*position: relative;*/
+    /*top: 130px;*/
 }
 .featuredBody{
     /*margin-top: 4em;*/

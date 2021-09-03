@@ -4,10 +4,12 @@ public class levelTwoInformationResponse {
 
     String website;
     String address;
+    Long level;
 
-    public levelTwoInformationResponse(String website, String address) {
+    public levelTwoInformationResponse(Long level,String website, String address) {
         this.website = website;
         this.address = address;
+        this.level = level;
     }
 
     public String getWebsite() {
@@ -24,5 +26,13 @@ public class levelTwoInformationResponse {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Long getLevel() {
+        return level;
+    }
+
+    public void setLevel(Long level) {
+        this.level = level;
     }
 }

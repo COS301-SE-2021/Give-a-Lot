@@ -5,6 +5,17 @@ Content-Type: application/json
   "orgId":23
 }
 
+<> 2021-09-04T013121.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/get/level_information
+Content-Type: application/json
+
+{
+  "orgId":23
+}
+
 <> 2021-09-03T021048.200.json
 
 ###
@@ -478,12 +489,6 @@ GET http://localhost:8080/v1/browse/sectors/recommendations/8
 GET http://localhost:8080/v1/browse/sectors/recommendations/8
 
 <> 2021-08-27T054831.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/default
-
-<> 2021-08-27T054752.200.json
 
 ###
 

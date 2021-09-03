@@ -15,7 +15,7 @@
     background-color: lightgreen !important;
 }
 .valid{
-    color: #957b9e;
+    /*color: #957b9e;*/
     display: flex;
     align-content: center;
     justify-content: space-between;

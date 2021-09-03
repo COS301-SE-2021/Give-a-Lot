@@ -48,7 +48,7 @@ export class Validate extends Component {
                     <Card style={{margin: "1em"}}>
                         <CardContent>
                             <Typography className="valid">
-                                <Typography component="p">
+                                <Typography >
                                     {item.name}
                                 </Typography>
                                 <Link to={"/orgValidate"} className="link">
@@ -57,7 +57,7 @@ export class Validate extends Component {
                                     </Button>
                                 </Link>
 
-                                <Link to={"/orgValidate"} className="link">
+                                <Link to={"/orgValidate/" + item.id} className="link">
                                     <Button variant="contained" className="buttonValidView">
                                         View
                                     </Button>

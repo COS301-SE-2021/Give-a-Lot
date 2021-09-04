@@ -632,8 +632,8 @@ public class OrganisationServiceImp implements OrganisationService {
         if(request.getOrgId() == null)
             throw new Exception("Exception: provided ID is null");
 
-        else if (request.getAudit() == null)
-            throw new Exception("Exception: tax reference not set");
+     /*   else if (request.getAudit() == null)
+            throw new Exception("Exception: tax reference not set");*/
 
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");

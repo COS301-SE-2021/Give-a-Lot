@@ -9,8 +9,8 @@ public class AddOrgQRCodeRequest {
     private Long orgId;
     private MultipartFile image;
 
-    public AddOrgQRCodeRequest(@JsonProperty Long orgId,
-                              @JsonProperty MultipartFile image)
+    public AddOrgQRCodeRequest(@JsonProperty("orgId") Long orgId,
+                              @JsonProperty("image") MultipartFile image)
     {
         this.orgId = orgId;
         this.image = image;

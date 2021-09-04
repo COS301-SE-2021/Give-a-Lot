@@ -260,9 +260,10 @@ public class OrganisationController
     }
 
     @PostMapping("/add/audit") /* not tested */
-    public ResponseEntity<generalOrganisationResponse> addOrgAuditDoc(@RequestBody @NonNull AddOrgAuditInfoRequest body)
+    public ResponseEntity<generalOrganisationResponse> addOrgAuditDoc(@ModelAttribute AddOrgAuditInfoRequest body)
     {
         generalOrganisationResponse response;
+        System.out.println(body.getAudit());
         try
         {
             response = service.addOrgAuditDoc(body);
@@ -474,17 +475,17 @@ public class OrganisationController
     }
 
     @PostMapping("/add/logo") /* all good - correctness not tested yet */
-    public ResponseEntity<generalOrganisationResponse> addOrgLogo( @RequestParam("image") MultipartFile image)
+    public ResponseEntity<generalOrganisationResponse> addOrgLogo( @ModelAttribute AddOrgLogoRequest request)
     {
 
         generalOrganisationResponse response;
         try
         {
             System.out.println("=================================");
-            System.out.println(image);
+            System.out.println(request.getImage());
             System.out.println("=================================");
 
-            response = service.addOrgLogo(new AddOrgLogoRequest(6L,image));
+            response = service.addOrgLogo(new AddOrgLogoRequest(request.getOrgId(),request.getImage()));
 
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
@@ -511,7 +512,7 @@ public class OrganisationController
     }
 
     @PostMapping("/add/qrcode") /* all good - correctness not tested yet */
-    public ResponseEntity<generalOrganisationResponse> addOrgQRCode(@RequestBody @NonNull AddOrgQRCodeRequest body)
+    public ResponseEntity<generalOrganisationResponse> addOrgQRCode(@ModelAttribute AddOrgQRCodeRequest body)
     {
         generalOrganisationResponse response;
         try

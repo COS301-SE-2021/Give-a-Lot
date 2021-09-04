@@ -17,15 +17,41 @@ export class Cards extends Component {
         this.state = {
             Users: '',
             Organisations: '',
-            Reports: [],
+            notifications: '',
             adminUserEmail:'admin@email.com',
+            orgId: 32,
+            reports: ''
         }
     }
 
     componentDidMount(){
         this.getUsers();
         this.getOrganisations();
-        this.getReports();
+        this.getNotifications();
+    }
+
+    getReports(){
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        const adminUsersRequestBodyReports = {
+            // "orgId":"id of an organisation"
+            "adminUserEmail" : this.state.orgId
+        }
+        axios.post('http://localhost:8080/report/get/all', adminUsersRequestBodyReports, config)
+            .then(response =>{
+                console.log(response)
+                this.setState({ reports: response.data.response })
+                // console.log(this.state.Users)
+
+            })
+            .catch(error =>{
+                // console.log(error)
+                this.setState({error : 'Error Retrieving data'})
+            })
     }
 
     getUsers(){
@@ -50,6 +76,7 @@ export class Cards extends Component {
                 this.setState({error : 'Error Retrieving data'})
             })
     }
+
     getOrganisations(){
         let config = {
             headers: {
@@ -73,17 +100,20 @@ export class Cards extends Component {
             })
     }
 
-    getReports(){
+    getNotifications(){
         let config = {
             headers: {
                 "Content-Type": "application/json",
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        axios.get('http://localhost:8080/v1/organisation/get/organisations',  config)
+        const adminUsersRequestBodyNotification = {
+            "adminUserEmail" : this.state.adminUserEmail
+        }
+        axios.post('http://localhost:8080/v1/notifications/get/num_notifications',adminUsersRequestBodyNotification , config)
             .then(response =>{
                 // console.log(response)
-                this.setState({ Reports: response.data })
+                this.setState({ notifications: response.data.response })
                 // console.log(this.state.Reports)
 
             })
@@ -95,7 +125,7 @@ export class Cards extends Component {
 
 
     render() {
-        const { Users , Organisations, Reports} = this.state
+        const { Users , Organisations, notifications, reports} = this.state
         return (
             <div style={{display: "flex"}} className= "featuredCards">
                 <Card variant="outlined" className="cardElement">
@@ -137,7 +167,7 @@ export class Cards extends Component {
                                 Reports
                             </Typography>
                             <Typography color="textSecondary">
-                                123
+                                {reports.length}
                             </Typography>
                         </Typography>
                         <Typography color="textSecondary" className="cardIconReports" >
@@ -153,7 +183,7 @@ export class Cards extends Component {
                                 Notifications
                             </Typography>
                             <Typography color="textSecondary">
-                                123
+                                {notifications}
                             </Typography>
                         </Typography>
                         <Typography color="textSecondary" className="cardIconNotifications" >

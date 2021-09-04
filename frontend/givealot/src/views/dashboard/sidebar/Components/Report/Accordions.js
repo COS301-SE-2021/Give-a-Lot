@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.text.secondary,
     },
     hidden:{
-        color: "white",
+        color: "",
     }
 }));
 
@@ -45,7 +45,7 @@ export default function Accordions({org,id,title, description,appeal}) {
     const [orgId, setId] = React.useState(org);
     const [reportId, setReportId] = React.useState(id);
     const [message, setMessage] = React.useState("");
-    const [appeall, setAppeal] = React.useState(true);
+    const [appeall, setAppeal] = React.useState(appeal);
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
@@ -111,40 +111,20 @@ export default function Accordions({org,id,title, description,appeal}) {
                     <Divider />
                     <AccordionActions>
                         <Button size="small">Cancel</Button>
-                        <button size="small" className="AppealButton" onClick={handleClickOpen}>
+                        <button size="small" className="AppealButton1" onClick={handleClickOpen}>
                             Appeal
                         </button>
                     </AccordionActions>
                 </Accordion>
                 <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                    <DialogTitle id="form-dialog-title">Make an appeal</DialogTitle>
-                    <form onSubmit={e => { handleSubmit(e) }}>
+                    <DialogTitle id="form-dialog-title">Can not make an appeal</DialogTitle>
                         <DialogContent>
-                            <DialogContentText className={classes.hidden}>
-                                Do not remove this line , it is very important.Do not remove this line , it is .
+                            <DialogContentText >
+                                Appeal has already been sent, awaiting Admin response.
                             </DialogContentText>
-                            <TextField
-                                autoFocus
-                                id="appeal"
-                                label="Description"
-                                multiline
-                                rows={5}
-                                name="appeal"
-                                variant="outlined"
-                                onChange={handleInput}
-                                fullWidth
-                            />
-                        </DialogContent>
-                        <DialogActions>
-                            <Button  onClick={handleClose} color="primary">
-                                Cancel
-                            </Button>
-                            <Button type={"submit"} onClick={handleClose} color="primary">
-                                Submit
-                            </Button>
-                        </DialogActions>
 
-                    </form>
+                        </DialogContent>
+
                 </Dialog>
             </div>
         );

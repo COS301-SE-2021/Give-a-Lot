@@ -84,13 +84,13 @@ export class Upgrade3 extends Component {
         e.preventDefault();
         const social = {
             orgId: this.state.orgId,
-            type: this.state.type,
+            socialType: this.state.type,
             url: this.state.url,
         };
 
         const social1 = {
             orgId: this.state.orgId,
-            type: this.state.type1,
+            socialType: this.state.type1,
             url: this.state.url1,
         };
 

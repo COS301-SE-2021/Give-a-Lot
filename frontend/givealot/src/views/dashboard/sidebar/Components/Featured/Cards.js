@@ -20,7 +20,7 @@ export class Cards extends Component {
             notifications: '',
             adminUserEmail:'admin@email.com',
             orgId: 32,
-            reports: ''
+            reports: []
         }
     }
 
@@ -28,6 +28,7 @@ export class Cards extends Component {
         this.getUsers();
         this.getOrganisations();
         this.getNotifications();
+        this. getReports();
     }
 
     getReports(){
@@ -39,12 +40,12 @@ export class Cards extends Component {
         }
         const adminUsersRequestBodyReports = {
             // "orgId":"id of an organisation"
-            "adminUserEmail" : this.state.orgId
+            "orgId" : this.state.orgId
         }
         axios.post('http://localhost:8080/report/get/all', adminUsersRequestBodyReports, config)
             .then(response =>{
                 console.log(response)
-                this.setState({ reports: response.data.response })
+                this.setState({ reports: response.data.object })
                 // console.log(this.state.Users)
 
             })

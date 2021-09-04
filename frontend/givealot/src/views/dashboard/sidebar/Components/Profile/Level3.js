@@ -89,7 +89,7 @@ export class Level3 extends Component {
 
 
 
-        return (
+     /*   return (
             <div className="upgrade">
 
 
@@ -266,7 +266,266 @@ export class Level3 extends Component {
 
 
             </div>
+        );*/
+        return (
+            <div className="upgrade">
+                <Card className="upgrade_card_4" variant="outlined">
+                    <CardContent>
+                        <div className={classes.root}>
+                            <form onSubmit={this.handleFormSubmit}>
+                                <span className="upgrade_header">
+                                    Additional credentials needed to Upgrade to level 4
+                                 </span>
+                                <div className="wrapIt">
+
+                                    <div>
+                                        <div className="social_media">
+                                            <TextField
+                                                id="outlined-full-width"
+                                                label="Chairpersion"
+                                                name="ChairpersionName"
+                                                style={{ margin: 8 }}
+                                                placeholder="Enter full name..."
+
+                                                fullWidth
+                                                margin="normal"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                                variant="outlined"
+                                                onChange={this.handleChange}
+                                            />
+                                            <TextField
+                                                id="outlined-full-width"
+                                                label="Chairpersion"
+                                                name="ChairpersionNontacts"
+                                                style={{ margin: 8 }}
+                                                placeholder="Enter contacts..."
+
+                                                fullWidth
+                                                margin="normal"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                                variant="outlined"
+                                                onChange={this.handleChange}
+                                            />
+
+                                        </div>
+                                        <div className="social_media">
+                                            <TextField
+                                                id="outlined-full-width"
+                                                label="Manager"
+                                                name="ManagerName"
+                                                style={{ margin: 8 }}
+                                                placeholder="Enter full name..."
+
+                                                fullWidth
+                                                margin="normal"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                                variant="outlined"
+                                                onChange={this.handleChange}
+                                            />
+                                            <TextField
+                                                id="outlined-full-width"
+                                                label="Manager"
+                                                name="ManagerContacts"
+                                                style={{ margin: 8 }}
+                                                placeholder="Enter contacts..."
+
+                                                fullWidth
+                                                margin="normal"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                                variant="outlined"
+                                                onChange={this.handleChange}
+                                            />
+
+                                        </div>
+                                        <div className="social_media">
+                                            <TextField
+                                                id="outlined-full-width"
+                                                label="Treasurer"
+                                                name="TreasurerName"
+                                                style={{ margin: 8 }}
+                                                placeholder="Enter full name..."
+
+                                                fullWidth
+                                                margin="normal"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                                variant="outlined"
+                                                onChange={this.handleChange}
+                                            />
+                                            <TextField
+                                                id="outlined-full-width"
+                                                label="Treasurer"
+                                                name="TreasurerContacts"
+                                                style={{ margin: 8 }}
+                                                placeholder="Enter contacts..."
+
+                                                fullWidth
+                                                margin="normal"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                                variant="outlined"
+                                                onChange={this.handleChange}
+                                            />
+
+                                        </div>
+
+                                        <div className="social_media">
+                                            <TextField
+                                                id="outlined-full-width"
+                                                label="Secretary"
+                                                name="SecretaryName"
+                                                style={{ margin: 8 }}
+                                                placeholder="Enter full name..."
+
+                                                fullWidth
+                                                margin="normal"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                                variant="outlined"
+                                                onChange={this.handleChange}
+                                            />
+                                            <TextField
+                                                id="outlined-full-width"
+                                                label="Secretary"
+                                                name="SecretaryContacts"
+                                                style={{ margin: 8 }}
+                                                placeholder="Enter contacts..."
+
+                                                fullWidth
+                                                margin="normal"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                                variant="outlined"
+                                                onChange={this.handleChange}
+                                            />
+
+                                        </div>
+                                    </div>
+
+                                    <div className="WrapItsSocial">
+                                        <div className="social_media">
+                                            <div>
+
+                                                <FormControl variant="outlined" className={classes.formControl}>
+                                                    <InputLabel id="demo-controlled-open-select-label">Social media platform</InputLabel>
+                                                    <Select
+                                                        labelId="demo-simple-select-outlined-label"
+                                                        id="demo-simple-select-outlined"
+                                                        name="type"
+                                                        value={this.type}
+                                                        onChange={this.handleSocialChange}
+                                                        label="Social platform"
+
+
+                                                    >
+                                                        <MenuItem value="">
+                                                            <em>None</em>
+                                                        </MenuItem>
+                                                        <MenuItem value={"Facebook"}>Facebook</MenuItem>
+                                                        <MenuItem value={"Instagram"}>Instagram</MenuItem>
+                                                        <MenuItem value={"Twitter"}>Twitter</MenuItem>
+                                                    </Select>
+                                                </FormControl>
+
+                                            </div>
+                                            <TextField
+                                                id="outlined-full-width"
+                                                label="Social media url"
+                                                name="url"
+                                                style={{ margin: 8 }}
+                                                placeholder="Enter your url..."
+
+                                                fullWidth
+                                                margin="normal"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                                variant="outlined"
+                                                onChange={this.handleChange}
+                                            />
+                                        </div>
+
+                                        <div className="social_media">
+                                            <div>
+
+                                                <FormControl variant="outlined" className={classes.formControl}>
+                                                    <InputLabel id="demo-controlled-open-select-label">Social media platform</InputLabel>
+                                                    <Select
+                                                        labelId="demo-simple-select-outlined-label"
+                                                        id="demo-simple-select-outlined"
+                                                        value={this.type1}
+                                                        name="type1"
+                                                        onChange={this.handleSocial1Change}
+                                                        label="Social platform"
+
+
+                                                    >
+                                                        <MenuItem value="">
+                                                            <em>None</em>
+                                                        </MenuItem>
+                                                        <MenuItem value={"Facebook"}>Facebook</MenuItem>
+                                                        <MenuItem value={"Instagram"}>Instagram</MenuItem>
+                                                        <MenuItem value={"Twitter"}>Twitter</MenuItem>
+                                                    </Select>
+                                                </FormControl>
+
+                                            </div>
+                                            <TextField
+                                                id="outlined-full-width"
+                                                label="Social media url"
+                                                style={{ margin: 8 }}
+                                                name="url1"
+                                                placeholder="Enter your url..."
+                                                fullWidth
+                                                margin="normal"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                                variant="outlined"
+                                                onChange={this.handleChange}
+                                            />
+                                        </div>
+
+
+                                        <div className="upgrade_Button">
+                                            <button className="upgrade-btn" type="submit" onClick={this.onToast}>
+                                                Submit
+                                            </button>
+                                        </div>
+
+                                    </div>
+
+
+
+                                </div>
+
+                                <div className="form-group">
+                                    <ToastContainer/>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </CardContent>
+
+                </Card>
+
+
+            </div>
         );
+
     }
 }
 export default withStyles(styles)(Level3);

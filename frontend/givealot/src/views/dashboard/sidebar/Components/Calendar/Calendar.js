@@ -10,6 +10,7 @@ import {
     EditRecurrenceMenu,
     AllDayPanel,
     ConfirmationDialog,
+    CurrentTimeIndicator,
 } from '@devexpress/dx-react-scheduler-material-ui';
 import "./styles/Calendar.css"
 import { appointments } from "./data"
@@ -20,7 +21,8 @@ export default class DemoApp extends React.Component {
         super(props);
         this.state = {
             data: appointments,
-            date: '',
+            // currentDate: new Date().toDateString(),
+            userId: '',
 
             addedAppointment: {},
             appointmentChanges: {},
@@ -49,8 +51,41 @@ export default class DemoApp extends React.Component {
         this.setState((state) => {
             let { data } = state;
             if (added) {
+                console.log("adding")
                 const startingAddedId = data.length > 0 ? data[data.length - 1].id + 1 : 0;
                 data = [...data, { id: startingAddedId, ...added }];
+                console.log(data)
+                // console.log(data[data.length-1].startDate)
+                let startTime = data[data.length-1].startDate.toString().split(" ")[4];
+                let endTime = data[data.length-1].endDate.toString().split(" ")[4];
+                let title = data[data.length-1].title;
+                let description = data[data.length-1].notes;
+                let startDateYear = data[data.length-1].startDate.toString().split(" ")[3];
+                let startDateMonth = data[data.length-1].startDate.toString().split(" ")[1];
+                let startDateDay = data[data.length-1].startDate.toString().split(" ")[2];
+                let eventStartDate = startDateYear +'-' + startDateMonth + '-' + startDateDay;
+
+                let endDateYear = data[data.length-1].endDate.toString().split(" ")[3];
+                let endDateMonth = data[data.length-1].endDate.toString().split(" ")[1];
+                let endDateDay = data[data.length-1].endDate.toString().split(" ")[2];
+                let eventEndDate = endDateYear +'-' + endDateMonth + '-' + endDateDay;
+
+                const eventDayAndTime = {
+                    eventTitle: title,
+                    eventDescription: description,
+                    eventStartTime: startTime,
+                    eventEndTime: endTime,
+                    eventStartDate: eventStartDate,
+                    eventEndDate: eventEndDate,
+                    userId: this.state.userId
+                }
+
+                console.log(eventEndDate);
+                console.log(eventStartDate);
+                console.log(startTime);
+                console.log(endTime);
+                console.log(title);
+                console.log(description);
             }
             if (changed) {
                 data = data.map(appointment => (
@@ -63,18 +98,27 @@ export default class DemoApp extends React.Component {
         });
     }
 
-    componentDidMount() {
-        this.getDate();
-    }
+    // componentDidMount() {
+    //     // this.getEvents();
+    // }
 
-    getDate = () => {
-        let date = new Date().toDateString();
-        this.setState({ date });
-    };
+    // getEvents = () => {
+    //     let datS = [];
+    //     datS[0]  =
+    //         {
+    //             title: 'Approve New Online Marketing Strategy',
+    //             startDate: new Date(2021, 9, 4, 14, 15),
+    //             endDate: new Date(2021, 9, 5, 13, 0),
+    //             id: 7,
+    //             location: 'Room 3'
+    //         };
+    //     this.setState({data: datS})
+    //     console.log(this.state.data)
+    // }
 
     render() {
         const {
-            currentDate, data, addedAppointment, appointmentChanges, editingAppointment,
+            data, addedAppointment, appointmentChanges, editingAppointment,
         } = this.state;
         return (
             <div className="calendar">
@@ -84,9 +128,9 @@ export default class DemoApp extends React.Component {
                         data={data}
                         height={660}
                     >
-                        <ViewState
-                            currentDate={currentDate}
-                        />
+                        {/*<ViewState*/}
+                        {/*    currentDate={currentDate}*/}
+                        {/*/>*/}
                         <EditingState
                             onCommitChanges={this.commitChanges}
                             addedAppointment={addedAppointment}
@@ -109,6 +153,7 @@ export default class DemoApp extends React.Component {
                             showDeleteButton
                         />
                         <AppointmentForm />
+                        <CurrentTimeIndicator />
                     </Scheduler>
                 </Paper>
             </div>

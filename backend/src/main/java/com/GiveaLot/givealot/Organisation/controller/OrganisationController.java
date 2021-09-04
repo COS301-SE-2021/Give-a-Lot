@@ -261,9 +261,10 @@ public class OrganisationController
     }
 
     @PostMapping("/add/audit") /* not tested */
-    public ResponseEntity<generalOrganisationResponse> addOrgAuditDoc(@RequestBody @NonNull AddOrgAuditInfoRequest body)
+    public ResponseEntity<generalOrganisationResponse> addOrgAuditDoc(@ModelAttribute AddOrgAuditInfoRequest body)
     {
         generalOrganisationResponse response;
+        System.out.println(body.getAudit());
         try
         {
             response = service.addOrgAuditDoc(body);
@@ -475,17 +476,17 @@ public class OrganisationController
     }
 
     @PostMapping("/add/logo") /* all good - correctness not tested yet */
-    public ResponseEntity<generalOrganisationResponse> addOrgLogo( @RequestParam("image") MultipartFile image)
+    public ResponseEntity<generalOrganisationResponse> addOrgLogo( @ModelAttribute AddOrgLogoRequest request)
     {
 
         generalOrganisationResponse response;
         try
         {
             System.out.println("=================================");
-            System.out.println(image);
+            System.out.println(request.getImage());
             System.out.println("=================================");
 
-            response = service.addOrgLogo(new AddOrgLogoRequest(6L,image));
+            response = service.addOrgLogo(new AddOrgLogoRequest(request.getOrgId(),request.getImage()));
 
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
@@ -512,7 +513,7 @@ public class OrganisationController
     }
 
     @PostMapping("/add/qrcode") /* all good - correctness not tested yet */
-    public ResponseEntity<generalOrganisationResponse> addOrgQRCode(@RequestBody @NonNull AddOrgQRCodeRequest body)
+    public ResponseEntity<generalOrganisationResponse> addOrgQRCode(@ModelAttribute AddOrgQRCodeRequest body)
     {
         generalOrganisationResponse response;
         try
@@ -615,6 +616,7 @@ public class OrganisationController
             return new ResponseEntity<>(new getNumberOfOrganisationsResponse("get_num_notifications_500_bad","failed: " + e, 0), HttpStatus.OK);
         }
     }
+
     @PostMapping("/get/org_level")
     public ResponseEntity<getOrgCertLevelResponse> getOrganisationCertLevel(@RequestBody @NonNull GetOrganisationCertificateLevelRequest body)
     {
@@ -627,6 +629,21 @@ public class OrganisationController
         catch (Exception e)
         {
             return new ResponseEntity<>(new getOrgCertLevelResponse("get_org_cert_level_500_bad","failed: " + e, 0), HttpStatus.OK);
+        }
+    }
+
+    @PostMapping("update/info/organisation")
+    public ResponseEntity<generalOrganisationResponse> updateOrganisationInfo(@RequestBody @NonNull updateOrganisationInfoRequest body)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.updateOrganisationInfo(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("update_500_bad","failed: " + e), HttpStatus.BAD_REQUEST);
         }
     }
 /*    @PostMapping("/upgrade/upload/logo")

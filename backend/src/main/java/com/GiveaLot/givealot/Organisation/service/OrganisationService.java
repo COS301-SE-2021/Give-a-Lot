@@ -5,6 +5,7 @@ import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.requests.*;
 import com.GiveaLot.givealot.Organisation.response.*;
+import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

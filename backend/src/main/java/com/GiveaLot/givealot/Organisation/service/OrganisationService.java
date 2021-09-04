@@ -42,17 +42,14 @@ public interface OrganisationService {
     boolean removeOrgNGO(long orgId) throws Exception;
     generalOrganisationResponse addOrgNGODate(AddOrgNGORequest request) throws Exception;
     generalOrganisationResponse removeNGDate(Long orgId) throws Exception;
-
     generalOrganisationResponse addOrgEstDate(AddOrgEstDateRequest request) throws Exception;
     generalOrganisationResponse removeOrgEstDate(Long orgId) throws Exception;
-
     generalOrganisationResponse confirmValidity(Long orgId,Long adminId,String type,boolean confirmValidity) throws Exception;
     numberOfImagesResponse numberOfImages(Long orgId) throws Exception;
-
     generalOrganisationResponse addSector(AddSectorRequest request) throws Exception;
     getSectorsResponse getSectors() throws Exception;
-
     getNumberOfOrganisationsResponse getNumberOfOrganisations(GetOrganisationsRequest request)throws Exception;
     getOrgCertLevelResponse getOrgCertLevel(GetOrganisationCertificateLevelRequest request)throws Exception;
+    generalOrganisationResponse updateOrganisationInfo(updateOrganisationInfoRequest request) throws Exception;
 
 }

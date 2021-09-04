@@ -1,3 +1,74 @@
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "description",
+  "newValue": "giveus@gmail.com"
+}
+
+<> 2021-09-04T213213.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "email",
+  "newValue": "giveus@gmail.com"
+}
+
+<> 2021-09-04T213142.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "email",
+  "newValue": "giveus@gmail.com"
+}
+
+<> 2021-09-04T212932.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "email",
+  "newValue": "hope@gmail.com"
+}
+
+<> 2021-09-04T212914.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "hfjhf",
+  "newValue": "nqobile@gmail.com"
+}
+
+<> 2021-09-04T212813.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/investigate/32
+
+<> 2021-09-04T202912.200.json
+
+###
+
 GET http://localhost:8080/event/get/timeline/32
 
 <> 2021-09-04T201353.200.json
@@ -469,104 +540,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-02T194035.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-"orgId":6,
-"ngoNumber":"123-456",
-"ngoDate":"2020-05-23"
-}
-
-<> 2021-09-02T193909.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-"orgId":6,
-"ngoNumber":"123-456",
-"ngoDate":"2020-05-23"
-}
-
-<> 2021-09-02T193735.404.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-"orgName" : "This is the certificate bla",
-"slogan" : "we empower the young minds ",
-"orgDescription" : "The fkfkfk k kfgkk gkfg kgkf gkfkg gkfglflkgkf kfgkgk flkgflk gkf flkg lkfglkflkf kgfglkflklkf lkfglkf lk lkfglkf lkg fgofogo fgfg",
-"orgSector" : "disability",
-"orgEmail" : "certificate@givealot.com",
-"contactPerson" : "Winnie Mashaba",
-"contactNumber" : "0637493443",
-"password" : "Password@123"
-}
-
-<> 2021-08-31T231853.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-"orgName" : "This is the certificate bla",
-"slogan" : "we empower the young minds ",
-"orgDescription" : "The fkfkfk k kfgkk gkfg kgkf gkfkg gkfglflkgkf kfgkgk flkgflk gkf flkg lkfglkflkf kgfglkflklkf lkfglkf lk lkfglkf lkg fgofogo fgfg",
-"orgSector" : "disability",
-"orgEmail" : "certificate@givealot.com",
-"contactPerson" : "Winnie Mashaba",
-"contactNumber" : "0637493443",
-"password" : "Password@123"
-}
-
-<> 2021-08-31T230829.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-"orgName" : "This is the certificate bla",
-"slogan" : "we empower the young minds ",
-"orgDescription" : "The fkfkfk k kfgkk gkfg kgkf gkfkg gkfglflkgkf kfgkgk flkgflk gkf flkg lkfglkflkf kgfglkflklkf lkfglkf lk lkfglkf lkg fgofogo fgfg",
-"orgSector" : "disability",
-"orgEmail" : "certificate@givealot.com",
-"contactPerson" : "Winnie Mashaba",
-"contactNumber" : "0637493443",
-"password" : "Password@123"
-}
-
-<> 2021-08-31T230429.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "National Council of & for Persons with Disabilities",
-  "slogan" : "we empower the young minds ",
-  "orgDescription" : "The National Council of and for Persons with Disabilities does advocacy work and services leading to an equitable and inclusive society. We are affiliated to the South African Disability Alliance, as well as Rehabilitation International. Our programmes cover the whole of South Africa.",
-  "orgSector" : "disability",
-  "orgEmail" : "CouncilDisabilities@givealot.com",
-  "contactPerson" : "Winnie Mashaba",
-  "contactNumber" : "0637493443",
-  "password" : "Password@123"
-}
-
-<> 2021-08-31T230412.200.json
 
 ###
 

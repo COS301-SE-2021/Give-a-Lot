@@ -140,6 +140,7 @@ public class OrganisationController
         }
     }
 
+    @CrossOrigin("*")
     @PutMapping("/investigate/{orgId}") /* tested - works */
     public ResponseEntity<generalOrganisationResponse> investigateOrganisation(@PathVariable("orgId") @NonNull Long orgId)
     {
@@ -614,6 +615,21 @@ public class OrganisationController
             return new ResponseEntity<>(new getOrgCertLevelResponse("get_org_cert_level_500_bad","failed: " + e, 0), HttpStatus.OK);
         }
     }
+
+    @PostMapping("/update/info/organisation")
+    public ResponseEntity<generalOrganisationResponse> updateOrganisationInfo(@RequestBody @NonNull updateOrganisationInfoRequest body)
+    {
+        try
+        {
+            return new ResponseEntity<>(service.updateOrganisationInfo(body), HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("get_org_cert_level_500_bad","failed: " + e), HttpStatus.OK);
+        }
+    }
+
+
 /*    @PostMapping("/upgrade/upload/logo")
     public boolean upgradeUploadLogo(@RequestBody @NonNull MultipartFile logo) throws Exception {
         try

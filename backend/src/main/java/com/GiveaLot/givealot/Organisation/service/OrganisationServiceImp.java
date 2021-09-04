@@ -1,5 +1,7 @@
 package com.GiveaLot.givealot.Organisation.service;
 
+import com.GiveaLot.givealot.Blockchain.Repository.BlockChainRepository;
+import com.GiveaLot.givealot.Blockchain.dataclass.Blockchain;
 import com.GiveaLot.givealot.Browse.model.Browse;
 import com.GiveaLot.givealot.Browse.repository.BrowseRecommenderRepository;
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
@@ -71,6 +73,9 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Autowired
     private sectorsRepository sectorsRepository;
+
+    @Autowired
+    private BlockChainRepository blockChainRepository;
 
     @Autowired
     private BrowseRecommenderRepository browseRecommenderRepository;
@@ -1469,6 +1474,22 @@ public class OrganisationServiceImp implements OrganisationService {
     @Override
     public getNumberOfOrganisationsResponse getNumberOfOrganisations(GetOrganisationsRequest request) throws Exception {
         return new getNumberOfOrganisationsResponse("get_num_org_200_OK","success",getOrganisations(request).getResponse().size());
+    }
+
+    @Override
+    public getOrgCertLevelResponse getOrgCertLevel(GetOrganisationCertificateLevelRequest request) throws Exception {
+        if(request == null)
+            throw new Exception("Exception: request is null");
+
+        if(organisationRepository.selectOrganisationById(request.getOrgid())==null)
+        {
+            throw new Exception("organisation does not exist");
+        }
+        Blockchain blockchain = blockChainRepository.selectBlockchainOrgId(request.getOrgid());
+        if(blockchain == null)
+            throw new Exception("error with the blockchain");
+
+    return new getOrgCertLevelResponse("get_org_cert_level","success",blockchain.getLevel());
     }
 
     /*helper*/

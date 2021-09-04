@@ -590,7 +590,20 @@ public class OrganisationController
             return new ResponseEntity<>(new getNumberOfOrganisationsResponse("get_num_notifications_500_bad","failed: " + e, 0), HttpStatus.OK);
         }
     }
-
+    @PostMapping("/get/org_level")
+    public ResponseEntity<getOrgCertLevelResponse> getOrganisationCertLevel(@RequestBody @NonNull GetOrganisationCertificateLevelRequest body)
+    {
+        getOrgCertLevelResponse response;
+        try
+        {
+            response = service.getOrgCertLevel(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new getOrgCertLevelResponse("get_org_cert_level_500_bad","failed: " + e, 0), HttpStatus.OK);
+        }
+    }
 /*    @PostMapping("/upgrade/upload/logo")
     public boolean upgradeUploadLogo(@RequestBody @NonNull MultipartFile logo) throws Exception {
         try

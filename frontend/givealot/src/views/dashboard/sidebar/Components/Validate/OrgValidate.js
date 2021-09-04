@@ -37,7 +37,7 @@ export class OrgValidate extends Component {
         }
 
         const adminUsersRequestBody = {
-            "orgId":32
+            "orgId":23
         }
 
         axios.post('http://localhost:8080/v1/notifications/get/level_information', adminUsersRequestBody ,config)
@@ -54,118 +54,70 @@ export class OrgValidate extends Component {
 
     render() {
         const { validation } = this.state
+
+        // let {isLoggedIn} = this.state;
+
+        const orgValidating = () => {
+            if (validation.level === 1) {
+                return (
+                    <div className="table">
+                        <Card style={{margin: "1em", width: "100%"}}>
+                            <CardContent>
+                                <Typography className="valid">
+                                    <Typography>
+                                        {validation.ngoNumber}
+                                    </Typography>
+                                    <Typography style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "space-between"
+                                    }}>
+                                        <Grid>
+                                            <Button variant="contained" className="buttonValidViewAccept">
+                                                Accept
+                                            </Button>
+                                        </Grid>
+                                        <Grid style={{marginLeft: "1em"}}>
+                                            <Button variant="contained" className="buttonValidViewDeny"
+                                                    onClick={this.openValid.bind(this)}>
+                                                Deny
+                                            </Button>
+                                        </Grid>
+                                        <Dialog onClose={this.handleCloseValid.bind(this)}
+                                                open={this.state.openValid}>
+                                            <DialogTitle>Reason for Denial</DialogTitle>
+                                            <DialogContent>
+                                                Organisation is under investigation
+                                            </DialogContent>
+                                        </Dialog>
+                                    </Typography>
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </div>
+                );
+            } else if(validation.level === 2){
+                return (<button>level2</button>);
+            }else if(validation.level === 3){
+                return (<button>level3</button>);
+            }else if(validation.level === 4){
+                return (<button>level4</button>);
+            }
+            else if(validation.level === 5){
+                return (<button>level5</button>);
+            }
+            else{
+                return ("none")
+            }
+        }
+
         return (
             <div className="validate">
                 <div className="validBody">
                     <div  className="name">
                         Organisation Name
                     </div>
-                    <div className="table">
-                        {/*{validation.map((item, index) => {*/}
-                        {/*    return (*/}
-                                <Card style={{margin: "1em", width: "100%"}}>
-                                    <CardContent>
-                                        <Typography className="valid">
-                                            <Typography>
-                                                {validation.ngoNumber}
-                                            </Typography>
-                                            <Typography style={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                                justifyContent: "space-between"
-                                            }}>
-                                                <Grid>
-                                                    <Button variant="contained" className="buttonValidViewAccept">
-                                                        Accept
-                                                    </Button>
-                                                </Grid>
-                                                <Grid style={{marginLeft: "1em"}}>
-                                                    <Button variant="contained" className="buttonValidViewDeny"
-                                                            onClick={this.openValid.bind(this)}>
-                                                        Deny
-                                                    </Button>
-                                                </Grid>
-                                                <Dialog onClose={this.handleCloseValid.bind(this)}
-                                                        open={this.state.openValid}>
-                                                    <DialogTitle>Reason for Denial</DialogTitle>
-                                                    <DialogContent>
-                                                        Organisation is under investigation
-                                                    </DialogContent>
-                                                </Dialog>
-                                            </Typography>
-                                        </Typography>
-                                    </CardContent>
-                                </Card>
-                        {/*    )*/}
-                        {/*})}*/}
-                        <Card style={{margin: "1em", width: "100%"}}>
-                            <CardContent>
-                                <Typography className="valid">
-                                    <Typography>
-                                        <img src={validation.url}/>
-                                        {/*{validation.url}*/}
-                                    </Typography>
-                                    <Typography style={{
-                                        display: "flex",
-                                        alignItems: "center",
-                                        justifyContent: "space-between"
-                                    }}>
-                                        <Grid>
-                                            <Button variant="contained" className="buttonValidViewAccept">
-                                                Accept
-                                            </Button>
-                                        </Grid>
-                                        <Grid style={{marginLeft: "1em"}}>
-                                            <Button variant="contained" className="buttonValidViewDeny"
-                                                    onClick={this.openValid.bind(this)}>
-                                                Deny
-                                            </Button>
-                                        </Grid>
-                                        <Dialog onClose={this.handleCloseValid.bind(this)}
-                                                open={this.state.openValid}>
-                                            <DialogTitle>Reason for Denial</DialogTitle>
-                                            <DialogContent>
-                                                Organisation is under investigation
-                                            </DialogContent>
-                                        </Dialog>
-                                    </Typography>
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                        <Card style={{margin: "1em", width: "100%"}}>
-                            <CardContent>
-                                <Typography className="valid">
-                                    <Typography>
-                                        {validation.ngoDate}
-                                    </Typography>
-                                    <Typography style={{
-                                        display: "flex",
-                                        alignItems: "center",
-                                        justifyContent: "space-between"
-                                    }}>
-                                        <Grid>
-                                            <Button variant="contained" className="buttonValidViewAccept">
-                                                Accept
-                                            </Button>
-                                        </Grid>
-                                        <Grid style={{marginLeft: "1em"}}>
-                                            <Button variant="contained" className="buttonValidViewDeny"
-                                                    onClick={this.openValid.bind(this)}>
-                                                Deny
-                                            </Button>
-                                        </Grid>
-                                        <Dialog onClose={this.handleCloseValid.bind(this)}
-                                                open={this.state.openValid}>
-                                            <DialogTitle>Reason for Denial</DialogTitle>
-                                            <DialogContent>
-                                                Organisation is under investigation
-                                            </DialogContent>
-                                        </Dialog>
-                                    </Typography>
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </div>
+                    {orgValidating()}
                 </div>
             </div>
         )

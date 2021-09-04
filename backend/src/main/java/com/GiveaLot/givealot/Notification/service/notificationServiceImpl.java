@@ -76,17 +76,14 @@ public class notificationServiceImpl implements notificationService {
     @Override
     public generalNotificationResponse addNotifications(AddNotificationRequest request) throws Exception {
         if (request == null)
-            throw new Exception("invalid notification object: null");
+            throw new Exception("invalid request object: null");
 
         if (request.getNotificationType() == null ||
                 request.getOrg_id() == null || request.getDescription() == null
         )
-            throw new Exception("invalid field provided: null");
+            throw new Exception("null type provided: null");
 
-        if (!request.getNotificationType().equals("update") || !request.getNotificationType().equals("report")) {
-            throw new Exception("invalid field provided: null");
 
-        }
         request.setOpen(false);
 
         if (notificationRepository.selectNotificationById(request.getNotification_id()) != null)

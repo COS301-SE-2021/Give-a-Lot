@@ -1,141 +1,136 @@
-POST http://localhost:8080/v1/notifications/get/level_information
+POST http://localhost:8080/v1/organisation/get/organisations
 Content-Type: application/json
 
 {
-  "orgId":23
+   "adminId": "14"
 }
 
-<> 2021-09-04T024531.200.json
+<> 2021-09-04T045712.200.json
 
 ###
 
-POST http://localhost:8080/v1/notifications/update/notifications
+POST http://localhost:8080/v1/organisation/get/organisations
 Content-Type: application/json
 
 {
-  "org_id":32
+   "adminId": "11"
 }
 
-<> 2021-09-04T024457.200.json
+<> 2021-09-04T045647.200.json
 
 ###
 
-POST http://localhost:8080/v1/notifications/update/notifications
+POST http://localhost:8080/v1/organisation/get/organisations
 Content-Type: application/json
 
 {
-  "org_id":32
-}
-
-<> 2021-09-04T024229.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/update/notifications
-Content-Type: application/json
-
-{
-  "org_id":23
-}
-
-<> 2021-09-04T024113.200.json
-
-###
-
-POST http://localhost:8080/v1/user/get/num_user
-Content-Type: application/json
-
-{
-  "adminUserEmail":"admin@email.com"
-}
-
-<> 2021-09-04T024106.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/get/num_organisation
-Content-Type: application/json
-
-{
-  "adminUserEmail":"admin@email.com"
-}
-
-<> 2021-09-04T024030.200.json
-
-###
-
-POST http://localhost:8080/v1/user/get/num_notifications
-Content-Type: application/json
-
-{
-  "adminUserEmail":"admin@email.com"
-}
-
-<> 2021-09-04T024013.404.json
-
-###
-
-POST http://localhost:8080/v1/user/get/num_notifications
-Content-Type: application/json
-
-{
-  "adminUserEmail":"admin@email.com"
-}
-
-<> 2021-09-04T024001.404.json
-
-###
-
-POST http://localhost:8080/v1/user/get/num_notifications
-Content-Type: application/json
-
-{
-  "adminUserEmail":"admin@email.com"
-}
-
-<> 2021-09-04T023606.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/get/num_notifications
-Content-Type: application/json
-
-{
-  "adminUserEmail":"admin@email.com"
-}
-
-<> 2021-09-04T023021.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/get/num_notifications
-Content-Type: application/json
-
-{
-  "adminUserEmail":"admin@email.com"
+   "adminUserEmail": "coolmail1@gmail.com"
 }
 
 ###
 
-POST http://localhost:8080/v1/notifications/get/notifications
+POST http://localhost:8080/report/get/all
 Content-Type: application/json
 
 {
-  "adminUserEmail":"admin@email.com"
+  "orgId":32
 }
 
-<> 2021-09-04T021859.200.json
+<> 2021-09-04T043258.200.json
 
 ###
 
-POST http://localhost:8080/v1/notifications/get/notifications
+GET http://localhost:8080/v1/organisation/sel/organisation/info/32
+
+<> 2021-09-04T024547.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/info/32
+
+###
+
+POST http://localhost:8080/report/get/all
 Content-Type: application/json
 
 {
-  "adminUserEmail":"admin@email.com"
+  "orgId":32
 }
 
-<> 2021-09-04T020856.200.json
+<> 2021-09-04T023658.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/32/default
+
+<> 2021-09-04T022838.400.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/32/16
+
+<> 2021-09-04T022742.200.json
+
+###
+
+POST http://localhost:8080/report/get/all
+Content-Type: application/json
+
+{
+  "orgId":32
+}
+
+<> 2021-09-04T021842.200.json
+
+###
+
+POST http://localhost:8080/report/org/
+Content-Type: application/json
+
+{
+  "orgId" : 32,
+  "userId" : 12,
+  "reportType" : "grammer",
+  "description" : "The description contains spelling errors"
+}
+
+<> 2021-09-04T021825.200.json
+
+###
+
+POST http://localhost:8080/report/get/all
+Content-Type: application/json
+
+{
+  "orgId":29
+}
+
+<> 2021-09-04T021727.200.json
+
+###
+
+POST http://localhost:8080/report/get/all
+Content-Type: application/json
+
+{
+  "orgId":32
+}
+
+<> 2021-09-04T021707.200.json
+
+###
+
+POST http://localhost:8080/report/org/
+Content-Type: application/json
+
+{
+  "orgId" : 32,
+  "userId" : 12,
+  "reportType" : "fraud",
+  "description" : "This organisation provided a deceptive name"
+}
+
+<> 2021-09-04T021604.200.json
 
 ###
 
@@ -556,12 +551,6 @@ GET http://localhost:8080/v1/browse/sectors/recommendations/8
 GET http://localhost:8080/v1/browse/sectors/recommendations/default
 
 <> 2021-08-27T070117.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/867
-
-<> 2021-08-27T070100.200.json
 
 ###
 

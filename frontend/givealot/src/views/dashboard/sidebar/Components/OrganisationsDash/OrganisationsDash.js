@@ -32,7 +32,8 @@ export class OrganisationsDash extends Component {
             sectorName: "",
             open: false,
             openAdd: false,
-            getSector: []
+            getSector: [],
+            adminId: 14
         }
     }
 
@@ -62,10 +63,13 @@ export class OrganisationsDash extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        axios.get('http://jsonplaceholder.typicode.com/users',  config)
+        const adminUsersRequestBodyOrgs = {
+            "adminId" : this.state.adminId
+        }
+        axios.post('http://localhost:8080/v1/organisation/get/organisations',adminUsersRequestBodyOrgs , config)
             .then(response =>{
-                // console.log(response)
-                this.setState({org: response.data})
+                console.log(response)
+                this.setState({org: response.data.response})
                 // console.log(this.state.org)
             })
             .catch(error =>{
@@ -195,6 +199,8 @@ export class OrganisationsDash extends Component {
                                             <TableCell style={{color: "white", fontWeight: "bold"}}>email</TableCell>
                                             <TableCell style={{color: "white", fontWeight: "bold"}}>Contact person</TableCell>
                                             <TableCell style={{color: "white", fontWeight: "bold"}}>Contact NUmber</TableCell>
+                                            <TableCell style={{color: "white", fontWeight: "bold"}}>Status</TableCell>
+                                            <TableCell style={{color: "white", fontWeight: "bold"}}>Action</TableCell>
                                             <TableCell style={{color: "white", fontWeight: "bold"}}>Action</TableCell>
                                         </TableHead>
                                         <TableBody>
@@ -202,10 +208,12 @@ export class OrganisationsDash extends Component {
                                                 return(
                                                     <TableRow>
                                                         <TableCell><Avatar aria-label="recipe" src="https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg" /> </TableCell>
-                                                        <TableCell>{item.name}</TableCell>
-                                                        <TableCell>{item.username}</TableCell>
-                                                        <TableCell>{item.email}</TableCell>
-                                                        <TableCell>{item.username}</TableCell>
+                                                        <TableCell>{item.orgName}</TableCell>
+                                                        <TableCell>{item.contactPerson}</TableCell>
+                                                        <TableCell>{item.contactNumber}</TableCell>
+                                                        <TableCell>{item.orgEmail}</TableCell>
+                                                        <TableCell>{item.orgSector}</TableCell>
+                                                        <TableCell>{item.status}</TableCell>
                                                         <TableCell>
                                                             <Link to={"/org/" + item.id} className="link">
                                                                 <EditIcon />

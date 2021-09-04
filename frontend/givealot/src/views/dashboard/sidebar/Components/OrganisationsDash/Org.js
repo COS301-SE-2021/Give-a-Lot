@@ -13,7 +13,8 @@ export class Org extends Component {
         super(props)
 
         this.state = {
-            orgS:[]
+            orgS:{},
+            orgId: 32
         }
     }
 
@@ -24,11 +25,10 @@ export class Org extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        axios.get('http://localhost:8080/v1/user/get/users', config)
+        axios.get('http://localhost:8080/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config)
             .then(response =>{
                 console.log(response)
-                const orgS = response.data;
-                this.setState({ orgS });
+                this.setState({orgS: response.data.response})
             })
             .catch(error =>{
                 console.log(error)
@@ -49,6 +49,7 @@ export class Org extends Component {
     }
 
     render() {
+        const { orgS } = this.state
         return (
             <div className="org">
                 {/*<Typography style={{width: "100%", height: "8em"}}>*/}
@@ -64,33 +65,33 @@ export class Org extends Component {
                                 <div >
                                     <div className="userShowTop">
                                         <div className="userShowTopTitle">
-                                            <span className="userShowUsername">Gift of the givers</span>
-                                            <span className="userShowUserTitle">giving back to the people </span>
+                                            <span className="userShowUsername">{orgS.orgName}</span>
+                                            <span className="userShowUserTitle">{orgS.slogan}</span>
                                         </div>
                                     </div>
                                     <div className="userShowBottom">
                                         <span className="userShowTitle">Account Details</span>
                                         <div className="userShowInfo">
                                             <PermIdentity className="userShowIcon" />
-                                            <span className="userShowInfoTitle">Gift of the givers</span>
+                                            <span className="userShowInfoTitle">{orgS.orgName}</span>
                                         </div>
                                         <div className="userShowInfo">
                                             <CalendarToday className="userShowIcon" />
-                                            <span className="userShowInfoTitle">19.08.2021</span>
+                                            <span className="userShowInfoTitle">{orgS.dateAdded}</span>
                                         </div>
                                         <span className="userShowTitle">Contact Details</span>
 
                                         <div className="userShowInfo">
                                             <PhoneAndroid className="userShowIcon" />
-                                            <span className="userShowInfoTitle">Tshilidzi Nekhavhambe</span>
+                                            <span className="userShowInfoTitle">{orgS.contactPerson}</span>
                                         </div>
                                         <div className="userShowInfo">
                                             <PhoneAndroid className="userShowIcon" />
-                                            <span className="userShowInfoTitle">081 456 675</span>
+                                            <span className="userShowInfoTitle">{orgS.contactNumber}</span>
                                         </div>
                                         <div className="userShowInfo">
                                             <MailOutline className="userShowIcon" />
-                                            <span className="userShowInfoTitle">Givers@gmail.com</span>
+                                            <span className="userShowInfoTitle">{orgS.orgEmail}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -105,13 +106,17 @@ export class Org extends Component {
                                     <span className="userShowTitle">Location</span>
                                     <div className="userShowInfo">
                                         <LocationSearching className="userShowIcon" />
-                                        <span className="userShowInfoTitle">Pretoria, arcadia</span>
+                                        <span className="userShowInfoTitle">{orgS.orgSector}</span>
+                                    </div>
+                                    <div className="userShowInfo">
+                                        <LocationSearching className="userShowIcon" />
+                                        <span className="userShowInfoTitle">{orgS.status}</span>
                                     </div>
                                     <span className="userShowTitle">Description</span>
                                     <div className="userShowInfoO">
                                         {/*<DescriptionOutlined className="userShowIcon" />*/}
                                         <p className="userShowInfoTitle">
-                                           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                            {orgS.orgDescription}
                                         </p>
                                     </div>
 

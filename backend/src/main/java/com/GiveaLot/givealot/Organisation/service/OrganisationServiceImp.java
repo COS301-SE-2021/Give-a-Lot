@@ -1,5 +1,7 @@
 package com.GiveaLot.givealot.Organisation.service;
 
+import com.GiveaLot.givealot.Blockchain.Repository.BlockChainRepository;
+import com.GiveaLot.givealot.Blockchain.dataclass.Blockchain;
 import com.GiveaLot.givealot.Browse.model.Browse;
 import com.GiveaLot.givealot.Browse.repository.BrowseRecommenderRepository;
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
@@ -73,6 +75,9 @@ public class OrganisationServiceImp implements OrganisationService {
     private sectorsRepository sectorsRepository;
 
     @Autowired
+    private BlockChainRepository blockChainRepository;
+
+    @Autowired
     private BrowseRecommenderRepository browseRecommenderRepository;
 
     @Autowired
@@ -90,13 +95,11 @@ public class OrganisationServiceImp implements OrganisationService {
             if (request == null) {
                 throw new Exception("Exception: request not set");
             }
-            if (request.getAdminUserEmail() == null) {
+            if (request.getAdminId() == null) {
                 throw new Exception("Exception: admin user field not set");
-            } else if (request.getAdminUserEmail().isEmpty()) {
-                throw new Exception("Exception: admin user field is empty");
             }
 
-            User admin = userRepository.findUserByEmail(request.getAdminUserEmail());
+            User admin = userRepository.findUserById(request.getAdminId());
 
             if (admin == null)
                 throw new Exception("Exception: user is not admin");
@@ -120,10 +123,14 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("Exception: Id provided is null");
 
         Organisations res = organisationRepository.selectOrganisationById(orgId);
-        User user = userRepository.findUserById(userId);
 
-        if(user == null)
-            throw new Exception("Exception: invalid user id");
+
+        if(userId != -1) {
+            User user = userRepository.findUserById(userId);
+
+            if (user == null)
+                throw new Exception("Exception: invalid user id");
+        }
 
         if (res != null)
         {
@@ -1469,6 +1476,22 @@ public class OrganisationServiceImp implements OrganisationService {
     @Override
     public getNumberOfOrganisationsResponse getNumberOfOrganisations(GetOrganisationsRequest request) throws Exception {
         return new getNumberOfOrganisationsResponse("get_num_org_200_OK","success",getOrganisations(request).getResponse().size());
+    }
+
+    @Override
+    public getOrgCertLevelResponse getOrgCertLevel(GetOrganisationCertificateLevelRequest request) throws Exception {
+        if(request == null)
+            throw new Exception("Exception: request is null");
+
+        if(organisationRepository.selectOrganisationById(request.getOrgid())==null)
+        {
+            throw new Exception("organisation does not exist");
+        }
+        Blockchain blockchain = blockChainRepository.selectBlockchainOrgId(request.getOrgid());
+        if(blockchain == null)
+            throw new Exception("error with the blockchain");
+
+    return new getOrgCertLevelResponse("get_org_cert_level","success",blockchain.getLevel());
     }
 
     /*helper*/

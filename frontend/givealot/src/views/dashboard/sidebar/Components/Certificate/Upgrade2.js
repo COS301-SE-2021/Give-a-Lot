@@ -34,21 +34,22 @@ const styles = theme => ({
 
 });
 
+const initialState = {
+    orgId:"32",
+    date:"",
+    startDate: new Date(),
+    paypal:"",
+    dateError:"",
+    paypalError:"",
+};
+
 
 export class Upgrade2 extends Component {
 
+    state = initialState;
+
     constructor (props) {
         super(props)
-        this.state={
-            orgId:"32",
-            date:"",
-            startDate: new Date(),
-            paypal:"",
-
-
-
-
-        };
         this.handleDateChange = this.handleDateChange.bind(this);
     }
 
@@ -56,6 +57,28 @@ export class Upgrade2 extends Component {
         this.setState({startDate: date, date:document.getElementsByClassName("input3")[0].value} )
 
     }
+
+    validate = () => {
+        let dateError = "";
+        let paypalError = "";
+
+
+        if (!this.state.date) {
+            dateError = "Date is require";
+        }
+
+
+        if(!this.state.paypal) {
+            paypalError="Link required";
+        }
+
+        if ( dateError || paypalError) {
+            this.setState({ dateError, paypalError });
+            return false;
+        }
+
+        return true;
+    };
 
     handleInputChange = input => e => {
 
@@ -74,14 +97,17 @@ export class Upgrade2 extends Component {
 
     handleFormSubmit = e => {
         e.preventDefault();
-        const data = {
-            orgId: this.state.orgId,
-            date: this.state.date,
-        };
-        Axios
-            .post("http://localhost:8080/v1/organisation/add/estdate", data)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+        const isValid = this.validate();
+        if (isValid) {
+            const data = {
+                orgId: this.state.orgId,
+                date: this.state.date,
+            };
+            Axios
+                .post("http://localhost:8080/v1/organisation/add/estdate", data)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
     };
 
     onToast = () => {
@@ -137,6 +163,7 @@ export class Upgrade2 extends Component {
 
 
                                         />
+                                        <span className="loginError">{this.state.dateError}</span>
                                     </div>
                                     <TextField
                                         id="outlined-full-width"
@@ -162,6 +189,7 @@ export class Upgrade2 extends Component {
                                             onChange={this.handleInputChange}
                                         />
                                     </div>
+                                    <span className="loginError">{this.state.emailError}</span>
 
                                 </div>
                                 <div className="upgrade_Button">

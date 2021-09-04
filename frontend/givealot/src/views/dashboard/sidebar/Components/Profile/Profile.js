@@ -26,7 +26,7 @@ export class Profile extends Component {
 
         this.state = {
             persons:[],
-            id:1,
+            adminId:14,
         }
     }
 
@@ -50,11 +50,35 @@ export class Profile extends Component {
             })
     }*/
 
+    componentDidMount() {
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        const admin = {
+            "adminId" : this.state.adminId
+        }
+        axios.post('http://localhost:8080/v1/organisation/get/organisations',admin , config)
+            .then(response =>{
+                console.log(response)
+                this.setState({persons: response.data.response[0]})
+                console.log(this.state.persons)
+
+            })
+            .catch(error =>{
+                this.setState({error : 'Error Retrieving data'})
+            })
+
+    }
+
+
+
     render() {
         const { persons } = this.state
         return (
             <div className="profileOrg">
-                {/*<Dash />*/}
                 <div className="userTitleContainer">
                     <div className="userTitle">Edit Information</div>
                 </div>

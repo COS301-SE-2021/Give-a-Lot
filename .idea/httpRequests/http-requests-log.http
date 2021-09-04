@@ -1,3 +1,13 @@
+GET http://localhost:8080/v1/organisation/sel/organisation/info/32
+
+<> 2021-09-04T024547.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/info/32
+
+###
+
 POST http://localhost:8080/report/get/all
 Content-Type: application/json
 
@@ -523,18 +533,6 @@ GET http://localhost:8080/v1/browse/sectors/recommendations/80
 GET http://localhost:8080/v1/browse/sectors/recommendations/8
 
 <> 2021-08-27T064634.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/8
-
-<> 2021-08-27T062715.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/8
-
-<> 2021-08-27T060246.200.json
 
 ###
 

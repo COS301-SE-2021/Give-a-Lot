@@ -154,6 +154,7 @@ public class OrganisationController
         }
     }
 
+    @CrossOrigin
     @PutMapping("/investigate/orgId") /* tested - works */
     public ResponseEntity<generalOrganisationResponse> investigateOrganisation(@RequestBody @NonNull InvestigateRequest orgId)
     {

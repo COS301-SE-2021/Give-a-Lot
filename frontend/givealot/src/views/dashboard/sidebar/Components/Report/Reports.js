@@ -12,11 +12,10 @@ export class Reports extends Component {
         this.state = {
             count: 4,
             reports: [],
+            orgId:32,
             error: "",
         }
     }
-
-
     componentDidMount(){
         let config = {
             headers: {
@@ -24,15 +23,17 @@ export class Reports extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        axios.post('http://localhost:8080/report/get/all',  config)
+        const data = {
+            "orgId" : this.state.orgId
+        }
+
+        axios.post('http://localhost:8080/report/get/all', data  ,config)
             .then(response =>{
-                // console.log(response)
-                this.setState({validation: response.data})
-                console.log(this.state.validation)
+                this.setState({reports: response.data.response})
+                console.log(response)
             })
             .catch(error =>{
                 console.log(error)
-                this.setState({error : 'Error Retrieving data'})
             })
     }
 

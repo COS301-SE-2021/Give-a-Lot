@@ -36,6 +36,7 @@ export class Users extends Component {
         this.state = {
             users:[],
             error: "",
+            adminUserEmail: "admin@email.com"
         }
 
     }
@@ -47,11 +48,16 @@ export class Users extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        axios.get('http://jsonplaceholder.typicode.com/users',  config)
+
+        const users = {
+            "adminUserEmail":this.state.adminUserEmail
+        }
+
+        axios.post('http://localhost:8080/v1/user/get/users', users ,config)
             .then(response =>{
-                // console.log(response)
-                this.setState({users: response.data})
-                console.log(this.state.users)
+                console.log(response)
+                this.setState({users: response.data.response})
+                // console.log(this.state.users)
             })
             .catch(error =>{
                 console.log(error)
@@ -71,21 +77,21 @@ export class Users extends Component {
                             <TableContainer component={Paper}>
                                 <Table >
                                     <TableHead style={{backgroundColor: "#957b9e"}}>
-                                        <TableCell></TableCell>
-                                        <TableCell style={{color: "white"}}>Name</TableCell>
-                                        <TableCell style={{color: "white"}}>email</TableCell>
-                                        <TableCell style={{color: "white"}}>Contact person</TableCell>
-                                        <TableCell style={{color: "white"}}>Contact NUmber</TableCell>
+                                        {/*<TableCell></TableCell>*/}
+                                        <TableCell style={{color: "white"}}>First Name</TableCell>
+                                        <TableCell style={{color: "white"}}>Last Name</TableCell>
+                                        <TableCell style={{color: "white"}}>Email</TableCell>
+                                        <TableCell style={{color: "white"}}>Activation Date</TableCell>
                                     </TableHead>
                                     <TableBody>
                                         {users.map((item, index) =>{
                                             return(
                                                 <TableRow>
-                                                    <TableCell><Avatar aria-label="recipe" src="https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg" /> </TableCell>
-                                                    <TableCell>{item.name}</TableCell>
-                                                    <TableCell>{item.username}</TableCell>
+                                                    {/*<TableCell><Avatar aria-label="recipe" src="https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg" /> </TableCell>*/}
+                                                    <TableCell>{item.firstname}</TableCell>
+                                                    <TableCell>{item.lastname}</TableCell>
                                                     <TableCell>{item.email}</TableCell>
-                                                    <TableCell>{item.username}</TableCell>
+                                                    <TableCell>{item.activateDate}</TableCell>
                                                 </TableRow>
                                             )
                                         })}

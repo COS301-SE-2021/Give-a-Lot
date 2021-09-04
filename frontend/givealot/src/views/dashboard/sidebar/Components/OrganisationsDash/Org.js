@@ -14,7 +14,8 @@ export class Org extends Component {
 
         this.state = {
             orgS:{},
-            orgId: 32
+            orgId: 32,
+            investigate: ''
         }
     }
 
@@ -38,13 +39,75 @@ export class Org extends Component {
 
     handleActivate() {
 
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        const activate = {
+            orgID : 32
+        }
+        // console.log("investigate")
+        axios.put('http://localhost:8080/v1/organisation/activate/orgId',activate ,config)
+            .then(response =>{
+                console.log(response)
+                // this.setState({investigate: response.data})
+                // console.log(this.state.org)
+            })
+            .catch(error =>{
+                console.log(error)
+                // this.setState({error : 'Error Retrieving data'})
+            })
+
     }
 
-    handleInvestigate() {
-
+    handleInvestigate () {
+        // e.preventDefault();
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        const investigate = {
+            orgID : 32
+        }
+        // console.log("investigate")
+        axios.put('http://localhost:8080/v1/organisation/investigate/orgId',investigate ,config)
+            .then(response =>{
+                console.log(response)
+                // this.setState({investigate: response.data})
+                // console.log(this.state.org)
+            })
+            .catch(error =>{
+                console.log(error)
+                // this.setState({error : 'Error Retrieving data'})
+            })
     }
 
     handleSuspend() {
+
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        const suspend = {
+            orgID : 32
+        }
+        // console.log("investigate")
+        axios.put('http://localhost:8080/v1/organisation/suspend/orgId',suspend ,config)
+            .then(response =>{
+                console.log(response)
+                // this.setState({investigate: response.data})
+                // console.log(this.state.org)
+            })
+            .catch(error =>{
+                console.log(error)
+                // this.setState({error : 'Error Retrieving data'})
+            })
 
     }
 
@@ -124,16 +187,16 @@ export class Org extends Component {
                             </Typography>
                         </CardContent>
                         <Typography className="_orgButtons">
-                            <Button variant="contained" color="primary" onclick={this.handleActivate}>
+                            <Button  type="submit" variant="contained" color="primary" onClick={this.handleActivate}>
                                 Activate
                             </Button>
-                            <Button variant="contained" style={{color: "white", backgroundColor: "orange"}}
-                                    onclick={this.handleInvestigate}
+                            <Button type="submit" variant="contained" style={{color: "white", backgroundColor: "orange"}}
+                                    onClick={this.handleInvestigate}
                             >
                                 Investigate
                             </Button>
-                            <Button variant="contained" color="secondary"
-                                    onclick={this.handleSuspend}
+                            <Button type="submit" variant="contained" color="secondary"
+                                    onClick={this.handleSuspend}
                             >
                                 Suspend
                             </Button>

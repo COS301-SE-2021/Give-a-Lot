@@ -87,7 +87,8 @@ export class Cards extends Component {
             }
         }
         const adminUsersRequestBodyOrg = {
-            "adminUserEmail" : this.state.adminUserEmail
+            // "adminUserEmail" : this.state.adminUserEmail
+            "orgId" : this.state.orgId
         }
         axios.post('http://localhost:8080/v1/organisation/get/num_organisation',adminUsersRequestBodyOrg , config)
             .then(response =>{

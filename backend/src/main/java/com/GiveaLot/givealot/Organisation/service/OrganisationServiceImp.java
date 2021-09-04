@@ -95,13 +95,11 @@ public class OrganisationServiceImp implements OrganisationService {
             if (request == null) {
                 throw new Exception("Exception: request not set");
             }
-            if (request.getAdminUserEmail() == null) {
+            if (request.getAdminId() == null) {
                 throw new Exception("Exception: admin user field not set");
-            } else if (request.getAdminUserEmail().isEmpty()) {
-                throw new Exception("Exception: admin user field is empty");
             }
 
-            User admin = userRepository.findUserByEmail(request.getAdminUserEmail());
+            User admin = userRepository.findUserById(request.getAdminId());
 
             if (admin == null)
                 throw new Exception("Exception: user is not admin");
@@ -125,10 +123,14 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("Exception: Id provided is null");
 
         Organisations res = organisationRepository.selectOrganisationById(orgId);
-        User user = userRepository.findUserById(userId);
 
-        if(user == null)
-            throw new Exception("Exception: invalid user id");
+
+        if(userId != -1) {
+            User user = userRepository.findUserById(userId);
+
+            if (user == null)
+                throw new Exception("Exception: invalid user id");
+        }
 
         if (res != null)
         {

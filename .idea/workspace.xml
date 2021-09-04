@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Added additional verify implementation">
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Notification/service/notificationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Notification/service/notificationServiceImpl.java" afterDir="false" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Last minute changes">
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Report/controller/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Report/controller/ReportController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +26,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master_backend" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -60,8 +58,6 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/src/main/resources" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
@@ -82,11 +78,11 @@
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\frontend\givealot\localFiles\20" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\frontend\givealot\src\localFiles" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\frontend\givealot\src" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\DemoMaterial" />
       <recent name="C:\Users\Nqobani_Xpl\Documents\Course\2021\COS301\capstone - restructured\Give-a-Lot" />
+      <recent name="C:\Users\Nqobani_Xpl\Documents\Course\2021\COS301\capstone - restructured\Give-a-Lot\backend\src\main\resources" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -96,30 +92,32 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="generated-requests#11" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="11" runType="Run single request">
-      <method v="2" />
-    </configuration>
     <configuration name="generated-requests#13" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="13" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#20" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="20" runType="Run single request">
+    <configuration name="generated-requests#2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#21" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="21" runType="Run single request">
+    <configuration name="generated-requests#3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="3" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#22" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="22" runType="Run single request">
+    <configuration name="generated-requests#6" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="6" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests#7" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="7" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="GivealotApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -131,11 +129,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.generated-requests#22" />
-        <item itemvalue="HTTP Request.generated-requests#21" />
-        <item itemvalue="HTTP Request.generated-requests#20" />
+        <item itemvalue="HTTP Request.generated-requests#7" />
+        <item itemvalue="HTTP Request.generated-requests#3" />
+        <item itemvalue="HTTP Request.generated-requests#6" />
+        <item itemvalue="HTTP Request.generated-requests#2" />
         <item itemvalue="HTTP Request.generated-requests#13" />
-        <item itemvalue="HTTP Request.generated-requests#11" />
       </list>
     </recent_temporary>
   </component>
@@ -151,7 +149,20 @@
       <workItem from="1629301692751" duration="18015000" />
       <workItem from="1629339797985" duration="980000" />
       <workItem from="1629343930362" duration="7971000" />
-      <workItem from="1630713762969" duration="5365000" />
+    </task>
+    <task id="LOCAL-00011" summary="organisations api - get all users ready for frontend">
+      <created>1629261129675</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1629261129675</updated>
+    </task>
+    <task id="LOCAL-00012" summary="organisations controller revision">
+      <created>1629261393018</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1629261393018</updated>
     </task>
     <task id="LOCAL-00013" summary="organisations controller revision - add Organisation">
       <created>1629261980094</created>
@@ -454,49 +465,35 @@
       <option name="project" value="LOCAL" />
       <updated>1630619170041</updated>
     </task>
-    <task id="LOCAL-00056" summary="Added additional verify implementation">
-      <created>1630627897856</created>
+    <task id="LOCAL-00056" summary="Last minute changes">
+      <created>1630712128271</created>
       <option name="number" value="00056" />
       <option name="presentableId" value="LOCAL-00056" />
       <option name="project" value="LOCAL" />
-      <updated>1630627897856</updated>
+      <updated>1630712128276</updated>
     </task>
-    <task id="LOCAL-00057" summary="Added additional verify implementation">
-      <created>1630711941717</created>
+    <task id="LOCAL-00057" summary="Last minute changes">
+      <created>1630714022262</created>
       <option name="number" value="00057" />
       <option name="presentableId" value="LOCAL-00057" />
       <option name="project" value="LOCAL" />
-      <updated>1630711941718</updated>
+      <updated>1630714022262</updated>
     </task>
-    <task id="LOCAL-00058" summary="Added additional verify implementation">
-      <created>1630713932951</created>
+    <task id="LOCAL-00058" summary="Last minute changes">
+      <created>1630716192825</created>
       <option name="number" value="00058" />
       <option name="presentableId" value="LOCAL-00058" />
       <option name="project" value="LOCAL" />
-      <updated>1630713932955</updated>
+      <updated>1630716192825</updated>
     </task>
-    <task id="LOCAL-00059" summary="Added additional verify implementation">
-      <created>1630714770614</created>
+    <task id="LOCAL-00059" summary="Last minute changes">
+      <created>1630719501914</created>
       <option name="number" value="00059" />
       <option name="presentableId" value="LOCAL-00059" />
       <option name="project" value="LOCAL" />
-      <updated>1630714770615</updated>
+      <updated>1630719501914</updated>
     </task>
-    <task id="LOCAL-00060" summary="Added additional verify implementation">
-      <created>1630716431287</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1630716431287</updated>
-    </task>
-    <task id="LOCAL-00061" summary="Added additional verify implementation">
-      <created>1630717230090</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1630717230090</updated>
-    </task>
-    <option name="localTasksCounter" value="62" />
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -529,10 +526,10 @@
     <MESSAGE value="organisations controller revision - add Organisation" />
     <MESSAGE value="organisations controller revision" />
     <MESSAGE value="Fixing organisation points" />
-    <MESSAGE value="Last minute changes" />
     <MESSAGE value="Cleared temporary organisations" />
     <MESSAGE value="Added files" />
     <MESSAGE value="Added additional verify implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added additional verify implementation" />
+    <MESSAGE value="Last minute changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Last minute changes" />
   </component>
 </project>

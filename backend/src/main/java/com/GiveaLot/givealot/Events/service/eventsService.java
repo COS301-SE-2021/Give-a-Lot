@@ -7,7 +7,6 @@ import com.GiveaLot.givealot.Events.response.generalResponse;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 
 public interface eventsService {
-
     generalResponse addCalenderEvent(addCalenderEventRequest request) throws Exception;
     generalResponse editEventTitle(editEventTitleRequest request) throws Exception;
     generalResponse addTimelineEvent(addTimeLineEventRequest request) throws Exception;

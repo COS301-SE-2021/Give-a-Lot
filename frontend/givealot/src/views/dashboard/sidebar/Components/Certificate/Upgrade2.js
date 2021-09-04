@@ -188,7 +188,7 @@ export class Upgrade2 extends Component {
                                     />
                                         </div>
                                     <span className="loginError_certificate">{this.state.paypalError}</span>
-                                    {/*<div>
+                                    <div>
                                         <span className="upgrade_label_logo">
                                             QR code
                                          </span>
@@ -199,7 +199,7 @@ export class Upgrade2 extends Component {
                                             onChange={this.handleInputChange}
                                         />
 
-                                    </div>*/}
+                                    </div>
                                     <span className="loginError_certificate">{this.state.paypalError}</span>
 
                                 </div>

@@ -1,14 +1,13 @@
 package com.GiveaLot.givealot.User.controller;
 
 import com.GiveaLot.givealot.Organisation.requests.GetOrganisationsRequest;
+import com.GiveaLot.givealot.Organisation.requests.getNumOrganisationPerMonthRequest;
+import com.GiveaLot.givealot.Organisation.response.getNumOrganisationPerMonthResponse;
 import com.GiveaLot.givealot.Organisation.response.getNumberOfOrganisationsResponse;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import com.GiveaLot.givealot.User.dataclass.User;
 import com.GiveaLot.givealot.User.requests.*;
-import com.GiveaLot.givealot.User.response.UserResponse;
-import com.GiveaLot.givealot.User.response.getNumberofUsersResponse;
-import com.GiveaLot.givealot.User.response.getUserResponse;
-import com.GiveaLot.givealot.User.response.userResponseGeneral;
+import com.GiveaLot.givealot.User.response.*;
 import com.GiveaLot.givealot.User.service.UserServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -101,9 +100,23 @@ public class UserController {
             return new ResponseEntity<>(new getUserResponse(false,e.toString(),null, null), HttpStatus.OK);
         }
     }
+    @PostMapping("/get/num_users/per_month") /*tested all good*/
+    public ResponseEntity<getNumUsersPerMonthResponse> getNumOrganisationsPerMonth(@RequestBody @NonNull getNumUserPerMonthRequest body)
+    {
+        getNumUsersPerMonthResponse response;
+        try
+        {
+            response = service.getNumPerMonth(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new getNumUsersPerMonthResponse("get_num_orgs_per_month_500_bad","failed: " + e, -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1), HttpStatus.OK);
+        }
+    }
 
     @PostMapping("/get/users") /*tested all good*/
-    public ResponseEntity<UserResponse>  getActivationDate(@RequestBody @NonNull GetUsersRequest body)
+    public ResponseEntity<UserResponse>  getUsers(@RequestBody @NonNull GetUsersRequest body)
     {
         UserResponse userResponse;
         try

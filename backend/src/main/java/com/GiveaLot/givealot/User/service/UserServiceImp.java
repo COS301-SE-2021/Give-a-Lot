@@ -3,15 +3,14 @@ package com.GiveaLot.givealot.User.service;
 import com.GiveaLot.givealot.Browse.repository.BrowseRecommenderRepository;
 import com.GiveaLot.givealot.Notification.dataclass.Mail;
 import com.GiveaLot.givealot.Notification.service.SendMailServiceImpl;
+import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.repository.sectorsRepository;
+import com.GiveaLot.givealot.Organisation.response.getNumOrganisationPerMonthResponse;
 import com.GiveaLot.givealot.User.dataclass.User;
 import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
 import com.GiveaLot.givealot.User.repository.UserRepository;
 import com.GiveaLot.givealot.User.requests.*;
-import com.GiveaLot.givealot.User.response.GetActivationDateResponse;
-import com.GiveaLot.givealot.User.response.UserResponse;
-import com.GiveaLot.givealot.User.response.getNumberofUsersResponse;
-import com.GiveaLot.givealot.User.response.userResponseGeneral;
+import com.GiveaLot.givealot.User.response.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -249,6 +248,76 @@ public class UserServiceImp implements UserService {
     public getNumberofUsersResponse getNumberOfUser(GetUsersRequest request) throws Exception {
 
         return new getNumberofUsersResponse(true,"success",GetUsers(request).size());
+
+    }
+
+    @Override
+    public getNumUsersPerMonthResponse getNumPerMonth(getNumUserPerMonthRequest request) throws Exception {
+        if(request == null)
+            throw new Exception("Exception: request is null");
+        String month ="";
+        int jan = 0;
+        int feb= 0;
+        int mar= 0;
+        int apr= 0;
+        int may= 0;
+        int jun= 0;
+        int jul= 0;
+        int aug= 0;
+        int sept= 0;
+        int oct= 0;
+        int nov= 0;
+        int dec= 0;
+        int i = 0;
+        List<User>users = userRepository.findAll();
+        while(i<users.size())
+        {
+            month=users.get(i).getActivateDate().substring(5,7);
+            if(month.equals("01"))
+            {
+                jan++;
+            }
+            else if(month.equals("02"))
+            {
+                feb++;
+            }
+            else if(month.equals("03"))
+            {
+                mar++;
+            }  else if(month.equals("04"))
+            {
+                apr++;
+            }   else if(month.equals("05"))
+            {
+                may++;
+            }  else if(month.equals("06"))
+            {
+                jun++;
+            }  else if(month.equals("07"))
+            {
+                jul++;
+            }  else if(month.equals("08"))
+            {
+                aug++;
+            }  else if(month.equals("09"))
+            {
+                sept++;
+            }  else if(month.equals("10"))
+            {
+                oct++;
+            }  else if(month.equals("11"))
+            {
+                nov++;
+            }
+            else if(month.equals("12"))
+            {
+                dec++;
+            }
+            i++;
+        }
+
+
+        return new getNumUsersPerMonthResponse("get_num_orgs_per_month","success",jan,feb,mar,apr,may,jun,jul,aug,sept,oct,nov,dec);
 
     }
 /*

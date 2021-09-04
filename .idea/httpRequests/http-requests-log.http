@@ -1,3 +1,87 @@
+POST http://localhost:8080/v1/notifications/add/notifications
+Content-Type: application/json
+
+{
+  "organisation_id":32,
+  "isOpen":false,
+  "description":"Pistol is requesting to update to next level",
+  "notification_type":"update" ,
+  "name": "Pistol"
+}
+
+<> 2021-09-04T042206.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/add/notifications
+Content-Type: application/json
+
+{
+  "organisation_id":32,
+  "isOpen":false,
+  "description":"Pistol is requesting to update to next level",
+  "notification_type":"update" ,
+  "name": "Pistol"
+}
+
+<> 2021-09-04T042055.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/add/notifications
+Content-Type: application/json
+
+{
+  "organisation_id":32,
+  "isOpen":false,
+  "description":"Pistol is requesting to update to next level",
+  "notification_type":"update" ,
+  "name": "Pistol"
+}
+
+<> 2021-09-04T042043.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/add/notifications
+Content-Type: application/json
+
+{
+  "organisation_id":32,
+  "isOpen":false,
+  "description":"Pistol is requesting to update to next level",
+  "notification_type":"update" ,
+  "name": "Pistol"
+}
+
+<> 2021-09-04T041809.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/add/notifications
+Content-Type: application/json
+
+{
+  "organisation_id":32,
+  "isOpen":false,
+  "description":"Pistol is requesting to update to next level",
+  "notification_type":"update" ,
+  "name": "Pistol"
+}
+
+###
+
+POST http://localhost:8080/v1/notifications/get/num_notifications
+Content-Type: application/json
+
+{
+  "adminUserEmail":"admin@email.com"
+}
+
+<> 2021-09-04T032319.200.json
+
+###
+
 POST http://localhost:8080/v1/notifications/get/level_information
 Content-Type: application/json
 
@@ -529,54 +613,6 @@ Content-Type: application/json
 }
 
 <> 2021-08-31T230412.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-"orgName" : "This is the certificate bla",
-"slogan" : "we empower the young minds ",
-"orgDescription" : "The fkfkfk k kfgkk gkfg kgkf gkfkg gkfglflkgkf kfgkgk flkgflk gkf flkg lkfglkflkf kgfglkflklkf lkfglkf lk lkfglkf lkg fgofogo fgfg",
-"orgSector" : "disability",
-"orgEmail" : "certificate@givealot.com",
-"contactPerson" : "Winnie Mashaba",
-"contactNumber" : "0637493443",
-"password" : "Password@123"
-}
-
-<> 2021-08-31T225206.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/default
-
-<> 2021-08-27T084649.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/lkkkj
-
-<> 2021-08-27T075137.401.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/12
-
-<> 2021-08-27T075127.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/12
-
-<> 2021-08-27T071925.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/12
-
-<> 2021-08-27T071350.200.json
 
 ###
 

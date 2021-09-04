@@ -58,7 +58,7 @@ export class Upgrade0 extends Component {
 
     handleInputChange = input => e => {
 
-        this.setState({ [input]: e.target.value });
+        this.setState({ [input]: e.target.files });
 
     };
 

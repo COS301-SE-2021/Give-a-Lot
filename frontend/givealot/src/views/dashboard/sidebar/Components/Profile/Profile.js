@@ -6,18 +6,17 @@ import Level2 from "./Level2"
 import Level3 from "./Level3"
 import Level4 from "./Level4"
 
+
 import {
-    CalendarToday,
+    CalendarToday, CheckCircleOutlineOutlined,
     LocationSearching,
     MailOutline,
     PermIdentity,
-    PhoneAndroid,
+    PhoneAndroid, PieChart, PieChartOutlined,
     Publish,
 } from "@material-ui/icons";
 import axios from "axios";
-import StarOutlineIcon from "@material-ui/icons/StarOutline";
-// import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
-// import Dash from "../../DashHeader/DashHeader"
+
 
 export class Profile extends Component {
 
@@ -25,12 +24,12 @@ export class Profile extends Component {
         super(props)
 
         this.state = {
-            persons:[],
-            id:1,
+            persons:"",
+            adminId:14,
         }
     }
 
-    componentDidMount(){
+/*componentDidMount(){
        let config = {
             headers: {
                 "Content-Type": "application/json",
@@ -48,56 +47,93 @@ export class Profile extends Component {
                 console.log(error)
                 this.setState({error : 'Error Retrieving data'})
             })
+    }*/
+
+    componentDidMount() {
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        const admin = {
+            "adminId" : this.state.adminId
+        }
+        axios.post('http://localhost:8080/v1/organisation/get/organisations',admin , config)
+            .then(response =>{
+                console.log(response)
+                this.setState({persons: response.data.response[0]})
+                console.log(this.state.persons)
+
+            })
+            .catch(error =>{
+                this.setState({error : 'Error Retrieving data'})
+            })
+
     }
+
+
 
     render() {
         const { persons } = this.state
         return (
             <div className="profileOrg">
-                {/*<Dash />*/}
                 <div className="userTitleContainer">
                     <div className="userTitle">Edit Information</div>
                 </div>
                 <div className="userOrgContainer">
-                    <div className="userShow">
-                        <div className="userShowTop">
 
 
-                            <div className="userShowTopTitle">
-                                <span className="userShowUsername">Gift of the givers</span>
-                                <span className="userShowUserTitle">giving back to the people </span>
-                            </div>
-                        </div>
-                        <div className="userShowBottom">
-                            <span className="userShowTitle">Account Details</span>
-                            <div className="userShowInfo">
-                                <PermIdentity className="userShowIcon" />
-                                <span className="userShowInfoTitle">Gift of the givers</span>
-                            </div>
-                            <div className="userShowInfo">
-                                <CalendarToday className="userShowIcon" />
-                                <span className="userShowInfoTitle">19.08.2021</span>
-                            </div>
-                            <span className="userShowTitle">Contact Details</span>
+                            <div className="userShow">
 
-                            <div className="userShowInfo">
-                                <PhoneAndroid className="userShowIcon" />
-                                <span className="userShowInfoTitle">Tshilidzi Nekhavhambe</span>
+                                <div className="userShowTop">
+
+
+                                    <div className="userShowTopTitle">
+                                        <span className="userShowUsername">{persons.orgName}</span>
+                                        <span className="userShowUserTitle">{persons.slogan} </span>
+                                    </div>
+                                </div>
+                                <div className="userShowBottom">
+                                    <span className="userShowTitle">Account Details</span>
+                                    <div className="userShowInfo">
+                                        <PermIdentity className="userShowIcon" />
+                                        <span className="userShowInfoTitle">{persons.orgName}</span>
+                                    </div>
+                                    <div className="userShowInfo">
+                                        <PieChartOutlined className="userShowIcon" />
+                                        <span className="userShowInfoTitle">{persons.orgSector}</span>
+                                    </div>
+                                    <div className="userShowInfo">
+                                        <CalendarToday className="userShowIcon" />
+                                        <span className="userShowInfoTitle">{persons.dateAdded}</span>
+                                    </div>
+                                    <span className="userShowTitle">Contact Details</span>
+
+                                    <div className="userShowInfo">
+                                        <PhoneAndroid className="userShowIcon" />
+                                        <span className="userShowInfoTitle">{persons.contactPerson}</span>
+                                    </div>
+                                    <div className="userShowInfo">
+                                        <PhoneAndroid className="userShowIcon" />
+                                        <span className="userShowInfoTitle">{persons.contactNumber}</span>
+                                    </div>
+                                    <div className="userShowInfo">
+                                        <MailOutline className="userShowIcon" />
+                                        <span className="userShowInfoTitle">{persons.orgEmail}</span>
+                                    </div>
+
+                                    <div className="userShowInfo">
+                                        <CheckCircleOutlineOutlined className="userShowIcon" />
+                                        <span className="userShowInfoTitle">{persons.status}</span>
+                                    </div>
+                                    <div className="userShowInfo">
+                                        <LocationSearching className="userShowIcon" />
+                                        <span className="userShowInfoTitle">Pretoria, arcadia</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="userShowInfo">
-                                <PhoneAndroid className="userShowIcon" />
-                                <span className="userShowInfoTitle">081 456 675</span>
-                            </div>
-                            <div className="userShowInfo">
-                                <MailOutline className="userShowIcon" />
-                                <span className="userShowInfoTitle">Givers@gmail.com</span>
-                            </div>
-                            <div className="userShowInfo">
-                                <LocationSearching className="userShowIcon" />
-                                <span className="userShowInfoTitle">Pretoria, arcadia</span>
-                            </div>
-                        </div>
-                    </div>
+
                     <div className="userUpdate">
                         <span className="userUpdateTitle">Edit</span>
                         <form className="userUpdateForm">
@@ -106,7 +142,7 @@ export class Profile extends Component {
                                     <label>Organisation name</label>
                                     <input
                                         type="text"
-                                        placeholder="Gift of the givers"
+                                        placeholder={persons.orgName}
                                         className="userUpdateInput"
                                     />
                                 </div>
@@ -114,7 +150,7 @@ export class Profile extends Component {
                                     <label>Contact person</label>
                                     <input
                                         type="text"
-                                        placeholder="Tshilidzi Nekhavhambe"
+                                        placeholder={persons.contactPerson}
                                         className="userUpdateInput"
                                     />
                                 </div>
@@ -122,7 +158,7 @@ export class Profile extends Component {
                                     <label>Contacts</label>
                                     <input
                                         type="text"
-                                        placeholder="081 456 675"
+                                        placeholder={persons.contactNumber}
                                         className="userUpdateInput"
                                     />
                                 </div>
@@ -130,7 +166,7 @@ export class Profile extends Component {
                                     <label>Email</label>
                                     <input
                                         type="text"
-                                        placeholder="Givers@gmail.com"
+                                        placeholder={persons.orgEmail}
                                         className="userUpdateInput"
                                     />
                                 </div>
@@ -141,6 +177,16 @@ export class Profile extends Component {
                                         type="text"
                                         placeholder="Pretoria, arcadia"
                                         className="userUpdateInput"
+                                    />
+                                </div>
+
+                                <div className="userUpdateItem">
+                                    <label>Description</label>
+                                    <textarea
+
+                                        type="text"
+                                        placeholder={persons.orgDescription}
+                                        className="userUpdateInput1"
                                     />
                                 </div>
                             </div>

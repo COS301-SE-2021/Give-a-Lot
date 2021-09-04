@@ -6,7 +6,6 @@ import { withStyles ,makeStyles } from '@material-ui/core/styles'
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';
-import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import TextField from "@material-ui/core/TextField";
@@ -40,28 +39,43 @@ export class Level1 extends Component {
     constructor (props) {
         super(props)
         this.state={
-            orgId:"",
+            orgId:"32",
             website: "",
             address:"",
 
         };
     }
 
-    handleChange = TextField => e => {
 
-        this.setState({ [TextField]: e.target.value });
 
+    handleChange = event => {
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
     };
 
     handleFormSubmit = e => {
         e.preventDefault();
-        const data = {
+        const web = {
             orgId: this.state.orgId,
             website: this.state.website,
+
+        };
+        const add = {
+            orgId: this.state.orgId,
             address: this.state.address,
+
         };
         Axios
-            .post("", data)
+            .post("http://localhost:8080/v1/organisation/add/website", web)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+
+        Axios
+            .post("http://localhost:8080/v1/organisation/add/address", add)
             .then(res => console.log(res))
             .catch(err => console.log(err));
     };
@@ -95,6 +109,7 @@ export class Level1 extends Component {
                                 <TextField
                                     id="outlined-full-width"
                                     label="Website"
+                                    name="website"
                                     style={{ margin: 8 }}
                                     placeholder="Enter your website url.."
 

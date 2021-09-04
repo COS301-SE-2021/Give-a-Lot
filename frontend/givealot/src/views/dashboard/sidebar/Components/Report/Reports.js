@@ -60,9 +60,11 @@ export class Reports extends Component {
                         {reports.map((item, index) =>{
                             return(
                                 <Accordions
+                                    org={item.orgId}
                                     id={item.reportId}
                                     title={item.reportType}
                                     description={item.description}
+                                    appeal={item.appeal}
                                 />
                                 )
                         })}

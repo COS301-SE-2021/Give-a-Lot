@@ -49,8 +49,11 @@ export class Upgrade3 extends Component {
     constructor (props) {
         super(props)
         this.state={
-            orgId:"",
-            SocialMedia:"",
+            orgId:"32",
+            url:"",
+            type:"",
+            url1:"",
+            type1:"",
             address:"",
             name:"",
             contacts:"",
@@ -59,7 +62,12 @@ export class Upgrade3 extends Component {
     }
 
     handleSocialChange = e => {
-        this.setState({SocialMedia: e.target.value});
+        this.setState({type: e.target.value});
+
+    };
+
+    handleSocial1Change = e => {
+        this.setState({type1: e.target.value});
 
     };
 
@@ -74,25 +82,28 @@ export class Upgrade3 extends Component {
 
     handleFormSubmit = e => {
         e.preventDefault();
-        const socialData = {
+        const social = {
             orgId: this.state.orgId,
-            website: this.state.website,
-            address: this.state.address,
+            type: this.state.type,
+            url: this.state.url,
         };
-        const committeeData = {
+
+        const social1 = {
             orgId: this.state.orgId,
-            website: this.state.website,
-            address: this.state.address,
+            type: this.state.type1,
+            url: this.state.url1,
         };
+
         Axios
-            .post("", socialData)
+            .post("http://localhost:8080/v1/organisation/add/socials", social)
             .then(res => console.log(res))
             .catch(err => console.log(err));
 
         Axios
-            .post("", committeeData)
+            .post("http://localhost:8080/v1/organisation/add/socials", social1)
             .then(res => console.log(res))
             .catch(err => console.log(err));
+
     };
 
     onToast = () => {
@@ -278,7 +289,8 @@ export class Upgrade3 extends Component {
                                                     <Select
                                                         labelId="demo-simple-select-outlined-label"
                                                         id="demo-simple-select-outlined"
-                                                        value={this.SocialMedia}
+                                                        name="type"
+                                                        value={this.type}
                                                         onChange={this.handleSocialChange}
                                                         label="Social platform"
 
@@ -297,6 +309,7 @@ export class Upgrade3 extends Component {
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Social media url"
+                                                name="url"
                                                 style={{ margin: 8 }}
                                                 placeholder="Enter your url..."
 
@@ -318,8 +331,9 @@ export class Upgrade3 extends Component {
                                                     <Select
                                                         labelId="demo-simple-select-outlined-label"
                                                         id="demo-simple-select-outlined"
-                                                        value={this.SocialMedia}
-                                                        onChange={this.handleSocialChange}
+                                                        value={this.type1}
+                                                        name="type1"
+                                                        onChange={this.handleSocial1Change}
                                                         label="Social platform"
 
 
@@ -338,6 +352,7 @@ export class Upgrade3 extends Component {
                                                 id="outlined-full-width"
                                                 label="Social media url"
                                                 style={{ margin: 8 }}
+                                                name="url1"
                                                 placeholder="Enter your url..."
                                                 fullWidth
                                                 margin="normal"

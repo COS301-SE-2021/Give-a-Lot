@@ -35,13 +35,17 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.text.secondary,
     },
     hidden:{
-        color: "white",
+        color: "",
     }
 }));
 
-export default function Accordions({id,title, description}) {
+export default function Accordions({org,id,title, description,appeal}) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
+    const [orgId, setId] = React.useState(org);
+    const [reportId, setReportId] = React.useState(id);
+    const [message, setMessage] = React.useState("");
+    const [appeall, setAppeal] = React.useState(appeal);
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
@@ -53,15 +57,80 @@ export default function Accordions({id,title, description}) {
         setOpen(true);
     };
 
+    const handleInput=(e)=>{
+        setMessage(e.target.value)
+    }
+
     const handleClose = () => {
         setOpen(false);
     };
 
+    const handleSubmit = (e) =>{
+
+        e.preventDefault()
+        const postData= {
+            message,
+            reportId,
+            orgId,
+        };
+
+        axios.post("http://localhost:8080/report/appeal/", postData)
+            .then(res=>{
+                console.log(res)
+            }).catch(err=>{
+                console.log(err)
+        })
+
+    }
 
 
-    return (
+    if(appeall){
+        return (
+            <div className={classes.root}>
+
+                <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel2bh-content"
+                        id="panel2bh-header"
+                    >
+                        <Typography className={classes.heading}>
+                            <ReportIcon className="iconReport"/>
+                            Report {id}
+                        </Typography>
+
+                        <Typography className={classes.secondaryHeading}>
+                            {title}
+                        </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography>
+                            {description}
+                        </Typography>
+                    </AccordionDetails>
+                    <Divider />
+                    <AccordionActions>
+                        <Button size="small">Cancel</Button>
+                        <button size="small" className="AppealButton1" onClick={handleClickOpen}>
+                            Appeal
+                        </button>
+                    </AccordionActions>
+                </Accordion>
+                <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                    <DialogTitle id="form-dialog-title">Can not make an appeal</DialogTitle>
+                        <DialogContent>
+                            <DialogContentText >
+                                Appeal has already been sent, awaiting Admin response.
+                            </DialogContentText>
+
+                        </DialogContent>
+
+                </Dialog>
+            </div>
+        );
+    }else
+        return (
         <div className={classes.root}>
-
 
             <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                 <AccordionSummary
@@ -93,6 +162,7 @@ export default function Accordions({id,title, description}) {
             </Accordion>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Make an appeal</DialogTitle>
+                <form onSubmit={e => { handleSubmit(e) }}>
                 <DialogContent>
                     <DialogContentText className={classes.hidden}>
                         Do not remove this line , it is very important.Do not remove this line , it is .
@@ -103,19 +173,22 @@ export default function Accordions({id,title, description}) {
                         label="Description"
                         multiline
                         rows={5}
-                        name="reportAppeal"
+                        name="appeal"
                         variant="outlined"
+                        onChange={handleInput}
                         fullWidth
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose} color="primary">
+                    <Button  onClick={handleClose} color="primary">
                         Cancel
                     </Button>
-                    <Button  color="primary">
+                    <Button type={"submit"} onClick={handleClose} color="primary">
                         Submit
                     </Button>
                 </DialogActions>
+
+                </form>
             </Dialog>
         </div>
     );

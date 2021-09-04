@@ -1,3 +1,19 @@
+POST http://localhost:8080/v1/organisation/add/sector
+Content-Type: application/json
+
+{
+  "sector" : "technology",
+  "adminId" : 14
+}
+
+<> 2021-09-04T181144.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/32/default
+
+###
+
 POST http://localhost:8080/v1/organisation/get/organisations
 Content-Type: application/json
 
@@ -539,18 +555,6 @@ GET http://localhost:8080/v1/browse/sectors/recommendations/12
 GET http://localhost:8080/v1/browse/sectors/recommendations/12
 
 <> 2021-08-27T071350.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/8
-
-<> 2021-08-27T070137.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/default
-
-<> 2021-08-27T070117.200.json
 
 ###
 

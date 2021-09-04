@@ -13,7 +13,8 @@ public class responseJSON
     private String message;
     private Object object;
 
-    public responseJSON(String code, String message, Object object) {
+    public responseJSON(String code, String message, Object object)
+    {
         this.code = code;
         this.message = message;
         this.object = object;

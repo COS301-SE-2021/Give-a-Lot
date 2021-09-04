@@ -187,12 +187,17 @@ public class ServerAccess {
         }
     }
 
-    public void uploadAuditDocument(long orgId, String orgName, File document) throws Exception {
+    public void uploadAuditDocument(long orgId, String orgName, MultipartFile document) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
-
-            document.renameTo(new File("backend/src/main/resources/TempDocument/audit.pdf"));
-
+            File image = new File("backend/src/main/resources/TempDocument/audit.pdf");
+            if (!image.exists()){
+                image.createNewFile();
+            }
+            try (OutputStream os = new FileOutputStream(image)) {
+                os.write(document.getBytes());
+            }
+            image.renameTo(new File("backend/src/main/resources/TempDocument/audit.pdf"));
             channelSftp.connect();
 
             String orgIdString = String.valueOf(orgId);
@@ -203,7 +208,7 @@ public class ServerAccess {
             File deletion = new File(localFile);
             deletion.delete();
         }catch (Exception e){
-            throw new Exception("Exception: Failed to interact with the server");
+            throw new Exception("Exception: Failed to interact with the server"+e);
         }
         finally {
             channelSftp.exit();
@@ -334,7 +339,7 @@ public class ServerAccess {
     public void uploadImageLogo(long orgId, String orgName, MultipartFile imageMPF) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
-            File image = new File("backend/src/main/resources/TempDocument/TempLogoImg.png");
+            File image = new File("backend/src/main/resources/TempDocument/image.png");
             if (!image.exists()){
                 image.createNewFile();
             }
@@ -346,7 +351,7 @@ public class ServerAccess {
             channelSftp.connect();
 
             String orgIdString = String.valueOf(orgId);
-            String localFile = "frontend/givealot/src/localFiles/" + orgId + "gallery/logo.png";
+            String localFile = "frontend/givealot/src/localFiles/" + orgId + "/gallery/logo.png";
 
             FileUtils.copyFile(image, new File(localFile));
 
@@ -364,18 +369,18 @@ public class ServerAccess {
     public void uploadImageQRCode(long orgId, String orgName, MultipartFile imageMPF) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
-            File image = new File("backend/src/main/resources/TempDocument/TempQRImg.png");
+            File image = new File("backend/src/main/resources/TempDocument/imageQr.png");
             if (!image.exists()){
                 image.createNewFile();
             }
             try (OutputStream os = new FileOutputStream(image)) {
                 os.write(imageMPF.getBytes());
             }
-            image.renameTo(new File("backend/src/main/resources/TempDocument/image.png"));
+            image.renameTo(new File("backend/src/main/resources/TempDocument/imageQr.png"));
 
             channelSftp.connect();
             String orgIdString = String.valueOf(orgId);
-            String localFile = "frontend/givealot/src/localFiles/" + orgId + "gallery/QRCode.png";
+            String localFile = "frontend/givealot/src/localFiles/" + orgId + "/gallery/QRCode.png";
 
             FileUtils.copyFile(image, new File(localFile));
 

@@ -632,8 +632,8 @@ public class OrganisationServiceImp implements OrganisationService {
         if(request.getOrgId() == null)
             throw new Exception("Exception: provided ID is null");
 
-        else if (request.getAudit() == null)
-            throw new Exception("Exception: tax reference not set");
+     /*   else if (request.getAudit() == null)
+            throw new Exception("Exception: tax reference not set");*/
 
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
@@ -1566,6 +1566,96 @@ public class OrganisationServiceImp implements OrganisationService {
 
 
         return new responseJSON("get_num_orgs_per_month","success",new getNumOrganisationPerMonthResponse(jan,feb,mar,apr,may,jun,jul,aug,sept,oct,nov,dec));
+    }
+
+    @Override
+    public generalOrganisationResponse updateOrganisationInfo(updateOrganisationInfoRequest request) throws Exception
+    {
+        if(request == null)
+            throw new Exception("request is null");
+        else if(request.getOrgId() == null)
+            throw new Exception(("request id is null"));
+        else if(request.getNewValue() == null)
+            throw new Exception("request id is null");
+        else if(request.getType() == null)
+            throw new Exception("request type is null");
+        else if(request.getType().isEmpty())
+            throw new Exception("type field is required");
+        else if(request.getNewValue().isEmpty())
+            throw new Exception("new value is required");
+
+        if(!organisationRepository.existsById(request.getOrgId()))
+            throw new Exception("the organisation you are attempting to modify does not exist");
+
+        if(request.getType().equalsIgnoreCase("description"))
+        {
+            if(request.getNewValue().length()>65535 || request.getNewValue().length() < 100)
+            {
+                throw new Exception("Exception: Description does not satisfy the database constraints");
+            }
+            if(organisationRepository.updateDescription(request.getOrgId(), request.getNewValue()) != 1)
+                throw new Exception("failed to update description");
+
+            return new generalOrganisationResponse("update_description_200_OK", "success");
+        }
+        else if(request.getType().equalsIgnoreCase("contactNumber"))
+        {
+            if(!request.getNewValue().matches("[0-9]+"))
+            {
+                throw new Exception("This number is invalid, 0XXXXXXXXX where X is 0-9");
+            }
+            else if(request.getNewValue().length() != 10)
+            {
+                throw new Exception("The length of this function is not correct");
+            }
+
+            if(organisationRepository.updateContactNumber(request.getOrgId(), request.getNewValue()) != 1)
+                throw new Exception("failed to update contact number");
+
+            return new generalOrganisationResponse("update_number_200_OK", "success");
+        }
+        else if(request.getType().equalsIgnoreCase("email"))
+        {
+            if(!request.getNewValue().contains("@"))
+            {
+                throw new Exception("The email provided is invalid");
+            }
+            else
+            {
+                Organisations organisations = organisationRepository.selectOrganisationByEmail(request.getNewValue());
+                if(organisations != null && !organisations.getOrgId().equals(request.getOrgId()))
+                    throw new Exception("email already taken");
+            }
+            if(organisationRepository.updateEmail(request.getOrgId(), request.getNewValue()) != 1)
+                throw new Exception("failed to update email");
+
+            return new generalOrganisationResponse("update_email_200_OK", "success");
+        }
+        else if(request.getType().equalsIgnoreCase("slogan"))
+        {
+            if(request.getNewValue().length() < 3)
+            {
+                throw new Exception("This slogan is too short");
+            }
+            if(organisationRepository.updateSlogan(request.getOrgId(), request.getNewValue()) != 1)
+                throw new Exception("failed to update slogan");
+
+            return new generalOrganisationResponse("update_slogan_200_OK", "success");
+        }
+        else if(request.getType().equalsIgnoreCase("contactPerson"))
+        {
+            if (request.getNewValue().length() < 2) {
+                throw new Exception("This name is too short to be a person name");
+            } else if (request.getNewValue().length() > 50) {
+                throw new Exception("This name is too long, apologies if it is your real name");
+            }
+
+            if (organisationRepository.updatePerson(request.getOrgId(), request.getNewValue()) != 1)
+                throw new Exception("failed to update contact person");
+
+            return new generalOrganisationResponse("update_person_200_OK", "success");
+        }
+        throw new Exception("the type is incorrect");
     }
 
     /*helper*/

@@ -35,19 +35,24 @@ const styles = theme => ({
 });
 
 
-export class Upgrade0 extends Component {
+const initialState = {
+    orgId:6,
+    startDate: new Date(),
+    ngoNumber:"",
+    ngoDate:"",
+    logo:"",
+    ngoNumberError:"",
+    ngoDateError:"",
+    logoError:"",
+};
 
+
+
+export class Upgrade0 extends Component {
+    state = initialState;
     constructor (props) {
         super(props)
-        this.state={
-            orgId:6,
-            startDate: new Date(),
-            ngoNumber:"",
-            ngoDate:"",
 
-
-
-        };
         this.handleDateChange = this.handleDateChange.bind(this);
     }
 
@@ -71,26 +76,69 @@ export class Upgrade0 extends Component {
         });
     };
 
+    validate = () => {
+        let  ngoNumberError = "";
+        let  ngoDateError = "";
+        let  logoError = "";
+
+
+        if (!this.state.ngoDate) {
+            ngoDateError = "Date is require";
+        }
+
+        if (!this.state.logo) {
+            logoError = "Logo is require";
+        }
+
+
+        if(!this.state.ngoNumber) {
+            ngoNumberError="Date is required";
+        }
+
+        if ( ngoDateError || ngoNumberError || logoError) {
+            this.setState({ ngoDateError, ngoNumberError, logoError });
+            return false;
+        }
+
+        return true;
+    };
+
     handleFormSubmit = e => {
         e.preventDefault();
-        const data = {
-            orgId: this.state.orgId,
-            ngoDate: this.state.ngoDate,
-            ngoNumber: this.state.ngoNumber,
+        const isValid = this.validate();
+        if (isValid) {
+            const data = {
+                orgId: this.state.orgId,
+                ngoDate: this.state.ngoDate,
+                ngoNumber: this.state.ngoNumber,
 
-        };
-        console.log(data)
-        Axios
-            .post("http://localhost:8080/v1/organisation/add/ngopdate", data)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+            };
+            const data_logo = {
+                orgId: this.state.orgId,
+                logo: this.state.logo,
+
+            };
+            console.log(data)
+            Axios
+                .post("http://localhost:8080/v1/organisation/add/ngopdate", data)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+
+            Axios
+                .post("", data_logo)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
     };
 
     onToast = () => {
-        toast.success('Submit successful',{
-            position: toast.POSITION.TOP_RIGHT
+        const isValid = this.validate();
+        if (isValid) {
+            toast.success('Submit successful', {
+                position: toast.POSITION.TOP_RIGHT
 
-        });
+            });
+        }
     }
 
 
@@ -139,6 +187,8 @@ export class Upgrade0 extends Component {
 
                                         />
                                     </div>
+                                    <span className="loginError_certificate">{this.state.ngoDateError}</span>
+                                    <div>
                                     <TextField
                                         id="outlined-full-width"
                                         label="Registration number"
@@ -153,6 +203,8 @@ export class Upgrade0 extends Component {
                                         variant="outlined"
                                         onChange={this.handleChange}
                                     />
+                                    </div>
+                                    <span className="loginError_certificate">{this.state.ngoNumberError}</span>
                                     <div>
                                         <span className="upgrade_label_logo">
                                             Logo
@@ -160,12 +212,14 @@ export class Upgrade0 extends Component {
                                         <input
                                             className="upgrade_logo"
                                             type="file"
-                                            name="file"
+                                            name="logo"
                                             onChange={this.handleInputChange}
                                         />
                                     </div>
 
                                 </div>
+
+                                <span className="loginError_certificate">{this.state.logoError}</span>
                                 <div className="upgrade_Button">
                                     <button className="upgrade-btn" type="submit" onClick={this.onToast}>
                                         Submit

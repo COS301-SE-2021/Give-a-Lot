@@ -33,19 +33,21 @@ const styles = theme => ({
 });
 
 
+const initialState = {
+    orgId:6,
+    startDate: new Date(),
+    ngoNumber:"",
+    ngoDate:"",
+};
+
+
 export class Level0 extends Component {
 
+
+    state = initialState;
     constructor (props) {
         super(props)
-        this.state={
-            orgId:6,
-            startDate: new Date(),
-            ngoNumber:"",
-            ngoDate:"",
 
-
-
-        };
         this.handleDateChange = this.handleDateChange.bind(this);
     }
 
@@ -70,25 +72,53 @@ export class Level0 extends Component {
         });
     };
 
+    validate = () => {
+        let dateError = "";
+        let paypalError = "";
+
+
+        if (!this.state.date) {
+            dateError = "Date is require";
+        }
+
+
+        if(!this.state.paypal) {
+            paypalError="Link required";
+        }
+
+        if ( dateError || paypalError) {
+            this.setState({ dateError, paypalError });
+            return false;
+        }
+
+        return true;
+    };
+
     handleFormSubmit = e => {
         e.preventDefault();
-        const data = {
-            orgId: this.state.orgId,
-            ngoDate: this.state.ngoDate,
-            ngoNumber: this.state.ngoNumber,
+        const isValid = this.validate();
+        if (isValid) {
+            const data = {
+                orgId: this.state.orgId,
+                ngoDate: this.state.ngoDate,
+                ngoNumber: this.state.ngoNumber,
 
-        };
-        console.log(data)
-        Axios
-            .post("http://localhost:8080/v1/organisation/add/ngopdate", data)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+            };
+            console.log(data)
+            Axios
+                .post("http://localhost:8080/v1/organisation/add/ngopdate", data)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
     };
     onToast = () => {
-        toast.success('Submit successful',{
-            position: toast.POSITION.TOP_RIGHT
+        const isValid = this.validate();
+        if (isValid) {
+            toast.success('Submit successful', {
+                position: toast.POSITION.TOP_RIGHT
 
-        });
+            });
+        }
     }
 
 

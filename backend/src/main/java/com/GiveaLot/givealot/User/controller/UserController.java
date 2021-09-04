@@ -1,9 +1,12 @@
 package com.GiveaLot.givealot.User.controller;
 
+import com.GiveaLot.givealot.Organisation.requests.GetOrganisationsRequest;
+import com.GiveaLot.givealot.Organisation.response.getNumberOfOrganisationsResponse;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import com.GiveaLot.givealot.User.dataclass.User;
 import com.GiveaLot.givealot.User.requests.*;
 import com.GiveaLot.givealot.User.response.UserResponse;
+import com.GiveaLot.givealot.User.response.getNumberofUsersResponse;
 import com.GiveaLot.givealot.User.response.getUserResponse;
 import com.GiveaLot.givealot.User.response.userResponseGeneral;
 import com.GiveaLot.givealot.User.service.UserServiceImp;
@@ -22,6 +25,8 @@ public class UserController {
 
     private final UserServiceImp userServiceImp;
     private final responseJSON response;
+    @Autowired
+    UserServiceImp service;
 
     @Autowired
     public UserController(UserServiceImp userServiceImp,responseJSON response) {
@@ -114,6 +119,20 @@ public class UserController {
         catch (Exception e)
         {
             return new ResponseEntity<>(new UserResponse(false,e.toString(),null, null), HttpStatus.OK);
+        }
+    }
+    @PostMapping("/get/num_user")
+    public ResponseEntity<getNumberofUsersResponse> getNumberOfUsers(@RequestBody @NonNull GetUsersRequest body)
+    {
+        getNumberofUsersResponse response;
+        try
+        {
+            response = service.getNumberOfUser(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new getNumberofUsersResponse(false,"get_num_notifications_500_bad", 0), HttpStatus.OK);
         }
     }
 }

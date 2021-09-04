@@ -5,12 +5,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class GetOrganisationsRequest
 {
-    private final String adminUserEmail;
+    private final Long adminId;
 
-    public GetOrganisationsRequest(@JsonProperty("adminUserEmail")  String adminUserEmail) {
-        this.adminUserEmail = adminUserEmail;
+    public GetOrganisationsRequest(@JsonProperty("adminId")  Long adminId) {
+        this.adminId = adminId;
     }
-    public String getAdminUserEmail() {
-        return adminUserEmail;
+    public Long getAdminId() {
+        return adminId;
     }
 }

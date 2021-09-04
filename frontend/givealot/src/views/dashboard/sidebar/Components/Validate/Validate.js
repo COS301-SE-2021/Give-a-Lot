@@ -55,7 +55,7 @@ export class Validate extends Component {
                         <CardContent>
                             <div className="valid">
                                 <div >
-                                    {item.dateCreated}
+                                    {item.org_name}
                                 </div>
                                 <Link to={"/orgValidate"} className="link">
                                     <Button size="small" variant="outlined" className="buttonValid" >

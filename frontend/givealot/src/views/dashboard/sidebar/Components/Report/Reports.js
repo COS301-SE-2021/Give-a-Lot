@@ -15,6 +15,8 @@ export class Reports extends Component {
             error: "",
         }
     }
+
+
     componentDidMount(){
         let config = {
             headers: {
@@ -22,10 +24,11 @@ export class Reports extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        axios.get('http://jsonplaceholder.typicode.com/users',  config)
+        axios.post('http://localhost:8080/report/get/all',  config)
             .then(response =>{
-                this.setState({reports: response.data})
-                console.log(this.state.reports)
+                // console.log(response)
+                this.setState({validation: response.data})
+                console.log(this.state.validation)
             })
             .catch(error =>{
                 console.log(error)

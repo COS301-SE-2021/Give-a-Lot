@@ -123,7 +123,6 @@ export class Cards extends Component {
             })
     }
 
-
     render() {
         const { Users , Organisations, notifications, reports} = this.state
         return (

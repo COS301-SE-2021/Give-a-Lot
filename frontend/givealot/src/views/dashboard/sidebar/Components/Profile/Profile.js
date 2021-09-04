@@ -6,12 +6,13 @@ import Level2 from "./Level2"
 import Level3 from "./Level3"
 import Level4 from "./Level4"
 
+
 import {
-    CalendarToday,
+    CalendarToday, CheckCircleOutlineOutlined,
     LocationSearching,
     MailOutline,
     PermIdentity,
-    PhoneAndroid,
+    PhoneAndroid, PieChart, PieChartOutlined,
     Publish,
 } from "@material-ui/icons";
 import axios from "axios";
@@ -100,7 +101,7 @@ export class Profile extends Component {
                                         <span className="userShowInfoTitle">{persons.orgName}</span>
                                     </div>
                                     <div className="userShowInfo">
-                                        <MailOutline className="userShowIcon" />
+                                        <PieChartOutlined className="userShowIcon" />
                                         <span className="userShowInfoTitle">{persons.orgSector}</span>
                                     </div>
                                     <div className="userShowInfo">
@@ -123,7 +124,7 @@ export class Profile extends Component {
                                     </div>
 
                                     <div className="userShowInfo">
-                                        <MailOutline className="userShowIcon" />
+                                        <CheckCircleOutlineOutlined className="userShowIcon" />
                                         <span className="userShowInfoTitle">{persons.status}</span>
                                     </div>
                                     <div className="userShowInfo">

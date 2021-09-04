@@ -19,6 +19,7 @@ import com.GiveaLot.givealot.Organisation.repository.organisationPointsRepositor
 import com.GiveaLot.givealot.Organisation.repository.sectorsRepository;
 import com.GiveaLot.givealot.Organisation.requests.*;
 import com.GiveaLot.givealot.Organisation.response.*;
+import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import com.GiveaLot.givealot.Server.ServerAccess;
 import com.GiveaLot.givealot.User.dataclass.User;
 import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
@@ -326,23 +327,24 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override /*tested all good - converted*/
-    public generalOrganisationResponse suspendOrganisation(Long orgId) throws Exception {
-
-        if(orgId == null)
+    public generalOrganisationResponse suspendOrganisation(SuspendRequest request) throws Exception {
+        if(request == null)
+            throw new Exception("request is null");
+        if(request.getOrgID() == null)
             throw new Exception("Exception: provided id is null");
 
-        else if (organisationRepository.selectOrganisationById(orgId) == null)
+        else if (organisationRepository.selectOrganisationById(request.getOrgID()) == null)
             throw new Exception("Exception: ID doesn't exist");
         else
         {
-            if (organisationRepository.updateStatus(orgId, "suspended".toLowerCase()) != 1)
+            if (organisationRepository.updateStatus(request.getOrgID(), "suspended".toLowerCase()) != 1)
                 throw new Exception("status not updated");
             else
             {
                 /**Sending Status change email**/
                 System.out.println("Sending Email...");
 
-                Mail mail = new Mail(organisationRepository.selectOrganisationById(orgId).getOrgEmail(),"Givealot Status Change","It is with great regret to inform you that your organisation due to numerous reports against it has been susoended" +
+                Mail mail = new Mail(organisationRepository.selectOrganisationById(request.getOrgID()).getOrgEmail(),"Givealot Status Change","It is with great regret to inform you that your organisation due to numerous reports against it has been susoended" +
                         "\n these reports will be reviewed by team and if found to be false we will reactivate your organization." +
                         "\n We apologise for the inconvienace this may cause" +
                         "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations" +
@@ -360,20 +362,21 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override /*tested all good - converted*/
-    public generalOrganisationResponse reactivateOrganisation(Long orgId) throws Exception {
-
-        if(orgId == null)
+    public generalOrganisationResponse reactivateOrganisation(ActivateRequest request) throws Exception {
+        if(request == null)
+            throw new Exception("request is null");
+        if(request.getOrgID() == null)
             throw new Exception("Exception: ID is null");
-        if (organisationRepository.selectOrganisationById(orgId) == null)
+        if (organisationRepository.selectOrganisationById(request.getOrgID()) == null)
             throw new Exception("ID doesn't exist");
         else {
-            if (organisationRepository.updateStatus(orgId, "active".toLowerCase()) != 1)
+            if (organisationRepository.updateStatus(request.getOrgID(), "active".toLowerCase()) != 1)
                 throw new Exception("status not updated");
             else
             {
                 System.out.println("Sending Email...");
 
-                Mail mail = new Mail(organisationRepository.selectOrganisationById(orgId).getOrgEmail(),"Givealot Status Change","It is with great confidence to inform you that tour account has been reactivated" +
+                Mail mail = new Mail(organisationRepository.selectOrganisationById(request.getOrgID()).getOrgEmail(),"Givealot Status Change","It is with great confidence to inform you that tour account has been reactivated" +
                         "\n We apologise for the inconvenience this may have caused" +
                         "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations" +
                         "\n" +
@@ -389,19 +392,21 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override /*tested all good - converted*/
-    public generalOrganisationResponse investigateOrganisation(Long orgId) throws Exception {
+    public generalOrganisationResponse investigateOrganisation(InvestigateRequest request) throws Exception {
 
-        if (organisationRepository.selectOrganisationById(orgId) == null)
+        if(request == null)
+            throw new Exception("request is null");
+        if (organisationRepository.selectOrganisationById(request.getOrgID()) == null)
             throw new Exception("ID doesn't exist");
         else {
-            if (organisationRepository.updateStatus(orgId, "investigating".toLowerCase()) != 1)
+            if (organisationRepository.updateStatus(request.getOrgID(), "investigating".toLowerCase()) != 1)
                 throw new Exception("status not updated");
             else
             {
                 /**Sending Status change email**/
                 System.out.println("Sending Email...");
 
-                Mail mail = new Mail(organisationRepository.selectOrganisationById(orgId).getOrgEmail(),"Givealot Status Change","It is with great regret to inform you that your organisation due to numerous reports against it is under investigation" +
+                Mail mail = new Mail(organisationRepository.selectOrganisationById(request.getOrgID()).getOrgEmail(),"Givealot Status Change","It is with great regret to inform you that your organisation due to numerous reports against it is under investigation" +
                         "\n these reports will be reviewed by team and if found to be false we will reactivate your organization." +
                         "\n We apologise for the inconvienace this may cause" +
                         "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations" +
@@ -1492,6 +1497,75 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("error with the blockchain");
 
     return new getOrgCertLevelResponse("get_org_cert_level","success",blockchain.getLevel());
+    }
+
+    @Override
+    public responseJSON getNumPerMonth(getNumOrganisationPerMonthRequest request) throws Exception {
+        if(request == null)
+            throw new Exception("Exception: request is null");
+        String month ="";
+        int jan = 0;
+        int feb= 0;
+        int mar= 0;
+        int apr= 0;
+        int may= 0;
+        int jun= 0;
+        int jul= 0;
+        int aug= 0;
+        int sept= 0;
+        int oct= 0;
+        int nov= 0;
+        int dec= 0;
+        int i = 0;
+        List<Organisations>organisations = organisationRepository.getAllOrganisations();
+        while(i<organisations.size())
+        {
+           month=organisations.get(i).getDateAdded().substring(5,7);
+            if(month.equals("01"))
+            {
+                jan++;
+            }
+            else if(month.equals("02"))
+            {
+                feb++;
+            }
+            else if(month.equals("03"))
+            {
+                mar++;
+            }  else if(month.equals("04"))
+            {
+                apr++;
+            }   else if(month.equals("05"))
+            {
+                may++;
+            }  else if(month.equals("06"))
+            {
+                jun++;
+            }  else if(month.equals("07"))
+            {
+                jul++;
+            }  else if(month.equals("08"))
+            {
+                aug++;
+            }  else if(month.equals("09"))
+            {
+                sept++;
+            }  else if(month.equals("10"))
+            {
+                oct++;
+            }  else if(month.equals("11"))
+            {
+                nov++;
+            }
+            else if(month.equals("12"))
+            {
+                dec++;
+            }
+            i++;
+        }
+
+
+        return new responseJSON("get_num_orgs_per_month","success",new getNumOrganisationPerMonthResponse(jan,feb,mar,apr,may,jun,jul,aug,sept,oct,nov,dec));
     }
 
     /*helper*/

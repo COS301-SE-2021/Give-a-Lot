@@ -91,6 +91,20 @@ public class OrganisationController
             return new ResponseEntity<>(new getOrganisationsResponse("get_orgs_500_bad","failed: " + e, null), HttpStatus.OK);
         }
     }
+    @PostMapping("/get/num_organisations/per_month") /*tested all good*/
+    public ResponseEntity<responseJSON> getNumOrganisationsPerMonth(@RequestBody @NonNull getNumOrganisationPerMonthRequest body)
+    {
+        responseJSON response;
+        try
+        {
+            response = service.getNumPerMonth(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new responseJSON("get_num_orgs_per_month_500_bad","failed: " + e, null), HttpStatus.OK);
+        }
+    }
 
     @PostMapping("/add/org") /*tested all good*/
     public ResponseEntity<generalOrganisationResponse> addOrganisation(@RequestBody @NonNull AddOrganisationRequest body)
@@ -110,8 +124,8 @@ public class OrganisationController
         }
     }
 
-    @PutMapping("/suspend/{orgId}") /* tested all good */
-    public ResponseEntity<generalOrganisationResponse> suspendOrganisation(@PathVariable("orgId") @NonNull Long orgId)
+    @PutMapping("/suspend/orgId") /* tested all good */
+    public ResponseEntity<generalOrganisationResponse> suspendOrganisation(@RequestBody @NonNull SuspendRequest orgId)
     {
         generalOrganisationResponse response;
         try
@@ -125,8 +139,8 @@ public class OrganisationController
         }
     }
 
-    @PutMapping("/activate/{orgId}") /* tested - works */
-    public ResponseEntity<generalOrganisationResponse> reactivateOrganisation(@PathVariable("orgId") @NonNull Long orgId)
+    @PutMapping("/activate/orgId") /* tested - works */
+    public ResponseEntity<generalOrganisationResponse> reactivateOrganisation(@RequestBody @NonNull ActivateRequest orgId)
     {
         generalOrganisationResponse response;
         try
@@ -140,8 +154,8 @@ public class OrganisationController
         }
     }
 
-    @PutMapping("/investigate/{orgId}") /* tested - works */
-    public ResponseEntity<generalOrganisationResponse> investigateOrganisation(@PathVariable("orgId") @NonNull Long orgId)
+    @PutMapping("/investigate/orgId") /* tested - works */
+    public ResponseEntity<generalOrganisationResponse> investigateOrganisation(@RequestBody @NonNull InvestigateRequest orgId)
     {
         generalOrganisationResponse response;
         try

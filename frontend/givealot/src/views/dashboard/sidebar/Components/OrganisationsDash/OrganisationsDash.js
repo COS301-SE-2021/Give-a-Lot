@@ -29,7 +29,7 @@ export class OrganisationsDash extends Component {
         this.state = {
             org:[],
             error: "",
-            sectorName: "",
+            sector: "",
             open: false,
             openAdd: false,
             getSector: [],
@@ -107,7 +107,11 @@ export class OrganisationsDash extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        axios.post('http://localhost:8080/v1/organisation/get/sectors', this.state.sectorName ,config)
+        const AddSector = {
+            "sector" : this.state.sector,
+            "adminId" : this.state.adminId
+        }
+        axios.post('http://localhost:8080/v1/organisation/add/sector', AddSector ,config)
             .then(response =>{
                 console.log(response)
             })
@@ -117,7 +121,7 @@ export class OrganisationsDash extends Component {
     }
 
     render () {
-        const { org, getSector, sectorName } = this.state
+        const { org, getSector, sector } = this.state
         return(
                 <div className="OrganisationsDash">
                     <div className="userTitle">
@@ -155,9 +159,9 @@ export class OrganisationsDash extends Component {
                                                 //     shrink: true,
                                                 // }}
                                                 variant="outlined"
-                                                name="sectorName"
+                                                name="sector"
                                                 onChange={this.changeHandler}
-                                                value={sectorName}
+                                                value={sector}
                                             />
                                             <Button variant="contained" className="buttonAdd" type="submit">
                                                 Submit

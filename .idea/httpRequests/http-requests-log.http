@@ -1,42 +1,214 @@
-POST http://localhost:8080/v1/organisation/get/organisations
+POST http://localhost:8080/v1/organisation/get/num_organisations/per_month
 Content-Type: application/json
 
 {
-   "adminId": "14"
+  "adminUserEmail":"admin@email.com"
 }
 
-<> 2021-09-04T045712.200.json
+<> 2021-09-04T184937.200.json
 
 ###
 
-POST http://localhost:8080/v1/organisation/get/organisations
+POST http://localhost:8080/v1/user/get/num_users/per_month
 Content-Type: application/json
 
 {
-   "adminId": "11"
+  "adminUserEmail":"admin@email.com"
 }
 
-<> 2021-09-04T045647.200.json
+<> 2021-09-04T184358.200.json
 
 ###
 
-POST http://localhost:8080/v1/organisation/get/organisations
+POST http://localhost:8080/v1/organisation/add/estdate
 Content-Type: application/json
 
 {
-   "adminUserEmail": "coolmail1@gmail.com"
+  "date": "2010/06/12",
+  "orgId": 32
+}
+
+<> 2021-09-04T175226.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/estdate
+Content-Type: application/json
+
+{
+  "date": "2010-06-12",
+  "orgId": 32
+}
+
+<> 2021-09-04T175214.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/address
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "address": "213A Pistol Street"
+}
+
+<> 2021-09-04T175015.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/website
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "website": "Pistol@gmail.com"
+}
+
+<> 2021-09-04T174720.200.json
+
+###
+
+POST http://localhost:8080/v1/user/get/num_users/per_month
+Content-Type: application/json
+
+{
+  "adminUserEmail":"admin@email.com"
+}
+
+<> 2021-09-04T174340.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/get/num_organisations/per_month
+Content-Type: application/json
+
+{
+  "adminUserEmail":"admin@email.com"
+}
+
+<> 2021-09-04T173254.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/activate/orgId
+Content-Type: application/json
+
+{
+  "orgID": 32
+}
+
+<> 2021-09-04T165146.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/suspend/orgId
+Content-Type: application/json
+
+{
+  "orgID": 32
+}
+
+<> 2021-09-04T165115.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/investigate/orgId
+Content-Type: application/json
+
+{
+  "orgID": 32
+}
+
+<> 2021-09-04T164413.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/investigate/{{orgId}}
+Content-Type: application/json
+
+{
+  "orgID": 32
 }
 
 ###
 
-POST http://localhost:8080/report/get/all
+POST http://localhost:8080/v1/user/get/users
 Content-Type: application/json
 
 {
-  "orgId":32
+  "adminUserEmail":"admin@email.com"
 }
 
-<> 2021-09-04T043258.200.json
+<> 2021-09-04T163740.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/investigate/{{orgId}}
+Content-Type: application/json
+
+{
+  "orgid": 32
+}
+
+###
+
+PUT http://localhost:8080/v1/organisation/investigate/{{orgId}}
+Content-Type: application/json
+
+{
+  "orgId": 32
+}
+
+###
+
+PUT http://localhost:8080/v1/organisation/investigate/{{orgId}}
+Content-Type: application/json
+
+{
+  "orgId": 32
+}
+
+###
+
+PUT http://localhost:8080/v1/organisation/investigate/{{orgId}}
+Content-Type: application/json
+
+{
+  "orgId": 32
+}
+
+###
+
+POST http://localhost:8080/v1/organisation/get/org_level
+Content-Type: application/json
+
+{
+  "orgid": 32
+}
+
+<> 2021-09-04T045420.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/address
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "address": "2150A Frank St 8910"
+}
+
+<> 2021-09-04T043343.200.json
+
+###
+
+DELETE http://localhost:8080/v1/organisation/delete/address/{{orgId}}
+Content-Type: application/json
+
+{
+  "orgId": 32;
+  "address": "2150A Frank St 8910"
+}
 
 ###
 
@@ -367,190 +539,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-02T194533.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-"orgId":6,
-"ngoNumber":"123-456",
-"ngoDate":"2020/05/23"
-}
-
-<> 2021-09-02T194501.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-"orgId":6,
-"ngoNumber":"123-456",
-"ngoDate":"2020/05/23"
-}
-
-<> 2021-09-02T194035.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-"orgId":6,
-"ngoNumber":"123-456",
-"ngoDate":"2020-05-23"
-}
-
-<> 2021-09-02T193909.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-"orgId":6,
-"ngoNumber":"123-456",
-"ngoDate":"2020-05-23"
-}
-
-<> 2021-09-02T193735.404.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-"orgName" : "This is the certificate bla",
-"slogan" : "we empower the young minds ",
-"orgDescription" : "The fkfkfk k kfgkk gkfg kgkf gkfkg gkfglflkgkf kfgkgk flkgflk gkf flkg lkfglkflkf kgfglkflklkf lkfglkf lk lkfglkf lkg fgofogo fgfg",
-"orgSector" : "disability",
-"orgEmail" : "certificate@givealot.com",
-"contactPerson" : "Winnie Mashaba",
-"contactNumber" : "0637493443",
-"password" : "Password@123"
-}
-
-<> 2021-08-31T231853.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-"orgName" : "This is the certificate bla",
-"slogan" : "we empower the young minds ",
-"orgDescription" : "The fkfkfk k kfgkk gkfg kgkf gkfkg gkfglflkgkf kfgkgk flkgflk gkf flkg lkfglkflkf kgfglkflklkf lkfglkf lk lkfglkf lkg fgofogo fgfg",
-"orgSector" : "disability",
-"orgEmail" : "certificate@givealot.com",
-"contactPerson" : "Winnie Mashaba",
-"contactNumber" : "0637493443",
-"password" : "Password@123"
-}
-
-<> 2021-08-31T230829.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-"orgName" : "This is the certificate bla",
-"slogan" : "we empower the young minds ",
-"orgDescription" : "The fkfkfk k kfgkk gkfg kgkf gkfkg gkfglflkgkf kfgkgk flkgflk gkf flkg lkfglkflkf kgfglkflklkf lkfglkf lk lkfglkf lkg fgofogo fgfg",
-"orgSector" : "disability",
-"orgEmail" : "certificate@givealot.com",
-"contactPerson" : "Winnie Mashaba",
-"contactNumber" : "0637493443",
-"password" : "Password@123"
-}
-
-<> 2021-08-31T230429.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "National Council of & for Persons with Disabilities",
-  "slogan" : "we empower the young minds ",
-  "orgDescription" : "The National Council of and for Persons with Disabilities does advocacy work and services leading to an equitable and inclusive society. We are affiliated to the South African Disability Alliance, as well as Rehabilitation International. Our programmes cover the whole of South Africa.",
-  "orgSector" : "disability",
-  "orgEmail" : "CouncilDisabilities@givealot.com",
-  "contactPerson" : "Winnie Mashaba",
-  "contactNumber" : "0637493443",
-  "password" : "Password@123"
-}
-
-<> 2021-08-31T230412.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-"orgName" : "This is the certificate bla",
-"slogan" : "we empower the young minds ",
-"orgDescription" : "The fkfkfk k kfgkk gkfg kgkf gkfkg gkfglflkgkf kfgkgk flkgflk gkf flkg lkfglkflkf kgfglkflklkf lkfglkf lk lkfglkf lkg fgofogo fgfg",
-"orgSector" : "disability",
-"orgEmail" : "certificate@givealot.com",
-"contactPerson" : "Winnie Mashaba",
-"contactNumber" : "0637493443",
-"password" : "Password@123"
-}
-
-<> 2021-08-31T225206.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/default
-
-<> 2021-08-27T084649.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/lkkkj
-
-<> 2021-08-27T075137.401.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/12
-
-<> 2021-08-27T075127.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/12
-
-<> 2021-08-27T071925.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/12
-
-<> 2021-08-27T071350.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/8
-
-<> 2021-08-27T070137.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/default
-
-<> 2021-08-27T070117.200.json
 
 ###
 

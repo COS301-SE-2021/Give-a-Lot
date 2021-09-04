@@ -31,6 +31,7 @@ export class Cards extends Component {
         this. getReports();
     }
 
+
     getReports(){
         let config = {
             headers: {

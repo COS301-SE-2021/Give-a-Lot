@@ -70,6 +70,28 @@ export class Level0 extends Component {
         });
     };
 
+    validate = () => {
+        let dateError = "";
+        let paypalError = "";
+
+
+        if (!this.state.date) {
+            dateError = "Date is require";
+        }
+
+
+        if(!this.state.paypal) {
+            paypalError="Link required";
+        }
+
+        if ( dateError || paypalError) {
+            this.setState({ dateError, paypalError });
+            return false;
+        }
+
+        return true;
+    };
+
     handleFormSubmit = e => {
         e.preventDefault();
         const data = {

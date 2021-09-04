@@ -4,6 +4,58 @@ Content-Type: application/json
 {
   "orgId": 32,
   "type": "description",
+  "newValue": "Definition. A web application is a computer program that utilizes web browsers and web technology to perform tasks over the Internet. Overview. Millions of businesses use the Internet as a cost-effective communications channel."
+}
+
+<> 2021-09-04T215157.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "description",
+  "newValue": "Definition. A web application is a computer program that utilizes web browsers and web technology to perform tasks over the Internet. Overview. Millions of businesses use the Internet as a cost-effective communications channel."
+}
+
+<> 2021-09-04T214827.404.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "description",
+  "newValue": "· Definition. A web application is a computer program that utilizes web browsers and web technology to perform tasks over the Internet. Overview. Millions of businesses use the Internet as a cost-effective communications channel."
+}
+
+<> 2021-09-04T214734.404.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "description",
+  "newValue": "· Definition. A web application is a computer program that utilizes web browsers and web technology to perform tasks over the Internet. Overview. Millions of businesses use the Internet as a cost-effective communications channel."
+}
+
+<> 2021-09-04T214727.404.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "description",
   "newValue": "giveus@gmail.com"
 }
 
@@ -488,58 +540,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-02T194620.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-"orgId":6,
-"ngoNumber":"123-456",
-"ngoDate":"2020/05/23"
-}
-
-<> 2021-09-02T194610.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-"orgId":6,
-"ngoNumber":"123-456",
-"ngoDate":"2020-05-23"
-}
-
-<> 2021-09-02T194533.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-"orgId":6,
-"ngoNumber":"123-456",
-"ngoDate":"2020/05/23"
-}
-
-<> 2021-09-02T194501.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-"orgId":6,
-"ngoNumber":"123-456",
-"ngoDate":"2020/05/23"
-}
-
-<> 2021-09-02T194035.200.json
 
 ###
 

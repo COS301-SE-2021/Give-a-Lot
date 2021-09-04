@@ -53,4 +53,6 @@ public interface OrganisationService {
     getSectorsResponse getSectors() throws Exception;
 
     getNumberOfOrganisationsResponse getNumberOfOrganisations(GetOrganisationsRequest request)throws Exception;
+    getOrgCertLevelResponse getOrgCertLevel(GetOrganisationCertificateLevelRequest request)throws Exception;
+
 }

@@ -38,12 +38,22 @@ public class OrganisationController
 
     /* tested - works */
      @GetMapping("/sel/organisation/{orgId}/{userId}") /*tested all good*/
-    public ResponseEntity<selectOrganisationResponse> selectOrganisation(@PathVariable("orgId") @NonNull Long orgId,@PathVariable("userId") @NonNull Long userId)
+    public ResponseEntity<selectOrganisationResponse> selectOrganisation(@PathVariable("orgId") @NonNull Long orgId,@PathVariable("userId") @NonNull String userId)
     {
         selectOrganisationResponse response;
         try
         {
-            response = service.selectOrganisation(orgId,userId);
+            for(int i = 0; i < userId.length(); i++)
+            {
+                if(!Character.isDigit(userId.charAt(i)))
+                {
+                    if(!userId.equalsIgnoreCase("default"))
+                        return new ResponseEntity<>(new selectOrganisationResponse("bad_org_br_401","this id is not authorized", null),HttpStatus.UNAUTHORIZED);
+                    else userId = "-1";
+                }
+            }
+
+            response = service.selectOrganisation(orgId, Long.valueOf(userId));
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)
@@ -590,7 +600,20 @@ public class OrganisationController
             return new ResponseEntity<>(new getNumberOfOrganisationsResponse("get_num_notifications_500_bad","failed: " + e, 0), HttpStatus.OK);
         }
     }
-
+    @PostMapping("/get/org_level")
+    public ResponseEntity<getOrgCertLevelResponse> getOrganisationCertLevel(@RequestBody @NonNull GetOrganisationCertificateLevelRequest body)
+    {
+        getOrgCertLevelResponse response;
+        try
+        {
+            response = service.getOrgCertLevel(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new getOrgCertLevelResponse("get_org_cert_level_500_bad","failed: " + e, 0), HttpStatus.OK);
+        }
+    }
 /*    @PostMapping("/upgrade/upload/logo")
     public boolean upgradeUploadLogo(@RequestBody @NonNull MultipartFile logo) throws Exception {
         try

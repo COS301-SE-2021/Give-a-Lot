@@ -1,13 +1,16 @@
 package com.GiveaLot.givealot.Notification.response;
 
 public class levelFiveInformationResponse {
-    String images;
-    String audit_document;
+    private Long level;
+    private String images;
+    private String audit_document;
 
-    public levelFiveInformationResponse(String images, String audit_document) {
+    public levelFiveInformationResponse(Long level, String images, String audit_document) {
+        this.level = level;
         this.images = images;
         this.audit_document = audit_document;
     }
+
 
     public String getImages() {
         return images;

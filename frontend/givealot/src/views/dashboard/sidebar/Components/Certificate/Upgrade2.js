@@ -58,6 +58,21 @@ export class Upgrade2 extends Component {
 
     }
 
+    handleInputChange = input => e => {
+
+        this.setState({ [input]: e.target.value });
+
+    };
+
+    handleChange = event => {
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
+    };
+
     validate = () => {
         let dateError = "";
         let paypalError = "";
@@ -80,20 +95,7 @@ export class Upgrade2 extends Component {
         return true;
     };
 
-    handleInputChange = input => e => {
 
-        this.setState({ [input]: e.target.value });
-
-    };
-
-    handleChange = event => {
-        const isCheckbox = event.target.type === "checkbox";
-        this.setState({
-            [event.target.name]: isCheckbox
-                ? event.target.checked
-                : event.target.value
-        });
-    };
 
     handleFormSubmit = e => {
         e.preventDefault();
@@ -111,10 +113,13 @@ export class Upgrade2 extends Component {
     };
 
     onToast = () => {
-        toast.success('Submit successful',{
-            position: toast.POSITION.TOP_RIGHT
+        const isValid = this.validate();
+        if (isValid) {
+            toast.success('Submit successful', {
+                position: toast.POSITION.TOP_RIGHT
 
-        });
+            });
+        }
     }
 
 
@@ -163,11 +168,14 @@ export class Upgrade2 extends Component {
 
 
                                         />
-                                        <span className="loginError">{this.state.dateError}</span>
+
                                     </div>
+                                    <span className="loginError_certificate">{this.state.dateError}</span>
+                                    <div>
                                     <TextField
                                         id="outlined-full-width"
                                         label="Paypal link"
+                                        name="paypal"
                                         style={{ margin: 8 }}
                                         placeholder="Enter  paypal link..."
                                         fullWidth
@@ -178,7 +186,9 @@ export class Upgrade2 extends Component {
                                         variant="outlined"
                                         onChange={this.handleChange}
                                     />
-                                    <div>
+                                        </div>
+                                    <span className="loginError_certificate">{this.state.paypalError}</span>
+                                    {/*<div>
                                         <span className="upgrade_label_logo">
                                             QR code
                                          </span>
@@ -188,8 +198,9 @@ export class Upgrade2 extends Component {
                                             name="QRcode"
                                             onChange={this.handleInputChange}
                                         />
-                                    </div>
-                                    <span className="loginError">{this.state.emailError}</span>
+
+                                    </div>*/}
+                                    <span className="loginError_certificate">{this.state.paypalError}</span>
 
                                 </div>
                                 <div className="upgrade_Button">

@@ -545,3 +545,11 @@
     background-color: #1f5759;
 }
 
+.loginError_certificate{
+    color: red;
+    font-size: 14px;
+    float: right;
+
+
+}
+

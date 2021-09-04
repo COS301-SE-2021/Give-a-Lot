@@ -1008,22 +1008,17 @@ public class OrganisationServiceImp implements OrganisationService {
         List<MultipartFile> images = request.getImages();
 
         int numberOFNewImages = 0;
-        File file = new File("src/main/resources/targetFile.jpg");
 
-        for (MultipartFile image: images) {
-
-            try (OutputStream os = new FileOutputStream(file)) {
-                os.write(image.getBytes());
-            }
-            access.uploadImageJPG(request.getOrgId(),name,file);
-            numberOFNewImages++;
-        }
-
-
-
+        File file = new File("backend/src/main/resources/targetFile.jpg");
         int numImages = organisationInfoRepository.selectOrganisationInfo(request.getOrgId()).getNumberOfImages();
 
-        if (organisationInfoRepository.incrementImage(request.getOrgId(), numImages + numberOFNewImages) != 1)
+        int i=0;
+        for (;i<request.getImages().size();i++) {
+            access.uploadImageJPG(request.getOrgId(),name,request.getImages().get(i),numImages);
+            numImages++;
+        }
+
+        if (organisationInfoRepository.incrementImage(request.getOrgId(), numImages) != 1)
             throw new Exception("Exception: value field failed to update");
 
         return new generalOrganisationResponse("add_img_200_OK", "success");

@@ -125,6 +125,11 @@ public interface OrganisationInfoRepository extends JpaRepository<OrganisationIn
 
     @Modifying
     @Transactional
+    @Query("UPDATE OrganisationInfo i SET i.numberOfImages = i.numberOfImages+1 WHERE i.orgId = ?1")
+    Integer incrementNumImagesd(Long orgId);
+
+    @Modifying
+    @Transactional
     @Query("UPDATE OrganisationInfo i SET i.numberOfImages = ?2 WHERE i.orgId = ?1")
     Integer decrementImage(Long orgId, int imageCount);
 

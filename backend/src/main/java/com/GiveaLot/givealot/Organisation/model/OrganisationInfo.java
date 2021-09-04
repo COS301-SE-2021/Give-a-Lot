@@ -21,8 +21,9 @@ public class OrganisationInfo
             unique = true)
     public Long orgId;
     @Column(name = "address",
-            nullable = true,
-            unique = false)
+            nullable = false,
+            unique = false
+    )
     private String address;
     @Column(name = "number_of_images",
             nullable = true,

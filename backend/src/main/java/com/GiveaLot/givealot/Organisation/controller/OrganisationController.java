@@ -476,7 +476,7 @@ public class OrganisationController
     }
 
     @PostMapping("/add/logo") /* all good - correctness not tested yet */
-    public ResponseEntity<generalOrganisationResponse> addOrgLogo( @ModelAttribute AddOrgLogoRequest request)
+    public ResponseEntity<generalOrganisationResponse> addOrgLogo(@ModelAttribute AddOrgLogoRequest request)
     {
 
         generalOrganisationResponse response;

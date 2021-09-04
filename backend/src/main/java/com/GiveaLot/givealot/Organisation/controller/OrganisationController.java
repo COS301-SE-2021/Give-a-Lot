@@ -50,6 +50,21 @@ public class OrganisationController
         }
     }
 
+    @GetMapping("/sel/organisation/info/{orgId}")
+    public ResponseEntity<selectOrganisationInfoResponse> selectOrganisationInfo(@PathVariable("orgId") @NonNull Long orgId)
+    {
+        selectOrganisationInfoResponse response;
+        try
+        {
+            response = service.selectOrganisationInfo(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new selectOrganisationInfoResponse("sel_org_500_bad","failed: " + e, null), HttpStatus.OK);
+        }
+    }
+
     @PostMapping("/get/organisations") /*tested all good*/
     public ResponseEntity<getOrganisationsResponse> getOrganisations(@RequestBody @NonNull GetOrganisationsRequest body)
     {

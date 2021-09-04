@@ -28,7 +28,7 @@ public class ReportController {
    @Autowired
    ReportServiceImpl service;
 
-   @CrossOrigin
+   @CrossOrigin("*")
    @PostMapping("/organisation")
    public ResponseEntity<createReportResponse> createReport(@RequestBody createReportRequest request)
    {

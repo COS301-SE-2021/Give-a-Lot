@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.UUID;
 
 @Builder
+@AllArgsConstructor
 @Entity
 @Table(
         name = "notification"
@@ -32,6 +33,12 @@ public class Notification {
             nullable = false
     )
     long org_id;
+    @Column(
+            name = "org_name",
+            updatable = true,
+            nullable = false
+    )
+    long org_name;
         @Column(
                 name = "isOpen",
                 updatable = true,
@@ -74,6 +81,13 @@ public class Notification {
 
     }
 
+    public long getOrg_name() {
+        return org_name;
+    }
+
+    public void setOrg_name(long org_name) {
+        this.org_name = org_name;
+    }
 
     public String getDateCreated() {
         return dateCreated;

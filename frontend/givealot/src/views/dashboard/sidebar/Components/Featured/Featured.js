@@ -40,51 +40,51 @@ export class Featured extends Component {
                 console.log(response)
                 this.setState({ userData:[
                         {
-                            name: "Jan",
+                            name: "jan",
                             "Active User": 0,
                         },
                         {
-                            name: "Feb",
+                            name: "feb",
                             "Active User": 0,
                         },
                         {
-                            name: "Mar",
+                            name: "mar",
                             "Active User": 0,
                         },
                         {
-                            name: "Apr",
+                            name: "apr",
                             "Active User": 0,
                         },
                         {
-                            name: "May",
+                            name: "may",
                             "Active User": 0,
                         },
                         {
-                            name: "Jun",
+                            name: "jun",
                             "Active User": 0,
                         },
                         {
-                            name: "Jul",
+                            name: "jul",
                             "Active User": 0,
                         },
                         {
-                            name: "Aug",
+                            name: "aug",
                             "Active User": 0,
                         },
                         {
-                            name: "Sep",
+                            name: "sept",
                             "Active User": 0,
                         },
                         {
-                            name: "Oct",
+                            name: "oct",
                             "Active User": 0,
                         },
                         {
-                            name: "Nov",
+                            name: "nov",
                             "Active User": 0,
                         },
                         {
-                            name: "Dec",
+                            name: "dec",
                             "Active User": 0,
                         }
                     ]

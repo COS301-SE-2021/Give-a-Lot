@@ -109,11 +109,9 @@ export class Org extends Component {
             .then(response =>{
                 console.log(response)
                 // this.setState({investigate: response.data})
-                // console.log(this.state.org)
             })
             .catch(error =>{
                 console.log(error)
-                // this.setState({error : 'Error Retrieving data'})
             })
 
     }

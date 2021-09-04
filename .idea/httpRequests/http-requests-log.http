@@ -2,6 +2,28 @@ POST http://localhost:8080/v1/notifications/get/level_information
 Content-Type: application/json
 
 {
+  "org_id": 32
+}
+
+<> 2021-09-04T032036.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/get/level_information
+Content-Type: application/json
+
+{
+  "org_id": 32
+}
+
+<> 2021-09-04T031934.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/get/level_information
+Content-Type: application/json
+
+{
   "org_id":32
 }
 
@@ -565,18 +587,6 @@ GET http://localhost:8080/v1/browse/sectors/recommendations/lkkkj
 GET http://localhost:8080/v1/browse/sectors/recommendations/12
 
 <> 2021-08-27T075127.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/12
-
-<> 2021-08-27T071925.200.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors/recommendations/12
-
-<> 2021-08-27T071350.200.json
 
 ###
 

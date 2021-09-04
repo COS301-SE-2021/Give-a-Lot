@@ -30,7 +30,7 @@ export class Profile extends Component {
         }
     }
 
-    componentDidMount(){
+/*componentDidMount(){
        let config = {
             headers: {
                 "Content-Type": "application/json",
@@ -48,7 +48,7 @@ export class Profile extends Component {
                 console.log(error)
                 this.setState({error : 'Error Retrieving data'})
             })
-    }
+    }*/
 
     render() {
         const { persons } = this.state

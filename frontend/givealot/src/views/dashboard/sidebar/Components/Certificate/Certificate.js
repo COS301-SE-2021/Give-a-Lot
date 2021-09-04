@@ -7,6 +7,7 @@ import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import SaveIcon from '@material-ui/icons/Save';
 import pic from "./Style/cert5Complete.png"
 import DashHeader from "../../DashHeader/DashHeader";
+import axios from "axios";
 
 
 const styles = theme => ({
@@ -22,11 +23,35 @@ export class Certificate extends Component {
     constructor (props) {
         super(props)
         this.state={
-            level: 0,
+            level: 5,
+            orgId:6,
 
         };
     }
+    componentDidMount(){
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        const dataa = {
+            "orgId" : this.state.orgId
+        }
 
+        axios.post('http://localhost:8080/v1/organisation/get/org_level', dataa  ,config)
+            .then(response =>{
+                this.setState({level: response.data.level})
+                console.log(response)
+
+
+
+
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
 
     render(){
     const { classes } = this.props;

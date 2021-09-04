@@ -615,6 +615,7 @@ public class OrganisationController
             return new ResponseEntity<>(new getNumberOfOrganisationsResponse("get_num_notifications_500_bad","failed: " + e, 0), HttpStatus.OK);
         }
     }
+
     @PostMapping("/get/org_level")
     public ResponseEntity<getOrgCertLevelResponse> getOrganisationCertLevel(@RequestBody @NonNull GetOrganisationCertificateLevelRequest body)
     {

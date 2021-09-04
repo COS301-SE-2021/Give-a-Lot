@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c03a4bf-3a90-48ba-b0cb-ad7a956f2a7e" name="Default Changelist" comment="time line implemented">
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+    <list default="true" id="1c03a4bf-3a90-48ba-b0cb-ad7a956f2a7e" name="Default Changelist" comment="organisation controller">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,13 +152,6 @@
       <workItem from="1629301692751" duration="18015000" />
       <workItem from="1629339797985" duration="980000" />
       <workItem from="1629343930362" duration="7971000" />
-    </task>
-    <task id="LOCAL-00016" summary="organisations controller revision - suspend">
-      <created>1629263038092</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1629263038093</updated>
     </task>
     <task id="LOCAL-00017" summary="organisations controller revision - suspend">
       <created>1629263063619</created>
@@ -498,7 +489,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630779373826</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="organisation controller">
+      <created>1630785893772</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1630785893773</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,6 +534,7 @@
     <MESSAGE value="Added additional verify implementation" />
     <MESSAGE value="Last minute changes" />
     <MESSAGE value="time line implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="time line implemented" />
+    <MESSAGE value="organisation controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="organisation controller" />
   </component>
 </project>

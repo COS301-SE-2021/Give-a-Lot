@@ -117,15 +117,24 @@
     margin-top: 10px;
 }
 
+
 .userUpdateItem>label{
     margin-bottom: 5px;
     font-size: 14px;
 }
 
+
 .userUpdateInput{
     border: none;
     width: 500px;
     height: 30px;
+    border-bottom: 1px solid gray;
+}
+
+.userUpdateInput1{
+    border: none;
+    width: 500px;
+    height: 60px;
     border-bottom: 1px solid gray;
 }
 

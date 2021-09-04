@@ -142,7 +142,7 @@ export class Profile extends Component {
                                     <label>Organisation name</label>
                                     <input
                                         type="text"
-                                        placeholder="Gift of the givers"
+                                        placeholder={persons.orgName}
                                         className="userUpdateInput"
                                     />
                                 </div>
@@ -150,7 +150,7 @@ export class Profile extends Component {
                                     <label>Contact person</label>
                                     <input
                                         type="text"
-                                        placeholder="Tshilidzi Nekhavhambe"
+                                        placeholder={persons.contactPerson}
                                         className="userUpdateInput"
                                     />
                                 </div>
@@ -158,7 +158,7 @@ export class Profile extends Component {
                                     <label>Contacts</label>
                                     <input
                                         type="text"
-                                        placeholder="081 456 675"
+                                        placeholder={persons.contactNumber}
                                         className="userUpdateInput"
                                     />
                                 </div>
@@ -166,7 +166,7 @@ export class Profile extends Component {
                                     <label>Email</label>
                                     <input
                                         type="text"
-                                        placeholder="Givers@gmail.com"
+                                        placeholder={persons.orgEmail}
                                         className="userUpdateInput"
                                     />
                                 </div>
@@ -177,6 +177,16 @@ export class Profile extends Component {
                                         type="text"
                                         placeholder="Pretoria, arcadia"
                                         className="userUpdateInput"
+                                    />
+                                </div>
+
+                                <div className="userUpdateItem">
+                                    <label>Description</label>
+                                    <textarea
+
+                                        type="text"
+                                        placeholder={persons.orgDescription}
+                                        className="userUpdateInput1"
                                     />
                                 </div>
                             </div>

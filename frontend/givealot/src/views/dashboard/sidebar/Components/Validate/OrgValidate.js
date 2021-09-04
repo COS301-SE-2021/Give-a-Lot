@@ -18,7 +18,7 @@ export class OrgValidate extends Component {
             validation:{},
             error: "",
             openValid: false,
-            orgId: ""
+            orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1],
         }
     }
     openValid() {
@@ -37,7 +37,7 @@ export class OrgValidate extends Component {
         }
 
         const adminUsersRequestBody = {
-            "orgId":23
+            "orgId":this.state.orgId
         }
 
         axios.post('http://localhost:8080/v1/notifications/get/level_information', adminUsersRequestBody ,config)

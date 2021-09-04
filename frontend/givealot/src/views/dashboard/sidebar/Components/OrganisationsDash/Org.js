@@ -5,6 +5,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import {useParams} from 'react-router-dom';
 import {CalendarToday, LocationSearching, MailOutline, PermIdentity, PhoneAndroid, DescriptionOutlined} from "@material-ui/icons";
 
 export class Org extends Component {
@@ -14,9 +15,14 @@ export class Org extends Component {
 
         this.state = {
             orgS:{},
-            orgId: 32,
+            orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1],
             investigate: ''
         }
+        console.log(this.state)
+        // let idUrl = window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
+        // console.log(idUrl)
+
+
     }
 
     componentDidMount(){
@@ -26,6 +32,7 @@ export class Org extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
+        console.log(this.props)
         axios.get('http://localhost:8080/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config)
             .then(response =>{
                 console.log(response)
@@ -111,10 +118,16 @@ export class Org extends Component {
 
     }
 
+
     render() {
         const { orgS } = this.state
         return (
             <div className="org">
+
+                {/*<div>*/}
+                {/*    { console.log(this.props.match.params.orgId)}*/}
+                {/*</div>*/}
+
                 {/*<Typography style={{width: "100%", height: "8em"}}>*/}
                     <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" style={{width: "100%", height: "30%"}}/>
                 {/*</Typography>*/}

@@ -64,6 +64,7 @@ export class Reports extends Component {
                                     id={item.reportId}
                                     title={item.reportType}
                                     description={item.description}
+                                    appeal={item.appeal}
                                 />
                                 )
                         })}

@@ -39,12 +39,13 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function Accordions({org,id,title, description},) {
+export default function Accordions({org,id,title, description,appeal}) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
     const [orgId, setId] = React.useState(org);
     const [reportId, setReportId] = React.useState(id);
     const [message, setMessage] = React.useState("");
+    const [appeall, setAppeal] = React.useState(true);
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
@@ -83,10 +84,73 @@ export default function Accordions({org,id,title, description},) {
     }
 
 
+    if(appeall){
+        return (
+            <div className={classes.root}>
 
-    return (
+                <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel2bh-content"
+                        id="panel2bh-header"
+                    >
+                        <Typography className={classes.heading}>
+                            <ReportIcon className="iconReport"/>
+                            Report {id}
+                        </Typography>
+
+                        <Typography className={classes.secondaryHeading}>
+                            {title}
+                        </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography>
+                            {description}
+                        </Typography>
+                    </AccordionDetails>
+                    <Divider />
+                    <AccordionActions>
+                        <Button size="small">Cancel</Button>
+                        <button size="small" className="AppealButton" onClick={handleClickOpen}>
+                            Appeal
+                        </button>
+                    </AccordionActions>
+                </Accordion>
+                <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                    <DialogTitle id="form-dialog-title">Make an appeal</DialogTitle>
+                    <form onSubmit={e => { handleSubmit(e) }}>
+                        <DialogContent>
+                            <DialogContentText className={classes.hidden}>
+                                Do not remove this line , it is very important.Do not remove this line , it is .
+                            </DialogContentText>
+                            <TextField
+                                autoFocus
+                                id="appeal"
+                                label="Description"
+                                multiline
+                                rows={5}
+                                name="appeal"
+                                variant="outlined"
+                                onChange={handleInput}
+                                fullWidth
+                            />
+                        </DialogContent>
+                        <DialogActions>
+                            <Button  onClick={handleClose} color="primary">
+                                Cancel
+                            </Button>
+                            <Button type={"submit"} onClick={handleClose} color="primary">
+                                Submit
+                            </Button>
+                        </DialogActions>
+
+                    </form>
+                </Dialog>
+            </div>
+        );
+    }else
+        return (
         <div className={classes.root}>
-
 
             <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                 <AccordionSummary

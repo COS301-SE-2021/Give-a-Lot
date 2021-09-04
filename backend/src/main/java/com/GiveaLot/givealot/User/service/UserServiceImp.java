@@ -6,6 +6,7 @@ import com.GiveaLot.givealot.Notification.service.SendMailServiceImpl;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.repository.sectorsRepository;
 import com.GiveaLot.givealot.Organisation.response.getNumOrganisationPerMonthResponse;
+import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import com.GiveaLot.givealot.User.dataclass.User;
 import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
 import com.GiveaLot.givealot.User.repository.UserRepository;
@@ -252,7 +253,7 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public getNumUsersPerMonthResponse getNumPerMonth(getNumUserPerMonthRequest request) throws Exception {
+    public responseJSON getNumPerMonth(getNumUserPerMonthRequest request) throws Exception {
         if(request == null)
             throw new Exception("Exception: request is null");
         String month ="";
@@ -317,7 +318,7 @@ public class UserServiceImp implements UserService {
         }
 
 
-        return new getNumUsersPerMonthResponse("get_num_orgs_per_month","success",jan,feb,mar,apr,may,jun,jul,aug,sept,oct,nov,dec);
+        return new responseJSON("get_num_orgs_per_month","success",new getNumUsersPerMonthResponse(jan,feb,mar,apr,may,jun,jul,aug,sept,oct,nov,dec));
 
     }
 /*

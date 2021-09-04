@@ -1,3 +1,25 @@
+POST http://localhost:8080/v1/organisation/get/num_organisations/per_month
+Content-Type: application/json
+
+{
+  "adminUserEmail":"admin@email.com"
+}
+
+<> 2021-09-04T184937.200.json
+
+###
+
+POST http://localhost:8080/v1/user/get/num_users/per_month
+Content-Type: application/json
+
+{
+  "adminUserEmail":"admin@email.com"
+}
+
+<> 2021-09-04T184358.200.json
+
+###
+
 POST http://localhost:8080/v1/organisation/add/estdate
 Content-Type: application/json
 
@@ -517,32 +539,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-02T194533.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-"orgId":6,
-"ngoNumber":"123-456",
-"ngoDate":"2020/05/23"
-}
-
-<> 2021-09-02T194501.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-"orgId":6,
-"ngoNumber":"123-456",
-"ngoDate":"2020/05/23"
-}
-
-<> 2021-09-02T194035.200.json
 
 ###
 

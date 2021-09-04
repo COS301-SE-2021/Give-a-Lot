@@ -19,6 +19,7 @@ import com.GiveaLot.givealot.Organisation.repository.organisationPointsRepositor
 import com.GiveaLot.givealot.Organisation.repository.sectorsRepository;
 import com.GiveaLot.givealot.Organisation.requests.*;
 import com.GiveaLot.givealot.Organisation.response.*;
+import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import com.GiveaLot.givealot.Server.ServerAccess;
 import com.GiveaLot.givealot.User.dataclass.User;
 import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
@@ -1499,7 +1500,7 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public getNumOrganisationPerMonthResponse getNumPerMonth(getNumOrganisationPerMonthRequest request) throws Exception {
+    public responseJSON getNumPerMonth(getNumOrganisationPerMonthRequest request) throws Exception {
         if(request == null)
             throw new Exception("Exception: request is null");
         String month ="";
@@ -1564,7 +1565,7 @@ public class OrganisationServiceImp implements OrganisationService {
         }
 
 
-        return new getNumOrganisationPerMonthResponse("get_num_orgs_per_month","success",jan,feb,mar,apr,may,jun,jul,aug,sept,oct,nov,dec);
+        return new responseJSON("get_num_orgs_per_month","success",new getNumOrganisationPerMonthResponse(jan,feb,mar,apr,may,jun,jul,aug,sept,oct,nov,dec));
     }
 
     /*helper*/

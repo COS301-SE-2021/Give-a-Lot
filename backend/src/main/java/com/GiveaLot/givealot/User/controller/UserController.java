@@ -101,9 +101,9 @@ public class UserController {
         }
     }
     @PostMapping("/get/num_users/per_month") /*tested all good*/
-    public ResponseEntity<getNumUsersPerMonthResponse> getNumOrganisationsPerMonth(@RequestBody @NonNull getNumUserPerMonthRequest body)
+    public ResponseEntity<responseJSON> getNumOrganisationsPerMonth(@RequestBody @NonNull getNumUserPerMonthRequest body)
     {
-        getNumUsersPerMonthResponse response;
+        responseJSON response;
         try
         {
             response = service.getNumPerMonth(body);
@@ -111,7 +111,7 @@ public class UserController {
         }
         catch (Exception e)
         {
-            return new ResponseEntity<>(new getNumUsersPerMonthResponse("get_num_orgs_per_month_500_bad","failed: " + e, -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1), HttpStatus.OK);
+            return new ResponseEntity<>(new responseJSON("get_num_user_per_month_500_bad","failed: " + e, null), HttpStatus.OK);
         }
     }
 

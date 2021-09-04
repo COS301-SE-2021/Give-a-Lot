@@ -98,7 +98,7 @@ public class notificationServiceImpl implements notificationService {
         String dateCreated = format.format(dateCurrent);
 
         request.setDateCreated(dateCreated);
-        Notification notification = new Notification(request.getDateCreated(), request.getNotification_id(), request.getOrg_id(), request.isOpen(), request.getDescription(), request.getNotificationType());
+        Notification notification = new Notification(request.getDateCreated(), request.getNotification_id(), request.getOrg_id(), request.isOpen(), request.getDescription(), request.getNotificationType(),request.getName());
         notificationRepository.save(notification);
 
         return new generalNotificationResponse("add_notification_200_ok", "success");

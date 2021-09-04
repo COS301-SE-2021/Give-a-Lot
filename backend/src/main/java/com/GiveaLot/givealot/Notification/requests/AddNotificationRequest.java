@@ -10,13 +10,32 @@ public class AddNotificationRequest {
     private    int  numberOfNotifications;
     private    String  description;
     private   String notificationType;
+    private   String name;
 
-    public AddNotificationRequest(@JsonProperty("organisation_id") Long org_id,@JsonProperty("isOpen") boolean isOpen,@JsonProperty("description") String description,@JsonProperty("notification_type") String notificationType) {
+
+    public AddNotificationRequest(@JsonProperty("organisation_id") Long org_id,@JsonProperty("isOpen") boolean isOpen,@JsonProperty("description") String description,@JsonProperty("notification_type") String notificationType,@JsonProperty("name") String name) {
 
         this.org_id = org_id;
         this.isOpen = isOpen;
         this.description = description;
         this.notificationType = notificationType;
+        this.name = name;
+    }
+
+    public int getNumberOfNotifications() {
+        return numberOfNotifications;
+    }
+
+    public void setNumberOfNotifications(int numberOfNotifications) {
+        this.numberOfNotifications = numberOfNotifications;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDateCreated() {

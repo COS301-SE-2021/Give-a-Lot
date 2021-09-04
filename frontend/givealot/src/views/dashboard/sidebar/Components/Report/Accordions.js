@@ -39,9 +39,12 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function Accordions({id,title, description}) {
+export default function Accordions({org,id,title, description},) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
+    const [orgId, setId] = React.useState(org);
+    const [reportId, setReportId] = React.useState(id);
+    const [message, setMessage] = React.useState("");
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
@@ -53,9 +56,31 @@ export default function Accordions({id,title, description}) {
         setOpen(true);
     };
 
+    const handleInput=(e)=>{
+        setMessage(e.target.value)
+    }
+
     const handleClose = () => {
         setOpen(false);
     };
+
+    const handleSubmit = (e) =>{
+
+        e.preventDefault()
+        const postData= {
+            message,
+            reportId,
+            orgId,
+        };
+
+        axios.post("http://localhost:8080/report/appeal/", postData)
+            .then(res=>{
+                console.log(res)
+            }).catch(err=>{
+                console.log(err)
+        })
+
+    }
 
 
 
@@ -93,6 +118,7 @@ export default function Accordions({id,title, description}) {
             </Accordion>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Make an appeal</DialogTitle>
+                <form onSubmit={e => { handleSubmit(e) }}>
                 <DialogContent>
                     <DialogContentText className={classes.hidden}>
                         Do not remove this line , it is very important.Do not remove this line , it is .
@@ -103,19 +129,22 @@ export default function Accordions({id,title, description}) {
                         label="Description"
                         multiline
                         rows={5}
-                        name="reportAppeal"
+                        name="appeal"
                         variant="outlined"
+                        onChange={handleInput}
                         fullWidth
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose} color="primary">
+                    <Button  onClick={handleClose} color="primary">
                         Cancel
                     </Button>
-                    <Button  color="primary">
+                    <Button type={"submit"} onClick={handleClose} color="primary">
                         Submit
                     </Button>
                 </DialogActions>
+
+                </form>
             </Dialog>
         </div>
     );

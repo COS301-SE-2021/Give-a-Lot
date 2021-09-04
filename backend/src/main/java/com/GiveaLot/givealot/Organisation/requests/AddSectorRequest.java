@@ -6,7 +6,8 @@ public class AddSectorRequest {
     String sector;
     String adminId;
 
-    public AddSectorRequest(@JsonProperty("sector") String sector, @JsonProperty("adminId") String adminId) {
+    public AddSectorRequest(@JsonProperty("sector") String sector,
+                            @JsonProperty("adminId") String adminId) {
         this.sector = sector;
         this.adminId = adminId;
     }

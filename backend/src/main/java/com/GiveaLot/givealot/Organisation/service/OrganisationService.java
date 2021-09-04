@@ -5,7 +5,6 @@ import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.requests.*;
 import com.GiveaLot.givealot.Organisation.response.*;
-import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -43,18 +42,15 @@ public interface OrganisationService {
     boolean removeOrgNGO(long orgId) throws Exception;
     generalOrganisationResponse addOrgNGODate(AddOrgNGORequest request) throws Exception;
     generalOrganisationResponse removeNGDate(Long orgId) throws Exception;
-
     generalOrganisationResponse addOrgEstDate(AddOrgEstDateRequest request) throws Exception;
     generalOrganisationResponse removeOrgEstDate(Long orgId) throws Exception;
-
     generalOrganisationResponse confirmValidity(Long orgId,Long adminId,String type,boolean confirmValidity) throws Exception;
     numberOfImagesResponse numberOfImages(Long orgId) throws Exception;
-
     generalOrganisationResponse addSector(AddSectorRequest request) throws Exception;
     getSectorsResponse getSectors() throws Exception;
-
     getNumberOfOrganisationsResponse getNumberOfOrganisations(GetOrganisationsRequest request)throws Exception;
     getOrgCertLevelResponse getOrgCertLevel(GetOrganisationCertificateLevelRequest request)throws Exception;
     responseJSON getNumPerMonth(getNumOrganisationPerMonthRequest request)throws Exception;
+    generalOrganisationResponse updateOrganisationInfo(updateOrganisationInfoRequest request) throws Exception;
 
 }

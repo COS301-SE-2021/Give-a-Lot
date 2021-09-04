@@ -12,6 +12,7 @@ export class Reports extends Component {
         this.state = {
             count: 4,
             reports: [],
+            orgId:32,
             error: "",
         }
     }
@@ -22,14 +23,17 @@ export class Reports extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        axios.get('http://jsonplaceholder.typicode.com/users',  config)
+        const data = {
+            "orgId" : this.state.orgId
+        }
+
+        axios.post('http://localhost:8080/report/get/all', data  ,config)
             .then(response =>{
-                this.setState({reports: response.data})
-                console.log(this.state.reports)
+                this.setState({reports: response.data.response})
+                console.log(response)
             })
             .catch(error =>{
                 console.log(error)
-                this.setState({error : 'Error Retrieving data'})
             })
     }
 

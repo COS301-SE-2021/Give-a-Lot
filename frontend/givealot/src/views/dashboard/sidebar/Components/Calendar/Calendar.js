@@ -7,6 +7,7 @@ import {
     AppointmentForm,
     AppointmentTooltip,
     WeekView,
+    MonthView,
     EditRecurrenceMenu,
     AllDayPanel,
     ConfirmationDialog,
@@ -140,10 +141,11 @@ export default class DemoApp extends React.Component {
                             editingAppointment={editingAppointment}
                             onEditingAppointmentChange={this.changeEditingAppointment}
                         />
-                        <WeekView
-                            startDayHour={9}
-                            endDayHour={17}
-                        />
+                        {/*<WeekView*/}
+                        {/*    startDayHour={9}*/}
+                        {/*    endDayHour={17}*/}
+                        {/*/>*/}
+                        <MonthView />
                         <AllDayPanel />
                         <EditRecurrenceMenu />
                         <ConfirmationDialog />

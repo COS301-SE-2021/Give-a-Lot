@@ -219,7 +219,7 @@ export class OrganisationsDash extends Component {
                                                         <TableCell>{item.orgSector}</TableCell>
                                                         <TableCell>{item.status}</TableCell>
                                                         <TableCell>
-                                                            <Link to={"/org/" + item.id} className="link">
+                                                            <Link to={"/org/" + item.orgId} className="link">
                                                                 <EditIcon />
                                                             </Link>
                                                         </TableCell>

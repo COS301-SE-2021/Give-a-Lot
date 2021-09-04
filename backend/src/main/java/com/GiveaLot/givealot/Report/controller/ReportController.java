@@ -20,7 +20,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/report")
 public class ReportController {
@@ -28,7 +28,7 @@ public class ReportController {
    @Autowired
    ReportServiceImpl service;
 
-   @CrossOrigin("*")
+
    @PostMapping("/organisation")
    public ResponseEntity<createReportResponse> createReport(@RequestBody createReportRequest request)
    {

@@ -23,13 +23,13 @@ export class Reports extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        const data = {
+        const dataa = {
             "orgId" : this.state.orgId
         }
 
-        axios.post('http://localhost:8080/report/get/all', data  ,config)
+        axios.post('http://localhost:8080/report/get/all', dataa  ,config)
             .then(response =>{
-                this.setState({reports: response.data.response})
+                this.setState({reports: response.data.object})
                 console.log(response)
             })
             .catch(error =>{
@@ -60,9 +60,9 @@ export class Reports extends Component {
                         {reports.map((item, index) =>{
                             return(
                                 <Accordions
-                                    id={item.id}
-                                    title={item.name}
-                                    description={item.email}
+                                    id={item.reportId}
+                                    title={item.reportType}
+                                    description={item.description}
                                 />
                                 )
                         })}

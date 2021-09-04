@@ -15,9 +15,9 @@ public interface OrganisationService {
     selectOrganisationInfoResponse selectOrganisationInfo(Long orgId) throws Exception;
     organisationPointsResponse selectOrganisationPoints(Long orgId) throws Exception;
     generalOrganisationResponse addOrganisation(Organisations organisation) throws Exception;
-    generalOrganisationResponse reactivateOrganisation(Long orgId) throws Exception;
-    generalOrganisationResponse investigateOrganisation(Long orgId) throws Exception;
-    generalOrganisationResponse suspendOrganisation(Long orgId) throws Exception;
+    generalOrganisationResponse reactivateOrganisation(ActivateRequest request) throws Exception;
+    generalOrganisationResponse investigateOrganisation(InvestigateRequest request) throws Exception;
+    generalOrganisationResponse suspendOrganisation(SuspendRequest request) throws Exception;
     getOrganisationsResponse getOrganisations(GetOrganisationsRequest request) throws Exception;
     //Additional classes
     generalOrganisationResponse addOrgWebsite(AddOrgWebsiteRequest request) throws Exception;
@@ -50,6 +50,7 @@ public interface OrganisationService {
     getSectorsResponse getSectors() throws Exception;
     getNumberOfOrganisationsResponse getNumberOfOrganisations(GetOrganisationsRequest request)throws Exception;
     getOrgCertLevelResponse getOrgCertLevel(GetOrganisationCertificateLevelRequest request)throws Exception;
+    responseJSON getNumPerMonth(getNumOrganisationPerMonthRequest request)throws Exception;
     generalOrganisationResponse updateOrganisationInfo(updateOrganisationInfoRequest request) throws Exception;
 
 }

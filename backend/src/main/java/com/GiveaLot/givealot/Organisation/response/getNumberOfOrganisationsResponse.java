@@ -1,9 +1,9 @@
 package com.GiveaLot.givealot.Organisation.response;
 
 import com.GiveaLot.givealot.Organisation.model.Organisations;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.util.List;
-
 public class getNumberOfOrganisationsResponse {
     private String code;
     private String message;

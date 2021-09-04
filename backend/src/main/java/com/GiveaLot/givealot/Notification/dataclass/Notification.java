@@ -33,12 +33,7 @@ public class Notification {
             nullable = false
     )
     long org_id;
-    @Column(
-            name = "org_name",
-            updatable = true,
-            nullable = false
-    )
-    long org_name;
+
         @Column(
                 name = "isOpen",
                 updatable = true,
@@ -61,6 +56,13 @@ public class Notification {
     )
     String notificationType;
 
+    @Column(
+            name = "org_name",
+            updatable = true,
+            nullable = false
+    )
+    String org_name;
+
     public Notification( long org_id, boolean isOpen, String description, String notificationType) {
         this.notification_id = notification_id;
         this.org_id = org_id;
@@ -81,11 +83,11 @@ public class Notification {
 
     }
 
-    public long getOrg_name() {
+    public String getOrg_name() {
         return org_name;
     }
 
-    public void setOrg_name(long org_name) {
+    public void setOrg_name(String org_name) {
         this.org_name = org_name;
     }
 

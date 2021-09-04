@@ -48,7 +48,7 @@ public class NotificationsController {
         generalNotificationResponse response;
         try
         {
-            response = service.addNotifications(new AddNotificationRequest(body.getOrg_id(),false,body.getDescription(),body.getNotificationType()));
+            response = service.addNotifications(new AddNotificationRequest(body.getOrg_id(),false,body.getDescription(),body.getNotificationType(),body.getName()));
             return new ResponseEntity<>(response,  HttpStatus.OK);
         }
         catch (Exception e)

@@ -18,7 +18,7 @@ export class Org extends Component {
             orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1],
             investigate: ''
         }
-        console.log(this.state)
+        console.log(this.state.orgId)
         // let idUrl = window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
         // console.log(idUrl)
 
@@ -53,9 +53,9 @@ export class Org extends Component {
             }
         }
         const activate = {
-            orgID : 32
+            orgID : window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
         }
-        // console.log("investigate")
+        console.log(activate)
         axios.put('http://localhost:8080/v1/organisation/activate/orgId',activate ,config)
             .then(response =>{
                 console.log(response)
@@ -78,7 +78,7 @@ export class Org extends Component {
             }
         }
         const investigate = {
-            orgID : 32
+            orgID : window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
         }
         // console.log("investigate")
         axios.put('http://localhost:8080/v1/organisation/investigate/orgId',investigate ,config)
@@ -102,18 +102,16 @@ export class Org extends Component {
             }
         }
         const suspend = {
-            orgID : 32
+            orgID : window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
         }
         // console.log("investigate")
         axios.put('http://localhost:8080/v1/organisation/suspend/orgId',suspend ,config)
             .then(response =>{
                 console.log(response)
                 // this.setState({investigate: response.data})
-                // console.log(this.state.org)
             })
             .catch(error =>{
                 console.log(error)
-                // this.setState({error : 'Error Retrieving data'})
             })
 
     }

@@ -1,5 +1,8 @@
 package com.GiveaLot.givealot.Organisation.response;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonPropertyOrder({"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct","Nov","Dec"})
 public class getNumOrganisationPerMonthResponse {
      private long Jan;
         private long Feb;

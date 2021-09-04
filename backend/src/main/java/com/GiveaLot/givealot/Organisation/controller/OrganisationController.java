@@ -1,5 +1,7 @@
 package com.GiveaLot.givealot.Organisation.controller;
 
+import com.GiveaLot.givealot.Notification.requests.GetNotificationsRequest;
+import com.GiveaLot.givealot.Notification.response.getNumberOfNotificationsResponse;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
@@ -572,6 +574,20 @@ public class OrganisationController
         catch (Exception e)
         {
             return new ResponseEntity<>(new getSectorsResponse("get_sec_500_err","failed: " + e, null), HttpStatus.OK);
+        }
+    }
+    @PostMapping("/get/num_organisation")
+    public ResponseEntity<getNumberOfOrganisationsResponse> getNumberOfOrganisations(@RequestBody @NonNull GetOrganisationsRequest body)
+    {
+        getNumberOfOrganisationsResponse response;
+        try
+        {
+            response = service.getNumberOfOrganisations(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new getNumberOfOrganisationsResponse("get_num_notifications_500_bad","failed: " + e, 0), HttpStatus.OK);
         }
     }
 

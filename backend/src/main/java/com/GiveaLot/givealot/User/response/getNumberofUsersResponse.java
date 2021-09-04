@@ -5,13 +5,11 @@ public class getNumberofUsersResponse {
 
         private final String message;
         private final boolean success;
-        private final String JWTToken;
         int response;
-        public getNumberofUsersResponse(boolean success, String message, String JWTToken, int res)
+        public getNumberofUsersResponse(boolean success, String message, int res)
         {
             this.message = message;
             this.success = success;
-            this.JWTToken = JWTToken;
             this.response = res;
         }
 
@@ -30,8 +28,5 @@ public class getNumberofUsersResponse {
             return success;
         }
 
-        public String getJWTToken() {
-            return JWTToken;
-        }
 
 }

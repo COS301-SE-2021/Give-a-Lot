@@ -11,6 +11,13 @@ public class levelFiveInformationResponse {
         this.audit_document = audit_document;
     }
 
+    public Long getLevel() {
+        return level;
+    }
+
+    public void setLevel(Long level) {
+        this.level = level;
+    }
 
     public String getImages() {
         return images;

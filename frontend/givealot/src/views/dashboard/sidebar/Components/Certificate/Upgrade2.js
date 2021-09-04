@@ -40,7 +40,8 @@ export class Upgrade2 extends Component {
     constructor (props) {
         super(props)
         this.state={
-            orgId:"",
+            orgId:"32",
+            date:"",
             startDate: new Date(),
             paypal:"",
 
@@ -76,10 +77,9 @@ export class Upgrade2 extends Component {
         const data = {
             orgId: this.state.orgId,
             date: this.state.date,
-            paypal: this.state.paypal,
         };
         Axios
-            .post("", data)
+            .post("http://localhost:8080/v1/organisation/add/estdate", data)
             .then(res => console.log(res))
             .catch(err => console.log(err));
     };
@@ -132,7 +132,7 @@ export class Upgrade2 extends Component {
                                             selected={ this.state.startDate }
                                             onChange={ this.handleDateChange }
                                             name="startDate"
-                                            dateFormat="MM/dd/yyyy"
+                                            dateFormat="yyyy/MM/dd"
                                             fullWidth
 
 

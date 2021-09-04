@@ -218,7 +218,7 @@ public class notificationServiceImpl implements notificationService {
         notification.setOrg_id(organisations.getOrgId());
 
         notification.setOpen(false);
-
+        notification.setOrg_name(orgName);
         notification.setNotificationType("update");
 
         Date dateCurrent = new Date();

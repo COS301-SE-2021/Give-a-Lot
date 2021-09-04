@@ -248,7 +248,7 @@ public class UserServiceImp implements UserService {
     @Override
     public getNumberofUsersResponse getNumberOfUser(GetUsersRequest request) throws Exception {
 
-        return new getNumberofUsersResponse(true,"success","1",GetUsers(request).size());
+        return new getNumberofUsersResponse(true,"success",GetUsers(request).size());
 
     }
 /*

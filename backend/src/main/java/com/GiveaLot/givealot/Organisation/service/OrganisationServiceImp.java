@@ -87,9 +87,6 @@ public class OrganisationServiceImp implements OrganisationService {
     @Override /*tested all good - converted*/
     public getOrganisationsResponse getOrganisations(GetOrganisationsRequest request) throws Exception
     {
-        boolean temporal_solution = true;
-
-        if(!temporal_solution) {
             if (request == null) {
                 throw new Exception("Exception: request not set");
             }
@@ -107,7 +104,7 @@ public class OrganisationServiceImp implements OrganisationService {
             if (!admin.getAdmin()) {
                 throw new UserNotAuthorisedException("current user is not an admin");
             }
-        }
+
 
         List<Organisations> res = organisationRepository.findAll();
         if(res == null)

@@ -15,13 +15,89 @@ export class Featured extends Component {
             OrganisationsPerMonth: '',
             userData: [],
             adminUserEmail: "admin@email.com",
-
+            OrgData: []
         }
     }
 
     componentDidMount(){
         this.OrganisationsPerMonth();
-        // this.getOrganisations();
+        this.UsersPerMonth();
+    }
+
+    UsersPerMonth(){
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        const UserPerMonth = {
+            // "orgId" : this.state.orgId
+            "adminUserEmail":this.state.adminUserEmail
+        }
+        axios.post('http://localhost:8080/v1/user/get/num_users/per_month', UserPerMonth, config)
+            .then(response =>{
+                console.log(response)
+                this.setState({ userData:[
+                        {
+                            name: "jan",
+                            "Active User": response.data.object.jan,
+                        },
+                        {
+                            name: "feb",
+                            "Active User": response.data.object.feb,
+                        },
+                        {
+                            name: "mar",
+                            "Active User": response.data.object.mar,
+                        },
+                        {
+                            name: "apr",
+                            "Active User": response.data.object.apr,
+                        },
+                        {
+                            name: "may",
+                            "Active User": response.data.object.may,
+                        },
+                        {
+                            name: "jun",
+                            "Active User": response.data.object.jun,
+                        },
+                        {
+                            name: "jul",
+                            "Active User": response.data.object.jul,
+                        },
+                        {
+                            name: "aug",
+                            "Active User": response.data.object.aug,
+                        },
+                        {
+                            name: "sept",
+                            "Active User": response.data.object.sept,
+                        },
+                        {
+                            name: "oct",
+                            "Active User": response.data.object.oct,
+                        },
+                        {
+                            name: "nov",
+                            "Active User": response.data.object.nov,
+                        },
+                        {
+                            name: "dec",
+                            "Active User": response.data.object.dec,
+                        }
+                    ]
+
+                })
+                // this.setState({ userData: response.data })
+                // console.log(this.state.Users)
+
+            })
+            .catch(error =>{
+                // console.log(error)
+                this.setState({error : 'Error Retrieving data'})
+            })
     }
 
     OrganisationsPerMonth(){
@@ -38,54 +114,54 @@ export class Featured extends Component {
         axios.post('http://localhost:8080/v1/organisation/get/num_organisations/per_month', OrgPerMonth, config)
             .then(response =>{
                 console.log(response)
-                this.setState({ userData:[
+                this.setState({ OrgData:[
                         {
                             name: "jan",
-                            "Active User": 0,
+                            "Active User": response.data.object.jan,
                         },
                         {
                             name: "feb",
-                            "Active User": 0,
+                            "Active User": response.data.object.feb,
                         },
                         {
                             name: "mar",
-                            "Active User": 0,
+                            "Active User": response.data.object.mar,
                         },
                         {
                             name: "apr",
-                            "Active User": 0,
+                            "Active User": response.data.object.apr,
                         },
                         {
                             name: "may",
-                            "Active User": 0,
+                            "Active User": response.data.object.may,
                         },
                         {
                             name: "jun",
-                            "Active User": 0,
+                            "Active User": response.data.object.jun,
                         },
                         {
                             name: "jul",
-                            "Active User": 0,
+                            "Active User": response.data.object.jul,
                         },
                         {
                             name: "aug",
-                            "Active User": 0,
+                            "Active User": response.data.object.aug,
                         },
                         {
                             name: "sept",
-                            "Active User": 0,
+                            "Active User": response.data.object.sept,
                         },
                         {
                             name: "oct",
-                            "Active User": 0,
+                            "Active User": response.data.object.oct,
                         },
                         {
                             name: "nov",
-                            "Active User": 0,
+                            "Active User": response.data.object.nov,
                         },
                         {
                             name: "dec",
-                            "Active User": 0,
+                            "Active User": response.data.object.dec,
                         }
                     ]
 
@@ -107,7 +183,7 @@ export class Featured extends Component {
     ////////////////////////////////////////
 
     render() {
-        const { userData } = this.state
+        const { userData, OrgData } = this.state
         return (
             <div className="featured">
                 <div className="featuredBody">
@@ -118,7 +194,7 @@ export class Featured extends Component {
                                 <Chart data={userData} title="Users who registered on the system" grid dataKey="Active User" />
                             </div>
                             <div className="dashGraph">
-                                <Chart data={userData} title="Organisations who registered on the system" grid dataKey="Active User" />
+                                <Chart data={OrgData} title="Organisations who registered on the system" grid dataKey="Active User" />
                             </div>
                         </div>
                     </div>

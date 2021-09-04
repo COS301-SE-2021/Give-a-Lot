@@ -15,9 +15,7 @@ import {
     Publish,
 } from "@material-ui/icons";
 import axios from "axios";
-import StarOutlineIcon from "@material-ui/icons/StarOutline";
-// import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
-// import Dash from "../../DashHeader/DashHeader"
+
 
 export class Profile extends Component {
 
@@ -25,7 +23,7 @@ export class Profile extends Component {
         super(props)
 
         this.state = {
-            persons:[],
+            persons:"",
             adminId:14,
         }
     }
@@ -83,45 +81,58 @@ export class Profile extends Component {
                     <div className="userTitle">Edit Information</div>
                 </div>
                 <div className="userOrgContainer">
-                    <div className="userShow">
-                        <div className="userShowTop">
 
 
-                            <div className="userShowTopTitle">
-                                <span className="userShowUsername">Gift of the givers</span>
-                                <span className="userShowUserTitle">giving back to the people </span>
-                            </div>
-                        </div>
-                        <div className="userShowBottom">
-                            <span className="userShowTitle">Account Details</span>
-                            <div className="userShowInfo">
-                                <PermIdentity className="userShowIcon" />
-                                <span className="userShowInfoTitle">Gift of the givers</span>
-                            </div>
-                            <div className="userShowInfo">
-                                <CalendarToday className="userShowIcon" />
-                                <span className="userShowInfoTitle">19.08.2021</span>
-                            </div>
-                            <span className="userShowTitle">Contact Details</span>
+                            <div className="userShow">
 
-                            <div className="userShowInfo">
-                                <PhoneAndroid className="userShowIcon" />
-                                <span className="userShowInfoTitle">Tshilidzi Nekhavhambe</span>
+                                <div className="userShowTop">
+
+
+                                    <div className="userShowTopTitle">
+                                        <span className="userShowUsername">{persons.orgName}</span>
+                                        <span className="userShowUserTitle">{persons.slogan} </span>
+                                    </div>
+                                </div>
+                                <div className="userShowBottom">
+                                    <span className="userShowTitle">Account Details</span>
+                                    <div className="userShowInfo">
+                                        <PermIdentity className="userShowIcon" />
+                                        <span className="userShowInfoTitle">{persons.orgName}</span>
+                                    </div>
+                                    <div className="userShowInfo">
+                                        <MailOutline className="userShowIcon" />
+                                        <span className="userShowInfoTitle">{persons.orgSector}</span>
+                                    </div>
+                                    <div className="userShowInfo">
+                                        <CalendarToday className="userShowIcon" />
+                                        <span className="userShowInfoTitle">{persons.dateAdded}</span>
+                                    </div>
+                                    <span className="userShowTitle">Contact Details</span>
+
+                                    <div className="userShowInfo">
+                                        <PhoneAndroid className="userShowIcon" />
+                                        <span className="userShowInfoTitle">{persons.contactPerson}</span>
+                                    </div>
+                                    <div className="userShowInfo">
+                                        <PhoneAndroid className="userShowIcon" />
+                                        <span className="userShowInfoTitle">{persons.contactNumber}</span>
+                                    </div>
+                                    <div className="userShowInfo">
+                                        <MailOutline className="userShowIcon" />
+                                        <span className="userShowInfoTitle">{persons.orgEmail}</span>
+                                    </div>
+
+                                    <div className="userShowInfo">
+                                        <MailOutline className="userShowIcon" />
+                                        <span className="userShowInfoTitle">{persons.status}</span>
+                                    </div>
+                                    <div className="userShowInfo">
+                                        <LocationSearching className="userShowIcon" />
+                                        <span className="userShowInfoTitle">Pretoria, arcadia</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="userShowInfo">
-                                <PhoneAndroid className="userShowIcon" />
-                                <span className="userShowInfoTitle">081 456 675</span>
-                            </div>
-                            <div className="userShowInfo">
-                                <MailOutline className="userShowIcon" />
-                                <span className="userShowInfoTitle">Givers@gmail.com</span>
-                            </div>
-                            <div className="userShowInfo">
-                                <LocationSearching className="userShowIcon" />
-                                <span className="userShowInfoTitle">Pretoria, arcadia</span>
-                            </div>
-                        </div>
-                    </div>
+
                     <div className="userUpdate">
                         <span className="userUpdateTitle">Edit</span>
                         <form className="userUpdateForm">

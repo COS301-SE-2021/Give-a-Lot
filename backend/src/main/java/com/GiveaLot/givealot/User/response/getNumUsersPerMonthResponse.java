@@ -1,147 +1,130 @@
 package com.GiveaLot.givealot.User.response;
 
 public class getNumUsersPerMonthResponse {
-    private String message;
-    private String code;
-    private long janNum;
-    private long febNum;
-    private long marNum;
-    private long aprNum;
-    private long mayNum;
-    private long junNum;
-    private long julNum;
-    private long augNum;
-    private long septNum;
-    private long octNum;
-    private long novNum;
-    private long decNum;
+    private long Jan;
+    private long Feb;
+    private long Mar;
+    private long Apr;
+    private long May;
+    private long Jun;
+    private long Jul;
+    private long Aug;
+    private long Sept;
+    private long Oct;
+    private long Nov;
+    private long Dec;
 
-    public getNumUsersPerMonthResponse(String message, String code, long janNum, long febNum, long marNum, long aprNum, long mayNum, long junNum, long julNum, long augNum, long septNum, long octNum, long novNum, long decNum) {
-        this.message = message;
-        this.code = code;
-        this.janNum = janNum;
-        this.febNum = febNum;
-        this.marNum = marNum;
-        this.aprNum = aprNum;
-        this.mayNum = mayNum;
-        this.junNum = junNum;
-        this.julNum = julNum;
-        this.augNum = augNum;
-        this.septNum = septNum;
-        this.octNum = octNum;
-        this.novNum = novNum;
-        this.decNum = decNum;
+    public getNumUsersPerMonthResponse(long jan, long feb, long mar, long apr, long may, long jun, long jul, long aug, long sept, long oct, long nov, long dec) {
+        Jan = jan;
+        Feb = feb;
+        Mar = mar;
+        Apr = apr;
+        May = may;
+        Jun = jun;
+        Jul = jul;
+        Aug = aug;
+        Sept = sept;
+        Oct = oct;
+        Nov = nov;
+        Dec = dec;
     }
 
-    public String getMessage() {
-        return message;
+    public long getJan() {
+        return Jan;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setJan(long jan) {
+        Jan = jan;
     }
 
-    public String getCode() {
-        return code;
+    public long getFeb() {
+        return Feb;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setFeb(long feb) {
+        Feb = feb;
     }
 
-    public long getJanNum() {
-        return janNum;
+    public long getMar() {
+        return Mar;
     }
 
-    public void setJanNum(long janNum) {
-        this.janNum = janNum;
+    public void setMar(long mar) {
+        Mar = mar;
     }
 
-    public long getFebNum() {
-        return febNum;
+    public long getApr() {
+        return Apr;
     }
 
-    public void setFebNum(long febNum) {
-        this.febNum = febNum;
+    public void setApr(long apr) {
+        Apr = apr;
     }
 
-    public long getMarNum() {
-        return marNum;
+    public long getMay() {
+        return May;
     }
 
-    public void setMarNum(long marNum) {
-        this.marNum = marNum;
+    public void setMay(long may) {
+        May = may;
     }
 
-    public long getAprNum() {
-        return aprNum;
+    public long getJun() {
+        return Jun;
     }
 
-    public void setAprNum(long aprNum) {
-        this.aprNum = aprNum;
+    public void setJun(long jun) {
+        Jun = jun;
     }
 
-    public long getMayNum() {
-        return mayNum;
+    public long getJul() {
+        return Jul;
     }
 
-    public void setMayNum(long mayNum) {
-        this.mayNum = mayNum;
+    public void setJul(long jul) {
+        Jul = jul;
     }
 
-    public long getJunNum() {
-        return junNum;
+    public long getAug() {
+        return Aug;
     }
 
-    public void setJunNum(long junNum) {
-        this.junNum = junNum;
+    public void setAug(long aug) {
+        Aug = aug;
     }
 
-    public long getJulNum() {
-        return julNum;
+    public long getSept() {
+        return Sept;
     }
 
-    public void setJulNum(long julNum) {
-        this.julNum = julNum;
+    public void setSept(long sept) {
+        Sept = sept;
     }
 
-    public long getAugNum() {
-        return augNum;
+    public long getOct() {
+        return Oct;
     }
 
-    public void setAugNum(long augNum) {
-        this.augNum = augNum;
+    public void setOct(long oct) {
+        Oct = oct;
     }
 
-    public long getSeptNum() {
-        return septNum;
+    public long getNov() {
+        return Nov;
     }
 
-    public void setSeptNum(long septNum) {
-        this.septNum = septNum;
+    public void setNov(long nov) {
+        Nov = nov;
     }
 
-    public long getOctNum() {
-        return octNum;
+    public long getDec() {
+        return Dec;
     }
 
-    public void setOctNum(long octNum) {
-        this.octNum = octNum;
-    }
-
-    public long getNovNum() {
-        return novNum;
-    }
-
-    public void setNovNum(long novNum) {
-        this.novNum = novNum;
-    }
-
-    public long getDecNum() {
-        return decNum;
-    }
-
-    public void setDecNum(long decNum) {
-        this.decNum = decNum;
+    public void setDec(long dec) {
+        Dec = dec;
     }
 }
+
+
+

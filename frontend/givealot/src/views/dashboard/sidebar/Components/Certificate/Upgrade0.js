@@ -87,7 +87,7 @@ export class Upgrade0 extends Component {
         }
 
         if (!this.state.logo) {
-            ngoDateError = "Logo is require";
+            logoError = "Logo is require";
         }
 
 
@@ -95,8 +95,8 @@ export class Upgrade0 extends Component {
             ngoNumberError="Date is required";
         }
 
-        if ( ngoDateError || ngoNumberError) {
-            this.setState({ ngoDateError, ngoNumberError });
+        if ( ngoDateError || ngoNumberError || logoError) {
+            this.setState({ ngoDateError, ngoNumberError, logoError });
             return false;
         }
 
@@ -113,9 +113,19 @@ export class Upgrade0 extends Component {
                 ngoNumber: this.state.ngoNumber,
 
             };
+            const data_logo = {
+                orgId: this.state.orgId,
+                logo: this.state.logo,
+
+            };
             console.log(data)
             Axios
                 .post("http://localhost:8080/v1/organisation/add/ngopdate", data)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+
+            Axios
+                .post("", data_logo)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
@@ -202,13 +212,14 @@ export class Upgrade0 extends Component {
                                         <input
                                             className="upgrade_logo"
                                             type="file"
-                                            name="file"
+                                            name="logo"
                                             onChange={this.handleInputChange}
                                         />
                                     </div>
-                                    <span className="loginError_certificate">{this.state.ngoLogoError}</span>
 
                                 </div>
+
+                                <span className="loginError_certificate">{this.state.logoError}</span>
                                 <div className="upgrade_Button">
                                     <button className="upgrade-btn" type="submit" onClick={this.onToast}>
                                         Submit

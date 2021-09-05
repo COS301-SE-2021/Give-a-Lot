@@ -23,7 +23,7 @@ export class Certificate extends Component {
     constructor (props) {
         super(props)
         this.state={
-            level: 3,
+            level: 2,
             orgId:6,
         };
     }
@@ -40,7 +40,7 @@ export class Certificate extends Component {
 
         axios.post('http://localhost:8080/v1/organisation/get/org_level', dataa  ,config)
             .then(response =>{
-                this.setState({level: response.data.level})
+               // this.setState({level: response.data.level})
                 console.log(response)
 
 

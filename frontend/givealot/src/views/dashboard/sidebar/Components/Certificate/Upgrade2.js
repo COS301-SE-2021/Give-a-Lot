@@ -112,6 +112,7 @@ export class Upgrade2 extends Component {
     validate = () => {
         let dateError = "";
         let paypalError = "";
+        let codeError="";
 
 
         if (!this.state.date) {
@@ -121,6 +122,10 @@ export class Upgrade2 extends Component {
 
         if(!this.state.orgInfo) {
             paypalError="Link required";
+        }
+
+        if (!this.state.qrcode) {
+            codeError = "QRcode is require";
         }
 
         if ( dateError || paypalError) {

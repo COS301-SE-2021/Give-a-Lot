@@ -18,7 +18,6 @@ public class OrganisationPoints {
     private boolean addressIsValid;
     private boolean websiteIsValid;
     private boolean auditIsValid;
-    private boolean auditorIsValid;
     private boolean committeeIsValid;
     private boolean ngoNoIsValid;
     private boolean ngoDateIsValid;
@@ -36,13 +35,13 @@ public class OrganisationPoints {
     {
 
     }
-    public OrganisationPoints( Long orgId, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean auditorIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, String socialMediaType, boolean estDateIsValid, int numberOfImages, boolean donationURLIsValid, boolean qrCodeIsValid) {
+    public OrganisationPoints( Long orgId, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, String socialMediaType, boolean estDateIsValid, int numberOfImages, boolean donationURLIsValid, boolean qrCodeIsValid) {
         this.orgId = orgId;
 
         this.addressIsValid = addressIsValid;
         this.websiteIsValid = websiteIsValid;
         this.auditIsValid = auditIsValid;
-        this.auditorIsValid = auditorIsValid;
+
         this.committeeIsValid = committeeIsValid;
         this.ngoNoIsValid = ngoNoIsValid;
         this.ngoDateIsValid = ngoDateIsValid;
@@ -54,12 +53,12 @@ public class OrganisationPoints {
     }
 
 
-    public OrganisationPoints(Long orgId, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean auditorIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, boolean instagramIsValid, boolean facebookIsValid, boolean twitterIsValid, boolean estDateIsValid, int numberOfImages, boolean donationURLIsValid, boolean qrCodeIsValid) {
+    public OrganisationPoints(Long orgId, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, boolean instagramIsValid, boolean facebookIsValid, boolean twitterIsValid, boolean estDateIsValid, int numberOfImages, boolean donationURLIsValid, boolean qrCodeIsValid) {
         this.orgId = orgId;
         this.addressIsValid = addressIsValid;
         this.websiteIsValid = websiteIsValid;
         this.auditIsValid = auditIsValid;
-        this.auditorIsValid = auditorIsValid;
+
         this.committeeIsValid = committeeIsValid;
         this.ngoNoIsValid = ngoNoIsValid;
         this.ngoDateIsValid = ngoDateIsValid;
@@ -107,14 +106,6 @@ public class OrganisationPoints {
 
     public void setAuditIsValid(boolean auditIsValid) {
         this.auditIsValid = auditIsValid;
-    }
-
-    public boolean isAuditorIsValid() {
-        return auditorIsValid;
-    }
-
-    public void setAuditorIsValid(boolean auditorIsValid) {
-        this.auditorIsValid = auditorIsValid;
     }
 
     public boolean isCommitteeIsValid() {

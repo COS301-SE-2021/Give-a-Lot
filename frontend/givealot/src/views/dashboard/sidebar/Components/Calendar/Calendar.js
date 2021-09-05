@@ -17,11 +17,11 @@ export default class DemoApp extends React.Component {
         },
             {
                 Id: 2,
-                Subject: 'Scrum Meeting',
+                Subject: 'Scrum Meetings',
                 StartTime: new Date(2021, 8, 30, 9, 0),
                 EndTime: new Date(2021, 8, 30, 10, 30),
                 Description: "Meeting time changed based on team activities.",
-                RecurrenceID: 1
+                // RecurrenceID: 1
             }];
     }
 

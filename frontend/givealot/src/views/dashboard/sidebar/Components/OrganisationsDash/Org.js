@@ -5,8 +5,11 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import {useParams} from 'react-router-dom';
 import {CalendarToday, LocationSearching, MailOutline, PermIdentity, PhoneAndroid, DescriptionOutlined} from "@material-ui/icons";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogContent from "@material-ui/core/DialogContent";
+import Dialog from "@material-ui/core/Dialog";
+import { Link } from "react-router-dom";
 
 export class Org extends Component {
 
@@ -16,13 +19,30 @@ export class Org extends Component {
         this.state = {
             orgS:{},
             orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1],
-            investigate: ''
+            investigate: '',
+            open: false,
+            openInvestigate: false,
+            openSuspend: false
         }
-        console.log(this.state.orgId)
+        // console.log(this.state.orgId)
         // let idUrl = window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
         // console.log(idUrl)
 
 
+    }
+
+    // openDialog() {
+    //     this.setState({ open: true });
+    // }
+
+    handleClose = () => {
+        this.setState({ open: false });
+    }
+    handleCloseInvest = () => {
+        this.setState({ openInvestigate: false });
+    }
+    handleCloseSuspend = () => {
+        this.setState({ openSuspend: false });
     }
 
     componentDidMount(){
@@ -45,7 +65,7 @@ export class Org extends Component {
     }
 
     handleActivate() {
-
+        this.setState({ open: true });
         let config = {
             headers: {
                 "Content-Type": "application/json",
@@ -55,12 +75,10 @@ export class Org extends Component {
         const activate = {
             orgID : window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
         }
-        console.log(activate)
+        // console.log(activate)
         axios.put('http://localhost:8080/v1/organisation/activate/orgId',activate ,config)
             .then(response =>{
                 console.log(response)
-                // this.setState({investigate: response.data})
-                // console.log(this.state.org)
             })
             .catch(error =>{
                 console.log(error)
@@ -70,7 +88,8 @@ export class Org extends Component {
     }
 
     handleInvestigate () {
-        // e.preventDefault();
+        console.log(this.state.openInvestigate)
+        this.setState({ openInvestigate: true });
         let config = {
             headers: {
                 "Content-Type": "application/json",
@@ -94,7 +113,7 @@ export class Org extends Component {
     }
 
     handleSuspend() {
-
+        this.setState({ openSuspend: true });
         let config = {
             headers: {
                 "Content-Type": "application/json",
@@ -116,19 +135,12 @@ export class Org extends Component {
 
     }
 
-
     render() {
         const { orgS } = this.state
+        // const orgid = window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
         return (
             <div className="org">
-
-                {/*<div>*/}
-                {/*    { console.log(this.props.match.params.orgId)}*/}
-                {/*</div>*/}
-
-                {/*<Typography style={{width: "100%", height: "8em"}}>*/}
-                    <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" style={{width: "100%", height: "30%"}}/>
-                {/*</Typography>*/}
+                <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" style={{width: "100%", height: "30%"}}/>
                 <div className="orgCard">
                     <Card className="card1">
                         <CardContent>
@@ -198,19 +210,64 @@ export class Org extends Component {
                             </Typography>
                         </CardContent>
                         <Typography className="_orgButtons">
-                            <Button  type="submit" variant="contained" color="primary" onClick={this.handleActivate}>
-                                Activate
-                            </Button>
-                            <Button type="submit" variant="contained" style={{color: "white", backgroundColor: "orange"}}
-                                    onClick={this.handleInvestigate}
-                            >
-                                Investigate
-                            </Button>
-                            <Button type="submit" variant="contained" color="secondary"
-                                    onClick={this.handleSuspend}
-                            >
-                                Suspend
-                            </Button>
+                            <div>
+                                <Button  type="submit" variant="contained" color="primary"
+                                         onClick={this.handleActivate.bind(this)}
+                                >
+                                    Activate
+                                </Button>
+                                <Dialog onClose={this.handleClose.bind(this)} open={this.state.open}>
+                                    <DialogTitle>Organisation Successfully Activated</DialogTitle>
+                                    <DialogContent>
+                                        <Button variant="contained" color="primary"
+                                                onClose={this.handleClose.bind(this)}
+                                                style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}
+                                        >
+                                            Close
+                                        </Button>
+                                    </DialogContent>
+                                </Dialog>
+
+                            </div>
+
+                            <div>
+                                <Button type="submit" variant="contained" style={{color: "white", backgroundColor: "orange"}}
+                                        onClick={this.handleInvestigate.bind(this)}
+                                >
+                                    Investigate
+                                </Button>
+                                <Dialog onClose={this.handleCloseInvest.bind(this)} open={this.state.openInvestigate}>
+                                    <DialogTitle>Organisation Investigate</DialogTitle>
+                                    <DialogContent>
+                                        <Button variant="contained" color="primary"
+                                                onClose={this.handleCloseInvest.bind(this)}
+                                                style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}
+                                        >
+                                            Close
+                                        </Button>
+                                    </DialogContent>
+                                </Dialog>
+                            </div>
+
+                            <div>
+                                <Button type="submit" variant="contained" color="secondary"
+                                        onClick={this.handleSuspend.bind(this)}
+                                >
+                                    Suspend
+                                </Button>
+                                <Dialog onClose={this.handleCloseSuspend.bind(this)} open={this.state.openSuspend}>
+                                    <DialogTitle>Organisation Suspended</DialogTitle>
+                                    <DialogContent>
+                                        <Button variant="contained" color="primary"
+                                                onClose={this.handleCloseSuspend.bind(this)}
+                                                style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}
+                                        >
+                                            Close
+                                        </Button>
+                                    </DialogContent>
+                                </Dialog>
+                            </div>
+
                         </Typography>
 
                     </Card>
@@ -218,7 +275,6 @@ export class Org extends Component {
             </div>
         )
     }
-// <button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
 }
 
 export default Org

@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="redirect by orgId fixed">
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="id redirect for activate and investigate tested, calender date problem fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Cards.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/Org.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/Org.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -141,21 +141,7 @@
       <workItem from="1629301692751" duration="18015000" />
       <workItem from="1629339797985" duration="980000" />
       <workItem from="1629343930362" duration="7971000" />
-      <workItem from="1630752097210" duration="33215000" />
-    </task>
-    <task id="LOCAL-00020" summary="organisations controller revision - activate">
-      <created>1629264097723</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1629264097723</updated>
-    </task>
-    <task id="LOCAL-00021" summary="organisations controller revision - activate">
-      <created>1629264262713</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1629264262713</updated>
+      <workItem from="1630752097210" duration="38773000" />
     </task>
     <task id="LOCAL-00022" summary="organisations controller revision - activate">
       <created>1629264924333</created>
@@ -486,7 +472,21 @@
       <option name="project" value="LOCAL" />
       <updated>1630790198396</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="id redirect for activate and investigate tested, calender date problem fixed">
+      <created>1630798357297</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1630798357297</updated>
+    </task>
+    <task id="LOCAL-00070" summary="id redirect for activate and investigate tested, calender date problem fixed">
+      <created>1630798432808</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1630798432808</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -529,6 +529,7 @@
     <MESSAGE value="Dashboard Graphs api's tested" />
     <MESSAGE value="investigate, suspend and activate apis tested" />
     <MESSAGE value="redirect by orgId fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="redirect by orgId fixed" />
+    <MESSAGE value="id redirect for activate and investigate tested, calender date problem fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="id redirect for activate and investigate tested, calender date problem fixed" />
   </component>
 </project>

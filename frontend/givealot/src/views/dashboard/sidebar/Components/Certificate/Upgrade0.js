@@ -61,16 +61,20 @@ export class Upgrade0 extends Component {
 
     }
 
-    handleInputChange = input => e => {
 
-
-        this.setState({ [input]: e.target.files });
-
+    handleInputChange = event => {
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
     };
 
     handleChange = event => {
 
         const formData = new FormData();
+
 
         formData.append('image', event.target.files[0]);
         formData.append('orgId', 32);
@@ -158,10 +162,6 @@ export class Upgrade0 extends Component {
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 
-            Axios
-                .post("", data_logo)
-                .then(res => console.log(res))
-                .catch(err => console.log(err));
         }
     };
 
@@ -235,7 +235,7 @@ export class Upgrade0 extends Component {
                                                 shrink: true,
                                             }}
                                             variant="outlined"
-                                            onChange={this.handleChange}
+                                            onChange={this.handleInputChange}
                                         />
                                     </div>
                                     <span className="loginError_certificate">{this.state.ngoNumberError}</span>

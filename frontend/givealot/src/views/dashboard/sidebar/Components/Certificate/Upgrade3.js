@@ -55,13 +55,21 @@ export class Upgrade3 extends Component {
             url1:"",
             type1:"",
             ChairpersonName:"",
+            ChairpersonNameError:"",
             ChairpersonContacts:"",
+            ChairpersonContactsError:"",
             managerName:"",
+            managerNameError:"",
             managerContacts:"",
+            managerContactsError:"",
             treasurerName:"",
+            treasurerNameError:"",
             treasurerContacts:"",
+            treasurerContactsError:"",
             secretaryName:"",
+            secretaryNameError:"",
             secretaryContacts:"",
+            secretaryContactsError:"",
             committee:""
 
         };

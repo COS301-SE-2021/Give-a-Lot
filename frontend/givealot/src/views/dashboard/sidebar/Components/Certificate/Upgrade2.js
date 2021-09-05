@@ -41,6 +41,7 @@ const initialState = {
     orgInfo:"",
     dateError:"",
     paypalError:"",
+    qrError:"",
 };
 
 
@@ -124,7 +125,7 @@ export class Upgrade2 extends Component {
             paypalError="Link required";
         }
 
-        if (!this.state.qrcode) {
+        if (!this.state) {
             codeError = "QRcode is require";
         }
 
@@ -250,7 +251,7 @@ export class Upgrade2 extends Component {
                                         />
 
                                     </div>
-                                    <span className="loginError_certificate">{this.state.paypalError}</span>
+                                    <span className="loginError_certificate">{this.state.Error}</span>
 
                                 </div>
                                 <div className="upgrade_Button">

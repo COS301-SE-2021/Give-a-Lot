@@ -130,7 +130,7 @@ export class Upgrade0 extends Component {
 
 
         if(!this.state.ngoNumber) {
-            ngoNumberError="Date is required";
+            ngoNumberError="Ngo number is required";
         }
 
         if ( ngoDateError || ngoNumberError || logoError) {

@@ -23,7 +23,7 @@ export class Certificate extends Component {
     constructor (props) {
         super(props)
         this.state={
-            level: 2,
+            level: 1,
             orgId:6,
         };
     }

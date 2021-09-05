@@ -91,7 +91,7 @@ export class Profile extends Component {
         this.setState({contactSloganState: true});
     }
 
-    handleorgName(){
+    handleOrgName(){
         this.setState({orgNameState: true});
     }
 
@@ -99,18 +99,19 @@ export class Profile extends Component {
     handleFormSubmit = e => {
         e.preventDefault();
 
-        const data = {
+        if(this.state.emailState) {
+            const data = {
+                orgId: this.state.orgId,
+                type: "email",
+                newValue: this.state.orgEmail,
 
-            orgId: this.state.orgId,
-            type: "email",
-            newValue: this.state.newValue,
+            };
 
-        };
-
-        Axios
-            .post("http://localhost:8080/v1/organisation/update/info/organisation", data)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+            Axios
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
 
     };
 
@@ -196,6 +197,7 @@ export class Profile extends Component {
                                         type="text"
                                         name="orgName"
                                         placeholder={persons.orgName}
+                                        onChange={this.handleOrgName}
                                         className="userUpdateInput"
                                     />
                                 </div>
@@ -204,6 +206,7 @@ export class Profile extends Component {
                                     <input
                                         type="text"
                                         name="contactPerson"
+                                        onChange={this.handleContactPerson}
                                         placeholder={persons.contactPerson}
                                         className="userUpdateInput"
                                     />
@@ -213,6 +216,7 @@ export class Profile extends Component {
                                     <input
                                         type="text"
                                         name="contactNumber"
+                                        onChange={this.handleContactNumber}
                                         placeholder={persons.contactNumber}
                                         className="userUpdateInput"
                                     />
@@ -222,6 +226,7 @@ export class Profile extends Component {
                                     <input
                                         type="text"
                                         name="orgEmail"
+                                        onChange={this.handleEmail}
                                         placeholder={persons.orgEmail}
                                         className="userUpdateInput"
                                     />
@@ -232,6 +237,7 @@ export class Profile extends Component {
                                     <input
                                         type="text"
                                         name="address"
+                                        onChange={this.handleAddress}
                                         placeholder="Pretoria, arcadia"
                                         className="userUpdateInput"
                                     />
@@ -243,6 +249,7 @@ export class Profile extends Component {
 
                                         type="text"
                                         name="orgDescription"
+                                        onChange={this.handleDescription}
                                         placeholder={persons.orgDescription}
                                         className="userUpdateInput1"
                                     />

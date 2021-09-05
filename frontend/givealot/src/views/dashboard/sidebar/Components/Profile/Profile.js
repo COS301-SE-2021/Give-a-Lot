@@ -29,11 +29,19 @@ export class Profile extends Component {
             persons:"",
             adminId:14,
             orgEmail:"",
+            orgName:"",
+            orgState:"",
+            emailState:false,
             orgDescription:"",
+            orgDescriptionSate:false,
             contactNumber:"",
+            contactNumberState:false,
             slogan:"",
+            sloganState:false,
             contactPerson:"",
+            contactPersonState:"",
             address:"",
+            addressState:false,
         }
     }
 
@@ -80,26 +88,29 @@ export class Profile extends Component {
 
     }
 
+
+
     handleFormSubmit = e => {
         e.preventDefault();
+
         const data = {
 
-            email:this.state.orgEmail,
-            description:this.state.orgDescription,
-            contactNumber: this.state.contactNumber,
-            slogan: this.state.slogan,
-            contactPerson: this.state.contactPerson,
+            orgId: this.state.orgId,
+            type: "email",
+            newValue: this.state.newValue,
 
         };
-
 
         Axios
             .post("http://localhost:8080/v1/organisation/update/info/organisation", data)
             .then(res => console.log(res))
             .catch(err => console.log(err));
 
-
     };
+
+
+
+
 
     onToast = () => {
         toast.success('Submit successful',{

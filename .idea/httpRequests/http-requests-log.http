@@ -1,3 +1,109 @@
+POST http://localhost:8080/v1/notifications/get/level_information
+Content-Type: application/json
+
+{
+  "orgId": 32
+
+}
+
+<> 2021-09-05T143114.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/get/level_information
+Content-Type: application/json
+
+{
+  "orgId": 32
+
+}
+
+<> 2021-09-05T050941.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/committee
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "committee": "Peter David,091839192,Kevin Smith,128293,Martin Lawrence,1123313331"
+}
+
+<> 2021-09-05T043012.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/committee
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "committee": "Peter David,Kevin Smith,Martin Lawrence"
+}
+
+<> 2021-09-05T042634.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/donation/info
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "orgInfo": "http:info.com"
+}
+
+<> 2021-09-05T042151.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/donation/info
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "orgInfo": "orgInfo"
+}
+
+<> 2021-09-05T042049.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/donation/info
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "orgName": "orgInfo"
+}
+
+<> 2021-09-05T041825.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/32/14/ngo_date/true
+
+<> 2021-09-05T034630.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/32/14/ngo_date/true
+
+###
+
+GET http://localhost:8080/certificate/download
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "orgName": "Pistol"
+}
+
+<> 2021-09-05T015723.500.json
+
+###
+
 POST http://localhost:8080/v1/organisation/update/info/organisation
 Content-Type: application/json
 
@@ -418,128 +524,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-02T224842.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/update/notifications
-Content-Type: application/json
-
-{
-  "org_id":32
-}
-
-<> 2021-09-02T224703.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/update/notifications
-Content-Type: application/json
-
-{
-  "org_id":32
-}
-
-<> 2021-09-02T224244.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/orgNgo
-Content-Type: application/json
-
-{
-  "orgId":32,
-  "ngoNumber":"123-456",
-  "ngoDate":"2018/12/23"
-}
-
-<> 2021-09-02T224223.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/update/notifications
-Content-Type: application/json
-
-{
-  "org_id":32
-}
-
-<> 2021-09-02T223837.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/update/notifications
-Content-Type: application/json
-
-{
-  "org_id":32
-}
-
-<> 2021-09-02T223205.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/orgNgo
-Content-Type: application/json
-
-{
-  "orgId":32,
-  "ngoNumber":"123-456",
-  "ngoDate":"2018/12/23"
-}
-
-<> 2021-09-02T223153.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/orgNgo
-Content-Type: application/json
-
-{
-  "orgId":6,
-  "ngoNumber":"123-456",
-  "ngoDate":"2018/12/23"
-}
-
-<> 2021-09-02T201647.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-"orgId":6,
-"ngoNumber":"123-456",
-"ngoDate":"2020/05/23"
-}
-
-<> 2021-09-02T195747.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-"orgId":6,
-"ngoNumber":"123-456",
-"ngoDate":"2020/05/23"
-}
-
-<> 2021-09-02T195010.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-"orgId":6,
-"ngoNumber":"123-456",
-"ngoDate":"2020/05/23"
-}
-
-<> 2021-09-02T194620.200.json
 
 ###
 

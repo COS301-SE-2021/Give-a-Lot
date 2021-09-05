@@ -6,26 +6,16 @@ public class levelOneInformationResponse {
     String ngoNumber;
     String ngoDate;
     Long level;
+    String orgName;
+    Long orgID;
 
-    public levelOneInformationResponse( Long level, String url, String ngoNumber, String ngoDate) {
+    public levelOneInformationResponse(Long level,String url, String ngoNumber, String ngoDate,  String orgName, Long orgID) {
         this.url = url;
         this.ngoNumber = ngoNumber;
         this.ngoDate = ngoDate;
         this.level = level;
-    }
-
-    public levelOneInformationResponse(String url, String ngoNumber, String ngoDate) {
-        this.url = url;
-        this.ngoNumber = ngoNumber;
-        this.ngoDate = ngoDate;
-    }
-
-    public Long getLevel() {
-        return level;
-    }
-
-    public void setLevel(Long level) {
-        this.level = level;
+        this.orgName = orgName;
+        this.orgID = orgID;
     }
 
     public String getUrl() {
@@ -50,5 +40,29 @@ public class levelOneInformationResponse {
 
     public void setNgoDate(String ngoDate) {
         this.ngoDate = ngoDate;
+    }
+
+    public Long getLevel() {
+        return level;
+    }
+
+    public void setLevel(Long level) {
+        this.level = level;
+    }
+
+    public String getOrgName() {
+        return orgName;
+    }
+
+    public void setOrgName(String orgName) {
+        this.orgName = orgName;
+    }
+
+    public Long getOrgID() {
+        return orgID;
+    }
+
+    public void setOrgID(Long orgID) {
+        this.orgID = orgID;
     }
 }

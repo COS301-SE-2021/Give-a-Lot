@@ -748,6 +748,8 @@ public class OrganisationServiceImp implements OrganisationService {
         if (organisationInfoRepository.addOrgDonationURL(request.getOrgId(), request.getOrgInfo()) != 1)
             throw new Exception("Exception: value field failed to update");
 
+
+
         return new generalOrganisationResponse("add_don_200_ok", "success");
     }
 

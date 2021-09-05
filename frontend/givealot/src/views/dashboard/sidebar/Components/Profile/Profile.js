@@ -100,11 +100,23 @@ export class Profile extends Component {
                 : event.target.value
         });
     }
-    handleAddress(){
-        this.setState({addressState: true});
+    handleAddress= event =>{
+        this.setState({addressState: true})
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
     }
-    handleContactPerson(){
-        this.setState({contactPersonState: true});
+    handleContactPerson=event =>{
+        this.setState({ContactPersonState: true})
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
     }
     handleSlogan(){
         this.setState({contactSloganState: true});

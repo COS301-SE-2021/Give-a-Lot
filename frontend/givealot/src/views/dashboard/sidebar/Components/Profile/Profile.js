@@ -182,6 +182,34 @@ export class Profile extends Component {
                 .catch(err => console.log(err));
         }
 
+        if(this.state.contactNumberState) {
+            const data = {
+                orgId: this.state.orgId,
+                type: "contactNumber",
+                newValue: this.state.contactPerson,
+
+            };
+
+            Axios
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
+
+        if(this.state.orgNameState) {
+            const data = {
+                orgId: this.state.orgId,
+                type: "orgName",
+                newValue: this.state.orgName,
+
+            };
+
+            Axios
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
+
     };
 
 

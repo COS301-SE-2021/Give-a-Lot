@@ -54,9 +54,15 @@ export class Upgrade3 extends Component {
             type:"",
             url1:"",
             type1:"",
-            address:"",
-            name:"",
-            contacts:"",
+            ChairpersonName:"",
+            ChairpersonContacts:"",
+            managerName:"",
+            managerContacts:"",
+            treasurerName:"",
+            treasurerContacts:"",
+            secretaryName:"",
+            secretaryContacts:"",
+            committee:""
 
         };
     }
@@ -80,8 +86,24 @@ export class Upgrade3 extends Component {
         });
     };
 
+    handleCommitteeChange = event => {
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
+    };
+
     handleFormSubmit = e => {
         e.preventDefault();
+
+        const com={
+            orgId: this.state.orgId,
+            committee :  this.state.ChairpersonName+","+this.state.ChairpersonContacts+","+this.state.managerName+","+this.state.managerContacts+","+this.state.treasurerName+","+this.state.treasurerContacts+","+this.state.treasurerName+","+this.state.treasurerContacts,
+        };
+
+
         const social = {
             orgId: this.state.orgId,
             socialType: this.state.type,
@@ -93,16 +115,24 @@ export class Upgrade3 extends Component {
             socialType: this.state.type1,
             url: this.state.url1,
         };
+        console.log(com)
+        Axios
+            .post("http://localhost:8080/v1/organisation/add/committee", com)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
 
+        console.log(social)
         Axios
             .post("http://localhost:8080/v1/organisation/add/socials", social)
             .then(res => console.log(res))
             .catch(err => console.log(err));
 
+        console.log(social1)
         Axios
             .post("http://localhost:8080/v1/organisation/add/socials", social1)
             .then(res => console.log(res))
             .catch(err => console.log(err));
+
 
     };
 
@@ -148,8 +178,8 @@ export class Upgrade3 extends Component {
                                         <div className="social_media">
                                             <TextField
                                                 id="outlined-full-width"
-                                                label="Chairpersion"
-                                                name="ChairpersionName"
+                                                label="Chairperson"
+                                                name="ChairpersonName"
                                                 style={{ margin: 8 }}
                                                 placeholder="Enter full name..."
 
@@ -159,12 +189,12 @@ export class Upgrade3 extends Component {
                                                     shrink: true,
                                                 }}
                                                 variant="outlined"
-                                                onChange={this.handleChange}
+                                                onChange={this.handleCommitteeChange}
                                             />
                                             <TextField
                                                 id="outlined-full-width"
-                                                label="Chairpersion"
-                                                name="ChairpersionNontacts"
+                                                label="Chairperson"
+                                                name="ChairpersonContacts"
                                                 style={{ margin: 8 }}
                                                 placeholder="Enter contacts..."
 
@@ -174,7 +204,7 @@ export class Upgrade3 extends Component {
                                                     shrink: true,
                                                 }}
                                                 variant="outlined"
-                                                onChange={this.handleChange}
+                                                onChange={this.handleCommitteeChange}
                                             />
 
                                         </div>
@@ -182,7 +212,7 @@ export class Upgrade3 extends Component {
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Manager"
-                                                name="ManagerName"
+                                                name="managerName"
                                                 style={{ margin: 8 }}
                                                 placeholder="Enter full name..."
 
@@ -192,12 +222,12 @@ export class Upgrade3 extends Component {
                                                     shrink: true,
                                                 }}
                                                 variant="outlined"
-                                                onChange={this.handleChange}
+                                                onChange={this.handleCommitteeChange}
                                             />
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Manager"
-                                                name="ManagerContacts"
+                                                name="managerContacts"
                                                 style={{ margin: 8 }}
                                                 placeholder="Enter contacts..."
 
@@ -207,7 +237,7 @@ export class Upgrade3 extends Component {
                                                     shrink: true,
                                                 }}
                                                 variant="outlined"
-                                                onChange={this.handleChange}
+                                                onChange={this.handleCommitteeChange}
                                             />
 
                                         </div>
@@ -215,7 +245,7 @@ export class Upgrade3 extends Component {
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Treasurer"
-                                                name="TreasurerName"
+                                                name="treasurerName"
                                                 style={{ margin: 8 }}
                                                 placeholder="Enter full name..."
 
@@ -225,12 +255,12 @@ export class Upgrade3 extends Component {
                                                     shrink: true,
                                                 }}
                                                 variant="outlined"
-                                                onChange={this.handleChange}
+                                                onChange={this.handleCommitteeChange}
                                             />
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Treasurer"
-                                                name="TreasurerContacts"
+                                                name="treasurerContacts"
                                                 style={{ margin: 8 }}
                                                 placeholder="Enter contacts..."
 
@@ -240,7 +270,7 @@ export class Upgrade3 extends Component {
                                                     shrink: true,
                                                 }}
                                                 variant="outlined"
-                                                onChange={this.handleChange}
+                                                onChange={this.handleCommitteeChange}
                                             />
 
                                         </div>
@@ -249,7 +279,7 @@ export class Upgrade3 extends Component {
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Secretary"
-                                                name="SecretaryName"
+                                                name="secretaryName"
                                                 style={{ margin: 8 }}
                                                 placeholder="Enter full name..."
 
@@ -259,12 +289,12 @@ export class Upgrade3 extends Component {
                                                     shrink: true,
                                                 }}
                                                 variant="outlined"
-                                                onChange={this.handleChange}
+                                                onChange={this.handleCommitteeChange}
                                             />
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Secretary"
-                                                name="SecretaryContacts"
+                                                name="secretaryContacts"
                                                 style={{ margin: 8 }}
                                                 placeholder="Enter contacts..."
 
@@ -274,7 +304,7 @@ export class Upgrade3 extends Component {
                                                     shrink: true,
                                                 }}
                                                 variant="outlined"
-                                                onChange={this.handleChange}
+                                                onChange={this.handleCommitteeChange}
                                             />
 
                                         </div>

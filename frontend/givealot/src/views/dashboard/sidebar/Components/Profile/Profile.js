@@ -30,6 +30,7 @@ export class Profile extends Component {
             adminId:14,
             orgEmail:"",
             orgName:"",
+            orgNameState:false,
             orgState:"",
             emailState:false,
             orgDescription:"",
@@ -39,31 +40,12 @@ export class Profile extends Component {
             slogan:"",
             sloganState:false,
             contactPerson:"",
-            contactPersonState:"",
+            contactPersonState:false,
             address:"",
             addressState:false,
         }
     }
 
-/*componentDidMount(){
-       let config = {
-            headers: {
-                "Content-Type": "application/json",
-                'Access-Control-Allow-Origin': '*',
-            }
-        }
-        console.log("something")
-        axios.get('http://jsonplaceholder.typicode.com/users', config)
-            .then(response =>{
-                const persons = response.data[0].id;
-                this.setState({ persons });
-                console.log(persons)
-            })
-            .catch(error =>{
-                console.log(error)
-                this.setState({error : 'Error Retrieving data'})
-            })
-    }*/
 
     componentDidMount() {
         let config = {
@@ -88,6 +70,30 @@ export class Profile extends Component {
 
     }
 
+    handleEmail(){
+        this.setState({emailState: true});
+    }
+
+    handleDescription(){
+        this.setState({isDescription: true});
+    }
+
+    handleContactNumber(){
+        this.setState({contactNumberState: true});
+    }
+    handleAddress(){
+        this.setState({addressState: true});
+    }
+    handleContactPerson(){
+        this.setState({contactPersonState: true});
+    }
+    handleSlogan(){
+        this.setState({contactSloganState: true});
+    }
+
+    handleorgName(){
+        this.setState({orgNameState: true});
+    }
 
 
     handleFormSubmit = e => {

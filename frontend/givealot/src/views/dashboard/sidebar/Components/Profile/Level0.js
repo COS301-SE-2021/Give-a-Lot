@@ -116,6 +116,7 @@ export class Level0 extends Component {
                 : event.target.value
         });
     };
+
     handleFormSubmit = e => {
         e.preventDefault();
 

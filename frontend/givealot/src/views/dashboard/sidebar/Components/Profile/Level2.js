@@ -40,15 +40,12 @@ export class Level2 extends Component {
     constructor (props) {
         super(props)
         this.state={
-            orgId:"32",
+            orgId:"6",
             date:"",
             dateState:false,
             startDate: new Date(),
             orgInfo:"",
             orgInfoState:false,
-            dateError:"",
-            paypalError:"",
-
 
 
         };
@@ -56,7 +53,7 @@ export class Level2 extends Component {
     }
 
     handleDateChange(date) {
-        this.setState({startDate: date, ngoDate:document.getElementsByClassName("input3")[0].value, dateState: true}  )
+        this.setState({startDate: date, date:document.getElementsByClassName("input3")[0].value, dateState: true}  )
 
     }
     handleInfo =event=>{
@@ -71,7 +68,6 @@ export class Level2 extends Component {
 
     handleChange = event => {
         const formData = new FormData();
-
         formData.append('image', event.target.files[0]);
         formData.append('orgId', 32);
         let imageStates = 0;
@@ -113,15 +109,28 @@ export class Level2 extends Component {
 
     handleFormSubmit = e => {
         e.preventDefault();
-        const data = {
-            orgId: this.state.orgId,
-            date: this.state.date,
-            donation: this.state.donation,
-        };
-        Axios
-            .post("", data)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+
+        if (this.state.dateState) {
+            const data = {
+                orgId: this.state.orgId,
+                date: this.state.date,
+            };
+            Axios
+                .post("http://localhost:8080/v1/organisation/add/estdate", data)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
+        if (this.state.orgInfoState) {
+
+            const paypal = {
+                orgId: this.state.orgId,
+                orgInfo: this.state.orgInfo,
+            };
+            Axios
+                .post("http://localhost:8080/v1/organisation/add/donation/info", paypal)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
     };
 
     onToast = () => {
@@ -168,6 +177,7 @@ export class Level2 extends Component {
                                     <TextField
                                         id="outlined-full-width"
                                         label="Paypal link"
+                                        name="orgInfo"
                                         style={{ margin: 8 }}
                                         placeholder="Enter  paypal link..."
                                         fullWidth
@@ -176,7 +186,7 @@ export class Level2 extends Component {
                                             shrink: true,
                                         }}
                                         variant="outlined"
-                                        onChange={this.handleChange}
+                                        onChange={this.handleInfo}
                                     />
                                     <div>
                                         <span className="upgrade_label_logo">
@@ -186,7 +196,7 @@ export class Level2 extends Component {
                                             className="upgrade_logoo"
                                             type="file"
                                             name="QRcode"
-                                            onChange={this.handleInputChange}
+                                            onChange={this.handleChange}
                                         />
                                     </div>
 

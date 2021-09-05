@@ -220,7 +220,7 @@ export class Org extends Component {
                                     <DialogTitle>Organisation Successfully Activated</DialogTitle>
                                     <DialogContent>
                                         <Button variant="contained" color="primary"
-                                                onClose={this.handleClose.bind(this)}
+                                                onClick={this.handleClose.bind(this)}
                                                 style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}
                                         >
                                             Close
@@ -240,7 +240,7 @@ export class Org extends Component {
                                     <DialogTitle>Organisation Investigate</DialogTitle>
                                     <DialogContent>
                                         <Button variant="contained" color="primary"
-                                                onClose={this.handleCloseInvest.bind(this)}
+                                                onClick={this.handleCloseInvest.bind(this)}
                                                 style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}
                                         >
                                             Close
@@ -259,7 +259,7 @@ export class Org extends Component {
                                     <DialogTitle>Organisation Suspended</DialogTitle>
                                     <DialogContent>
                                         <Button variant="contained" color="primary"
-                                                onClose={this.handleCloseSuspend.bind(this)}
+                                                onClick={this.handleCloseSuspend.bind(this)}
                                                 style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}
                                         >
                                             Close

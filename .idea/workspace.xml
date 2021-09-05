@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="id redirect for activate and investigate tested, calender date problem fixed">
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Org validate button clicks completed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Cards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/Org.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/Org.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +66,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2021.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -141,21 +139,7 @@
       <workItem from="1629301692751" duration="18015000" />
       <workItem from="1629339797985" duration="980000" />
       <workItem from="1629343930362" duration="7971000" />
-      <workItem from="1630752097210" duration="38773000" />
-    </task>
-    <task id="LOCAL-00022" summary="organisations controller revision - activate">
-      <created>1629264924333</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1629264924333</updated>
-    </task>
-    <task id="LOCAL-00023" summary="organisations controller revision - add website and remove website">
-      <created>1629265692133</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1629265692134</updated>
+      <workItem from="1630752097210" duration="51592000" />
     </task>
     <task id="LOCAL-00024" summary="organisations controller revision - add address">
       <created>1629266188397</created>
@@ -486,7 +470,21 @@
       <option name="project" value="LOCAL" />
       <updated>1630798432808</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="suspend,investigate, activate pop ups">
+      <created>1630805158809</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1630805158810</updated>
+    </task>
+    <task id="LOCAL-00072" summary="Org validate button clicks completed">
+      <created>1630844527772</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1630844527800</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -505,8 +503,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="backup" />
-    <MESSAGE value="user and login system are complete" />
     <MESSAGE value="organisations api - get all users ready for frontend" />
     <MESSAGE value="organisations controller revision - add Organisation" />
     <MESSAGE value="organisations controller revision - suspend" />
@@ -530,6 +526,8 @@
     <MESSAGE value="investigate, suspend and activate apis tested" />
     <MESSAGE value="redirect by orgId fixed" />
     <MESSAGE value="id redirect for activate and investigate tested, calender date problem fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="id redirect for activate and investigate tested, calender date problem fixed" />
+    <MESSAGE value="suspend,investigate, activate pop ups" />
+    <MESSAGE value="Org validate button clicks completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Org validate button clicks completed" />
   </component>
 </project>

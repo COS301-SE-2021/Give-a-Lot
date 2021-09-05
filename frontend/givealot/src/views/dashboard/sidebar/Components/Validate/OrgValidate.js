@@ -18,14 +18,498 @@ export class OrgValidate extends Component {
             validation:{},
             error: "",
             openValid: false,
+            openValidDate: false,
+            openNgoNumber: false,
+            openNgoNumberDeny: false,
             orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1],
         }
     }
-    openValid() {
-        this.setState({ openValid: true });
-    }
-    handleCloseValid = () => {
+    handleClose = () => {
         this.setState({ openValid: false });
+
+    }
+    handleCloseDate = () => {
+        this.setState({ openValidDate: false });
+    }
+
+    handleCloseNgoNumber = () => {
+        this.setState({ openNgoNumber: false });
+    }
+    handleCloseNgoNumberDeny = () => {
+        this.setState({ openNgoNumberDeny: false });
+    }
+
+    acceptNgoDate() {
+        this.setState({ openValid: true });
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/ngo_date/true', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+    denyNgoDate(){
+        this.setState({ openValidDate: true });
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/ngo_date/false', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    acceptNgoNumber(){
+        this.setState({ openNgoNumber: true });
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/ngo_number/true', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    denyNgoNumber(){
+        this.setState({ openNgoNumberDeny: true });
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/ngo_number/false', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    acceptNgoImage(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/image/true', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    denyNgoImage(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/image/false', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    acceptNgoWebsite(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/website/true', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    denyNgoWebsite(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/website/false', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    acceptNgoAddress(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/address/true', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    denyNgoAddress(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/address/false', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    acceptNgoEstablish(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/establishment_date/true', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    denyNgoEstablish(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/establishment_date/false', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    acceptNgoDonateUrl(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/donation_url/true', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    denyNgoDonateUrl(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/donation_url/false', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    acceptNgoQrUrl(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/qrCodeUrl/true', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    denyNgoQrUrl(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/qrCodeUrl/false', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+
+    acceptCommitteeDetails(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/committee_details/true', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    denyCommitteeDetails(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/committee_details/false', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    acceptSocialMedia1(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/socialMedia1/true', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    denySocialMedia1(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/socialMedia1/false', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    acceptSocialMedia2(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/socialMedia2/true', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    denySocialMedia2(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/socialMedia2/false', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    acceptAuditDocument(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/audit_document/true', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    denyAuditDocument(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/audit_document/false', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+
+    acceptImages(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/images/true', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    denyImages(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/images/false', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
     }
 
     componentDidMount(){
@@ -48,14 +532,11 @@ export class OrgValidate extends Component {
             })
             .catch(error =>{
                 console.log(error)
-                this.setState({error : 'Error Retrieving data'})
             })
     }
 
     render() {
         const { validation } = this.state
-
-        // let {isLoggedIn} = this.state;
 
         const orgValidating = () => {
             if (validation.level === 1) {
@@ -64,8 +545,13 @@ export class OrgValidate extends Component {
                         <Card style={{margin: "1em", width: "100%"}}>
                             <CardContent>
                                 <Typography className="valid">
-                                    <Typography>
-                                        {validation.ngoNumber}
+                                    <Typography style={{display: "flex"}}>
+                                        <div>
+                                            Ngo Date:
+                                        </div>
+                                        <div style={{marginLeft: "1em"}}>
+                                            {validation.ngoDate}
+                                        </div>
                                     </Typography>
                                     <Typography style={{
                                         display: "flex",
@@ -73,23 +559,134 @@ export class OrgValidate extends Component {
                                         justifyContent: "space-between"
                                     }}>
                                         <Grid>
-                                            <Button variant="contained" className="buttonValidViewAccept">
+                                            <Button variant="contained" className="buttonValidViewAccept"
+                                                    onClick={this.acceptNgoDate.bind(this)}
+                                            >
+                                                Accept
+                                            </Button>
+                                            <Dialog onClose={this.handleClose.bind(this)} open={this.state.openValid}>
+                                                <DialogTitle>NGO Date accepted</DialogTitle>
+                                                <DialogContent>
+                                                    <Button variant="contained" color="primary"
+                                                            onClick={this.handleClose.bind(this)}
+                                                            style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}
+                                                    >
+                                                        Close
+                                                    </Button>
+                                                </DialogContent>
+                                            </Dialog>
+                                        </Grid>
+                                        <Grid style={{marginLeft: "1em"}}>
+                                            <Button variant="contained" className="buttonValidViewDeny"
+                                                    onClick={this.denyNgoDate.bind(this)}
+                                                >
+                                                Deny
+                                            </Button>
+                                        </Grid>
+                                        <Dialog onClose={this.handleCloseDate.bind(this)} open={this.state.openValidDate}>
+                                            <DialogTitle>NGO Date Denied</DialogTitle>
+                                            <DialogContent>
+                                                <Button variant="contained" color="primary"
+                                                        onClick={this.handleCloseDate.bind(this)}
+                                                        style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}
+                                                >
+                                                    Close
+                                                </Button>
+                                            </DialogContent>
+                                        </Dialog>
+                                    </Typography>
+                                </Typography>
+                            </CardContent>
+                        </Card>
+
+                        <Card style={{margin: "1em", width: "100%"}}>
+                            <CardContent>
+                                <Typography className="valid">
+                                    <Typography style={{display: "flex"}}>
+                                        <div>
+                                            Ngo Number:
+                                        </div>
+                                        <div style={{marginLeft: "1em"}}>
+                                            {validation.ngoNumber}
+                                        </div>
+                                    </Typography>
+                                    <Typography style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "space-between"
+                                    }}>
+                                        <Grid>
+                                            <Button variant="contained" className="buttonValidViewAccept"
+                                                    onClick={this.acceptNgoNumber.bind(this)}
+                                            >
+                                                Accept
+                                            </Button>
+                                            <Dialog onClose={this.handleCloseNgoNumber.bind(this)} open={this.state.openNgoNumber}>
+                                                <DialogTitle>NGO Number Accepted</DialogTitle>
+                                                <DialogContent>
+                                                    <Button variant="contained" color="primary"
+                                                            onClick={this.handleCloseNgoNumber.bind(this)}
+                                                            style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}
+                                                    >
+                                                        Close
+                                                    </Button>
+                                                </DialogContent>
+                                            </Dialog>
+                                        </Grid>
+                                        <Grid style={{marginLeft: "1em"}}>
+                                            <Button variant="contained" className="buttonValidViewDeny"
+                                                    onClick={this.denyNgoNumber.bind(this)}
+                                            >
+                                                Deny
+                                            </Button>
+                                            <Dialog onClose={this.handleCloseNgoNumberDeny.bind(this)} open={this.state.openNgoNumberDeny}>
+                                                <DialogTitle>NGO Number Denied</DialogTitle>
+                                                <DialogContent>
+                                                    <Button variant="contained" color="primary"
+                                                            onClick={this.handleCloseNgoNumberDeny.bind(this)}
+                                                            style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}
+                                                    >
+                                                        Close
+                                                    </Button>
+                                                </DialogContent>
+                                            </Dialog>
+                                        </Grid>
+                                    </Typography>
+                                </Typography>
+                            </CardContent>
+                        </Card>
+
+                        <Card style={{margin: "1em", width: "100%"}}>
+                            <CardContent>
+                                <Typography className="valid">
+                                    <Typography style={{display: "flex"}}>
+                                        <div>
+                                            Ngo Image:
+                                        </div>
+                                        <div style={{marginLeft: "1em"}}>
+                                            <img src={validation.url}/>
+                                        </div>
+
+                                    </Typography>
+                                    <Typography style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "space-between"
+                                    }}>
+                                        <Grid>
+                                            <Button variant="contained" className="buttonValidViewAccept"
+                                                    onClick={this.acceptNgoImage.bind(this)}
+                                            >
                                                 Accept
                                             </Button>
                                         </Grid>
                                         <Grid style={{marginLeft: "1em"}}>
                                             <Button variant="contained" className="buttonValidViewDeny"
-                                                    onClick={this.openValid.bind(this)}>
+                                                    onClick={this.denyNgoImage.bind(this)}
+                                            >
                                                 Deny
                                             </Button>
                                         </Grid>
-                                        <Dialog onClose={this.handleCloseValid.bind(this)}
-                                                open={this.state.openValid}>
-                                            <DialogTitle>Reason for Denial</DialogTitle>
-                                            <DialogContent>
-                                                Organisation is under investigation
-                                            </DialogContent>
-                                        </Dialog>
                                     </Typography>
                                 </Typography>
                             </CardContent>
@@ -97,17 +694,388 @@ export class OrgValidate extends Component {
                     </div>
                 );
             } else if(validation.level === 2){
-                return (<button>level2</button>);
+                return (
+                    <div className="table">
+                        <Card style={{margin: "1em", width: "100%"}}>
+                            <CardContent>
+                                <Typography className="valid">
+                                    <Typography>
+                                        <div>
+                                            Website:
+                                        </div>
+                                        <div style={{marginLeft: "1em"}}>
+                                            {validation.website}
+                                        </div>
+                                    </Typography>
+                                    <Typography style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "space-between"
+                                    }}>
+                                        <Grid>
+                                            <Button variant="contained" className="buttonValidViewAccept"
+                                                    onClick={this.acceptNgoWebsite.bind(this)}
+                                            >
+                                                Accept
+                                            </Button>
+                                        </Grid>
+                                        <Grid style={{marginLeft: "1em"}}>
+                                            <Button variant="contained" className="buttonValidViewDeny"
+                                                    onClick={this.denyNgoWebsite.bind(this)}
+                                            >
+                                                Deny
+                                            </Button>
+                                        </Grid>
+                                    </Typography>
+                                </Typography>
+                            </CardContent>
+                        </Card>
+
+                        <Card style={{margin: "1em", width: "100%"}}>
+                            <CardContent>
+                                <Typography className="valid">
+                                    <Typography>
+                                        <div>
+                                            Address:
+                                        </div>
+                                        <div style={{marginLeft: "1em"}}>
+                                            {validation.Address}
+                                        </div>
+                                    </Typography>
+                                    <Typography style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "space-between"
+                                    }}>
+                                        <Grid>
+                                            <Button variant="contained" className="buttonValidViewAccept"
+                                                    onClick={this.acceptNgoAddress.bind(this)}
+                                            >
+                                                Accept
+                                            </Button>
+                                        </Grid>
+                                        <Grid style={{marginLeft: "1em"}}>
+                                            <Button variant="contained" className="buttonValidViewDeny"
+                                                onClick={this.denyNgoAddress.bind(this)}
+                                            >
+                                                Deny
+                                            </Button>
+                                        </Grid>
+                                    </Typography>
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </div>
+                );
             }else if(validation.level === 3){
-                return (<button>level3</button>);
+                return (
+                    <div className="table">
+                        <Card style={{margin: "1em", width: "100%"}}>
+                            <CardContent>
+                                <Typography className="valid">
+                                    <Typography>
+                                        <div>
+                                            Establishment Date:
+                                        </div>
+                                        <div style={{marginLeft: "1em"}}>
+                                            {validation.establishementDate}
+                                        </div>
+                                    </Typography>
+                                    <Typography style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "space-between"
+                                    }}>
+                                        <Grid>
+                                            <Button variant="contained" className="buttonValidViewAccept"
+                                                    onClick={this.acceptNgoEstablish.bind(this)}
+                                            >
+                                                Accept
+                                            </Button>
+                                        </Grid>
+                                        <Grid style={{marginLeft: "1em"}}>
+                                            <Button variant="contained" className="buttonValidViewDeny"
+                                                    onClick={this.denyNgoEstablish.bind(this)}
+                                            >
+                                                Deny
+                                            </Button>
+                                        </Grid>
+                                    </Typography>
+                                </Typography>
+                            </CardContent>
+                        </Card>
+
+                        <Card style={{margin: "1em", width: "100%"}}>
+                            <CardContent>
+                                <Typography className="valid">
+                                    <Typography>
+                                        <div>
+                                            Donation Url:
+                                        </div>
+                                        <div style={{marginLeft: "1em"}}>
+                                            {validation.donation_url}
+                                        </div>
+                                    </Typography>
+                                    <Typography style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "space-between"
+                                    }}>
+                                        <Grid>
+                                            <Button variant="contained" className="buttonValidViewAccept"
+                                                    onClick={this.acceptNgoDonateUrl.bind(this)}
+                                            >
+                                                Accept
+                                            </Button>
+                                        </Grid>
+                                        <Grid style={{marginLeft: "1em"}}>
+                                            <Button variant="contained" className="buttonValidViewDeny"
+                                                onClick={this.denyNgoDonateUrl.bind(this)}
+                                            >
+                                                Deny
+                                            </Button>
+                                        </Grid>
+                                    </Typography>
+                                </Typography>
+                            </CardContent>
+                        </Card>
+
+                        <Card style={{margin: "1em", width: "100%"}}>
+                            <CardContent>
+                                <Typography className="valid">
+                                    <Typography>
+                                        <div>
+                                            QR code Url:
+                                        </div>
+                                        <div style={{marginLeft: "1em"}}>
+                                            {validation.qrCodeUrl}
+                                        </div>
+                                    </Typography>
+                                    <Typography style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "space-between"
+                                    }}>
+                                        <Grid>
+                                            <Button variant="contained" className="buttonValidViewAccept"
+                                                    onClick={this.acceptNgoQrUrl.bind(this)}
+                                            >
+                                                Accept
+                                            </Button>
+                                        </Grid>
+                                        <Grid style={{marginLeft: "1em"}}>
+                                            <Button variant="contained" className="buttonValidViewDeny"
+                                                onClick={this.denyNgoQrUrl.bind(this)}
+                                            >
+                                                Deny
+                                            </Button>
+                                        </Grid>
+                                    </Typography>
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </div>
+                );
             }else if(validation.level === 4){
-                return (<button>level4</button>);
+                return (
+                    <div className="table">
+                        <Card style={{margin: "1em", width: "100%"}}>
+                            <CardContent>
+                                <Typography className="valid">
+                                    <Typography>
+                                        <div>
+                                            Commitee Details:
+                                        </div>
+                                        <div style={{marginLeft: "1em"}}>
+                                            {validation.committee_details}
+                                        </div>
+
+                                    </Typography>
+                                    <Typography style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "space-between"
+                                    }}>
+                                        <Grid>
+                                            <Button variant="contained" className="buttonValidViewAccept"
+                                                    onClick={this.acceptCommitteeDetails.bind(this)}
+                                            >
+                                                Accept
+                                            </Button>
+                                        </Grid>
+                                        <Grid style={{marginLeft: "1em"}}>
+                                            <Button variant="contained" className="buttonValidViewDeny"
+                                                    onClick={this.denyCommitteeDetails.bind(this)}
+                                                >
+                                                Deny
+                                            </Button>
+                                        </Grid>
+                                    </Typography>
+                                </Typography>
+                            </CardContent>
+                        </Card>
+
+                        <Card style={{margin: "1em", width: "100%"}}>
+                            <CardContent>
+                                <Typography className="valid">
+                                    <Typography>
+                                        <div>
+                                            Social Media 1:
+                                        </div>
+                                        <div style={{marginLeft: "1em"}}>
+                                            {validation.socialMedia1}
+                                        </div>
+
+                                    </Typography>
+                                    <Typography style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "space-between"
+                                    }}>
+                                        <Grid>
+                                            <Button variant="contained" className="buttonValidViewAccept"
+                                                    onClick={this.acceptSocialMedia1.bind(this)}
+                                            >
+                                                Accept
+                                            </Button>
+                                        </Grid>
+                                        <Grid style={{marginLeft: "1em"}}>
+                                            <Button variant="contained" className="buttonValidViewDeny"
+                                                    onClick={this.denySocialMedia1.bind(this)}
+                                            >
+                                                Deny
+                                            </Button>
+                                        </Grid>
+                                    </Typography>
+                                </Typography>
+                            </CardContent>
+                        </Card>
+
+                        <Card style={{margin: "1em", width: "100%"}}>
+                            <CardContent>
+                                <Typography className="valid">
+                                    <Typography>
+                                        <div>
+                                            Social Media 2:
+                                        </div>
+                                        <div style={{marginLeft: "1em"}}>
+                                            {validation.socialMedia2}
+                                        </div>
+
+                                    </Typography>
+                                    <Typography style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "space-between"
+                                    }}>
+                                        <Grid>
+                                            <Button variant="contained" className="buttonValidViewAccept"
+                                                    onClick={this.acceptSocialMedia2.bind(this)}
+                                            >
+                                                Accept
+                                            </Button>
+                                        </Grid>
+                                        <Grid style={{marginLeft: "1em"}}>
+                                            <Button variant="contained" className="buttonValidViewDeny"
+                                                    onClick={this.denySocialMedia2.bind(this)}
+                                            >
+                                                Deny
+                                            </Button>
+                                        </Grid>
+                                    </Typography>
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </div>
+                );
             }
             else if(validation.level === 5){
-                return (<button>level5</button>);
+                return (
+                    <div className="table">
+                        <Card style={{margin: "1em", width: "100%"}}>
+                            <CardContent>
+                                <Typography className="valid">
+                                    <Typography>
+                                        <div>
+                                            Audit Document:
+                                        </div>
+                                        <div style={{marginLeft: "1em"}}>
+                                            {validation.audit_document}
+                                        </div>
+                                    </Typography>
+                                    <Typography style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "space-between"
+                                    }}>
+                                        <Grid>
+                                            <Button variant="contained" className="buttonValidViewAccept"
+                                                    onClick={this.acceptAuditDocument.bind(this)}
+                                            >
+                                                Accept
+                                            </Button>
+                                        </Grid>
+                                        <Grid style={{marginLeft: "1em"}}>
+                                            <Button variant="contained" className="buttonValidViewDeny"
+                                                    onClick={this.denyAuditDocument.bind(this)}
+                                                >
+                                                Deny
+                                            </Button>
+                                        </Grid>
+                                    </Typography>
+                                </Typography>
+                            </CardContent>
+                        </Card>
+
+                        <Card style={{margin: "1em", width: "100%"}}>
+                            <CardContent>
+                                <Typography className="valid">
+                                    <Typography>
+                                        <div>
+                                            Images:
+                                        </div>
+                                        <div style={{marginLeft: "1em"}}>
+                                            <img src={validation.images}/>
+                                        </div>
+                                    </Typography>
+                                    <Typography style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "space-between"
+                                    }}>
+                                        <Grid>
+                                            <Button variant="contained" className="buttonValidViewAccept"
+                                                    onClick={this.acceptImages.bind(this)}
+                                            >
+                                                Accept
+                                            </Button>
+                                        </Grid>
+                                        <Grid style={{marginLeft: "1em"}}>
+                                            <Button variant="contained" className="buttonValidViewDeny"
+                                                    onClick={this.denyImages.bind(this)}
+                                            >
+                                                Deny
+                                            </Button>
+                                        </Grid>
+                                    </Typography>
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </div>
+                );
             }
             else{
-                return ("none")
+                return (<div className="table">
+                    <Card style={{margin: "1em", width: "100%"}}>
+                        <CardContent>
+                            <Typography className="valid">
+                                <Typography>
+                                   No Information to update
+                                </Typography>
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </div>);
             }
         }
 

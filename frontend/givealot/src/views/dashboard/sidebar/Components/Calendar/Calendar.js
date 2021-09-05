@@ -30,7 +30,7 @@ export default class DemoApp extends React.Component {
             <div className="calendar">
                 <ScheduleComponent height='550px' selectedDate={new Date()} eventSettings={{ dataSource: this.data }}>
                     <Inject services={[Day, Week, WorkWeek, Month, Agenda]}/>
-                </ScheduleComponent>;
+                </ScheduleComponent>
             </div>
         )
     }

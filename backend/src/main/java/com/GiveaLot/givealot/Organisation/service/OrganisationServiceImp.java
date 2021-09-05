@@ -8,6 +8,7 @@ import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
 import com.GiveaLot.givealot.Certificate.service.CertificateService;
 import com.GiveaLot.givealot.Notification.dataclass.Mail;
+import com.GiveaLot.givealot.Notification.repository.NotificationRepository;
 import com.GiveaLot.givealot.Notification.service.SendMailServiceImpl;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
@@ -50,6 +51,8 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Autowired
     private OrganisationRepository organisationRepository;
+    @Autowired
+    private NotificationRepository notificationRepository;
 
     @Autowired
     private OrganisationInfoRepository organisationInfoRepository;
@@ -1663,6 +1666,7 @@ public class OrganisationServiceImp implements OrganisationService {
             if (organisationRepository.updateOrgName(request.getOrgId(), request.getNewValue()) != 1)
                 throw new Exception("failed to update organisation Name");
 
+            notificationRepository.updateOrgName(request.getOrgId(), request.getNewValue());
             return new generalOrganisationResponse("update_org_name_200_OK", "success");
         }
         else if(request.getType().equalsIgnoreCase("address"))

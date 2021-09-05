@@ -84,6 +84,9 @@ export class Profile extends Component {
         e.preventDefault();
         const data = {
 
+            email:this.state.orgEmail,
+            description:this.state.orgDescription,
+            contactNumber: this.state.contactNumber,
 
         };
 

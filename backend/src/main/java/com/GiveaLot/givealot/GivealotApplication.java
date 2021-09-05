@@ -21,7 +21,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.io.File;
 
 @SpringBootApplication
-public class GivealotApplication implements CommandLineRunner {
+public class GivealotApplication /*implements CommandLineRunner*/ {
 
     @Autowired
     OrganisationRepository organisationRepository;
@@ -60,6 +60,7 @@ public class GivealotApplication implements CommandLineRunner {
 
     /** Add an organisation **/
 
+/*
 	@Override
 	public  void run(String... args) throws Exception {
         Organisations organisations = new Organisations();
@@ -78,6 +79,7 @@ public class GivealotApplication implements CommandLineRunner {
         organisationService.addOrganisation(organisations);
 
 	}
+*/
 
 	/** Compare valid certificate **/
 //	@Override

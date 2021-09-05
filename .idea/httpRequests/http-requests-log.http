@@ -1,3 +1,48 @@
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "meeting",
+  "eventDescription": "meet with the ceo to discuss funds",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 32
+}
+
+<> 2021-09-05T213706.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "orgName",
+  "newValue": "Pistol 3"
+
+}
+
+<> 2021-09-05T151412.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "address",
+  "newValue": "Pistol 221 drv"
+
+}
+
+<> 2021-09-05T145224.200.json
+
+###
+
 POST http://localhost:8080/v1/organisation/update/info/organisation
 Content-Type: application/json
 
@@ -494,39 +539,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-03T021048.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/get/level_information
-Content-Type: application/json
-
-{
-  "orgId":32
-}
-
-<> 2021-09-02T234149.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/get/notifications
-Content-Type: application/json
-
-{
-  "adminUserEmail":"admin@email.com"
-}
-
-<> 2021-09-02T225653.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/update/notifications
-Content-Type: application/json
-
-{
-  "org_id":32
-}
-
-<> 2021-09-02T225241.200.json
 
 ###
 

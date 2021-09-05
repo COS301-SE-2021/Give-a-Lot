@@ -23,9 +23,8 @@ export class Certificate extends Component {
     constructor (props) {
         super(props)
         this.state={
-            level: 4,
+            level: 0,
             orgId:6,
-
         };
     }
     componentDidMount(){
@@ -144,28 +143,25 @@ export class Certificate extends Component {
             <div className="view">
                 {upgrade}
 
-                <Button
-                    variant="outlined"
-                    size="large"
-                    style={{border: '3px solid', borderColor: "#957b9e", color: " #957b9e"}}
+                <Link to={"https://parkour.readthedocs.io/_/downloads/en/latest/pdf/"}>
+                    <Button
+                        variant="outlined"
+                        size="large"
+                        style={{border: '3px solid', borderColor: "#957b9e", color: " #957b9e"}}
 
-                    className={classes.button}
-                    startIcon={<SaveIcon />}
-                >
-                    Download
+                        className={classes.button}
+                        startIcon={<SaveIcon />}
+                    >
+                        Download
 
-                </Button>
+                    </Button>
+                </Link>
 
             </div>
 
             <div className="display">
                 <img src={pic} height={566} width={733}/>
             </div>
-
-
-
-
-
         </div>
     );
     }

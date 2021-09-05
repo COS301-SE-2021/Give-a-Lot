@@ -154,6 +154,33 @@ export class Profile extends Component {
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
+        if(this.state.orgDescription) {
+            const data = {
+                orgId: this.state.orgId,
+                type: "description",
+                newValue: this.state.orgDescription,
+
+            };
+
+            Axios
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
+
+        if(this.state.contactPersonState) {
+            const data = {
+                orgId: this.state.orgId,
+                type: "contactPerson",
+                newValue: this.state.contactPerson,
+
+            };
+
+            Axios
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
 
     };
 

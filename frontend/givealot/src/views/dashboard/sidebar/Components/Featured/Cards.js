@@ -20,7 +20,8 @@ export class Cards extends Component {
             notifications: '',
             adminUserEmail:'admin@email.com',
             orgId: 32,
-            reports: []
+            reports: [],
+            adminId: 14
         }
     }
 
@@ -87,10 +88,9 @@ export class Cards extends Component {
             }
         }
         const adminUsersRequestBodyOrg = {
-            // "adminUserEmail" : this.state.adminUserEmail
-            "orgId" : this.state.orgId
+            "adminId" : this.state.adminId
         }
-        axios.post('http://localhost:8080/v1/organisation/get/num_organisation',adminUsersRequestBodyOrg , config)
+        axios.post('http://localhost:8080/v1/organisation/get/organisations',adminUsersRequestBodyOrg , config)
             .then(response =>{
                 console.log(response)
                 this.setState({ Organisations: response.data.response })
@@ -153,7 +153,7 @@ export class Cards extends Component {
                                 Organisations
                             </Typography>
                             <Typography color="textSecondary">
-                                {Organisations}
+                                {Organisations.length}
                             </Typography>
                         </Typography>
                         <Typography color="textSecondary" className="cardIconOrg" >

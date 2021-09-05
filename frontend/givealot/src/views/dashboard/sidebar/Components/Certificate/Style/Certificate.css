@@ -424,6 +424,18 @@
     background-color: #957b9e;
 
 }
+.upgrade-btn:disabled,
+.upgrade-btn[disabled]{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+}
+.upgrade-btn:disabled:hover{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+
+}
 
 .upgrade-btnn{
     font-size: 16px;

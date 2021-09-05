@@ -97,12 +97,8 @@ export class AddOrg extends Component {
     changeHandler = (e) =>{
         this.setState({[e.target.name] : e.target.value})
     }
-    // handleCloseAdd = () => {
-    //     this.setState({ openAdd: false });
-    //
-    // }
-    handleOpenAdd = () => {
-        this.setState({ openAdd: true });
+    handleCloseAdd = () => {
+        this.setState({ openAdd: false });
 
     }
 
@@ -145,7 +141,7 @@ export class AddOrg extends Component {
             axios.post('http://localhost:8080/v1/organisation/add/org', this.state, config)
                 .then(response =>{
                     console.log(response)
-                    // this.setState({ openAdd: true });
+                    this.setState({ openAdd: true });
                 })
                 .catch(error =>{
                     console.log(error)
@@ -351,7 +347,7 @@ export class AddOrg extends Component {
 
                                 <Grid>
                                     <Button variant="contained" type="submit" className="addBtn"
-                                            onClick={this.handleOpenAdd.bind(this)}
+                                            onClick={this.submitHandler.bind(this)}
                                     >
                                         Submit
                                     </Button>

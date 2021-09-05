@@ -16,6 +16,8 @@ import {
     Publish,
 } from "@material-ui/icons";
 import axios from "axios";
+import Axios from "axios";
+import {toast} from "react-toastify";
 
 
 export class Profile extends Component {
@@ -26,28 +28,25 @@ export class Profile extends Component {
         this.state = {
             persons:"",
             adminId:14,
+            orgId:32,
+            orgEmail:"",
+            orgName1:"",
+            orgNameState:false,
+            orgState:"",
+            emailState:false,
+            orgDescription1:"",
+            orgDescriptionSate:false,
+            contactNumber1:"",
+            ContactNumberState:false,
+            slogan1:"",
+            sloganState:false,
+            contactPerson1:"",
+            ContactPersonState:false,
+            orgAddress:"",
+            addressState:false,
         }
     }
 
-/*componentDidMount(){
-       let config = {
-            headers: {
-                "Content-Type": "application/json",
-                'Access-Control-Allow-Origin': '*',
-            }
-        }
-        console.log("something")
-        axios.get('http://jsonplaceholder.typicode.com/users', config)
-            .then(response =>{
-                const persons = response.data[0].id;
-                this.setState({ persons });
-                console.log(persons)
-            })
-            .catch(error =>{
-                console.log(error)
-                this.setState({error : 'Error Retrieving data'})
-            })
-    }*/
 
     componentDidMount() {
         let config = {
@@ -72,6 +71,186 @@ export class Profile extends Component {
 
     }
 
+    handleEmail=event=>{
+        this.setState({emailState: true})
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
+    }
+
+    handleDescription =event=>{
+        this.setState({orgDescriptionState: true})
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
+    }
+
+    handleContactNumber = event=>{
+        this.setState({ContactNumberState: true})
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
+    }
+    handleAddress= event =>{
+        this.setState({addressState: true})
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
+    }
+    handleContactPerson=event =>{
+        this.setState({ContactPersonState: true})
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
+    }
+    handleSlogan=event=>{
+        this.setState({sloganState: true})
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
+    }
+
+    handleOrgName=event=>{
+        this.setState({orgNameState: true})
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
+    }
+
+
+    handleFormSubmit = e => {
+        e.preventDefault();
+        if(this.state.emailState) {
+            const data1 = {
+                orgId: this.state.orgId,
+                type: "email",
+                newValue: this.state.orgEmail,
+
+            };
+            console.log(data1)
+            Axios
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data1)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
+        if(this.state.orgDescriptionState) {
+            const data2 = {
+                orgId: this.state.orgId,
+                type: "description",
+                newValue: this.state.orgDescription1,
+
+            };
+            console.log(data2)
+            Axios
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data2)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
+
+        if(this.state.ContactPersonState){
+            const data3 = {
+                orgId: this.state.orgId,
+                type: "contactPerson",
+                newValue: this.state.contactPerson1,
+
+            };
+            console.log(data3)
+            Axios
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data3)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
+
+        if(this.state.ContactNumberState) {
+            const data4 = {
+                orgId: this.state.orgId,
+                type: "contactNumber",
+                newValue: this.state.contactNumber1,
+
+            };
+            console.log(data4)
+            Axios
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data4)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
+
+        if(this.state.orgNameState) {
+            const data5 = {
+                orgId: this.state.orgId,
+                type: "orgName",
+                newValue: this.state.orgName1,
+
+            };
+            console.log(data5)
+            Axios
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data5)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
+
+        if(this.state.addressState) {
+            const data6 = {
+                orgId: this.state.orgId,
+                type: "address",
+                newValue: this.state.orgAddress,
+
+            };
+            console.log(data6)
+            Axios
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data6)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
+
+
+        if(this.state.sloganState) {
+            const data7 = {
+                orgId: this.state.orgId,
+                type: "slogan",
+                newValue: this.state.slogan1,
+
+            };
+            console.log(data7)
+            Axios
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data7)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
+
+    };
+
+
+
+
+
+    onToast = () => {
+        toast.success('Submit successful',{
+            position: toast.POSITION.TOP_RIGHT
+
+        });
+    }
 
 
     render() {
@@ -136,13 +315,25 @@ export class Profile extends Component {
 
                     <div className="userUpdate">
                         <span className="userUpdateTitle">Edit</span>
-                        <form className="userUpdateForm">
+                        <form className="userUpdateForm" onSubmit={this.handleFormSubmit}>
                             <div className="userUpdateLeft">
                                 <div className="userUpdateItem">
                                     <label>Organisation name</label>
                                     <input
                                         type="text"
+                                        name="orgName1"
                                         placeholder={persons.orgName}
+                                        onChange={this.handleOrgName}
+                                        className="userUpdateInput"
+                                    />
+                                </div>
+                                <div className="userUpdateItem">
+                                    <label>Organisation slogan</label>
+                                    <input
+                                        type="text"
+                                        name="slogan1"
+                                        placeholder={persons.slogan}
+                                        onChange={this.handleSlogan}
                                         className="userUpdateInput"
                                     />
                                 </div>
@@ -150,6 +341,8 @@ export class Profile extends Component {
                                     <label>Contact person</label>
                                     <input
                                         type="text"
+                                        name="contactPerson1"
+                                        onChange={this.handleContactPerson}
                                         placeholder={persons.contactPerson}
                                         className="userUpdateInput"
                                     />
@@ -158,6 +351,8 @@ export class Profile extends Component {
                                     <label>Contacts</label>
                                     <input
                                         type="text"
+                                        name="contactNumber1"
+                                        onChange={this.handleContactNumber}
                                         placeholder={persons.contactNumber}
                                         className="userUpdateInput"
                                     />
@@ -166,6 +361,8 @@ export class Profile extends Component {
                                     <label>Email</label>
                                     <input
                                         type="text"
+                                        name="orgEmail"
+                                        onChange={this.handleEmail}
                                         placeholder={persons.orgEmail}
                                         className="userUpdateInput"
                                     />
@@ -175,6 +372,8 @@ export class Profile extends Component {
                                     <label>Address</label>
                                     <input
                                         type="text"
+                                        name="orgAddress"
+                                        onChange={this.handleAddress}
                                         placeholder="Pretoria, arcadia"
                                         className="userUpdateInput"
                                     />
@@ -185,6 +384,8 @@ export class Profile extends Component {
                                     <textarea
 
                                         type="text"
+                                        name="orgDescription1"
+                                        onChange={this.handleDescription}
                                         placeholder={persons.orgDescription}
                                         className="userUpdateInput1"
                                     />
@@ -192,7 +393,7 @@ export class Profile extends Component {
                             </div>
                             <div className="userUpdateRight">
 
-                                <button className="userUpdateButton">Update</button>
+                                <button className="userUpdateButton"  onClick={this.onToast}>Update</button>
                             </div>
                         </form>
                     </div>

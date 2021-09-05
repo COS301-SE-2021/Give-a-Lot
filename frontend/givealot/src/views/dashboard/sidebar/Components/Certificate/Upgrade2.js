@@ -38,7 +38,7 @@ const initialState = {
     orgId:"32",
     date:"",
     startDate: new Date(),
-    paypal:"",
+    orgInfo:"",
     dateError:"",
     paypalError:"",
 };
@@ -58,10 +58,13 @@ export class Upgrade2 extends Component {
 
     }
 
-    handleInputChange = input => e => {
-
-        this.setState({ [input]: e.target.value });
-
+    handleInputChange = event => {
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
     };
 
     handleChange = event => {
@@ -91,6 +94,12 @@ export class Upgrade2 extends Component {
                 console.error('Error:', error);
                 imageStates = 2;
             });
+
+        if(imageStates===1)
+            alert("bring back button functionality");
+        else if(imageStates === 2)
+            alert("bring back button functionality also tell the user that the image didnt submit");
+
         const isCheckbox = event.target.type === "checkbox";
         this.setState({
             [event.target.name]: isCheckbox
@@ -98,6 +107,7 @@ export class Upgrade2 extends Component {
                 : event.target.value
         });
     };
+
 
     validate = () => {
         let dateError = "";
@@ -109,7 +119,7 @@ export class Upgrade2 extends Component {
         }
 
 
-        if(!this.state.paypal) {
+        if(!this.state.orgInfo) {
             paypalError="Link required";
         }
 
@@ -133,6 +143,15 @@ export class Upgrade2 extends Component {
             };
             Axios
                 .post("http://localhost:8080/v1/organisation/add/estdate", data)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+
+            const paypal = {
+                orgId: this.state.orgId,
+                orgInfo: this.state.orgInfo,
+            };
+            Axios
+                .post("http://localhost:8080/v1/organisation/add/donation/info", paypal)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
@@ -201,7 +220,7 @@ export class Upgrade2 extends Component {
                                     <TextField
                                         id="outlined-full-width"
                                         label="Paypal link"
-                                        name="paypal"
+                                        name="orgInfo"
                                         style={{ margin: 8 }}
                                         placeholder="Enter  paypal link..."
                                         fullWidth
@@ -210,7 +229,7 @@ export class Upgrade2 extends Component {
                                             shrink: true,
                                         }}
                                         variant="outlined"
-                                        onChange={this.handleChange}
+                                        onChange={this.handleInputChange}
                                     />
                                         </div>
                                     <span className="loginError_certificate">{this.state.paypalError}</span>

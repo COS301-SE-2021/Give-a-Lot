@@ -49,31 +49,98 @@ export class Level3 extends Component {
     constructor (props) {
         super(props)
         this.state={
-            orgId:"",
-            SocialMedia:"",
-            address:"",
-            name:"",
-            contacts:"",
+            orgId:"32",
+            url:"",
+            type:"",
+            typeState:false,
+            url1:"",
+            type1:"",
+            type1State:false,
+            ChairpersonName:"",
+            ChairpersonContacts:"",
+            managerName:"",
+            managerContacts:"",
+            treasurerName:"",
+            treasurerContacts:"",
+            secretaryName:"",
+            secretaryContacts:"",
+            committee:""
 
         };
     }
 
     handleSocialChange = e => {
-        this.setState({SocialMedia: e.target.value});
+        this.setState({type: e.target.value, typeState:true});
 
     };
 
+    handleSocial1Change = e => {
+        this.setState({type1: e.target.value, type1State:true});
+
+    };
+
+    handleChange = event => {
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
+    };
+
+    handleCommitteeChange = event => {
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
+    };
+
+
     handleFormSubmit = e => {
         e.preventDefault();
-        const data = {
+
+        const com={
             orgId: this.state.orgId,
-            website: this.state.website,
-            address: this.state.address,
+            committee :  this.state.ChairpersonName+","+this.state.ChairpersonContacts+","+this.state.managerName+","+this.state.managerContacts+","+this.state.treasurerName+","+this.state.treasurerContacts+","+this.state.treasurerName+","+this.state.treasurerContacts,
         };
+
+        console.log(com)
         Axios
-            .post("", data)
+            .post("http://localhost:8080/v1/organisation/add/committee", com)
             .then(res => console.log(res))
             .catch(err => console.log(err));
+
+
+        const social = {
+            orgId: this.state.orgId,
+            socialType: this.state.type,
+            url: this.state.url,
+        };
+
+
+        console.log(social)
+        Axios
+            .post("http://localhost:8080/v1/organisation/add/socials", social)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+
+        const social1 = {
+            orgId: this.state.orgId,
+            socialType: this.state.type1,
+            url: this.state.url1,
+        };
+
+        console.log(social1)
+        Axios
+            .post("http://localhost:8080/v1/organisation/add/socials", social1)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+
+
+
+
     };
 
     onToast = () => {
@@ -282,8 +349,8 @@ export class Level3 extends Component {
                                         <div className="social_media">
                                             <TextField
                                                 id="outlined-full-width"
-                                                label="Chairpersion"
-                                                name="ChairpersionName"
+                                                label="Chairperson"
+                                                name="ChairpersonName"
                                                 style={{ margin: 8 }}
                                                 placeholder="Enter full name..."
 
@@ -293,12 +360,12 @@ export class Level3 extends Component {
                                                     shrink: true,
                                                 }}
                                                 variant="outlined"
-                                                onChange={this.handleChange}
+                                                onChange={this.handleCommitteeChange}
                                             />
                                             <TextField
                                                 id="outlined-full-width"
-                                                label="Chairpersion"
-                                                name="ChairpersionNontacts"
+                                                label="Chairperson"
+                                                name="ChairpersonContacts"
                                                 style={{ margin: 8 }}
                                                 placeholder="Enter contacts..."
 
@@ -308,15 +375,15 @@ export class Level3 extends Component {
                                                     shrink: true,
                                                 }}
                                                 variant="outlined"
-                                                onChange={this.handleChange}
+                                                onChange={this.handleCommitteeChange}
                                             />
 
                                         </div>
                                         <div className="social_media">
                                             <TextField
                                                 id="outlined-full-width"
-                                                label="Manager"
-                                                name="ManagerName"
+                                                label="manager"
+                                                name="managerName"
                                                 style={{ margin: 8 }}
                                                 placeholder="Enter full name..."
 
@@ -326,12 +393,12 @@ export class Level3 extends Component {
                                                     shrink: true,
                                                 }}
                                                 variant="outlined"
-                                                onChange={this.handleChange}
+                                                onChange={this.handleCommitteeChange}
                                             />
                                             <TextField
                                                 id="outlined-full-width"
-                                                label="Manager"
-                                                name="ManagerContacts"
+                                                label="manager"
+                                                name="managerContacts"
                                                 style={{ margin: 8 }}
                                                 placeholder="Enter contacts..."
 
@@ -341,15 +408,15 @@ export class Level3 extends Component {
                                                     shrink: true,
                                                 }}
                                                 variant="outlined"
-                                                onChange={this.handleChange}
+                                                onChange={this.handleCommitteeChange}
                                             />
 
                                         </div>
                                         <div className="social_media">
                                             <TextField
                                                 id="outlined-full-width"
-                                                label="Treasurer"
-                                                name="TreasurerName"
+                                                label="treasurer"
+                                                name="treasurerName"
                                                 style={{ margin: 8 }}
                                                 placeholder="Enter full name..."
 
@@ -359,12 +426,12 @@ export class Level3 extends Component {
                                                     shrink: true,
                                                 }}
                                                 variant="outlined"
-                                                onChange={this.handleChange}
+                                                onChange={this.handleCommitteeChange}
                                             />
                                             <TextField
                                                 id="outlined-full-width"
-                                                label="Treasurer"
-                                                name="TreasurerContacts"
+                                                label="treasurer"
+                                                name="treasurerContacts"
                                                 style={{ margin: 8 }}
                                                 placeholder="Enter contacts..."
 
@@ -374,7 +441,7 @@ export class Level3 extends Component {
                                                     shrink: true,
                                                 }}
                                                 variant="outlined"
-                                                onChange={this.handleChange}
+                                                onChange={this.handleCommitteeChange}
                                             />
 
                                         </div>
@@ -382,8 +449,8 @@ export class Level3 extends Component {
                                         <div className="social_media">
                                             <TextField
                                                 id="outlined-full-width"
-                                                label="Secretary"
-                                                name="SecretaryName"
+                                                label="secretary"
+                                                name="secretaryName"
                                                 style={{ margin: 8 }}
                                                 placeholder="Enter full name..."
 
@@ -393,12 +460,12 @@ export class Level3 extends Component {
                                                     shrink: true,
                                                 }}
                                                 variant="outlined"
-                                                onChange={this.handleChange}
+                                                onChange={this.handleCommitteeChange}
                                             />
                                             <TextField
                                                 id="outlined-full-width"
-                                                label="Secretary"
-                                                name="SecretaryContacts"
+                                                label="secretary"
+                                                name="secretaryContacts"
                                                 style={{ margin: 8 }}
                                                 placeholder="Enter contacts..."
 
@@ -408,7 +475,7 @@ export class Level3 extends Component {
                                                     shrink: true,
                                                 }}
                                                 variant="outlined"
-                                                onChange={this.handleChange}
+                                                onChange={this.handleCommitteeChange}
                                             />
 
                                         </div>
@@ -427,7 +494,6 @@ export class Level3 extends Component {
                                                         value={this.type}
                                                         onChange={this.handleSocialChange}
                                                         label="Social platform"
-
 
                                                     >
                                                         <MenuItem value="">

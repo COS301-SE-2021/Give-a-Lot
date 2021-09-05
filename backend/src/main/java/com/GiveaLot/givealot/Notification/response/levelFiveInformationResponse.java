@@ -4,11 +4,15 @@ public class levelFiveInformationResponse {
     private Long level;
     private String images;
     private String audit_document;
+    String orgName;
+    Long orgID;
 
-    public levelFiveInformationResponse(Long level, String images, String audit_document) {
+    public levelFiveInformationResponse(Long level, String images, String audit_document, String orgName, Long orgID) {
         this.level = level;
         this.images = images;
         this.audit_document = audit_document;
+        this.orgName = orgName;
+        this.orgID = orgID;
     }
 
     public Long getLevel() {
@@ -33,5 +37,21 @@ public class levelFiveInformationResponse {
 
     public void setAudit_document(String audit_document) {
         this.audit_document = audit_document;
+    }
+
+    public String getOrgName() {
+        return orgName;
+    }
+
+    public void setOrgName(String orgName) {
+        this.orgName = orgName;
+    }
+
+    public Long getOrgID() {
+        return orgID;
+    }
+
+    public void setOrgID(Long orgID) {
+        this.orgID = orgID;
     }
 }

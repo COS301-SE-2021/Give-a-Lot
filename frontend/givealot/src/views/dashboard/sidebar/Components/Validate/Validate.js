@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
-import Typography from '@material-ui/core/Typography'
 import axios from "axios";
 
 export class Validate extends Component {
@@ -57,12 +56,9 @@ export class Validate extends Component {
                                 <div >
                                     {item.org_name}
                                 </div>
-                                <Link to={"/orgValidate"} className="link">
-                                    <Button size="small" variant="outlined" className="buttonValid" >
+                                    <div>
                                         {item.description}
-                                    </Button>
-                                </Link>
-
+                                    </div>
                                 <Link to={"/orgValidate/" + item.org_id} className="link">
                                     <Button variant="contained" className="buttonValidView">
                                         View

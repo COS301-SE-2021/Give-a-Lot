@@ -442,9 +442,10 @@ public class OrganisationController
     }
 
     @PostMapping("/add/image") /* all good - correctness not tested yet */
-    public ResponseEntity<generalOrganisationResponse> addOrgImage(@RequestBody @NonNull AddOrgImageMultipartRequest body)
+    public ResponseEntity<generalOrganisationResponse> addOrgImage(@ModelAttribute AddOrgImageMultipartRequest body)
     {
         generalOrganisationResponse response;
+        System.out.println(body.getImages().get(0));
         List<MultipartFile> images = body.getImages();
         try
         {

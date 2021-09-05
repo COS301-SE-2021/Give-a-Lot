@@ -33,7 +33,8 @@ export class OrganisationsDash extends Component {
             open: false,
             openAdd: false,
             getSector: [],
-            adminId: 14
+            adminId: 14,
+            openSector: false,
         }
     }
 
@@ -51,6 +52,10 @@ export class OrganisationsDash extends Component {
     handleCloseAdd = () => {
         this.setState({ openAdd: false });
     };
+    handleCloseSector = () => {
+        this.setState({ openSector: false });
+
+    }
 
     componentDidMount(){
         this.getSectors();
@@ -114,6 +119,7 @@ export class OrganisationsDash extends Component {
         axios.post('http://localhost:8080/v1/organisation/add/sector', AddSector ,config)
             .then(response =>{
                 console.log(response)
+                this.setState({ openSector: true });
             })
             .catch(error =>{
                 console.log(error)
@@ -163,9 +169,22 @@ export class OrganisationsDash extends Component {
                                                 onChange={this.changeHandler}
                                                 value={sector}
                                             />
-                                            <Button variant="contained" className="buttonAdd" type="submit">
+                                            <Button variant="contained" className="buttonAdd" type="submit"
+                                                    onSubmit={this.submitSector}
+                                            >
                                                 Submit
                                             </Button>
+                                            <Dialog onClose={this.handleCloseSector.bind(this)} open={this.state.openSector}>
+                                                <DialogTitle>Sector Added</DialogTitle>
+                                                <DialogContent>
+                                                    <Button variant="contained" color="primary"
+                                                            onClick={this.handleCloseSector.bind(this)}
+                                                            style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}
+                                                    >
+                                                        Close
+                                                    </Button>
+                                                </DialogContent>
+                                            </Dialog>
                                         </form>
                                         <Divider style={{marginTop: "2em"}}/>
                                         <Grid>
@@ -181,7 +200,6 @@ export class OrganisationsDash extends Component {
                                             </div>
                                         </Grid>
                                     </Grid>
-
                                 </DialogContent>
                             </Dialog>
                         </div>
@@ -190,7 +208,6 @@ export class OrganisationsDash extends Component {
                             <SearchIcon/>
                         </div>
                     </div>
-
 
                     <div className="table">
                         <Grid container spacing={3}>
@@ -208,7 +225,7 @@ export class OrganisationsDash extends Component {
                                             <TableCell style={{color: "white", fontWeight: "bold"}}>Action</TableCell>
                                         </TableHead>
                                         <TableBody>
-                                            {org.map((item, index) =>{
+                                            {org.map((item) =>{
                                                 return(
                                                     <TableRow>
                                                         <TableCell><Avatar aria-label="recipe" src="https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg" /> </TableCell>

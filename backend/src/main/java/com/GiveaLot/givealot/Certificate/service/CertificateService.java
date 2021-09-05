@@ -3,6 +3,7 @@ package com.GiveaLot.givealot.Certificate.service;
 
 
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
+import com.GiveaLot.givealot.Certificate.requests.RetrieveCertificateRequest;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,7 +19,7 @@ public interface CertificateService {
 
     public boolean updateCertificate(long orgId) throws Exception;
 
-    public File retrieveCertificate(long orgId, String orgName) throws Exception;
+    public File retrieveCertificate(RetrieveCertificateRequest request) throws Exception;
 
     //public boolean compare;
 

@@ -60,8 +60,7 @@ public class GivealotApplication /*implements CommandLineRunner*/ {
 
     /** Add an organisation **/
 
-/*
-	@Override
+/*	@Override
 	public  void run(String... args) throws Exception {
         Organisations organisations = new Organisations();
         organisations.setOrgId(113L);
@@ -78,8 +77,7 @@ public class GivealotApplication /*implements CommandLineRunner*/ {
         organisations.setDateAdded("2020-01-01");
         organisationService.addOrganisation(organisations);
 
-	}
-*/
+	}*/
 
 	/** Compare valid certificate **/
 //	@Override

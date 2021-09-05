@@ -8,6 +8,9 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Select from '@material-ui/core/Select';
 import axios from "axios";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogContent from "@material-ui/core/DialogContent";
+import Dialog from "@material-ui/core/Dialog";
 
 const initialState = {
     orgName : "",
@@ -28,7 +31,8 @@ const initialState = {
     passwordError: '',
     image: '',
     imageError: '',
-    sectorS: []
+    sectorS: [],
+    openAdd: false,
 };
 
 export class AddOrg extends Component {
@@ -93,6 +97,14 @@ export class AddOrg extends Component {
     changeHandler = (e) =>{
         this.setState({[e.target.name] : e.target.value})
     }
+    // handleCloseAdd = () => {
+    //     this.setState({ openAdd: false });
+    //
+    // }
+    handleOpenAdd = () => {
+        this.setState({ openAdd: true });
+
+    }
 
     componentDidMount(){
         this.getSectorS();
@@ -122,6 +134,7 @@ export class AddOrg extends Component {
         e.preventDefault();
         const isValid = this.validated();
         if (isValid) {
+            // this.setState({ openAdd: false });
             let config = {
                 headers: {
                     "Content-Type": "application/json",
@@ -132,6 +145,7 @@ export class AddOrg extends Component {
             axios.post('http://localhost:8080/v1/organisation/add/org', this.state, config)
                 .then(response =>{
                     console.log(response)
+                    // this.setState({ openAdd: true });
                 })
                 .catch(error =>{
                     console.log(error)
@@ -336,9 +350,22 @@ export class AddOrg extends Component {
                                 </div>
 
                                 <Grid>
-                                    <Button variant="contained" type="submit" className="addBtn">
+                                    <Button variant="contained" type="submit" className="addBtn"
+                                            onClick={this.handleOpenAdd.bind(this)}
+                                    >
                                         Submit
                                     </Button>
+                                    <Dialog onClose={this.handleCloseAdd.bind(this)} open={this.state.openAdd}>
+                                        <DialogTitle>NGO Number Accepted</DialogTitle>
+                                        <DialogContent>
+                                            <Button variant="contained" color="primary"
+                                                    onClick={this.handleCloseAdd.bind(this)}
+                                                    style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}
+                                            >
+                                                Close
+                                            </Button>
+                                        </DialogContent>
+                                    </Dialog>
                                 </Grid>
                             </form>
                         </CardContent>

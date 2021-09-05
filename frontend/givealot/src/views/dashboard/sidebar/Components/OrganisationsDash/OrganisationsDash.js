@@ -181,7 +181,6 @@ export class OrganisationsDash extends Component {
                                             </div>
                                         </Grid>
                                     </Grid>
-
                                 </DialogContent>
                             </Dialog>
                         </div>
@@ -190,7 +189,6 @@ export class OrganisationsDash extends Component {
                             <SearchIcon/>
                         </div>
                     </div>
-
 
                     <div className="table">
                         <Grid container spacing={3}>
@@ -208,7 +206,7 @@ export class OrganisationsDash extends Component {
                                             <TableCell style={{color: "white", fontWeight: "bold"}}>Action</TableCell>
                                         </TableHead>
                                         <TableBody>
-                                            {org.map((item, index) =>{
+                                            {org.map((item) =>{
                                                 return(
                                                     <TableRow>
                                                         <TableCell><Avatar aria-label="recipe" src="https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg" /> </TableCell>

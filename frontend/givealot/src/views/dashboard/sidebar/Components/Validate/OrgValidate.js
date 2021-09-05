@@ -21,6 +21,8 @@ export class OrgValidate extends Component {
             openValidDate: false,
             openNgoNumber: false,
             openNgoNumberDeny: false,
+            openNgoImage: false,
+            openNgoImageDeny: false,
             orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1],
         }
     }
@@ -37,6 +39,12 @@ export class OrgValidate extends Component {
     }
     handleCloseNgoNumberDeny = () => {
         this.setState({ openNgoNumberDeny: false });
+    }
+    handleCloseNgoImage = () => {
+        this.setState({ openNgoImage: false });
+    }
+    handleCloseNgoImageDeny = () => {
+        this.setState({ openNgoImageDeny: false });
     }
 
     acceptNgoDate() {
@@ -115,6 +123,7 @@ export class OrgValidate extends Component {
     }
 
     acceptNgoImage(){
+        this.setState({ openNgoImage: true });
         this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
         let config = {
             headers: {
@@ -133,6 +142,8 @@ export class OrgValidate extends Component {
     }
 
     denyNgoImage(){
+
+        this.setState({ openNgoImageDeny: true });
         this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
         let config = {
             headers: {
@@ -679,6 +690,17 @@ export class OrgValidate extends Component {
                                             >
                                                 Accept
                                             </Button>
+                                            <Dialog onClose={this.handleCloseNgoImage.bind(this)} open={this.state.openNgoImage}>
+                                                <DialogTitle>NGO Image accepted</DialogTitle>
+                                                <DialogContent>
+                                                    <Button variant="contained" color="primary"
+                                                            onClick={this.handleCloseNgoImage.bind(this)}
+                                                            style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}
+                                                    >
+                                                        Close
+                                                    </Button>
+                                                </DialogContent>
+                                            </Dialog>
                                         </Grid>
                                         <Grid style={{marginLeft: "1em"}}>
                                             <Button variant="contained" className="buttonValidViewDeny"
@@ -686,6 +708,17 @@ export class OrgValidate extends Component {
                                             >
                                                 Deny
                                             </Button>
+                                            <Dialog onClose={this.handleCloseNgoImageDeny.bind(this)} open={this.state.openNgoImageDeny}>
+                                                <DialogTitle>NGO Image Denied</DialogTitle>
+                                                <DialogContent>
+                                                    <Button variant="contained" color="primary"
+                                                            onClick={this.handleCloseNgoImageDeny.bind(this)}
+                                                            style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}
+                                                    >
+                                                        Close
+                                                    </Button>
+                                                </DialogContent>
+                                            </Dialog>
                                         </Grid>
                                     </Typography>
                                 </Typography>
@@ -1083,7 +1116,7 @@ export class OrgValidate extends Component {
             <div className="validate">
                 <div className="validBody">
                     <div  className="name">
-                        Organisation Name
+                        {validation.orgName}
                     </div>
                     {orgValidating()}
                 </div>

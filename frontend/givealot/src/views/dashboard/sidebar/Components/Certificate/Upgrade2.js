@@ -65,6 +65,32 @@ export class Upgrade2 extends Component {
     };
 
     handleChange = event => {
+        const formData = new FormData();
+
+        formData.append('image', event.target.files[0]);
+        formData.append('orgId', 32);
+        let imageStates = 0;
+
+
+        alert("take away submit button functionality");
+
+        fetch(
+            'http://localhost:8080/v1/organisation/add/logo',
+            {
+                method: 'POST',
+                body: formData,
+            }
+        )
+            .then((response) => response.json())
+            .then((result) => {
+                console.log('Success:', result);
+                imageStates = 1;
+
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                imageStates = 2;
+            });
         const isCheckbox = event.target.type === "checkbox";
         this.setState({
             [event.target.name]: isCheckbox
@@ -196,7 +222,7 @@ export class Upgrade2 extends Component {
                                             className="upgrade_logo"
                                             type="file"
                                             name="QRcode"
-                                            onChange={this.handleInputChange}
+                                            onChange={this.handleChange}
                                         />
 
                                     </div>

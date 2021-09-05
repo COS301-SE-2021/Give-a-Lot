@@ -28,6 +28,7 @@ export class Profile extends Component {
         this.state = {
             persons:"",
             adminId:14,
+            orgId:32,
             orgEmail:"",
             orgName:"",
             orgNameState:false,
@@ -70,16 +71,34 @@ export class Profile extends Component {
 
     }
 
-    handleEmail(){
-        this.setState({emailState: true});
+    handleEmail=event=>{
+        this.setState({emailState: true})
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
     }
 
-    handleDescription(){
-        this.setState({isDescription: true});
+    handleDescription =event=>{
+        this.setState({orgDescription: true})
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
     }
 
-    handleContactNumber(){
-        this.setState({contactNumberState: true});
+    handleContactNumber = event=>{
+        this.setState({ContactNumberState: true})
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
     }
     handleAddress(){
         this.setState({addressState: true});
@@ -98,7 +117,6 @@ export class Profile extends Component {
 
     handleFormSubmit = e => {
         e.preventDefault();
-
         if(this.state.emailState) {
             const data = {
                 orgId: this.state.orgId,

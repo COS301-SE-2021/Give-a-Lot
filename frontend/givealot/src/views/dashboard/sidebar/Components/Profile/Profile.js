@@ -154,7 +154,7 @@ export class Profile extends Component {
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
-        if(this.state.orgDescription) {
+        if(this.state.orgDescriptionSate) {
             const data = {
                 orgId: this.state.orgId,
                 type: "description",
@@ -201,6 +201,34 @@ export class Profile extends Component {
                 orgId: this.state.orgId,
                 type: "orgName",
                 newValue: this.state.orgName,
+
+            };
+
+            Axios
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
+
+        if(this.state.addressState) {
+            const data = {
+                orgId: this.state.orgId,
+                type: "address",
+                newValue: this.state.address,
+
+            };
+
+            Axios
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
+
+        if(this.state.sloganState) {
+            const data = {
+                orgId: this.state.orgId,
+                type: "slogan",
+                newValue: this.state.address,
 
             };
 

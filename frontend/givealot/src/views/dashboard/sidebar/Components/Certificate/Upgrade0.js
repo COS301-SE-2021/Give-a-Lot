@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import  React, {Component} from 'react';
 import "./Style/Certificate.css";
 import 'date-fns';
 import DatePicker from 'react-datepicker';
@@ -44,7 +44,6 @@ const initialState = {
     ngoNumberError:"",
     ngoDateError:"",
     logoError:"",
-    imageStates : 0,
 };
 
 
@@ -62,7 +61,47 @@ export class Upgrade0 extends Component {
 
     }
 
-    handleInputChange = event => {
+    handleInputChange = input => e => {
+
+
+        this.setState({ [input]: e.target.files });
+
+    };
+
+    handleChange = event => {
+
+        const formData = new FormData();
+
+        formData.append('image', event.target.files[0]);
+        formData.append('orgId', 32);
+        let imageStates = 0;
+
+
+        alert("take away submit button functionality");
+
+        fetch(
+            'http://localhost:8080/v1/organisation/add/logo',
+            {
+                method: 'POST',
+                body: formData,
+            }
+        )
+            .then((response) => response.json())
+            .then((result) => {
+                console.log('Success:', result);
+                imageStates = 1;
+
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                imageStates = 2;
+            });
+
+        if(imageStates===1)
+            alert("bring back button functionality");
+        else if(imageStates === 2)
+            alert("bring back button functionality also tell the user that the image didnt submit");
+
         const isCheckbox = event.target.type === "checkbox";
         this.setState({
             [event.target.name]: isCheckbox
@@ -70,51 +109,6 @@ export class Upgrade0 extends Component {
                 : event.target.value
         });
     };
-    componentDidMount() {
-        this.setState({imageStates: 1});
-    }
-
-        handleChange = event => {
-
-            const formData = new FormData();
-
-            formData.append('image', event.target.files[0]);
-            formData.append('orgId', 32);
-
-
-            alert("take away submit button functionality");
-
-            fetch(
-                'http://localhost:8080/v1/organisation/add/logo',
-                {
-                    method: 'POST',
-                    body: formData,
-                }
-            )
-                .then((response) => response.json())
-                .then((result) => {
-                    console.log('Success:', result);
-                    this.componentDidMount();
-
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                    this.setState({imageStates: 2});
-                });
-
-            if (this.state.imageStates === 1)
-                alert("bring back button functionality");
-            else if (this.state.imageStates === 2)
-                alert("bring back button functionality also tell the user that the image didnt submit");
-
-            const isCheckbox = event.target.type === "checkbox";
-            this.setState({
-                [event.target.name]: isCheckbox
-                    ? event.target.checked
-                    : event.target.value
-            });
-        };
-
 
     validate = () => {
         let  ngoNumberError = "";
@@ -132,7 +126,7 @@ export class Upgrade0 extends Component {
 
 
         if(!this.state.ngoNumber) {
-            ngoNumberError="Ngo number is required";
+            ngoNumberError="Date is required";
         }
 
         if ( ngoDateError || ngoNumberError || logoError) {
@@ -229,20 +223,20 @@ export class Upgrade0 extends Component {
                                     </div>
                                     <span className="loginError_certificate">{this.state.ngoDateError}</span>
                                     <div>
-                                    <TextField
-                                        id="outlined-full-width"
-                                        label="Registration number"
-                                        style={{ margin: 8 }}
-                                        name="ngoNumber"
-                                        placeholder="Enter registration.."
-                                        fullWidth
-                                        margin="normal"
-                                        InputLabelProps={{
-                                            shrink: true,
-                                        }}
-                                        variant="outlined"
-                                        onChange={this.handleInputChange}
-                                    />
+                                        <TextField
+                                            id="outlined-full-width"
+                                            label="Registration number"
+                                            style={{ margin: 8 }}
+                                            name="ngoNumber"
+                                            placeholder="Enter registration.."
+                                            fullWidth
+                                            margin="normal"
+                                            InputLabelProps={{
+                                                shrink: true,
+                                            }}
+                                            variant="outlined"
+                                            onChange={this.handleChange}
+                                        />
                                     </div>
                                     <span className="loginError_certificate">{this.state.ngoNumberError}</span>
                                     <div>
@@ -261,7 +255,7 @@ export class Upgrade0 extends Component {
 
                                 <span className="loginError_certificate">{this.state.logoError}</span>
                                 <div className="upgrade_Button">
-                                    <button className="upgrade-btn" disabled={(this.state.imageStates===1)} type="submit" onClick={this.onToast}>
+                                    <button className="upgrade-btn" type="submit" onClick={this.onToast}>
                                         Submit
                                     </button>
                                 </div>

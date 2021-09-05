@@ -16,6 +16,8 @@ import {
     Publish,
 } from "@material-ui/icons";
 import axios from "axios";
+import Axios from "axios";
+import {toast} from "react-toastify";
 
 
 export class Profile extends Component {
@@ -26,6 +28,12 @@ export class Profile extends Component {
         this.state = {
             persons:"",
             adminId:14,
+            orgEmail:"",
+            orgDescription:"",
+            contactNumber:"",
+            slogan:"",
+            contactPerson:"",
+            address:"",
         }
     }
 
@@ -72,6 +80,28 @@ export class Profile extends Component {
 
     }
 
+    handleFormSubmit = e => {
+        e.preventDefault();
+        const data = {
+
+
+        };
+
+
+        Axios
+            .post("http://localhost:8080/v1/organisation/update/info/organisation", data)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+
+
+    };
+
+    onToast = () => {
+        toast.success('Submit successful',{
+            position: toast.POSITION.TOP_RIGHT
+
+        });
+    }
 
 
     render() {
@@ -136,12 +166,13 @@ export class Profile extends Component {
 
                     <div className="userUpdate">
                         <span className="userUpdateTitle">Edit</span>
-                        <form className="userUpdateForm">
+                        <form className="userUpdateForm" onSubmit={this.handleFormSubmit}>
                             <div className="userUpdateLeft">
                                 <div className="userUpdateItem">
                                     <label>Organisation name</label>
                                     <input
                                         type="text"
+                                        name="orgName"
                                         placeholder={persons.orgName}
                                         className="userUpdateInput"
                                     />
@@ -150,6 +181,7 @@ export class Profile extends Component {
                                     <label>Contact person</label>
                                     <input
                                         type="text"
+                                        name="contactPerson"
                                         placeholder={persons.contactPerson}
                                         className="userUpdateInput"
                                     />
@@ -158,6 +190,7 @@ export class Profile extends Component {
                                     <label>Contacts</label>
                                     <input
                                         type="text"
+                                        name="contactNumber"
                                         placeholder={persons.contactNumber}
                                         className="userUpdateInput"
                                     />
@@ -166,6 +199,7 @@ export class Profile extends Component {
                                     <label>Email</label>
                                     <input
                                         type="text"
+                                        name="orgEmail"
                                         placeholder={persons.orgEmail}
                                         className="userUpdateInput"
                                     />
@@ -175,6 +209,7 @@ export class Profile extends Component {
                                     <label>Address</label>
                                     <input
                                         type="text"
+                                        name="address"
                                         placeholder="Pretoria, arcadia"
                                         className="userUpdateInput"
                                     />
@@ -185,6 +220,7 @@ export class Profile extends Component {
                                     <textarea
 
                                         type="text"
+                                        name="orgDescription"
                                         placeholder={persons.orgDescription}
                                         className="userUpdateInput1"
                                     />
@@ -192,7 +228,7 @@ export class Profile extends Component {
                             </div>
                             <div className="userUpdateRight">
 
-                                <button className="userUpdateButton">Update</button>
+                                <button className="userUpdateButton"  onClick={this.onToast}>Update</button>
                             </div>
                         </form>
                     </div>

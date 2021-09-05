@@ -129,7 +129,7 @@ public class BlockchainServiceImpl implements BlockchainService {
 
     @Override
     public Web3j buildWeb3jClient() {
-        return Web3j.build(new HttpService("HTTP://127.0.0.1:7545"));
+        return Web3j.build(new HttpService("HTTP://192.168.1.160:7545"));
     }
 
     @Override

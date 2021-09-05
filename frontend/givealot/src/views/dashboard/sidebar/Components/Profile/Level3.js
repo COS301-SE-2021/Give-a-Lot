@@ -106,6 +106,12 @@ export class Level3 extends Component {
             committee :  this.state.ChairpersonName+","+this.state.ChairpersonContacts+","+this.state.managerName+","+this.state.managerContacts+","+this.state.treasurerName+","+this.state.treasurerContacts+","+this.state.treasurerName+","+this.state.treasurerContacts,
         };
 
+        console.log(com)
+        Axios
+            .post("http://localhost:8080/v1/organisation/add/committee", com)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+
 
         const social = {
             orgId: this.state.orgId,
@@ -113,16 +119,6 @@ export class Level3 extends Component {
             url: this.state.url,
         };
 
-        const social1 = {
-            orgId: this.state.orgId,
-            socialType: this.state.type1,
-            url: this.state.url1,
-        };
-        console.log(com)
-        Axios
-            .post("http://localhost:8080/v1/organisation/add/committee", com)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
 
         console.log(social)
         Axios
@@ -130,11 +126,19 @@ export class Level3 extends Component {
             .then(res => console.log(res))
             .catch(err => console.log(err));
 
+        const social1 = {
+            orgId: this.state.orgId,
+            socialType: this.state.type1,
+            url: this.state.url1,
+        };
+
         console.log(social1)
         Axios
             .post("http://localhost:8080/v1/organisation/add/socials", social1)
             .then(res => console.log(res))
             .catch(err => console.log(err));
+
+
 
 
     };

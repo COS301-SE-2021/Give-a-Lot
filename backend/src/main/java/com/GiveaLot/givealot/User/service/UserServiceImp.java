@@ -4,6 +4,7 @@ import com.GiveaLot.givealot.Browse.repository.BrowseRecommenderRepository;
 import com.GiveaLot.givealot.Notification.dataclass.Mail;
 import com.GiveaLot.givealot.Notification.service.SendMailServiceImpl;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
+import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Organisation.repository.sectorsRepository;
 import com.GiveaLot.givealot.Organisation.response.getNumOrganisationPerMonthResponse;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
@@ -31,6 +32,9 @@ public class UserServiceImp implements UserService {
 
     @Autowired
     SendMailServiceImpl sendMailService;
+
+    @Autowired
+    OrganisationRepository organisationRepository;
 
     @Autowired
     BrowseRecommenderRepository browseRecommenderRepository;
@@ -64,6 +68,10 @@ public class UserServiceImp implements UserService {
         {
             throw new Exception("Registration not set, password not valid");
 
+        }
+        if(organisationRepository.selectOrganisationByEmail(request.getEmail())!=null)
+        {
+            throw new Exception("This email already exists");
         }
 
         // salts and hashes of passwords

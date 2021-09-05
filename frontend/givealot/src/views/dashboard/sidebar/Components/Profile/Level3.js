@@ -100,15 +100,43 @@ export class Level3 extends Component {
 
     handleFormSubmit = e => {
         e.preventDefault();
-        const data = {
+
+        const com={
             orgId: this.state.orgId,
-            website: this.state.website,
-            address: this.state.address,
+            committee :  this.state.ChairpersonName+","+this.state.ChairpersonContacts+","+this.state.managerName+","+this.state.managerContacts+","+this.state.treasurerName+","+this.state.treasurerContacts+","+this.state.treasurerName+","+this.state.treasurerContacts,
         };
+
+
+        const social = {
+            orgId: this.state.orgId,
+            socialType: this.state.type,
+            url: this.state.url,
+        };
+
+        const social1 = {
+            orgId: this.state.orgId,
+            socialType: this.state.type1,
+            url: this.state.url1,
+        };
+        console.log(com)
         Axios
-            .post("", data)
+            .post("http://localhost:8080/v1/organisation/add/committee", com)
             .then(res => console.log(res))
             .catch(err => console.log(err));
+
+        console.log(social)
+        Axios
+            .post("http://localhost:8080/v1/organisation/add/socials", social)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+
+        console.log(social1)
+        Axios
+            .post("http://localhost:8080/v1/organisation/add/socials", social1)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+
+
     };
 
     onToast = () => {

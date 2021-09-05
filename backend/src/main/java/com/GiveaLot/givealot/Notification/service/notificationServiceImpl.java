@@ -143,15 +143,17 @@ public class notificationServiceImpl implements notificationService {
 
             String ngoNumber = organisationInfo.getNGONumber();
             String ngoRegistrationDate = organisationInfo.getNGODate();
-            return new responseJSON("get_level_200_OK", "success", new levelOneInformationResponse(1L,logoUrl, ngoNumber, ngoRegistrationDate));
+            return new responseJSON("get_level_200_OK", "success", new levelOneInformationResponse(1L,logoUrl, ngoNumber, ngoRegistrationDate,organisations.getOrgName(),orgid));
         } else if (level == 1) {
             String websiteUrl = organisationInfo.getWebsite();
             String address = organisationInfo.getAddress();
-            return new responseJSON("get_level_200_OK", "success", new levelTwoInformationResponse(2L,websiteUrl, address));
+            return new responseJSON("get_level_200_OK", "success", new levelTwoInformationResponse(websiteUrl,address,2L,organisations.getOrgName(),orgid));
         } else if (level == 2) {
             String establishementDate = organisationInfo.getEstablishmentDate();
             String donation_url = organisationInfo.getDonationURL();
-            return new responseJSON("get_level_200_OK", "success", new levelThreeInformationResponse(3L,establishementDate, donation_url));
+            String qrCodeUrl = "localfiles/" + orgid + "/Gallery/QRCode.png";
+
+            return new responseJSON("get_level_200_OK", "success", new levelThreeInformationResponse(establishementDate, donation_url,qrCodeUrl,3L,organisations.getOrgName(),orgid));
 
         } else if (level == 3) {
             String committee_details = organisationInfo.getCommitteeDetails();
@@ -161,19 +163,22 @@ public class notificationServiceImpl implements notificationService {
 
             //You can only upload two social Media's so toggle between the one's you can upload
             if (twitter == null) {
-                return new responseJSON("get_level_200_OK", "success", new levelFourInformationResponse(4L,committee_details, facebook, instagram));
+                return new responseJSON("get_level_200_OK", "success", new levelFourInformationResponse(4L,committee_details, facebook, instagram,organisations.getOrgName(),orgid));
             } else if (facebook == null) {
-                return new responseJSON("get_level_200_OK", "success", new levelFourInformationResponse(4L,committee_details, twitter, instagram));
+                return new responseJSON("get_level_200_OK", "success", new levelFourInformationResponse(4L,committee_details, twitter, instagram,organisations.getOrgName(),orgid));
             } else {
-                return new responseJSON("get_level_200_OK", "success", new levelFourInformationResponse(4L,committee_details, twitter, facebook));
+                return new responseJSON("get_level_200_OK", "success", new levelFourInformationResponse(4L,committee_details, twitter, facebook,organisations.getOrgName(),orgid));
 
             }
 
         } else if (level == 4) {
+            String image1 = "localfiles/" + orgid + "/Gallery/image0";
+            String auditdoc = "localfiles/" + orgid + "/Gallery/AuditDoc.pdf";
+
+            return new responseJSON("get_level_200_OK", "success", new levelFiveInformationResponse(5L,auditdoc, image1,organisations.getOrgName(),orgid));
 
         } else
             return null;
-        return null;
     }
 
     @Override

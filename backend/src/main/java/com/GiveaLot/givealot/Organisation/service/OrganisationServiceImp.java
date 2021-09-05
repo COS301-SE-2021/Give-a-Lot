@@ -1652,6 +1652,19 @@ public class OrganisationServiceImp implements OrganisationService {
 
             return new generalOrganisationResponse("update_person_200_OK", "success");
         }
+        else if(request.getType().equalsIgnoreCase("orgName"))
+        {
+            if (request.getNewValue().length() < 2) {
+                throw new Exception("This name is too short to be a organisation name");
+            } else if (request.getNewValue().length() > 50) {
+                throw new Exception("This name is too long, apologies if it is your organisation name");
+            }
+
+            if (organisationRepository.updateOrgName(request.getOrgId(), request.getNewValue()) != 1)
+                throw new Exception("failed to update organisation Name");
+
+            return new generalOrganisationResponse("update_org_name_200_OK", "success");
+        }
         throw new Exception("the type is incorrect");
     }
 

@@ -1,3 +1,17 @@
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "orgName",
+  "newValue": "Pistol 2"
+
+}
+
+<> 2021-09-05T144324.200.json
+
+###
+
 POST http://localhost:8080/v1/notifications/get/level_information
 Content-Type: application/json
 
@@ -513,17 +527,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-02T225241.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/update/notifications
-Content-Type: application/json
-
-{
-  "org_id":32
-}
-
-<> 2021-09-02T224842.200.json
 
 ###
 

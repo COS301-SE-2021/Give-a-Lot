@@ -18,12 +18,27 @@ export class OrgValidate extends Component {
             validation:{},
             error: "",
             openValid: false,
+            openValidDate: false,
+            openNgoNumber: false,
+            openNgoNumberDeny: false,
             orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1],
         }
     }
     handleClose = () => {
         this.setState({ openValid: false });
+
     }
+    handleCloseDate = () => {
+        this.setState({ openValidDate: false });
+    }
+
+    handleCloseNgoNumber = () => {
+        this.setState({ openNgoNumber: false });
+    }
+    handleCloseNgoNumberDeny = () => {
+        this.setState({ openNgoNumberDeny: false });
+    }
+
     acceptNgoDate() {
         this.setState({ openValid: true });
         this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
@@ -43,6 +58,7 @@ export class OrgValidate extends Component {
             })
     }
     denyNgoDate(){
+        this.setState({ openValidDate: true });
         this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
         let config = {
             headers: {
@@ -61,6 +77,7 @@ export class OrgValidate extends Component {
     }
 
     acceptNgoNumber(){
+        this.setState({ openNgoNumber: true });
         this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
         let config = {
             headers: {
@@ -79,6 +96,7 @@ export class OrgValidate extends Component {
     }
 
     denyNgoNumber(){
+        this.setState({ openNgoNumberDeny: true });
         this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
         let config = {
             headers: {
@@ -565,13 +583,17 @@ export class OrgValidate extends Component {
                                                 Deny
                                             </Button>
                                         </Grid>
-                                        {/*<Dialog onClose={this.handleCloseValid.bind(this)}*/}
-                                        {/*        open={this.state.openValid}>*/}
-                                        {/*    <DialogTitle>Reason for Denial</DialogTitle>*/}
-                                        {/*    <DialogContent>*/}
-                                        {/*        Organisation is under investigation*/}
-                                        {/*    </DialogContent>*/}
-                                        {/*</Dialog>*/}
+                                        <Dialog onClose={this.handleCloseDate.bind(this)} open={this.state.openValidDate}>
+                                            <DialogTitle>NGO Date Denied</DialogTitle>
+                                            <DialogContent>
+                                                <Button variant="contained" color="primary"
+                                                        onClick={this.handleCloseDate.bind(this)}
+                                                        style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}
+                                                >
+                                                    Close
+                                                </Button>
+                                            </DialogContent>
+                                        </Dialog>
                                     </Typography>
                                 </Typography>
                             </CardContent>
@@ -599,6 +621,17 @@ export class OrgValidate extends Component {
                                             >
                                                 Accept
                                             </Button>
+                                            <Dialog onClose={this.handleCloseNgoNumber.bind(this)} open={this.state.openNgoNumber}>
+                                                <DialogTitle>NGO Number Accepted</DialogTitle>
+                                                <DialogContent>
+                                                    <Button variant="contained" color="primary"
+                                                            onClick={this.handleCloseNgoNumber.bind(this)}
+                                                            style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}
+                                                    >
+                                                        Close
+                                                    </Button>
+                                                </DialogContent>
+                                            </Dialog>
                                         </Grid>
                                         <Grid style={{marginLeft: "1em"}}>
                                             <Button variant="contained" className="buttonValidViewDeny"
@@ -606,6 +639,17 @@ export class OrgValidate extends Component {
                                             >
                                                 Deny
                                             </Button>
+                                            <Dialog onClose={this.handleCloseNgoNumberDeny.bind(this)} open={this.state.openNgoNumberDeny}>
+                                                <DialogTitle>NGO Number Denied</DialogTitle>
+                                                <DialogContent>
+                                                    <Button variant="contained" color="primary"
+                                                            onClick={this.handleCloseNgoNumberDeny.bind(this)}
+                                                            style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}
+                                                    >
+                                                        Close
+                                                    </Button>
+                                                </DialogContent>
+                                            </Dialog>
                                         </Grid>
                                     </Typography>
                                 </Typography>

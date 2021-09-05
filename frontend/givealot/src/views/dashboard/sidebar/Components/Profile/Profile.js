@@ -87,6 +87,8 @@ export class Profile extends Component {
             email:this.state.orgEmail,
             description:this.state.orgDescription,
             contactNumber: this.state.contactNumber,
+            slogan: this.state.slogan,
+            contactPerson: this.state.contactPerson,
 
         };
 

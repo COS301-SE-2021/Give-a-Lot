@@ -68,9 +68,7 @@ export class Upgrade2 extends Component {
     };
 
     handleChange = event => {
-
         const formData = new FormData();
-
 
         formData.append('image', event.target.files[0]);
         formData.append('orgId', 32);

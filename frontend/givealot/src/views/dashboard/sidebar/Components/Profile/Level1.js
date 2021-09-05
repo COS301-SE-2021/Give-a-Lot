@@ -41,43 +41,63 @@ export class Level1 extends Component {
         this.state={
             orgId:"32",
             website: "",
+            websiteState: false,
             address:"",
+            addressState:false,
 
         };
     }
 
 
 
-    handleChange = event => {
+    handleWebsite=event=>{
+        this.setState({websiteState: true})
         const isCheckbox = event.target.type === "checkbox";
         this.setState({
             [event.target.name]: isCheckbox
                 ? event.target.checked
                 : event.target.value
         });
-    };
+    }
+
+    handleAddress =event=>{
+        this.setState({addressState: true})
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
+    }
 
     handleFormSubmit = e => {
         e.preventDefault();
-        const web = {
-            orgId: this.state.orgId,
-            website: this.state.website,
 
-        };
-        const add = {
-            orgId: this.state.orgId,
-            address: this.state.address,
+        if(this.state.websiteState) {
+            const web = {
+                orgId: this.state.orgId,
+                website: this.state.website,
 
-        };
-        Axios
-            .post("http://localhost:8080/v1/organisation/add/website", web)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+            };
 
-        Axios
-            .post("http://localhost:8080/v1/organisation/add/address", add)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+            Axios
+                .post("http://localhost:8080/v1/organisation/add/website", web)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
+
+        if(this.state.addressState) {
+            const add = {
+                orgId: this.state.orgId,
+                address: this.state.address,
+
+            };
+
+            Axios
+                .post("http://localhost:8080/v1/organisation/add/address", add)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
     };
 
     onToast = () => {
@@ -119,7 +139,7 @@ export class Level1 extends Component {
                                         shrink: true,
                                     }}
                                     variant="outlined"
-                                    onChange={this.handleChange}
+                                    onChange={this.handleWebsite}
                                 />
                                 <TextField
                                     id="outlined-full-width"
@@ -134,7 +154,7 @@ export class Level1 extends Component {
                                         shrink: true,
                                     }}
                                     variant="outlined"
-                                    onChange={this.handleChange}
+                                    onChange={this.handleAddress}
                                 />
                             </div>
                                 <div className="upgrade_Button">

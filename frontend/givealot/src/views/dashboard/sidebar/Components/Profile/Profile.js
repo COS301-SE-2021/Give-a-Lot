@@ -58,6 +58,10 @@ export class Profile extends Component {
         const admin = {
             "adminId" : this.state.adminId
         }
+
+        const org = {
+            orgId : this.state.orgId
+        }
         axios.post('http://localhost:8080/v1/organisation/get/organisations',admin , config)
             .then(response =>{
                 console.log(response)
@@ -68,6 +72,7 @@ export class Profile extends Component {
             .catch(error =>{
                 this.setState({error : 'Error Retrieving data'})
             })
+
 
     }
 

@@ -37,7 +37,11 @@ const initialState = {
     orgId:6,
     startDate: new Date(),
     ngoNumber:"",
+    ngoNumberState:false,
     ngoDate:"",
+    ngoDateState:false,
+    logo:"",
+
 };
 
 
@@ -52,18 +56,59 @@ export class Level0 extends Component {
     }
 
     handleDateChange(date) {
-        this.setState({startDate: date, ngoDate:document.getElementsByClassName("input3")[0].value} )
+        this.setState({startDate: date, ngoDate:document.getElementsByClassName("input3")[0].value, ngoDateState: true} )
 
     }
 
-    handleInputChange = input => e => {
+    handleNumber =event=>{
+        this.setState({ngoNumberState: true})
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
+    }
 
-        this.setState({ [input]: e.target.value });
 
-    };
+
 
 
     handleChange = event => {
+
+        const formData = new FormData();
+
+
+        formData.append('image', event.target.files[0]);
+        formData.append('orgId', 32);
+        let imageStates = 0;
+
+
+        alert("take away submit button functionality");
+
+        fetch(
+            'http://localhost:8080/v1/organisation/add/logo',
+            {
+                method: 'POST',
+                body: formData,
+            }
+        )
+            .then((response) => response.json())
+            .then((result) => {
+                console.log('Success:', result);
+                imageStates = 1;
+
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                imageStates = 2;
+            });
+
+        if(imageStates===1)
+            alert("bring back button functionality");
+        else if(imageStates === 2)
+            alert("bring back button functionality also tell the user that the image didnt submit");
+
         const isCheckbox = event.target.type === "checkbox";
         this.setState({
             [event.target.name]: isCheckbox
@@ -72,53 +117,32 @@ export class Level0 extends Component {
         });
     };
 
-    validate = () => {
-        let dateError = "";
-        let paypalError = "";
-
-
-        if (!this.state.date) {
-            dateError = "Date is require";
-        }
-
-
-        if(!this.state.paypal) {
-            paypalError="Link required";
-        }
-
-        if ( dateError || paypalError) {
-            this.setState({ dateError, paypalError });
-            return false;
-        }
-
-        return true;
-    };
-
     handleFormSubmit = e => {
         e.preventDefault();
-        const isValid = this.validate();
-        if (isValid) {
+
+
             const data = {
                 orgId: this.state.orgId,
                 ngoDate: this.state.ngoDate,
                 ngoNumber: this.state.ngoNumber,
 
             };
+
             console.log(data)
             Axios
                 .post("http://localhost:8080/v1/organisation/add/ngopdate", data)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
-        }
+
+
     };
     onToast = () => {
-        const isValid = this.validate();
-        if (isValid) {
+
             toast.success('Submit successful', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
-        }
+
     }
 
 
@@ -166,7 +190,7 @@ export class Level0 extends Component {
                                             shrink: true,
                                         }}
                                         variant="outlined"
-                                        onChange={this.handleChange}
+                                        onChange={this.handleNumber}
                                     />
                                     <div>
                                         <span className="upgrade_label_logo">

@@ -506,10 +506,17 @@
     background-color: #9f8aa6;
 
 }
+.upgrade-btnn:hover{
+    background-color: #9f8aa6;
+
+}
 .upgrade-btn:active {
     transform: translateY(4px);
 }
 
+.upgrade-btnn:active {
+    transform: translateY(4px);
+}
 
 
 

@@ -181,7 +181,7 @@ public class OrganisationControllerTest {
     }*/
 
 
-    @Test
+   /* @Test
     public void testGetOrganisations() throws Exception {
         MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/organisation/get/organisations")
                 .contentType(MediaType.APPLICATION_JSON);
@@ -193,7 +193,7 @@ public class OrganisationControllerTest {
                 .build()
                 .perform(requestBuilder)
                 .andExpect(MockMvcResultMatchers.status().isOk());
-    }
+    }*/
 
     @Test
     public void testGetOrganisationsTemporal() throws Exception {

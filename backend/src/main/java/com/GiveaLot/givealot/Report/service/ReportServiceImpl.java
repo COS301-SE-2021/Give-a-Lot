@@ -1,10 +1,17 @@
 package com.GiveaLot.givealot.Report.service;
 
 import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
+import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Organisation.response.selectOrganisationResponse;
+import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import com.GiveaLot.givealot.Report.dataclass.Report;
+import com.GiveaLot.givealot.Report.dataclass.Reports;
+import com.GiveaLot.givealot.Report.repository.reportRepository;
 import com.GiveaLot.givealot.Report.requests.createReportResponse;
+import com.GiveaLot.givealot.Report.requests.reportRequest;
+import com.GiveaLot.givealot.Report.response.generalReportResponse;
 import com.GiveaLot.givealot.Server.ServerAccess;
+import com.GiveaLot.givealot.User.repository.UserRepository;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +19,10 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.FileWriter;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class ReportServiceImpl implements ReportService {
@@ -20,8 +31,18 @@ public class ReportServiceImpl implements ReportService {
     private OrganisationInfoRepository organisationInfoRepository;
 
     @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private OrganisationRepository organisationRepository;
+
+    @Autowired
+    private reportRepository reportRepository;
+
+    @Autowired
     private final ServerAccess access = new ServerAccess();
 
+    @Override
     public createReportResponse createReportFile(Report report) throws Exception{
         try {
 
@@ -76,6 +97,8 @@ public class ReportServiceImpl implements ReportService {
             throw new Exception("Exception: " + e);
         }
     }
+
+    @Override
     public boolean updateNumberOfReports(long orgId) throws Exception {
         try {
             int reports = organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfReports();
@@ -84,10 +107,80 @@ public class ReportServiceImpl implements ReportService {
         }catch (Exception e){
             throw new Exception("Exception: ID is not present in the database" + e);
         }
-
     }
 
+    @Override
+    public generalReportResponse reportOrganisation(reportRequest request) throws Exception {
+        if(request == null)
+            throw new Exception("request is null");
+        else if(request.getDescription() == null || request.getDescription().isEmpty())
+            throw new Exception("Invalid description, null or empty provided");
+        else if(request.getReportType() == null || request.getReportType().isEmpty())
+            throw new Exception("Invalid report type, null or empty provided");
+        else if(request.getOrgId() == null || request.getUserId() == null)
+            throw new Exception("Invalid id, null provided");
+        else if(userRepository.findUserById(request.getUserId()) == null)
+            throw new Exception("user id does not exist");
+        else if(organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("org id does not exist");
 
+        Reports reports = new Reports();
+        reports.setReportType(request.getReportType());
+        reports.setOrgId(request.getOrgId());
+        reports.setUserId(request.getUserId());
+
+        Date dateCurrent = new Date();
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String dateCreated = format.format(dateCurrent);
+
+        reports.setAppealed(false);
+        reports.setDate(dateCreated);
+        reports.setDescription(request.getDescription());
+        reportRepository.save(reports);
+
+        return new generalReportResponse("report_200_OK","success");
+    }
+
+    @Override
+    public responseJSON getAllReports(Long orgId) throws Exception {
+        if(orgId == null)
+            throw new Exception("provided ID is null");
+
+        if(organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("id does not exist");
+
+        List<Reports> res = reportRepository.getAllReports(orgId);
+        return new responseJSON("get_reports_200_OK", "success", res);
+    }
+
+    @Override
+    public generalReportResponse appealReport(Long orgId, Long reportId) throws Exception {
+        if(orgId == null)
+            throw new Exception("provided ID is null");
+
+        if(organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("id does not exist");
+
+        if(reportRepository.getReportById(reportId) == null)
+            throw new Exception("report does not exist");
+
+        reportRepository.appealReport(reportId);
+
+        return new generalReportResponse("appeal_reports_200_OK", "success");
+    }
+
+    @Override
+    public responseJSON getAppealedReports(Long adminId) throws Exception
+    {
+        if(adminId == null)
+            throw new Exception("id is null");
+        else if(userRepository.findUserById(adminId) == null)
+            throw new Exception("user not found");
+        else if(!userRepository.findUserById(adminId).getAdmin())
+            throw new Exception("not authorized");
+
+        return new responseJSON("get_app_reports_OK","success",reportRepository.getAppealedReports());
+    }
 
 
     public static void main(String[] args) throws Exception {

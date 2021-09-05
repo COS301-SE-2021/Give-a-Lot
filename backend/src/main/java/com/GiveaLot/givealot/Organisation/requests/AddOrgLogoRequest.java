@@ -9,12 +9,13 @@ public class AddOrgLogoRequest {
     private Long orgId;
     private MultipartFile image;
 
-    public AddOrgLogoRequest(@JsonProperty Long orgId,
-                              @JsonProperty MultipartFile image)
+    public AddOrgLogoRequest(@JsonProperty("orgId") Long orgId,
+                              @JsonProperty("image") MultipartFile image)
     {
         this.orgId = orgId;
         this.image = image;
     }
+
 
     public Long getOrgId() {
         return orgId;

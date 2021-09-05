@@ -2,23 +2,40 @@ package com.GiveaLot.givealot.Notification.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Date;
-
 public class AddNotificationRequest {
     private    String dateCreated ;
-    private    String  notification_id;
+    private    Long  notification_id;
     private    Long   org_id;
     private   boolean   isOpen;
     private    int  numberOfNotifications;
     private    String  description;
     private   String notificationType;
+    private   String name;
 
-    public AddNotificationRequest(@JsonProperty("organisation_id") Long org_id,@JsonProperty("isOpen") boolean isOpen,@JsonProperty("description") String description,@JsonProperty("notification_type") String notificationType) {
+
+    public AddNotificationRequest(@JsonProperty("organisation_id") Long org_id,@JsonProperty("isOpen") boolean isOpen,@JsonProperty("description") String description,@JsonProperty("notification_type") String notificationType,@JsonProperty("name") String name) {
 
         this.org_id = org_id;
         this.isOpen = isOpen;
         this.description = description;
         this.notificationType = notificationType;
+        this.name = name;
+    }
+
+    public int getNumberOfNotifications() {
+        return numberOfNotifications;
+    }
+
+    public void setNumberOfNotifications(int numberOfNotifications) {
+        this.numberOfNotifications = numberOfNotifications;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDateCreated() {
@@ -29,11 +46,11 @@ public class AddNotificationRequest {
         this.dateCreated = dateCreated;
     }
 
-    public String getNotification_id() {
+    public Long getNotification_id() {
         return notification_id;
     }
 
-    public void setNotification_id(String notification_id) {
+    public void setNotification_id(Long notification_id) {
         this.notification_id = notification_id;
     }
 

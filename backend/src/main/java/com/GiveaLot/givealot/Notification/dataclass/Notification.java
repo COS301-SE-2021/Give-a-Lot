@@ -3,14 +3,12 @@ package com.GiveaLot.givealot.Notification.dataclass;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
 
 @Builder
+@AllArgsConstructor
 @Entity
 @Table(
         name = "notification"
@@ -24,13 +22,10 @@ public class Notification {
                 )
         String dateCreated;
 
-        @Id
-        @Column(
-                name = "notification_id",
-                updatable = false,
-                nullable = false
-        )
-        String notification_id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "notification_id", nullable = false, unique = true)
+    public Long notification_id;
 
     @Column(
             name = "org_id",
@@ -38,6 +33,7 @@ public class Notification {
             nullable = false
     )
     long org_id;
+
         @Column(
                 name = "isOpen",
                 updatable = true,
@@ -60,6 +56,13 @@ public class Notification {
     )
     String notificationType;
 
+    @Column(
+            name = "org_name",
+            updatable = true,
+            nullable = false
+    )
+    String org_name;
+
     public Notification( long org_id, boolean isOpen, String description, String notificationType) {
         this.notification_id = notification_id;
         this.org_id = org_id;
@@ -67,7 +70,7 @@ public class Notification {
         Description = description;
         this.notificationType = notificationType;
     }
-    public Notification(String dateCreated, String notification_id, long org_id, boolean open, String description, String notificationType) {
+    public Notification(String dateCreated, Long notification_id, long org_id, boolean open, String description, String notificationType) {
         this.dateCreated = dateCreated;
         this.notification_id = notification_id;
         this.org_id = org_id;
@@ -80,6 +83,13 @@ public class Notification {
 
     }
 
+    public String getOrg_name() {
+        return org_name;
+    }
+
+    public void setOrg_name(String org_name) {
+        this.org_name = org_name;
+    }
 
     public String getDateCreated() {
         return dateCreated;
@@ -89,11 +99,11 @@ public class Notification {
         this.dateCreated = dateCreated;
     }
 
-    public String getNotification_id() {
+    public Long getNotification_id() {
         return notification_id;
     }
 
-    public void setNotification_id(String notification_id) {
+    public void setNotification_id(Long notification_id) {
         this.notification_id = notification_id;
     }
 

@@ -6,6 +6,7 @@ import com.GiveaLot.givealot.Blockchain.service.BlockchainService;
 import com.GiveaLot.givealot.Blockchain.service.BlockchainServiceImpl;
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
+import com.GiveaLot.givealot.Certificate.requests.RetrieveCertificateRequest;
 import com.GiveaLot.givealot.Notification.dataclass.Mail;
 import com.GiveaLot.givealot.Notification.service.SendMailService;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
@@ -79,7 +80,7 @@ public class CertificateServiceImpl implements CertificateService {
             throw new Exception("Exception: Problem creating and storing certificate");
         }
 
-        File certificate = retrieveCertificate(orgId, organisation.getOrgName());
+        File certificate = retrieveCertificate(new RetrieveCertificateRequest(orgId, organisation.getOrgName()));
 
         String[] result = blockchainService
                 .uploadCertificate(orgId, certificate);
@@ -107,7 +108,7 @@ public class CertificateServiceImpl implements CertificateService {
             throw new Exception("Exception: Problem creating and storing certificate");
         }
 
-        File certificate = retrieveCertificate(orgId, organisation.getOrgName());
+        File certificate = retrieveCertificate(new RetrieveCertificateRequest(orgId, organisation.getOrgName()));
 
         String[] result = blockchainService
                 .upgradeCertificate(blockchain.getIndex(),orgId, certificate,blockchain.getLevel());
@@ -121,8 +122,8 @@ public class CertificateServiceImpl implements CertificateService {
     }
 
     @Override
-    public File retrieveCertificate(long orgId, String orgName) throws Exception {
-        return access.downloadCertificate(orgId,orgName);
+    public File retrieveCertificate(RetrieveCertificateRequest request) throws Exception {
+        return access.downloadCertificate(request.getOrgId(),request.getOrgName());
     }
 
     @Override
@@ -264,6 +265,7 @@ public class CertificateServiceImpl implements CertificateService {
         if (!certCmp.exists()){
             certCmp.createNewFile();
         }
+
         try (OutputStream os = new FileOutputStream(certCmp)) {
             os.write(certificate.getBytes());
         }
@@ -275,6 +277,8 @@ public class CertificateServiceImpl implements CertificateService {
         }
         return blockchainService.compareCertificateHash(blockchain.getIndex(),blockchain.getOrgId(),certCmp);
     }
+
+
 
 
 }

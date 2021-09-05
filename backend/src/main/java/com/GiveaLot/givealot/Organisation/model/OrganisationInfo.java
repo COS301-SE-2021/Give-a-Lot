@@ -21,8 +21,9 @@ public class OrganisationInfo
             unique = true)
     public Long orgId;
     @Column(name = "address",
-            nullable = true,
-            unique = false)
+            nullable = false,
+            unique = false
+    )
     private String address;
     @Column(name = "number_of_images",
             nullable = true,
@@ -62,7 +63,7 @@ public class OrganisationInfo
             nullable = true,
             unique = false)
 
-    private Date NGODate;
+    private String NGODate;
     @Column(name = "twitter",
             nullable = true,
             unique = false)
@@ -134,11 +135,11 @@ public class OrganisationInfo
         this.auditDocument = auditDocument;
     }
 
-    public Date getNGODate() {
+    public String getNGODate() {
         return NGODate;
     }
 
-    public void setNGODate(Date NGODate) {
+    public void setNGODate(String NGODate) {
         this.NGODate = NGODate;
     }
 

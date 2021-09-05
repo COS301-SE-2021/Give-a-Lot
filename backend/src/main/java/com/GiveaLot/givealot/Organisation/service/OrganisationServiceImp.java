@@ -1,11 +1,14 @@
 package com.GiveaLot.givealot.Organisation.service;
 
+import com.GiveaLot.givealot.Blockchain.Repository.BlockChainRepository;
+import com.GiveaLot.givealot.Blockchain.dataclass.Blockchain;
 import com.GiveaLot.givealot.Browse.model.Browse;
 import com.GiveaLot.givealot.Browse.repository.BrowseRecommenderRepository;
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
 import com.GiveaLot.givealot.Certificate.service.CertificateService;
 import com.GiveaLot.givealot.Notification.dataclass.Mail;
+import com.GiveaLot.givealot.Notification.repository.NotificationRepository;
 import com.GiveaLot.givealot.Notification.service.SendMailServiceImpl;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
@@ -17,6 +20,7 @@ import com.GiveaLot.givealot.Organisation.repository.organisationPointsRepositor
 import com.GiveaLot.givealot.Organisation.repository.sectorsRepository;
 import com.GiveaLot.givealot.Organisation.requests.*;
 import com.GiveaLot.givealot.Organisation.response.*;
+import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import com.GiveaLot.givealot.Server.ServerAccess;
 import com.GiveaLot.givealot.User.dataclass.User;
 import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
@@ -47,6 +51,8 @@ public class OrganisationServiceImp implements OrganisationService {
 
     @Autowired
     private OrganisationRepository organisationRepository;
+    @Autowired
+    private NotificationRepository notificationRepository;
 
     @Autowired
     private OrganisationInfoRepository organisationInfoRepository;
@@ -73,6 +79,9 @@ public class OrganisationServiceImp implements OrganisationService {
     private sectorsRepository sectorsRepository;
 
     @Autowired
+    private BlockChainRepository blockChainRepository;
+
+    @Autowired
     private BrowseRecommenderRepository browseRecommenderRepository;
 
     @Autowired
@@ -87,19 +96,14 @@ public class OrganisationServiceImp implements OrganisationService {
     @Override /*tested all good - converted*/
     public getOrganisationsResponse getOrganisations(GetOrganisationsRequest request) throws Exception
     {
-        boolean temporal_solution = true;
-
-        if(!temporal_solution) {
             if (request == null) {
                 throw new Exception("Exception: request not set");
             }
-            if (request.getAdminUserEmail() == null) {
+            if (request.getAdminId() == null) {
                 throw new Exception("Exception: admin user field not set");
-            } else if (request.getAdminUserEmail().isEmpty()) {
-                throw new Exception("Exception: admin user field is empty");
             }
 
-            User admin = userRepository.findUserByEmail(request.getAdminUserEmail());
+            User admin = userRepository.findUserById(request.getAdminId());
 
             if (admin == null)
                 throw new Exception("Exception: user is not admin");
@@ -107,7 +111,7 @@ public class OrganisationServiceImp implements OrganisationService {
             if (!admin.getAdmin()) {
                 throw new UserNotAuthorisedException("current user is not an admin");
             }
-        }
+
 
         List<Organisations> res = organisationRepository.findAll();
         if(res == null)
@@ -123,10 +127,14 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("Exception: Id provided is null");
 
         Organisations res = organisationRepository.selectOrganisationById(orgId);
-        User user = userRepository.findUserById(userId);
 
-        if(user == null)
-            throw new Exception("Exception: invalid user id");
+
+        if(userId != -1) {
+            User user = userRepository.findUserById(userId);
+
+            if (user == null)
+                throw new Exception("Exception: invalid user id");
+        }
 
         if (res != null)
         {
@@ -322,23 +330,24 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override /*tested all good - converted*/
-    public generalOrganisationResponse suspendOrganisation(Long orgId) throws Exception {
-
-        if(orgId == null)
+    public generalOrganisationResponse suspendOrganisation(SuspendRequest request) throws Exception {
+        if(request == null)
+            throw new Exception("request is null");
+        if(request.getOrgID() == null)
             throw new Exception("Exception: provided id is null");
 
-        else if (organisationRepository.selectOrganisationById(orgId) == null)
+        else if (organisationRepository.selectOrganisationById(request.getOrgID()) == null)
             throw new Exception("Exception: ID doesn't exist");
         else
         {
-            if (organisationRepository.updateStatus(orgId, "suspended".toLowerCase()) != 1)
+            if (organisationRepository.updateStatus(request.getOrgID(), "suspended".toLowerCase()) != 1)
                 throw new Exception("status not updated");
             else
             {
                 /**Sending Status change email**/
                 System.out.println("Sending Email...");
 
-                Mail mail = new Mail(organisationRepository.selectOrganisationById(orgId).getOrgEmail(),"Givealot Status Change","It is with great regret to inform you that your organisation due to numerous reports against it has been susoended" +
+                Mail mail = new Mail(organisationRepository.selectOrganisationById(request.getOrgID()).getOrgEmail(),"Givealot Status Change","It is with great regret to inform you that your organisation due to numerous reports against it has been susoended" +
                         "\n these reports will be reviewed by team and if found to be false we will reactivate your organization." +
                         "\n We apologise for the inconvienace this may cause" +
                         "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations" +
@@ -356,20 +365,21 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override /*tested all good - converted*/
-    public generalOrganisationResponse reactivateOrganisation(Long orgId) throws Exception {
-
-        if(orgId == null)
+    public generalOrganisationResponse reactivateOrganisation(ActivateRequest request) throws Exception {
+        if(request == null)
+            throw new Exception("request is null");
+        if(request.getOrgID() == null)
             throw new Exception("Exception: ID is null");
-        if (organisationRepository.selectOrganisationById(orgId) == null)
+        if (organisationRepository.selectOrganisationById(request.getOrgID()) == null)
             throw new Exception("ID doesn't exist");
         else {
-            if (organisationRepository.updateStatus(orgId, "active".toLowerCase()) != 1)
+            if (organisationRepository.updateStatus(request.getOrgID(), "active".toLowerCase()) != 1)
                 throw new Exception("status not updated");
             else
             {
                 System.out.println("Sending Email...");
 
-                Mail mail = new Mail(organisationRepository.selectOrganisationById(orgId).getOrgEmail(),"Givealot Status Change","It is with great confidence to inform you that tour account has been reactivated" +
+                Mail mail = new Mail(organisationRepository.selectOrganisationById(request.getOrgID()).getOrgEmail(),"Givealot Status Change","It is with great confidence to inform you that tour account has been reactivated" +
                         "\n We apologise for the inconvenience this may have caused" +
                         "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations" +
                         "\n" +
@@ -385,19 +395,21 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override /*tested all good - converted*/
-    public generalOrganisationResponse investigateOrganisation(Long orgId) throws Exception {
+    public generalOrganisationResponse investigateOrganisation(InvestigateRequest request) throws Exception {
 
-        if (organisationRepository.selectOrganisationById(orgId) == null)
+        if(request == null)
+            throw new Exception("request is null");
+        if (organisationRepository.selectOrganisationById(request.getOrgID()) == null)
             throw new Exception("ID doesn't exist");
         else {
-            if (organisationRepository.updateStatus(orgId, "investigating".toLowerCase()) != 1)
+            if (organisationRepository.updateStatus(request.getOrgID(), "investigating".toLowerCase()) != 1)
                 throw new Exception("status not updated");
             else
             {
                 /**Sending Status change email**/
                 System.out.println("Sending Email...");
 
-                Mail mail = new Mail(organisationRepository.selectOrganisationById(orgId).getOrgEmail(),"Givealot Status Change","It is with great regret to inform you that your organisation due to numerous reports against it is under investigation" +
+                Mail mail = new Mail(organisationRepository.selectOrganisationById(request.getOrgID()).getOrgEmail(),"Givealot Status Change","It is with great regret to inform you that your organisation due to numerous reports against it is under investigation" +
                         "\n these reports will be reviewed by team and if found to be false we will reactivate your organization." +
                         "\n We apologise for the inconvienace this may cause" +
                         "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations" +
@@ -513,7 +525,6 @@ public class OrganisationServiceImp implements OrganisationService {
 
         return new generalOrganisationResponse("rem_addr_200_OK", "success");
     }
-
     @Override
     public generalOrganisationResponse addOrgLogo(AddOrgLogoRequest request) throws Exception {
         if (request == null)
@@ -523,7 +534,7 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("Provided ID is null");
 
         else if (request.getImage() == null)
-            throw new Exception("Exception: tax reference not set");
+            throw new Exception("Exception: image reference not set");
 
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
@@ -624,8 +635,8 @@ public class OrganisationServiceImp implements OrganisationService {
         if(request.getOrgId() == null)
             throw new Exception("Exception: provided ID is null");
 
-        else if (request.getAudit() == null)
-            throw new Exception("Exception: tax reference not set");
+     /*   else if (request.getAudit() == null)
+            throw new Exception("Exception: tax reference not set");*/
 
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
@@ -740,6 +751,8 @@ public class OrganisationServiceImp implements OrganisationService {
         if (organisationInfoRepository.addOrgDonationURL(request.getOrgId(), request.getOrgInfo()) != 1)
             throw new Exception("Exception: value field failed to update");
 
+
+
         return new generalOrganisationResponse("add_don_200_ok", "success");
     }
 
@@ -822,7 +835,7 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
-    public boolean addOrgNGO(AddOrgNGORequest request) throws Exception {
+    public  generalOrganisationResponse addOrgNGO(AddOrgNGORequest request) throws Exception {
         if (request == null)
             throw new Exception("Exception: request not set");
         else if (request.getNgoNumber() == null)
@@ -836,10 +849,10 @@ public class OrganisationServiceImp implements OrganisationService {
 
         if (organisationInfoRepository.addNGONumber(request.getOrgId(), request.getNgoNumber()) != 1)
             throw new Exception("Exception: value field failed to update");
-        if (organisationInfoRepository.addNGODate(request.getOrgId(), request.getNgoDate()) != 1)
+        if (addOrgNGODate(request)==null)
             throw new Exception("Exception: value field failed to update");
 
-        return true;
+        return new generalOrganisationResponse("add_ngo_200_OK","success");
     }
 
     @Override
@@ -863,6 +876,60 @@ public class OrganisationServiceImp implements OrganisationService {
 
         return true;
     }
+
+    @Override
+    public generalOrganisationResponse addOrgNGODate(AddOrgNGORequest request) throws Exception {
+        if (request == null)
+            throw new Exception("Exception: request not set");
+
+        else if (request.getNgoDate()== null)
+            throw new Exception("Exception: value not set");
+
+        else if (request.getNgoDate().isEmpty())
+            throw new Exception("Exception: date field is empty");
+
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        String Str [] = (request.getNgoDate()).split("/");
+
+        String tmp_date = "";
+
+        if(Str.length == 3)
+        {
+            tmp_date = Str[2] + "-" + Str[1] + "-" + Str[0];
+        }
+        else throw new Exception("Exception: Invalid date provided");
+
+        if (organisationInfoRepository.addNGODate(request.getOrgId(), tmp_date) != 1)
+            throw new Exception("Exception: value field failed to update");
+
+        return new generalOrganisationResponse("add_ngo_200_OK","success");
+    }
+
+    @Override
+    public generalOrganisationResponse removeNGDate(Long orgId) throws Exception {
+        if(orgId == null)
+            throw new Exception("Exception: provided ID is null");
+
+        else if (organisationRepository.selectOrganisationById(orgId) == null)
+            throw new Exception("Exception: Organisation ID does not exist");
+
+        if (organisationInfoRepository.selectOrganisationInfo(orgId) == null) {
+            /*
+             * Because organisation already exists, set the field
+             * */
+            OrganisationInfo organisationInfo = new OrganisationInfo();
+            organisationInfo.setOrgId(orgId);
+
+            organisationInfoRepository.save(organisationInfo);
+            throw new Exception("Exception: system level error, organisation info did not exist, rerun the contract");
+        }
+
+        if (organisationInfoRepository.removeNGODate(orgId) != 1)
+            throw new Exception("Exception: tax reference field not updated");
+
+        return new generalOrganisationResponse("rem_est_200_OK", "success");    }
 
     @Override /*tested - works well */
     public generalOrganisationResponse addOrgEstDate(AddOrgEstDateRequest request) throws Exception {
@@ -946,22 +1013,17 @@ public class OrganisationServiceImp implements OrganisationService {
         List<MultipartFile> images = request.getImages();
 
         int numberOFNewImages = 0;
-        File file = new File("src/main/resources/targetFile.jpg");
 
-        for (MultipartFile image: images) {
-
-            try (OutputStream os = new FileOutputStream(file)) {
-                os.write(image.getBytes());
-            }
-            access.uploadImageJPG(request.getOrgId(),name,file);
-            numberOFNewImages++;
-        }
-
-
-
+        File file = new File("backend/src/main/resources/targetFile.jpg");
         int numImages = organisationInfoRepository.selectOrganisationInfo(request.getOrgId()).getNumberOfImages();
 
-        if (organisationInfoRepository.incrementImage(request.getOrgId(), numImages + numberOFNewImages) != 1)
+        int i=0;
+        for (;i<request.getImages().size();i++) {
+            access.uploadImageJPG(request.getOrgId(),name,request.getImages().get(i),numImages);
+            numImages++;
+        }
+
+        if (organisationInfoRepository.incrementImage(request.getOrgId(), numImages) != 1)
             throw new Exception("Exception: value field failed to update");
 
         return new generalOrganisationResponse("add_img_200_OK", "success");
@@ -1419,6 +1481,208 @@ public class OrganisationServiceImp implements OrganisationService {
     @Override
     public getNumberOfOrganisationsResponse getNumberOfOrganisations(GetOrganisationsRequest request) throws Exception {
         return new getNumberOfOrganisationsResponse("get_num_org_200_OK","success",getOrganisations(request).getResponse().size());
+    }
+
+    @Override
+    public getOrgCertLevelResponse getOrgCertLevel(GetOrganisationCertificateLevelRequest request) throws Exception {
+        if(request == null)
+            throw new Exception("Exception: request is null");
+
+        if(organisationRepository.selectOrganisationById(request.getOrgid())==null)
+        {
+            throw new Exception("organisation does not exist");
+        }
+        Blockchain blockchain = blockChainRepository.selectBlockchainOrgId(request.getOrgid());
+        if(blockchain == null)
+            throw new Exception("error with the blockchain");
+
+    return new getOrgCertLevelResponse("get_org_cert_level","success",blockchain.getLevel());
+    }
+
+    @Override
+    public responseJSON getNumPerMonth(getNumOrganisationPerMonthRequest request) throws Exception {
+        if(request == null)
+            throw new Exception("Exception: request is null");
+        String month ="";
+        int jan = 0;
+        int feb= 0;
+        int mar= 0;
+        int apr= 0;
+        int may= 0;
+        int jun= 0;
+        int jul= 0;
+        int aug= 0;
+        int sept= 0;
+        int oct= 0;
+        int nov= 0;
+        int dec= 0;
+        int i = 0;
+        List<Organisations>organisations = organisationRepository.getAllOrganisations();
+        while(i<organisations.size())
+        {
+           month=organisations.get(i).getDateAdded().substring(5,7);
+            if(month.equals("01"))
+            {
+                jan++;
+            }
+            else if(month.equals("02"))
+            {
+                feb++;
+            }
+            else if(month.equals("03"))
+            {
+                mar++;
+            }  else if(month.equals("04"))
+            {
+                apr++;
+            }   else if(month.equals("05"))
+            {
+                may++;
+            }  else if(month.equals("06"))
+            {
+                jun++;
+            }  else if(month.equals("07"))
+            {
+                jul++;
+            }  else if(month.equals("08"))
+            {
+                aug++;
+            }  else if(month.equals("09"))
+            {
+                sept++;
+            }  else if(month.equals("10"))
+            {
+                oct++;
+            }  else if(month.equals("11"))
+            {
+                nov++;
+            }
+            else if(month.equals("12"))
+            {
+                dec++;
+            }
+            i++;
+        }
+
+
+        return new responseJSON("get_num_orgs_per_month","success",new getNumOrganisationPerMonthResponse(jan,feb,mar,apr,may,jun,jul,aug,sept,oct,nov,dec));
+    }
+
+    @Override
+    public generalOrganisationResponse updateOrganisationInfo(updateOrganisationInfoRequest request) throws Exception
+    {
+        if(request == null)
+            throw new Exception("request is null");
+        else if(request.getOrgId() == null)
+            throw new Exception(("request id is null"));
+        else if(request.getNewValue() == null)
+            throw new Exception("request id is null");
+        else if(request.getType() == null)
+            throw new Exception("request type is null");
+        else if(request.getType().isEmpty())
+            throw new Exception("type field is required");
+        else if(request.getNewValue().isEmpty())
+            throw new Exception("new value is required");
+
+        if(!organisationRepository.existsById(request.getOrgId()))
+            throw new Exception("the organisation you are attempting to modify does not exist");
+
+        if(request.getType().equalsIgnoreCase("description"))
+        {
+            if(request.getNewValue().length()>65535 || request.getNewValue().length() < 100)
+            {
+                throw new Exception("Exception: Description does not satisfy the database constraints");
+            }
+            if(organisationRepository.updateDescription(request.getOrgId(), request.getNewValue()) != 1)
+                throw new Exception("failed to update description");
+
+            return new generalOrganisationResponse("update_description_200_OK", "success");
+        }
+        else if(request.getType().equalsIgnoreCase("contactNumber"))
+        {
+            if(!request.getNewValue().matches("[0-9]+"))
+            {
+                throw new Exception("This number is invalid, 0XXXXXXXXX where X is 0-9");
+            }
+            else if(request.getNewValue().length() != 10)
+            {
+                throw new Exception("The length of this function is not correct");
+            }
+
+            if(organisationRepository.updateContactNumber(request.getOrgId(), request.getNewValue()) != 1)
+                throw new Exception("failed to update contact number");
+
+            return new generalOrganisationResponse("update_number_200_OK", "success");
+        }
+        else if(request.getType().equalsIgnoreCase("email"))
+        {
+            if(!request.getNewValue().contains("@"))
+            {
+                throw new Exception("The email provided is invalid");
+            }
+            else
+            {
+                Organisations organisations = organisationRepository.selectOrganisationByEmail(request.getNewValue());
+                if(organisations != null && !organisations.getOrgId().equals(request.getOrgId()))
+                    throw new Exception("email already taken");
+            }
+            if(organisationRepository.updateEmail(request.getOrgId(), request.getNewValue()) != 1)
+                throw new Exception("failed to update email");
+
+            return new generalOrganisationResponse("update_email_200_OK", "success");
+        }
+        else if(request.getType().equalsIgnoreCase("slogan"))
+        {
+            if(request.getNewValue().length() < 3)
+            {
+                throw new Exception("This slogan is too short");
+            }
+            if(organisationRepository.updateSlogan(request.getOrgId(), request.getNewValue()) != 1)
+                throw new Exception("failed to update slogan");
+
+            return new generalOrganisationResponse("update_slogan_200_OK", "success");
+        }
+        else if(request.getType().equalsIgnoreCase("contactPerson"))
+        {
+            if (request.getNewValue().length() < 2) {
+                throw new Exception("This name is too short to be a person name");
+            } else if (request.getNewValue().length() > 50) {
+                throw new Exception("This name is too long, apologies if it is your real name");
+            }
+
+            if (organisationRepository.updatePerson(request.getOrgId(), request.getNewValue()) != 1)
+                throw new Exception("failed to update contact person");
+
+            return new generalOrganisationResponse("update_person_200_OK", "success");
+        }
+        else if(request.getType().equalsIgnoreCase("orgName"))
+        {
+            if (request.getNewValue().length() < 2) {
+                throw new Exception("This name is too short to be a organisation name");
+            } else if (request.getNewValue().length() > 50) {
+                throw new Exception("This name is too long, apologies if it is your organisation name");
+            }
+
+            if (organisationRepository.updateOrgName(request.getOrgId(), request.getNewValue()) != 1)
+                throw new Exception("failed to update organisation Name");
+
+            notificationRepository.updateOrgName(request.getOrgId(), request.getNewValue());
+            return new generalOrganisationResponse("update_org_name_200_OK", "success");
+        }
+        else if(request.getType().equalsIgnoreCase("address"))
+        {
+            if (request.getNewValue().length() < 2) {
+                throw new Exception("This address is too short to be a organisation address");
+            } else if (request.getNewValue().length() > 250) {
+                throw new Exception("This address is too long, apologies if it is your organisation address");
+            }
+
+            if (organisationInfoRepository.addOrgAddress(request.getOrgId(), request.getNewValue()) != 1)
+                throw new Exception("failed to update organisation address");
+
+            return new generalOrganisationResponse("update_org_address_200_OK", "success");
+        }
+        throw new Exception("the type is incorrect");
     }
 
     /*helper*/

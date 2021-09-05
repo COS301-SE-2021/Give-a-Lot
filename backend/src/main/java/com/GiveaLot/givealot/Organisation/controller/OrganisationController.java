@@ -1,5 +1,7 @@
 package com.GiveaLot.givealot.Organisation.controller;
 
+import com.GiveaLot.givealot.Notification.requests.GetNotificationsRequest;
+import com.GiveaLot.givealot.Notification.response.getNumberOfNotificationsResponse;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
@@ -36,17 +38,42 @@ public class OrganisationController
 
     /* tested - works */
      @GetMapping("/sel/organisation/{orgId}/{userId}") /*tested all good*/
-    public ResponseEntity<selectOrganisationResponse> selectOrganisation(@PathVariable("orgId") @NonNull Long orgId,@PathVariable("userId") @NonNull Long userId)
+    public ResponseEntity<selectOrganisationResponse> selectOrganisation(@PathVariable("orgId") @NonNull Long orgId,@PathVariable("userId") @NonNull String userId)
     {
         selectOrganisationResponse response;
         try
         {
-            response = service.selectOrganisation(orgId,userId);
+            for(int i = 0; i < userId.length(); i++)
+            {
+                if(!Character.isDigit(userId.charAt(i)))
+                {
+                    if(!userId.equalsIgnoreCase("default"))
+                        return new ResponseEntity<>(new selectOrganisationResponse("bad_org_br_401","this id is not authorized", null),HttpStatus.UNAUTHORIZED);
+                    else userId = "-1";
+                }
+            }
+
+            response = service.selectOrganisation(orgId, Long.valueOf(userId));
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)
         {
             return new ResponseEntity<>(new selectOrganisationResponse("sel_org_500_bad","failed: " + e, null), HttpStatus.OK);
+        }
+    }
+
+    @GetMapping("/sel/organisation/info/{orgId}")
+    public ResponseEntity<selectOrganisationInfoResponse> selectOrganisationInfo(@PathVariable("orgId") @NonNull Long orgId)
+    {
+        selectOrganisationInfoResponse response;
+        try
+        {
+            response = service.selectOrganisationInfo(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new selectOrganisationInfoResponse("sel_org_500_bad","failed: " + e, null), HttpStatus.OK);
         }
     }
 
@@ -64,20 +91,18 @@ public class OrganisationController
             return new ResponseEntity<>(new getOrganisationsResponse("get_orgs_500_bad","failed: " + e, null), HttpStatus.OK);
         }
     }
-
-    /*this function is meant to be removed in production */
-    @GetMapping("/get/organisations/temporal") /*tested all good*/
-    public ResponseEntity<getOrganisationsResponse> getOrganisationsTemporal()
+    @PostMapping("/get/num_organisations/per_month") /*tested all good*/
+    public ResponseEntity<responseJSON> getNumOrganisationsPerMonth(@RequestBody @NonNull getNumOrganisationPerMonthRequest body)
     {
-        getOrganisationsResponse response;
+        responseJSON response;
         try
         {
-            response = service.getOrganisations(null);
+            response = service.getNumPerMonth(body);
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)
         {
-            return new ResponseEntity<>(new getOrganisationsResponse("get_orgs_500_bad","failed: " + e, null), HttpStatus.OK);
+            return new ResponseEntity<>(new responseJSON("get_num_orgs_per_month_500_bad","failed: " + e, null), HttpStatus.OK);
         }
     }
 
@@ -99,8 +124,8 @@ public class OrganisationController
         }
     }
 
-    @PutMapping("/suspend/{orgId}") /* tested all good */
-    public ResponseEntity<generalOrganisationResponse> suspendOrganisation(@PathVariable("orgId") @NonNull Long orgId)
+    @PutMapping("/suspend/orgId") /* tested all good */
+    public ResponseEntity<generalOrganisationResponse> suspendOrganisation(@RequestBody @NonNull SuspendRequest orgId)
     {
         generalOrganisationResponse response;
         try
@@ -114,8 +139,8 @@ public class OrganisationController
         }
     }
 
-    @PutMapping("/activate/{orgId}") /* tested - works */
-    public ResponseEntity<generalOrganisationResponse> reactivateOrganisation(@PathVariable("orgId") @NonNull Long orgId)
+    @PutMapping("/activate/orgId") /* tested - works */
+    public ResponseEntity<generalOrganisationResponse> reactivateOrganisation(@RequestBody @NonNull ActivateRequest orgId)
     {
         generalOrganisationResponse response;
         try
@@ -129,8 +154,8 @@ public class OrganisationController
         }
     }
 
-    @PutMapping("/investigate/{orgId}") /* tested - works */
-    public ResponseEntity<generalOrganisationResponse> investigateOrganisation(@PathVariable("orgId") @NonNull Long orgId)
+    @PutMapping("/investigate/orgId") /* tested - works */
+    public ResponseEntity<generalOrganisationResponse> investigateOrganisation(@RequestBody @NonNull InvestigateRequest orgId)
     {
         generalOrganisationResponse response;
         try
@@ -235,9 +260,10 @@ public class OrganisationController
     }
 
     @PostMapping("/add/audit") /* not tested */
-    public ResponseEntity<generalOrganisationResponse> addOrgAuditDoc(@RequestBody @NonNull AddOrgAuditInfoRequest body)
+    public ResponseEntity<generalOrganisationResponse> addOrgAuditDoc(@ModelAttribute AddOrgAuditInfoRequest body)
     {
         generalOrganisationResponse response;
+        System.out.println(body.getAudit());
         try
         {
             response = service.addOrgAuditDoc(body);
@@ -323,6 +349,48 @@ public class OrganisationController
             return new ResponseEntity<>(new generalOrganisationResponse("rem_don_500_err","failed: " + e), HttpStatus.OK);
         }
     }
+    @PostMapping("/add/ngopdate") /* tested - works */
+    public  ResponseEntity<generalOrganisationResponse> addOrgNGODate(@RequestBody @NonNull AddOrgNGORequest body)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.addOrgNGODate(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("add_ngo_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+    @DeleteMapping("/delete/ngodate/{orgId}") /*tested - works */
+    public ResponseEntity<generalOrganisationResponse> removeOrgNGODate(@PathVariable("orgId") @NonNull Long orgId)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.removeNGDate(orgId);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_ngo_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
+    @PostMapping("/add/orgNgo") /* tested - works */
+    public  ResponseEntity<generalOrganisationResponse> addOrgNGO(@RequestBody @NonNull AddOrgNGORequest body)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.addOrgNGO(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("add_ngo_500_err","failed: " + e), HttpStatus.OK);
+        }
+    }
 
     @PostMapping("/add/estdate") /* tested - works */
     public  ResponseEntity<generalOrganisationResponse> addOrgEstDate(@RequestBody @NonNull AddOrgEstDateRequest body)
@@ -373,9 +441,10 @@ public class OrganisationController
     }
 
     @PostMapping("/add/image") /* all good - correctness not tested yet */
-    public ResponseEntity<generalOrganisationResponse> addOrgImage(@RequestBody @NonNull AddOrgImageMultipartRequest body)
+    public ResponseEntity<generalOrganisationResponse> addOrgImage(@ModelAttribute AddOrgImageMultipartRequest body)
     {
         generalOrganisationResponse response;
+        System.out.println(body.getImages().get(0));
         List<MultipartFile> images = body.getImages();
         try
         {
@@ -407,12 +476,18 @@ public class OrganisationController
     }
 
     @PostMapping("/add/logo") /* all good - correctness not tested yet */
-    public ResponseEntity<generalOrganisationResponse> addOrgLogo(@RequestBody @NonNull AddOrgLogoRequest body)
+    public ResponseEntity<generalOrganisationResponse> addOrgLogo( @ModelAttribute AddOrgLogoRequest request)
     {
+
         generalOrganisationResponse response;
         try
         {
-            response = service.addOrgLogo(body);
+            System.out.println("=================================");
+            System.out.println(request.getImage());
+            System.out.println("=================================");
+
+            response = service.addOrgLogo(new AddOrgLogoRequest(request.getOrgId(),request.getImage()));
+
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)
@@ -438,7 +513,7 @@ public class OrganisationController
     }
 
     @PostMapping("/add/qrcode") /* all good - correctness not tested yet */
-    public ResponseEntity<generalOrganisationResponse> addOrgQRCode(@RequestBody @NonNull AddOrgQRCodeRequest body)
+    public ResponseEntity<generalOrganisationResponse> addOrgQRCode(@ModelAttribute AddOrgQRCodeRequest body)
     {
         generalOrganisationResponse response;
         try
@@ -527,4 +602,60 @@ public class OrganisationController
             return new ResponseEntity<>(new getSectorsResponse("get_sec_500_err","failed: " + e, null), HttpStatus.OK);
         }
     }
+    @PostMapping("/get/num_organisation")
+    public ResponseEntity<getNumberOfOrganisationsResponse> getNumberOfOrganisations(@RequestBody @NonNull GetOrganisationsRequest body)
+    {
+        getNumberOfOrganisationsResponse response;
+        try
+        {
+            response = service.getNumberOfOrganisations(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new getNumberOfOrganisationsResponse("get_num_notifications_500_bad","failed: " + e, 0), HttpStatus.OK);
+        }
+    }
+
+    @PostMapping("/get/org_level")
+    public ResponseEntity<getOrgCertLevelResponse> getOrganisationCertLevel(@RequestBody @NonNull GetOrganisationCertificateLevelRequest body)
+    {
+        getOrgCertLevelResponse response;
+        try
+        {
+            response = service.getOrgCertLevel(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new getOrgCertLevelResponse("get_org_cert_level_500_bad","failed: " + e, 0), HttpStatus.OK);
+        }
+    }
+
+    @PostMapping("update/info/organisation")
+    public ResponseEntity<generalOrganisationResponse> updateOrganisationInfo(@RequestBody @NonNull updateOrganisationInfoRequest body)
+    {
+        generalOrganisationResponse response;
+        try
+        {
+            response = service.updateOrganisationInfo(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new generalOrganisationResponse("update_500_bad","failed: " + e), HttpStatus.BAD_REQUEST);
+        }
+    }
+/*    @PostMapping("/upgrade/upload/logo")
+    public boolean upgradeUploadLogo(@RequestBody @NonNull MultipartFile logo) throws Exception {
+        try
+        {
+            return  ;
+        }
+        catch (Exception e)
+        {
+            System.out.println("ooops: " + e);
+            return false;
+        }
+    }*/
 }

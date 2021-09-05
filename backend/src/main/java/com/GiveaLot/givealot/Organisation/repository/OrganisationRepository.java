@@ -42,4 +42,33 @@ public interface OrganisationRepository extends JpaRepository<Organisations,Long
 
     @Query("SELECT DISTINCT o.orgId FROM Organisations AS o WHERE o.orgEmail = ?1")
     long getOrgId(String orgEmail);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE Organisations o SET o.orgDescription = ?2 WHERE o.orgId = ?1")
+    int updateDescription(Long orgId, String newValue);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE Organisations o SET o.orgName = ?2 WHERE o.orgId = ?1")
+    int updateOrgName(Long orgId, String newValue);
+    @Modifying
+    @Transactional
+    @Query("UPDATE Organisations o SET o.contactNumber = ?2 WHERE o.orgId = ?1")
+    int updateContactNumber(Long orgId, String newValue);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE Organisations o SET o.slogan = ?2 WHERE o.orgId = ?1")
+    int updateSlogan(Long orgId, String newValue);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE Organisations o SET o.orgEmail = ?2 WHERE o.orgId = ?1")
+    int updateEmail(Long orgId, String newValue);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE Organisations o SET o.contactPerson = ?2 WHERE o.orgId = ?1")
+    int updatePerson(Long orgId, String newValue);
 }

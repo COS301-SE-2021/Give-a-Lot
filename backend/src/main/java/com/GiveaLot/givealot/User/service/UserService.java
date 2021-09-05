@@ -1,11 +1,12 @@
 package com.GiveaLot.givealot.User.service;
 
+import com.GiveaLot.givealot.Organisation.requests.getNumOrganisationPerMonthRequest;
+import com.GiveaLot.givealot.Organisation.response.getNumOrganisationPerMonthResponse;
+import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import com.GiveaLot.givealot.User.dataclass.User;
 import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
 import com.GiveaLot.givealot.User.requests.*;
-import com.GiveaLot.givealot.User.response.UserResponse;
-import com.GiveaLot.givealot.User.response.getNumberofUsersResponse;
-import com.GiveaLot.givealot.User.response.userResponseGeneral;
+import com.GiveaLot.givealot.User.response.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,4 +23,10 @@ public interface UserService {
     List<User> GetUsers(GetUsersRequest request) throws UserNotAuthorisedException,Exception;
 
     getNumberofUsersResponse getNumberOfUser(GetUsersRequest request)throws Exception;
+    responseJSON getNumPerMonth(getNumUserPerMonthRequest request)throws Exception;
+
+
+/*
+    GetActivationDateResponse getDateByMonth(GetActivationDateRequest request)throws Exception;
+*/
 }

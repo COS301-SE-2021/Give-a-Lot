@@ -66,7 +66,7 @@ public class GivealotApplication implements CommandLineRunner {
         organisations.setOrgId(113L);
         organisations.setPassword("Pistol");
         organisations.setContactNumber("Contact Number");
-        organisations.setOrgEmail("Pi2121dloa@gmail.com");
+        organisations.setOrgEmail("Piguoa@gmail.com");
         organisations.setStatus("Status");
         organisations.setOrgSector("environment");
         organisations.setContactPerson("Contact Person");

@@ -3,6 +3,20 @@ Content-Type: application/json
 
 {
   "orgId": 32,
+  "type": "address",
+  "newValue": "Pistol 221 drv"
+
+}
+
+<> 2021-09-05T145224.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
   "type": "orgName",
   "newValue": "Pistol 2"
 
@@ -516,17 +530,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-02T225653.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/update/notifications
-Content-Type: application/json
-
-{
-  "org_id":32
-}
-
-<> 2021-09-02T225241.200.json
 
 ###
 

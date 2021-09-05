@@ -1,225 +1,389 @@
-PUT http://localhost:8080/v1/organisation/investigate/orgId
-Content-Type: application/json
-
-{
-  "orgID": 32
-}
-
-<> 2021-09-04T203737.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/get/num_organisations/per_month
-Content-Type: application/json
-
-{
-  "adminUserEmail":"admin@email.com"
-}
-
-<> 2021-09-04T184937.200.json
-
-###
-
-POST http://localhost:8080/v1/user/get/num_users/per_month
-Content-Type: application/json
-
-{
-  "adminUserEmail":"admin@email.com"
-}
-
-<> 2021-09-04T184358.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/estdate
-Content-Type: application/json
-
-{
-  "date": "2010/06/12",
-  "orgId": 32
-}
-
-<> 2021-09-04T175226.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/estdate
-Content-Type: application/json
-
-{
-  "date": "2010-06-12",
-  "orgId": 32
-}
-
-<> 2021-09-04T175214.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/address
+POST http://localhost:8080/v1/organisation/update/info/organisation
 Content-Type: application/json
 
 {
   "orgId": 32,
-  "address": "213A Pistol Street"
+  "type": "orgName",
+  "newValue": "Pistol 3"
+
 }
 
-<> 2021-09-04T175015.200.json
+<> 2021-09-05T151412.200.json
 
 ###
 
-POST http://localhost:8080/v1/organisation/add/website
+POST http://localhost:8080/v1/organisation/update/info/organisation
 Content-Type: application/json
 
 {
   "orgId": 32,
-  "website": "Pistol@gmail.com"
+  "type": "address",
+  "newValue": "Pistol 221 drv"
+
 }
 
-<> 2021-09-04T174720.200.json
+<> 2021-09-05T145224.200.json
 
 ###
 
-POST http://localhost:8080/v1/user/get/num_users/per_month
-Content-Type: application/json
-
-{
-  "adminUserEmail":"admin@email.com"
-}
-
-<> 2021-09-04T174340.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/get/num_organisations/per_month
-Content-Type: application/json
-
-{
-  "adminUserEmail":"admin@email.com"
-}
-
-<> 2021-09-04T173254.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/activate/orgId
-Content-Type: application/json
-
-{
-  "orgID": 32
-}
-
-<> 2021-09-04T165146.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/suspend/orgId
-Content-Type: application/json
-
-{
-  "orgID": 32
-}
-
-<> 2021-09-04T165115.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/investigate/orgId
-Content-Type: application/json
-
-{
-  "orgID": 32
-}
-
-<> 2021-09-04T164413.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/investigate/{{orgId}}
-Content-Type: application/json
-
-{
-  "orgID": 32
-}
-
-###
-
-POST http://localhost:8080/v1/user/get/users
-Content-Type: application/json
-
-{
-  "adminUserEmail":"admin@email.com"
-}
-
-<> 2021-09-04T163740.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/investigate/{{orgId}}
-Content-Type: application/json
-
-{
-  "orgid": 32
-}
-
-###
-
-PUT http://localhost:8080/v1/organisation/investigate/{{orgId}}
-Content-Type: application/json
-
-{
-  "orgId": 32
-}
-
-###
-
-PUT http://localhost:8080/v1/organisation/investigate/{{orgId}}
-Content-Type: application/json
-
-{
-  "orgId": 32
-}
-
-###
-
-PUT http://localhost:8080/v1/organisation/investigate/{{orgId}}
-Content-Type: application/json
-
-{
-  "orgId": 32
-}
-
-###
-
-POST http://localhost:8080/v1/organisation/get/org_level
-Content-Type: application/json
-
-{
-  "orgid": 32
-}
-
-<> 2021-09-04T045420.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/address
+POST http://localhost:8080/v1/organisation/update/info/organisation
 Content-Type: application/json
 
 {
   "orgId": 32,
-  "address": "2150A Frank St 8910"
+  "type": "orgName",
+  "newValue": "Pistol 2"
+
 }
 
-<> 2021-09-04T043343.200.json
+<> 2021-09-05T144324.200.json
 
 ###
 
-DELETE http://localhost:8080/v1/organisation/delete/address/{{orgId}}
+POST http://localhost:8080/v1/notifications/get/level_information
 Content-Type: application/json
 
 {
-  "orgId": 32;
-  "address": "2150A Frank St 8910"
+  "orgId": 32
+
 }
+
+<> 2021-09-05T143114.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/get/level_information
+Content-Type: application/json
+
+{
+  "orgId": 32
+
+}
+
+<> 2021-09-05T050941.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/committee
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "committee": "Peter David,091839192,Kevin Smith,128293,Martin Lawrence,1123313331"
+}
+
+<> 2021-09-05T043012.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/committee
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "committee": "Peter David,Kevin Smith,Martin Lawrence"
+}
+
+<> 2021-09-05T042634.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/donation/info
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "orgInfo": "http:info.com"
+}
+
+<> 2021-09-05T042151.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/donation/info
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "orgInfo": "orgInfo"
+}
+
+<> 2021-09-05T042049.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/donation/info
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "orgName": "orgInfo"
+}
+
+<> 2021-09-05T041825.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/32/14/ngo_date/true
+
+<> 2021-09-05T034630.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/32/14/ngo_date/true
+
+###
+
+GET http://localhost:8080/certificate/download
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "orgName": "Pistol"
+}
+
+<> 2021-09-05T015723.500.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "description",
+  "newValue": "Definition. A web application is a computer program that utilizes web browsers and web technology to perform tasks over the Internet. Overview. Millions of businesses use the Internet as a cost-effective communications channel."
+}
+
+<> 2021-09-04T215157.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "description",
+  "newValue": "Definition. A web application is a computer program that utilizes web browsers and web technology to perform tasks over the Internet. Overview. Millions of businesses use the Internet as a cost-effective communications channel."
+}
+
+<> 2021-09-04T214827.404.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "description",
+  "newValue": "· Definition. A web application is a computer program that utilizes web browsers and web technology to perform tasks over the Internet. Overview. Millions of businesses use the Internet as a cost-effective communications channel."
+}
+
+<> 2021-09-04T214734.404.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "description",
+  "newValue": "· Definition. A web application is a computer program that utilizes web browsers and web technology to perform tasks over the Internet. Overview. Millions of businesses use the Internet as a cost-effective communications channel."
+}
+
+<> 2021-09-04T214727.404.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "description",
+  "newValue": "giveus@gmail.com"
+}
+
+<> 2021-09-04T213213.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "email",
+  "newValue": "giveus@gmail.com"
+}
+
+<> 2021-09-04T213142.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "email",
+  "newValue": "giveus@gmail.com"
+}
+
+<> 2021-09-04T212932.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "email",
+  "newValue": "hope@gmail.com"
+}
+
+<> 2021-09-04T212914.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "hfjhf",
+  "newValue": "nqobile@gmail.com"
+}
+
+<> 2021-09-04T212813.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/investigate/32
+
+<> 2021-09-04T202912.200.json
+
+###
+
+GET http://localhost:8080/event/get/timeline/32
+
+<> 2021-09-04T201353.200.json
+
+###
+
+GET http://localhost:8080/event/add/timeline/
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "eventDate": "2021-02-18",
+  "eventTitle": "Big event",
+  "eventShortDescription": "we had an event and celebrated the achievement"
+}
+
+<> 2021-09-04T201346.200.json
+
+###
+
+GET http://localhost:8080/event/add/timeline/
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "eventDate": "2021-02-18",
+  "eventTitle": "Big event",
+  "eventShortDescription": "we had an event and celebrated the achievement"
+}
+
+<> 2021-09-04T201233.200.json
+
+###
+
+GET http://localhost:8080/event/get/timeline/32
+
+<> 2021-09-04T201202.200.json
+
+###
+
+GET http://localhost:8080/event/add/timeline/
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "eventDate": "2021-02-18",
+  "eventTitle": "Big event",
+  "eventShortDescription": "we had an event and celebrated the achievement"
+}
+
+<> 2021-09-04T201108.200.json
+
+###
+
+GET http://localhost:8080/event/get/timeline/32
+
+<> 2021-09-04T200420.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/sector
+Content-Type: application/json
+
+{
+  "sector" : "technology",
+  "adminId" : 14
+}
+
+<> 2021-09-04T181144.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/32/default
+
+###
+
+POST http://localhost:8080/v1/organisation/get/organisations
+Content-Type: application/json
+
+{
+   "adminId": "14"
+}
+
+<> 2021-09-04T045712.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/get/organisations
+Content-Type: application/json
+
+{
+   "adminId": "11"
+}
+
+<> 2021-09-04T045647.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/get/organisations
+Content-Type: application/json
+
+{
+   "adminUserEmail": "coolmail1@gmail.com"
+}
+
+###
+
+POST http://localhost:8080/report/get/all
+Content-Type: application/json
+
+{
+  "orgId":32
+}
+
+<> 2021-09-04T043258.200.json
 
 ###
 
@@ -369,174 +533,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-02T234149.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/get/notifications
-Content-Type: application/json
-
-{
-  "adminUserEmail":"admin@email.com"
-}
-
-<> 2021-09-02T225653.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/update/notifications
-Content-Type: application/json
-
-{
-  "org_id":32
-}
-
-<> 2021-09-02T225241.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/update/notifications
-Content-Type: application/json
-
-{
-  "org_id":32
-}
-
-<> 2021-09-02T224842.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/update/notifications
-Content-Type: application/json
-
-{
-  "org_id":32
-}
-
-<> 2021-09-02T224703.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/update/notifications
-Content-Type: application/json
-
-{
-  "org_id":32
-}
-
-<> 2021-09-02T224244.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/orgNgo
-Content-Type: application/json
-
-{
-  "orgId":32,
-  "ngoNumber":"123-456",
-  "ngoDate":"2018/12/23"
-}
-
-<> 2021-09-02T224223.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/update/notifications
-Content-Type: application/json
-
-{
-  "org_id":32
-}
-
-<> 2021-09-02T223837.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/update/notifications
-Content-Type: application/json
-
-{
-  "org_id":32
-}
-
-<> 2021-09-02T223205.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/orgNgo
-Content-Type: application/json
-
-{
-  "orgId":32,
-  "ngoNumber":"123-456",
-  "ngoDate":"2018/12/23"
-}
-
-<> 2021-09-02T223153.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/orgNgo
-Content-Type: application/json
-
-{
-  "orgId":6,
-  "ngoNumber":"123-456",
-  "ngoDate":"2018/12/23"
-}
-
-<> 2021-09-02T201647.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-"orgId":6,
-"ngoNumber":"123-456",
-"ngoDate":"2020/05/23"
-}
-
-<> 2021-09-02T195747.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-"orgId":6,
-"ngoNumber":"123-456",
-"ngoDate":"2020/05/23"
-}
-
-<> 2021-09-02T195010.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-"orgId":6,
-"ngoNumber":"123-456",
-"ngoDate":"2020/05/23"
-}
-
-<> 2021-09-02T194620.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-"orgId":6,
-"ngoNumber":"123-456",
-"ngoDate":"2020/05/23"
-}
-
-<> 2021-09-02T194610.200.json
 
 ###
 

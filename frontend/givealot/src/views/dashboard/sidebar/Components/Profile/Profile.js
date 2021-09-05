@@ -118,12 +118,24 @@ export class Profile extends Component {
                 : event.target.value
         });
     }
-    handleSlogan(){
-        this.setState({contactSloganState: true});
+    handleSlogan=event=>{
+        this.setState({sloganState: true})
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
     }
 
-    handleOrgName(){
-        this.setState({orgNameState: true});
+    handleOrgName=event=>{
+        this.setState({orgNameState: true})
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
     }
 
 

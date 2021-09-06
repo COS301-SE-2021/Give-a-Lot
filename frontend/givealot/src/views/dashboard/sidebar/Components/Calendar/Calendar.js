@@ -135,7 +135,6 @@ export default class Demo extends React.PureComponent {
             return { data };
         });
     }
-
     componentDidMount() {
         this.getEvents();
     }
@@ -166,7 +165,6 @@ export default class Demo extends React.PureComponent {
         // location: 'Room 3'
         // };
         // this.setState({data: datS})
-        // console.log(this.state.data)
     }
 
     render() {

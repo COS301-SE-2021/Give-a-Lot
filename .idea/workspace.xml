@@ -138,20 +138,7 @@
       <workItem from="1629343930362" duration="7971000" />
       <workItem from="1630752097210" duration="58705000" />
       <workItem from="1630858158608" duration="6691000" />
-    </task>
-    <task id="LOCAL-00031" summary="organisations controller revision">
-      <created>1629302202215</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1629302202215</updated>
-    </task>
-    <task id="LOCAL-00032" summary="organisations controller revision">
-      <created>1629305664485</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1629305664485</updated>
+      <workItem from="1630919356775" duration="376000" />
     </task>
     <task id="LOCAL-00033" summary="organisations controller revision">
       <created>1629306467354</created>
@@ -482,7 +469,21 @@
       <option name="project" value="LOCAL" />
       <updated>1630858336565</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="calendar update">
+      <created>1630919528342</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1630919528342</updated>
+    </task>
+    <task id="LOCAL-00081" summary="calendar update">
+      <created>1630919681950</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1630919681950</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -502,7 +503,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="organisations controller revision - add Organisation" />
     <MESSAGE value="organisations controller revision - suspend" />
     <MESSAGE value="organisations controller revision - activate" />
     <MESSAGE value="organisations controller revision - add website and remove website" />
@@ -527,6 +527,7 @@
     <MESSAGE value="suspend,investigate, activate pop ups" />
     <MESSAGE value="Org validate button clicks completed" />
     <MESSAGE value="Sector pop up button" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sector pop up button" />
+    <MESSAGE value="calendar update" />
+    <option name="LAST_COMMIT_MESSAGE" value="calendar update" />
   </component>
 </project>

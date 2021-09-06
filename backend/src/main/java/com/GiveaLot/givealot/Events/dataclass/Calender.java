@@ -21,19 +21,18 @@ public class Calender {
     private String startTime;
     private String endTime;
     private String description;
-    private Long userId;
+    private String userEmail;
 
 
     public Calender() {
     }
 
-
-    public Long getUserId() {
-        return userId;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     public Long getEventId() {

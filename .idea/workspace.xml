@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Dashboard Graphs api's tested">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Certificate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Certificate.js" afterDir="false" />
-    </list>
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="calendar update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,7 +24,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="backendTest" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,6 +46,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -66,6 +63,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2021.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -94,19 +92,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="generated-requests#13" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="13" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -151,70 +136,8 @@
       <workItem from="1629301692751" duration="18015000" />
       <workItem from="1629339797985" duration="980000" />
       <workItem from="1629343930362" duration="7971000" />
-      <workItem from="1630752097210" duration="19827000" />
-    </task>
-    <task id="LOCAL-00022" summary="organisations controller revision - activate">
-      <created>1629264924333</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1629264924333</updated>
-    </task>
-    <task id="LOCAL-00023" summary="organisations controller revision - add website and remove website">
-      <created>1629265692133</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1629265692134</updated>
-    </task>
-    <task id="LOCAL-00024" summary="organisations controller revision - add address">
-      <created>1629266188397</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1629266188397</updated>
-    </task>
-    <task id="LOCAL-00025" summary="organisations controller revision - add socials">
-      <created>1629267451423</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1629267451423</updated>
-    </task>
-    <task id="LOCAL-00026" summary="organisations controller revision - add socials">
-      <created>1629267828348</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1629267828348</updated>
-    </task>
-    <task id="LOCAL-00027" summary="organisations controller revision - remove socials">
-      <created>1629267850946</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1629267850946</updated>
-    </task>
-    <task id="LOCAL-00028" summary="organisations controller revision - tax">
-      <created>1629268765715</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1629268765715</updated>
-    </task>
-    <task id="LOCAL-00029" summary="organisations controller revision - tax">
-      <created>1629269873587</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1629269873587</updated>
-    </task>
-    <task id="LOCAL-00030" summary="organisations controller revision">
-      <created>1629271630623</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1629271630623</updated>
+      <workItem from="1630752097210" duration="58705000" />
+      <workItem from="1630858158608" duration="6691000" />
     </task>
     <task id="LOCAL-00031" summary="organisations controller revision">
       <created>1629302202215</created>
@@ -468,35 +391,98 @@
       <option name="project" value="LOCAL" />
       <updated>1630776447393</updated>
     </task>
-    <task id="LOCAL-00067" summary="Dashboard Graphs api's tested">
-      <created>1630790801296</created>
+    <task id="LOCAL-00067" summary="investigate, suspend and activate apis tested">
+      <created>1630781510500</created>
       <option name="number" value="00067" />
       <option name="presentableId" value="LOCAL-00067" />
       <option name="project" value="LOCAL" />
-      <updated>1630790801296</updated>
+      <updated>1630781510500</updated>
     </task>
-    <task id="LOCAL-00068" summary="Dashboard Graphs api's tested">
-      <created>1630792213990</created>
+    <task id="LOCAL-00068" summary="redirect by orgId fixed">
+      <created>1630790198396</created>
       <option name="number" value="00068" />
       <option name="presentableId" value="LOCAL-00068" />
       <option name="project" value="LOCAL" />
-      <updated>1630792213990</updated>
+      <updated>1630790198396</updated>
     </task>
-    <task id="LOCAL-00069" summary="Dashboard Graphs api's tested">
-      <created>1630799126982</created>
+    <task id="LOCAL-00069" summary="id redirect for activate and investigate tested, calender date problem fixed">
+      <created>1630798357297</created>
       <option name="number" value="00069" />
       <option name="presentableId" value="LOCAL-00069" />
       <option name="project" value="LOCAL" />
-      <updated>1630799126982</updated>
+      <updated>1630798357297</updated>
     </task>
-    <task id="LOCAL-00070" summary="Dashboard Graphs api's tested">
-      <created>1630806011228</created>
+    <task id="LOCAL-00070" summary="id redirect for activate and investigate tested, calender date problem fixed">
+      <created>1630798432808</created>
       <option name="number" value="00070" />
       <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
-      <updated>1630806011228</updated>
+      <updated>1630798432808</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="suspend,investigate, activate pop ups">
+      <created>1630805158809</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1630805158810</updated>
+    </task>
+    <task id="LOCAL-00072" summary="Org validate button clicks completed">
+      <created>1630844527772</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1630844527800</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Org validate button clicks completed">
+      <created>1630845947549</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1630845947549</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Org validate button clicks completed">
+      <created>1630847964391</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1630847964391</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Org validate button clicks completed">
+      <created>1630847994057</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1630847994057</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Org validate button clicks completed">
+      <created>1630848001752</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1630848001752</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Org validate button clicks completed">
+      <created>1630848431336</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1630848431337</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Org validate button clicks completed">
+      <created>1630848531776</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1630848531776</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Sector pop up button">
+      <created>1630858336564</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1630858336565</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,9 +501,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="backup" />
-    <MESSAGE value="user and login system are complete" />
-    <MESSAGE value="organisations api - get all users ready for frontend" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="organisations controller revision - add Organisation" />
     <MESSAGE value="organisations controller revision - suspend" />
     <MESSAGE value="organisations controller revision - activate" />
@@ -537,6 +521,12 @@
     <MESSAGE value="calendar changes" />
     <MESSAGE value="Add Sector Api done" />
     <MESSAGE value="Dashboard Graphs api's tested" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dashboard Graphs api's tested" />
+    <MESSAGE value="investigate, suspend and activate apis tested" />
+    <MESSAGE value="redirect by orgId fixed" />
+    <MESSAGE value="id redirect for activate and investigate tested, calender date problem fixed" />
+    <MESSAGE value="suspend,investigate, activate pop ups" />
+    <MESSAGE value="Org validate button clicks completed" />
+    <MESSAGE value="Sector pop up button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sector pop up button" />
   </component>
 </project>

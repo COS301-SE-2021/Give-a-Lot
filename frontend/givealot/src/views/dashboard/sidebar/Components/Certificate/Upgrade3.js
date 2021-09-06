@@ -51,9 +51,13 @@ export class Upgrade3 extends Component {
         this.state={
             orgId:"32",
             url:"",
+            urlError:"",
             type:"",
+            typeError:"",
             url1:"",
+            url1Error:"",
             type1:"",
+            type1Error:"",
             ChairpersonName:"",
             ChairpersonNameError:"",
             ChairpersonContacts:"",
@@ -113,38 +117,56 @@ export class Upgrade3 extends Component {
         let managerContactsError = "";
         let treasurerContactsError = "";
         let secretaryContactsError = "";
+        let urlError = "";
+        let url1Error = "";
+        let typeError = "";
+        let type1Error = "";
 
 
 
         if (!this.state.ChairpersonName) {
-            ChairpersonNameError = "Name is required";
+            ChairpersonNameError = "required";
         }
 
         if (!this.state.managerName) {
-            managerNameError = "Name is required";
+            managerNameError = "required";
         }
         if (!this.state.treasurerName) {
-            treasurerNameError = "Name is required";
+            treasurerNameError = "required";
         }
         if (!this.state.secretaryName) {
-            secretaryNameError = "Name is required";
+            secretaryNameError = "required";
         }
         if (!this.state.ChairpersonContacts) {
-            ChairpersonContactsError = "Contact is required";
+            ChairpersonContactsError = "required";
         }
         if (!this.state.managerContacts) {
-            managerContactsError = "Contact is required";
+            managerContactsError = "required";
         }
         if (!this.state.treasurerContacts) {
-            treasurerContactsError = "Contact is required";
+            treasurerContactsError = "required";
         }
         if (!this.state.secretaryContacts) {
-            secretaryContactsError = "Contact is required";
+            secretaryContactsError = "required";
+        }
+        if (!this.state.url) {
+            urlError = "required";
+        }
+
+        if (!this.state.url1) {
+            url1Error = "required";
+        }
+
+        if (!this.state.type) {
+            typeError = "required";
+        }
+        if (!this.state.type1) {
+            type1Error = "required";
         }
 
 
-        if ( treasurerContactsError || secretaryContactsError || managerContactsError || ChairpersonContactsError || treasurerNameError || secretaryNameError || managerNameError || ChairpersonNameError) {
-            this.setState({ treasurerContactsError, secretaryContactsError,managerContactsError ,ChairpersonContactsError ,treasurerNameError, secretaryNameError, managerNameError ,ChairpersonNameError });
+        if ( urlError || url1Error || typeError || type1Error || treasurerContactsError || secretaryContactsError || managerContactsError || ChairpersonContactsError || treasurerNameError || secretaryNameError || managerNameError || ChairpersonNameError) {
+            this.setState({urlError, url1Error, typeError, type1Error , treasurerContactsError, secretaryContactsError,managerContactsError ,ChairpersonContactsError ,treasurerNameError, secretaryNameError, managerNameError ,ChairpersonNameError });
             return false;
         }
 
@@ -239,6 +261,7 @@ export class Upgrade3 extends Component {
 
                                     <div>
                                         <div className="social_media">
+                                            <div>
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Chairperson"
@@ -255,6 +278,8 @@ export class Upgrade3 extends Component {
                                                 onChange={this.handleCommitteeChange}
                                             />
                                             <span className="loginError_certificate">{this.state.ChairpersonNameError}</span>
+                                            </div>
+                                            <div>
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Chairperson"
@@ -271,9 +296,11 @@ export class Upgrade3 extends Component {
                                                 onChange={this.handleCommitteeChange}
                                             />
                                             <span className="loginError_certificate">{this.state.ChairpersonContactsError}</span>
+                                            </div>
 
                                         </div>
                                         <div className="social_media">
+                                            <div>
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Manager"
@@ -290,6 +317,9 @@ export class Upgrade3 extends Component {
                                                 onChange={this.handleCommitteeChange}
                                             />
                                             <span className="loginError_certificate">{this.state.managerNameError}</span>
+                                            </div>
+                                            <div>
+
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Manager"
@@ -306,8 +336,10 @@ export class Upgrade3 extends Component {
                                                 onChange={this.handleCommitteeChange}
                                             />
                                             <span className="loginError_certificate">{this.state.managerContactsError}</span>
+                                            </div>
                                         </div>
                                         <div className="social_media">
+                                            <div>
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Treasurer"
@@ -324,6 +356,8 @@ export class Upgrade3 extends Component {
                                                 onChange={this.handleCommitteeChange}
                                             />
                                             <span className="loginError_certificate">{this.state.treasurerNameError}</span>
+                                            </div>
+                                            <div>
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Treasurer"
@@ -340,9 +374,11 @@ export class Upgrade3 extends Component {
                                                 onChange={this.handleCommitteeChange}
                                             />
                                             <span className="loginError_certificate">{this.state.treasurerContactsError}</span>
+                                            </div>
                                         </div>
 
                                         <div className="social_media">
+                                            <div>
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Secretary"
@@ -359,6 +395,8 @@ export class Upgrade3 extends Component {
                                                 onChange={this.handleCommitteeChange}
                                             />
                                             <span className="loginError_certificate">{this.state.secretaryNameError}</span>
+                                            </div>
+                                            <div>
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Secretary"
@@ -375,6 +413,7 @@ export class Upgrade3 extends Component {
                                                 onChange={this.handleCommitteeChange}
                                             />
                                             <span className="loginError_certificate">{this.state.secretaryContactsError}</span>
+                                        </div>
 
                                         </div>
                                     </div>
@@ -403,8 +442,10 @@ export class Upgrade3 extends Component {
                                                         <MenuItem value={"Twitter"}>Twitter</MenuItem>
                                                     </Select>
                                                 </FormControl>
-
+                                                <span className="loginError_certificate">{this.state.typeError}</span>
                                             </div>
+
+                                            <div>
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Social media url"
@@ -420,7 +461,10 @@ export class Upgrade3 extends Component {
                                                 variant="outlined"
                                                 onChange={this.handleChange}
                                             />
+                                                <span className="loginError_certificate">{this.state.urlError}</span>
                                         </div>
+
+                                    </div>
 
                                         <div className="social_media">
                                             <div>
@@ -445,8 +489,9 @@ export class Upgrade3 extends Component {
                                                         <MenuItem value={"Twitter"}>Twitter</MenuItem>
                                                     </Select>
                                                 </FormControl>
-
+                                                <span className="loginError_certificate">{this.state.type1Error}</span>
                                             </div>
+                                            <div>
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Social media url"
@@ -461,7 +506,10 @@ export class Upgrade3 extends Component {
                                                 variant="outlined"
                                                 onChange={this.handleChange}
                                             />
+                                            <span className="loginError_certificate">{this.state.url1Error}</span>
+                                            </div>
                                         </div>
+
 
 
                                         <div className="upgrade_Button">

@@ -60,6 +60,9 @@ export class OrgValidate extends Component {
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/ngo_date/true', config)
             .then(response =>{
                 console.log(response)
+                // console.log(this.state.validation)
+                // this.setState({ validation: {} });
+
             })
             .catch(error =>{
                 console.log(error)

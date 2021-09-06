@@ -107,6 +107,7 @@ export default class Demo extends React.PureComponent {
                     // userId: this.state.userId,
                     userEmail : this.state.email
                 }
+                // console.log(eventDayAndTime)
 
                 let config = {
                     headers: {
@@ -123,11 +124,12 @@ export default class Demo extends React.PureComponent {
                         console.log(error)
                     })
 
-                console.log(startDateMonth);
+                // console.log(startDateMonth);
             }
             if (changed) {
                 data = data.map(appointment => (
                     changed[appointment.id] ? { ...appointment, ...changed[appointment.id] } : appointment));
+                console.log(data)
             }
             if (deleted !== undefined) {
                 data = data.filter(appointment => appointment.id !== deleted);
@@ -146,14 +148,14 @@ export default class Demo extends React.PureComponent {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        axios.get('http://localhost:8080/v1/organisation/get/sectors',  config)
+        axios.get('http://localhost:8080/event/get/calender/'+this.state.email,  config)
             .then(response =>{
-                // console.log(response)
-                this.setState({data: response.data.sectors})
+                console.log(response)
+                this.setState({data: response.data.object})
             })
             .catch(error =>{
-                // console.log(error)
-                this.setState({error : 'Error Retrieving data'})
+                console.log(error)
+                // this.setState({error : 'Error Retrieving data'})
             })
         // let datS = [];
         // datS[0] =

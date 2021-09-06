@@ -154,50 +154,56 @@ export class Upgrade3 extends Component {
 
     handleFormSubmit = e => {
         e.preventDefault();
+        const isValid = this.validate();
+        if (isValid) {
+            const com = {
+                orgId: this.state.orgId,
+                committee: this.state.ChairpersonName + "," + this.state.ChairpersonContacts + "," + this.state.managerName + "," + this.state.managerContacts + "," + this.state.treasurerName + "," + this.state.treasurerContacts + "," + this.state.treasurerName + "," + this.state.treasurerContacts,
+            };
 
-        const com={
-            orgId: this.state.orgId,
-            committee :  this.state.ChairpersonName+","+this.state.ChairpersonContacts+","+this.state.managerName+","+this.state.managerContacts+","+this.state.treasurerName+","+this.state.treasurerContacts+","+this.state.treasurerName+","+this.state.treasurerContacts,
-        };
 
+            const social = {
+                orgId: this.state.orgId,
+                socialType: this.state.type,
+                url: this.state.url,
+            };
 
-        const social = {
-            orgId: this.state.orgId,
-            socialType: this.state.type,
-            url: this.state.url,
-        };
+            const social1 = {
+                orgId: this.state.orgId,
+                socialType: this.state.type1,
+                url: this.state.url1,
+            };
+            console.log(com)
+            Axios
+                .post("http://localhost:8080/v1/organisation/add/committee", com)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
 
-        const social1 = {
-            orgId: this.state.orgId,
-            socialType: this.state.type1,
-            url: this.state.url1,
-        };
-        console.log(com)
-        Axios
-            .post("http://localhost:8080/v1/organisation/add/committee", com)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+            console.log(social)
+            Axios
+                .post("http://localhost:8080/v1/organisation/add/socials", social)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
 
-        console.log(social)
-        Axios
-            .post("http://localhost:8080/v1/organisation/add/socials", social)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
-
-        console.log(social1)
-        Axios
-            .post("http://localhost:8080/v1/organisation/add/socials", social1)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+            console.log(social1)
+            Axios
+                .post("http://localhost:8080/v1/organisation/add/socials", social1)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
 
 
     };
 
     onToast = () => {
-        toast.success('Submit successful',{
-            position: toast.POSITION.TOP_RIGHT
+        const isValid = this.validate();
+        if (isValid) {
 
-        });
+            toast.success('Submit successful', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }
     }
 
 
@@ -248,6 +254,7 @@ export class Upgrade3 extends Component {
                                                 variant="outlined"
                                                 onChange={this.handleCommitteeChange}
                                             />
+                                            <span className="loginError_certificate">{this.state.ChairpersonNameError}</span>
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Chairperson"
@@ -263,6 +270,7 @@ export class Upgrade3 extends Component {
                                                 variant="outlined"
                                                 onChange={this.handleCommitteeChange}
                                             />
+                                            <span className="loginError_certificate">{this.state.ChairpersonContactsError}</span>
 
                                         </div>
                                         <div className="social_media">
@@ -281,6 +289,7 @@ export class Upgrade3 extends Component {
                                                 variant="outlined"
                                                 onChange={this.handleCommitteeChange}
                                             />
+                                            <span className="loginError_certificate">{this.state.managerNameError}</span>
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Manager"
@@ -296,7 +305,7 @@ export class Upgrade3 extends Component {
                                                 variant="outlined"
                                                 onChange={this.handleCommitteeChange}
                                             />
-
+                                            <span className="loginError_certificate">{this.state.managerContactsError}</span>
                                         </div>
                                         <div className="social_media">
                                             <TextField
@@ -314,6 +323,7 @@ export class Upgrade3 extends Component {
                                                 variant="outlined"
                                                 onChange={this.handleCommitteeChange}
                                             />
+                                            <span className="loginError_certificate">{this.state.treasurerNameError}</span>
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Treasurer"
@@ -329,7 +339,7 @@ export class Upgrade3 extends Component {
                                                 variant="outlined"
                                                 onChange={this.handleCommitteeChange}
                                             />
-
+                                            <span className="loginError_certificate">{this.state.treasurerContactsError}</span>
                                         </div>
 
                                         <div className="social_media">
@@ -348,6 +358,7 @@ export class Upgrade3 extends Component {
                                                 variant="outlined"
                                                 onChange={this.handleCommitteeChange}
                                             />
+                                            <span className="loginError_certificate">{this.state.secretaryNameError}</span>
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Secretary"
@@ -363,6 +374,7 @@ export class Upgrade3 extends Component {
                                                 variant="outlined"
                                                 onChange={this.handleCommitteeChange}
                                             />
+                                            <span className="loginError_certificate">{this.state.secretaryContactsError}</span>
 
                                         </div>
                                     </div>

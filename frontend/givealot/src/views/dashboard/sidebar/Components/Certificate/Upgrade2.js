@@ -117,7 +117,7 @@ export class Upgrade2 extends Component {
 
 
         if (!this.state.date) {
-            dateError = "Date is require";
+            dateError = "Date is required";
         }
 
 
@@ -126,7 +126,7 @@ export class Upgrade2 extends Component {
         }
 
         if (!this.state) {
-            codeError = "QRcode is require";
+            codeError = "QRcode is required";
         }
 
         if ( dateError || paypalError) {

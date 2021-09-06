@@ -103,6 +103,41 @@ export class Upgrade3 extends Component {
         });
     };
 
+    validate = () => {
+
+        let ChairpersonNameError = "";
+        let managerNameError = "";
+        let treasurerNameError = "";
+        let secretaryNameError = "";
+        let ChairpersonContactsError = "";
+        let managerContactsError = "";
+        let treasurerContactsError = "";
+        let secretaryContactsError = "";
+
+
+
+        if (!this.state.ChairpersonName) {
+            ChairpersonNameError = "Name is required";
+        }
+
+
+        if(!this.state.orgInfo) {
+            paypalError="Link required";
+        }
+
+        if (!this.state) {
+            codeError = "QRcode is require";
+        }
+
+        if ( dateError || paypalError) {
+            this.setState({ dateError, paypalError });
+            return false;
+        }
+
+        return true;
+    };
+
+
     handleFormSubmit = e => {
         e.preventDefault();
 

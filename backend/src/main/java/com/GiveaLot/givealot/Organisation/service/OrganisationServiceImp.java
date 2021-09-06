@@ -1145,32 +1145,6 @@ public class OrganisationServiceImp implements OrganisationService {
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
         }
-        else if(type.equalsIgnoreCase("auditor"))
-        {
-            Integer currentPoints = 0,dps = 10;
-            Integer res = confirmValidity ? organisationPointsRepository.Auditor(orgId,true) : organisationPointsRepository.Auditor(orgId,false);
-            if(res != 1)
-                throw new Exception("Exception: auditor validity not confirmed");
-
-            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
-            if(certificate_tmp == null) /*perform rollback*/
-            {
-                res = confirmValidity ? organisationPointsRepository.Auditor(orgId,false) : organisationPointsRepository.Auditor(orgId,true);
-                if(res == 1)
-                    throw new Exception("Exception: error occurred, rollback action performed successfully");
-                else throw new Exception("Exception: error occurred, rollback action failed");
-            }else currentPoints = certificate_tmp.getPoints();
-
-            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
-
-            if(res != 1)
-            {
-                res = confirmValidity ? organisationPointsRepository.Auditor(orgId,false) : organisationPointsRepository.Auditor(orgId,true);
-                if(res == 1)
-                    throw new Exception("Exception: error occurred, rollback action performed successfully");
-                else throw new Exception("Exception: error occurred, rollback action failed");
-            }
-        }
         else if(type.equalsIgnoreCase("committee"))
         {
             Integer currentPoints = 0,dps = 5;

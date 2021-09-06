@@ -29,11 +29,6 @@ public interface organisationPointsRepository extends JpaRepository<Organisation
 
     @Modifying
     @Transactional
-    @Query("UPDATE OrganisationPoints op SET op.auditorIsValid = ?2 WHERE op.orgId = ?1")
-    int Auditor(long orgId, boolean value);
-
-    @Modifying
-    @Transactional
     @Query("UPDATE OrganisationPoints op SET op.committeeIsValid = ?2 WHERE op.orgId = ?1")
     int Committee(long orgId, boolean value);
 

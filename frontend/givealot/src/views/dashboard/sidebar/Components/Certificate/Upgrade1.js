@@ -34,17 +34,19 @@ const styles = theme => ({
 
 });
 
-
+const initialState = {
+    orgId:"32",
+    website: "",
+    websiteError: "",
+    address:"",
+    addressError:"",
+};
 export class Upgrade1 extends Component {
 
+    state = initialState;
     constructor (props) {
         super(props)
-        this.state={
-            orgId:"32",
-            website: "",
-            address:"",
 
-        };
     }
 
     handleChange = event => {
@@ -56,34 +58,64 @@ export class Upgrade1 extends Component {
         });
     };
 
+    validate = () => {
+        let  websiteError = "";
+        let  addressError = "";
+
+
+        if (!this.state.website) {
+            websiteError = "Website is require";
+        }
+
+
+
+        if(!this.state.address) {
+            addressError="address is required";
+        }
+
+        if ( websiteError || addressError) {
+            this.setState({ websiteError, addressError });
+            return false;
+        }
+
+        return true;
+    };
+
+
     handleFormSubmit = e => {
         e.preventDefault();
-        const web = {
-            orgId: this.state.orgId,
-            website: this.state.website,
+        const isValid = this.validate();
+        if (isValid) {
+            const web = {
+                orgId: this.state.orgId,
+                website: this.state.website,
 
-        };
-        const add = {
-            orgId: this.state.orgId,
-            address: this.state.address,
+            };
+            const add = {
+                orgId: this.state.orgId,
+                address: this.state.address,
 
-        };
-        Axios
-            .post("http://localhost:8080/v1/organisation/add/website", web)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+            };
+            Axios
+                .post("http://localhost:8080/v1/organisation/add/website", web)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
 
-        Axios
-            .post("http://localhost:8080/v1/organisation/add/address", add)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+            Axios
+                .post("http://localhost:8080/v1/organisation/add/address", add)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
     };
 
     onToast = () => {
-        toast.success('Submit successful',{
-            position: toast.POSITION.TOP_RIGHT
+        const isValid = this.validate();
+        if (isValid) {
+            toast.success('Submit successful', {
+                position: toast.POSITION.TOP_RIGHT
 
-        });
+            });
+        }
     }
 
 
@@ -134,6 +166,7 @@ export class Upgrade1 extends Component {
                                     variant="outlined"
                                     onChange={this.handleChange}
                                 />
+                                <span className="loginError_certificate">{this.state.websiteError}</span>
                                 <TextField
                                     id="outlined-full-width"
                                     label="Address"
@@ -149,6 +182,7 @@ export class Upgrade1 extends Component {
                                     variant="outlined"
                                     onChange={this.handleChange}
                                 />
+                                <span className="loginError_certificate">{this.state.addressError}</span>
                             </div>
                                 <div className="upgrade_Button">
                                     <button className="upgrade-btn" type="submit" onClick={this.onToast}>

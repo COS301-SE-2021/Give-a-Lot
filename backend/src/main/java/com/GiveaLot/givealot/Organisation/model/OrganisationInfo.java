@@ -21,7 +21,7 @@ public class OrganisationInfo
             unique = true)
     public Long orgId;
     @Column(name = "address",
-            nullable = false,
+            nullable = true,
             unique = false
     )
     private String address;

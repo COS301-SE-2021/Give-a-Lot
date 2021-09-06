@@ -55,13 +55,21 @@ export class Upgrade3 extends Component {
             url1:"",
             type1:"",
             ChairpersonName:"",
+            ChairpersonNameError:"",
             ChairpersonContacts:"",
+            ChairpersonContactsError:"",
             managerName:"",
+            managerNameError:"",
             managerContacts:"",
+            managerContactsError:"",
             treasurerName:"",
+            treasurerNameError:"",
             treasurerContacts:"",
+            treasurerContactsError:"",
             secretaryName:"",
+            secretaryNameError:"",
             secretaryContacts:"",
+            secretaryContactsError:"",
             committee:""
 
         };
@@ -94,6 +102,55 @@ export class Upgrade3 extends Component {
                 : event.target.value
         });
     };
+
+    validate = () => {
+
+        let ChairpersonNameError = "";
+        let managerNameError = "";
+        let treasurerNameError = "";
+        let secretaryNameError = "";
+        let ChairpersonContactsError = "";
+        let managerContactsError = "";
+        let treasurerContactsError = "";
+        let secretaryContactsError = "";
+
+
+
+        if (!this.state.ChairpersonName) {
+            ChairpersonNameError = "Name is required";
+        }
+
+        if (!this.state.managerName) {
+            managerNameError = "Name is required";
+        }
+        if (!this.state.treasurerName) {
+            treasurerNameError = "Name is required";
+        }
+        if (!this.state.secretaryName) {
+            secretaryNameError = "Name is required";
+        }
+        if (!this.state.ChairpersonContacts) {
+            ChairpersonContactsError = "Contact is required";
+        }
+        if (!this.state.managerContacts) {
+            managerContactsError = "Contact is required";
+        }
+        if (!this.state.treasurerContacts) {
+            treasurerContactsError = "Contact is required";
+        }
+        if (!this.state.secretaryContacts) {
+            secretaryContactsError = "Contact is required";
+        }
+
+
+        if ( treasurerContactsError || secretaryContactsError || managerContactsError || ChairpersonContactsError || treasurerNameError || secretaryNameError || managerNameError || ChairpersonNameError) {
+            this.setState({ treasurerContactsError, secretaryContactsError,managerContactsError ,ChairpersonContactsError ,treasurerNameError, secretaryNameError, managerNameError ,ChairpersonNameError });
+            return false;
+        }
+
+        return true;
+    };
+
 
     handleFormSubmit = e => {
         e.preventDefault();

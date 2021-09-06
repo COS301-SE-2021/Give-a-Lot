@@ -25,7 +25,6 @@ export class Certificate extends Component {
         this.state={
             level: 3,
             orgId:6,
-
         };
     }
     componentDidMount(){
@@ -41,7 +40,7 @@ export class Certificate extends Component {
 
         axios.post('http://localhost:8080/v1/organisation/get/org_level', dataa  ,config)
             .then(response =>{
-                this.setState({level: response.data.level})
+               // this.setState({level: response.data.level})
                 console.log(response)
 
 
@@ -144,28 +143,25 @@ export class Certificate extends Component {
             <div className="view">
                 {upgrade}
 
-                <Button
-                    variant="outlined"
-                    size="large"
-                    style={{border: '3px solid', borderColor: "#957b9e", color: " #957b9e"}}
+                <Link to={"https://parkour.readthedocs.io/_/downloads/en/latest/pdf/"}>
+                    <Button
+                        variant="outlined"
+                        size="large"
+                        style={{border: '3px solid', borderColor: "#957b9e", color: " #957b9e"}}
 
-                    className={classes.button}
-                    startIcon={<SaveIcon />}
-                >
-                    Download
+                        className={classes.button}
+                        startIcon={<SaveIcon />}
+                    >
+                        Download
 
-                </Button>
+                    </Button>
+                </Link>
 
             </div>
 
             <div className="display">
                 <img src={pic} height={566} width={733}/>
             </div>
-
-
-
-
-
         </div>
     );
     }

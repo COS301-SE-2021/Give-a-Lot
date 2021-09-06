@@ -124,11 +124,6 @@ export default class Demo extends React.PureComponent {
                     })
 
                 console.log(startDateMonth);
-                // console.log(eventStartDate);
-                // console.log(startTime);
-                // console.log(endTime);
-                // console.log(title);
-                // console.log(description);
             }
             if (changed) {
                 data = data.map(appointment => (

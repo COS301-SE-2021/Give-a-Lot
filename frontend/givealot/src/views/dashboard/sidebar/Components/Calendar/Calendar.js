@@ -107,7 +107,6 @@ export default class Demo extends React.PureComponent {
                     // userId: this.state.userId,
                     userEmail : this.state.email
                 }
-                // console.log(eventDayAndTime)
 
                 let config = {
                     headers: {
@@ -124,12 +123,11 @@ export default class Demo extends React.PureComponent {
                         console.log(error)
                     })
 
-                // console.log(startDateMonth);
+                console.log(startDateMonth);
             }
             if (changed) {
                 data = data.map(appointment => (
                     changed[appointment.id] ? { ...appointment, ...changed[appointment.id] } : appointment));
-                console.log(data)
             }
             if (deleted !== undefined) {
                 data = data.filter(appointment => appointment.id !== deleted);

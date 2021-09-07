@@ -1,3 +1,63 @@
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "Ratchet and Clank",
+  "slogan" : "bla bla doing alien stuff",
+  "orgDescription" : "bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuffbla bla doing alien stuff",
+  "orgSector" : "entertainment",
+  "orgEmail" : "ratchet@clank.naughtydog.com",
+  "contactPerson" : "Steven Dog",
+  "contactNumber" : "0112345678",
+  "password" : "revised title 2"
+}
+
+<> 2021-09-06T221818.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
+
+{
+  "orgName" : "Ratchet and Clank",
+  "slogan" : "bla bla doing alien stuff",
+  "orgDescription" : "bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuffbla bla doing alien stuff",
+  "orgSector" : "entertainment",
+  "orgEmail" : "ratchet@clank.naughtydog.com",
+  "contactPerson" : "Steven Dog",
+  "contactNumber" : "0112345678",
+  "password" : "revised title 2"
+}
+
+<> 2021-09-06T221230.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/info/32
+
+<> 2021-09-06T212320.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/8/default
+
+<> 2021-09-06T161627.200.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/8/2345hg
+
+<> 2021-09-06T161612.401.json
+
+###
+
+GET http://localhost:8080/v1/organisation/sel/organisation/8/2345hg
+
+<> 2021-09-06T161603.401.json
+
+###
+
 POST http://localhost:8080/event/calender/edit/title
 Content-Type: application/json
 
@@ -620,64 +680,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-05T042634.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/donation/info
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "orgInfo": "http:info.com"
-}
-
-<> 2021-09-05T042151.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/donation/info
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "orgInfo": "orgInfo"
-}
-
-<> 2021-09-05T042049.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/donation/info
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "orgName": "orgInfo"
-}
-
-<> 2021-09-05T041825.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/32/14/ngo_date/true
-
-<> 2021-09-05T034630.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/32/14/ngo_date/true
-
-###
-
-GET http://localhost:8080/certificate/download
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "orgName": "Pistol"
-}
-
-<> 2021-09-05T015723.500.json
 
 ###
 

@@ -44,19 +44,15 @@ public class GivealotApplication /*implements CommandLineRunner*/ {
     @Autowired
     UserService userService;
 
-
     @Autowired
     public static void main(String[] args) {
         SpringApplication.run(GivealotApplication.class, args);
     }
 
-
-
-
-//    @Override
-//    public  void run(String... args) throws Exception {
-//        System.out.println(blockchainService.deploySmartContract());
-//    }
+ /*   @Override
+    public  void run(String... args) throws Exception {
+        System.out.println(blockchainService.deploySmartContract());
+    }*/
 
     /** Add an organisation **/
 

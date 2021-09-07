@@ -121,6 +121,8 @@ export class VerifyCertificate extends Component {
 
     renderActions() {
         if (this.state.successfullUploaded) {
+            console.log("=========================")
+            console.log(this.state.uploadProgress)
             return (
                 <button
                     onClick={() =>

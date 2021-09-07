@@ -53,9 +53,7 @@ public class eventsServiceImp implements eventsService{
         System.out.println("requesting user > id " + request.getUserEmail());
 
         if(userRepository.findUserByEmail(request.getUserEmail().trim()) == null && organisationRepository.selectOrganisationByEmail(request.getUserEmail().trim()) != null)
-        {
-
-        }
+        { }
 
         else if(userRepository.findUserByEmail(request.getUserEmail().trim()) != null && organisationRepository.selectOrganisationByEmail(request.getUserEmail().trim()) == null)
         {

@@ -41,6 +41,7 @@ const initialState = {
     orgInfo:"",
     dateError:"",
     paypalError:"",
+    qrError:"",
 };
 
 
@@ -112,15 +113,20 @@ export class Upgrade2 extends Component {
     validate = () => {
         let dateError = "";
         let paypalError = "";
+        let codeError="";
 
 
         if (!this.state.date) {
-            dateError = "Date is require";
+            dateError = "Date is required";
         }
 
 
         if(!this.state.orgInfo) {
             paypalError="Link required";
+        }
+
+        if (!this.state) {
+            codeError = "QRcode is required";
         }
 
         if ( dateError || paypalError) {
@@ -245,7 +251,7 @@ export class Upgrade2 extends Component {
                                         />
 
                                     </div>
-                                    <span className="loginError_certificate">{this.state.paypalError}</span>
+                                    <span className="loginError_certificate">{this.state.Error}</span>
 
                                 </div>
                                 <div className="upgrade_Button">

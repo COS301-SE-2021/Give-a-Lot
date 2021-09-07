@@ -10,7 +10,7 @@ public class addCalenderEventRequest
     private String eventEndTime;
     private String eventStartDate;
     private String eventEndDate;
-    private Long userId;
+    private String userEmail;
 
     public addCalenderEventRequest(@JsonProperty("eventTitle") String eventTitle,
                                    @JsonProperty("eventDescription") String eventDescription,
@@ -18,22 +18,24 @@ public class addCalenderEventRequest
                                    @JsonProperty("eventEndTime") String eventEndTime,
                                    @JsonProperty("eventStartDate") String eventStartDate,
                                    @JsonProperty("eventEndDate") String eventEndDate,
-                                   @JsonProperty("userId") Long userid) {
+                                   @JsonProperty("userEmail") String userEmail
+                                   )
+    {
         this.eventTitle = eventTitle;
         this.eventDescription = eventDescription;
         this.eventStartTime = eventStartTime;
         this.eventEndTime = eventEndTime;
         this.eventStartDate = eventStartDate;
         this.eventEndDate = eventEndDate;
-        this.userId = userid;
+        this.userEmail = userEmail;
     }
 
-    public Long getUserId() {
-        return userId;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     public String getEventTitle() {

@@ -4,15 +4,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class editEventTitleRequest
 {
-    private Long userId;
+    private String userEmail;
     private Long eventId;
     private String newTitle;
 
-    public editEventTitleRequest(@JsonProperty("userId") Long userId,
+    public editEventTitleRequest(@JsonProperty("userEmail") String userEmail,
                             @JsonProperty("eventId") Long eventId,
                             @JsonProperty("newTitle") String newTitle)
     {
-        this.userId = userId;
+        this.userEmail = userEmail;
         this.eventId = eventId ;
         this.newTitle = newTitle;
     }
@@ -25,12 +25,12 @@ public class editEventTitleRequest
         this.newTitle = newTitle;
     }
 
-    public Long getUserId() {
-        return userId;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     public Long getEventId() {

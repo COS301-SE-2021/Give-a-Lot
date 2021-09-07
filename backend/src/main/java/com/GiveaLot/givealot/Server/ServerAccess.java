@@ -63,9 +63,9 @@ public class ServerAccess {
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Certificates");
             channelSftp.put( remoteDir + "Organisations/" + orgIdString + "/" + orgNameSpace);
 
-            String localStorage = "frontend/givealot/src/localFiles/" + orgIdString;
-            String localImageStorage = "frontend/givealot/src/localFiles/" + orgIdString + "/gallery";
-            String localCertificateStorage = "frontend/givealot/src/localFiles/" + orgIdString + "/certificate";
+            String localStorage = "backend/src/main/resources/localFiles/" + orgIdString;
+            String localImageStorage = "backend/src/main/resources/localFiles/" + orgIdString + "/gallery";
+            String localCertificateStorage = "backend/src/main/resources/localFiles/" + orgIdString + "/certificate";
 
             File directoryLocal = new File(localStorage);
             File directoryImageLocal = new File(localImageStorage);
@@ -102,7 +102,7 @@ public class ServerAccess {
             channelSftp.connect();
 
             String orgIdString = String.valueOf(orgId);
-            String localFile = "frontend/givealot/src/localFiles/" + orgIdString + "/certificate/CertificateComplete.pdf";
+            String localFile = "backend/src/main/resources/localFiles/" + orgIdString + "/certificate/CertificateComplete.pdf";
 
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Certificates" + "/" + orgName.replaceAll("\\s+", "") + "Certificate.pdf");
 
@@ -290,7 +290,7 @@ public class ServerAccess {
 
             String orgIdString = String.valueOf(orgId);
 
-            String localFile = "frontend/givealot/src/localFiles/" + orgId + "/gallery/image" + numberOfImages + ".jpg";
+            String localFile = "backend/src/main/resources/localFiles/" + orgId + "/gallery/image" + numberOfImages + ".jpg";
             FileUtils.copyFile(imageHolder, new File(localFile));
 
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + numberOfImages + ".jpg");
@@ -355,7 +355,7 @@ public class ServerAccess {
             int imageNumber = organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfImages() + 1;
 
             String orgIdString = String.valueOf(orgId);
-            String localFile = "frontend/givealot/src/localFiles/" + orgId + "gallery/image" + imageNumber + ".png";
+            String localFile = "backend/src/main/resources/localFiles/" + orgId + "gallery/image" + imageNumber + ".png";
 
             FileUtils.copyFile(image, new File(localFile));
 
@@ -386,7 +386,7 @@ public class ServerAccess {
             channelSftp.connect();
 
             String orgIdString = String.valueOf(orgId);
-            String localFile = "frontend/givealot/src/localFiles/" + orgId + "/gallery/logo.png";
+            String localFile = "backend/src/main/resources/localFiles/" + orgId + "/gallery/logo.png";
 
             FileUtils.copyFile(image, new File(localFile));
 
@@ -415,7 +415,7 @@ public class ServerAccess {
 
             channelSftp.connect();
             String orgIdString = String.valueOf(orgId);
-            String localFile = "frontend/givealot/src/localFiles/" + orgId + "/gallery/QRCode.png";
+            String localFile = "backend/src/main/resources/localFiles/" + orgId + "/gallery/QRCode.png";
 
             FileUtils.copyFile(image, new File(localFile));
 
@@ -436,7 +436,7 @@ public class ServerAccess {
         try {
             channelSftp.connect();
             String orgIdString = String.valueOf(orgId);
-            String localFile = "frontend/givealot/src/localFiles/" + orgId + "gallery/QRCode.png";
+            String localFile = "backend/src/main/resources/localFiles/" + orgId + "gallery/QRCode.png";
 
             File image = new File(localFile);
 
@@ -456,7 +456,7 @@ public class ServerAccess {
         try {
             channelSftp.connect();
             String orgIdString = String.valueOf(orgId);
-            String localFile = "frontend/givealot/src/localFiles/" + orgId + "gallery/logo.png";
+            String localFile = "backend/src/main/resources/localFiles/" + orgId + "gallery/logo.png";
 
             File image = new File(localFile);
 
@@ -476,7 +476,7 @@ public class ServerAccess {
         try {
             channelSftp.connect();
             String orgIdString = String.valueOf(orgId);
-            String localFile = "frontend/givealot/src/localFiles/" + orgId + "gallery/image" + number + ".png";
+            String localFile = "backend/src/main/resources/localFiles/" + orgId + "gallery/image" + number + ".png";
 
             File image = new File(localFile);
 
@@ -505,7 +505,7 @@ public class ServerAccess {
 
             String orgIdString = String.valueOf(orgId);
 
-            String localFile = "frontend/givealot/src/localFiles/" + orgId + "/reports/report" + reportNumber + ".txt";
+            String localFile = "backend/src/main/resources/localFiles/" + orgId + "/reports/report" + reportNumber + ".txt";
 
             FileUtils.copyFile(report, new File(localFile));
 

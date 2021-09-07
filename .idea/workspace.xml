@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="added get certificate as image&#10;added get certificate as pdf &#10;http requests.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/localFiles/32/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/localFiles/32/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/localFiles/32/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/localFiles/38/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/localFiles/38/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,13 +143,6 @@
       <workItem from="1630858158608" duration="6691000" />
       <workItem from="1630919356775" duration="3261000" />
       <workItem from="1630930175798" duration="14979000" />
-    </task>
-    <task id="LOCAL-00035" summary="organisations controller revision">
-      <created>1629307983396</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1629307983396</updated>
     </task>
     <task id="LOCAL-00036" summary="organisations controller revision">
       <created>1629311673486</created>
@@ -492,7 +480,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630938977544</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="added get certificate as image&#10;added get certificate as pdf &#10;http requests.">
+      <created>1631046667109</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1631046667109</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -512,7 +507,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="organisations controller revision - activate" />
     <MESSAGE value="organisations controller revision - add website and remove website" />
     <MESSAGE value="organisations controller revision - add address" />
     <MESSAGE value="organisations controller revision - add socials" />
@@ -537,6 +531,7 @@
     <MESSAGE value="Sector pop up button" />
     <MESSAGE value="calendar update" />
     <MESSAGE value="calendar update add and fetch events" />
-    <option name="LAST_COMMIT_MESSAGE" value="calendar update add and fetch events" />
+    <MESSAGE value="added get certificate as image&#10;added get certificate as pdf &#10;http requests." />
+    <option name="LAST_COMMIT_MESSAGE" value="added get certificate as image&#10;added get certificate as pdf &#10;http requests." />
   </component>
 </project>

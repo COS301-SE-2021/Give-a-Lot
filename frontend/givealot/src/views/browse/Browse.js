@@ -271,6 +271,8 @@ function Browse ()
                 <section id="browse_body_main">
 
                     <div id="browse_organisations">
+                        {recommendedOrganisations.length > 0 &&
+
                         <div id="recommended_organisations">
                             <div className="recommended_section">
                                 <p className="browse_sector_name">Recommended for you</p>
@@ -278,7 +280,8 @@ function Browse ()
                                     {organisations_recommended}
                                 </div>
                             </div>
-                        </div>
+                        </div>}
+
 
                         {/* this block was not a part of the initial design */}
                         <div id="ui_element_message">

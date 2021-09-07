@@ -21,8 +21,9 @@ import java.security.NoSuchAlgorithmException;
 
 @Service
 public class BlockchainServiceImpl implements BlockchainService {
+
+
     public final BlockChainRepository blockChainRepository;
-    public static ContractConfig config = new ContractConfig();
 
     @Autowired
     BlockchainServiceImpl(  BlockChainRepository blockChainRepository)
@@ -133,7 +134,7 @@ public class BlockchainServiceImpl implements BlockchainService {
 
     @Override
     public String deploySmartContract() throws Exception {
-        /*ContractConfig config = new ContractConfig();*/
+        ContractConfig config = new ContractConfig();
         Web3j client = buildWeb3jClient();
         try {
             return CertificateContract.deploy(client, getCredentialsFromPrivateKey(), config.getGasPrice(), config.getGasLimit())
@@ -145,7 +146,7 @@ public class BlockchainServiceImpl implements BlockchainService {
 
     @Override
     public CertificateContract loadSmartContract() throws Exception {
-        /*ContractConfig config = new ContractConfig();*/
+        ContractConfig config = new ContractConfig();
         Web3j client = buildWeb3jClient();
 
 
@@ -153,7 +154,7 @@ public class BlockchainServiceImpl implements BlockchainService {
 
     @Override
     public Credentials getCredentialsFromPrivateKey() {
-       /* ContractConfig config = new ContractConfig();*/
+        ContractConfig config = new ContractConfig();
         return Credentials.create(config.getPRIVATE_KEY());    }
 
 

@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="calendar update">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="calendar update add and fetch events">
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,14 +141,7 @@
       <workItem from="1630752097210" duration="58705000" />
       <workItem from="1630858158608" duration="6691000" />
       <workItem from="1630919356775" duration="3261000" />
-      <workItem from="1630930175798" duration="7433000" />
-    </task>
-    <task id="LOCAL-00034" summary="organisations controller revision">
-      <created>1629307514261</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1629307514261</updated>
+      <workItem from="1630930175798" duration="14979000" />
     </task>
     <task id="LOCAL-00035" summary="organisations controller revision">
       <created>1629307983396</created>
@@ -489,7 +479,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630919988890</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="calendar update add and fetch events">
+      <created>1630938977543</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1630938977544</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,7 +506,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="organisations controller revision - suspend" />
     <MESSAGE value="organisations controller revision - activate" />
     <MESSAGE value="organisations controller revision - add website and remove website" />
     <MESSAGE value="organisations controller revision - add address" />
@@ -534,6 +530,7 @@
     <MESSAGE value="Org validate button clicks completed" />
     <MESSAGE value="Sector pop up button" />
     <MESSAGE value="calendar update" />
-    <option name="LAST_COMMIT_MESSAGE" value="calendar update" />
+    <MESSAGE value="calendar update add and fetch events" />
+    <option name="LAST_COMMIT_MESSAGE" value="calendar update add and fetch events" />
   </component>
 </project>

@@ -4,8 +4,6 @@ import Navbar from "../Navbar/Navbar";
 import Button from '@material-ui/core/Button';
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
-// import TwitterIcon from '../../../../assets/icons/twitter.png';
-import check from "../../../../localFiles/32/gallery/logo.png";
 import InstagramIcon from '@material-ui/icons/Instagram';
 
 import view_organisation from '../../Styles/view_organisation.css';
@@ -149,16 +147,10 @@ function ViewOrganisation()
     let description = [];
     description[0] = "";
     description[1] = "";
-    let image = "";
 
     if(organisationData !== undefined)
     {
         description = trim_description(organisationData.orgDescription);
-
-
-        image = "../../../../localFiles/"+image_id+"/gallery/logo.png";
-        console.log(image);
-
     }
 
     return (
@@ -174,7 +166,7 @@ function ViewOrganisation()
                            <h4>{organisationData.slogan}</h4>
                        </div>
 
-                       <img src={require("../../../../localFiles/"+image_id+"/gallery/logo.png").default} id={"imageCover"}/>
+                       <img src={""} id={"imageCover"}/>
 
                        <div id={"id_social_media"}>
                            <Button id={"instaIcon"} size={"small"} startIcon={<InstagramIcon />}>

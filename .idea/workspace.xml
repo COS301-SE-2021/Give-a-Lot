@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="calendar update add and fetch events">
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" afterDir="false" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="added get certificate as image&#10;added get certificate as pdf &#10;http requests.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/localFiles/32/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/localFiles/32/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/localFiles/32/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/localFiles/38/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/localFiles/38/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

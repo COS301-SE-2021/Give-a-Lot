@@ -129,7 +129,7 @@ public class BlockchainServiceImpl implements BlockchainService {
 
     @Override
     public Web3j buildWeb3jClient() {
-        return Web3j.build(new HttpService("HTTP://192.168.1.160:7545"));
+        return Web3j.build(new HttpService("HTTP://127.0.0.1:7545"));
     }
 
     @Override
@@ -141,13 +141,15 @@ public class BlockchainServiceImpl implements BlockchainService {
                     .send()
                     .getContractAddress();
         }catch (Exception e){
-            throw new Exception("Exception: Blockchain transaction failed");
+            throw new Exception("Exception: Blockchain transaction failed" + e);
         }    }
 
     @Override
-    public CertificateContract loadSmartContract() {
+    public CertificateContract loadSmartContract() throws Exception {
         ContractConfig config = new ContractConfig();
         Web3j client = buildWeb3jClient();
+
+
         return CertificateContract.load(config.getCONTRACT_ADDRESS(), client, getCredentialsFromPrivateKey(), config.getGasPrice(), config.getGasLimit());    }
 
     @Override

@@ -53,10 +53,10 @@ public class GivealotApplication /*implements CommandLineRunner*/ {
 
 
 
-//    @Override
-//    public  void run(String... args) throws Exception {
-//        System.out.println(blockchainService.deploySmartContract());
-//    }
+    /*@Override
+    public  void run(String... args) throws Exception {
+        System.out.println(blockchainService.deploySmartContract());
+    }*/
 
     /** Add an organisation **/
 
@@ -66,7 +66,7 @@ public class GivealotApplication /*implements CommandLineRunner*/ {
         organisations.setOrgId(113L);
         organisations.setPassword("Pistol");
         organisations.setContactNumber("Contact Number");
-        organisations.setOrgEmail("Piguoa@gmail.com");
+        organisations.setOrgEmail("Pigurewreeroa@gmail.com");
         organisations.setStatus("Status");
         organisations.setOrgSector("environment");
         organisations.setContactPerson("Contact Person");

@@ -136,7 +136,7 @@ public class CertificateServiceImpl implements CertificateService {
         }
 
         String templateCertificate = "backend/src/main/resources/TempCertificate/CertificateTemplate.pdf";
-        String completeCertificate = "frontend/givealot/src/localFiles/" + organisation.getOrgId() + "/certificate/CertificateComplete.pdf";
+        String completeCertificate = "backend/src/main/resources/localFiles/" + organisation.getOrgId() + "/certificate/CertificateComplete.pdf";
 
         /** Setup the pdf file **/
 
@@ -196,7 +196,7 @@ public class CertificateServiceImpl implements CertificateService {
             BufferedImage bim = pdfRenderer.renderImageWithDPI(page, 300, ImageType.RGB);
 
             // suffix in filename will be used as the file format
-            ImageIOUtil.writeImage(bim, "frontend/givealot/src/localFiles/" + orgId+ "/certificate/CertificateImage.png", 300);
+            ImageIOUtil.writeImage(bim, "backend/src/main/resources/localFiles/" + orgId+ "/certificate/CertificateImage.png", 300);
         }
         document.close();
         return true;

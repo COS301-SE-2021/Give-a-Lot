@@ -30,7 +30,7 @@ public interface BlockchainService {
 
     public String deploySmartContract() throws Exception;
 
-    public CertificateContract loadSmartContract();
+    public CertificateContract loadSmartContract() throws Exception;
 
     public Credentials getCredentialsFromPrivateKey();
 

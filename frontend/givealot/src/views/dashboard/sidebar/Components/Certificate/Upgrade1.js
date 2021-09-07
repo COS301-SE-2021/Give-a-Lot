@@ -105,6 +105,9 @@ export class Upgrade1 extends Component {
                 .post("http://localhost:8080/v1/organisation/add/address", add)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
+
+            // clear form
+            this.setState(initialState);
         }
     };
 

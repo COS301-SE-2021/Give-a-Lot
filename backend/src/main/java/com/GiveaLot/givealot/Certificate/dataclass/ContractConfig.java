@@ -6,7 +6,7 @@ import java.math.BigInteger;
 
 public class ContractConfig {
 
-    String PRIVATE_KEY = "1d0767d796aac06f2582b0190340428ccb106f5acd41ec1576ea3c7241e3e2cb";
+    String PRIVATE_KEY = "0xef42cf3aa656ece07be8864c62d2124a0a8009b5728423ea3280910b46d192e9";
 
 
     String CONTRACT_ADDRESS = "0x304f32f0cd60dcc3724121768150d0d5034ee2f0";

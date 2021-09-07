@@ -113,10 +113,15 @@ export class RegisterOrganisation extends Component {
             }
         }
 
+
         // if(this.state.step > 4){
-        //     if(this.state.image){
+        //     // if(this.state.image){
+        //     //     isError = true;
+        //     //     errors.imageError = 'Input an image';
+        //     // }
+        //     if (this.state.image !== "jpeg" && this.state.image !== "jpg" && this.state.image !== "png" && this.state.image !== "bmp" && this.state.image !== "gif") {
         //         isError = true;
-        //         errors.imageError = 'Input an image';
+        //             errors.imageError = 'Input an image';
         //     }
         // }
 

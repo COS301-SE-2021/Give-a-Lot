@@ -35,7 +35,7 @@ export class RegisterOrganisation extends Component {
                 </Link>
                 <div className="registerCard">
                     <div className="wrap">
-                        <form className="form">
+                        <form className="form1">
                        <span className="headerTag">
                            Register Organisation
                        </span>
@@ -92,7 +92,6 @@ export class RegisterOrganisation extends Component {
                                             next
                                         </button>
                                     </div>
-
                             </div>
                         </form>
                         <Link to={"/login"}

@@ -21,9 +21,8 @@ import java.security.NoSuchAlgorithmException;
 
 @Service
 public class BlockchainServiceImpl implements BlockchainService {
-
-
     public final BlockChainRepository blockChainRepository;
+    public static ContractConfig config = new ContractConfig();
 
     @Autowired
     BlockchainServiceImpl(  BlockChainRepository blockChainRepository)
@@ -129,12 +128,12 @@ public class BlockchainServiceImpl implements BlockchainService {
 
     @Override
     public Web3j buildWeb3jClient() {
-        return Web3j.build(new HttpService("http://127.0.0.1:8545"));
+        return Web3j.build(new HttpService("HTTP://127.0.0.1:7545"));
     }
 
     @Override
     public String deploySmartContract() throws Exception {
-        ContractConfig config = new ContractConfig();
+        /*ContractConfig config = new ContractConfig();*/
         Web3j client = buildWeb3jClient();
         try {
             return CertificateContract.deploy(client, getCredentialsFromPrivateKey(), config.getGasPrice(), config.getGasLimit())
@@ -145,14 +144,16 @@ public class BlockchainServiceImpl implements BlockchainService {
         }    }
 
     @Override
-    public CertificateContract loadSmartContract() {
-        ContractConfig config = new ContractConfig();
+    public CertificateContract loadSmartContract() throws Exception {
+        /*ContractConfig config = new ContractConfig();*/
         Web3j client = buildWeb3jClient();
+
+
         return CertificateContract.load(config.getCONTRACT_ADDRESS(), client, getCredentialsFromPrivateKey(), config.getGasPrice(), config.getGasLimit());    }
 
     @Override
     public Credentials getCredentialsFromPrivateKey() {
-        ContractConfig config = new ContractConfig();
+       /* ContractConfig config = new ContractConfig();*/
         return Credentials.create(config.getPRIVATE_KEY());    }
 
 

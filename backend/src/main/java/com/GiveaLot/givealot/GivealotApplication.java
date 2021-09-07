@@ -53,10 +53,10 @@ public class GivealotApplication /*implements CommandLineRunner*/ {
 
 
 
-//    @Override
-//    public  void run(String... args) throws Exception {
-//        System.out.println(blockchainService.deploySmartContract());
-//    }
+    /*@Override
+    public  void run(String... args) throws Exception {
+        System.out.println(blockchainService.deploySmartContract());
+    }*/
 
     /** Add an organisation **/
 

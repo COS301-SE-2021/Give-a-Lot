@@ -1430,15 +1430,15 @@ true posixrules
 13127||-9223372036854775808|U|G
 13127||10|U|G</Grants>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1885</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1915</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|16524|16526|1
 sequence|table|16582|16584|1
 sequence|table|16603|16605|1
 sequence|table|16637|16639|1
 sequence|table|16648|16650|1
-sequence|table|16659|16661|1
 sequence|table|16670|16672|1
+sequence|table|16682|16684|1
 </Relations>
     </database>
     <role id="3" parent="1" name="admin">
@@ -1517,13 +1517,13 @@ sequence|table|16670|16672|1
       <Comment>standard public schema</Comment>
       <StateNumber>275</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1886</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1916</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <sequence id="19" parent="18" name="calender_event_id_seq">
-      <ObjectId>16659</ObjectId>
+      <ObjectId>16682</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1576</StateNumber>
+      <StateNumber>1911</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
     <sequence id="20" parent="18" name="notification_notification_id_seq">
@@ -1568,9 +1568,9 @@ sequence|table|16670|16672|1
       <StateNumber>967</StateNumber>
     </table>
     <table id="27" parent="18" name="calender">
-      <ObjectId>16661</ObjectId>
+      <ObjectId>16684</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1576</StateNumber>
+      <StateNumber>1911</StateNumber>
     </table>
     <table id="28" parent="18" name="certificate">
       <ObjectId>16435</ObjectId>
@@ -1678,55 +1678,55 @@ sequence|table|16670|16672|1
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1576</StateNumber>
+      <StateNumber>1911</StateNumber>
       <DefaultExpression>nextval(&apos;calender_event_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
     <column id="46" parent="27" name="description">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1576</StateNumber>
+      <StateNumber>1911</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="47" parent="27" name="end_date">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1576</StateNumber>
+      <StateNumber>1911</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="48" parent="27" name="end_time">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1576</StateNumber>
+      <StateNumber>1911</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="49" parent="27" name="start_date">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1576</StateNumber>
+      <StateNumber>1911</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="50" parent="27" name="start_time">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1576</StateNumber>
+      <StateNumber>1911</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="51" parent="27" name="title">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1576</StateNumber>
+      <StateNumber>1911</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="52" parent="27" name="user_id">
+    <column id="52" parent="27" name="user_email">
       <Position>8</Position>
-      <DataType>bigint|0s</DataType>
-      <StateNumber>1576</StateNumber>
-      <TypeId>20</TypeId>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1911</StateNumber>
+      <TypeId>1043</TypeId>
     </column>
     <index id="53" parent="27" name="calender_pkey">
-      <ObjectId>16668</ObjectId>
-      <StateNumber>1576</StateNumber>
+      <ObjectId>16691</ObjectId>
+      <StateNumber>1911</StateNumber>
       <ColNames>event_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1735,8 +1735,8 @@ sequence|table|16670|16672|1
       <ClassIds>3124</ClassIds>
     </index>
     <key id="54" parent="27" name="calender_pkey">
-      <ObjectId>16669</ObjectId>
-      <StateNumber>1576</StateNumber>
+      <ObjectId>16692</ObjectId>
+      <StateNumber>1911</StateNumber>
       <ColNames>event_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>calender_pkey</UnderlyingIndexName>

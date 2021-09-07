@@ -231,6 +231,10 @@ public class OrganisationServiceImp implements OrganisationService {
         else if (organisation.getSlogan().isEmpty() || organisation.getSlogan().length()>255)
             throw new Exception("Exception: orgSlogan does not satisfy the database constraints");
 
+        if(userRepository.findUserByEmail(organisation.getOrgEmail())!=null)
+        {
+            throw new Exception("This email already exists");
+        }
         List<String> get_current_sectors = sectorsRepository.getSectors();
 
         /* this block updates the sectors table - start */

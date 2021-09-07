@@ -2,27 +2,26 @@ package com.GiveaLot.givealot.Events.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class editEventTitleRequest
-{
+public class editEventDescription {
     private String userEmail;
     private Long eventId;
-    private String newTitle;
+    private String newDescription;
 
-    public editEventTitleRequest(@JsonProperty("userEmail") String userEmail,
-                            @JsonProperty("eventId") Long eventId,
-                            @JsonProperty("newTitle") String newTitle)
+    public editEventDescription(@JsonProperty("userEmail") String userEmail,
+                                 @JsonProperty("eventId") Long eventId,
+                                 @JsonProperty("newDescription") String newDescription)
     {
         this.userEmail = userEmail;
         this.eventId = eventId ;
-        this.newTitle = newTitle;
+        this.newDescription = newDescription;
     }
 
-    public String getNewTitle() {
-        return newTitle;
+    public String getNewDescription() {
+        return newDescription;
     }
 
-    public void setNewTitle(String newTitle) {
-        this.newTitle = newTitle;
+    public void setNewDescription(String newDescription) {
+        this.newDescription = newDescription;
     }
 
     public String getUserEmail() {

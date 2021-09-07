@@ -1,3 +1,538 @@
+POST http://localhost:8080/event/calender/edit/title
+Content-Type: application/json
+
+{
+  "userEmail" : "coolmail@gmail.com",
+  "eventId" : 1,
+  "newTitle" : "revised title 2"
+}
+
+<> 2021-09-06T000213.200.json
+
+###
+
+POST http://localhost:8080/event/calender/edit
+Content-Type: application/json
+
+{
+  "userEmail" : "coolmail@gmail.com",
+  "eventId" : 1,
+  "newTitle" : "revised title"
+}
+
+<> 2021-09-06T000106.404.json
+
+###
+
+GET http://localhost:8080/event/get/calender/coolmail@gmail.com
+
+<> 2021-09-05T235749.200.json
+
+###
+
+GET http://localhost:8080/event/get/calender/coolmail@gmail.com
+
+<> 2021-09-05T235739.200.json
+
+###
+
+GET http://localhost:8080/event/get/calender/coolmail@gmail.com
+
+<> 2021-09-05T235635.200.json
+
+###
+
+GET http://localhost:8080/event/get/calender/coolmail@gmail.com
+
+<> 2021-09-05T235258.200.json
+
+###
+
+POST http://localhost:8080/event/calender/edit/date/end
+Content-Type: application/json
+
+{
+  "userEmail" : "coolmail@gmail.com",
+  "eventId" : 1,
+  "newDate" : "2021-19-21"
+}
+
+<> 2021-09-05T234835.200.json
+
+###
+
+POST http://localhost:8080/event/calender/edit/date/start
+Content-Type: application/json
+
+{
+  "userEmail" : "coolmail@gmail.com",
+  "eventId" : 1,
+  "newDate" : "2021-19-21"
+}
+
+<> 2021-09-05T234806.200.json
+
+###
+
+POST http://localhost:8080/event/calender/edit/date/start
+Content-Type: application/json
+
+{
+  "userEmail" : "coolmail@gmail.com",
+  "eventId" : 1,
+  "newTime" : "2021-19-21"
+}
+
+<> 2021-09-05T234753.400.json
+
+###
+
+POST http://localhost:8080/event/calender/edit/time/end
+Content-Type: application/json
+
+{
+  "userEmail" : "coolmail@gmail.com",
+  "eventId" : 1,
+  "newTime" : "08:50 PM"
+}
+
+<> 2021-09-05T234706.200.json
+
+###
+
+POST http://localhost:8080/event/calender/edit/time/start
+Content-Type: application/json
+
+{
+  "userEmail" : "coolmail@gmail.com",
+  "eventId" : 1,
+  "newTime" : "08:22 PM"
+}
+
+<> 2021-09-05T234652.200.json
+
+###
+
+POST http://localhost:8080/event/calender/edit/description
+Content-Type: application/json
+
+{
+  "userEmail" : "coolmail@gmail.com",
+  "eventId" : 1,
+  "newDescription" : "revised description"
+}
+
+<> 2021-09-05T234642.200.json
+
+###
+
+POST http://localhost:8080/event/calender/edit/description
+Content-Type: application/json
+
+{
+  "userEmail" : "coolmail@gmail.com",
+  "eventId" : 1,
+  "newDescription" : "revised description"
+}
+
+###
+
+POST http://localhost:8080/event/calender/edit
+Content-Type: application/json
+
+{
+  "userEmail" : "coolmail@gmail.com",
+  "eventId" : 1,
+  "newTitle" : "revised title"
+}
+
+<> 2021-09-05T224408.200.json
+
+###
+
+POST http://localhost:8080/event/calender/edit
+Content-Type: application/json
+
+{
+  "userEmail" : "coolmail@gmail.com",
+  "eventId" : 1,
+  "newTitle" : "revised title"
+}
+
+<> 2021-09-05T224121.200.json
+
+###
+
+POST http://localhost:8080/event/calender/edit
+Content-Type: application/json
+
+{
+  "userEmail" : "coolmail@gmail.com",
+  "eventId" : 1,
+  "newTitle" : "revised ID"
+}
+
+<> 2021-09-05T223814.200.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userEmail" : "coolmail@gmail.com "
+}
+
+<> 2021-09-05T222833.200.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userEmail" : "coolmail@gmail.com "
+}
+
+<> 2021-09-05T222535.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userEmail" : "coolmail@gmail.com "
+}
+
+<> 2021-09-05T222427.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userEmail" : "coolmail@gmail.com"
+}
+
+<> 2021-09-05T222421.200.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userEmail" : "cos301@gmail.com"
+}
+
+<> 2021-09-05T222354.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userEmail" : "deep@gmail.com"
+}
+
+<> 2021-09-05T222317.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 6
+}
+
+<> 2021-09-05T215056.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 4
+}
+
+<> 2021-09-05T215034.200.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 15
+}
+
+<> 2021-09-05T215014.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 16
+}
+
+<> 2021-09-05T214957.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 9
+}
+
+<> 2021-09-05T214809.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 9
+}
+
+<> 2021-09-05T214627.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 9
+}
+
+<> 2021-09-05T214620.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 16
+}
+
+<> 2021-09-05T214605.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 12
+}
+
+<> 2021-09-05T214539.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 16
+}
+
+<> 2021-09-05T214519.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 12
+}
+
+<> 2021-09-05T214337.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 12
+}
+
+<> 2021-09-05T214217.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 12
+}
+
+<> 2021-09-05T214156.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 12
+}
+
+<> 2021-09-05T214150.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "meeting",
+  "eventDescription": "meet with the ceo to discuss funds",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 32
+}
+
+<> 2021-09-05T213706.200.json
+
+###
+
 POST http://localhost:8080/v1/organisation/update/info/organisation
 Content-Type: application/json
 
@@ -143,396 +678,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-05T015723.500.json
-
-###
-
-POST http://localhost:8080/v1/organisation/update/info/organisation
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "type": "description",
-  "newValue": "Definition. A web application is a computer program that utilizes web browsers and web technology to perform tasks over the Internet. Overview. Millions of businesses use the Internet as a cost-effective communications channel."
-}
-
-<> 2021-09-04T215157.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/update/info/organisation
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "type": "description",
-  "newValue": "Definition. A web application is a computer program that utilizes web browsers and web technology to perform tasks over the Internet. Overview. Millions of businesses use the Internet as a cost-effective communications channel."
-}
-
-<> 2021-09-04T214827.404.json
-
-###
-
-POST http://localhost:8080/v1/organisation/update/info/organisation
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "type": "description",
-  "newValue": "· Definition. A web application is a computer program that utilizes web browsers and web technology to perform tasks over the Internet. Overview. Millions of businesses use the Internet as a cost-effective communications channel."
-}
-
-<> 2021-09-04T214734.404.json
-
-###
-
-POST http://localhost:8080/v1/organisation/update/info/organisation
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "type": "description",
-  "newValue": "· Definition. A web application is a computer program that utilizes web browsers and web technology to perform tasks over the Internet. Overview. Millions of businesses use the Internet as a cost-effective communications channel."
-}
-
-<> 2021-09-04T214727.404.json
-
-###
-
-POST http://localhost:8080/v1/organisation/update/info/organisation
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "type": "description",
-  "newValue": "giveus@gmail.com"
-}
-
-<> 2021-09-04T213213.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/update/info/organisation
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "type": "email",
-  "newValue": "giveus@gmail.com"
-}
-
-<> 2021-09-04T213142.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/update/info/organisation
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "type": "email",
-  "newValue": "giveus@gmail.com"
-}
-
-<> 2021-09-04T212932.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/update/info/organisation
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "type": "email",
-  "newValue": "hope@gmail.com"
-}
-
-<> 2021-09-04T212914.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/update/info/organisation
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "type": "hfjhf",
-  "newValue": "nqobile@gmail.com"
-}
-
-<> 2021-09-04T212813.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/investigate/32
-
-<> 2021-09-04T202912.200.json
-
-###
-
-GET http://localhost:8080/event/get/timeline/32
-
-<> 2021-09-04T201353.200.json
-
-###
-
-GET http://localhost:8080/event/add/timeline/
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "eventDate": "2021-02-18",
-  "eventTitle": "Big event",
-  "eventShortDescription": "we had an event and celebrated the achievement"
-}
-
-<> 2021-09-04T201346.200.json
-
-###
-
-GET http://localhost:8080/event/add/timeline/
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "eventDate": "2021-02-18",
-  "eventTitle": "Big event",
-  "eventShortDescription": "we had an event and celebrated the achievement"
-}
-
-<> 2021-09-04T201233.200.json
-
-###
-
-GET http://localhost:8080/event/get/timeline/32
-
-<> 2021-09-04T201202.200.json
-
-###
-
-GET http://localhost:8080/event/add/timeline/
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "eventDate": "2021-02-18",
-  "eventTitle": "Big event",
-  "eventShortDescription": "we had an event and celebrated the achievement"
-}
-
-<> 2021-09-04T201108.200.json
-
-###
-
-GET http://localhost:8080/event/get/timeline/32
-
-<> 2021-09-04T200420.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/sector
-Content-Type: application/json
-
-{
-  "sector" : "technology",
-  "adminId" : 14
-}
-
-<> 2021-09-04T181144.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/32/default
-
-###
-
-POST http://localhost:8080/v1/organisation/get/organisations
-Content-Type: application/json
-
-{
-   "adminId": "14"
-}
-
-<> 2021-09-04T045712.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/get/organisations
-Content-Type: application/json
-
-{
-   "adminId": "11"
-}
-
-<> 2021-09-04T045647.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/get/organisations
-Content-Type: application/json
-
-{
-   "adminUserEmail": "coolmail1@gmail.com"
-}
-
-###
-
-POST http://localhost:8080/report/get/all
-Content-Type: application/json
-
-{
-  "orgId":32
-}
-
-<> 2021-09-04T043258.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/info/32
-
-<> 2021-09-04T024547.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/info/32
-
-###
-
-POST http://localhost:8080/report/get/all
-Content-Type: application/json
-
-{
-  "orgId":32
-}
-
-<> 2021-09-04T023658.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/32/default
-
-<> 2021-09-04T022838.400.json
-
-###
-
-GET http://localhost:8080/v1/organisation/sel/organisation/32/16
-
-<> 2021-09-04T022742.200.json
-
-###
-
-POST http://localhost:8080/report/get/all
-Content-Type: application/json
-
-{
-  "orgId":32
-}
-
-<> 2021-09-04T021842.200.json
-
-###
-
-POST http://localhost:8080/report/org/
-Content-Type: application/json
-
-{
-  "orgId" : 32,
-  "userId" : 12,
-  "reportType" : "grammer",
-  "description" : "The description contains spelling errors"
-}
-
-<> 2021-09-04T021825.200.json
-
-###
-
-POST http://localhost:8080/report/get/all
-Content-Type: application/json
-
-{
-  "orgId":29
-}
-
-<> 2021-09-04T021727.200.json
-
-###
-
-POST http://localhost:8080/report/get/all
-Content-Type: application/json
-
-{
-  "orgId":32
-}
-
-<> 2021-09-04T021707.200.json
-
-###
-
-POST http://localhost:8080/report/org/
-Content-Type: application/json
-
-{
-  "orgId" : 32,
-  "userId" : 12,
-  "reportType" : "fraud",
-  "description" : "This organisation provided a deceptive name"
-}
-
-<> 2021-09-04T021604.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/get/notifications
-Content-Type: application/json
-
-{
-  "adminUserEmail":"admin@email.com"
-}
-
-<> 2021-09-04T014410.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/get/notifications
-Content-Type: application/json
-
-{
-  "adminUserEmail":"admin@email.com"
-}
-
-<> 2021-09-04T013854.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/get/level_information
-Content-Type: application/json
-
-{
-  "orgId":23
-}
-
-<> 2021-09-04T013121.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/get/level_information
-Content-Type: application/json
-
-{
-  "orgId":23
-}
-
-<> 2021-09-03T021048.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/get/level_information
-Content-Type: application/json
-
-{
-  "orgId":32
-}
-
-<> 2021-09-02T234149.200.json
 
 ###
 

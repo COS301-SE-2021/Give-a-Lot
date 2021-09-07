@@ -54,4 +54,6 @@ public interface OrganisationService {
     responseJSON getNumPerMonth(getNumOrganisationPerMonthRequest request)throws Exception;
     generalOrganisationResponse updateOrganisationInfo(updateOrganisationInfoRequest request) throws Exception;
 
+    void clearTabels();
+
 }

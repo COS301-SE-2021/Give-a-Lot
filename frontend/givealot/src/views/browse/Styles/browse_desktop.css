@@ -276,7 +276,8 @@
     border-radius: 5px;
   }
 
-  .sector_organisation {
+  .sector_organisation
+  {
     display: flex;
     flex-direction: row;
     min-width: 320px !important;
@@ -285,11 +286,19 @@
     margin-bottom: 20px;
   }
 
+  .recommended
+  {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    margin-left: 20px;
+  }
+
   .sector_organisation > img {
     width: 80px;
     height: 80px;
     border-radius: 12px;
     cursor: pointer;
+    object-fit: cover;
   }
 
   .sector_organisation_meta {
@@ -322,3 +331,4 @@
   .recommended_organisations_organisation_sector {
     text-decoration: underline;
   }
+

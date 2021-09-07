@@ -236,8 +236,6 @@ function Browse ()
                                                  organisations_for_sec={organisations_for_the_sector}
                                                  key={sector}/>);*/
         }
-
-
     }
     return (
         <div id={"main_browse_page"}>

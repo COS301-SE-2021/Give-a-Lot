@@ -34,13 +34,13 @@ export default function OrganisationRecommended(props)
     let org_image = props.imgUrl;
     if(org_image === null)
     {
-        org_image =  "https://avatars.dicebear.com/api/initials/" + props.orgName + ".svg?w=500" ;
+        org_image =  "http://localhost:8080/logo/version/" + props.orgId;
     }
 
     let description = trim_description(props.orgDescription);
 
     return(
-        <div className ="sector_organisation">
+        <div className ="sector_organisation recommended">
         <img src={org_image} alt={"profile-image"} id={props.orgId} onClick={e => openOrganisation(e,"id")}/>
             <div className="sector_organisation_meta">
                 <p className="sector_organisation_title">{props.orgName} - <span className="recommended_organisations_organisation_sector">{props.org_sector}</span> </p>

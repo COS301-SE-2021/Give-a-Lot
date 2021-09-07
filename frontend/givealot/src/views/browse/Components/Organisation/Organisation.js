@@ -34,7 +34,7 @@ export default function Organisation(props)
     let org_image = props.imgUrl;
     if(org_image === null)
     {
-        org_image =  "https://avatars.dicebear.com/api/initials/" + props.orgName + ".svg?w=500" ;
+        org_image =  "http://localhost:8080/logo/version/" + props.orgId ;
     }
 
     let description = trim_description(props.orgDescription);

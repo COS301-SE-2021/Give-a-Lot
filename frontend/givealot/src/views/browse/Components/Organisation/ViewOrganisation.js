@@ -166,7 +166,7 @@ function ViewOrganisation()
                            <h4>{organisationData.slogan}</h4>
                        </div>
 
-                       <img src={""} id={"imageCover"}/>
+                       <img src={"http://localhost:8080/logo/version/" + id} id={"imageCover"}/>
 
                        <div id={"id_social_media"}>
                            <Button id={"instaIcon"} size={"small"} startIcon={<InstagramIcon />}>
@@ -237,8 +237,15 @@ function ViewOrganisation()
                           their organisation and the information they provided to givealot
                        </p>
 
-                       <img src={"/images_tmp/somecert.png"}  />
-                       <Button variant="contained" color="secondary">
+                       <img src={"http://localhost:8080/cert/version/png/" + id}  />
+
+
+                       <Button variant="contained" color="secondary"
+                               onClick={(e) => {
+                                   e.preventDefault();
+                                   window.open('http://localhost:8080/cert/version/pdf/' + id);
+                               }}
+                       >
                            Download
                        </Button>
                    </Box>

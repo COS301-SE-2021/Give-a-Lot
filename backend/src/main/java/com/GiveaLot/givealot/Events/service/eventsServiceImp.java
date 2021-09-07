@@ -72,6 +72,15 @@ public class eventsServiceImp implements eventsService{
         else if(request.getEventTitle().length() > 35)
             throw new Exception("title too long");
 
+        Calender duplicate = calenderRepository.checkDuplicate(request.getUserEmail(),
+                request.getEventStartTime(),
+                request.getEventEndTime(),
+                request.getEventStartDate(),
+                request.getEventEndDate());
+
+        if(duplicate == null)
+            throw new Exception("event already exists");
+
         Calender calender = new Calender();
         calender.setDescription(request.getEventDescription());
         calender.setEndDate(request.getEventEndDate());

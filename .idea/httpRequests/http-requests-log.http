@@ -1,3 +1,207 @@
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userEmail" : "coolmail@gmail.com"
+}
+
+<> 2021-09-08T004821.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userEmail" : "coolmail@gmail.com"
+}
+
+<> 2021-09-08T004815.200.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userEmail" : "coolmail@gmail.com"
+}
+
+<> 2021-09-08T004635.200.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userEmail" : "coolmail@gmail.com"
+}
+
+<> 2021-09-08T004605.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userEmail" : "coolmail@gmail.com"
+}
+
+<> 2021-09-08T004300.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userEmail" : "coolmail@gmail.com"
+}
+
+<> 2021-09-08T004256.200.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userEmail" : "coolmail@gmail.com"
+}
+
+<> 2021-09-08T002449.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userEmail" : "coolmail@gmail.com"
+}
+
+<> 2021-09-08T002444.200.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userEmail" : "coolmail@gmail.com"
+}
+
+<> 2021-09-08T002108.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userEmail" : "coolmail@gmail.com"
+}
+
+<> 2021-09-08T001758.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userEmail" : "coolmail@gmail.com"
+}
+
+<> 2021-09-08T001726.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userEmail" : "coolmail@gmail.com"
+}
+
+<> 2021-09-08T001126.400.json
+
+###
+
 POST http://localhost:8080/v1/organisation/add/org
 Content-Type: application/json
 
@@ -505,181 +709,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-05T214519.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 12
-}
-
-<> 2021-09-05T214337.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 12
-}
-
-<> 2021-09-05T214217.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 12
-}
-
-<> 2021-09-05T214156.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 12
-}
-
-<> 2021-09-05T214150.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "meeting",
-  "eventDescription": "meet with the ceo to discuss funds",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 32
-}
-
-<> 2021-09-05T213706.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/update/info/organisation
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "type": "orgName",
-  "newValue": "Pistol 3"
-
-}
-
-<> 2021-09-05T151412.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/update/info/organisation
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "type": "address",
-  "newValue": "Pistol 221 drv"
-
-}
-
-<> 2021-09-05T145224.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/update/info/organisation
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "type": "orgName",
-  "newValue": "Pistol 2"
-
-}
-
-<> 2021-09-05T144324.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/get/level_information
-Content-Type: application/json
-
-{
-  "orgId": 32
-
-}
-
-<> 2021-09-05T143114.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/get/level_information
-Content-Type: application/json
-
-{
-  "orgId": 32
-
-}
-
-<> 2021-09-05T050941.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/committee
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "committee": "Peter David,091839192,Kevin Smith,128293,Martin Lawrence,1123313331"
-}
-
-<> 2021-09-05T043012.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/committee
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "committee": "Peter David,Kevin Smith,Martin Lawrence"
-}
-
-<> 2021-09-05T042634.200.json
 
 ###
 

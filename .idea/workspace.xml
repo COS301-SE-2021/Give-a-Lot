@@ -4,50 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="added get certificate as image&#10;added get certificate as pdf &#10;http requests.">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/13.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/14.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/15.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/16.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/17.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/18.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/19.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/20.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/21.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/22.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/23.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/24.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/25.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/26.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/checklist.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/search-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/white-24dp/1x/baseline_search_white_24dp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/images_tmp/white-24dp/2x/search-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/46/gallery/logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/47/gallery/logo.jpg" afterDir="false" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="calender additional verification">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Events/controller/eventsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Events/controller/eventsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Events/repository/calenderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Events/repository/calenderRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Events/service/eventsServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Events/service/eventsServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/media/Controller/MediaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/media/Controller/MediaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/Organisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/Organisation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/OrganisationRecommended.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/OrganisationRecommended.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_desktop.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_desktop.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_general.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_general.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,13 +115,13 @@
     <configuration name="generated-requests#13" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="13" runType="Run single request">
       <method v="2" />
     </configuration>
+    <configuration name="generated-requests#22" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="22" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="generated-requests#3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="3" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="4" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="generated-requests#6" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="6" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#7" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="7" runType="Run single request">
@@ -171,11 +136,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests#22" />
         <item itemvalue="HTTP Request.generated-requests#4" />
         <item itemvalue="HTTP Request.generated-requests#13" />
         <item itemvalue="HTTP Request.generated-requests#3" />
         <item itemvalue="HTTP Request.generated-requests#7" />
-        <item itemvalue="HTTP Request.generated-requests#6" />
       </list>
     </recent_temporary>
   </component>
@@ -195,13 +160,6 @@
       <workItem from="1630858158608" duration="6691000" />
       <workItem from="1630919356775" duration="3261000" />
       <workItem from="1630930175798" duration="14979000" />
-    </task>
-    <task id="LOCAL-00037" summary="organisations controller revision">
-      <created>1629316585116</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1629316585116</updated>
     </task>
     <task id="LOCAL-00038" summary="organisations controller revision">
       <created>1629319541850</created>
@@ -539,7 +497,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631047257239</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="calender additional verification">
+      <created>1631052127969</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1631052127969</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,7 +524,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="organisations controller revision - add website and remove website" />
     <MESSAGE value="organisations controller revision - add address" />
     <MESSAGE value="organisations controller revision - add socials" />
     <MESSAGE value="organisations controller revision - remove socials" />
@@ -584,6 +548,7 @@
     <MESSAGE value="calendar update" />
     <MESSAGE value="calendar update add and fetch events" />
     <MESSAGE value="added get certificate as image&#10;added get certificate as pdf &#10;http requests." />
-    <option name="LAST_COMMIT_MESSAGE" value="added get certificate as image&#10;added get certificate as pdf &#10;http requests." />
+    <MESSAGE value="calender additional verification" />
+    <option name="LAST_COMMIT_MESSAGE" value="calender additional verification" />
   </component>
 </project>

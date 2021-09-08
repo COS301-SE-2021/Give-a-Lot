@@ -76,13 +76,15 @@ export default class Demo extends React.PureComponent {
     }
 
     commitChanges({ added, changed, deleted }) {
+
         this.setState((state) => {
             let { data } = state;
+            console.log(added)
             if (added) {
-                console.log("adding")
+
+
                 const startingAddedId = data.length > 0 ? data[data.length - 1].id + 1 : 0;
                 data = [...data, { id: startingAddedId, ...added }];
-                console.log(data)
                 let startTime = data[data.length-1].startDate.toString().split(" ")[4];
                 let endTime = data[data.length-1].endDate.toString().split(" ")[4];
                 let title = data[data.length-1].title;
@@ -114,10 +116,15 @@ export default class Demo extends React.PureComponent {
                         'Access-Control-Allow-Origin': '*',
                     }
                 }
+
+                console.log(added)
                 axios.post('http://localhost:8080/event/calender/add', eventDayAndTime ,config)
                     .then(response =>{
-                        console.log(response)
+
+                        //console.log("*************************")
                         // this.setState({ openSector: true });
+                        added = false;
+
                     })
                     .catch(error =>{
                         console.log(error)

@@ -174,7 +174,7 @@ export class Level0 extends Component {
 
     render(){
         const { classes } = this.props;
-        const { level0 } = this.state
+        const { level0 } = this.state;
 
 
         return (

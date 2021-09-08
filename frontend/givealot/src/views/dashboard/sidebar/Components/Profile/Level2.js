@@ -13,6 +13,7 @@ import CardContent from '@material-ui/core/CardContent';
 
 import Axios from "axios";
 import TextField from "@material-ui/core/TextField";
+import axios from "axios";
 
 const styles = theme => ({
 
@@ -40,7 +41,9 @@ export class Level2 extends Component {
     constructor (props) {
         super(props)
         this.state={
+            level2:[],
             orgId:"6",
+            adminId:14,
             date:"",
             dateState:false,
             startDate: new Date(),
@@ -140,9 +143,38 @@ export class Level2 extends Component {
         });
     }
 
+    componentDidMount() {
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        const admin = {
+            "adminId" : this.state.adminId
+        }
+
+        const org = {
+            orgId :32
+        }
+        axios.post('http://localhost:8080/v1/organisation/get/organisations',admin , config)
+            .then(response =>{
+                console.log(response)
+                this.setState({level2: response.data.response[0]})
+                console.log(this.state.level2)
+
+            })
+            .catch(error =>{
+                this.setState({error : 'Error Retrieving data'})
+            })
+
+
+    }
+
 
     render(){
         const { classes } = this.props;
+        const { level2 } = this.state;
 
 
 
@@ -179,7 +211,7 @@ export class Level2 extends Component {
                                         label="Paypal link"
                                         name="orgInfo"
                                         style={{ margin: 8 }}
-                                        placeholder="Enter  paypal link..."
+                                        placeholder={level2.orgEmail}
                                         fullWidth
                                         margin="normal"
                                         InputLabelProps={{

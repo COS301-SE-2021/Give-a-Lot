@@ -32,6 +32,7 @@ export class Level4 extends Component {
             website: "",
             address:"",
 
+
         };
     }
 
@@ -54,7 +55,7 @@ export class Level4 extends Component {
             .catch(err => console.log(err));
     };
 
-    onToast = () => {
+    onToast4 = () => {
         toast.success('Submit successful',{
             position: toast.POSITION.TOP_RIGHT
 
@@ -106,7 +107,7 @@ export class Level4 extends Component {
                                     </div>
                                 </div>
                                 <div className="upgrade_Button">
-                                    <button className="upgrade-btnn" type="submit" onClick={this.onToast}>
+                                    <button className="upgrade-btnn" type="submit" onClick={this.onToast4}>
                                         Submit
                                     </button>
                                 </div>

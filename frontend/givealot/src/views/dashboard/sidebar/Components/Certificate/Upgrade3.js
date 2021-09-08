@@ -224,7 +224,7 @@ export class Upgrade3 extends Component {
 
     };
 
-    onToast = () => {
+    onToastThree = () => {
         const isValid = this.validate();
         if (isValid) {
 
@@ -517,7 +517,7 @@ export class Upgrade3 extends Component {
 
 
                                         <div className="upgrade_Button">
-                                            <button className="upgrade-btn" type="submit" onClick={this.onToast}>
+                                            <button className="upgrade-btn" type="submit" onClick={this.onToastThree}>
                                                 Submit
                                             </button>
                                         </div>

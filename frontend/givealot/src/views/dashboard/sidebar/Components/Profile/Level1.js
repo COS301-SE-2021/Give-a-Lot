@@ -103,11 +103,13 @@ export class Level1 extends Component {
         }
     };
 
-    onToast = () => {
-        toast.success('Submit successful',{
-            position: toast.POSITION.TOP_RIGHT
+    onToast1 = () => {
+        if ( this.state.websiteState || this.state.addressState) {
+            toast.success('Submit successful', {
+                position: toast.POSITION.TOP_RIGHT
 
-        });
+            });
+        }
     }
 
 
@@ -191,7 +193,7 @@ export class Level1 extends Component {
                                 />
                             </div>
                                 <div className="upgrade_Button">
-                                    <button className="upgrade-btnn" type="submit" onClick={this.onToast}>
+                                    <button className="upgrade-btnn" type="submit" onClick={this.onToast1}>
                                         Submit
                                     </button>
                                 </div>

@@ -35,7 +35,7 @@ export class Profile extends Component {
             orgState:"",
             emailState:false,
             orgDescription1:"",
-            orgDescriptionSate:false,
+            orgDescriptionState:false,
             contactNumber1:"",
             ContactNumberState:false,
             slogan1:"",
@@ -250,11 +250,13 @@ export class Profile extends Component {
 
 
 
-    onToast = () => {
-        toast.success('Submit successful',{
-            position: toast.POSITION.TOP_RIGHT
+    onToastP = () => {
+        if (this.state.orgNameState || this.state.orgDescriptionState || this.state.emailState || this.state.ContactNumberState || this.state.ContactPersonState || this.state.sloganState || this.state.addressState) {
+            toast.success('Submit successful', {
+                position: toast.POSITION.TOP_RIGHT
 
-        });
+            });
+        }
     }
 
 
@@ -398,7 +400,7 @@ export class Profile extends Component {
                             </div>
                             <div className="userUpdateRight">
 
-                                <button className="userUpdateButton"  onClick={this.onToast}>Update</button>
+                                <button className="userUpdateButton"  onClick={this.onToastP}>Update</button>
                             </div>
                         </form>
                     </div>

@@ -57,7 +57,7 @@ export class Upgrade4 extends Component {
             .catch(err => console.log(err));
     };
 
-    onToast = () => {
+    onToastFour = () => {
         toast.success('Submit successful',{
             position: toast.POSITION.TOP_RIGHT
 
@@ -122,7 +122,7 @@ export class Upgrade4 extends Component {
                                     </div>
                                 </div>
                                 <div className="upgrade_Button">
-                                    <button className="upgrade-btn" type="submit" onClick={this.onToast}>
+                                    <button className="upgrade-btn" type="submit" onClick={this.onToastFour}>
                                         Submit
                                     </button>
                                 </div>

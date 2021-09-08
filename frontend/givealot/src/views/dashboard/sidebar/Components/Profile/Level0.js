@@ -43,6 +43,7 @@ const initialState = {
     ngoNumberState:false,
     ngoDate:"",
     ngoDateState:false,
+    logoState:false,
     logo:"",
 
 };
@@ -76,9 +77,8 @@ export class Level0 extends Component {
 
     handleChange = event => {
 
+        this.setState({logoState: true})
         const formData = new FormData();
-
-
         formData.append('image', event.target.files[0]);
         formData.append('orgId', 32);
         let imageStates = 0;
@@ -136,11 +136,13 @@ export class Level0 extends Component {
 
 
     };
-    onToast1 = () => {
+    onToast0 = () => {
+        if ( this.state.logoState || this.state.ngoDateState || this.state.ngoNumberState ) {
             toast.success('Submit successful', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
+        }
     }
 
     componentDidMount() {
@@ -232,7 +234,7 @@ export class Level0 extends Component {
 
                                 </div>
                                 <div className="upgrade_Button">
-                                    <button className="upgrade-btnn" type="submit" onClick={this.onToast1}>
+                                    <button className="upgrade-btnn" type="submit" onClick={this.onToast0}>
                                         Submit
                                     </button>
                                 </div>

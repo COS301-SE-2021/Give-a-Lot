@@ -1,10 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import Navbar from "../Navbar/Navbar";
 import Button from '@material-ui/core/Button';
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
-// import TwitterIcon from '../../../../assets/icons/twitter.png';
 import InstagramIcon from '@material-ui/icons/Instagram';
 
 import view_organisation from '../../Styles/view_organisation.css';
@@ -21,8 +20,6 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import Loader from "../../../loader/Loader";
-
-
 
 /*
  * certificate component imports
@@ -46,38 +43,53 @@ const useStyles = makeStyles((theme) => ({
 
 /*timeline*/
 
-function myFunction()
+function trim_description(descr)
 {
-    var dots = document.getElementById("dots");
-    var moreText = document.getElementById("more");
-    var btnText = document.getElementById("myBtn");
+    let summary = "";
+    let complete_descr = "";
+    if(descr !== undefined) {
+        if (descr.length > 50) {
+            summary = "";
+            let i;
+            let upperbound = 200;
+            for (i = 0; i < upperbound && i < descr.length; i++) {
+                if (i + 1 === upperbound && descr[i] !== " ")
+                    upperbound++;
+                summary = summary + descr[i];
+            }
 
-    if (dots.style.display === "none")
-    {
-        dots.style.display = "inline";
-        btnText.innerHTML = "Read more";
-        moreText.style.display = "none";
-    } else {
-        dots.style.display = "none";
-        btnText.innerHTML = "Read less";
-        moreText.style.display = "inline";
+            summary = summary + "[expand to read more]";
+
+
+            for (let k = i; k < descr.length; k++) {
+                complete_descr = complete_descr + descr[k];
+            }
+
+        }
     }
+    return [summary, complete_descr];
 }
-
 function ViewOrganisation()
 {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
     const [pageLoaded, setPageLoaded] = React.useState(true);
+    const [organisationData, setOrganisationData] = React.useState([]);
+    const [selectedUserId, setSelectedUserId] = React.useState("default");
+    const [selectedOrgId, setSelectedOrgId] = React.useState(null);
+    const [updatedSelectedId, setUpdatedSelectedId] = React.useState(false);
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
     };
+
     let {id} = useParams();
+    let image_id = id + "";
+
     let images = [{
-                   original : "/images_tmp/1.jpg",
-                   thumbnail: "/images_tmp/1.jpg"
-                  },
+        original : "/images_tmp/1.jpg",
+        thumbnail: "/images_tmp/1.jpg"
+    },
         {
             original : "/images_tmp/2.jpg",
             thumbnail: "/images_tmp/2.jpg"
@@ -91,6 +103,56 @@ function ViewOrganisation()
             thumbnail: "/images_tmp/23.jpg"
         }];
 
+    useEffect(() => {
+
+            fetch("http://localhost:8080/v1/organisation/sel/organisation/" + id + "/" + selectedUserId)
+            .then(async response =>
+            {
+                const data = await response.json();
+
+                if (!response.ok) /* error handling here */
+                {
+                    if (response.status === 500) {
+                        alert("bad parameters, fatal");
+                    } else if (response.status === 401) {
+                        alert("this token is unauthorized"); /* take them back to login */
+                    }
+
+                    if (typeof data !== 'undefined') {
+                        alert(data.message);
+                    }
+                }
+
+                if (data.message === "success") /*successfully fetched*/
+                {
+                    setOrganisationData(data.response);
+                    setPageLoaded(true);
+                } else {
+                    alert("error occured: " + data.code);
+                    setOrganisationData([]);
+                }
+            })
+
+            .catch(error => {
+                alert("failed - organisations - sector")
+            });
+
+
+        }
+        ,[])
+    /* fetch request - organisations by sections - end*/
+
+    console.log(organisationData);
+
+    let description = [];
+    description[0] = "";
+    description[1] = "";
+
+    if(organisationData !== undefined)
+    {
+        description = trim_description(organisationData.orgDescription);
+    }
+
     return (
        <div>
            {pageLoaded === false && <Loader />}
@@ -100,11 +162,11 @@ function ViewOrganisation()
                <Container maxWidth={"sm"} id="view_organisation">
                    <div id="view_header">
                        <div id="view_organisations_card">
-                           <h1>QuadPara Association of South Africa (QASA)</h1>
-                           <h4>we are the beam shines nothing but hope</h4>
+                           <h1>{organisationData.orgName}</h1>
+                           <h4>{organisationData.slogan}</h4>
                        </div>
 
-                       <img src={"/Children.jpg"} id={"imageCover"}/>
+                       <img src={"http://localhost:8080/logo/version/" + id} id={"imageCover"}/>
 
                        <div id={"id_social_media"}>
                            <Button id={"instaIcon"} size={"small"} startIcon={<InstagramIcon />}>
@@ -132,29 +194,11 @@ function ViewOrganisation()
                                id="panel1bh-header"
                            >
                                {/*  <Typography className={classes.heading}>General settings</Typography> */}
-                               <Typography className={classes.secondaryHeading}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scel
-
-                                   erisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet.
-                                   Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac.
-                                   In at libero sed nunc venenatis imperdiet sed</Typography>
+                               <Typography className={classes.secondaryHeading}>{description[0]}</Typography>
                            </AccordionSummary>
                            <AccordionDetails>
                                <Typography>
-                                   ornare turpis.
-                                   Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum.
-                                   Sed dapibus pulvinar nibh tempor porta.
-                                   Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum.
-                                   Sed dapibus pulvinar nibh tempor porta.
-                                   Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum.
-                                   Sed dapibus pulvinar nibh tempor porta.
-                                   Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum.
-                                   Sed dapibus pulvinar nibh tempor porta.Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum.
-                                   Sed dapibus pulvinar nibh tempor porta.Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum.
-                                   Sed dapibus pulvinar nibh tempor porta.Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum.
-                                   Sed dapibus pulvinar nibh tempor porta.Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum.
-                                   Sed dapibus pulvinar nibh tempor porta.Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum.
-                                   Sed dapibus pulvinar nibh tempor porta.Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum.
-                                   Sed dapibus pulvinar nibh tempor porta.
+                                   {description[1]}
                                </Typography>
                            </AccordionDetails>
                        </Accordion>
@@ -181,9 +225,6 @@ function ViewOrganisation()
 
                            <Box id={"donateSection"}>
                                <img src={"/qrcode.png"} width={128} height={128}/>
-                               <Button variant={"contained"}>
-                                   donate
-                               </Button>
                            </Box>
                        </div>
 
@@ -193,8 +234,15 @@ function ViewOrganisation()
                           their organisation and the information they provided to givealot
                        </p>
 
-                       <img src={"/images_tmp/somecert.png"}  />
-                       <Button variant="contained" color="secondary">
+                       <img src={"http://localhost:8080/cert/version/png/" + id}  />
+
+
+                       <Button variant="contained" color="secondary"
+                               onClick={(e) => {
+                                   e.preventDefault();
+                                   window.open('http://localhost:8080/cert/version/pdf/' + id);
+                               }}
+                       >
                            Download
                        </Button>
                    </Box>

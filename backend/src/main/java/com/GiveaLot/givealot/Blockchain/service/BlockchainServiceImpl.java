@@ -107,6 +107,11 @@ public class BlockchainServiceImpl implements BlockchainService {
 
         String blockchainCertificateHash = retrieveCertificateHash(index, orgId);
         String uploadCertificateHash = hashCertificate(certificate);
+
+        if(blockchainCertificateHash.equals(uploadCertificateHash))
+        {
+            /*return org id*/
+        }
         return blockchainCertificateHash.equals(uploadCertificateHash);
     }
 

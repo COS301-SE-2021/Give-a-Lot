@@ -1,6 +1,8 @@
-import React, {useState} from "react"; 
+import React, {useEffect, useState} from "react";
 import logo from "../../assets/logo/logo3_1.png";
-
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 /* styles import start */
 import homeCSS_general from "./Styles/home_general.css";
 import homeCSS_tablet from "./Styles/home_tablet.css";
@@ -10,6 +12,7 @@ import homeCSS_desktop from "./Styles/home_desktop.css";
 
 import backgroundImg from '../../assets/homeBackground.jpg';
 import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 const styles = {
     main: {
         backgroundImage: `url(${backgroundImg})`
@@ -26,13 +29,61 @@ function Home()
     const [btnDisplayText, setBtnDisplayText] = useState("Login");
     const [currentUserId, setCurrentUserId] = useState("");
 
+    useEffect(() => {
+
+            if(localStorage.getItem("id") !== undefined && localStorage.getItem("role") !== undefined)
+            {
+                if(localStorage.getItem("role") === "organisation" || localStorage.getItem("role") === "admin")
+                {
+                    setBtnDisplayText("dashboard");
+                }
+                else if(localStorage.getItem("role") === "general")
+                {
+                    setBtnDisplayText("logout");
+                }
+                else
+                {
+                    setBtnDisplayText("login");
+                }
+            }
+        }
+        ,[])
+
+
+
     return (
         <div id="banner" style={styles.main}>
             <div id="banner_filter">
                 <div id="homeNav">
                     <img id="logo" src={logo} alt={"logo"}/>
-                    {btnDisplayText !== "Login" ? <Link to="/dashboard"><input className="loginDashBtn" type="button" name={currentUserId} value={btnDisplayText}/></Link> : <Link to="/login"><input className="loginDashBtn" type="button" name={currentUserId} value={btnDisplayText}/></Link> }
-                    
+                    {
+                        btnDisplayText === "dashboard" ?
+                        <Link to="/dashboard">
+                            <Button className="loginDashBtn" variant={"contained"}
+                                    startIcon={<DashboardIcon />}>
+                                {btnDisplayText}
+
+                            </Button>
+                        </Link>
+                            :
+                        btnDisplayText === "logout" ?
+                        <Link to="/login">
+                            <Button className="loginDashBtn" variant={"contained"}
+                            startIcon={<ExitToAppIcon />} onClick={() =>{
+                                localStorage.clear();
+                            }
+                            }>
+                                {btnDisplayText}
+                            </Button>
+                        </Link>
+                            :
+                        <Link to="/login">
+                        <Button className="loginDashBtn" variant={"contained"}
+                                startIcon={<AccountCircleIcon/>}>
+                            {btnDisplayText}
+                        </Button>
+                        </Link>
+                    }
                 </div>
 
                 <div id="main_content_container">
@@ -40,11 +91,14 @@ function Home()
                     <p id="supporting_head">Your hub for verified charities</p>
                     <div id="main_content_btns">
                        <Link to={"/verifyCertificate"}>
-                            <input className="main_content_btns_inputTag" type="button" name={currentUserId} value="verify certificate"/>   
-                        </Link> 
-
+                           <Button className="main_content_btns_inputTag" variant="contained" name={currentUserId} disableUnderline={true}>
+                               verify certificate
+                           </Button>
+                        </Link>
                         <Link to={"/browse"}>
-                            <input className="main_content_btns_inputTag" type="button" name={currentUserId} value="browse organisations"/>
+                            <Button className="main_content_btns_inputTag" variant="contained" name={currentUserId}>
+                                browse organisations
+                            </Button>
                         </Link>
                     </div>
 

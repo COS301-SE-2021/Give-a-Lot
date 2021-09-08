@@ -14,20 +14,20 @@ import ViewOrganisation from "./views/browse/Components/Organisation/ViewOrganis
 function App()
 {
   return(
-    // <Router>
-    //    <Switch>
-    //      <Route path="/" exact component={Home}/>
-    //      <Route path="/browse" exact component={Browse}/>
-    //      <Route path="/login" exact component={Login}/>
-    //      <Route path="/signUp" exact component={SignUp}/>
-    //      <Route path="/registerOrg" exact component={RegisterOrg}/>
-    //      <Route path="/registerUser" exact component={RegisterUser}/>
-    //      <Route path="/dashboard" exact component={Dashboard}/>
-    //      <Route path="/organisation/:id" exact component={ViewOrganisation} />
-    //      <Route path="/verifyCertificate" exact component={VerifyCertificate} />
-    //    </Switch>
-    //  </Router>
-      <Dashboard />
+     <Router>
+       <Switch>
+         <Route path="/" exact component={Home}/>
+         <Route path="/browse" exact component={Browse}/>
+         <Route path="/login" exact component={Login}/>
+         <Route path="/signUp" exact component={SignUp}/>
+         <Route path="/registerOrg" exact component={RegisterOrg}/>
+         <Route path="/registerUser" exact component={RegisterUser}/>
+         <Route path="/dashboard/" exact component={Dashboard}/>
+         <Route path="/organisation/:id" exact component={ViewOrganisation} />
+         <Route path="/verifyCertificate" exact component={VerifyCertificate} />
+       </Switch>
+     </Router>
+
   );
 }
 

@@ -74,8 +74,6 @@ export class Upgrade0 extends Component {
     handleChange = event => {
 
         const formData = new FormData();
-
-
         formData.append('image', event.target.files[0]);
         formData.append('orgId', 32);
         let imageStates = 0;
@@ -94,7 +92,6 @@ export class Upgrade0 extends Component {
             .then((result) => {
                 console.log('Success:', result);
                 imageStates = 1;
-
             })
             .catch((error) => {
                 console.error('Error:', error);

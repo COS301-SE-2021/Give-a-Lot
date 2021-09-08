@@ -42,4 +42,7 @@ public interface calenderRepository extends JpaRepository<Calender,Long>
 
     @Query("SELECT c FROM Calender AS c where c.userEmail = ?1")
     List<Calender> getCalenderEvents(String userEmail);
+
+    @Query("SELECT c FROM Calender AS c where c.userEmail = ?1 AND c.startTime = ?2 AND c.endTime = ?3 AND c.startDate = ?4 AND c.endDate = ?5")
+    Calender checkDuplicate(String userEmail,String startTime, String endTime, String startDate, String endDate);
 }

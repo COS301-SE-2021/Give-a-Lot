@@ -309,7 +309,7 @@ public class OrganisationServiceImp implements OrganisationService {
         certificateService.addCertificate(id,certificate);
 
         /**Sending a verification email**/
-        /*System.out.println("Sending Email...");
+        System.out.println("Sending Email...");
 
         Mail mail = new Mail(organisation.getOrgEmail(),"Givealot SignUp Verification","Congratulations your organisation has successfully signed up to the Givealot platform" +
                 "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations" +
@@ -319,7 +319,7 @@ public class OrganisationServiceImp implements OrganisationService {
                 "Givealot Team");
 
         sendMailService.sendMail(mail);
-        System.out.println("Email sent successfully");*/
+        System.out.println("Email sent successfully");
         System.out.println(organisation.getOrgName().replaceAll("\\s+", "") + "Certificate.pdf");
         if (new File(organisation.getOrgName().replaceAll("\\s+", "") + "Certificate.pdf").delete()){
             System.out.println("#######################################################################################");

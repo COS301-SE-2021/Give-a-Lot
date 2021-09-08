@@ -50,7 +50,7 @@ export default class Demo extends React.PureComponent {
             data: [],
             currentDate: new Date().toDateString(),
             email: 'coolmail@gmail.com',
-
+            eventAdded: false,
             addedAppointment: {},
             appointmentChanges: {},
             editingAppointment: undefined,
@@ -80,8 +80,6 @@ export default class Demo extends React.PureComponent {
             let { data } = state;
             console.log(added)
             if (added) {
-
-
                 const startingAddedId = data.length > 0 ? data[data.length - 1].id + 1 : 0;
                 data = [...data, { id: startingAddedId, ...added }];
                 let startTime = data[data.length-1].startDate.toString().split(" ")[4];
@@ -116,13 +114,13 @@ export default class Demo extends React.PureComponent {
                     }
                 }
 
-                console.log(added)
+
                 axios.post('http://localhost:8080/event/calender/add', eventDayAndTime ,config)
                     .then(response =>{
 
                         //console.log("*************************")
                         // this.setState({ openSector: true });
-                        added = false;
+
 
                     })
                     .catch(error =>{

@@ -1,3 +1,84 @@
+POST http://localhost:8080/v1/user/register/user
+Content-Type: application/json
+
+{
+  "firstName" : "nqobani",
+  "lastName" : "nhlengethwa",
+  "email" : "xplodiator@gmail.com",
+  "password" : "Grandtheft@uto5"
+}
+
+<> 2021-09-08T165657.200.json
+
+###
+
+GET http://localhost:8080/certificate/download
+Content-Type: application/json
+
+{
+  "firstName" : "nqobani",
+  "lastName" : "nhlengethwa",
+  "email" : "xplodiator@gmail.com",
+  "password" : "Grandtheft@uto5"
+}
+
+<> 2021-09-08T165618.500.json
+
+###
+
+GET http://localhost:8080/certificate/download
+Content-Type: application/json
+
+{
+  "firstName" : "nqobani",
+  "lastName" : "nhlengethwa",
+  "email" : "xplodiator@gmail.com",
+  "password" : "Grandtheft@uto5"
+}
+
+<> 2021-09-08T165607.500.json
+
+###
+
+POST http://localhost:8080/v1/login/user/determine
+Content-Type: application/json
+
+{
+  "username" : "rdance@clank.naughtydog.com",
+  "password" : "revised title 2",
+  "role" : ""
+}
+
+<> 2021-09-08T164933.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/determine
+Content-Type: application/json
+
+{
+  "username" : "rdance@clank.naughtydog.com",
+  "password" : "revised title 2",
+  "role" : ""
+}
+
+<> 2021-09-08T111842.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/determine
+Content-Type: application/json
+
+{
+  "username" : "email",
+  "password" : "",
+  "role" : ""
+}
+
+<> 2021-09-08T111719.200.json
+
+###
+
 POST http://localhost:8080/event/calender/add
 Content-Type: application/json
 
@@ -607,108 +688,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-05T214957.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 9
-}
-
-<> 2021-09-05T214809.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 9
-}
-
-<> 2021-09-05T214627.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 9
-}
-
-<> 2021-09-05T214620.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 16
-}
-
-<> 2021-09-05T214605.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 12
-}
-
-<> 2021-09-05T214539.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 16
-}
-
-<> 2021-09-05T214519.400.json
 
 ###
 

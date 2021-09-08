@@ -225,9 +225,6 @@ function ViewOrganisation()
 
                            <Box id={"donateSection"}>
                                <img src={"/qrcode.png"} width={128} height={128}/>
-                               <Button variant={"contained"}>
-                                   donate
-                               </Button>
                            </Box>
                        </div>
 

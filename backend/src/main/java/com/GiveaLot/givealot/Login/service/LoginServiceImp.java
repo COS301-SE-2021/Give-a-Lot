@@ -57,7 +57,6 @@ public class LoginServiceImp implements LoginService{
            return this.loginAdminUser(request);
         }
         else return this.loginGeneralUser(request);
-
     }
 
     @Override /*tested - works perfect*/

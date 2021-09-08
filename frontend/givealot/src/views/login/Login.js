@@ -67,7 +67,7 @@ class Login extends Component {
             const data = {
                 "username" : this.state.email,
                 "password" : this.state.password,
-                "role" : "default"
+                "role" : ""
             }
             localStorage.clear();
             axios.post('http://localhost:8080/v1/login/user/determine', data )
@@ -81,14 +81,15 @@ class Login extends Component {
                     localStorage.setItem( "id" ,response.data.id);
                     localStorage.setItem( "role" ,response.data.jwttoken)
 
-                    if (response.data.jwttoken === "general") {
+                    if (response.data.jwttoken === "general")
+                    {
                         this.props.history.push("/");
-                    }else if (response.data.jwttoken === "admin"){
-                        console.log("here is admin")
-                        this.props.history.push("/admin");
+                    }else if (response.data.jwttoken === "admin")
+                    {
+                        this.props.history.push("/dashboard/");
                     }
                     else if (response.data.jwttoken === "organisation"){
-                        this.props.history.push("/organisation");
+                        this.props.history.push("/dashboard/");
                     }
                     else{
                         this.props.history.push("/browse");

@@ -19,9 +19,12 @@
 
 }
 
-form {
+form1 {
     display: block;
     margin-top: 0em;
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-items: center;*/
 }
 .headerTag{
     display: block;

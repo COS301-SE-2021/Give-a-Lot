@@ -51,10 +51,18 @@ export class RegisterOrganisation extends Component {
             isError = true;
             errors.orgEmailError = 'Please enter a valid email address';
         }
-
-        if(this.state.password.length < 4){
+        if (!this.state.orgEmail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
             isError = true;
-            errors.passwordError = 'Password must be at least 4 characters long';
+            errors.orgEmailError = "Please enter email address";
+        }
+
+        if(this.state.password.length < 8){
+            isError = true;
+            errors.passwordError = 'Password must be at least 8 characters long';
+        }
+        if(this.state.password.length > 15) {
+            isError = true;
+            errors.passwordError = 'Password must not exceed 15 characters';
         }
 
             // if(this.state.password !== this.state.confirm){
@@ -81,6 +89,10 @@ export class RegisterOrganisation extends Component {
                 isError = true;
                 errors.orgDescriptionError = 'Description cannot be blank';
             }
+            if(this.state.orgDescription.length > 200){
+                isError = true;
+                errors.orgDescriptionError = 'Description too big';
+            }
         }
 
         if(this.state.step > 2){
@@ -101,10 +113,15 @@ export class RegisterOrganisation extends Component {
             }
         }
 
+
         // if(this.state.step > 4){
-        //     if(this.state.image){
+        //     // if(this.state.image){
+        //     //     isError = true;
+        //     //     errors.imageError = 'Input an image';
+        //     // }
+        //     if (this.state.image !== "jpeg" && this.state.image !== "jpg" && this.state.image !== "png" && this.state.image !== "bmp" && this.state.image !== "gif") {
         //         isError = true;
-        //         errors.imageError = 'Input an image';
+        //             errors.imageError = 'Input an image';
         //     }
         // }
 

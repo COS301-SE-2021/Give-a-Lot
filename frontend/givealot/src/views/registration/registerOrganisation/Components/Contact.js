@@ -34,7 +34,7 @@ export class RegisterOrganisation extends Component {
                 <Logo/>
                 <div className="registerCard">
                     <div className="wrap">
-                        <form className="form">
+                        <form className="form1">
                        <span className="headerTag">
                            Register Organisation | Contact
                        </span>

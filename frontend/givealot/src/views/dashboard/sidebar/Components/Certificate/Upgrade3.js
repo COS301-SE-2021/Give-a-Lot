@@ -43,40 +43,42 @@ const styles = theme => ({
 
 });
 
+const initialState = {
+    orgId:"32",
+    url:"",
+    urlError:"",
+    type:"",
+    typeError:"",
+    url1:"",
+    url1Error:"",
+    type1:"",
+    type1Error:"",
+    ChairpersonName:"",
+    ChairpersonNameError:"",
+    ChairpersonContacts:"",
+    ChairpersonContactsError:"",
+    managerName:"",
+    managerNameError:"",
+    managerContacts:"",
+    managerContactsError:"",
+    treasurerName:"",
+    treasurerNameError:"",
+    treasurerContacts:"",
+    treasurerContactsError:"",
+    secretaryName:"",
+    secretaryNameError:"",
+    secretaryContacts:"",
+    secretaryContactsError:"",
+    committee:""
+
+};
 
 export class Upgrade3 extends Component {
 
+    state = initialState;
     constructor (props) {
         super(props)
-        this.state={
-            orgId:"32",
-            url:"",
-            urlError:"",
-            type:"",
-            typeError:"",
-            url1:"",
-            url1Error:"",
-            type1:"",
-            type1Error:"",
-            ChairpersonName:"",
-            ChairpersonNameError:"",
-            ChairpersonContacts:"",
-            ChairpersonContactsError:"",
-            managerName:"",
-            managerNameError:"",
-            managerContacts:"",
-            managerContactsError:"",
-            treasurerName:"",
-            treasurerNameError:"",
-            treasurerContacts:"",
-            treasurerContactsError:"",
-            secretaryName:"",
-            secretaryNameError:"",
-            secretaryContacts:"",
-            secretaryContactsError:"",
-            committee:""
 
-        };
     }
 
     handleSocialChange = e => {
@@ -212,7 +214,12 @@ export class Upgrade3 extends Component {
                 .post("http://localhost:8080/v1/organisation/add/socials", social1)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
+
+            // clear form
+            this.setState(initialState);
         }
+
+
 
 
     };
@@ -226,6 +233,7 @@ export class Upgrade3 extends Component {
 
             });
         }
+
     }
 
 
@@ -269,7 +277,6 @@ export class Upgrade3 extends Component {
                                                 style={{ margin: 8 }}
                                                 placeholder="Enter full name..."
 
-                                                fullWidth
                                                 margin="normal"
                                                 InputLabelProps={{
                                                     shrink: true,
@@ -308,7 +315,6 @@ export class Upgrade3 extends Component {
                                                 style={{ margin: 8 }}
                                                 placeholder="Enter full name..."
 
-                                                fullWidth
                                                 margin="normal"
                                                 InputLabelProps={{
                                                     shrink: true,
@@ -347,7 +353,6 @@ export class Upgrade3 extends Component {
                                                 style={{ margin: 8 }}
                                                 placeholder="Enter full name..."
 
-                                                fullWidth
                                                 margin="normal"
                                                 InputLabelProps={{
                                                     shrink: true,
@@ -386,7 +391,6 @@ export class Upgrade3 extends Component {
                                                 style={{ margin: 8 }}
                                                 placeholder="Enter full name..."
 
-                                                fullWidth
                                                 margin="normal"
                                                 InputLabelProps={{
                                                     shrink: true,

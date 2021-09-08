@@ -15,6 +15,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import TextField from "@material-ui/core/TextField";
 import Axios from "axios";
+import axios from "axios";
 
 
 const styles = theme => ({
@@ -49,6 +50,8 @@ export class Level3 extends Component {
     constructor (props) {
         super(props)
         this.state={
+            level3:[],
+            adminId:14,
             orgId:"32",
             url:"",
             type:"",
@@ -151,8 +154,38 @@ export class Level3 extends Component {
     }
 
 
+    componentDidMount() {
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        const admin = {
+            "adminId" : this.state.adminId
+        }
+
+        const org = {
+            orgId :32
+        }
+        axios.post('http://localhost:8080/v1/organisation/get/organisations',admin , config)
+            .then(response =>{
+                console.log(response)
+                this.setState({level3: response.data.response[0]})
+                console.log(this.state.level3)
+
+            })
+            .catch(error =>{
+                this.setState({error : 'Error Retrieving data'})
+            })
+
+
+    }
+
+
     render(){
         const { classes } = this.props;
+        const { level3 } = this.state;
 
 
 
@@ -352,7 +385,7 @@ export class Level3 extends Component {
                                                 label="Chairperson"
                                                 name="ChairpersonName"
                                                 style={{ margin: 8 }}
-                                                placeholder="Enter full name..."
+                                                placeholder={level3.contactPerson}
 
                                                 fullWidth
                                                 margin="normal"
@@ -367,7 +400,7 @@ export class Level3 extends Component {
                                                 label="Chairperson"
                                                 name="ChairpersonContacts"
                                                 style={{ margin: 8 }}
-                                                placeholder="Enter contacts..."
+                                                placeholder={level3.contactNumber}
 
                                                 fullWidth
                                                 margin="normal"
@@ -385,7 +418,7 @@ export class Level3 extends Component {
                                                 label="manager"
                                                 name="managerName"
                                                 style={{ margin: 8 }}
-                                                placeholder="Enter full name..."
+                                                placeholder={level3.contactPerson}
 
                                                 fullWidth
                                                 margin="normal"
@@ -400,7 +433,7 @@ export class Level3 extends Component {
                                                 label="manager"
                                                 name="managerContacts"
                                                 style={{ margin: 8 }}
-                                                placeholder="Enter contacts..."
+                                                placeholder={level3.contactNumber}
 
                                                 fullWidth
                                                 margin="normal"
@@ -418,7 +451,7 @@ export class Level3 extends Component {
                                                 label="treasurer"
                                                 name="treasurerName"
                                                 style={{ margin: 8 }}
-                                                placeholder="Enter full name..."
+                                                placeholder={level3.contactPerson}
 
                                                 fullWidth
                                                 margin="normal"
@@ -433,7 +466,7 @@ export class Level3 extends Component {
                                                 label="treasurer"
                                                 name="treasurerContacts"
                                                 style={{ margin: 8 }}
-                                                placeholder="Enter contacts..."
+                                                placeholder={level3.contactNumber}
 
                                                 fullWidth
                                                 margin="normal"
@@ -452,7 +485,7 @@ export class Level3 extends Component {
                                                 label="secretary"
                                                 name="secretaryName"
                                                 style={{ margin: 8 }}
-                                                placeholder="Enter full name..."
+                                                placeholder={level3.contactPerson}
 
                                                 fullWidth
                                                 margin="normal"
@@ -467,7 +500,7 @@ export class Level3 extends Component {
                                                 label="secretary"
                                                 name="secretaryContacts"
                                                 style={{ margin: 8 }}
-                                                placeholder="Enter contacts..."
+                                                placeholder={level3.contactNumber}
 
                                                 fullWidth
                                                 margin="normal"

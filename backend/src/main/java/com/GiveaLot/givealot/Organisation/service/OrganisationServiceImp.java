@@ -84,6 +84,7 @@ public class OrganisationServiceImp implements OrganisationService {
     @Autowired
     private BrowseRecommenderRepository browseRecommenderRepository;
 
+
     @Autowired
     public void setOrganisationServiceImp(OrganisationRepository organisationRepository, OrganisationInfoRepository organisationInfoRepository, organisationPointsRepository organisationPointsRepository, CertificateRepository certificateRepository, UserRepository userRepository){
         this.organisationRepository = organisationRepository;
@@ -1663,6 +1664,8 @@ public class OrganisationServiceImp implements OrganisationService {
         throw new Exception("the type is incorrect");
     }
 
+
+
     /*helper*/
     public String getMd5(String input) {
         try {
@@ -1682,5 +1685,16 @@ public class OrganisationServiceImp implements OrganisationService {
         }
 
     }
+    @Override
+    public void clearTabels()
+    {
+        organisationInfoRepository.deleteAllInBatch();
+        organisationRepository.deleteAllInBatch();
+        notificationRepository.deleteAllInBatch();
+        organisationPointsRepository.deleteAllInBatch();
+
+    }
+
+
 
 }

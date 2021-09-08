@@ -171,13 +171,9 @@ render()
                                 <Link className="BottomLinker">
                                     <span> Forgot password?</span>
                                 </Link>
-
                             </div>
-
                         </form>
-
                     </div>
-
                 </div>
             </div>
             </div>

@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="fixed login fully">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/User/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/User/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/home/Styles/home_desktop.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/home/Styles/home_desktop.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/login/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/login/Styles/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/login/Styles/Login.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,14 +146,7 @@
       <workItem from="1630919356775" duration="3261000" />
       <workItem from="1630930175798" duration="14979000" />
       <workItem from="1631107390225" duration="6226000" />
-      <workItem from="1631127987175" duration="1877000" />
-    </task>
-    <task id="LOCAL-00041" summary="Fixing organisation points">
-      <created>1629327702103</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1629327702103</updated>
+      <workItem from="1631127987175" duration="5869000" />
     </task>
     <task id="LOCAL-00042" summary="organisations controller revision">
       <created>1629330985000</created>
@@ -493,7 +484,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631113520389</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="fixed login fully">
+      <created>1631130728587</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1631130728588</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import { Link } from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import "../login/Styles/Login.css";
+
 import backgroundImg from "../../assets/homeBackground.jpg";
 import Logo from "../login/Components/Logo";
 import axios from "axios"
+import "../login/Styles/Login.css";
 
 
 const styles = {
@@ -109,6 +110,7 @@ render()
     return (
         <div>
             <div className="Login" style={styles.main}>
+            <div  id={"banner_filter"}>
                 <Logo/>
                 <Link to={"/"}>
                     <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
@@ -156,14 +158,9 @@ render()
 
                             <div className="wrapper-btn">
 
-                                <button className="Login-btn" type="submit">
+                                <button className="Login-btn" id={"loginBTN_less_rounded"} type="submit">
                                     Login
                                 </button>
-                                {/*} <Link to={"/"} className="linker">
-                                    <button className="Login-btn">
-                                        Login
-                                    </button>
-                                </Link>*/}
                             </div>
 
                             <div className="BottomForm">
@@ -182,6 +179,7 @@ render()
                     </div>
 
                 </div>
+            </div>
             </div>
         </div>
     );

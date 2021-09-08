@@ -1,5 +1,4 @@
-/* For Desktop View */
-@media screen and (min-width: 1024px) {
+
   #homeNav {
     display: flex;
     justify-content: space-between;
@@ -71,7 +70,7 @@
   height: 45px;
 
   }
-}
+
 
 /* For Desktop View - 1440p */
 /*@media screen and (min-width: 1440px) {

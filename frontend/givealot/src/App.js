@@ -27,7 +27,6 @@ function App()
          <Route path="/verifyCertificate" exact component={VerifyCertificate} />
        </Switch>
      </Router>
-
   );
 }
 

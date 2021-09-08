@@ -12,6 +12,7 @@ import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import com.GiveaLot.givealot.User.dataclass.User;
 import com.GiveaLot.givealot.User.requests.GetUsersRequest;
 import com.GiveaLot.givealot.User.response.UserResponse;
+import com.GiveaLot.givealot.User.response.userResponseGeneral;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -120,7 +121,50 @@ public class OrganisationController
         }
         catch (Exception e)
         {
-            return new ResponseEntity<>(new generalOrganisationResponse("org_add_err_501","failed: " + e), HttpStatus.OK);
+
+            if(e.toString().equalsIgnoreCase("java.lang.Exception: Email already exists"))
+                return new ResponseEntity<>(new generalOrganisationResponse("add_usr_bad_500","Email already exists"), HttpStatus.BAD_REQUEST);
+
+            else if(e.toString().equalsIgnoreCase("java.lang.Exception: Exception: orgName does not satisfy the database constraints"))
+                return new ResponseEntity<>(new generalOrganisationResponse("add_usr_bad_500","orgName does not satisfy the database constraints"), HttpStatus.BAD_REQUEST);
+
+
+            else if(e.toString().equalsIgnoreCase("java.lang.Exception: Exception: orgDescription does not satisfy the database constraints"))
+                return new ResponseEntity<>(new generalOrganisationResponse("add_usr_bad_500","orgDescription does not satisfy the database constraints"), HttpStatus.BAD_REQUEST);
+
+
+            else if(e.toString().equalsIgnoreCase("java.lang.Exception: Exception: password does not satisfy the database constraints"))
+                return new ResponseEntity<>(new generalOrganisationResponse("add_usr_bad_500","password does not satisfy the database constraints"), HttpStatus.BAD_REQUEST);
+
+
+            else if(e.toString().equalsIgnoreCase("java.lang.Exception: Exception: orgSector does not satisfy the database constraints"))
+                return new ResponseEntity<>(new generalOrganisationResponse("add_usr_bad_500","orgSector does not satisfy the database constraints"), HttpStatus.BAD_REQUEST);
+
+
+            else if(e.toString().equalsIgnoreCase("java.lang.Exception: Exception: status does not satisfy the database constraints"))
+                return new ResponseEntity<>(new generalOrganisationResponse("add_usr_bad_500","status does not satisfy the database constraints"), HttpStatus.BAD_REQUEST);
+
+
+            else if(e.toString().equalsIgnoreCase("java.lang.Exception: Exception: orgEmail does not satisfy the database constraints"))
+                return new ResponseEntity<>(new generalOrganisationResponse("add_usr_bad_500","orgEmail does not satisfy the database constraints"), HttpStatus.BAD_REQUEST);
+
+
+            else if(e.toString().equalsIgnoreCase("java.lang.Exception: Exception: directory does not satisfy the database constraints"))
+                return new ResponseEntity<>(new generalOrganisationResponse("add_usr_bad_500","directory does not satisfy the database constraints"), HttpStatus.BAD_REQUEST);
+
+
+            else if(e.toString().equalsIgnoreCase("java.lang.Exception: Exception: contactNumber does not satisfy the database constraints"))
+                return new ResponseEntity<>(new generalOrganisationResponse("add_usr_bad_500","contactNumber does not satisfy the database constraints"), HttpStatus.BAD_REQUEST);
+
+
+            else if(e.toString().equalsIgnoreCase("java.lang.Exception: Exception: contactPerson does not satisfy the database constraints"))
+                return new ResponseEntity<>(new generalOrganisationResponse("add_usr_bad_500","contactPerson does not satisfy the database constraints"), HttpStatus.BAD_REQUEST);
+
+
+            else if(e.toString().equalsIgnoreCase("java.lang.Exception: Exception: orgSlogan does not satisfy the database constraints"))
+                return new ResponseEntity<>(new generalOrganisationResponse("add_usr_bad_500","orgSlogan does not satisfy the database constraints"), HttpStatus.BAD_REQUEST);
+
+            return new ResponseEntity<>(new generalOrganisationResponse("org_add_err_501","failed: " + e), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

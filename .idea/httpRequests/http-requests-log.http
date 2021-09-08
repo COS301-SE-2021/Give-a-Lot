@@ -1,3 +1,76 @@
+POST http://localhost:8080/v1/user/register/user
+Content-Type: application/json
+
+{
+  "firstName":"Steven",
+  "lastName":"Jobs",
+  "email":"apple1@icloud.com",
+  "password":"weLive@jobs"
+
+}
+
+<> 2021-09-09T001705.400.json
+
+###
+
+POST http://localhost:8080/v1/user/register/user
+Content-Type: application/json
+
+{
+  "firstName":"Steven",
+  "lastName":"Jobs",
+  "email":"apple1@icloud.com",
+  "password":"weLive@jobs"
+
+}
+
+<> 2021-09-09T001407.500.json
+
+###
+
+POST http://localhost:8080/v1/user/register/user
+Content-Type: application/json
+
+{
+  "firstName":"Steven",
+  "lastName":"Jobs",
+  "email":"apple1@icloud.com",
+  "password":"weLive@jobs"
+
+}
+
+<> 2021-09-09T001140.500.json
+
+###
+
+POST http://localhost:8080/v1/user/register/user
+Content-Type: application/json
+
+{
+  "firstName":"Steven",
+  "lastName":"Jobs",
+  "email":"apple1@icloud.com",
+  "password":"weLive@jobs"
+
+}
+
+<> 2021-09-09T001134.200.json
+
+###
+
+POST http://localhost:8080/v1/user/register/user
+Content-Type: application/json
+
+{
+  "firstName":"Steven",
+  "lastName":"Jobs",
+  "email":"apple1@icloud.com",
+  "password":"weLive@jobs"
+
+}
+
+###
+
 POST http://localhost:8080/v1/organisation/add/org
 Content-Type: application/json
 
@@ -670,70 +743,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-05T151412.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/update/info/organisation
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "type": "address",
-  "newValue": "Pistol 221 drv"
-
-}
-
-<> 2021-09-05T145224.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/update/info/organisation
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "type": "orgName",
-  "newValue": "Pistol 2"
-
-}
-
-<> 2021-09-05T144324.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/get/level_information
-Content-Type: application/json
-
-{
-  "orgId": 32
-
-}
-
-<> 2021-09-05T143114.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/get/level_information
-Content-Type: application/json
-
-{
-  "orgId": 32
-
-}
-
-<> 2021-09-05T050941.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/committee
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "committee": "Peter David,091839192,Kevin Smith,128293,Martin Lawrence,1123313331"
-}
-
-<> 2021-09-05T043012.200.json
 
 ###
 

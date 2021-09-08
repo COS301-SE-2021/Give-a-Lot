@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Org Name update fix">
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Added HTTPStatus.UNAUTHORIZED instead of OK">
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-09-09T001705.400.json" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/2021-09-09T001705.400.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/User/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/User/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,9 +99,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
-    <configuration name="generated-requests#44" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="44" runType="Run single request">
-      <method v="2" />
-    </configuration>
     <configuration name="generated-requests#46" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="46" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -111,6 +111,9 @@
     <configuration name="generated-requests#50" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="50" runType="Run single request">
       <method v="2" />
     </configuration>
+    <configuration name="generated-requests#52" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="52" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="GivealotApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="givealot" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.GiveaLot.givealot.GivealotApplication" />
@@ -120,11 +123,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests#52" />
         <item itemvalue="HTTP Request.generated-requests#50" />
         <item itemvalue="HTTP Request.generated-requests#48" />
         <item itemvalue="HTTP Request.generated-requests#47" />
         <item itemvalue="HTTP Request.generated-requests#46" />
-        <item itemvalue="HTTP Request.generated-requests#44" />
       </list>
     </recent_temporary>
   </component>
@@ -144,14 +147,8 @@
       <workItem from="1630958684891" duration="575000" />
       <workItem from="1631019484675" duration="917000" />
       <workItem from="1631042260596" duration="333000" />
-      <workItem from="1631133557866" duration="272000" />
-    </task>
-    <task id="LOCAL-00026" summary="organisations controller revision - add socials">
-      <created>1629267828348</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1629267828348</updated>
+      <workItem from="1631133557866" duration="750000" />
+      <workItem from="1631137762251" duration="2127000" />
     </task>
     <task id="LOCAL-00027" summary="organisations controller revision - remove socials">
       <created>1629267850946</created>
@@ -489,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631020351729</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="Added HTTPStatus.UNAUTHORIZED instead of OK">
+      <created>1631133925823</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1631133925824</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,7 +531,8 @@
     <MESSAGE value="Added additional verify implementation" />
     <MESSAGE value="Last minute changes" />
     <MESSAGE value="Org Name update fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Org Name update fix" />
+    <MESSAGE value="Added HTTPStatus.UNAUTHORIZED instead of OK" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added HTTPStatus.UNAUTHORIZED instead of OK" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

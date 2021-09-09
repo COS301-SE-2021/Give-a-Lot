@@ -24,7 +24,7 @@ export class RegisterOrganisation extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        axios.get('http://localhost:8080/v1/organisation/get/sectors',  config)
+        axios.get('http://localhost:8080/v1/organisation/get/sectors', config)
             .then(response =>{
                 console.log(response)
                 this.setState({selectOptions: response.data.sectors})
@@ -61,12 +61,13 @@ export class RegisterOrganisation extends Component {
         const { values, handleChange, nextStep } = this.props;
         return (
             <div className="registerOrganisation" style={this.styles.main}>
+                <div  id={"banner_filter"}>
                 <Logo/>
                 <div className="registerCard">
                     <div className="wrap">
-                        <form className="form">
+                        <form className="form1">
                        <span className="headerTag">
-                           Register Organisation | About
+                           About the organisation
                        </span>
                             <div className="input alert-validate" data-validate="Username is required">
                                 <span className="inputLabel">
@@ -82,7 +83,6 @@ export class RegisterOrganisation extends Component {
                                     />
                                     <span style={{float: "right", color: "red"}}><small>{this.props.sloganError}</small></span>
                                 </div>
-
                             </div>
 
                             <div className="input alert-validate" data-validate="Username is required">
@@ -112,13 +112,13 @@ export class RegisterOrganisation extends Component {
                             </div>
                             <div className="button">
                                 <div className="formButton ">
-                                    <button className="register-btn"
+                                    <button className="about-org-btn"
                                             onClick={this.back}
                                     >
                                         {" "}
                                         back
                                     </button>
-                                    <button className="register-btn"
+                                    <button className="about-org-btn"
                                             onClick={this.proceed}
                                     >
                                         {" "}
@@ -131,6 +131,7 @@ export class RegisterOrganisation extends Component {
 
                     </div>
 
+                </div>
                 </div>
             </div>
         )

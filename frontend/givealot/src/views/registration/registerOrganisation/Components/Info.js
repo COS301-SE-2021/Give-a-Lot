@@ -24,83 +24,83 @@ export class RegisterOrganisation extends Component {
         };
     }
 
-
     render() {
         const { values, handleChange, nextStep } = this.props;
         return (
             <div className="registerOrganisation" style={this.styles.main}>
-                <Logo/>
-                <Link to={"/signUp"}>
-                    <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
-                </Link>
-                <div className="registerCard">
-                    <div className="wrap">
-                        <form className="form">
-                       <span className="headerTag">
-                           Register Organisation
-                       </span>
-                            <div className="input alert-validate" >
-                                <span className="inputLabel">
-                                    Organisation Name
-                                </span>
-                                <div style={{display: "flex"}}>
-                                    {/*<IoPersonOutline className="registerIcon"/>*/}
-                                    <input className="input100 validateInput"
-                                           type="text" name="orgName"
-                                           placeholder="Enter Organisation Name"
-                                           required
-                                           value={values.orgName}
-                                           onChange={handleChange('orgName')}
-                                    />
-                                    <span style={{float: "right", color: "red"}}><small>{this.props.orgNameError}</small></span>
-                                </div>
-
-                            </div>
-
-                            <div className="input alert-validate">
-                                <span className="inputLabel">
-                                    Email
-                                </span>
-                                <input className="input100 validateInput"
-                                       type="text" name="orgEmail"
-                                       placeholder="Enter Organisation Email"
-                                       required
-                                       value={values.orgEmail}
-                                       onChange={handleChange('orgEmail')}
-                                />
-                                <span style={{float: "right", color: "red"}}><small>{this.props.orgEmailError}</small></span>
-                            </div>
-                            <div className="input alert-validate">
-                                <span className="inputLabel">
-                                    Password
-                                </span>
-                                <input className="input100 validateInput"
-                                       required
-                                       type="password" name="password"
-                                       placeholder="Enter Organisation Password"
-                                       value={values.password}
-                                       onChange={handleChange('password')}
-                                />
-                                <span style={{float: "right", color: "red"}}><small>{this.props.passwordError}</small></span>
-                            </div>
-                            <div className="button">
-                                    <div className="formButton ">
-                                        <button className="register-btn"
-                                                onClick={this.proceed}
-                                        >
-                                            {" "}
-                                            next
-                                        </button>
+                <div  id={"banner_filter"}>
+                    <Logo/>
+                    <Link to={"/signUp"}>
+                        <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
+                    </Link>
+                    <div className="registerCard">
+                        <div className="wrap">
+                            <form className="form1">
+                           <span className="headerTag">
+                               credentials
+                           </span>
+                                <div className="input alert-validate" >
+                                    <span className="inputLabel">
+                                        Organisation Name
+                                    </span>
+                                    <div style={{display: "flex"}}>
+                                        {/*<IoPersonOutline className="registerIcon"/>*/}
+                                        <input className="input100 validateInput"
+                                               type="text" name="orgName"
+                                               placeholder="Enter Organisation Name"
+                                               required
+                                               value={values.orgName}
+                                               onChange={handleChange('orgName')}
+                                        />
+                                        <span style={{float: "right", color: "red"}}><small>{this.props.orgNameError}</small></span>
                                     </div>
 
-                            </div>
-                        </form>
-                        <Link to={"/login"}
-                              className="BottomReg">
-                            <div style={{padding: "10px 0 0 20px"}}> I'm already a member! Sign In</div>
-                        </Link>
-                    </div>
+                                </div>
 
+                                <div className="input alert-validate">
+                                    <span className="inputLabel">
+                                        Email
+                                    </span>
+                                    <input className="input100 validateInput"
+                                           type="text" name="orgEmail"
+                                           placeholder="Enter Organisation Email"
+                                           required
+                                           value={values.orgEmail}
+                                           onChange={handleChange('orgEmail')}
+                                    />
+                                    <span style={{float: "right", color: "red"}}><small>{this.props.orgEmailError}</small></span>
+                                </div>
+                                <div className="input alert-validate">
+                                    <span className="inputLabel">
+                                        Password
+                                    </span>
+                                    <input className="input100 validateInput"
+                                           required
+                                           type="password" name="password"
+                                           placeholder="Enter Organisation Password"
+                                           value={values.password}
+                                           onChange={handleChange('password')}
+                                    />
+                                    <span style={{float: "right", color: "red"}}><small>{this.props.passwordError}</small></span>
+                                </div>
+                                <div className="button">
+                                        <div className="formButton ">
+                                            <button className="register-btn"
+                                                    onClick={this.proceed}
+                                            >
+                                                {" "}
+                                                next
+                                            </button>
+                                        </div>
+                                </div>
+                            </form>
+                            <Link to={"/login"}
+                                  className="BottomReg">
+                                <div style={{padding: "10px 0 0 20px"}}> I'm already a member! Sign In</div>
+                            </Link>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         )

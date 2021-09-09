@@ -26,48 +26,47 @@ export class RegisterOrganisation extends Component {
         };
     }
 
-
     render() {
         const { values, handleChange, nextStep } = this.props;
         return (
             <div className="registerOrganisation" style={this.styles.main}>
-                <Logo/>
-                <div className="registerCard">
-                    <div className="wrap">
-                        <form className="form">
-                       <span className="headerTag">
-                           Register Organisation | Media
-                       </span>
-                            <div className="input alert-validate" data-validate="Username is required">
-                                <span className="inputLabel">
-                                    Media
-                                </span>
-                                <div style={{display: "flex"}}>
-                                    <input type="file" id="img" name="img" accept="image/*"/>
+                <div id={"banner_filter"}>
+                    <Logo/>
+                    <div className="registerCard">
+                        <div className="wrap">
+                            <form className="form1">
+                           <span className="headerTag">
+                               Please provide a profile photo
+                           </span>
+                                <div className="input alert-validate" data-validate="Username is required">
+                                    <span className="inputLabel">
+                                        Media
+                                    </span>
+                                    <div style={{display: "flex"}}>
+                                        <input type="file" id="img" name="img" accept="image/*"/>
+                                    </div>
                                 </div>
 
-                            </div>
-
-                            <div className="button">
-                                <div className="formButton ">
-                                    <button className="register-btn"
-                                            onClick={this.back}
-                                    >
-                                        {" "}
-                                        back
-                                    </button>
-                                    <button className="register-btn"
-                                            onClick={this.proceed}
-                                    >
-                                        {" "}
-                                        next
-                                    </button>
+                                <div className="button">
+                                    <div className="formButton">
+                                        <button className="about-org-btn"
+                                                onClick={this.back}
+                                        >
+                                            {" "}
+                                            back
+                                        </button>
+                                        <button className="about-org-btn"
+                                                onClick={this.proceed}
+                                        >
+                                            {" "}
+                                            next
+                                        </button>
+                                    </div>
                                 </div>
+                            </form>
+                        </div>
 
-                            </div>
-                        </form>
                     </div>
-
                 </div>
             </div>
         )

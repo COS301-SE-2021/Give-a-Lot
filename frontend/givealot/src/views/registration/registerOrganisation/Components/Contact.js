@@ -31,12 +31,13 @@ export class RegisterOrganisation extends Component {
         const { values, handleChange, nextStep } = this.props;
         return (
             <div className="registerOrganisation" style={this.styles.main}>
+                <div  id={"banner_filter"}>
                 <Logo/>
                 <div className="registerCard">
                     <div className="wrap">
-                        <form className="form">
+                        <form className="form1">
                        <span className="headerTag">
-                           Register Organisation | Contact
+                           Contact information
                        </span>
                             <div className="input alert-validate" data-validate="Username is required">
                                 <span className="inputLabel">
@@ -46,7 +47,7 @@ export class RegisterOrganisation extends Component {
                                     {/*<IoPersonOutline className="registerIcon"/>*/}
                                     <input className="input100 validateInput"
                                            type="text" name="contactPerson"
-                                           placeholder="Enter Organisation Contact Person"
+                                           placeholder="name and surname"
                                            value={values.contactPerson}
                                            onChange={handleChange('contactPerson')}
                                     />
@@ -61,7 +62,7 @@ export class RegisterOrganisation extends Component {
                                 </span>
                                 <input className="input100 validateInput"
                                        type="text" name="contactNumber"
-                                       placeholder="Enter Organisation Contact Number"
+                                       placeholder="please provide their contact Number"
                                        value={values.contactNumber}
                                        onChange={handleChange('contactNumber')}
                                 />
@@ -69,25 +70,24 @@ export class RegisterOrganisation extends Component {
                             </div>
 
                             <div className="button">
-                                <div className="formButton ">
-                                    <button className="register-btn"
+                                <div className="formButton">
+                                    <button className="about-org-btn"
                                             onClick={this.back}
                                     >
                                         {" "}
                                         back
                                     </button>
-                                    <button className="register-btn"
+                                    <button className="about-org-btn"
                                             onClick={this.proceed}
                                     >
                                         {" "}
                                         next
                                     </button>
                                 </div>
-
                             </div>
                         </form>
                     </div>
-
+                </div>
                 </div>
             </div>
         )

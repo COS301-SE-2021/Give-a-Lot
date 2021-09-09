@@ -39,8 +39,9 @@ public class OrganisationController
 
     /* tested - works */
      @GetMapping("/sel/organisation/{orgId}/{userId}") /*tested all good*/
-    public ResponseEntity<selectOrganisationResponse> selectOrganisation(@PathVariable("orgId") @NonNull Long orgId,@PathVariable("userId") @NonNull String userId)
+    public ResponseEntity<selectOrganisationResponse> selectOrganisation(@PathVariable("orgId") @NonNull String orgId,@PathVariable("userId") @NonNull String userId)
     {
+        System.out.println(orgId + " ------------------- " + userId);
         selectOrganisationResponse response;
         try
         {
@@ -48,13 +49,25 @@ public class OrganisationController
             {
                 if(!Character.isDigit(userId.charAt(i)))
                 {
-                    if(!userId.equalsIgnoreCase("default"))
+                    if(!userId.trim().equalsIgnoreCase("default"))
                         return new ResponseEntity<>(new selectOrganisationResponse("bad_org_br_401","this id is not authorized", null),HttpStatus.UNAUTHORIZED);
                     else userId = "-1";
                 }
             }
 
-            response = service.selectOrganisation(orgId, Long.valueOf(userId));
+            Long organisation_id;
+            Long user_id;
+
+            try
+            {
+                organisation_id = Long.valueOf(orgId);
+                user_id = Long.valueOf(userId);
+            }
+            catch(Exception e)
+            {
+                return new ResponseEntity<>(new selectOrganisationResponse("500_bad_id","failed",null), HttpStatus.OK);
+            }
+            response = service.selectOrganisation(organisation_id, user_id);
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)
@@ -198,6 +211,7 @@ public class OrganisationController
         }
     }
 
+    @CrossOrigin
     @PutMapping("/investigate/orgId") /* tested - works */
     public ResponseEntity<generalOrganisationResponse> investigateOrganisation(@RequestBody @NonNull InvestigateRequest orgId)
     {
@@ -520,7 +534,7 @@ public class OrganisationController
     }
 
     @PostMapping("/add/logo") /* all good - correctness not tested yet */
-    public ResponseEntity<generalOrganisationResponse> addOrgLogo( @ModelAttribute AddOrgLogoRequest request)
+    public ResponseEntity<generalOrganisationResponse> addOrgLogo(@ModelAttribute AddOrgLogoRequest request)
     {
 
         generalOrganisationResponse response;

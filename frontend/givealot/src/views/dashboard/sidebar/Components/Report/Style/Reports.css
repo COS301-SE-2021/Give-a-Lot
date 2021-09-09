@@ -35,6 +35,7 @@
 .iconReport{
 
     color: #91d1a8;
+
 }
 
 .AppealButton{
@@ -47,3 +48,18 @@
     padding: 5px;
 
 }
+
+
+.AppealButton1{
+    border-radius: 5px;
+
+    background-color: slategrey;
+    color: white;
+    width: 60px;
+    border: none;
+    padding: 5px;
+
+}
+
+
+

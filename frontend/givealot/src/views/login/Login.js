@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import { Link } from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import "../login/Styles/Login.css";
+
 import backgroundImg from "../../assets/homeBackground.jpg";
-import Logo from "../login/Components/Logo"
+import Logo from "../login/Components/Logo";
+import axios from "axios"
+import "../login/Styles/Login.css";
+import {Alert} from "@material-ui/lab";
 
 
 const styles = {
@@ -13,9 +16,9 @@ const styles = {
 }
 
 const initialState = {
-    username: "",
+    email: "",
     password: "",
-    usernameError: "",
+    emailError: "",
     passwordError: "",
 };
 
@@ -33,11 +36,12 @@ class Login extends Component {
     };
 
     validate = () => {
-        let usernameError = "";
+        let emailError = "";
         let passwordError = "";
 
-        if (!this.state.firstName) {
-            usernameError = "username is required";
+
+        if (!this.state.email.includes("@")) {
+            emailError = "invalid email";
         }
 
 
@@ -45,12 +49,10 @@ class Login extends Component {
             passwordError="Password must be greater than 4";
         }
 
-        if ( usernameError || passwordError) {
-            this.setState({ usernameError, passwordError });
+        if ( emailError || passwordError) {
+            this.setState({ emailError, passwordError });
             return false;
         }
-
-
 
         return true;
     };
@@ -62,19 +64,62 @@ class Login extends Component {
         if (isValid) {
             console.log(this.state);
             // clear form
-            this.setState(initialState);
-        }
-    };
-    render()
+            //this.setState(initialState);
+
+            const data = {
+                "username" : this.state.email,
+                "password" : this.state.password,
+                "role" : ""
+            }
+            localStorage.clear();
+            axios.post('http://localhost:8080/v1/login/user/determine', data )
+                .then(response =>{
+                    console.log(response.data)
+                    const loggedUser={
+                        "id":response.data.id,
+                        "email":response.data.username,
+                        "role":response.data.jwttoken
+                    }
+                    localStorage.setItem( "id" ,response.data.id);
+                    localStorage.setItem( "role" ,response.data.jwttoken)
+
+                    if (response.data.jwttoken === "general")
+                    {
+                        this.props.history.push("/");
+                    }else if (response.data.jwttoken === "admin")
+                    {
+                        this.props.history.push("/dashboard/");
+                    }
+                    else if (response.data.jwttoken === "organisation"){
+                        this.props.history.push("/dashboard/");
+                    }
+                    else{
+                        this.props.history.push("/browse");
+                    }
+                })
+                .catch(error =>{
+                    document.getElementById("badLogin").style.display = "flex";
+
+
+                })
+            }
+
+
+        };
+
+render()
 {
     return (
         <div>
+
             <div className="Login" style={styles.main}>
+            <div  id={"banner_filter"}>
                 <Logo/>
                 <Link to={"/"}>
                     <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
                 </Link>
                 <div className="LoginCard">
+                    <Alert severity="error" id={"badLogin"}>incorrect username or password!</Alert>
                     <div className="wrapper">
                         <form className="LoginForm" onSubmit={this.handleSubmit}>
                        <span className="LoginHeader">
@@ -82,19 +127,19 @@ class Login extends Component {
                        </span>
                             <div className="LoginInput" data-validate="Username is required">
                                 <span className="LoginInputLabel">
-                                    Username
+                                    Email
                                 </span>
                                 <div>
                                     <input
                                         className="innerInput validate"
-                                        type="text"
-                                        name="username"
-                                        placeholder="Enter your username"
+                                        type="email"
+                                        name="email"
+                                        placeholder="Enter your email"
                                         onChange={this.handleChange}
                                     />
 
                                 </div>
-                                <span className="loginError">{this.state.usernameError}</span>
+                                <span className="loginError">{this.state.emailError}</span>
 
                             </div>
 
@@ -106,7 +151,7 @@ class Login extends Component {
                                     <input
                                         className="innerInput validate"
                                         type="password"
-                                        name="username"
+                                        name="password"
                                         placeholder="Enter your password"
                                         onChange={this.handleChange}
                                     />
@@ -117,14 +162,9 @@ class Login extends Component {
 
                             <div className="wrapper-btn">
 
-                                <button className="Login-btn" type="submit">
+                                <button className="Login-btn" id={"loginBTN_less_rounded"} type="submit">
                                     Login
                                 </button>
-                                {/*} <Link to={"/"} className="linker">
-                                    <button className="Login-btn">
-                                        Login
-                                    </button>
-                                </Link>*/}
                             </div>
 
                             <div className="BottomForm">
@@ -135,14 +175,11 @@ class Login extends Component {
                                 <Link className="BottomLinker">
                                     <span> Forgot password?</span>
                                 </Link>
-
                             </div>
-
                         </form>
-
                     </div>
-
                 </div>
+            </div>
             </div>
         </div>
     );

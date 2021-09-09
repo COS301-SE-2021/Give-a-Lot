@@ -33,7 +33,6 @@ export class Success extends Component {
         };
     }
 
-
     render() {
         const {
             values: { slogan, orgEmail, orgSector, orgDescription, contactNumber, contactPerson, orgName }
@@ -41,38 +40,37 @@ export class Success extends Component {
         const { loading } = this.state;
         return (
             <div className="registerOrganisation" style={this.styles.main}>
-                <Logo/>
-                <div className="registerCard">
-                    <div className="wrap">
-                        <form className="form">
-                       <span className="headerTag">
-                           Registration was a success
-                       </span>
-                            <div className="button">
-                                <div className="formButton ">
-                                    <button className="register-btn"
-                                            onClick={this.submit}
-                                            disabled={loading}
-                                    >
-                                        {" "}
-                                        {/*Login*/}
-                                        {loading && (
-                                            <IoReload style={{ marginRight: "5px" }} className="refresh"/>
+                <div  id={"banner_filter"}>
+                    <Logo/>
+                    <div className="registerCard">
+                        <div className="wrap">
+                        <form className="form1">
+                           <span className="headerTag">
+                               Registration was a success
+                           </span>
+                                <div className="button">
+                                    <div className="formButton ">
+                                        <button className="register-btn"
+                                                onClick={this.submit}
+                                                disabled={loading}
+                                        >
+                                            {" "}
+                                            {/*Login*/}
+                                            {loading && (
+                                                <IoReload style={{ marginRight: "5px" }} className="refresh"/>
 
-                                            // <i
-                                            //     className="fa fa-refresh fa-spin"
-                                            //     style={{ marginRight: "5px", color: "white" }}
-                                            // />
-                                        )}
-                                        {!loading && <span>Login</span>}
-                                    </button>
+                                                // <i
+                                                //     className="fa fa-refresh fa-spin"
+                                                //     style={{ marginRight: "5px", color: "white" }}
+                                                // />
+                                            )}
+                                            {!loading && <span>Login</span>}
+                                        </button>
+                                    </div>
                                 </div>
-
-                            </div>
-                        </form>
-
+                            </form>
+                        </div>
                     </div>
-
                 </div>
             </div>
         )

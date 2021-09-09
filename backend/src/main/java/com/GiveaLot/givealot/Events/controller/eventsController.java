@@ -10,6 +10,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/event")
@@ -23,6 +27,14 @@ public class eventsController {
     {
         try
         {
+            System.out.println("=========================> adding " + new Timestamp(System.currentTimeMillis()));
+            System.out.println(body.getUserEmail());
+            System.out.println(body.getEventEndDate());
+            System.out.println(body.getEventStartDate());
+            System.out.println(body.getEventStartTime());
+            System.out.println(body.getEventEndTime());
+            System.out.println("=========================> done " + new Timestamp(System.currentTimeMillis()));
+
             return new ResponseEntity<>(service.addCalenderEvent(body), HttpStatus.OK);
         }
         catch (Exception e)

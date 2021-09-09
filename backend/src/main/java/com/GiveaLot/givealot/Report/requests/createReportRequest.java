@@ -21,7 +21,6 @@ public class createReportRequest {
         this.reportDescription = reportDescription;
         this.reportType = reportType;
         this.reporterEmail = reporterEmail;
-
     }
 
 

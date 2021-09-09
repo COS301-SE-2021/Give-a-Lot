@@ -2,44 +2,74 @@
     height: 100vh;
 }
 .verify{
-    text-align: center;
-    color: white;
-    justify-content: center;
-    align-items: center;
-    /*padding: 3em;*/
-    font-size: xxx-large;
+
+    display: block;
+    color: #ffffff;
+    font-family: 'Raleway',sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    margin:  0 0 25px 0;
+    text-transform: uppercase;
 }
 .fileUpload{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
 }
-/*.upload{*/
-/*    align-items: center;*/
-/*    justify-content: center;*/
-/*}*/
-.upload {
+
+#AlertPrompt, #AlertBadCertificate, #AlertGoodCertificate, #AlertPromptWait, #AlertServerError
+{
+    margin: 10px 0;
+}
+
+#AlertServerError
+{
+    display: none;
+}
+
+#AlertGoodCertificate
+{
+  position: relative;
+    display: none;
+}
+
+#AlertPromptWait
+{
+    display: none;
+}
+
+#goodAlertBtn
+{
+    background: #5ec94a !important;
+    color: white;
+    position: absolute;
+    right: 5px;
+    bottom: 9.5px;
+    width: 100px;
+    height: 30px;
+}
+
+
+#AlertBadCertificate
+{
+    display: none;
+
+}
+.upload
+{
     background-color: white;
-    padding: 1em;
-    width: 50%;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
+
     box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.11), 0 5px 15px 0 rgba(0, 0, 0, 0.08);
     box-sizing: border-box;
-}
-
-.Upload {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    align-items: flex-start;
+    width: fit-content;
     text-align: left;
-    overflow: hidden;
+    padding: 20px;
+    border-radius: 5px;
 }
 
-.Content {
+.Content
+{
     display: flex;
     flex-direction: row;
     padding-top: 16px;
@@ -118,7 +148,7 @@ button {
     user-select: none;
     border: 0;
     border-radius: 2px;
-    background: rgba(103, 58, 183, 1);
+    background: #4b4250;
     color: #fff;
     outline: 0;
 }

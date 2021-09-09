@@ -331,7 +331,7 @@ public class OrganisationServiceImp implements OrganisationService {
             System.out.println("Failed");
             System.out.println("#######################################################################################");
         }
-        return new generalOrganisationResponse("add_org_200_ok", "success");
+        return new generalOrganisationResponse("add_org_200_ok", "success-" + id);
     }
 
     @Override /*tested all good - converted*/

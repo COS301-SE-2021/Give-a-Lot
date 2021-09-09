@@ -35,7 +35,7 @@ const styles = theme => ({
 });
 
 const initialState = {
-    orgId:"32",
+    orgId:localStorage.getItem("id"),
     date:"",
     startDate: new Date(),
     orgInfo:"",
@@ -72,7 +72,7 @@ export class Upgrade2 extends Component {
         const formData = new FormData();
 
         formData.append('image', event.target.files[0]);
-        formData.append('orgId', 32);
+        formData.append('orgId', this.state.orgId);
         let imageStates = 0;
 
 
@@ -181,6 +181,8 @@ export class Upgrade2 extends Component {
 
         return (
             <div className="upgrade">
+                <div className="wrap_upgrade">
+                    <div>
                 <div className="upgradeTitle">
                     <p className="upgradeTitle1">Current level:</p>
                     <p className="upgradeTitle2">Two</p>
@@ -271,6 +273,8 @@ export class Upgrade2 extends Component {
                 </Card>
 
 
+            </div>
+                </div>
             </div>
         );
     }

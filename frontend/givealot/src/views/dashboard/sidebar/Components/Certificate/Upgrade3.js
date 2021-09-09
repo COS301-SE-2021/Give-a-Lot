@@ -244,20 +244,25 @@ export class Upgrade3 extends Component {
 
         return (
             <div className="upgrade">
-                <div className="upgradeTitle">
-                    <p className="upgradeTitle1">Current level:</p>
-                    <p className="upgradeTitle2">Three</p>
-                </div>
+                <div className="wrap_upgrade">
+                    <div>
+                        <div className="upgradeTitle">
+                            <p className="upgradeTitle1">Current level:</p>
+                            <p className="upgradeTitle2">Three</p>
+                        </div>
 
-                <div className="progress">
-                    <div className="progress_complete"/>
-                    <div className="progress_complete"/>
-                    <div className="progress_complete"/>
-                    <div className="progress_empty"/>
-                    <div className="progress_empty"/>
-                    <div className="progress6"> <StarOutlineIcon fontSize="large"/></div>
+                        <div className="progress">
+                            <div className="progress_complete"/>
+                            <div className="progress_complete"/>
+                            <div className="progress_complete"/>
+                            <div className="progress_empty"/>
+                            <div className="progress_empty"/>
+                            <div className="progress6"> <StarOutlineIcon fontSize="large"/></div>
+                        </div>
+                    </div>
                 </div>
-
+                <div className="wrap_upgrade">
+                    <div>
                 <Card className="upgrade_card_4" variant="outlined">
                     <CardContent>
                         <div className={classes.root}>
@@ -538,8 +543,8 @@ export class Upgrade3 extends Component {
                     </CardContent>
 
                 </Card>
-
-
+                    </div>
+                </div>
             </div>
         );
     }

@@ -140,7 +140,6 @@ render()
 
                                 </div>
                                 <span className="loginError">{this.state.emailError}</span>
-
                             </div>
 
                             <div className="LoginInput" data-validate="Username is required">

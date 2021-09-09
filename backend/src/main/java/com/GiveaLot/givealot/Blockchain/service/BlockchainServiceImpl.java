@@ -103,16 +103,16 @@ public class BlockchainServiceImpl implements BlockchainService {
         }    }
 
     @Override
-    public boolean compareCertificateHash(long index, long orgId, File certificate) throws Exception {
+    public long compareCertificateHash(long index, long orgId, File certificate) throws Exception {
 
         String blockchainCertificateHash = retrieveCertificateHash(index, orgId);
         String uploadCertificateHash = hashCertificate(certificate);
-
-        if(blockchainCertificateHash.equals(uploadCertificateHash))
-        {
-            /*return org id*/
+        if( blockchainCertificateHash.equals(uploadCertificateHash)){
+            return orgId;
         }
-        return blockchainCertificateHash.equals(uploadCertificateHash);
+        else {
+            return -1;
+        }
     }
 
     @Override

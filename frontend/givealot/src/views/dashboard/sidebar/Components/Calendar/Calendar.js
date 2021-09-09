@@ -112,11 +112,9 @@ export default class Demo extends React.PureComponent {
                         'Access-Control-Allow-Origin': '*',
                     }
                 }
-
-
                 axios.post('http://localhost:8080/event/calender/add', eventDayAndTime ,config)
                     .then(response =>{
-
+                        console.log(response)
                     })
                     .catch(error =>{
                         console.log(error)

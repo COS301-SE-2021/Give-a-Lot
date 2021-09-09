@@ -45,7 +45,31 @@ public class UserController {
         }
         catch (Exception e)
         {
-            return new ResponseEntity<>(new userResponseGeneral("add_usr_bad_500","failed :" + e), HttpStatus.OK);
+            if(e.toString().equalsIgnoreCase("java.lang.Exception: Registration not set, email not valid"))
+                return new ResponseEntity<>(new userResponseGeneral("add_usr_bad_500","email_not_valid"), HttpStatus.BAD_REQUEST);
+
+            else if(e.toString().equalsIgnoreCase("java.lang.Exception: Registration not set"))
+                return new ResponseEntity<>(new userResponseGeneral("add_usr_bad_500","registration_not_set"), HttpStatus.BAD_REQUEST);
+
+            else if(e.toString().equalsIgnoreCase("java.lang.Exception: The email has already been taken."))
+                return new ResponseEntity<>(new userResponseGeneral("add_usr_bad_500","the_email_already_been_taken"), HttpStatus.BAD_REQUEST);
+
+            else if(e.toString().equalsIgnoreCase("java.lang.Exception: Registration not set, firstname not valid"))
+                return new ResponseEntity<>(new userResponseGeneral("add_usr_bad_500","firstname_not_valid"), HttpStatus.BAD_REQUEST);
+
+            else if(e.toString().equalsIgnoreCase("java.lang.Exception: Registration not set, lastname not valid"))
+                return new ResponseEntity<>(new userResponseGeneral("add_usr_bad_500","lastname_not_valid"), HttpStatus.BAD_REQUEST);
+
+            else if(e.toString().equalsIgnoreCase("java.lang.Exception: Registration not set, password not valid"))
+                return new ResponseEntity<>(new userResponseGeneral("add_usr_bad_500","password_not_valid"), HttpStatus.BAD_REQUEST);
+
+            else if(e.toString().equalsIgnoreCase("java.lang.Exception: This email already exists"))
+                return new ResponseEntity<>(new userResponseGeneral("add_usr_bad_500","email_already_exists"), HttpStatus.BAD_REQUEST);
+
+            return new ResponseEntity<>(new userResponseGeneral("add_usr_bad_500","failed :" + e), HttpStatus.INTERNAL_SERVER_ERROR);
+
+
+
         }
     }
 

@@ -2,284 +2,90 @@ POST http://localhost:8080/v1/user/register/user
 Content-Type: application/json
 
 {
-  "firstName" : "nqobani",
-  "lastName" : "nhlengethwa",
-  "email" : "xplodiator@gmail.com",
-  "password" : "Grandtheft@uto5"
+  "firstName":"Steven",
+  "lastName":"Jobs",
+  "email":"apple1@icloud.com",
+  "password":"weLive@jobs"
+
 }
 
-<> 2021-09-08T165657.200.json
+<> 2021-09-09T001705.400.json
 
 ###
 
-GET http://localhost:8080/certificate/download
+POST http://localhost:8080/v1/user/register/user
 Content-Type: application/json
 
 {
-  "firstName" : "nqobani",
-  "lastName" : "nhlengethwa",
-  "email" : "xplodiator@gmail.com",
-  "password" : "Grandtheft@uto5"
+  "firstName":"Steven",
+  "lastName":"Jobs",
+  "email":"apple1@icloud.com",
+  "password":"weLive@jobs"
+
 }
 
-<> 2021-09-08T165618.500.json
+<> 2021-09-09T001407.500.json
 
 ###
 
-GET http://localhost:8080/certificate/download
+POST http://localhost:8080/v1/user/register/user
 Content-Type: application/json
 
 {
-  "firstName" : "nqobani",
-  "lastName" : "nhlengethwa",
-  "email" : "xplodiator@gmail.com",
-  "password" : "Grandtheft@uto5"
+  "firstName":"Steven",
+  "lastName":"Jobs",
+  "email":"apple1@icloud.com",
+  "password":"weLive@jobs"
+
 }
 
-<> 2021-09-08T165607.500.json
+<> 2021-09-09T001140.500.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/determine
+POST http://localhost:8080/v1/user/register/user
 Content-Type: application/json
 
 {
-  "username" : "rdance@clank.naughtydog.com",
-  "password" : "revised title 2",
-  "role" : ""
+  "firstName":"Steven",
+  "lastName":"Jobs",
+  "email":"apple1@icloud.com",
+  "password":"weLive@jobs"
+
 }
 
-<> 2021-09-08T164933.200.json
+<> 2021-09-09T001134.200.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/determine
+POST http://localhost:8080/v1/user/register/user
 Content-Type: application/json
 
 {
-  "username" : "rdance@clank.naughtydog.com",
-  "password" : "revised title 2",
-  "role" : ""
-}
+  "firstName":"Steven",
+  "lastName":"Jobs",
+  "email":"apple1@icloud.com",
+  "password":"weLive@jobs"
 
-<> 2021-09-08T111842.200.json
+}
 
 ###
 
-POST http://localhost:8080/v1/login/user/determine
+POST http://localhost:8080/v1/organisation/add/org
 Content-Type: application/json
 
 {
-  "username" : "email",
-  "password" : "",
-  "role" : ""
+  "orgName" : "Dancing with you all",
+  "slogan" : "There's relief in the moves",
+  "orgDescription" : "we dance and dance. and dance we dance and dance. and dance we dance and dance. and dance we dance and dance. and dance we dance and dance. and dance we dance and dance. and dance we dance and dance. and dancewe dance and dance. and dance",
+  "orgSector" : "entertainment",
+  "orgEmail" : "rdance@clank.naughtydog.com",
+  "contactPerson" : "Steven Dog",
+  "contactNumber" : "01123456783",
+  "password" : "revised title 2"
 }
 
-<> 2021-09-08T111719.200.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "coolmail@gmail.com"
-}
-
-<> 2021-09-08T004821.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "coolmail@gmail.com"
-}
-
-<> 2021-09-08T004815.200.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "coolmail@gmail.com"
-}
-
-<> 2021-09-08T004635.200.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "coolmail@gmail.com"
-}
-
-<> 2021-09-08T004605.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "coolmail@gmail.com"
-}
-
-<> 2021-09-08T004300.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "coolmail@gmail.com"
-}
-
-<> 2021-09-08T004256.200.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "coolmail@gmail.com"
-}
-
-<> 2021-09-08T002449.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "coolmail@gmail.com"
-}
-
-<> 2021-09-08T002444.200.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "coolmail@gmail.com"
-}
-
-<> 2021-09-08T002108.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "coolmail@gmail.com"
-}
-
-<> 2021-09-08T001758.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "coolmail@gmail.com"
-}
-
-<> 2021-09-08T001726.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "coolmail@gmail.com"
-}
-
-<> 2021-09-08T001126.400.json
+<> 2021-09-07T134023.200.json
 
 ###
 
@@ -297,7 +103,7 @@ Content-Type: application/json
   "password" : "revised title 2"
 }
 
-<> 2021-09-06T221818.200.json
+<> 2021-09-07T133817.200.json
 
 ###
 
@@ -315,31 +121,79 @@ Content-Type: application/json
   "password" : "revised title 2"
 }
 
-<> 2021-09-06T221230.200.json
+<> 2021-09-07T133159.200.json
 
 ###
 
-GET http://localhost:8080/v1/organisation/sel/organisation/info/32
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
 
-<> 2021-09-06T212320.200.json
+{
+  "orgName" : "Ratchet and Clank",
+  "slogan" : "bla bla doing alien stuff",
+  "orgDescription" : "bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuffbla bla doing alien stuff",
+  "orgSector" : "entertainment",
+  "orgEmail" : "ratchet@clank.naughtydog.com",
+  "contactPerson" : "Steven Dog",
+  "contactNumber" : "0112345678",
+  "password" : "revised title 2"
+}
+
+<> 2021-09-07T133035.200.json
 
 ###
 
-GET http://localhost:8080/v1/organisation/sel/organisation/8/default
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
 
-<> 2021-09-06T161627.200.json
+{
+  "orgName" : "Ratchet and Clank",
+  "slogan" : "bla bla doing alien stuff",
+  "orgDescription" : "bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuffbla bla doing alien stuff",
+  "orgSector" : "entertainment",
+  "orgEmail" : "ratchet@clank.naughtydog.com",
+  "contactPerson" : "Steven Dog",
+  "contactNumber" : "0112345678",
+  "password" : "revised title 2"
+}
+
+<> 2021-09-07T132044.200.json
 
 ###
 
-GET http://localhost:8080/v1/organisation/sel/organisation/8/2345hg
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
 
-<> 2021-09-06T161612.401.json
+{
+  "orgName" : "Ratchet and Clank",
+  "slogan" : "bla bla doing alien stuff",
+  "orgDescription" : "bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuffbla bla doing alien stuff",
+  "orgSector" : "entertainment",
+  "orgEmail" : "ratchet@clank.naughtydog.com",
+  "contactPerson" : "Steven Dog",
+  "contactNumber" : "0112345678",
+  "password" : "revised title 2"
+}
+
+<> 2021-09-07T131718.200.json
 
 ###
 
-GET http://localhost:8080/v1/organisation/sel/organisation/8/2345hg
+POST http://localhost:8080/v1/organisation/add/org
+Content-Type: application/json
 
-<> 2021-09-06T161603.401.json
+{
+  "orgName" : "Ratchet and Clank",
+  "slogan" : "bla bla doing alien stuff",
+  "orgDescription" : "bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuffbla bla doing alien stuff",
+  "orgSector" : "entertainment",
+  "orgEmail" : "ratchet@clank.naughtydog.com",
+  "contactPerson" : "Steven Dog",
+  "contactNumber" : "0112345678",
+  "password" : "revised title 2"
+}
+
+<> 2021-09-07T125819.200.json
 
 ###
 
@@ -688,6 +542,207 @@ Content-Type: application/json
 }
 
 <> 2021-09-05T214957.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 9
+}
+
+<> 2021-09-05T214809.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 9
+}
+
+<> 2021-09-05T214627.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 9
+}
+
+<> 2021-09-05T214620.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 16
+}
+
+<> 2021-09-05T214605.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 12
+}
+
+<> 2021-09-05T214539.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 16
+}
+
+<> 2021-09-05T214519.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 12
+}
+
+<> 2021-09-05T214337.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 12
+}
+
+<> 2021-09-05T214217.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 12
+}
+
+<> 2021-09-05T214156.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "review organisations",
+  "eventDescription": "meetup wit the team to review organisations",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 12
+}
+
+<> 2021-09-05T214150.400.json
+
+###
+
+POST http://localhost:8080/event/calender/add
+Content-Type: application/json
+
+{
+  "eventTitle": "meeting",
+  "eventDescription": "meet with the ceo to discuss funds",
+  "eventStartTime": "12:18 PM",
+  "eventEndTime" : "1:40 PM",
+  "eventStartDate":"2021-10-09",
+  "eventEndDate" : "2021-10-09",
+  "userId" : 32
+}
+
+<> 2021-09-05T213706.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+  "orgId": 32,
+  "type": "orgName",
+  "newValue": "Pistol 3"
+
+}
+
+<> 2021-09-05T151412.200.json
 
 ###
 

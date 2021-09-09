@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Added HTTPStatus.UNAUTHORIZED instead of OK">
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="registration update">
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Report/controller/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Report/controller/ReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Report/requests/createReportRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Report/requests/createReportRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Report/Accordions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Report/Accordions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Report/Reports.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Report/Reports.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TempCompareCertificate.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/TempCompareCertificate.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/Controller/CertificateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/Controller/CertificateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/Styles/SignUp.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/Styles/SignUp.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/verifyCertificate/VerifyCertificate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/verifyCertificate/VerifyCertificate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/verifyCertificate/styles/VerifyCert.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/verifyCertificate/styles/VerifyCert.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,10 +101,21 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="generated-requests#42" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="42" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#47" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="47" runType="Run single request">
+    <configuration name="generated-requests#43" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="43" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#48" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="48" runType="Run single request">
@@ -125,10 +137,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="HTTP Request.generated-requests#42" />
+        <item itemvalue="HTTP Request.generated-requests#43" />
         <item itemvalue="HTTP Request.generated-requests#52" />
         <item itemvalue="HTTP Request.generated-requests#50" />
         <item itemvalue="HTTP Request.generated-requests#48" />
-        <item itemvalue="HTTP Request.generated-requests#47" />
       </list>
     </recent_temporary>
   </component>
@@ -150,13 +162,6 @@
       <workItem from="1631042260596" duration="333000" />
       <workItem from="1631133557866" duration="750000" />
       <workItem from="1631137762251" duration="2127000" />
-    </task>
-    <task id="LOCAL-00027" summary="organisations controller revision - remove socials">
-      <created>1629267850946</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1629267850946</updated>
     </task>
     <task id="LOCAL-00028" summary="organisations controller revision - tax">
       <created>1629268765715</created>
@@ -494,7 +499,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631133925824</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="registration update">
+      <created>1631172099333</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1631172099333</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -533,7 +545,8 @@
     <MESSAGE value="Last minute changes" />
     <MESSAGE value="Org Name update fix" />
     <MESSAGE value="Added HTTPStatus.UNAUTHORIZED instead of OK" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added HTTPStatus.UNAUTHORIZED instead of OK" />
+    <MESSAGE value="registration update" />
+    <option name="LAST_COMMIT_MESSAGE" value="registration update" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

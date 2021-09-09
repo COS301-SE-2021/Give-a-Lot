@@ -11,6 +11,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Axios from "axios";
 import TextField from "@material-ui/core/TextField";
+import axios from "axios";
 
 const styles = theme => ({
 
@@ -34,12 +35,15 @@ const styles = theme => ({
 
 
 const initialState = {
+    level0:[],
+    adminId:14,
     orgId:6,
     startDate: new Date(),
     ngoNumber:"",
     ngoNumberState:false,
     ngoDate:"",
     ngoDateState:false,
+    logoState:false,
     logo:"",
 
 };
@@ -71,14 +75,10 @@ export class Level0 extends Component {
     }
 
 
-
-
-
     handleChange = event => {
 
+        this.setState({logoState: true})
         const formData = new FormData();
-
-
         formData.append('image', event.target.files[0]);
         formData.append('orgId', 32);
         let imageStates = 0;
@@ -136,19 +136,47 @@ export class Level0 extends Component {
 
 
     };
-    onToast = () => {
-
+    onToast0 = () => {
+        if ( this.state.logoState || this.state.ngoDateState || this.state.ngoNumberState ) {
             toast.success('Submit successful', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
+        }
+    }
+
+    componentDidMount() {
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        const admin = {
+            "adminId" : this.state.adminId
+        }
+
+        const org = {
+            orgId :32
+        }
+        axios.post('http://localhost:8080/v1/organisation/get/organisations',admin , config)
+            .then(response =>{
+                console.log(response)
+                this.setState({level0: response.data.response[0]})
+                console.log(this.state.level0)
+
+            })
+            .catch(error =>{
+                this.setState({error : 'Error Retrieving data'})
+            })
+
 
     }
 
 
     render(){
         const { classes } = this.props;
-
+        const { level0 } = this.state;
 
 
         return (
@@ -170,7 +198,7 @@ export class Level0 extends Component {
                                         <DatePicker
 
                                             className="upgrade_datee input3"
-                                            selected={ this.state.startDate }
+                                            selected={this.state.startDate}
                                             onChange={ this.handleDateChange }
                                             name="startDate"
                                             dateFormat="yyyy/MM/dd"
@@ -183,7 +211,7 @@ export class Level0 extends Component {
                                         label="Registration number"
                                         name="ngoNumber"
                                         style={{ margin: 8 }}
-                                        placeholder="Enter registration.."
+                                        placeholder={level0.dateAdded}
                                         fullWidth
                                         margin="normal"
                                         InputLabelProps={{
@@ -204,9 +232,13 @@ export class Level0 extends Component {
                                         />
                                     </div>
 
+                                    <div className="profile_files">
+                                        <img src="https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg" height={70} width={70} />
+                                    </div>
+
                                 </div>
                                 <div className="upgrade_Button">
-                                    <button className="upgrade-btnn" type="submit" onClick={this.onToast}>
+                                    <button className="upgrade-btnn" type="submit" onClick={this.onToast0}>
                                         Submit
                                     </button>
                                 </div>

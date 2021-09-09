@@ -569,6 +569,12 @@
     font-size: 14px;
     float: right;
 
+}
 
+.profile_files{
+
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
 }
 

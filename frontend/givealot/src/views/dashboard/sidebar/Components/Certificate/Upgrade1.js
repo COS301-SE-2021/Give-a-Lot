@@ -111,7 +111,7 @@ export class Upgrade1 extends Component {
         }
     };
 
-    onToast = () => {
+    onToastOne = () => {
         const isValid = this.validate();
         if (isValid) {
             toast.success('Submit successful', {
@@ -188,7 +188,7 @@ export class Upgrade1 extends Component {
                                 <span className="loginError_certificate">{this.state.addressError}</span>
                             </div>
                                 <div className="upgrade_Button">
-                                    <button className="upgrade-btn" type="submit" onClick={this.onToast}>
+                                    <button className="upgrade-btn" type="submit" onClick={this.onToastOne}>
                                         Submit
                                     </button>
                                 </div>

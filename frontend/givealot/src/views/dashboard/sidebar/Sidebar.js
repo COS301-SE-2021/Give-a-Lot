@@ -19,9 +19,8 @@ import { useHistory } from "react-router-dom";
 function Sidebar(){
 
     function handleLogOut() {
-        sessionStorage.setItem("userToken", '');
-        sessionStorage.clear();
-        history.push("/login"); // whichever component you want it to route to
+        localStorage.clear();
+        history.push("/browse"); // whichever component you want it to route to
     }
 
     let history = useHistory();
@@ -87,7 +86,7 @@ function Sidebar(){
                                 </li>
 
                                 <li className={splitLocation[1] === "calendar" ? "active" : ""}>
-                                    <Link to='/calendar' className="link">
+                                    <Link to='/browse' className="link">
                                         <li className="sidebarListItem ">
                                             <CalendarTodayOutlinedIcon />
                                             <div className="sideIcon" > Calendar </div>

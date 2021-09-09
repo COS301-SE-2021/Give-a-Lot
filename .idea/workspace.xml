@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="image Input validation for organisation">
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" afterDir="false" />
     </list>
@@ -152,14 +150,8 @@
       <workItem from="1631048802047" duration="6924000" />
       <workItem from="1631096806428" duration="1854000" />
       <workItem from="1631101740404" duration="5325000" />
-      <workItem from="1631118666992" duration="6770000" />
-    </task>
-    <task id="LOCAL-00039" summary="organisations controller revision">
-      <created>1629320181852</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1629320181853</updated>
+      <workItem from="1631118666992" duration="9628000" />
+      <workItem from="1631171453102" duration="331000" />
     </task>
     <task id="LOCAL-00040" summary="Fixing organisation points">
       <created>1629327656636</created>
@@ -497,7 +489,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631051342359</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="image Input validation for organisation">
+      <created>1631136776850</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1631136776851</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -40,7 +40,6 @@ import {
     AllDayPanel,
     ConfirmationDialog,
 } from '@devexpress/dx-react-scheduler-material-ui';
-import { appointments } from './data';
 import axios from "axios";
 
 export default class Demo extends React.PureComponent {
@@ -118,16 +117,10 @@ export default class Demo extends React.PureComponent {
                 axios.post('http://localhost:8080/event/calender/add', eventDayAndTime ,config)
                     .then(response =>{
 
-                        //console.log("*************************")
-                        // this.setState({ openSector: true });
-
-
                     })
                     .catch(error =>{
                         console.log(error)
                     })
-
-                console.log(startDateMonth);
             }
             if (changed) {
                 data = data.map(appointment => (
@@ -157,18 +150,7 @@ export default class Demo extends React.PureComponent {
             })
             .catch(error =>{
                 console.log(error)
-                // this.setState({error : 'Error Retrieving data'})
             })
-        // let datS = [];
-        // datS[0] =
-        // {
-        // title: 'Approve New Online Marketing Strategy',
-        // startDate: new Date(2021, 8, 5, 12, 15),
-        // endDate: new Date(2021, 8, 5, 13, 0),
-        // id: 7,
-        // location: 'Room 3'
-        // };
-        // this.setState({data: datS})
     }
 
     render() {
@@ -182,6 +164,7 @@ export default class Demo extends React.PureComponent {
                     <Scheduler
                         data={data}
                         height={660}
+                        remoteFiltering={true}
                     >
                         <ViewState
                             currentDate={currentDate}
@@ -195,10 +178,6 @@ export default class Demo extends React.PureComponent {
                             editingAppointment={editingAppointment}
                             onEditingAppointmentChange={this.changeEditingAppointment}
                         />
-                        {/*<WeekView*/}
-                        {/*    startDayHour={9}*/}
-                        {/*    endDayHour={17}*/}
-                        {/*/>*/}
                         <MonthView />
                         <AllDayPanel />
                         <EditRecurrenceMenu />

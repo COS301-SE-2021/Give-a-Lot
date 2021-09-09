@@ -9,7 +9,7 @@ public class ContractConfig {
     String PRIVATE_KEY = "1480f6e77aad7b16723788216022ae0fd700a74850463a6f40fb12515228ad39";
 
 
-    String CONTRACT_ADDRESS = "0x9333000bafd18391d898fccfbb1453f87cd22a89";
+    String CONTRACT_ADDRESS = "0x93f25a35fbb80e2d21621dbb88216fd72cd8aec7";
 
     private final BigInteger GAS_LIMIT = BigInteger.valueOf(6721975L);
 

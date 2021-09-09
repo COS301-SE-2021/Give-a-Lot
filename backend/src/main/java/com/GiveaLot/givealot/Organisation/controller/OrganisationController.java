@@ -121,20 +121,16 @@ public class OrganisationController
     }
 
     @PostMapping("/add/org") /*tested all good*/
-    public ResponseEntity<generalOrganisationResponse> addOrganisation(@RequestBody @NonNull AddOrganisationRequest body)
+    public ResponseEntity<generalOrganisationResponse> addOrganisation(@ModelAttribute AddOrganisationRequest body)
     {
         generalOrganisationResponse response;
         try
         {
-            response = service.addOrganisation(new Organisations(body.getOrgName(),
-                    body.getSlogan(),body.getOrgDescription(),body.getOrgSector(),
-                    body.getOrgEmail(),null,body.getStatus(),body.getContactPerson(),
-                    body.getContactNumber(), "givealot/organisations/", body.getPassword(),null));
+            response = service.addOrganisation(body);
             return new ResponseEntity<>(response,  HttpStatus.OK);
         }
         catch (Exception e)
         {
-
             if(e.toString().equalsIgnoreCase("java.lang.Exception: Email already exists"))
                 return new ResponseEntity<>(new generalOrganisationResponse("add_usr_bad_500","Email already exists"), HttpStatus.BAD_REQUEST);
 

@@ -30,7 +30,9 @@ export class Upgrade4 extends Component {
         this.state={
             orgId:localStorage.getItem("id"),
             file: "",
+            fileError: "",
             images:"",
+            imagesError:"",
 
         };
     }
@@ -44,7 +46,7 @@ export class Upgrade4 extends Component {
         });
     };
 
-    handleInputChange = event => {
+    handleFileChange = event => {
         const formData = new FormData();
 
         formData.append('image', event.target.files[0]);
@@ -126,11 +128,39 @@ export class Upgrade4 extends Component {
         });
     };
 
-    onToastFour = () => {
-        toast.success('Submit successful',{
-            position: toast.POSITION.TOP_RIGHT
+    validate = () => {
+        let fileError = "";
+        let imagesError = "";
 
-        });
+
+
+        if (!this.state.file) {
+            fileError = "required";
+        }
+
+
+        if(!this.state.orgInfo) {
+            imagesError="required";
+        }
+
+
+
+        if ( fileError || imagesError) {
+            this.setState({ fileError,imagesError });
+            return false;
+        }
+
+        return true;
+    };
+
+    onToastTwo = () => {
+        const isValid = this.validate();
+        if (isValid) {
+            toast.success('Submit successful', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }
     }
 
 
@@ -190,7 +220,7 @@ export class Upgrade4 extends Component {
                                             className="upgrade_logo"
                                             type="file"
                                             name="file"
-                                            onChange={this.handlefileChange}
+                                            onChange={this.handleFileChange}
                                         />
                                     </div>
                                 </div>

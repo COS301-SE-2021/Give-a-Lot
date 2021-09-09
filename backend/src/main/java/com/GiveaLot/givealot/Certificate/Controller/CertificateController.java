@@ -5,7 +5,6 @@ import com.GiveaLot.givealot.Certificate.service.CertificateServiceImpl;
 import org.springframework.http.HttpHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
@@ -28,21 +27,16 @@ public class CertificateController {
     CertificateServiceImpl service;
 
     @PostMapping("/certificate/compare")
-    public ResponseEntity<Boolean> compareCertificate(@RequestParam("selectedFile") MultipartFile certificate) throws Exception {
+    public long compareCertificate(@RequestBody @NonNull MultipartFile certificate) throws Exception {
        try
        {
-           if(certificate == null)
-           {
-               System.out.println("certificate is null");
-           }
-
-           return new ResponseEntity<>(service.compareCertificate(certificate), HttpStatus.OK);
+           System.out.println(certificate);
+           return  service.compareCertificate(certificate);
        }
        catch (Exception e)
        {
            System.out.println("ooops: " + e);
-           return new ResponseEntity<>(false, HttpStatus.NOT_FOUND);
-
+           return -1;
        }
     }
 

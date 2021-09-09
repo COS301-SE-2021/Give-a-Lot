@@ -232,6 +232,10 @@ export class Level0 extends Component {
                                         />
                                     </div>
 
+                                    <div className="profile_files">
+                                        <img src="https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg" height={70} width={70} />
+                                    </div>
+
                                 </div>
                                 <div className="upgrade_Button">
                                     <button className="upgrade-btnn" type="submit" onClick={this.onToast0}>

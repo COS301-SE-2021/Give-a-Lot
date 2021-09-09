@@ -23,8 +23,8 @@ export class Certificate extends Component {
     constructor (props) {
         super(props)
         this.state={
-            level: 3,
-            orgId:6,
+            level: 2,
+            orgId:localStorage.getItem("id"),
         };
     }
     componentDidMount(){
@@ -143,26 +143,28 @@ export class Certificate extends Component {
             <div className="view">
                 {upgrade}
 
-                <Link to={"https://parkour.readthedocs.io/_/downloads/en/latest/pdf/"}>
-                    <Button
+                     <Button
                         variant="outlined"
                         size="large"
                         style={{border: '3px solid', borderColor: "#957b9e", color: " #957b9e"}}
 
                         className={classes.button}
                         startIcon={<SaveIcon />}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            window.open('http://localhost:8080/cert/version/pdf/' + this.state.orgId);
+                        }}
                     >
                         Download
 
                     </Button>
-                </Link>
+
 
             </div>
 
             <div className="display">
-                <img src={pic} height={566} width={733}/>
+                <img src={"http://localhost:8080/cert/version/png/" + this.state.orgId} height={566} width={733}/>
             </div>
-
         </div>
     );
     }

@@ -54,7 +54,6 @@ export class Reports extends Component {
                 <div className="report">
                     <div className="reportHeader">
                         Reports list
-
                     </div>
                     <div className="accordion">
 
@@ -65,8 +64,8 @@ export class Reports extends Component {
                                     id={item.reportId}
                                     title={item.reportType}
                                     description={item.description}
-                                    appeal={item.appeal}
-                                 />
+                                    appeal={item.appealed}
+                                />
                                 )
                         })}
 

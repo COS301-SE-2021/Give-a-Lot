@@ -1,3 +1,4 @@
+/*
 package com.GiveaLot.givealot.Organisation.service;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -39,7 +40,8 @@ public class OrganisationServiceImpTest {
     @MockBean
     private UserRepository userRepository;
 
-    @Test
+*/
+/*    @Test
     public void testAddOrganisation() throws Exception {
         Organisations organisations = new Organisations();
         organisations.setOrgId(123L);
@@ -69,7 +71,8 @@ public class OrganisationServiceImpTest {
         organisations1.setDirectory("/tmp");
         assertThrows(Exception.class, () -> this.organisationServiceImp.addOrganisation(organisations1));
         verify(this.organisationRepository).selectOrganisationByEmail((String) any());
-    }
+    }*//*
+
 
     @Test
     public void testAddOrganisation2() throws Exception {
@@ -320,3 +323,4 @@ public class OrganisationServiceImpTest {
     }
 }
 
+*/

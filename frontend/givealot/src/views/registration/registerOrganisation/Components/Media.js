@@ -11,9 +11,6 @@ export class RegisterOrganisation extends Component {
             backgroundImage: `url(${backgroundImg})`
         }
     }
-    uploadPhoto = event => {
-       let images = event.target.files[0]
-    }
 
     proceed = e => {
         e.preventDefault();
@@ -26,12 +23,12 @@ export class RegisterOrganisation extends Component {
     constructor() {
         super();
         this.state = {
-            disabled: false
+            disabled: false,
         };
     }
 
     render() {
-        const { values, handleChangeImage, nextStep } = this.props;
+        const { values, handleChange,handleChangeImage } = this.props;
         return (
             <div className="registerOrganisation" style={this.styles.main}>
                 <div id={"banner_filter"}>
@@ -42,16 +39,16 @@ export class RegisterOrganisation extends Component {
                            <span className="headerTag">
                                Please provide a profile photo
                            </span>
-                                <div className="input alert-validate" data-validate="Username is required">
+                                <div className="input alert-validate">
                                     <span className="inputLabel">
                                         Media
                                     </span>
                                     <div style={{display: "flex"}}>
-                                        <input type="file" id="image" name="image"
+                                        <input type="file" id="images" name="images"
                                                accept="image/png"
-                                               // onChange={this.uploadPhoto}
-                                               value={values.image}
-                                               onChange={handleChangeImage('image')}
+                                               value={values.images}
+                                               // onChange={uploadPhoto}
+                                               onChange={handleChangeImage('images')}
                                         />
                                     </div>
                                 </div>

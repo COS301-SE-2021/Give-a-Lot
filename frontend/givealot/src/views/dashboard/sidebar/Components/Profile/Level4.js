@@ -22,50 +22,125 @@ const styles = theme => ({
 
 });
 
+const initialState = {
+    orgId:localStorage.getItem("id"),
+    file: "",
+    fileState: false,
+    images:"",
+    imagesState:false,
+
+
+};
 
 export class Level4 extends Component {
 
+    state = initialState;
     constructor (props) {
         super(props)
         this.state={
-            orgId:"",
-            website: "",
-            address:"",
-
 
         };
     }
 
-    handleChange = TextField => e => {
 
-        this.setState({ [TextField]: e.target.value });
+    handleFileChange = event => {
 
+        this.setState({fileState: true})
+        const formData = new FormData();
+        formData.append('image', event.target.files[0]);
+        formData.append('orgId', this.state.orgId);
+        let imageStates = 0;
+
+
+        alert("take away submit button functionality");
+
+        fetch(
+            'http://localhost:8080/v1/organisation/add/logo',
+            {
+                method: 'POST',
+                body: formData,
+            }
+        )
+            .then((response) => response.json())
+            .then((result) => {
+                console.log('Success:', result);
+                imageStates = 1;
+
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                imageStates = 2;
+            });
+
+        if(imageStates===1)
+            alert("bring back button functionality");
+        else if(imageStates === 2)
+            alert("bring back button functionality also tell the user that the image didnt submit");
+
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
+    };
+
+    handleImageChange = event => {
+
+        this.setState({imagesState: true})
+        const formData = new FormData();
+        formData.append('image', event.target.files);
+        formData.append('orgId', this.state.orgId);
+        let imageStates = 0;
+
+        alert("take away submit button functionality");
+        fetch(
+            'http://localhost:8080/v1/organisation/add/logo',
+            {
+                method: 'POST',
+                body: formData,
+            }
+        )
+            .then((response) => response.json())
+            .then((result) => {
+                console.log('Success:', result);
+                imageStates = 1;
+
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                imageStates = 2;
+            });
+
+        if(imageStates===1)
+            alert("bring back button functionality");
+        else if(imageStates === 2)
+            alert("bring back button functionality also tell the user that the image didnt submit");
+
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
     };
 
     handleFormSubmit = e => {
         e.preventDefault();
-        const data = {
-            orgId: this.state.orgId,
-            website: this.state.website,
-            address: this.state.address,
-        };
-        Axios
-            .post("", data)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
     };
 
     onToast4 = () => {
-        toast.success('Submit successful',{
-            position: toast.POSITION.TOP_RIGHT
+        if ( this.state.imagesState || this.state.fileState ) {
+            toast.success('Submit successful', {
+                position: toast.POSITION.TOP_RIGHT
 
-        });
+            });
+        }
     }
 
 
     render(){
         const { classes } = this.props;
-
 
 
         return (
@@ -87,9 +162,11 @@ export class Level4 extends Component {
                                         <input
                                             className="upgrade_datee"
                                             accept="image/*"
+                                            name='images'
                                             id="contained-button-file"
                                             multiple
                                             type="file"
+                                            onChange={this.handleImageChange}
 
                                         />
                                         {/* <FormHelperText className="helper">labelPlacement start</FormHelperText>*/}
@@ -110,7 +187,7 @@ export class Level4 extends Component {
                                             className="upgrade_logoo"
                                             type="file"
                                             name="file"
-                                            onChange={this.handleInputChange}
+                                            onChange={this.handleFileChange}
                                         />
                                     </div>
                                 </div>

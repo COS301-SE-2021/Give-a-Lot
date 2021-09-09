@@ -139,7 +139,7 @@ export class Upgrade4 extends Component {
         }
 
 
-        if(!this.state.orgInfo) {
+        if(!this.state.images) {
             imagesError="required";
         }
 

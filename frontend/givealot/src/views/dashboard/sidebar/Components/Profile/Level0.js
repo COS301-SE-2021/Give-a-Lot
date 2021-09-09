@@ -37,7 +37,7 @@ const styles = theme => ({
 const initialState = {
     level0:[],
     adminId:14,
-    orgId:6,
+    orgId:localStorage.getItem("id"),
     startDate: new Date(),
     ngoNumber:"",
     ngoNumberState:false,
@@ -80,7 +80,7 @@ export class Level0 extends Component {
         this.setState({logoState: true})
         const formData = new FormData();
         formData.append('image', event.target.files[0]);
-        formData.append('orgId', 32);
+        formData.append('orgId', this.state.orgId);
         let imageStates = 0;
 
 

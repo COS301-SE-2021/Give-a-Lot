@@ -28,9 +28,11 @@ export class Upgrade4 extends Component {
     constructor (props) {
         super(props)
         this.state={
-            orgId:"",
-            website: "",
-            address:"",
+            orgId:localStorage.getItem("id"),
+            file: "",
+            fileError: "",
+            images:"",
+            imagesError:"",
 
         };
     }
@@ -44,24 +46,129 @@ export class Upgrade4 extends Component {
         });
     };
 
+    handleFileChange = event => {
+        const formData = new FormData();
+
+        formData.append('image', event.target.files[0]);
+        formData.append('orgId', this.state.orgId);
+        let imageStates = 0;
+
+
+        alert("take away submit button functionality");
+
+        fetch(
+            'http://localhost:8080/v1/organisation/add/logo',
+            {
+                method: 'POST',
+                body: formData,
+            }
+        )
+            .then((response) => response.json())
+            .then((result) => {
+                console.log('Success:', result);
+                imageStates = 1;
+
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                imageStates = 2;
+            });
+
+        if(imageStates===1)
+            alert("bring back button functionality");
+        else if(imageStates === 2)
+            alert("bring back button functionality also tell the user that the image didnt submit");
+
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
+    };
+
+    handleImageChange = event => {
+        const formData = new FormData();
+
+        formData.append('image', event.target.files);
+        formData.append('orgId', this.state.orgId);
+        let imageStates = 0;
+
+
+        alert("take away submit button functionality");
+
+        fetch(
+            'http://localhost:8080/v1/organisation/add/logo',
+            {
+                method: 'POST',
+                body: formData,
+            }
+        )
+            .then((response) => response.json())
+            .then((result) => {
+                console.log('Success:', result);
+                imageStates = 1;
+
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                imageStates = 2;
+            });
+
+        if(imageStates===1)
+            alert("bring back button functionality");
+        else if(imageStates === 2)
+            alert("bring back button functionality also tell the user that the image didnt submit");
+
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
+    };
+
+    validate = () => {
+        let fileError = "";
+        let imagesError = "";
+
+
+
+        if (!this.state.file) {
+            fileError = "required";
+        }
+
+
+        if(!this.state.images) {
+            imagesError="required";
+        }
+
+
+
+        if ( fileError || imagesError) {
+            this.setState({ fileError,imagesError });
+            return false;
+        }
+
+        return true;
+    };
+
     handleFormSubmit = e => {
         e.preventDefault();
-        const data = {
-            orgId: this.state.orgId,
-            website: this.state.website,
-            address: this.state.address,
-        };
-        Axios
-            .post("", data)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+        const isValid = this.validate();
+        if (isValid) {
+
+        }
     };
 
     onToastFour = () => {
-        toast.success('Submit successful',{
-            position: toast.POSITION.TOP_RIGHT
+        const isValid = this.validate();
+        if (isValid) {
+            toast.success('Submit successful', {
+                position: toast.POSITION.TOP_RIGHT
 
-        });
+            });
+        }
     }
 
 
@@ -104,13 +211,17 @@ export class Upgrade4 extends Component {
                                         <input
                                             className="upgrade_date"
                                             accept="image/*"
+                                            name="images"
                                             id="contained-button-file"
                                             multiple
                                             type="file"
+                                            onChange={this.handleImageChange}
 
                                         />
+
                                         {/* <FormHelperText className="helper">labelPlacement start</FormHelperText>*/}
                                     </div>
+                                    <span className="loginError_certificate">{this.state.imagesError}</span>
                                     <div>
                                         <span className="upgrade_label_logo">
                                             Audit financial document
@@ -119,9 +230,11 @@ export class Upgrade4 extends Component {
                                             className="upgrade_logo"
                                             type="file"
                                             name="file"
-                                            onChange={this.handleInputChange}
+                                            onChange={this.handleFileChange}
                                         />
+
                                     </div>
+                                    <span className="loginError_certificate">{this.state.fileError}</span>
                                 </div>
                                 <div className="upgrade_Button">
                                     <button className="upgrade-btn" type="submit" onClick={this.onToastFour}>

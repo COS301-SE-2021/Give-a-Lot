@@ -41,7 +41,7 @@ export class Level1 extends Component {
         super(props)
         this.state={
             level1:[],
-            orgId:"6",
+            orgId:localStorage.getItem("id"),
             adminId:14,
             website: "",
             websiteState: false,

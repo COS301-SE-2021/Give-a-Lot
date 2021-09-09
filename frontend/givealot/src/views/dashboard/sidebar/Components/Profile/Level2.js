@@ -42,13 +42,15 @@ export class Level2 extends Component {
         super(props)
         this.state={
             level2:[],
-            orgId:"6",
+            orgId:localStorage.getItem("id"),
             adminId:14,
             date:"",
             dateState:false,
             startDate: new Date(),
             orgInfo:"",
             orgInfoState:false,
+            qrCode:"",
+            qrCodeState:false,
 
 
         };
@@ -70,9 +72,10 @@ export class Level2 extends Component {
     }
 
     handleChange = event => {
+        this.setState({qrCodeState: true})
         const formData = new FormData();
         formData.append('image', event.target.files[0]);
-        formData.append('orgId', 32);
+        formData.append('orgId', this.state.orgId);
         let imageStates = 0;
 
 
@@ -109,7 +112,6 @@ export class Level2 extends Component {
         });
     };
 
-
     handleFormSubmit = e => {
         e.preventDefault();
 
@@ -137,10 +139,12 @@ export class Level2 extends Component {
     };
 
     onToast2 = () => {
-        toast.success('Submit successful',{
-            position: toast.POSITION.TOP_RIGHT
+        if ( this.state.qrCodeState || this.state.orgInfoState || this.state.dateState ) {
+            toast.success('Submit successful', {
+                position: toast.POSITION.TOP_RIGHT
 
-        });
+            });
+        }
     }
 
     componentDidMount() {
@@ -227,7 +231,7 @@ export class Level2 extends Component {
                                         <input
                                             className="upgrade_logoo"
                                             type="file"
-                                            name="QRcode"
+                                            name="qrCode"
                                             onChange={this.handleChange}
                                         />
                                     </div>

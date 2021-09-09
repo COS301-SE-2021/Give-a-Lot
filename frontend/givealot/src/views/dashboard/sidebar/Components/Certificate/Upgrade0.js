@@ -36,7 +36,7 @@ const styles = theme => ({
 
 
 const initialState = {
-    orgId:6,
+    orgId:localStorage.getItem("id"),
     startDate: new Date(),
     ngoNumber:"",
     ngoDate:"",
@@ -75,7 +75,7 @@ export class Upgrade0 extends Component {
 
         const formData = new FormData();
         formData.append('image', event.target.files[0]);
-        formData.append('orgId', 32);
+        formData.append('orgId', this.state.orgId);
         let imageStates = 0;
 
 

@@ -581,7 +581,7 @@ public class OrganisationController
         }
         catch (Exception e)
         {
-            return new ResponseEntity<>(new generalOrganisationResponse("rem_est_500_err","failed: " + e), HttpStatus.OK);
+            return new ResponseEntity<>(new generalOrganisationResponse("add_qr_500_err","failed: " + e), HttpStatus.OK);
         }
     }
 

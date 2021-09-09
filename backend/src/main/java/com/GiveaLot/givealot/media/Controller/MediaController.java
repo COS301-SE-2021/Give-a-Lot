@@ -129,4 +129,40 @@ public class MediaController {
                  .notFound().build();
         }
     }
+
+    @RequestMapping(value = "/cert/version/qr_code/{orgId}", method = RequestMethod.GET,
+            produces = MediaType.ALL_VALUE)
+    public ResponseEntity<byte[]> getQRCode(@PathVariable("orgId") String orgId)
+    {
+        try
+        {
+            if(!service.orgIdExists(Long.valueOf(orgId)))
+            {
+                return ResponseEntity
+                        .notFound().build();
+            }
+        }
+        catch (Exception e)
+        {
+            return ResponseEntity
+                    .notFound().build();
+        }
+
+        var imgFile = new ClassPathResource("localFiles/" +orgId+ "/gallery/QRCode.png");
+
+        byte[] bytes = null;
+        try {
+            bytes = StreamUtils.copyToByteArray(imgFile.getInputStream());
+            return ResponseEntity
+                    .ok()
+                    .contentType(MediaType.IMAGE_JPEG)
+                    .body(bytes);
+        }
+        catch (IOException e)
+        {
+            return ResponseEntity
+                    .notFound().build();
+
+        }
+    }
 }

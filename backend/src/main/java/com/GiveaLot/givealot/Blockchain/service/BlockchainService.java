@@ -22,7 +22,7 @@ public interface BlockchainService {
 
     public String retrieveCertificateHash(long index, long orgId) throws Exception;
 
-    public boolean compareCertificateHash(long index, long orgId, File certificate) throws Exception;
+    public long compareCertificateHash(long index, long orgId, File certificate) throws Exception;
 
     public String hashCertificate(File certificate) throws IOException, NoSuchAlgorithmException;
 

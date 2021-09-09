@@ -32,7 +32,7 @@ public interface CertificateService {
 
     public boolean adminRenewal(long orgId) throws Exception;
 
-  public boolean compareCertificate(MultipartFile certificate) throws Exception;
+  public long compareCertificate(MultipartFile certificate) throws Exception;
 
 }
 

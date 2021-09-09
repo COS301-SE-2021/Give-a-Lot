@@ -180,6 +180,8 @@ export class Upgrade0 extends Component {
 
         return (
             <div className="upgrade">
+                <div className="wrap_upgrade">
+                    <div>
                 <div className="upgradeTitle">
                     <p className="upgradeTitle1">Current level:</p>
                     <p className="upgradeTitle2">Zero</p>
@@ -267,7 +269,8 @@ export class Upgrade0 extends Component {
 
                 </Card>
 
-
+                </div>
+                </div>
             </div>
         );
     }

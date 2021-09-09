@@ -4,6 +4,7 @@ import "../Styles/registerOrganisation.css"
 import backgroundImg from "../../../../assets/homeBackground.jpg";
 import { IoReload } from "react-icons/io5";
 import Logo from "../../../login/Components/Logo";
+import axios from "axios";
 
 export class Success extends Component {
     styles = {
@@ -20,9 +21,22 @@ export class Success extends Component {
         setTimeout(() => {
             this.setState({ loading: false });
         }, 2000);
-        /////axios submit request. input values are in values
-        ////then redirect to login
+
         console.log(this.props)
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.post('http://localhost:8080/v1/organisation/add/org', this.props ,config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
     };
 
     constructor() {

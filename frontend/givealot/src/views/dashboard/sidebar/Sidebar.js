@@ -4,7 +4,6 @@ import {  Link} from "react-router-dom";
 import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
-// import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
 import DashboardOutlinedIcon from '@material-ui/icons/DashboardOutlined';
 import ReportOutlinedIcon from '@material-ui/icons/ReportOutlined';
 import { useLocation } from "react-router-dom";
@@ -50,6 +49,7 @@ function Sidebar(){
                                         </li>
                                     </Link>
                                 </li>
+
                                 <li className={splitLocation[1] === "organisations" || splitLocation[1] === 'org' ? "active" : ""}>
                                     <Link to='/organisations' className="link">
                                         <li className="sidebarListItem ">
@@ -58,6 +58,7 @@ function Sidebar(){
                                         </li>
                                     </Link>
                                 </li>
+
                                 <li className={splitLocation[1] === "users" ? "active" : ""}>
                                     <Link to='/users' className="link">
                                         <li className="sidebarListItem ">
@@ -86,7 +87,7 @@ function Sidebar(){
                                 </li>
 
                                 <li className={splitLocation[1] === "calendar" ? "active" : ""}>
-                                    <Link to='/browse' className="link">
+                                    <Link to='/calendar' className="link">
                                         <li className="sidebarListItem ">
                                             <CalendarTodayOutlinedIcon />
                                             <div className="sideIcon" > Calendar </div>
@@ -94,17 +95,14 @@ function Sidebar(){
                                     </Link>
                                 </li>
 
-
                                 <li className={splitLocation[1] === "profile" ? "active" : ""}>
                                     <Link to='/profile' className="link">
                                         <li className="sidebarListItem ">
                                             <AccountCircleOutlinedIcon />
                                             <div className="sideIcon" > Profile</div>
                                         </li>
-
                                     </Link>
                                 </li>
-
 
                                 <li className={splitLocation[1] === "certificate" || splitLocation[1] === "upgrade5" || splitLocation[1] === "upgrade0"|| splitLocation[1] === "upgrade1"|| splitLocation[1] === "upgrade2"|| splitLocation[1] === "upgrade3"|| splitLocation[1] === "upgrade4" ? "active" : ""}>
                                     <Link to='/certificate' className="link">
@@ -112,7 +110,6 @@ function Sidebar(){
                                             <CardGiftcardOutlinedIcon />
                                             <div className="sideIcon" > Certificate</div>
                                         </li>
-
                                     </Link>
                                 </li>
 

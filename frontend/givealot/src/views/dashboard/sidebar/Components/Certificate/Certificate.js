@@ -162,6 +162,7 @@ export class Certificate extends Component {
             <div className="display">
                 <img src={pic} height={566} width={733}/>
             </div>
+
         </div>
     );
     }

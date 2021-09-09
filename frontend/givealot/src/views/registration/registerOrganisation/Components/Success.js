@@ -28,31 +28,33 @@ export class Success extends Component {
         * TODO: some value
         * */
         const new_organisation = new FormData();
-        new_organisation.append("orgName", "some value");
-        new_organisation.append("slogan", "some value");
-        new_organisation.append("orgDescription", "some value");
-        new_organisation.append("orgSector", "some value");
-        new_organisation.append("orgEmail", "some value");
-        new_organisation.append("contactPerson", "some value");
-        new_organisation.append("contactNumber", "some value");
-        new_organisation.append("password", "some value");
-        new_organisation.append("image", ""/*event.target.files[0]*/); //get the image from form
+        new_organisation.append("orgName", this.props.orgName);
+        new_organisation.append("slogan", this.props.slogan);
+        new_organisation.append("orgDescription", this.props.orgDescription);
+        new_organisation.append("orgSector", this.props.orgSector);
+        new_organisation.append("orgEmail", this.props.orgEmail);
+        new_organisation.append("contactPerson", this.props.contactPerson);
+        new_organisation.append("contactNumber", this.props.contactNumber);
+        new_organisation.append("password", this.props.password);
+        new_organisation.append("image", this.props.image);
 
-        fetch(
-            'http://localhost:8080/v1/organisation/add/org',
-            {
-                method: 'POST',
-                body: new_organisation,
-            }
-        )
-        .then((response) => response.json())
-        .then((result) => {
-            console.log('Success:', result);
+        console.log(this.props)
 
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+        // fetch(
+        //     'http://localhost:8080/v1/organisation/add/org',
+        //     {
+        //         method: 'POST',
+        //         body: new_organisation,
+        //     }
+        // )
+        // .then((response) => response.json())
+        // .then((result) => {
+        //     console.log('Success:', result);
+        //
+        // })
+        // .catch((error) => {
+        //     console.error('Error:', error);
+        // });
     };
 
     constructor() {

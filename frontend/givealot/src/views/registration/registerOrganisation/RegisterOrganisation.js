@@ -26,7 +26,7 @@ export class RegisterOrganisation extends Component {
         contactNumberError: '',
         password : "",
         passwordError: '',
-        image: '',
+        image: new FormData(),
         imageError: '',
         // loading : false,
 
@@ -173,6 +173,16 @@ export class RegisterOrganisation extends Component {
         this.setState({ [input]: e.target.value });
         // console.log(e.target.value);
     };
+    handleChangeImage =  e => {
+        console.log("=============================================")
+        const formData = new FormData();
+        formData.append('image', e.target.files[0]);
+        // this.setState({
+        //     // image: e.target.files[0]
+        //   image: formData
+        // });
+        console.log(e.target.files[0])
+    };
 
     render() {
 
@@ -223,7 +233,7 @@ export class RegisterOrganisation extends Component {
                         // imageError={this.state.imageError}
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
-                        handleChange={this.handleChange}
+                        handleChangeImage={this.handleChangeImage}
                         values={values}
                     />
                 );

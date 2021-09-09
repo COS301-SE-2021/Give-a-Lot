@@ -4,7 +4,8 @@ import Logo from "../login/Components/Logo";
 import {Link} from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import "./styles/VerifyCert.css"
-import axios from "axios";
+import {Alert} from "@material-ui/lab";
+import Button from "@material-ui/core/Button";
 
 const styles = {
     main: {
@@ -22,7 +23,8 @@ export class VerifyCertificate extends Component {
     }
 
     onChange = (e) => {
-        switch (e.target.name) {
+        switch (e.target.name)
+        {
             case 'selectedFile':
                 this.setState({ selectedFile: e.target.files[0] });
                 break;
@@ -37,6 +39,18 @@ export class VerifyCertificate extends Component {
         let formData = new FormData();
         formData.append('selectedFile', selectedFile);
 
+        let AlertPrompt = document.getElementById("AlertPrompt");
+        let AlertPromptWait = document.getElementById("AlertPromptWait");
+        let AlertServerError = document.getElementById("AlertServerError");
+
+        let AlertBadCertificate = document.getElementById("AlertBadCertificate");
+        let AlertGoodCertificate = document.getElementById("AlertGoodCertificate");
+
+        AlertPrompt.style.display = "none";
+        AlertBadCertificate.style.display = "none";
+        AlertServerError.style.display = "none";
+        AlertPromptWait.style.display = "flex";
+
         fetch(
             'http://localhost:8080/certificate/compare',
             {
@@ -47,6 +61,25 @@ export class VerifyCertificate extends Component {
         .then((response) => response.json())
         .then((result) => {
             console.log('Success:', result);
+
+                if(result.ok && result === -1)
+                {
+                    AlertBadCertificate.style.display = "flex";
+                    AlertPromptWait.style.display = "none";
+                }
+                else if (result.ok && result !== -1)
+                {
+                    AlertGoodCertificate.style.display = "flex";
+                    AlertBadCertificate.style.display = "none";
+                    AlertPromptWait.style.display = "none";
+                }
+                else
+                {
+                    AlertBadCertificate.style.display = "none";
+                    AlertPromptWait.style.display = "none";
+                    AlertGoodCertificate.style.display = "none";
+                    AlertServerError.style.display = "flex";
+                }
 
         })
         .catch((error) => {
@@ -84,7 +117,20 @@ export class VerifyCertificate extends Component {
                                     </div>
                                 </div>
                             </div>
+
                         </div>
+                        <Alert severity="error" id={"AlertBadCertificate"}>this certificate is invalid...</Alert>
+                        <Alert severity="error" id={"AlertServerError"}>Internal server error</Alert>
+                        <Alert severity="info" id={"AlertPrompt"}>Please upload a Give a lot certificate (.PDF)</Alert>
+                        <Alert severity="info" id={"AlertPromptWait"}>Please wait...</Alert>
+                        <Alert severity="success"  id={"AlertGoodCertificate"}>Organisation verified
+                                <Button
+                                    id={"goodAlertBtn"}
+                                    variant={"contained"}
+                                >
+                                    visit
+                                </Button>
+                        </Alert>
                     </div>
                 </div>
             </div>

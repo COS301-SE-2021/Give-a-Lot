@@ -14,10 +14,48 @@
 .fileUpload{
     position: absolute;
     left: 50%;
-    top: 40%;
+    top: 50%;
     transform: translate(-50%,-50%);
 }
 
+#AlertPrompt, #AlertBadCertificate, #AlertGoodCertificate, #AlertPromptWait, #AlertServerError
+{
+    margin: 10px 0;
+}
+
+#AlertServerError
+{
+    display: none;
+}
+
+#AlertGoodCertificate
+{
+  position: relative;
+    display: none;
+}
+
+#AlertPromptWait
+{
+    display: none;
+}
+
+#goodAlertBtn
+{
+    background: #5ec94a !important;
+    color: white;
+    position: absolute;
+    right: 5px;
+    bottom: 9.5px;
+    width: 100px;
+    height: 30px;
+}
+
+
+#AlertBadCertificate
+{
+    display: none;
+
+}
 .upload
 {
     background-color: white;

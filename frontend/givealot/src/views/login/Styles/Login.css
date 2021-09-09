@@ -119,6 +119,19 @@
     margin-top: 20px;
     transform: translate(-50%,0);
 }
+
+#badLogin
+{
+    position: relative;
+    width: fit-content;
+    flex-direction: row;
+    display: none;
+
+    left: 50%;
+    margin-bottom: 10px;
+
+    transform: translateX(-50%);
+}
 .Login-btn:hover{
 
 }

@@ -233,9 +233,6 @@ export class RegisterOrganisation extends Component {
                         values={values}
                     />
                 );
-            //
-            // case 5:
-            //     return <Success />;
         }
     }
 }

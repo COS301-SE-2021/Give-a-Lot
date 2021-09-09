@@ -96,109 +96,106 @@ render() {
     return (
         <div>
             <div className="registerUser" style={styles.main}>
-                <Logo/>
-                <Link to={"/signUp"}>
-                    <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
-                </Link>
-                <div className="registerUserCard">
-                    <div className="wrapp">
+                <div  id={"banner_filter"}>
+                    <Logo/>
+                    <Link to={"/signUp"}>
+                        <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
+                    </Link>
+                    <div className="registerUserCard">
+                        <div className="wrapp">
+                            <form className="registerUserForm" onSubmit={this.handleSubmit}>
+                               <span className="registerUserHeader">
+                                   Sign Up
+                               </span>
 
-                        <form className="registerUserForm" onSubmit={this.handleSubmit}>
-                           <span className="registerUserHeader">
-                               Sign Up
-                           </span>
+                                <div className="names">
+                                    <div className="registerUserInput1" data-validate="Username is required">
+                                        <span className="registerUserInputLabel">
+                                            First Name
+                                        </span>
+                                        <div>
+                                            <input
+                                                className="nameFields validate"
+                                                type="text"
+                                                name="firstName"
+                                                placeholder="Enter your first name"
+                                                onChange={this.handleChange}
+                                            />
+                                        </div>
+                                        <span className="error">{this.state.fnameError}</span>
+                                    </div>
 
-                            <div className="names">
+                                    <div className="registerUserInput1" data-validate="Username is required">
+                                    <span className="registerUserInputLabel">
+                                        Last Name
+                                    </span>
+                                        <div>
+                                            <input
+                                                className="nameFields validate"
+                                                type="text"
+                                                name="lastName"
+                                                placeholder="Enter your last name"
+                                                onChange={this.handleChange}
+                                            />
+                                        </div>
+                                        <span className="error">{this.state.lnameError}</span>
+                                    </div>
 
-                                <div className="registerUserInput1" data-validate="Username is required">
-                                <span className="registerUserInputLabel">
-                                    First Name
-                                </span>
+                                </div>
+
+                                <div className="registerUserInput" data-validate="surname is required">
+                                    <span className="registerUserInputLabel">
+                                        Email
+                                    </span>
                                     <div>
                                         <input
                                             className="registerUserInnerInput validate"
-                                            type="text"
-                                            name="firstName"
-                                            placeholder="Enter your first name"
-                                            //value={this.state.name}
-                                            onChange={this.handleChange}
-                                        />
+                                            type="email"
+                                            name="email"
+                                            placeholder="Enter your Email"
+                                           // value={this.state.email}
+                                            onChange={this.handleChange}/>
+
                                     </div>
-                                    <span className="error">{this.state.fnameError}</span>
+                                    <span className="error">{this.state.emailError}</span>
                                 </div>
 
 
-                                <div className="registerUserInput1" data-validate="Username is required">
-                                <span className="registerUserInputLabel">
-                                    Last Name
-                                </span>
+                                <div className="registerUserInput" data-validate="Username is required">
+                                    <span className="registerUserInputLabel">
+                                        Password
+                                    </span>
                                     <div>
-                                        <input
-                                            className="registerUserInnerInput validate"
-                                            type="text"
-                                            name="lastName"
-                                            placeholder="Enter your last name"
-                                            //value={this.state.name}
-                                            onChange={this.handleChange}
-                                        />
-                                    </div>
-                                    <span className="error">{this.state.lnameError}</span>
-                                </div>
-
-                            </div>
-
-                            <div className="registerUserInput" data-validate="surname is required">
-                                <span className="registerUserInputLabel">
-                                    Email
-                                </span>
-                                <div>
                                     <input
                                         className="registerUserInnerInput validate"
-                                        type="email"
-                                        name="email"
-                                        placeholder="Enter your Email"
-                                       // value={this.state.email}
-                                        onChange={this.handleChange}/>
-
+                                        type="password"
+                                        name="password"
+                                        placeholder="Enter your password"
+                                        //value={this.state.password}
+                                        onChange={this.handleChange}
+                                    />
                                 </div>
-                                <span className="error">{this.state.emailError}</span>
-                            </div>
+                                    <span className="error">{this.state.passwordError}</span>
+                                </div>
 
-
-                            <div className="registerUserInput" data-validate="Username is required">
-                                <span className="registerUserInputLabel">
-                                    Password
-                                </span>
-                                <div>
-                                <input
-                                    className="registerUserInnerInput validate"
-                                    type="password"
-                                    name="password"
-                                    placeholder="Enter your password"
-                                    //value={this.state.password}
-                                    onChange={this.handleChange}
-                                />
-                            </div>
-                                <span className="error">{this.state.passwordError}</span>
-                            </div>
-
-                            <div className="wrapp-btn">
-                                <button className="registerUser-btn" type="submit">
-                                    Sign Up
-                                </button>
-
-                                {/* <Link to={"/login"} className="registerUserLinker">
-                                    <button className="registerUser-btn">
+                                <div className="wrapp-btn">
+                                    <button className="registerUser-btn" type="submit">
                                         Sign Up
                                     </button>
-                                </Link>*/}
-                            </div>
+
+                                    {/* <Link to={"/login"} className="registerUserLinker">
+                                        <button className="registerUser-btn">
+                                            Sign Up
+                                        </button>
+                                    </Link>*/}
+                                </div>
 
 
-                        </form>
+                            </form>
+
+                        </div>
 
                     </div>
-
                 </div>
             </div>
         </div>

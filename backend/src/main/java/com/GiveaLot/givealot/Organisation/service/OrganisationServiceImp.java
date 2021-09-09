@@ -185,7 +185,7 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override /* tested works well except - certificate throws a null pointer exception.*/
-    public generalOrganisationResponse addOrganisation(Organisations organisation) throws Exception
+    public generalOrganisationResponse addOrganisation(AddOrganisationRequest organisation) throws Exception
     {
         if(organisation == null)
             throw new Exception("invalid organisation object: null");
@@ -274,13 +274,29 @@ public class OrganisationServiceImp implements OrganisationService {
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         String dateCreated = format.format(dateCurrent);
 
-        organisation.setDateAdded(dateCreated);
-        organisationRepository.save(organisation);
+        organisation.setDateCreated(dateCreated);
+
+        Organisations save_org = new Organisations(
+                organisation.getOrgName(),
+                organisation.getSlogan(),
+                organisation.getOrgDescription(),
+                organisation.getOrgSector(),
+                organisation.getOrgEmail(),
+                organisation.getOrgId(),
+                organisation.getStatus(),
+                organisation.getContactPerson(),
+                organisation.getContactNumber(),
+                organisation.getDirectory(),
+                organisation.getPassword(),
+                organisation.getDateCreated()
+                );
+        organisationRepository.save(save_org);
         /* save the organisation in the database */
 
         long id = organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()).getOrgId();
         String directory = "/home/ubuntu/Organisations/" + id;
         organisationRepository.updateRepo(id,directory);
+        this.addOrgLogo(new AddOrgLogoRequest(id, organisation.getImage()));
 
         organisationInfoRepository.save(new OrganisationInfo((long) id));
         organisationPointsRepository.save(new OrganisationPoints((long) id));

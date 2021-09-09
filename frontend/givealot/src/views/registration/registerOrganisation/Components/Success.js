@@ -22,21 +22,37 @@ export class Success extends Component {
             this.setState({ loading: false });
         }, 2000);
 
-        console.log(this.props)
-        let config = {
-            headers: {
-                "Content-Type": "application/json",
-                'Access-Control-Allow-Origin': '*',
-            }
-        }
+        /*TODO: ====================wanda======================*/
+        /*
+        * TODO: get the all the data and replace the "some value" strings with corresponding data
+        * TODO: some value
+        * */
+        const new_organisation = new FormData();
+        new_organisation.append("orgName", "some value");
+        new_organisation.append("slogan", "some value");
+        new_organisation.append("orgDescription", "some value");
+        new_organisation.append("orgSector", "some value");
+        new_organisation.append("orgEmail", "some value");
+        new_organisation.append("contactPerson", "some value");
+        new_organisation.append("contactNumber", "some value");
+        new_organisation.append("password", "some value");
+        new_organisation.append("image", ""/*event.target.files[0]*/); //get the image from form
 
-        axios.post('http://localhost:8080/v1/organisation/add/org', this.props ,config)
-            .then(response =>{
-                console.log(response)
-            })
-            .catch(error =>{
-                console.log(error)
-            })
+        fetch(
+            'http://localhost:8080/v1/organisation/add/org',
+            {
+                method: 'POST',
+                body: new_organisation,
+            }
+        )
+        .then((response) => response.json())
+        .then((result) => {
+            console.log('Success:', result);
+
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
     };
 
     constructor() {

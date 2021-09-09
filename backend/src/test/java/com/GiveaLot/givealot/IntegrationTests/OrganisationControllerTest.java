@@ -143,7 +143,7 @@ public class OrganisationControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
-    @Test
+    /*@Test
     public void testAddOrganisation() throws Exception {
         MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/organisation/add/org")
                 .contentType(MediaType.APPLICATION_JSON);
@@ -156,7 +156,7 @@ public class OrganisationControllerTest {
                 .build()
                 .perform(requestBuilder)
                 .andExpect(MockMvcResultMatchers.status().isOk());
-    }
+    }*/
 
     @Test
     public void testConfirmValidity() throws Exception {

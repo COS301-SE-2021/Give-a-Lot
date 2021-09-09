@@ -78,7 +78,6 @@ export class Upgrade0 extends Component {
         formData.append('orgId', this.state.orgId);
         let imageStates = 0;
 
-
         alert("take away submit button functionality");
 
         fetch(

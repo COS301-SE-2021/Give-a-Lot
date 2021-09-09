@@ -122,7 +122,13 @@ export default class Demo extends React.PureComponent {
             }
             if (changed) {
                 let testing = changed.undefined
-                console.log({testing} )
+                console.log({ testing } )
+                if({testing} === testing.startDate){
+                    console.log("time")
+                }
+            else{
+                console.log("others")
+                }
                 // data = data.map(appointment => (
                 //     changed[appointment.id] ? { ...appointment, ...changed[appointment.id] } : appointment));
                 // console.log(data)

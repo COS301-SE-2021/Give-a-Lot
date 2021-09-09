@@ -12,7 +12,7 @@ export class Reports extends Component {
         this.state = {
             count: 4,
             reports: [],
-            orgId:32,
+            orgId:localStorage.getItem("id"),
             error: "",
         }
     }
@@ -54,6 +54,7 @@ export class Reports extends Component {
                 <div className="report">
                     <div className="reportHeader">
                         Reports list
+
                     </div>
                     <div className="accordion">
 
@@ -65,7 +66,7 @@ export class Reports extends Component {
                                     title={item.reportType}
                                     description={item.description}
                                     appeal={item.appeal}
-                                />
+                                 />
                                 )
                         })}
 

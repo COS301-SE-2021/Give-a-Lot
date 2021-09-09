@@ -1,3 +1,130 @@
+POST http://localhost:8080/report/org/
+Content-Type: application/json
+
+{
+  "orgId" : 47,
+  "userId" : 14,
+  "orgName": "Dancing with you all",
+  "description" : "this organisation set up a paypal link that doesn't link to them",
+  "reportType" : "fraud"
+}
+
+<> 2021-09-09T090816.200.json
+
+###
+
+POST http://localhost:8080/report/org/
+Content-Type: application/json
+
+{
+  "orgId" : 47,
+  "orgName": "Dancing with you all",
+  "description" : "this organisation set up a paypal link that doesn't link to them",
+  "type" : "fraud",
+  "email" : "someemail@gmail.com"
+
+}
+
+<> 2021-09-09T090420.400.json
+
+###
+
+POST http://localhost:8080/report/org/
+Content-Type: application/json
+
+{
+  "orgId" : 47,
+  "orgName": "Dancing with you all",
+  "type" : "fraud",
+  "description" : "this organisation set up a paypal link that doesn't link to them",
+  "email" : "someemail@gmail.com"
+
+}
+
+<> 2021-09-09T090338.400.json
+
+###
+
+POST http://localhost:8080/report/org/
+Content-Type: application/json
+
+{
+  "orgId" : 47,
+  "orgName": "Dancing with you all",
+  "type" : "fraud",
+  "description" : "this organisation set up a paypal link that doesn't link to them",
+  "email" : "someemail@gmail.com"
+
+}
+
+<> 2021-09-09T090033.400.json
+
+###
+
+POST http://localhost:8080/report/org/
+Content-Type: application/json
+
+{
+  "orgId" : 47,
+  "orgName": "Dancing with you all",
+  "type" : "fraud",
+  "description" : "this organisation set up a paypal link that doesn't link to them",
+  "email" : "someemail@gmail.com"
+
+}
+
+<> 2021-09-09T085951.400.json
+
+###
+
+POST http://localhost:8080/report/org
+Content-Type: application/json
+
+{
+  "orgId" : 47,
+  "orgName": "Dancing with you all",
+  "type" : "fraud",
+  "description" : "this organisation set up a paypal link that doesn't link to them",
+  "email" : "someemail@gmail.com"
+
+}
+
+<> 2021-09-09T085942.404.json
+
+###
+
+POST http://localhost:8080/report/org/
+Content-Type: application/json
+
+{
+  "orgId" : 47,
+  "orgName": "Dancing with you all",
+  "type" : "fraud",
+  "description" : "this organisation set up a paypal link that doesn't link to them",
+  "email" : "someemail@gmail.com"
+
+}
+
+<> 2021-09-09T085925.400.json
+
+###
+
+POST http://localhost:8080/report/organisation
+Content-Type: application/json
+
+{
+  "orgId" : 47,
+  "orgName": "Dancing with you all",
+  "type" : "fraud",
+  "description" : "this organisation set up a paypal link that doesn't link to them",
+  "email" : "someemail@gmail.com"
+
+}
+
+<> 2021-09-09T085452.200.json
+
+###
+
 POST http://localhost:8080/v1/user/register/user
 Content-Type: application/json
 
@@ -610,139 +737,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-05T214605.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 12
-}
-
-<> 2021-09-05T214539.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 16
-}
-
-<> 2021-09-05T214519.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 12
-}
-
-<> 2021-09-05T214337.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 12
-}
-
-<> 2021-09-05T214217.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 12
-}
-
-<> 2021-09-05T214156.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 12
-}
-
-<> 2021-09-05T214150.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "meeting",
-  "eventDescription": "meet with the ceo to discuss funds",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 32
-}
-
-<> 2021-09-05T213706.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/update/info/organisation
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "type": "orgName",
-  "newValue": "Pistol 3"
-
-}
-
-<> 2021-09-05T151412.200.json
 
 ###
 

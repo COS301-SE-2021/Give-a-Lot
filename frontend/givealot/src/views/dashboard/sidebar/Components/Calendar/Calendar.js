@@ -121,8 +121,14 @@ export default class Demo extends React.PureComponent {
                     })
             }
             if (changed) {
-                data = data.map(appointment => (
-                    changed[appointment.id] ? { ...appointment, ...changed[appointment.id] } : appointment));
+                let testing = changed.undefined
+                console.log({testing} )
+                // data = data.map(appointment => (
+                //     changed[appointment.id] ? { ...appointment, ...changed[appointment.id] } : appointment));
+                // console.log(data)
+                // const Event =  data.find( ({ eventId }) => eventId === id );
+                // console.log(Event)
+
             }
             if (deleted !== undefined) {
                 data = data.filter(appointment => appointment.id !== deleted);

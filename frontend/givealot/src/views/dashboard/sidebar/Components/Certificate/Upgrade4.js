@@ -153,7 +153,15 @@ export class Upgrade4 extends Component {
         return true;
     };
 
-    onToastTwo = () => {
+    handleFormSubmit = e => {
+        e.preventDefault();
+        const isValid = this.validate();
+        if (isValid) {
+
+        }
+    };
+
+    onToastFour = () => {
         const isValid = this.validate();
         if (isValid) {
             toast.success('Submit successful', {
@@ -210,8 +218,10 @@ export class Upgrade4 extends Component {
                                             onChange={this.handleImageChange}
 
                                         />
+
                                         {/* <FormHelperText className="helper">labelPlacement start</FormHelperText>*/}
                                     </div>
+                                    <span className="loginError_certificate">{this.state.imagesError}</span>
                                     <div>
                                         <span className="upgrade_label_logo">
                                             Audit financial document
@@ -222,7 +232,9 @@ export class Upgrade4 extends Component {
                                             name="file"
                                             onChange={this.handleFileChange}
                                         />
+
                                     </div>
+                                    <span className="loginError_certificate">{this.state.fileError}</span>
                                 </div>
                                 <div className="upgrade_Button">
                                     <button className="upgrade-btn" type="submit" onClick={this.onToastFour}>

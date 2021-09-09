@@ -113,24 +113,24 @@ export class Upgrade2 extends Component {
     validate = () => {
         let dateError = "";
         let paypalError = "";
-        let codeError="";
+        let qrError="";
 
 
         if (!this.state.date) {
-            dateError = "Date is required";
+            dateError = "required";
         }
 
 
         if(!this.state.orgInfo) {
-            paypalError="Link required";
+            paypalError="required";
         }
 
-        if (!this.state) {
-            codeError = "QRcode is required";
+        if (!this.state.qrError) {
+            qrError = "required";
         }
 
-        if ( dateError || paypalError) {
-            this.setState({ dateError, paypalError });
+        if ( dateError || paypalError, qrError) {
+            this.setState({ dateError, paypalError,qrError });
             return false;
         }
 
@@ -253,7 +253,7 @@ export class Upgrade2 extends Component {
                                         />
 
                                     </div>
-                                    <span className="loginError_certificate">{this.state.Error}</span>
+                                    <span className="loginError_certificate">{this.state.qrError}</span>
 
                                 </div>
                                 <div className="upgrade_Button">

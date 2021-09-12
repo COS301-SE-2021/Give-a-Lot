@@ -56,8 +56,8 @@ class RegisterUser extends Component {
             emailError = "invalid email";
         }
 
-        if(this.state.password.length <4) {
-           passwordError="Password must be greater than 4";
+        if(this.state.password.length <8) {
+           passwordError="Password must be greater than 8";
         }
 
         if (emailError || fnameError|| lnameError || passwordError) {
@@ -170,7 +170,10 @@ render() {
                                         className="registerUserInnerInput validate"
                                         type="password"
                                         name="password"
+                                        minLength="8"
+                                        maxLength="15"
                                         placeholder="Enter your password"
+                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                                         //value={this.state.password}
                                         onChange={this.handleChange}
                                     />

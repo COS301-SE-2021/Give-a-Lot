@@ -19,7 +19,8 @@ function Sidebar(){
 
     function handleLogOut() {
         localStorage.clear();
-        history.push("/browse"); // whichever component you want it to route to
+       // history.push("/browse"); // whichever component you want it to route to
+        window.location.href = '/';
     }
 
     let history = useHistory();
@@ -113,23 +114,16 @@ function Sidebar(){
                                     </Link>
                                 </li>
 
-                                <li className={splitLocation[1] === "email" ? "active" : ""}  onClick={handleLogOut}>
-                                    {/*<Link to='/email' className="link">*/}
+                                <li className={splitLocation[1] === "logout" ? "active" : ""}  onClick={handleLogOut}>
+                                    <Link to='/browse' className="link">
                                         <li className="sidebarListItem ">
                                             <ExitToAppOutlinedIcon/>
                                             <div className="sideIcon" > Logout </div>
                                         </li>
-                                    {/*</Link>*/}
+                                    </Link>
                                 </li>
 
-                                {/*<li className={splitLocation[1] === "todos" ? "active" : ""}>*/}
-                                {/*    <Link to='/todos' className="link">*/}
-                                {/*        <li className="sidebarListItem ">*/}
-                                {/*            <ReportOutlinedIcon />*/}
-                                {/*            <div className="sideIcon" > Todos </div>*/}
-                                {/*        </li>*/}
-                                {/*    </Link>*/}
-                                {/*</li>*/}
+
                             </ul>
 
                         </ul>

@@ -5,6 +5,7 @@ import backgroundImg from "../../../../assets/homeBackground.jpg";
 import { IoReload } from "react-icons/io5";
 import Logo from "../../../login/Components/Logo";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export class Success extends Component {
     styles = {
@@ -12,50 +13,6 @@ export class Success extends Component {
             backgroundImage: `url(${backgroundImg})`
         }
     }
-
-    submit = e => {
-        e.preventDefault();
-        this.setState({ loading: true });
-
-        //Faking API call here
-        setTimeout(() => {
-            this.setState({ loading: false });
-        }, 2000);
-
-        /*TODO: ====================wanda======================*/
-        /*
-        * TODO: get the all the data and replace the "some value" strings with corresponding data
-        * TODO: some value
-        * */
-        const new_organisation = new FormData();
-        new_organisation.append("orgName", this.props.orgName);
-        new_organisation.append("slogan", this.props.slogan);
-        new_organisation.append("orgDescription", this.props.orgDescription);
-        new_organisation.append("orgSector", this.props.orgSector);
-        new_organisation.append("orgEmail", this.props.orgEmail);
-        new_organisation.append("contactPerson", this.props.contactPerson);
-        new_organisation.append("contactNumber", this.props.contactNumber);
-        new_organisation.append("password", this.props.password);
-        new_organisation.append("image", this.props.image);
-
-        console.log(this.props)
-
-        // fetch(
-        //     'http://localhost:8080/v1/organisation/add/org',
-        //     {
-        //         method: 'POST',
-        //         body: new_organisation,
-        //     }
-        // )
-        // .then((response) => response.json())
-        // .then((result) => {
-        //     console.log('Success:', result);
-        //
-        // })
-        // .catch((error) => {
-        //     console.error('Error:', error);
-        // });
-    };
 
     constructor() {
         super();
@@ -66,9 +23,6 @@ export class Success extends Component {
     }
 
     render() {
-        const {
-            values: { slogan, orgEmail, orgSector, orgDescription, contactNumber, contactPerson, orgName }
-        } = this.props;
         const { loading } = this.state;
         return (
             <div className="registerOrganisation" style={this.styles.main}>
@@ -82,22 +36,12 @@ export class Success extends Component {
                            </span>
                                 <div className="button">
                                     <div className="formButton ">
-                                        <button className="register-btn"
-                                                onClick={this.submit}
-                                                disabled={loading}
-                                        >
-                                            {" "}
-                                            {/*Login*/}
-                                            {loading && (
-                                                <IoReload style={{ marginRight: "5px" }} className="refresh"/>
-
-                                                // <i
-                                                //     className="fa fa-refresh fa-spin"
-                                                //     style={{ marginRight: "5px", color: "white" }}
-                                                // />
-                                            )}
-                                            {!loading && <span>Login</span>}
-                                        </button>
+                                        <Link to={"/login"}>
+                                            <button className="register-btn">
+                                                {" "}
+                                                Login
+                                            </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </form>

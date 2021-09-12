@@ -5,6 +5,7 @@ import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Media from "./Components/Media";
 import Success from "./Components/Success"
+import Confirm from "./Components/Confirm"
 
 export class RegisterOrganisation extends Component {
 
@@ -73,6 +74,10 @@ export class RegisterOrganisation extends Component {
             isError = true;
             errors.orgNameError = 'orgName cannot be blank';
         }
+        // if (this.state.orgName.match(/^([a-z]+[,.]?[ ]?|[a-z]+['-]?)+$/)) {
+        //     isError = true;
+        //     errors.orgNameError = "Please enter name";
+        // }
 
         if(this.state.step > 1){
             if(this.state.slogan.length < 1){
@@ -236,8 +241,16 @@ export class RegisterOrganisation extends Component {
                 );
             case 5:
                 return (
-                    <Success
+                    <Confirm
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
                         values={values}
+                    />
+                );
+            case 6:
+                return (
+                    <Success
+                        // values={values}
                     />
                 );
         }

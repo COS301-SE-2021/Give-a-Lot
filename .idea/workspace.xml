@@ -107,13 +107,15 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -168,6 +170,48 @@
       <workItem from="1631042260596" duration="333000" />
       <workItem from="1631133557866" duration="750000" />
       <workItem from="1631137762251" duration="2127000" />
+    </task>
+    <task id="LOCAL-00027" summary="organisations controller revision - remove socials">
+      <created>1629267850946</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1629267850946</updated>
+    </task>
+    <task id="LOCAL-00028" summary="organisations controller revision - tax">
+      <created>1629268765715</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1629268765715</updated>
+    </task>
+    <task id="LOCAL-00029" summary="organisations controller revision - tax">
+      <created>1629269873587</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1629269873587</updated>
+    </task>
+    <task id="LOCAL-00030" summary="organisations controller revision">
+      <created>1629271630623</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1629271630623</updated>
+    </task>
+    <task id="LOCAL-00031" summary="organisations controller revision">
+      <created>1629302202215</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1629302202215</updated>
+    </task>
+    <task id="LOCAL-00032" summary="organisations controller revision">
+      <created>1629305664485</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1629305664485</updated>
     </task>
     <task id="LOCAL-00033" summary="organisations controller revision">
       <created>1629306467354</created>
@@ -470,49 +514,7 @@
       <option name="project" value="LOCAL" />
       <updated>1631133925824</updated>
     </task>
-    <task id="LOCAL-00076" summary="registration update">
-      <created>1631172099333</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1631172099333</updated>
-    </task>
-    <task id="LOCAL-00077" summary="registration update">
-      <created>1631176795092</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1631176795092</updated>
-    </task>
-    <task id="LOCAL-00078" summary="registration update">
-      <created>1631176900629</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1631176900629</updated>
-    </task>
-    <task id="LOCAL-00079" summary="certificate download backend test">
-      <created>1631180159727</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1631180159727</updated>
-    </task>
-    <task id="LOCAL-00080" summary="QR code intergration and upload test and controller">
-      <created>1631181785703</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1631181785703</updated>
-    </task>
-    <task id="LOCAL-00081" summary="registration - upload photo">
-      <created>1631188662761</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1631188662761</updated>
-    </task>
-    <option name="localTasksCounter" value="82" />
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,7 +525,34 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/backendTest" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/backendTest" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -551,11 +580,7 @@
     <MESSAGE value="Last minute changes" />
     <MESSAGE value="Org Name update fix" />
     <MESSAGE value="Added HTTPStatus.UNAUTHORIZED instead of OK" />
-    <MESSAGE value="registration update" />
-    <MESSAGE value="certificate download backend test" />
-    <MESSAGE value="QR code intergration and upload test and controller" />
-    <MESSAGE value="registration - upload photo" />
-    <option name="LAST_COMMIT_MESSAGE" value="registration - upload photo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added HTTPStatus.UNAUTHORIZED instead of OK" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

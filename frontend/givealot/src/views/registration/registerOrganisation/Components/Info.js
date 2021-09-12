@@ -77,6 +77,8 @@ export class RegisterOrganisation extends Component {
                                     <input className="input100 validateInput"
                                            required
                                            type="password" name="password"
+                                           minLength="8"
+                                           maxLength="15"
                                            placeholder="Enter Organisation Password"
                                            value={values.password}
                                            onChange={handleChange('password')}

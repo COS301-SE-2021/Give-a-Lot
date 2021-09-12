@@ -173,7 +173,7 @@ render() {
                                         minLength="8"
                                         maxLength="15"
                                         placeholder="Enter your password"
-                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                        //pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                                         //value={this.state.password}
                                         onChange={this.handleChange}
                                     />

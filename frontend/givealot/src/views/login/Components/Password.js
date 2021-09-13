@@ -56,10 +56,8 @@ class Password extends Component {
             console.log(this.state);
 
             const data = {
-                firstName: this.state.firstName,
-                lastName: this.state.lastName,
                 email: this.state.email,
-                password: this.state.password,
+
             };
             axios.post("http://localhost:8080/v1/user/register/user", data)
                 .then(res => console.log(res))
@@ -68,6 +66,13 @@ class Password extends Component {
 
         }
     };
+
+    reset=()=>{
+        const isValid = this.validate();
+        if (isValid) {
+            window.location.assign("/s");
+        }
+    }
 
     render()
     {
@@ -109,8 +114,8 @@ class Password extends Component {
 
                                     <div className="wrapper-btn">
 
-                                        <button className="Login-btn" id={"loginBTN_less_rounded"} type="submit">
-                                            Login
+                                        <button className="Login-btn" id={"loginBTN_less_rounded"} type="submit" onClick={this.reset}>
+                                            Reset password
                                         </button>
                                     </div>
 

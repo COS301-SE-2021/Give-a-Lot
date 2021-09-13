@@ -1,29 +1,17 @@
 import React, { Component } from "react";
-import "../Styles/registerOrganisation.css"
-// import { IoPersonOutline } from "react-icons/io5";
-import backgroundImg from "../../../../assets/homeBackground.jpg";
-import { IoReload } from "react-icons/io5";
-import Logo from "../../../login/Components/Logo";
-import axios from "axios";
+import "../registerOrganisation/Styles/registerOrganisation.css"
+import backgroundImg from "../../../assets/homeBackground.jpg";
+import Logo from "../../login/Components/Logo"
 import { Link } from "react-router-dom";
 
-export class Success extends Component {
+export class UserSuccess extends Component {
     styles = {
         main: {
             backgroundImage: `url(${backgroundImg})`
         }
     }
-
-    constructor() {
-        super();
-        this.state = {
-            disabled: false,
-            loading: false
-        };
-    }
-
+    
     render() {
-        const { loading } = this.state;
         return (
             <div className="registerOrganisation" style={this.styles.main}>
                 <div  id={"banner_filter"}>
@@ -53,4 +41,4 @@ export class Success extends Component {
     }
 }
 
-export default Success;
+export default UserSuccess;

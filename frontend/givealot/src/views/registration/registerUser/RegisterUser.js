@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-//import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import "./Styles/RegisterUser.css";
 import backgroundImg from "../../../assets/homeBackground.jpg";
 import Logo from "../../login/Components/Logo";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import axios from "axios";
+
 
 
 
@@ -56,8 +56,8 @@ class RegisterUser extends Component {
             emailError = "invalid email";
         }
 
-        if(this.state.password.length <4) {
-           passwordError="Password must be greater than 4";
+        if(this.state.password.length <8) {
+           passwordError="Password must be greater than 8";
         }
 
         if (emailError || fnameError|| lnameError || passwordError) {
@@ -69,6 +69,13 @@ class RegisterUser extends Component {
 
         return true;
     };
+
+    Success=()=>{
+        const isValid = this.validate();
+        if (isValid) {
+            window.location.assign("/UserSuccess");
+        }
+    }
 
 
     handleSubmit = event => {
@@ -170,7 +177,10 @@ render() {
                                         className="registerUserInnerInput validate"
                                         type="password"
                                         name="password"
+                                        minLength="8"
+                                        maxLength="15"
                                         placeholder="Enter your password"
+                                        //pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                                         //value={this.state.password}
                                         onChange={this.handleChange}
                                     />
@@ -179,7 +189,7 @@ render() {
                                 </div>
 
                                 <div className="wrapp-btn">
-                                    <button className="registerUser-btn" type="submit">
+                                    <button className="registerUser-btn" type="submit" onClick={this.Success}>
                                         Sign Up
                                     </button>
 

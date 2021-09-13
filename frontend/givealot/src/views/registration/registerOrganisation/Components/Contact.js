@@ -62,6 +62,7 @@ export class RegisterOrganisation extends Component {
                                 </span>
                                 <input className="input100 validateInput"
                                        type="text" name="contactNumber"
+                                       maxLength="10"
                                        placeholder="please provide their contact Number"
                                        value={values.contactNumber}
                                        onChange={handleChange('contactNumber')}

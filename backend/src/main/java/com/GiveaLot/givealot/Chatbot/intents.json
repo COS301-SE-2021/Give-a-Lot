@@ -1,0 +1,612 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "How are you",
+        "Is anyone there?",
+        "Hello",
+        "Good day",
+        "Whats up"
+      ],
+      "responses": [
+        "Hello there!",
+        "Good to see you!",
+        "Hi there, how can I help you?"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "cheers",
+        "See you later",
+        "Goodbye",
+        "I am Leaving",
+        "Have a Good day"
+      ],
+      "responses": [
+        "Hope to talk to you again!",
+        "Chat to you later!",
+        "Goodbye!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "name",
+      "patterns": [
+        "what is your name",
+        "what should I call you",
+        "whats your name?"
+      ],
+      "responses": [
+        "You can call me GAB!",
+        "I'm Give-A-Bot!",
+        "I'm GAB which stands for Give-A-Bot."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "gal_safe",
+      "patterns": [
+        "am i safe",
+        "is give a lot safe",
+        "can i trust you"
+      ],
+      "responses": [
+        "Give A Lot strives for the utmost security and honesty with our users, we ensure that the organisations presented on our app have been vetted and verified by our moderators. Only organisations past level 1 will be displayed on our application, however as a rule of thumb, the higher the organisations level, the more trustworthy they are, with level 0 being untrustworthy and level 5 being fully verified. \n(For more information about levels, please ask about certificate levels)"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "gal_about",
+      "patterns": [
+        "what is give a lot",
+        "what do you do",
+        "why was give a lot created",
+        "tell me about what you do",
+        "what does give a lot do"
+      ],
+      "responses": [
+        "Give A Lot was founded in 2021 by Deepsink Partners, with the idea and hope of allowing people to easily find verified organisations, who they can support and/or donate to."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "gal_business",
+      "patterns": [
+        "how is give a lot run",
+        "who can work for give a lot",
+        "can i work for give a lot",
+        "do you have a job for me"
+      ],
+      "responses": [
+        "Give A Lot is a non-profit platform, with minimal staff in charge of verifying organisations, though we hope to expand in the future! You can send us an email if you want to help moderate the platform."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "donations_how",
+      "patterns": [
+        "how do i donate",
+        "how do donations work",
+        "where is donate",
+        "How do I donate to a charity with Give A Lot",
+        "what do i need to do to donate to an organisation"
+      ],
+      "responses": [
+        "You can donate using your PayPal account, by pressing the donate button on an organisations page, or scanning their QR code"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "donations_why",
+      "patterns": [
+        "where does the money go",
+        "who gets the money",
+        "does the money go straight to the charity",
+        "does the donation go to the organisation directly",
+        "where do donations go"
+      ],
+      "responses": [
+        "When you donate, all proceeds are sent directly to the organisation. Please make sure you have chosen the correct organisation and that it satisfies your requirements before donating, since donations are final and Give A Lot has no control over a sent donation."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "donations_freq",
+      "patterns": [
+        "can i donate more than once a month",
+        "can donations be recurring",
+        "donation subscription",
+        "can i repeat donate",
+        "how often can i donate",
+        "do you get paid a commission"
+      ],
+      "responses": [
+        "When donating you will have the option to set up monthly recurring donations.",
+        "The Paypal integration allows you to have once-off donations, as well as monthly recurring donations."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "donations_com",
+      "patterns": [
+        "do you take commission",
+        "does give a lot receive any money",
+        "does give a lot take a percentage",
+        "does all the money go to the organisation",
+        "charity receives all the donation"
+      ],
+      "responses": [
+        "Thanks to the PayPal integration, all proceeds of the donation will be sent directly to the organisation you donated to!",
+        "Give A Lot does not take any percentage of a donation, the full donation goes to the organisation."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "donations_paypal",
+      "patterns": [
+        "why paypal",
+        "can i only donate using paypal",
+        "why does give a lot use paypal"
+      ],
+      "responses": [
+        "With PayPal, it allows us to not act as a middle-man between organisations and donors. We do not have access to donations made."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "paypal_how",
+      "patterns": [
+        "how to i setup a donation account",
+        "where do i get a paypal link",
+        "do not have a qr code",
+        "how do i receive donations",
+        "how do i generate a donation link"
+      ],
+      "responses": [
+        "As an organisation, at level 3 you will be required to provide information so that you can accept donations. Please follow our donation setup tutorial on how to setup your PayPal donation link. \n(link)"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "paypal_rejected",
+      "patterns": [
+        "my donation information was rejected",
+        "my paypal setup was denied",
+        "give a lot rejected my provided donation information"
+      ],
+      "responses": [
+        "If your PayPal information was rejected, please make sure your followed the correct steps. A full tutorial is provided here. \n(link)"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "certificate_what",
+      "patterns": [
+        "what are the give a lot certificates",
+        "what do certificates do",
+        "what are the point of certificates"
+      ],
+      "responses": [
+        "The Give A Lot issued certificates represent the level of authenticity of an organisation. The more information an organisation provides to prove their legitimacy, the higher level their certificate will be."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "certificate_how",
+      "patterns": [
+        "how do certificates work",
+        "how does an organisation get validated",
+        "how does an organisation get approved",
+        "how does an organisation get a certificate"
+      ],
+      "responses": [
+        "When an organisation is first registered with Give A lot, they are issued a level 0 certificate. This unique certificate is then uploaded onto the blockchain, where only Give A Lot can access it. When an organisation wants to improve their level, they are required to provide certain information that will be validated and used by the Give A Lot moderators to determine whether the organisation meets the requirements to satisfy an upgrade. If they satisfy the requirements, their space on the blockchain will be updated with their new certificate. \n(For more information ask about certificate verification)"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "certificate_verify",
+      "patterns": [
+        "how are certificates verified",
+        "how do you know a certificate is authentic",
+        "is this certificate legitimate",
+        "how do i get verified"
+      ],
+      "responses": [
+        "If you have received a Give A lot certificate from a registered organisation, you can upload it to see whether it is authentic or not! Once uploaded our system will confirm that the provided certificate matches the non-tampered certificate on the blockchain. If you redirected to that organisations page it is authentic! \n(If the certificate you received does not redirect you, please ask me about Invalid Certificates)"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "certificate_invalid",
+      "patterns": [
+        "my certificate doesn't redirect me",
+        "the certificate has been tampered with",
+        "i uploaded a certificate and i got an error",
+        "the certificate given to me doesn't work"
+      ],
+      "responses": [
+        "When you upload a certificate and we inform you it is invalid, it can be caused by a plethora of reasons. \n 1. The pdf file you provided wasn't actually a certificate. Please make sure the file you upload is (what looks-like) a Give A lot certificate. \n 2. The certificate is outdated. Please make sure that the certificate you possess is up to date, an organisations level can change over time, so the certificate may be outdated. \n 3. The certificate has been tampered with. It is possible that the certificate you received has been tampered with, please examine the certificate for any anomalies, and submit a report if any were found. \n 4. The certificate is forged. It is possible that the certificate you received was forged by an unknown party, please look for any irregularities on the certificate and submit a report if any were found."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "certificate_validity",
+      "patterns": [
+        "how long does a certificate last",
+        "how long is a certificate valid for",
+        "do certificates expire",
+        "my certificate has expired"
+      ],
+      "responses": [
+        "Give A Lot issued certificates are only valid for a year, after which the certificate expires and the organisation must renew it. A certificate can also expire if the level of an organisation changes, however the certificate will be replaces by a new one."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "certificate_download",
+      "patterns": [
+        "how can i get a certificate",
+        "where do i download a certificate",
+        "i want a certificate"
+      ],
+      "responses": [
+        "You can download a certificate for a specific organisation from the page on the Give A Lot application, just search for their name, select the appropriate organisation and you will be presented the option to download that organisations certificate."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "certificate_level",
+      "patterns": [
+        "how do certificate levels work",
+        "this organisation is level 1 2 3 4 5",
+        "which level is the best",
+        "what does level 1 2 3 4 5 mean",
+        "can i trust a level 1 2 3 4 5 organisation",
+        "what do certificate numbers mean?"
+      ],
+      "responses": [
+        "There are 6 certificate levels an organisation can be: \n Level 0: A newly created organisation which has only provided fundamental information, it is extremely untrustworthy, as such it will not be show when browsing and it cannot accept donations. \n Level 1: An organisation which has provided enough information to be displayed on the Give A Lot App and is government registered. It is still untrustworthy and cannot accept donations. \n Level 2: An organisation that has proved it physically and virtually exists, it has been validated to an extent but still cannot accept donations. \n Level 3: An organisation which has qualified to receive donations and has become established on the app. \n Level 4: An organisation which has had it's governing body verified and has provided their social media presence. \n Level 5: An organisation which has been fully verified and provided proof that they have been audited, the most trustworthy organisation."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "report_how",
+      "patterns": [
+        "how do i report an organisation",
+        "an organisation is lying",
+        "there is false information here",
+        "how do i submit a report",
+        "organisation committed fraud",
+        "fraudulent charity",
+        "this charity does not exist",
+        "they are stealing money",
+        "should i report this organisation",
+        "when should i submit a report",
+        "lied on their page"
+      ],
+      "responses": [
+        "If you have identified an organisation that has presented false information on their page or they have been found guilty of fraud, please submit a report to give us notice of this. \n To submit a report, find the organisation that is guilty, open their page and press the report button. You will be prompted to identify the type of report and provide a brief description of the offence."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "user_contact_org",
+      "patterns": [
+        "how can i contact an organisation",
+        "i want to speak to a charity",
+        "can i meet this charity",
+        "i want to discuss with this organisation"
+      ],
+      "responses": [
+        "If you have any questions you want to ask a registered organisation, you can make use of the Give A Lot chat app as well as contact them via their provided email or social media accounts on their organisation page."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "user_reset_password",
+      "patterns": [
+        "how do i reset my password",
+        "change my password",
+        "password not working"
+      ],
+      "responses": [
+        "If you would like to change your password, go to your account portal and choose the change password option."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "user_",
+      "patterns": [
+        "",
+        "",
+        ""
+      ],
+      "responses": [
+        ""
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "org_renew",
+      "patterns": [
+        "how can i renew my certificate",
+        "our certificate has expired",
+        "renew my account"
+      ],
+      "responses": [
+        "If your certificate needs to be renewed, go to your organisation portal and navigate to the certificate tab, the option to renew your certificate will be there. Renewing a certificate is not instantaneous because an moderator will have to confirm the renewal before it will take effect. "
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "org_info_req",
+      "patterns": [
+        "do i have to provide all information to move onto the next level",
+        "must i provide these details",
+        "i don't want to give this information"
+      ],
+      "responses": [
+        "As an organisation, all information needed to move onto the next certificate level is required, there are no exceptions."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "org_social",
+      "patterns": [
+        "we do not have a facebook instagram twitter account",
+        "no social media",
+        "is it required to have a social media account"
+      ],
+      "responses": [
+        "In order to move to certificate level 4, you are required to have a social media presence on at least 2 of the 3 supported social media platforms: Facebook, Instagram or Twitter."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "org_info_rejected",
+      "patterns": [
+        "my provided information was rejected",
+        "i have to resubmit these details",
+        "why did this info get denied",
+        "can't move to the next level"
+      ],
+      "responses": [
+        "As an organisation, if your provided details for a certificate level were denied, please access what you provided and that it conforms to our guidelines for that specific information."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "org_cert",
+      "patterns": [
+        "what can i do with my certificate",
+        "how do we use the certificate",
+        "what is the purpose of the certificate"
+      ],
+      "responses": [
+        "Once you have your certificate, you can distribute it and use it to show your authenticity. People can then use the Give A Lot app to confirm the validity of the certificate."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "org_register",
+      "patterns": [
+        "how do i register an organisation",
+        "how do i sign up on the system",
+        ""
+      ],
+      "responses": [
+        ""
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "",
+      "patterns": [
+        "",
+        "",
+        ""
+      ],
+      "responses": [
+        ""
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "",
+      "patterns": [
+        "",
+        "",
+        ""
+      ],
+      "responses": [
+        ""
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "",
+      "patterns": [
+        "",
+        "",
+        ""
+      ],
+      "responses": [
+        ""
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "",
+      "patterns": [
+        "",
+        "",
+        ""
+      ],
+      "responses": [
+        ""
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "",
+      "patterns": [
+        "",
+        "",
+        ""
+      ],
+      "responses": [
+        ""
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "",
+      "patterns": [
+        "",
+        "",
+        ""
+      ],
+      "responses": [
+        ""
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "",
+      "patterns": [
+        "",
+        "",
+        ""
+      ],
+      "responses": [
+        ""
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "",
+      "patterns": [
+        "",
+        "",
+        ""
+      ],
+      "responses": [
+        ""
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "",
+      "patterns": [
+        "",
+        "",
+        ""
+      ],
+      "responses": [
+        ""
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "",
+      "patterns": [
+        "",
+        "",
+        ""
+      ],
+      "responses": [
+        ""
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "",
+      "patterns": [
+        "",
+        "",
+        ""
+      ],
+      "responses": [
+        ""
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "",
+      "patterns": [
+        "",
+        "",
+        ""
+      ],
+      "responses": [
+        ""
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "",
+      "patterns": [
+        "",
+        "",
+        ""
+      ],
+      "responses": [
+        ""
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "",
+      "patterns": [
+        "",
+        "",
+        ""
+      ],
+      "responses": [
+        ""
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "",
+      "patterns": [
+        "",
+        "",
+        ""
+      ],
+      "responses": [
+        ""
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "",
+      "patterns": [
+        "",
+        "",
+        ""
+      ],
+      "responses": [
+        ""
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "test",
+      "patterns": [
+        "what is love?",
+        "",
+        ""
+      ],
+      "responses": [
+        "Baby don't hurt me"
+      ],
+      "context_set": ""
+    }
+  ]
+}

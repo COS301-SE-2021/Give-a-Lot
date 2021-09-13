@@ -5,6 +5,7 @@ import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Media from "./Components/Media";
 import Success from "./Components/Success"
+import Confirm from "./Components/Confirm"
 
 export class RegisterOrganisation extends Component {
 
@@ -26,7 +27,7 @@ export class RegisterOrganisation extends Component {
         contactNumberError: '',
         password : "",
         passwordError: '',
-        image: new FormData(),
+        images: '',
         imageError: '',
         // loading : false,
 
@@ -73,6 +74,10 @@ export class RegisterOrganisation extends Component {
             isError = true;
             errors.orgNameError = 'orgName cannot be blank';
         }
+        // if (this.state.orgName.match(/^([a-z]+[,.]?[ ]?|[a-z]+['-]?)+$/)) {
+        //     isError = true;
+        //     errors.orgNameError = "Please enter name";
+        // }
 
         if(this.state.step > 1){
             if(this.state.slogan.length < 1){
@@ -169,26 +174,23 @@ export class RegisterOrganisation extends Component {
     };
     // Handle fields change
     handleChange = input => e => {
-        // console.log(e.target.value);
         this.setState({ [input]: e.target.value });
-        // console.log(e.target.value);
     };
-    handleChangeImage =  e => {
+    handleChangeImage = input =>e => {
         console.log("=============================================")
-        const formData = new FormData();
-        formData.append('image', e.target.files[0]);
-        // this.setState({
-        //     // image: e.target.files[0]
-        //   image: formData
-        // });
         console.log(e.target.files[0])
+        this.setState({
+            [input]: e.target.files[0]
+        })
+
     };
 
     render() {
 
         const { step } = this.state;
-        const { orgName, slogan, orgDescription, orgSector, orgEmail, contactPerson, contactNumber, password,image } = this.state;
-        const values = { orgName, slogan, orgDescription, orgSector, orgEmail, contactPerson, contactNumber, password,image };
+        const { orgName, slogan, orgDescription, orgSector, orgEmail, contactPerson, contactNumber, password,images } = this.state;
+        const values = { orgName, slogan, orgDescription, orgSector, orgEmail, contactPerson, contactNumber, password,images };
+
         switch (step) {
             default:
                 return <h1>User Forms not working. Enable Javascript!</h1>;
@@ -233,14 +235,22 @@ export class RegisterOrganisation extends Component {
                         // imageError={this.state.imageError}
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
-                        handleChangeImage={this.handleChangeImage}
                         values={values}
+                        handleChangeImage={this.handleChange}
                     />
                 );
             case 5:
                 return (
-                    <Success
+                    <Confirm
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
                         values={values}
+                    />
+                );
+            case 6:
+                return (
+                    <Success
+                        // values={values}
                     />
                 );
         }

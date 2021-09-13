@@ -29,6 +29,7 @@ export class Profile extends Component {
             persons:"",
             adminId:14,
             orgId:32,
+           // orgId:localStorage.getItem("id"),
             orgEmail:"",
             orgName1:"",
             orgNameState:false,

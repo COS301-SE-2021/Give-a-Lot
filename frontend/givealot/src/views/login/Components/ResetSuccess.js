@@ -1,45 +1,42 @@
 import React, { Component } from "react";
-import "../Styles/registerOrganisation.css"
-// import { IoPersonOutline } from "react-icons/io5";
-import backgroundImg from "../../../../assets/homeBackground.jpg";
-import { IoReload } from "react-icons/io5";
-import Logo from "../../../login/Components/Logo";
-import axios from "axios";
+import "../../registration/registerOrganisation/Styles/registerOrganisation.css"
+import backgroundImg from "../../../assets/homeBackground.jpg"
+import Logo from "../Components/Logo"
 import { Link } from "react-router-dom";
 
-export class Success extends Component {
+export class ResetSuccess extends Component {
     styles = {
         main: {
             backgroundImage: `url(${backgroundImg})`
         }
     }
+    constructor(props) {
+        super(props);
 
-    constructor() {
-        super();
-        this.state = {
-            disabled: false,
-            loading: false
-        };
+
     }
 
     render() {
-        const { loading } = this.state;
         return (
             <div className="registerOrganisation" style={this.styles.main}>
                 <div  id={"banner_filter"}>
                     <Logo/>
                     <div className="registerCard">
                         <div className="wrap">
-                        <form className="form1">
-                           <span className="headerTag">
-                               Registration was a success
+                            <form className="form1">
+                           <span className="headerTag1">
+                                Email successfully sent
                            </span>
+                            <span className="Instruction1">
+                                We’ve sent you an email with instructions.
+
+                            </span>
                                 <div className="button">
                                     <div className="formButton ">
                                         <Link to={"/login"}>
                                             <button className="register-btn">
                                                 {" "}
-                                                Login
+                                               Return to Login
                                             </button>
                                         </Link>
                                     </div>
@@ -53,4 +50,4 @@ export class Success extends Component {
     }
 }
 
-export default Success;
+export default ResetSuccess;

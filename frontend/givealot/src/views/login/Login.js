@@ -25,6 +25,7 @@ const initialState = {
 class Login extends Component {
 
     state = initialState;
+
     handleChange = event => {
         const isCheckbox = event.target.type === "checkbox";
         this.setState({
@@ -38,13 +39,15 @@ class Login extends Component {
         let emailError = "";
         let passwordError = "";
 
+
         if (!this.state.email.includes("@")) {
             emailError = "invalid email";
         }
 
-        if(this.state.password.length <4) {
-            passwordError="Password must be greater than 4";
-        }
+
+        if(!this.state.password.length ) {
+            passwordError="Password is required";
+
 
         if ( emailError || passwordError) {
             this.setState({ emailError, passwordError });
@@ -67,6 +70,7 @@ class Login extends Component {
                 "password" : this.state.password,
                 "role" : ""
             }
+            localStorage.clear();
             axios.post('http://localhost:8080/v1/login/user/determine', data )
                 .then(response =>{
                     console.log(response.data)
@@ -75,7 +79,6 @@ class Login extends Component {
                         "email":response.data.username,
                         "role":response.data.jwttoken
                     }
-                    localStorage.clear();
                     localStorage.setItem( "id" ,response.data.id);
                     localStorage.setItem( "role" ,response.data.jwttoken)
 
@@ -162,7 +165,7 @@ render()
                                     <span> Need an account?</span>
                                 </Link>
 
-                                <Link to={"/"} className="BottomLinker">
+                                <Link to={"/Password"} className="BottomLinker">
                                     <span> Forgot password?</span>
                                 </Link>
                             </div>

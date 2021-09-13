@@ -132,9 +132,6 @@
 
     transform: translateX(-50%);
 }
-.Login-btn:hover{
-
-}
 
 .BottomForm{
     display: flex;
@@ -160,6 +157,16 @@
 .loginError{
     color: red;
     float: right;
+
+}
+
+.Instruction{
+    text-align: center;
+    display: block;
+    color: #4b4250;
+    font-family:sans-serif;
+
+    margin:  25px 0 25px 0;
 
 }
 

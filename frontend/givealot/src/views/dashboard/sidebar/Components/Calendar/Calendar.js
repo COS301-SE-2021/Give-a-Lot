@@ -252,6 +252,29 @@ export default class Demo extends React.PureComponent {
                         })
                 }
 
+                if(testing.notes !== undefined){
+                    console.log(testing.notes)
+                    let config = {
+                        headers: {
+                            "Content-Type": "application/json",
+                            'Access-Control-Allow-Origin': '*',
+                        }
+                    }
+                    const descriptionUpdate = {
+                        "userEmail" : this.state.email,
+                        "eventId" : eventId,
+                        "newDescription" : testing.notes
+                    }
+                    console.log(descriptionUpdate)
+                    axios.post('http://localhost:8080/event/calender/edit/description', descriptionUpdate ,config)
+                        .then(response =>{
+                            console.log(response)
+                        })
+                        .catch(error =>{
+                            console.log(error)
+                        })
+                }
+
 
             }
             if (deleted !== undefined) {

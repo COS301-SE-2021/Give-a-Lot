@@ -77,7 +77,7 @@ export default class Demo extends React.PureComponent {
 
         this.setState((state) => {
             let { data } = state;
-            console.log(added)
+            // console.log(data)
             if (added) {
                 const startingAddedId = data.length > 0 ? data[data.length - 1].id + 1 : 0;
                 data = [...data, { id: startingAddedId, ...added }];
@@ -121,14 +121,37 @@ export default class Demo extends React.PureComponent {
                     })
             }
             if (changed) {
+                console.log(changed)
                 let testing = changed.undefined
                 console.log({ testing } )
-                if({testing} === testing.startDate){
-                    console.log("time")
+                // console.log( testing.title  )
+                if(testing.title !== undefined){
+                    let config = {
+                        headers: {
+                            "Content-Type": "application/json",
+                            'Access-Control-Allow-Origin': '*',
+                        }
+                    }
+                    const titleUpdate ={
+                        "userEmail" : this.state.email,
+                        "eventId" : data.eventId,
+                        "newTitle" : testing.title
+                    }
+                    axios.post('http://localhost:8080/event/calender/edit/title', titleUpdate ,config)
+                        .then(response =>{
+                            console.log(response)
+                        })
+                        .catch(error =>{
+                            console.log(error)
+                        })
                 }
-            else{
-                console.log("others")
-                }
+
+                // if({testing} === testing.title){
+                //     console.log("title")
+                // }
+                // else{
+                //         console.log("others")
+                // }
                 // data = data.map(appointment => (
                 //     changed[appointment.id] ? { ...appointment, ...changed[appointment.id] } : appointment));
                 // console.log(data)

@@ -77,7 +77,7 @@ export default class Demo extends React.PureComponent {
 
         this.setState((state) => {
             let { data } = state;
-            // console.log(data)
+            console.log(data)
             if (added) {
                 const startingAddedId = data.length > 0 ? data[data.length - 1].id + 1 : 0;
                 data = [...data, { id: startingAddedId, ...added }];
@@ -122,10 +122,10 @@ export default class Demo extends React.PureComponent {
                     })
             }
             if (changed) {
-                console.log(changed)
+                let eventId = data[data.length-1].eventId
+                console.log(eventId)
                 let testing = changed.undefined
                 console.log({ testing } )
-                // console.log( testing.title  )
                 if(testing.title !== undefined){
                     let config = {
                         headers: {
@@ -133,7 +133,7 @@ export default class Demo extends React.PureComponent {
                             'Access-Control-Allow-Origin': '*',
                         }
                     }
-                    let eventId = data[data.length-1].eventId;
+                    // let eventId = data[data.length-1].eventId;
                     const titleUpdate = {
                         "userEmail" : this.state.email,
                         "eventId" : eventId,
@@ -150,7 +150,6 @@ export default class Demo extends React.PureComponent {
                 }
 
                 if(testing.startDate !== undefined){
-                    console.log(testing.startDate)
 
                     let config = {
                         headers: {
@@ -158,12 +157,12 @@ export default class Demo extends React.PureComponent {
                             'Access-Control-Allow-Origin': '*',
                         }
                     }
-                    let eventId = data[data.length-1].eventId;
+
                     let startDateMonth = testing.startDate.toString().split(" ")[1];
                     let startDateYear = testing.startDate.toString().split(" ")[3];
                     let startDateDay = testing.startDate.toString().split(" ")[2];
                     let eventStartDate = startDateYear +'-' + startDateMonth + '-' + startDateDay;
-                    console.log(eventStartDate)
+
                     const startDateUpdate = {
                         "userEmail" : this.state.email,
                         "eventId" : eventId,
@@ -187,12 +186,10 @@ export default class Demo extends React.PureComponent {
                             'Access-Control-Allow-Origin': '*',
                         }
                     }
-                    let eventId = data[data.length-1].eventId;
                     let endDateMonth = testing.endDate.toString().split(" ")[1];
                     let endDateYear = testing.endDate.toString().split(" ")[3];
                     let endDateDay = testing.endDate.toString().split(" ")[2];
                     let eventEndDate = endDateYear +'-' + endDateMonth + '-' + endDateDay;
-                    // console.log(eventEndDate)
                     const endDateUpdate = {
                         "userEmail" : this.state.email,
                         "eventId" : eventId,
@@ -207,26 +204,52 @@ export default class Demo extends React.PureComponent {
                         })
                 }
 
-                if(testing.startTime !== undefined){
-                    console.log(testing.startTime)
-                    // let config = {
-                    //     headers: {
-                    //         "Content-Type": "application/json",
-                    //         'Access-Control-Allow-Origin': '*',
-                    //     }
-                    // }
-                    // const startTimeUpdate = {
-                    //     "userEmail" : this.state.email,
-                    //     "eventId" : data.eventId,
-                    //     "newTitle" : testing.startTime
-                    // }
-                    // axios.post('http://localhost:8080/event/calender/edit/time/start', startTimeUpdate ,config)
-                    //     .then(response =>{
-                    //         console.log(response)
-                    //     })
-                    //     .catch(error =>{
-                    //         console.log(error)
-                    //     })
+                if(testing.startDate !== undefined){
+                    let startTime =testing.startDate.toString().split(" ")[4];
+                    console.log(startTime)
+                    let config = {
+                        headers: {
+                            "Content-Type": "application/json",
+                            'Access-Control-Allow-Origin': '*',
+                        }
+                    }
+                    const startTimeUpdate = {
+                        "userEmail" : this.state.email,
+                        "eventId" : eventId,
+                        "newTime" : startTime
+                    }
+                    console.log(startTimeUpdate)
+                    axios.post('http://localhost:8080/event/calender/edit/time/start', startTimeUpdate ,config)
+                        .then(response =>{
+                            console.log(response)
+                        })
+                        .catch(error =>{
+                            console.log(error)
+                        })
+                }
+
+                if(testing.endDate !== undefined){
+                    let endTime =testing.endDate.toString().split(" ")[4];
+                    // console.log(endTime)
+                    let config = {
+                        headers: {
+                            "Content-Type": "application/json",
+                            'Access-Control-Allow-Origin': '*',
+                        }
+                    }
+                    const endTimeUpdate = {
+                        "userEmail" : this.state.email,
+                        "eventId" : eventId,
+                        "newTime" : endTime
+                    }
+                    console.log(endTimeUpdate)
+                    axios.post('http://localhost:8080/event/calender/edit/time/end', endTimeUpdate ,config)
+                        .then(response =>{
+                            console.log(response)
+                        })
+                        .catch(error =>{
+                            console.log(error)
+                        })
                 }
 
 

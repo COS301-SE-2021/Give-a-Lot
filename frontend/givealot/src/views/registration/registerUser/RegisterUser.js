@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-//import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import "./Styles/RegisterUser.css";
 import backgroundImg from "../../../assets/homeBackground.jpg";
 import Logo from "../../login/Components/Logo";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import axios from "axios";
+import UserSuccess from "./UserSuccess"
 
 
 
@@ -69,6 +69,13 @@ class RegisterUser extends Component {
 
         return true;
     };
+
+    Success=()=>{
+        const isValid = this.validate();
+        if (isValid) {
+            window.location.assign("/UserSuccess");
+        }
+    }
 
 
     handleSubmit = event => {
@@ -182,7 +189,7 @@ render() {
                                 </div>
 
                                 <div className="wrapp-btn">
-                                    <button className="registerUser-btn" type="submit">
+                                    <button className="registerUser-btn" type="submit" onClick={this.Success}>
                                         Sign Up
                                     </button>
 

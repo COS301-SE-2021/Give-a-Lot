@@ -80,6 +80,8 @@ export class RegisterOrganisation extends Component {
                                            placeholder="Enter Organisation Slogan"
                                            value={values.slogan}
                                            onChange={handleChange('slogan')}
+                                           minLength="15"
+                                           maxLength="50"
                                     />
                                     <span style={{float: "right", color: "red"}}><small>{this.props.sloganError}</small></span>
                                 </div>
@@ -106,6 +108,8 @@ export class RegisterOrganisation extends Component {
                                             placeholder="Enter Organisation Description"
                                             value={values.orgDescription}
                                             onChange={handleChange('orgDescription')}
+                                          minLength="8"
+                                          maxLength="100"
                                 />
 
                                 <span style={{float: "right", color: "red"}}><small>{this.props.orgDescriptionError}</small></span>

@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="register organisation upload image">
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/Confirm.js" afterDir="false" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="register organisation confirmation page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/Success.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/Success.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/RegisterOrganisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/RegisterOrganisation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/AddOrg.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/AddOrg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/About.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,17 +98,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="generated-requests#42" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="42" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -159,14 +148,8 @@
       <workItem from="1631042260596" duration="333000" />
       <workItem from="1631133557866" duration="750000" />
       <workItem from="1631137762251" duration="2127000" />
-      <workItem from="1631441525292" duration="2894000" />
-    </task>
-    <task id="LOCAL-00036" summary="organisations controller revision">
-      <created>1629311673486</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1629311673486</updated>
+      <workItem from="1631441525292" duration="4115000" />
+      <workItem from="1631549783410" duration="1101000" />
     </task>
     <task id="LOCAL-00037" summary="organisations controller revision">
       <created>1629316585116</created>
@@ -504,7 +487,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631441883518</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="register organisation confirmation page">
+      <created>1631444879138</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1631444879138</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,7 +513,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="user and login system are complete" />
     <MESSAGE value="organisations api - get all users ready for frontend" />
     <MESSAGE value="organisations controller revision - add Organisation" />
     <MESSAGE value="organisations controller revision - suspend" />
@@ -548,7 +537,8 @@
     <MESSAGE value="calendar change event" />
     <MESSAGE value="register organisation" />
     <MESSAGE value="register organisation upload image" />
-    <option name="LAST_COMMIT_MESSAGE" value="register organisation upload image" />
+    <MESSAGE value="register organisation confirmation page" />
+    <option name="LAST_COMMIT_MESSAGE" value="register organisation confirmation page" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -6,6 +6,7 @@ import Logo from "../Components/Logo"
 import axios from "axios"
 import "../Styles/Login.css"
 import {Alert} from "@material-ui/lab";
+import ResetSuccess from "./ResetSuccess";
 
 
 const styles = {

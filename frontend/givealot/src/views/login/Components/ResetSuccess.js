@@ -10,6 +10,11 @@ export class ResetSuccess extends Component {
             backgroundImage: `url(${backgroundImg})`
         }
     }
+    constructor(props) {
+        super(props);
+
+
+    }
 
     render() {
         return (
@@ -23,14 +28,15 @@ export class ResetSuccess extends Component {
                                 Email successfully sent
                            </span>
                             <span className="Instruction1">
-                                We'll email you instructions to reset the password.
+                                We’ve sent you an email with instructions.
+
                             </span>
                                 <div className="button">
                                     <div className="formButton ">
                                         <Link to={"/login"}>
                                             <button className="register-btn">
                                                 {" "}
-                                                Login
+                                               Return to Login
                                             </button>
                                         </Link>
                                     </div>

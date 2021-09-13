@@ -171,7 +171,7 @@ render()
                                     <span> Need an account?</span>
                                 </Link>
 
-                                <Link className="BottomLinker">
+                                <Link to={"/Password"} className="BottomLinker">
                                     <span> Forgot password?</span>
                                 </Link>
                             </div>

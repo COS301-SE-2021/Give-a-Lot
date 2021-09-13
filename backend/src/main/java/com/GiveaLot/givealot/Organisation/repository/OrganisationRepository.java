@@ -4,6 +4,7 @@ import com.GiveaLot.givealot.Organisation.model.Organisations;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -71,4 +72,12 @@ public interface OrganisationRepository extends JpaRepository<Organisations,Long
     @Transactional
     @Query("UPDATE Organisations o SET o.contactPerson = ?2 WHERE o.orgId = ?1")
     int updatePerson(Long orgId, String newValue);
+
+    @Query("SELECT o FROM Organisations o WHERE UPPER(o.orgName) LIKE CONCAT('%',UPPER(:search_str),'%') AND o.status NOT IN('suspended')")
+    List<Organisations> searchOrganisationByName(@Param("search_str") String search_str);
+
+    @Query("SELECT o FROM Organisations o WHERE UPPER(o.orgDescription) LIKE CONCAT('%',UPPER(:search_str),'%') AND o.status NOT IN('suspended')")
+    List<Organisations> searchOrganisationByDescription(String search_str);
+
+
 }

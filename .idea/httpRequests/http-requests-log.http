@@ -1,3 +1,57 @@
+GET http://localhost:8080/search/organisation/browse/Indian%20Confederation%20For%20Healthcare
+
+<> 2021-09-13T142405.200.json
+
+###
+
+GET http://localhost:8080/search/organisation/browse/care
+
+<> 2021-09-13T142017.200.json
+
+###
+
+GET http://localhost:8080/search/organisation/browse/care
+
+<> 2021-09-13T141906.400.json
+
+###
+
+GET http://localhost:8080/search/organisation/browse/dancing
+
+<> 2021-09-13T141831.400.json
+
+###
+
+GET http://localhost:8080/search/organisation/browse/dancing
+
+<> 2021-09-13T141113.400.json
+
+###
+
+GET http://localhost:8080/search/organisation/browse/dancing
+
+<> 2021-09-13T132428.400.json
+
+###
+
+GET http://localhost:8080/search/organisation/browse/bla%20bla%20dancing
+
+<> 2021-09-13T132416.400.json
+
+###
+
+GET http://localhost:8080/search/organisation/browse/bla%20bla
+
+<> 2021-09-13T132352.400.json
+
+###
+
+GET http://localhost:8080/search/organisation/browse/bla+bla
+
+<> 2021-09-13T132344.400.json
+
+###
+
 POST http://localhost:8080/report/org/
 Content-Type: application/json
 
@@ -577,159 +631,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-05T222427.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "coolmail@gmail.com"
-}
-
-<> 2021-09-05T222421.200.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "cos301@gmail.com"
-}
-
-<> 2021-09-05T222354.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "deep@gmail.com"
-}
-
-<> 2021-09-05T222317.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 6
-}
-
-<> 2021-09-05T215056.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 4
-}
-
-<> 2021-09-05T215034.200.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 15
-}
-
-<> 2021-09-05T215014.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 16
-}
-
-<> 2021-09-05T214957.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 9
-}
-
-<> 2021-09-05T214809.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 9
-}
-
-<> 2021-09-05T214627.400.json
 
 ###
 

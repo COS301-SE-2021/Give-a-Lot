@@ -13,11 +13,17 @@ import Sector from "./Components/BrowseBySector/Sector";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import Loader from "../loader/Loader";
+import SearchResults from "./Components/SearchResults/SearchResults";
 /* components import end */
 
 /*css imports */
 import browse_general from './Styles/browse_general.css';
 import browse_desktop from './Styles/browse_desktop.css';
+import SearchIcon from "@material-ui/icons/Search";
+import {Paper} from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import Avatar from "@material-ui/core/Avatar";
 
 
 function Browse ()
@@ -25,12 +31,6 @@ function Browse ()
     const [organisations, setOrganisations] = useState([]);
     const [recommendedOrganisations, setRecommendedOrganisations] = useState([]);
     const [pageLoaded, setPageLoaded] = React.useState(false);
-
-    function searchOrganisation(e)
-    {
-        e.preventDefault();
-        alert("searching for " + document.getElementById("browse_search_input").value);
-    }
 
     const mobile_popUpControl_hide = event =>
     {
@@ -50,16 +50,6 @@ function Browse ()
 
         dark_backdrop_active_for_mobile.style.display = "block";
         browse_filters.style.display = "block";
-    }
-
-    const onKeyUp = event =>
-    {
-        /* 
-            code 13 represents the ENTER button
-        */
-        if (event.charCode === 13) {
-            searchOrganisation(event);
-        }
     }
 
     /* fetch request - organisations by sections - start*/
@@ -232,21 +222,11 @@ function Browse ()
         <div id={"main_browse_page"}>
             {pageLoaded === false && <Loader />}
             <Navbar/>
-            <div id="browse_body">
-                <div id="browse_search_container">
-                    <input 
-                        id="browse_search_input"
-                        type="input" 
-                        onKeyPress={onKeyUp}
-                        placeholder="search organisation" 
-                    />
 
-                    <img
-                        src={searchIcon} 
-                        onClick={searchOrganisation}
-                        alt={"search-icon"}
-                    />
-                </div>
+            <SearchResults />
+
+
+            <div id="browse_body">
 
                 <div id="dark_backdrop_active_for_mobile" onClick={mobile_popUpControl_hide}>
                     {/*this is used on the mobile version of the application,
@@ -258,7 +238,6 @@ function Browse ()
                 </div>
                 
                 <section id="browse_body_main">
-
                     <div id="browse_organisations">
                         <>
                             <div className="browse_sector">

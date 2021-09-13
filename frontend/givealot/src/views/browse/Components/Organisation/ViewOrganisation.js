@@ -136,8 +136,6 @@ function ViewOrganisation()
             .catch(error => {
                 alert("failed - organisations - sector")
             });
-
-
         }
         ,[])
     /* fetch request - organisations by sections - end*/

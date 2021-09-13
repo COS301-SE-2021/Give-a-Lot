@@ -1,6 +1,6 @@
 import react from 'react';
 import {useHistory} from 'react-router-dom';
-import {Box} from "@material-ui/core";
+import {Box, Tooltip} from "@material-ui/core";
 
 function trim_description(descr)
 {
@@ -42,14 +42,18 @@ export default function OrganisationRecommended(props)
 
     return(
         <Box className ="recommended">
-            <img src={org_image} alt={"profile-image"} id={props.orgId} onClick={e => openOrganisation(e,"id")}/>
+            <Tooltip title={props.orgName}  aria-label="add">
+                <img src={org_image} alt={"profile-image"} id={props.orgId} onClick={e => openOrganisation(e,"id")}/>
+            </Tooltip>
             <Box className="recommended-meta-data-container">
                 <p className="recommended-meta-data-title">{props.orgName} - <span className="recommended-meta-data-sector">{props.org_sector}</span> </p>
                 <p className="recommended-meta-data-descr">
                     {description}
                 </p>
                 {/*<p className="sector_organisation_other">{props.dateAdded}</p>*/}
-                <p className="recommended-meta-data-lvl">5 {props.certificate_level}</p>
+                <Tooltip title="certificate level"  aria-label="add">
+                    <p className="recommended-meta-data-lvl">5 {props.certificate_level}</p>
+                </Tooltip>
             </Box>
         </Box>
     );

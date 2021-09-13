@@ -7,6 +7,7 @@ import Logo from "../login/Components/Logo";
 import axios from "axios"
 import "../login/Styles/Login.css";
 import {Alert} from "@material-ui/lab";
+import {render} from "@testing-library/react";
 
 
 const styles = {
@@ -22,8 +23,8 @@ const initialState = {
     passwordError: "",
 };
 
-class Login extends Component {
-
+class Login extends Component
+{
     state = initialState;
 
     handleChange = event => {
@@ -46,15 +47,16 @@ class Login extends Component {
 
 
         if(!this.state.password.length ) {
-            passwordError="Password is required";
+            passwordError = "Password is required";
 
 
-        if ( emailError || passwordError) {
-            this.setState({ emailError, passwordError });
-            return false;
+            if (emailError || passwordError) {
+                this.setState({emailError, passwordError});
+                return false;
+            }
+
+            return true;
         }
-
-        return true;
     };
 
     handleSubmit = event => {

@@ -11,6 +11,7 @@ import VerifyCertificate from './views/verifyCertificate/VerifyCertificate'
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import ViewOrganisation from "./views/browse/Components/Organisation/ViewOrganisation";
 import UserSuccess from "./views/registration/registerUser/UserSuccess";
+import ResetSuccess from "./views/login/Components/ResetSuccess";
 
 
 function App()
@@ -24,6 +25,7 @@ function App()
           <Route path="/signUp" exact component={SignUp}/>
           <Route path="/UserSuccess" exact component={UserSuccess}/>
           <Route path="/Password" exact component={Password}/>
+          <Route path="/ResetSuccess" exact component={ResetSuccess}/>
           <Route path="/registerOrg" exact component={RegisterOrg}/>
           <Route path="/registerUser" exact component={RegisterUser}/>
           <Route path="/dashboard/" exact component={Dashboard}/>

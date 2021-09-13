@@ -70,7 +70,7 @@ class Password extends Component {
     reset=()=>{
         const isValid = this.validate();
         if (isValid) {
-            window.location.assign("/s");
+            window.location.assign("/ResetSuccess");
         }
     }
 

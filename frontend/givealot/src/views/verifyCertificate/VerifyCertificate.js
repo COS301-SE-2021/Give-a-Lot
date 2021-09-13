@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component, useState} from 'react'
 import backgroundImg from "../../assets/homeBackground.jpg";
 import Logo from "../login/Components/Logo";
 import {Link} from "react-router-dom";
@@ -15,10 +15,13 @@ const styles = {
 
 export class VerifyCertificate extends Component {
 
+
+
     constructor() {
         super();
         this.state = {
             selectedFile: '',
+            certificateOrganisationId : ''
         };
     }
 
@@ -49,6 +52,7 @@ export class VerifyCertificate extends Component {
         AlertPrompt.style.display = "none";
         AlertBadCertificate.style.display = "none";
         AlertServerError.style.display = "none";
+        AlertGoodCertificate.style.display = "none";
         AlertPromptWait.style.display = "flex";
 
         fetch(
@@ -61,20 +65,25 @@ export class VerifyCertificate extends Component {
         .then((response) => response.json())
         .then((result) => {
             console.log('Success:', result);
-
-                if(result.ok && result === -1)
+                if(parseInt(result) === -1)
                 {
                     AlertBadCertificate.style.display = "flex";
                     AlertPromptWait.style.display = "none";
                 }
-                else if (result.ok && result !== -1)
+                else if (parseInt(result) > -1)
                 {
+                    this.setState(
+                        {
+                            certificateOrganisationId : result
+                        }
+                    )
                     AlertGoodCertificate.style.display = "flex";
                     AlertBadCertificate.style.display = "none";
                     AlertPromptWait.style.display = "none";
                 }
                 else
                 {
+
                     AlertBadCertificate.style.display = "none";
                     AlertPromptWait.style.display = "none";
                     AlertGoodCertificate.style.display = "none";
@@ -124,12 +133,16 @@ export class VerifyCertificate extends Component {
                         <Alert severity="info" id={"AlertPrompt"}>Please upload a Give a lot certificate (.PDF)</Alert>
                         <Alert severity="info" id={"AlertPromptWait"}>Please wait...</Alert>
                         <Alert severity="success"  id={"AlertGoodCertificate"}>Organisation verified
+
+                            <Link to={"/organisation/" + this.state.certificateOrganisationId}>
                                 <Button
                                     id={"goodAlertBtn"}
                                     variant={"contained"}
                                 >
                                     visit
                                 </Button>
+                            </Link>
+
                         </Alert>
                     </div>
                 </div>

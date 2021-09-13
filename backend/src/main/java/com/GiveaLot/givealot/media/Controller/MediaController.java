@@ -85,14 +85,26 @@ public class MediaController {
                     .contentType(MediaType.IMAGE_JPEG)
                     .body(bytes);
         }
-        catch (IOException e)
+        catch (IOException e) /*if jpg fails, then try PNG*/
         {
-            return ResponseEntity
-                    .notFound().build();
+            //try PNG
 
+            imgFile = new ClassPathResource("localFiles/" +orgId+ "/gallery/logo.png");
+            bytes = null;
+            try
+            {
+                bytes = StreamUtils.copyToByteArray(imgFile.getInputStream());
+                return ResponseEntity
+                        .ok()
+                        .contentType(MediaType.IMAGE_PNG)
+                        .body(bytes);
+            }
+            catch (IOException e2)
+            {
+                return ResponseEntity
+                        .notFound().build();
+            }
         }
-
-
     }
 
     @RequestMapping(value = "/cert/version/pdf/{orgId}", method = RequestMethod.GET,

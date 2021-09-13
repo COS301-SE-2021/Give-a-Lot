@@ -24,7 +24,7 @@ public interface OrganisationRepository extends JpaRepository<Organisations,Long
     @Query("SELECT distinct o FROM Organisations AS o")
     List<Organisations> getAllOrganisations();
 
-    @Query("select o from Organisations o where o.orgId = ?1")
+    @Query("select o from Organisations o where o.orgId = ?1 AND NOT o.status = 'suspended' ")
     Organisations selectOrganisationById(Long orgId);
 
     @Query("select o from Organisations o where o.orgEmail = ?1")

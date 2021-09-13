@@ -1,17 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-
-
-/* styles import */
-import browse_general_footer from "./Styles/browse_general_footer.css";
-import browseCSS_general from "./Styles/browse_general.css";
-import browseCSS_desktop from "./Styles/browse_desktop.css";
-
-/* styles import end */
-
 
 /* assets import */
-import logo from "../../assets/logo/logo3_1.png";
 import searchIcon from '../../assets/search_black_24dp.svg';
 import filterBtn_mobile from '../../assets/filter_list_black_24dp.svg';
 import ui_message_art from '../../assets/feedback-2044700_1280.jpg';
@@ -25,6 +14,11 @@ import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import Loader from "../loader/Loader";
 /* components import end */
+
+/*css imports */
+import browse_general from './Styles/browse_general.css';
+import browse_desktop from './Styles/browse_desktop.css';
+
 
 function Browse ()
 {
@@ -151,12 +145,9 @@ function Browse ()
                                                  organisations_for_sec={organisations_for_the_sector}
                                                  key={sector}/>);
         }
-
     }
 
-
     /* fetch request - recommended - start*/
-
     /*
         REMEMBER HOOKS: ELSE GOOD LUCK TRYING TO SOLVE THE
                         INEVITABLE SHIT SHOW.
@@ -200,7 +191,7 @@ function Browse ()
                 })
 
                 .catch(error => {
-                    alert("failed - organisations - sector")
+                    alert("failed - organisations - recommendations")
                 });
         }
         ,[])
@@ -269,19 +260,15 @@ function Browse ()
                 <section id="browse_body_main">
 
                     <div id="browse_organisations">
-                        {recommendedOrganisations.length > 0 &&
-
-                        <div id="recommended_organisations">
-                            <div className="recommended_section">
-                                <p className="browse_sector_name">Recommended for you</p>
-                                <div className="recommended_organisations_container">
-                                    {organisations_recommended}
-                                </div>
+                        <>
+                            <div className="browse_sector">
+                                <p className="browse_sector_name">recommended for you</p>
                             </div>
-                        </div>}
+                            <div id="reco_organisations">
+                                {organisations_recommended}
+                            </div>
+                        </>
 
-
-                        {/* this block was not a part of the initial design */}
                         <div id="ui_element_message">
                             <img src={ui_message_art} alt={""}/>
                             <div id="ui_element_message_text">
@@ -289,7 +276,6 @@ function Browse ()
                                 <p id="ui_element_message_subtext">The following organisations have been individually reviewed by givealot<img /></p>
                             </div>
                         </div>
-                        {/* this block was not a part of the initial design - end */}
 
                         <div id="default_organisations">
                             {organisations_by_sector}
@@ -304,6 +290,8 @@ function Browse ()
                             </div>
                         </div>
                         {/* this block was not a part of the initial design - end */}
+
+
                     </div>
                 </section>
 

@@ -1,18 +1,17 @@
 import React, {useEffect, useState} from "react";
-import logo from "../../assets/logo/logo3_1.png";
+import { Link } from "react-router-dom";
+
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-/* styles import start */
-import homeCSS_general from "./Styles/home_general.css";
-import homeCSS_tablet from "./Styles/home_tablet.css";
-import homeCSS_mobile_portrait from "./Styles/home_mobile.css";
-import homeCSS_desktop from "./Styles/home_desktop.css";
-/* styles import end  */
+import Button from "@material-ui/core/Button";
 
 import backgroundImg from '../../assets/homeBackground.jpg';
-import { Link } from "react-router-dom";
-import Button from "@material-ui/core/Button";
+import logo from "../../assets/logo/logo3_1.png";
+
+import home_desktop from './Styles/home_desktop.css'
+
+
 const styles = {
     main: {
         backgroundImage: `url(${backgroundImg})`
@@ -71,6 +70,7 @@ function Home()
                             <Button className="loginDashBtn" variant={"contained"}
                             startIcon={<ExitToAppIcon />} onClick={() =>{
                                 localStorage.clear();
+                                localStorage.setItem("id","default")
                             }
                             }>
                                 {btnDisplayText}
@@ -91,7 +91,7 @@ function Home()
                     <p id="supporting_head">Your hub for verified charities</p>
                     <div id="main_content_btns">
                        <Link to={"/verifyCertificate"}>
-                           <Button className="main_content_btns_inputTag" variant="contained" name={currentUserId} disableUnderline={true}>
+                           <Button className="main_content_btns_inputTag" variant="contained" name={currentUserId} >
                                verify certificate
                            </Button>
                         </Link>

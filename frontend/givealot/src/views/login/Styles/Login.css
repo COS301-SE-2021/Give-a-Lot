@@ -160,4 +160,14 @@
 
 }
 
+.Instruction{
+    text-align: center;
+    display: block;
+    color: #4b4250;
+    font-family:sans-serif;
+
+    margin:  25px 0 25px 0;
+
+}
+
 /* mobile media query*/

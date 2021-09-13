@@ -45,8 +45,8 @@ class Login extends Component {
         }
 
 
-        if(this.state.password.length <4) {
-            passwordError="Password must be greater than 4";
+        if(!this.state.password.length ) {
+            passwordError="Password is required";
         }
 
         if ( emailError || passwordError) {

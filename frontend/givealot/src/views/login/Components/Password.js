@@ -54,48 +54,19 @@ class Password extends Component {
         const isValid = this.validate();
         if (isValid) {
             console.log(this.state);
-            // clear form
-            //this.setState(initialState);
 
             const data = {
-                "username" : this.state.email,
-                "password" : this.state.password,
-                "role" : ""
-            }
-            localStorage.clear();
-            axios.post('http://localhost:8080/v1/login/user/determine', data )
-                .then(response =>{
-                    console.log(response.data)
-                    const loggedUser={
-                        "id":response.data.id,
-                        "email":response.data.username,
-                        "role":response.data.jwttoken
-                    }
-                    localStorage.setItem( "id" ,response.data.id);
-                    localStorage.setItem( "role" ,response.data.jwttoken)
-
-                    if (response.data.jwttoken === "general")
-                    {
-                        this.props.history.push("/");
-                    }else if (response.data.jwttoken === "admin")
-                    {
-                        this.props.history.push("/dashboard/");
-                    }
-                    else if (response.data.jwttoken === "organisation"){
-                        this.props.history.push("/dashboard/");
-                    }
-                    else{
-                        this.props.history.push("/browse");
-                    }
-                })
-                .catch(error =>{
-                    document.getElementById("badLogin").style.display = "flex";
+                firstName: this.state.firstName,
+                lastName: this.state.lastName,
+                email: this.state.email,
+                password: this.state.password,
+            };
+            axios.post("http://localhost:8080/v1/user/register/user", data)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
 
 
-                })
         }
-
-
     };
 
     render()
@@ -106,7 +77,7 @@ class Password extends Component {
                 <div className="Login" style={styles.main}>
                     <div  id={"banner_filter"}>
                         <Logo/>
-                        <Link to={"/"}>
+                        <Link to={"/Login"}>
                             <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
                         </Link>
                         <div className="LoginCard">
@@ -114,7 +85,10 @@ class Password extends Component {
                             <div className="wrapper">
                                 <form className="LoginForm" onSubmit={this.handleSubmit}>
                        <span className="LoginHeader">
-                           Sign in
+                           Reset your password
+                       </span>
+                        <span className="Instruction">
+                           We'll email you instructions to reset the password.
                        </span>
                                     <div className="LoginInput" data-validate="Username is required">
                                 <span className="LoginInputLabel">
@@ -133,23 +107,6 @@ class Password extends Component {
                                         <span className="loginError">{this.state.emailError}</span>
                                     </div>
 
-                                    <div className="LoginInput" data-validate="Username is required">
-                                <span className="LoginInputLabel">
-                                    Password
-                                </span>
-                                        <div>
-                                            <input
-                                                className="innerInput validate"
-                                                type="password"
-                                                name="password"
-                                                placeholder="Enter your password"
-                                                onChange={this.handleChange}
-                                            />
-
-                                        </div>
-                                        <span className="loginError">{this.state.passwordError}</span>
-                                    </div>
-
                                     <div className="wrapper-btn">
 
                                         <button className="Login-btn" id={"loginBTN_less_rounded"} type="submit">
@@ -157,15 +114,8 @@ class Password extends Component {
                                         </button>
                                     </div>
 
-                                    <div className="BottomForm">
-                                        <Link to={"/signUp"} className="BottomLinker">
-                                            <span> Need an account?</span>
-                                        </Link>
 
-                                        <Link to={"/Password"} className="BottomLinker">
-                                            <span> Forgot password?</span>
-                                        </Link>
-                                    </div>
+
                                 </form>
                             </div>
                         </div>

@@ -62,9 +62,6 @@ class Login extends Component {
         event.preventDefault();
         const isValid = this.validate();
         if (isValid) {
-            console.log(this.state);
-            // clear form
-            //this.setState(initialState);
 
             const data = {
                 "username" : this.state.email,
@@ -72,39 +69,39 @@ class Login extends Component {
                 "role" : ""
             }
             localStorage.clear();
+            document.getElementById("waitInfo").style.display = "flex";
+            document.getElementById("badLogin").style.display = "none";
             axios.post('http://localhost:8080/v1/login/user/determine', data )
                 .then(response =>{
-                    console.log(response.data)
                     const loggedUser={
                         "id":response.data.id,
                         "email":response.data.username,
                         "role":response.data.jwttoken
                     }
+
                     localStorage.setItem( "id" ,response.data.id);
                     localStorage.setItem( "role" ,response.data.jwttoken)
 
                     if (response.data.jwttoken === "general")
                     {
+                        document.getElementById("waitInfo").style.display = "none";
                         this.props.history.push("/");
+
                     }else if (response.data.jwttoken === "admin")
                     {
+                        document.getElementById("waitInfo").style.display = "none";
                         this.props.history.push("/dashboard/");
                     }
                     else if (response.data.jwttoken === "organisation"){
+                        document.getElementById("waitInfo").style.display = "none";
                         this.props.history.push("/dashboard/");
-                    }
-                    else{
-                        this.props.history.push("/browse");
                     }
                 })
                 .catch(error =>{
                     document.getElementById("badLogin").style.display = "flex";
-
-
+                    document.getElementById("waitInfo").style.display = "none";
                 })
         }
-
-
     };
 
     render()
@@ -120,6 +117,7 @@ class Login extends Component {
                         </Link>
                         <div className="LoginCard">
                             <Alert severity="error" id={"badLogin"}>incorrect username or password!</Alert>
+                            <Alert severity="info" id={"waitInfo"}>signing in...</Alert>
                             <div className="wrapper">
                                 <form className="LoginForm" onSubmit={this.handleSubmit}>
                        <span className="LoginHeader">

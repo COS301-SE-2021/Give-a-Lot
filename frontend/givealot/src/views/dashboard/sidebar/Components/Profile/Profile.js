@@ -18,7 +18,14 @@ import {
 import axios from "axios";
 import Axios from "axios";
 import {toast} from "react-toastify";
+import * as PropTypes from "prop-types";
 
+
+function CancelOutlinedIcon(props) {
+    return null;
+}
+
+CancelOutlinedIcon.propTypes = {className: PropTypes.string};
 
 export class Profile extends Component {
 
@@ -26,10 +33,10 @@ export class Profile extends Component {
         super(props)
 
         this.state = {
-            persons:"",
-            adminId:14,
-            orgId:32,
-           // orgId:localStorage.getItem("id"),
+            persons:{},
+            level: 0,
+            //orgId:localStorage.getItem("id"),
+            orgId: 49,
             orgEmail:"",
             orgName1:"",
             orgNameState:false,
@@ -49,33 +56,39 @@ export class Profile extends Component {
     }
 
 
-    componentDidMount() {
+    componentDidMount(){
         let config = {
             headers: {
                 "Content-Type": "application/json",
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        const admin = {
-            "adminId" : this.state.adminId
-        }
-
-        const org = {
-            orgId : this.state.orgId
-        }
-        axios.post('http://localhost:8080/v1/organisation/get/organisations',admin , config)
+        console.log(this.props)
+        axios.get('http://localhost:8080/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config)
             .then(response =>{
                 console.log(response)
-                this.setState({persons: response.data.response[0]})
-                console.log(this.state.persons)
-
+                this.setState({persons: response.data.response})
             })
             .catch(error =>{
+                console.log(error)
                 this.setState({error : 'Error Retrieving data'})
             })
 
+        const dataa = {
+            "orgId" : this.state.orgId
+        }
 
+        axios.post('http://localhost:8080/v1/organisation/get/org_level', dataa  ,config)
+            .then(response =>{
+                this.setState({level: response.data.level})
+                console.log(response)
+
+            })
+            .catch(error =>{
+                console.log(error)
+            })
     }
+
 
     handleEmail=event=>{
         this.setState({emailState: true})
@@ -263,6 +276,61 @@ export class Profile extends Component {
 
     render() {
         const { persons } = this.state
+
+        let status
+
+        if(persons.status==="active"){
+           status=  <div className="userShowInfo">
+                        <CheckCircleOutlineOutlined className="userShowIcon" />
+                        <span className="userShowInfoTitle">{persons.status}</span>
+                    </div>
+        }else if(persons.status==="suspended"){
+            status= <div className="userShowInfo">
+                        <CancelOutlinedIcon className="userShowIcon" />
+                        <span className="userShowInfoTitle">{persons.status}</span>
+                    </div>
+        }
+
+        let levels
+        if(this.state.level==0){
+            levels= <div >
+                    </div>
+        }else if(this.state.level==1){
+            levels= <div >
+                        <Level0 />
+                    </div>
+        }else if(this.state.level==2){
+            levels= <div >
+                        <Level0 />
+                        <Level1 />
+
+                    </div>
+        }else if(this.state.level==3){
+            levels= <div >
+                        <Level0 />
+                        <Level1 />
+                        <Level2 />
+                    </div>
+        }else if(this.state.level==4){
+            levels= <div >
+                        <Level0 />
+                        <Level1 />
+                        <Level2 />
+                        <Level3 />
+                    </div>
+        }else if(this.state.level==5){
+            levels= <div >
+                        <Level0 />
+                        <Level1 />
+                        <Level2 />
+                        <Level3 />
+                        <Level4 />
+                    </div>
+        }
+
+
+
+
         return (
             <div className="profileOrg">
                 <div className="userTitleContainer">
@@ -309,11 +377,10 @@ export class Profile extends Component {
                                         <MailOutline className="userShowIcon" />
                                         <span className="userShowInfoTitle">{persons.orgEmail}</span>
                                     </div>
-
-                                    <div className="userShowInfo">
-                                        <CheckCircleOutlineOutlined className="userShowIcon" />
-                                        <span className="userShowInfoTitle">{persons.status}</span>
+                                    <div>
+                                        {status}
                                     </div>
+
                                     <div className="userShowInfo">
                                         <LocationSearching className="userShowIcon" />
                                         <span className="userShowInfoTitle">Pretoria, arcadia</span>
@@ -412,21 +479,8 @@ export class Profile extends Component {
                     <div className="profile_line"/>
 
                 </div>
-                <div >
-                    <Level0 />
-                    <Level1 />
 
-                </div>
-                <div >
-                    <Level2 />
-                    <Level3 />
-                </div>
-                <div >
-                    <Level4 />
-
-                </div>
-
-
+                {levels}
             </div>
         )
     }

@@ -4,7 +4,7 @@ import backgroundImg from "../../../assets/homeBackground.jpg"
 import Logo from "../Components/Logo"
 import { Link } from "react-router-dom";
 
-export class ResetSuccess extends Component {
+export class EmailSent extends Component {
     styles = {
         main: {
             backgroundImage: `url(${backgroundImg})`
@@ -50,4 +50,4 @@ export class ResetSuccess extends Component {
     }
 }
 
-export default ResetSuccess;
+export default EmailSent;

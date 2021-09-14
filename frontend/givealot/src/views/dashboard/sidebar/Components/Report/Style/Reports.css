@@ -19,8 +19,9 @@
     position: absolute;
     left: 500px;
     font-family: sans-serif;
-    color: #515151;
+    color:#957b9e;
     display: flex;
+
 }
 .hidden{
     color: white;

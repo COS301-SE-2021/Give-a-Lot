@@ -10,7 +10,7 @@ export class Reports extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            count: 4,
+            count: "",
             reports: [],
             orgId:localStorage.getItem("id"),
             error: "",
@@ -41,12 +41,12 @@ export class Reports extends Component {
     render() {
 
         const { reports } = this.state
-        if (this.state.count===0){
+        if (this.state.count===null){
             return (
-                <div className="non">
-
-                    <h1> You do not have any reports</h1>
-
+                <div className="report">
+                    <h1 className="non">
+                        You do not have any reports
+                    </h1>
                 </div>
             )
         }else {

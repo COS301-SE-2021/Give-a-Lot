@@ -26,10 +26,9 @@ export class Profile extends Component {
         super(props)
 
         this.state = {
-            persons:"",
-            adminId:14,
-            orgId:32,
-           // orgId:localStorage.getItem("id"),
+            persons:{},
+            //orgId:localStorage.getItem("id"),
+            orgId: 49,
             orgEmail:"",
             orgName1:"",
             orgNameState:false,
@@ -48,8 +47,9 @@ export class Profile extends Component {
         }
     }
 
+    ///////////////////////////
 
-    componentDidMount() {
+  /*  componentDidMount() {
         let config = {
             headers: {
                 "Content-Type": "application/json",
@@ -75,8 +75,27 @@ export class Profile extends Component {
             })
 
 
+    }*/
+    componentDidMount(){
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        console.log(this.props)
+        axios.get('http://localhost:8080/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config)
+            .then(response =>{
+                console.log(response)
+                this.setState({persons: response.data.response})
+            })
+            .catch(error =>{
+                console.log(error)
+                this.setState({error : 'Error Retrieving data'})
+            })
     }
 
+///////////////////////////////////////////////////////
     handleEmail=event=>{
         this.setState({emailState: true})
         const isCheckbox = event.target.type === "checkbox";

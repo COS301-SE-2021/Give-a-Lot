@@ -25,7 +25,7 @@ import Calendar from "../dashboard/sidebar/Components/Calendar/Calendar"
 import Validate from "../dashboard/sidebar/Components/Validate/Validate"
 import AddOrg from "../dashboard/sidebar/Components/OrganisationsDash/AddOrg"
 import OrgValidate from "../dashboard/sidebar/Components/Validate/OrgValidate"
-import DashHeader from "./sidebar/DashHeader/DashHeader"
+import Timeline from "../dashboard/sidebar/Components/Timeline/Timeline"
 
 function Dashboard() {
     return (
@@ -91,6 +91,9 @@ function Dashboard() {
                         </Route>
                         <Route exact path="/orgValidate/:id">
                             <OrgValidate />
+                        </Route>
+                        <Route exact path="/timeline">
+                            <Timeline />
                         </Route>
                     </Switch>
                 </div>

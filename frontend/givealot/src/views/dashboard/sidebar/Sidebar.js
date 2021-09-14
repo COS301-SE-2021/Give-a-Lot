@@ -114,6 +114,15 @@ function Sidebar(){
                                     </Link>
                                 </div>
 
+                                <div className={splitLocation[1] === "timeline" ? "active" : ""} >
+                                    <Link to='/timeline' className="link">
+                                        <li className="sidebarListItem ">
+                                            <ExitToAppOutlinedIcon/>
+                                            <div className="sideIcon" > Timeline </div>
+                                        </li>
+                                    </Link>
+                                </div>
+
                                 <div className={splitLocation[1] === "logout" ? "active" : ""}  onClick={handleLogOut}>
                                     <Link to='/browse' className="link">
                                         <li className="sidebarListItem ">

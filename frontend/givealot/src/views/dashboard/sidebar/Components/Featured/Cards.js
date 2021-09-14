@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import "./Styles/Featured.css"
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 import ReportIcon from '@material-ui/icons/Report';
@@ -19,9 +18,9 @@ export class Cards extends Component {
             Organisations: '',
             notifications: '',
             adminUserEmail:'admin@email.com',
-            orgId: 32,
+            orgId: 72,
             reports: [],
-            adminId: 14
+            adminId: 4
         }
     }
 
@@ -98,7 +97,7 @@ export class Cards extends Component {
 
             })
             .catch(error =>{
-                // console.log(error)
+                alert(error)
                 this.setState({error : 'Error Retrieving data'})
             })
     }
@@ -132,65 +131,65 @@ export class Cards extends Component {
             <div style={{display: "flex"}} className= "featuredCards">
                 <Card variant="outlined" className="cardElement">
                     <CardContent style={{display: "flex", alignItems: "center", justifyContent: "space-evenly"}}>
-                        <Typography>
-                            <Typography color="textPrimary">
+                        <div>
+                            <div color="textPrimary">
                                 Users
-                            </Typography>
-                            <Typography color="textSecondary">
+                            </div>
+                            <div color="textSecondary">
                                 {Users}
-                            </Typography>
-                        </Typography>
-                        <Typography color="textSecondary" className="cardIconUser" >
+                            </div>
+                        </div>
+                        <div color="textSecondary" className="cardIconUser" >
                             <PersonOutlineIcon />
-                        </Typography>
+                        </div>
                     </CardContent>
                 </Card>
 
                 <Card variant="outlined" className="cardElement">
                     <CardContent style={{display: "flex", alignItems: "center", justifyContent: "space-evenly"}}>
-                        <Typography>
-                            <Typography color="textPrimary">
+                        <div>
+                            <div color="textPrimary">
                                 Organisations
-                            </Typography>
-                            <Typography color="textSecondary">
+                            </div>
+                            <div color="textSecondary">
                                 {Organisations.length}
-                            </Typography>
-                        </Typography>
-                        <Typography color="textSecondary" className="cardIconOrg" >
+                            </div>
+                        </div>
+                        <div color="textSecondary" className="cardIconOrg" >
                             <PeopleOutlineIcon />
-                        </Typography>
+                        </div>
                     </CardContent>
                 </Card>
 
                 <Card variant="outlined" className="cardElement">
                     <CardContent style={{display: "flex", alignItems: "center", justifyContent: "space-evenly"}}>
-                        <Typography>
-                            <Typography color="textPrimary">
+                        <div>
+                            <div color="textPrimary">
                                 Reports
-                            </Typography>
-                            <Typography color="textSecondary">
+                            </div>
+                            <div color="textSecondary">
                                 {reports.length}
-                            </Typography>
-                        </Typography>
-                        <Typography color="textSecondary" className="cardIconReports" >
+                            </div>
+                        </div>
+                        <div color="textSecondary" className="cardIconReports" >
                             <ReportIcon />
-                        </Typography>
+                        </div>
                     </CardContent>
                 </Card>
 
                 <Card variant="outlined" className="cardElement">
                     <CardContent style={{display: "flex", alignItems: "center", justifyContent: "space-evenly"}}>
-                        <Typography>
-                            <Typography color="textPrimary">
+                        <div>
+                            <div color="textPrimary">
                                 Notifications
-                            </Typography>
-                            <Typography color="textSecondary">
+                            </div>
+                            <div color="textSecondary">
                                 {notifications}
-                            </Typography>
-                        </Typography>
-                        <Typography color="textSecondary" className="cardIconNotifications" >
+                            </div>
+                        </div>
+                        <div color="textSecondary" className="cardIconNotifications" >
                             <NotificationsOutlinedIcon />
-                        </Typography>
+                        </div>
                     </CardContent>
                 </Card>
 

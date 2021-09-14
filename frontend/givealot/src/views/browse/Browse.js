@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 /* assets import */
-import searchIcon from '../../assets/search_black_24dp.svg';
 import filterBtn_mobile from '../../assets/filter_list_black_24dp.svg';
 import ui_message_art from '../../assets/feedback-2044700_1280.jpg';
 /* assets import end */
@@ -13,17 +12,17 @@ import Sector from "./Components/BrowseBySector/Sector";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import Loader from "../loader/Loader";
-import SearchResults from "./Components/SearchResults/SearchResults";
+// import SearchResults from "./Components/SearchResults/SearchResults";
 /* components import end */
 
 /*css imports */
-import browse_general from './Styles/browse_general.css';
-import browse_desktop from './Styles/browse_desktop.css';
-import SearchIcon from "@material-ui/icons/Search";
-import {Paper} from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Avatar from "@material-ui/core/Avatar";
+// import browse_general from './Styles/browse_general.css';
+// import browse_desktop from './Styles/browse_desktop.css';
+// import SearchIcon from "@material-ui/icons/Search";
+// import {Paper} from "@material-ui/core";
+// import Grid from "@material-ui/core/Grid";
+// import Typography from "@material-ui/core/Typography";
+// import Avatar from "@material-ui/core/Avatar";
 
 
 function Browse ()

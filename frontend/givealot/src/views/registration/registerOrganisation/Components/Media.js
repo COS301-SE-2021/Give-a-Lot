@@ -45,7 +45,7 @@ export class RegisterOrganisation extends Component {
                                     </span>
                                     <div style={{display: "flex"}}>
                                         <input type="file" id="images" name="images"
-                                               accept="image/png"
+                                               accept="image/*"
                                                value={values.images}
                                                // onChange={uploadPhoto}
                                                onChange={handleChangeImage('images')}

@@ -85,6 +85,9 @@ export class AddOrg extends Component {
             // isErrors = true;
             contactPersonError = 'Contact person cannot be blank';
         }
+        if (!this.state.orgEmail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+            orgEmailError = "Please enter email address";
+        }
 
         if (orgEmailError || contactPersonError || contactNumberError || orgDescriptionError || orgSectorError || sloganError || orgNameError || passwordError) {
             this.setState({ orgEmailError, contactPersonError,contactNumberError, orgDescriptionError, orgSectorError, sloganError, orgNameError, passwordError});
@@ -169,9 +172,8 @@ export class AddOrg extends Component {
                                             placeholder="Organisation Name"
                                             fullWidth
                                             margin="normal"
-                                            // InputLabelProps={{
-                                            //     shrink: true,
-                                            // }}
+                                            minLength="8"
+                                            maxLength="20"
                                             variant="outlined"
                                             name="orgName"
                                             onChange={this.changeHandler}
@@ -190,9 +192,8 @@ export class AddOrg extends Component {
                                             placeholder="Slogan"
                                             fullWidth
                                             margin="normal"
-                                            // InputLabelProps={{
-                                            //     shrink: true,
-                                            // }}
+                                            minLength="15"
+                                            maxLength="50"
                                             variant="outlined"
                                             name="slogan"
                                             onChange={this.changeHandler}
@@ -213,9 +214,6 @@ export class AddOrg extends Component {
                                             placeholder="Email"
                                             fullWidth
                                             margin="normal"
-                                            // InputLabelProps={{
-                                            //     shrink: true,
-                                            // }}
                                             variant="outlined"
                                             name="orgEmail"
                                             onChange={this.changeHandler}
@@ -236,9 +234,8 @@ export class AddOrg extends Component {
                                             placeholder="Password"
                                             fullWidth
                                             margin="normal"
-                                            // InputLabelProps={{
-                                            //     shrink: true,
-                                            // }}
+                                            minLength="8"
+                                            maxLength="15"
                                             variant="outlined"
                                             name="password"
                                             onChange={this.changeHandler}
@@ -259,9 +256,6 @@ export class AddOrg extends Component {
                                             label="Sector"
                                             fullWidth
                                             placeholder="Placeholder"
-                                            // InputLabelProps={{
-                                            //     shrink: true,
-                                            // }}
                                             name="orgSector"
                                             onChange={this.changeHandler}
                                             value={orgSector}
@@ -286,9 +280,6 @@ export class AddOrg extends Component {
                                             placeholder="Contact Person"
                                             fullWidth
                                             margin="normal"
-                                            // InputLabelProps={{
-                                            //     shrink: true,
-                                            // }}
                                             variant="outlined"
                                             name="contactPerson"
                                             onChange={this.changeHandler}
@@ -309,11 +300,10 @@ export class AddOrg extends Component {
                                             placeholder="Contact Number"
                                             fullWidth
                                             margin="normal"
-                                            // InputLabelProps={{
-                                            //     shrink: true,
-                                            // }}
                                             variant="outlined"
                                             name="contactNumber"
+                                            // minLength="8"
+                                            maxLength="10"
                                             onChange={this.changeHandler}
                                             value={contactNumber}
                                         />
@@ -331,9 +321,8 @@ export class AddOrg extends Component {
                                             multiline
                                             maxRows={4}
                                             margin="normal"
-                                            // InputLabelProps={{
-                                            //     shrink: true,
-                                            // }}
+                                            minLength="50"
+                                            maxLength="100"
                                             variant="outlined"
                                             id="outlined-textarea"
                                             label="Description"

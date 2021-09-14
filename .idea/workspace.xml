@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="register organisation upload image">
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/Confirm.js" afterDir="false" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="calendar edit event changes time start and end">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/Success.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/Success.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/RegisterOrganisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/RegisterOrganisation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,17 +96,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="generated-requests#42" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="42" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -159,49 +146,9 @@
       <workItem from="1631042260596" duration="333000" />
       <workItem from="1631133557866" duration="750000" />
       <workItem from="1631137762251" duration="2127000" />
-      <workItem from="1631441525292" duration="2894000" />
-    </task>
-    <task id="LOCAL-00036" summary="organisations controller revision">
-      <created>1629311673486</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1629311673486</updated>
-    </task>
-    <task id="LOCAL-00037" summary="organisations controller revision">
-      <created>1629316585116</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1629316585116</updated>
-    </task>
-    <task id="LOCAL-00038" summary="organisations controller revision">
-      <created>1629319541850</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1629319541850</updated>
-    </task>
-    <task id="LOCAL-00039" summary="organisations controller revision">
-      <created>1629320181852</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1629320181853</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Fixing organisation points">
-      <created>1629327656636</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1629327656636</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Fixing organisation points">
-      <created>1629327702103</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1629327702103</updated>
+      <workItem from="1631441525292" duration="4115000" />
+      <workItem from="1631549783410" duration="4808000" />
+      <workItem from="1631563613750" duration="10057000" />
     </task>
     <task id="LOCAL-00042" summary="organisations controller revision">
       <created>1629330985000</created>
@@ -504,7 +451,49 @@
       <option name="project" value="LOCAL" />
       <updated>1631441883518</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="register organisation confirmation page">
+      <created>1631444879138</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1631444879138</updated>
+    </task>
+    <task id="LOCAL-00086" summary="admin Add organisation validation">
+      <created>1631551137110</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1631551137110</updated>
+    </task>
+    <task id="LOCAL-00087" summary="admin Add organisation validation">
+      <created>1631551385806</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1631551385806</updated>
+    </task>
+    <task id="LOCAL-00088" summary="calendar edit event changes">
+      <created>1631565536529</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1631565536531</updated>
+    </task>
+    <task id="LOCAL-00089" summary="calendar edit event changes">
+      <created>1631571139881</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1631571139882</updated>
+    </task>
+    <task id="LOCAL-00090" summary="calendar edit event changes time start and end">
+      <created>1631573559444</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1631573559444</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,10 +512,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="user and login system are complete" />
-    <MESSAGE value="organisations api - get all users ready for frontend" />
-    <MESSAGE value="organisations controller revision - add Organisation" />
-    <MESSAGE value="organisations controller revision - suspend" />
     <MESSAGE value="organisations controller revision - activate" />
     <MESSAGE value="organisations controller revision - add website and remove website" />
     <MESSAGE value="organisations controller revision - add address" />
@@ -548,7 +533,11 @@
     <MESSAGE value="calendar change event" />
     <MESSAGE value="register organisation" />
     <MESSAGE value="register organisation upload image" />
-    <option name="LAST_COMMIT_MESSAGE" value="register organisation upload image" />
+    <MESSAGE value="register organisation confirmation page" />
+    <MESSAGE value="admin Add organisation validation" />
+    <MESSAGE value="calendar edit event changes" />
+    <MESSAGE value="calendar edit event changes time start and end" />
+    <option name="LAST_COMMIT_MESSAGE" value="calendar edit event changes time start and end" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

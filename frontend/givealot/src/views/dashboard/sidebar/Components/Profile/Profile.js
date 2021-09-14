@@ -18,7 +18,14 @@ import {
 import axios from "axios";
 import Axios from "axios";
 import {toast} from "react-toastify";
+import * as PropTypes from "prop-types";
 
+
+function CancelOutlinedIcon(props) {
+    return null;
+}
+
+CancelOutlinedIcon.propTypes = {className: PropTypes.string};
 
 export class Profile extends Component {
 
@@ -270,6 +277,20 @@ export class Profile extends Component {
     render() {
         const { persons } = this.state
 
+        let status
+
+        if(persons.status==="active"){
+           status=  <div className="userShowInfo">
+                        <CheckCircleOutlineOutlined className="userShowIcon" />
+                        <span className="userShowInfoTitle">{persons.status}</span>
+                    </div>
+        }else if(persons.status==="suspended"){
+            status= <div className="userShowInfo">
+                        <CancelOutlinedIcon className="userShowIcon" />
+                        <span className="userShowInfoTitle">{persons.status}</span>
+                    </div>
+        }
+
         let levels
         if(this.state.level==0){
             levels= <div >
@@ -356,11 +377,10 @@ export class Profile extends Component {
                                         <MailOutline className="userShowIcon" />
                                         <span className="userShowInfoTitle">{persons.orgEmail}</span>
                                     </div>
-
-                                    <div className="userShowInfo">
-                                        <CheckCircleOutlineOutlined className="userShowIcon" />
-                                        <span className="userShowInfoTitle">{persons.status}</span>
+                                    <div>
+                                        {status}
                                     </div>
+
                                     <div className="userShowInfo">
                                         <LocationSearching className="userShowIcon" />
                                         <span className="userShowInfoTitle">Pretoria, arcadia</span>

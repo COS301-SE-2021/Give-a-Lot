@@ -215,19 +215,21 @@ export class OrganisationsDash extends Component {
                                 <TableContainer component={Paper}>
                                     <Table >
                                         <TableHead style={{backgroundColor: "#957b9e"}}>
-                                            <TableCell></TableCell>
-                                            <TableCell style={{color: "white", fontWeight: "bold"}}>Name</TableCell>
-                                            <TableCell style={{color: "white", fontWeight: "bold"}}>Email</TableCell>
-                                            <TableCell style={{color: "white", fontWeight: "bold"}}>Contact Person</TableCell>
-                                            <TableCell style={{color: "white", fontWeight: "bold"}}>Contact Number</TableCell>
-                                            <TableCell style={{color: "white", fontWeight: "bold"}}>Sector</TableCell>
-                                            <TableCell style={{color: "white", fontWeight: "bold"}}>Status</TableCell>
-                                            <TableCell></TableCell>
+                                            <TableRow>
+                                                <TableCell></TableCell>
+                                                <TableCell style={{color: "white", fontWeight: "bold"}}>Name</TableCell>
+                                                <TableCell style={{color: "white", fontWeight: "bold"}}>Email</TableCell>
+                                                <TableCell style={{color: "white", fontWeight: "bold"}}>Contact Person</TableCell>
+                                                <TableCell style={{color: "white", fontWeight: "bold"}}>Contact Number</TableCell>
+                                                <TableCell style={{color: "white", fontWeight: "bold"}}>Sector</TableCell>
+                                                <TableCell style={{color: "white", fontWeight: "bold"}}>Status</TableCell>
+                                                <TableCell></TableCell>
+                                            </TableRow>
                                         </TableHead>
                                         <TableBody>
                                             {org.map((item) =>{
                                                 return(
-                                                    <TableRow>
+                                                    <TableRow key={item.orgId}>
                                                         <TableCell><Avatar aria-label="recipe" src="https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg" /> </TableCell>
                                                         <TableCell>{item.orgName}</TableCell>
                                                         <TableCell>{item.orgEmail}</TableCell>

@@ -38,95 +38,95 @@ function Sidebar(){
             <div className="sidebar">
                 <div className="sidebarWrapper">
                     <div className="sidebarMenu">
-                        <ul className="sidebarList">
+                        <div className="sidebarList">
                             <Logo/>
-                            <ul className="MuListPadding MuListRoot">
+                            <div className="MuListPadding MuListRoot">
                                 {/* Checking the current path name using javascript ternary operator and if true adding active classname to it */}
-                                <li className={splitLocation[1] === "featured" ? "active" : ""}>
+                                <div className={splitLocation[1] === "featured" ? "active" : ""}>
                                     <Link to='/featured' className="link">
                                         <li className="sidebarListItem ">
                                             <DashboardOutlinedIcon />
                                             <div className="sideIcon" > Dashboard </div>
                                         </li>
                                     </Link>
-                                </li>
+                                </div>
 
-                                <li className={splitLocation[1] === "organisations" || splitLocation[1] === 'org' ? "active" : ""}>
+                                <div className={splitLocation[1] === "organisations" || splitLocation[1] === 'org' ? "active" : ""}>
                                     <Link to='/organisations' className="link">
                                         <li className="sidebarListItem ">
                                             <PeopleOutlineIcon />
                                             <div className="sideIcon" > Organisations </div>
                                         </li>
                                     </Link>
-                                </li>
+                                </div>
 
-                                <li className={splitLocation[1] === "users" ? "active" : ""}>
+                                <div className={splitLocation[1] === "users" ? "active" : ""}>
                                     <Link to='/users' className="link">
                                         <li className="sidebarListItem ">
                                             <PersonOutlineIcon />
                                             <div className="sideIcon" > Users </div>
                                         </li>
                                     </Link>
-                                </li>
+                                </div>
 
-                                <li className={splitLocation[1] === "validate" || splitLocation[1] === "orgValidate" ? "active" : ""}>
+                                <div className={splitLocation[1] === "validate" || splitLocation[1] === "orgValidate" ? "active" : ""}>
                                     <Link to='/validate' className="link">
                                         <li className="sidebarListItem ">
                                             <VerifiedUserOutlinedIcon />
                                             <div className="sideIcon" > Validate </div>
                                         </li>
                                     </Link>
-                                </li>
+                                </div>
 
-                                <li className={splitLocation[1] === "report" ? "active" : ""}>
+                                <div className={splitLocation[1] === "report" ? "active" : ""}>
                                     <Link to='/report' className="link">
                                         <li className="sidebarListItem ">
                                             <ReportOutlinedIcon />
                                             <div className="sideIcon" > Reports </div>
                                         </li>
                                     </Link>
-                                </li>
+                                </div>
 
-                                <li className={splitLocation[1] === "calendar" ? "active" : ""}>
+                                <div className={splitLocation[1] === "calendar" ? "active" : ""}>
                                     <Link to='/calendar' className="link">
                                         <li className="sidebarListItem ">
                                             <CalendarTodayOutlinedIcon />
                                             <div className="sideIcon" > Calendar </div>
                                         </li>
                                     </Link>
-                                </li>
+                                </div>
 
-                                <li className={splitLocation[1] === "profile" ? "active" : ""}>
+                                <div className={splitLocation[1] === "profile" ? "active" : ""}>
                                     <Link to='/profile' className="link">
                                         <li className="sidebarListItem ">
                                             <AccountCircleOutlinedIcon />
                                             <div className="sideIcon" > Profile</div>
                                         </li>
                                     </Link>
-                                </li>
+                                </div>
 
-                                <li className={splitLocation[1] === "certificate" || splitLocation[1] === "upgrade5" || splitLocation[1] === "upgrade0"|| splitLocation[1] === "upgrade1"|| splitLocation[1] === "upgrade2"|| splitLocation[1] === "upgrade3"|| splitLocation[1] === "upgrade4" ? "active" : ""}>
+                                <div className={splitLocation[1] === "certificate" || splitLocation[1] === "upgrade5" || splitLocation[1] === "upgrade0"|| splitLocation[1] === "upgrade1"|| splitLocation[1] === "upgrade2"|| splitLocation[1] === "upgrade3"|| splitLocation[1] === "upgrade4" ? "active" : ""}>
                                     <Link to='/certificate' className="link">
                                         <li className="sidebarListItem ">
                                             <CardGiftcardOutlinedIcon />
                                             <div className="sideIcon" > Certificate</div>
                                         </li>
                                     </Link>
-                                </li>
+                                </div>
 
-                                <li className={splitLocation[1] === "logout" ? "active" : ""}  onClick={handleLogOut}>
+                                <div className={splitLocation[1] === "logout" ? "active" : ""}  onClick={handleLogOut}>
                                     <Link to='/browse' className="link">
                                         <li className="sidebarListItem ">
                                             <ExitToAppOutlinedIcon/>
                                             <div className="sideIcon" > Logout </div>
                                         </li>
                                     </Link>
-                                </li>
+                                </div>
 
 
-                            </ul>
+                            </div>
 
-                        </ul>
+                        </div>
                     </div>
                 </div>
             </div>

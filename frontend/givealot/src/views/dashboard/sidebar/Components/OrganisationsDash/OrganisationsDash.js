@@ -33,7 +33,7 @@ export class OrganisationsDash extends Component {
             open: false,
             openAdd: false,
             getSector: [],
-            adminId: 14,
+            adminId: 4,
             openSector: false,
         }
     }
@@ -131,7 +131,7 @@ export class OrganisationsDash extends Component {
         return(
                 <div className="OrganisationsDash">
                     <div className="userTitle">
-                        All Organisations on Give Alot
+                        All Organisations on Givealot
                     </div>
                     <div className="OrgAdd">
                         <div className="orgAddBtn" style={{display: "flex", alignItems: "center", alignContent: "space-between"}}>
@@ -152,12 +152,12 @@ export class OrganisationsDash extends Component {
                             <Dialog onClose={this.handleClose.bind(this)} open={this.state.open} style={{width: "100%"}}>
                                 <DialogTitle style={{color: "#957b9e"}}>Create a Sector</DialogTitle>
                                 <DialogContent style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-                                    <Grid>
+                                    <div>
                                         <form onSubmit={this.submitSector}>
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Sector"
-                                                style={{ margin: 8 }}
+                                                // style={{ margin: 3 }}
                                                 placeholder="Sector"
                                                 fullWidth
                                                 margin="normal"
@@ -187,7 +187,7 @@ export class OrganisationsDash extends Component {
                                             </Dialog>
                                         </form>
                                         <Divider style={{marginTop: "2em"}}/>
-                                        <Grid>
+                                        <div>
                                             <div style={{marginBottom: "1em",marginTop: "1em", color: "#957b9e",fontSize: "x-large"}}>View Available Sectors</div>
                                             <div>
                                                 {getSector.map((sector) =>{
@@ -198,8 +198,8 @@ export class OrganisationsDash extends Component {
                                                     )
                                                 })}
                                             </div>
-                                        </Grid>
-                                    </Grid>
+                                        </div>
+                                    </div>
                                 </DialogContent>
                             </Dialog>
                         </div>
@@ -217,12 +217,12 @@ export class OrganisationsDash extends Component {
                                         <TableHead style={{backgroundColor: "#957b9e"}}>
                                             <TableCell></TableCell>
                                             <TableCell style={{color: "white", fontWeight: "bold"}}>Name</TableCell>
-                                            <TableCell style={{color: "white", fontWeight: "bold"}}>email</TableCell>
-                                            <TableCell style={{color: "white", fontWeight: "bold"}}>Contact person</TableCell>
-                                            <TableCell style={{color: "white", fontWeight: "bold"}}>Contact NUmber</TableCell>
+                                            <TableCell style={{color: "white", fontWeight: "bold"}}>Email</TableCell>
+                                            <TableCell style={{color: "white", fontWeight: "bold"}}>Contact Person</TableCell>
+                                            <TableCell style={{color: "white", fontWeight: "bold"}}>Contact Number</TableCell>
+                                            <TableCell style={{color: "white", fontWeight: "bold"}}>Sector</TableCell>
                                             <TableCell style={{color: "white", fontWeight: "bold"}}>Status</TableCell>
-                                            <TableCell style={{color: "white", fontWeight: "bold"}}>Action</TableCell>
-                                            <TableCell style={{color: "white", fontWeight: "bold"}}>Action</TableCell>
+                                            <TableCell></TableCell>
                                         </TableHead>
                                         <TableBody>
                                             {org.map((item) =>{
@@ -230,9 +230,9 @@ export class OrganisationsDash extends Component {
                                                     <TableRow>
                                                         <TableCell><Avatar aria-label="recipe" src="https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg" /> </TableCell>
                                                         <TableCell>{item.orgName}</TableCell>
+                                                        <TableCell>{item.orgEmail}</TableCell>
                                                         <TableCell>{item.contactPerson}</TableCell>
                                                         <TableCell>{item.contactNumber}</TableCell>
-                                                        <TableCell>{item.orgEmail}</TableCell>
                                                         <TableCell>{item.orgSector}</TableCell>
                                                         <TableCell>{item.status}</TableCell>
                                                         <TableCell>

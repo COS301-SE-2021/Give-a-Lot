@@ -1,18 +1,18 @@
 import React, {useEffect, useState} from "react";
-import logo from "../../assets/logo/logo3_1.png";
+import { Link } from "react-router-dom";
+
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-/* styles import start */
-import homeCSS_general from "./Styles/home_general.css";
-import homeCSS_tablet from "./Styles/home_tablet.css";
-import homeCSS_mobile_portrait from "./Styles/home_mobile.css";
-import homeCSS_desktop from "./Styles/home_desktop.css";
-/* styles import end  */
+import Button from "@material-ui/core/Button";
 
 import backgroundImg from '../../assets/homeBackground.jpg';
-import { Link } from "react-router-dom";
-import Button from "@material-ui/core/Button";
+import logo from "../../assets/logo/logo3_1.png";
+
+import home_desktop from './Styles/home_desktop.css'
+import {Box} from "@material-ui/core";
+
+
 const styles = {
     main: {
         backgroundImage: `url(${backgroundImg})`
@@ -52,9 +52,9 @@ function Home()
 
 
     return (
-        <div id="banner" style={styles.main}>
-            <div id="banner_filter">
-                <div id="homeNav">
+        <Box id="banner" style={styles.main}>
+            <Box id="banner_filter">
+                <Box id="homeNav">
                     <img id="logo" src={logo} alt={"logo"}/>
                     {
                         btnDisplayText === "dashboard" ?
@@ -71,6 +71,7 @@ function Home()
                             <Button className="loginDashBtn" variant={"contained"}
                             startIcon={<ExitToAppIcon />} onClick={() =>{
                                 localStorage.clear();
+                                localStorage.setItem("id","default")
                             }
                             }>
                                 {btnDisplayText}
@@ -84,14 +85,17 @@ function Home()
                         </Button>
                         </Link>
                     }
-                </div>
+                </Box>
 
-                <div id="main_content_container">
-                    <p id="main_head">safe and verified donations</p>
-                    <p id="supporting_head">Your hub for verified charities</p>
-                    <div id="main_content_btns">
+                <Box id="main_content_container">
+                    <div>
+                        <p id="main_head">safe and verified donations</p>
+                        <p id="supporting_head">Your hub for verified charities</p>
+                    </div>
+
+                    <Box id="main_content_btns">
                        <Link to={"/verifyCertificate"}>
-                           <Button className="main_content_btns_inputTag" variant="contained" name={currentUserId} disableUnderline={true}>
+                           <Button className="main_content_btns_inputTag" variant="contained" name={currentUserId} >
                                verify certificate
                            </Button>
                         </Link>
@@ -100,11 +104,10 @@ function Home()
                                 browse organisations
                             </Button>
                         </Link>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+                    </Box>
+                </Box>
+            </Box>
+        </Box>
     )
 }
 

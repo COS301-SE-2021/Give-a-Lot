@@ -20,7 +20,7 @@ const initialState = {
     emailError: "",
 };
 
-class Password extends Component {
+class ResetPassword extends Component {
 
     state = initialState;
 
@@ -93,7 +93,7 @@ class Password extends Component {
                        <span className="LoginHeader">
                            Reset your password
                        </span>
-                        <span className="Instruction">
+                                    <span className="Instruction">
                            We'll email you instructions to reset the password.
                        </span>
                                     <div className="LoginInput" data-validate="Username is required">
@@ -132,4 +132,4 @@ class Password extends Component {
     }
 }
 
-export default Password;
+export default ResetPassword;

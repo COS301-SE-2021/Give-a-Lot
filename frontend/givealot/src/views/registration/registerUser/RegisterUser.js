@@ -92,8 +92,10 @@ class RegisterUser extends Component {
                 password: this.state.password,
             };
             axios.post("http://localhost:8080/v1/user/register/user", data)
-                .then(res => console.log(res))
-                .catch(err => console.log(err));
+                .then(res =>
+                    localStorage.setItem( "new_user" ,"true")
+                )
+                .catch(err => console.error("error occurred during login"));
 
 
         }

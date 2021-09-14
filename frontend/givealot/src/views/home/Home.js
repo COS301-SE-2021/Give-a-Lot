@@ -10,6 +10,7 @@ import backgroundImg from '../../assets/homeBackground.jpg';
 import logo from "../../assets/logo/logo3_1.png";
 
 import home_desktop from './Styles/home_desktop.css'
+import {Box} from "@material-ui/core";
 
 
 const styles = {
@@ -51,9 +52,9 @@ function Home()
 
 
     return (
-        <div id="banner" style={styles.main}>
-            <div id="banner_filter">
-                <div id="homeNav">
+        <Box id="banner" style={styles.main}>
+            <Box id="banner_filter">
+                <Box id="homeNav">
                     <img id="logo" src={logo} alt={"logo"}/>
                     {
                         btnDisplayText === "dashboard" ?
@@ -84,12 +85,15 @@ function Home()
                         </Button>
                         </Link>
                     }
-                </div>
+                </Box>
 
-                <div id="main_content_container">
-                    <p id="main_head">safe and verified donations</p>
-                    <p id="supporting_head">Your hub for verified charities</p>
-                    <div id="main_content_btns">
+                <Box id="main_content_container">
+                    <div>
+                        <p id="main_head">safe and verified donations</p>
+                        <p id="supporting_head">Your hub for verified charities</p>
+                    </div>
+
+                    <Box id="main_content_btns">
                        <Link to={"/verifyCertificate"}>
                            <Button className="main_content_btns_inputTag" variant="contained" name={currentUserId} >
                                verify certificate
@@ -100,11 +104,10 @@ function Home()
                                 browse organisations
                             </Button>
                         </Link>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+                    </Box>
+                </Box>
+            </Box>
+        </Box>
     )
 }
 

@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="calendar edit event changes time start and end">
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="calendar edit event changes description change">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,14 +147,7 @@
       <workItem from="1631137762251" duration="2127000" />
       <workItem from="1631441525292" duration="4115000" />
       <workItem from="1631549783410" duration="4808000" />
-      <workItem from="1631563613750" duration="10057000" />
-    </task>
-    <task id="LOCAL-00042" summary="organisations controller revision">
-      <created>1629330985000</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1629330985000</updated>
+      <workItem from="1631563613750" duration="10845000" />
     </task>
     <task id="LOCAL-00043" summary="Fixing organisation points">
       <created>1629339228939</created>
@@ -493,7 +485,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631573559444</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="calendar edit event changes description change">
+      <created>1631573899247</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1631573899247</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -512,7 +511,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="organisations controller revision - activate" />
     <MESSAGE value="organisations controller revision - add website and remove website" />
     <MESSAGE value="organisations controller revision - add address" />
     <MESSAGE value="organisations controller revision - add socials" />
@@ -537,7 +535,8 @@
     <MESSAGE value="admin Add organisation validation" />
     <MESSAGE value="calendar edit event changes" />
     <MESSAGE value="calendar edit event changes time start and end" />
-    <option name="LAST_COMMIT_MESSAGE" value="calendar edit event changes time start and end" />
+    <MESSAGE value="calendar edit event changes description change" />
+    <option name="LAST_COMMIT_MESSAGE" value="calendar edit event changes description change" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

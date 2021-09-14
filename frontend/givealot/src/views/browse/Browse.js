@@ -209,22 +209,12 @@ function Browse ()
                                                                     org_sector = {org_sector}
                                                                     orgDescription = {orgDescription}
                                                                     key={orgId}/>);
-            /*
-              Note for future reference: sector takes a list of organisations as prop
-            */
-
-            /*organisations_by_sector.push(<Sector sector={sector}
-                                                 organisations_for_sec={organisations_for_the_sector}
-                                                 key={sector}/>);*/
         }
     }
     return (
         <div id={"main_browse_page"}>
             {pageLoaded === false && <Loader />}
             <Navbar/>
-
-            <SearchResults />
-
 
             <div id="browse_body">
 

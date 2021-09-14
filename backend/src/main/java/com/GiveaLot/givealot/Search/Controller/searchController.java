@@ -21,6 +21,7 @@ public class searchController
     {
         try
         {
+            System.out.println("searching for " + query);
             return new ResponseEntity<>(service.searchOrganisations(query), HttpStatus.OK);
         }
         catch (Exception e)

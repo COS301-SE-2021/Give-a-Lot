@@ -1,3 +1,89 @@
+GET http://localhost:8080/search/organisation/browse/care
+
+<> 2021-09-14T020438.200.json
+
+###
+
+GET http://localhost:8080/cert/version/png/47
+
+<> 2021-09-14T003558.200.txt
+
+###
+
+GET http://localhost:8080/search/organisation/browse/Indian%20Confederation%20For%20Healthcare
+
+<> 2021-09-14T001537.200.json
+
+###
+
+POST http://localhost:8080/event/calender/edit/title
+Content-Type: application/json
+
+{
+  "userEmail" : "coolmail@gmail.com",
+  "eventId" : "43",
+  "newTitle" : "updated title test"
+}
+
+<> 2021-09-13T225327.200.json
+
+###
+
+POST http://localhost:8080/event/calender/edit/title
+Content-Type: application/json
+
+{
+  "userEmail" : "coolmail@gmail.com",
+  "eventId" : "43",
+  "newTitle" : "updated title test"
+}
+
+<> 2021-09-13T225020.200.json
+
+###
+
+POST http://localhost:8080/event/calender/edit/title
+
+{
+  "userEmail" : "coolmail@gmail.com",
+  "eventId" : "43",
+  newTitle : "updated title test"
+}
+
+<> 2021-09-13T224942.415.json
+
+###
+
+POST http://localhost:8080/event/calender/edit/title
+
+{
+  "userEmail" : "coolmail@gmail.com",
+  "eventId" : "43",
+  newTitle : "updated title test"
+}
+
+<> 2021-09-13T224937.415.json
+
+###
+
+GET http://localhost:8080/search/organisation/browse/Indian%20Confederation%20For%20Healthcare
+
+<> 2021-09-13T215338.200.json
+
+###
+
+GET http://localhost:8080/cert/version/png/47
+
+<> 2021-09-13T215316.200.txt
+
+###
+
+GET http://localhost:8080/cert/version/png/47
+
+<> 2021-09-13T215304.200.txt
+
+###
+
 GET http://localhost:8080/search/organisation/browse/Indian%20Confederation%20For%20Healthcare
 
 <> 2021-09-13T142405.200.json
@@ -491,146 +577,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-05T234753.400.json
-
-###
-
-POST http://localhost:8080/event/calender/edit/time/end
-Content-Type: application/json
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : 1,
-  "newTime" : "08:50 PM"
-}
-
-<> 2021-09-05T234706.200.json
-
-###
-
-POST http://localhost:8080/event/calender/edit/time/start
-Content-Type: application/json
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : 1,
-  "newTime" : "08:22 PM"
-}
-
-<> 2021-09-05T234652.200.json
-
-###
-
-POST http://localhost:8080/event/calender/edit/description
-Content-Type: application/json
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : 1,
-  "newDescription" : "revised description"
-}
-
-<> 2021-09-05T234642.200.json
-
-###
-
-POST http://localhost:8080/event/calender/edit/description
-Content-Type: application/json
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : 1,
-  "newDescription" : "revised description"
-}
-
-###
-
-POST http://localhost:8080/event/calender/edit
-Content-Type: application/json
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : 1,
-  "newTitle" : "revised title"
-}
-
-<> 2021-09-05T224408.200.json
-
-###
-
-POST http://localhost:8080/event/calender/edit
-Content-Type: application/json
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : 1,
-  "newTitle" : "revised title"
-}
-
-<> 2021-09-05T224121.200.json
-
-###
-
-POST http://localhost:8080/event/calender/edit
-Content-Type: application/json
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : 1,
-  "newTitle" : "revised ID"
-}
-
-<> 2021-09-05T223814.200.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "coolmail@gmail.com "
-}
-
-<> 2021-09-05T222833.200.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "coolmail@gmail.com "
-}
-
-<> 2021-09-05T222535.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "coolmail@gmail.com "
-}
-
-<> 2021-09-05T222427.400.json
 
 ###
 

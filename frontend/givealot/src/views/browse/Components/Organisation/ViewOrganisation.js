@@ -230,8 +230,7 @@ function ViewOrganisation()
                        </div>
 
                        <p id={"certificate_award_message"}>
-                          the following certificate was awarded by givealot to
-                           <em>QUADPARA ASSOCIATION OF SOUTH AFRICA (QASA)</em> upon reviewing
+                          the following certificate was awarded by givealot to <em>{organisationData.orgName}</em> upon reviewing
                           their organisation and the information they provided to givealot
                        </p>
 

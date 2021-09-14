@@ -50,7 +50,7 @@ public class eventsController {
         {
             return new ResponseEntity<>(service.editEventTitle(body), HttpStatus.OK);
         }
-        catch (Exception e)
+        catch(Exception e)
         {
             return new ResponseEntity<>(new generalResponse("edit_calender_event_bad", "failed " + e), HttpStatus.BAD_REQUEST);
         }

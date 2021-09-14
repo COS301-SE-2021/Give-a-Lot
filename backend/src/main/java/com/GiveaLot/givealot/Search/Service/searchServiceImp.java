@@ -51,7 +51,8 @@ public class searchServiceImp implements searchService
                 {
                     for(int i = 0; i < tmp_orgs.size() && i < 10; i++)
                     {
-                        suggestions.add(tmp_orgs.get(i));
+                        if(!listWithoutDuplicates.contains(tmp_orgs.get(i)) && !suggestions.contains(tmp_orgs.get(i)))
+                            suggestions.add(tmp_orgs.get(i));
                     }
                 }
             }

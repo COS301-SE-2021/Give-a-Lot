@@ -7,7 +7,6 @@ import Logo from "../login/Components/Logo";
 import axios from "axios"
 import "../login/Styles/Login.css";
 import {Alert} from "@material-ui/lab";
-import {render} from "@testing-library/react";
 
 
 const styles = {
@@ -23,8 +22,8 @@ const initialState = {
     passwordError: "",
 };
 
-class Login extends Component
-{
+class Login extends Component {
+
     state = initialState;
 
     handleChange = event => {
@@ -47,17 +46,17 @@ class Login extends Component
 
 
         if(!this.state.password.length ) {
-            passwordError = "Password is required";
-
-
-            if (emailError || passwordError) {
-                this.setState({emailError, passwordError});
-                return false;
-            }
-
-            return true;
+            passwordError="Password is required";
         }
+
+        if ( emailError || passwordError) {
+            this.setState({ emailError, passwordError });
+            return false;
+        }
+
+        return true;
     };
+
 
     handleSubmit = event => {
         event.preventDefault();
@@ -100,85 +99,90 @@ class Login extends Component
                 })
                 .catch(error =>{
                     document.getElementById("badLogin").style.display = "flex";
-                })
-            }
-        };
 
-render()
-{
-    return (
-        <div>
-            <div className="Login" style={styles.main}>
-            <div  id={"banner_filter"}>
-                <Logo/>
-                <Link to={"/"}>
-                    <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
-                </Link>
-                <div className="LoginCard">
-                    <Alert severity="error" id={"badLogin"}>incorrect username or password!</Alert>
-                    <div className="wrapper">
-                        <form className="LoginForm" onSubmit={this.handleSubmit}>
+
+                })
+        }
+
+
+    };
+
+    render()
+    {
+        return (
+            <div>
+
+                <div className="Login" style={styles.main}>
+                    <div  id={"banner_filter"}>
+                        <Logo/>
+                        <Link to={"/"}>
+                            <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
+                        </Link>
+                        <div className="LoginCard">
+                            <Alert severity="error" id={"badLogin"}>incorrect username or password!</Alert>
+                            <div className="wrapper">
+                                <form className="LoginForm" onSubmit={this.handleSubmit}>
                        <span className="LoginHeader">
                            Sign in
                        </span>
-                            <div className="LoginInput" data-validate="Username is required">
+                                    <div className="LoginInput" data-validate="Username is required">
                                 <span className="LoginInputLabel">
                                     Email
                                 </span>
-                                <div>
-                                    <input
-                                        className="innerInput validate"
-                                        type="email"
-                                        name="email"
-                                        placeholder="Enter your email"
-                                        onChange={this.handleChange}
-                                    />
+                                        <div>
+                                            <input
+                                                className="innerInput validate"
+                                                type="email"
+                                                name="email"
+                                                placeholder="Enter your email"
+                                                onChange={this.handleChange}
+                                            />
 
-                                </div>
-                                <span className="loginError">{this.state.emailError}</span>
-                            </div>
+                                        </div>
+                                        <span className="loginError">{this.state.emailError}</span>
+                                    </div>
 
-                            <div className="LoginInput" data-validate="Username is required">
+                                    <div className="LoginInput" data-validate="Username is required">
                                 <span className="LoginInputLabel">
                                     Password
                                 </span>
-                                <div>
-                                    <input
-                                        className="innerInput validate"
-                                        type="password"
-                                        name="password"
-                                        placeholder="Enter your password"
-                                        onChange={this.handleChange}
-                                    />
+                                        <div>
+                                            <input
+                                                className="innerInput validate"
+                                                type="password"
+                                                name="password"
+                                                placeholder="Enter your password"
+                                                onChange={this.handleChange}
+                                            />
 
-                                </div>
-                                <span className="loginError">{this.state.passwordError}</span>
+                                        </div>
+                                        <span className="loginError">{this.state.passwordError}</span>
+                                    </div>
+
+                                    <div className="wrapper-btn">
+
+                                        <button className="Login-btn" id={"loginBTN_less_rounded"} type="submit">
+                                            Login
+                                        </button>
+                                    </div>
+
+                                    <div className="BottomForm">
+                                        <Link to={"/signUp"} className="BottomLinker">
+                                            <span> Need an account?</span>
+                                        </Link>
+
+                                        <Link to={"/Password"} className="BottomLinker">
+                                            <span> Forgot password?</span>
+                                        </Link>
+                                    </div>
+                                </form>
                             </div>
-
-                            <div className="wrapper-btn">
-
-                                <button className="Login-btn" id={"loginBTN_less_rounded"} type="submit">
-                                    Login
-                                </button>
-                            </div>
-
-                            <div className="BottomForm">
-                                <Link to={"/signUp"} className="BottomLinker">
-                                    <span> Need an account?</span>
-                                </Link>
-
-                                <Link to={"/Password"} className="BottomLinker">
-                                    <span> Forgot password?</span>
-                                </Link>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
-            </div>
-        </div>
-    );
-}
+        );
+    }
 }
 
 export default Login;

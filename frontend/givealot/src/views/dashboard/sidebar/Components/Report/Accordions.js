@@ -42,10 +42,10 @@ const useStyles = makeStyles((theme) => ({
 export default function Accordions({org,id,title, description,appeal}) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
-    const [orgId, setId] = React.useState(org);
-    const [reportId, setReportId] = React.useState(id);
+    const [orgId] = React.useState(org);
+    const [reportId] = React.useState(id);
     const [message, setMessage] = React.useState("");
-    const [appeall, setAppeal] = React.useState(appeal);
+    const [appeal1] = React.useState(appeal);
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
@@ -84,7 +84,7 @@ export default function Accordions({org,id,title, description,appeal}) {
     }
 
 
-    if(appeall){
+    if(appeal1){
         return (
             <div className={classes.root}>
 
@@ -156,7 +156,7 @@ export default function Accordions({org,id,title, description,appeal}) {
                 <AccordionActions>
                     <Button size="small">Cancel</Button>
                     <button size="small" className="AppealButton" onClick={handleClickOpen}>
-                        Appeal
+                        Appealed
                     </button>
                 </AccordionActions>
             </Accordion>

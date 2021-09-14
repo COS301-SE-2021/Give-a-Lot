@@ -58,7 +58,7 @@ export class Reports extends Component {
                     </div>
                     <div className="accordion">
 
-                        {reports.map((item, index) =>{
+                        {reports.map((item) =>{
                             return(
                                 <Accordions
                                     org={item.orgId}

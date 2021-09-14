@@ -35,8 +35,8 @@ export class Profile extends Component {
         this.state = {
             persons:{},
             level: 0,
-            //orgId:localStorage.getItem("id"),
-            orgId: 49,
+            orgId:localStorage.getItem("id"),
+            //orgId: 49,
             orgEmail:"",
             orgName1:"",
             orgNameState:false,

@@ -1,30 +1,3 @@
-// import React from 'react'
-// import "./styles/Calendar.css"
-// import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Inject } from '@syncfusion/ej2-react-schedule';
-// import { DataManager, ODataV4Adaptor } from '@syncfusion/ej2-data';
-//
-// export default class DemoApp extends React.Component {
-//
-//     constructor() {
-//         super(...arguments);
-//         this.dataManager = new DataManager({
-//             url: 'https://ej2services.syncfusion.com/production/web-services/api/Schedule',
-//             adaptor: new ODataV4Adaptor
-//         });
-//         console.log(this.dataManager)
-//     }
-//
-//     render() {
-//         return (
-//             <div className="calendar">
-//                 <ScheduleComponent height='550px' selectedDate={new Date()} readonly={false} eventSettings={{ dataSource: this.dataManager }}>
-//                     <Inject services={[Day, Week, WorkWeek, Month, Agenda]}/>
-//                 </ScheduleComponent>
-//             </div>
-//         )
-//     }
-// }
-
 import * as React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { ViewState, EditingState } from '@devexpress/dx-react-scheduler';
@@ -41,6 +14,7 @@ import {
     ConfirmationDialog,
 } from '@devexpress/dx-react-scheduler-material-ui';
 import axios from "axios";
+import Container from "@material-ui/core/Container";
 
 export default class Demo extends React.PureComponent {
     constructor(props) {
@@ -311,36 +285,39 @@ export default class Demo extends React.PureComponent {
 
         return (
             <div className="calendar">
-                <Paper>
-                    <Scheduler
-                        data={data}
-                        height={660}
-                        remoteFiltering={true}
-                    >
-                        <ViewState
-                            currentDate={currentDate}
-                        />
-                        <EditingState
-                            onCommitChanges={this.commitChanges}
-                            addedAppointment={addedAppointment}
-                            onAddedAppointmentChange={this.changeAddedAppointment}
-                            appointmentChanges={appointmentChanges}
-                            onAppointmentChangesChange={this.changeAppointmentChanges}
-                            editingAppointment={editingAppointment}
-                            onEditingAppointmentChange={this.changeEditingAppointment}
-                        />
-                        <MonthView />
-                        <AllDayPanel />
-                        <EditRecurrenceMenu />
-                        <ConfirmationDialog />
-                        <Appointments />
-                        <AppointmentTooltip
-                            showOpenButton
-                            showDeleteButton
-                        />
-                        <AppointmentForm />
-                    </Scheduler>
-                </Paper>
+                {/*<Container>*/}
+                    <Paper>
+                        <Scheduler
+                            data={data}
+                            height={660}
+                            remoteFiltering={true}
+                        >
+                            <ViewState
+                                currentDate={currentDate}
+                            />
+                            <EditingState
+                                onCommitChanges={this.commitChanges}
+                                addedAppointment={addedAppointment}
+                                onAddedAppointmentChange={this.changeAddedAppointment}
+                                appointmentChanges={appointmentChanges}
+                                onAppointmentChangesChange={this.changeAppointmentChanges}
+                                editingAppointment={editingAppointment}
+                                onEditingAppointmentChange={this.changeEditingAppointment}
+                            />
+                            <MonthView />
+                            <AllDayPanel />
+                            <EditRecurrenceMenu />
+                            <ConfirmationDialog />
+                            <Appointments />
+                            <AppointmentTooltip
+                                showOpenButton
+                                showDeleteButton
+                            />
+                            <AppointmentForm />
+                        </Scheduler>
+                    </Paper>
+                {/*</Container>*/}
+
             </div>
 
         );

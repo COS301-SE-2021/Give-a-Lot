@@ -12,7 +12,8 @@ export class Reports extends Component {
         this.state = {
             count: "",
             reports: [],
-            orgId:localStorage.getItem("id"),
+            //orgId:localStorage.getItem("id"),
+            orgId: 60,
             error: "",
         }
     }
@@ -57,7 +58,7 @@ export class Reports extends Component {
                     </div>
                     <div className="accordion">
 
-                        {reports.map((item, index) =>{
+                        {reports.map((item) =>{
                             return(
                                 <Accordions
                                     org={item.orgId}

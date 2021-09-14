@@ -3,7 +3,7 @@ import "./Style/Certificate.css";
 import 'date-fns';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-import { withStyles ,makeStyles } from '@material-ui/core/styles'
+import { withStyles} from '@material-ui/core/styles'
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -39,6 +39,7 @@ const initialState = {
     date:"",
     startDate: new Date(),
     orgInfo:"",
+    Qrcode:"",
     dateError:"",
     paypalError:"",
     qrError:"",
@@ -125,11 +126,11 @@ export class Upgrade2 extends Component {
             paypalError="required";
         }
 
-        if (!this.state.qrError) {
+        if (!this.state.Qrcode) {
             qrError = "required";
         }
 
-        if ( dateError || paypalError, qrError) {
+        if ( dateError || paypalError || qrError) {
             this.setState({ dateError, paypalError,qrError });
             return false;
         }
@@ -248,7 +249,7 @@ export class Upgrade2 extends Component {
                                         <input
                                             className="upgrade_logo"
                                             type="file"
-                                            name="QRcode"
+                                            name="Qrcode"
                                             onChange={this.handleChange}
                                         />
 

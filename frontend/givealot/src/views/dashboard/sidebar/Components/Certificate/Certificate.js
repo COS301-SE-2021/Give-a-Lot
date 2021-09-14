@@ -5,8 +5,6 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import SaveIcon from '@material-ui/icons/Save';
-import pic from "./Style/cert5Complete.png"
-import DashHeader from "../../DashHeader/DashHeader";
 import axios from "axios";
 
 
@@ -24,7 +22,8 @@ export class Certificate extends Component {
         super(props)
         this.state={
             level: 0,
-            orgId:localStorage.getItem("id"),
+            //orgId:localStorage.getItem("id"),
+            orgId: 60,
         };
     }
     componentDidMount(){
@@ -160,7 +159,7 @@ export class Certificate extends Component {
             </div>
 
             <div className="display">
-                <img src={"http://localhost:8080/cert/version/png/" + this.state.orgId} height={566} width={733}/>
+                <img src={"http://localhost:8080/cert/version/png/" + this.state.orgId} alt={"certificate"} height={566} width={733}/>
             </div>
         </div>
     );

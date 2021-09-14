@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import "./Style/Certificate.css";
 import 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
-import { withStyles ,makeStyles } from '@material-ui/core/styles'
+//import { withStyles ,makeStyles } from '@material-ui/core/styles'
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -10,14 +10,14 @@ import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
-const styles = theme => ({
+/*const styles =theme => ({
 
     root: {
         display: "flex",
         flexWrap: "wrap"
     },
 
-});
+});*/
 
 
 export class Upgrade4 extends Component {
@@ -254,4 +254,4 @@ export class Upgrade4 extends Component {
         );
     }
 }
-export default withStyles(styles)(Upgrade4);
+export default Upgrade4;

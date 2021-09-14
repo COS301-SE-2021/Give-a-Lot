@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="calendar edit event changes time start and end">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" afterDir="false" />
-    </list>
+    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="search done" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +13,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -56,10 +54,11 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.data.extractors.current.export.id" value="Comma-separated (CSV)_id" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/src/main/resources/TempDocument" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -96,19 +95,32 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="generated-requests#42" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="42" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#43" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="43" runType="Run single request">
+    <configuration name="generated-requests#53" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="53" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#48" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="48" runType="Run single request">
+    <configuration name="generated-requests#54" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="54" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#50" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="50" runType="Run single request">
+    <configuration name="generated-requests#55" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="55" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#52" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="52" runType="Run single request">
+    <configuration name="generated-requests#56" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="56" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="GivealotApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -120,18 +132,18 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests#56" />
+        <item itemvalue="HTTP Request.generated-requests#53" />
+        <item itemvalue="HTTP Request.generated-requests#54" />
+        <item itemvalue="HTTP Request.generated-requests#55" />
         <item itemvalue="HTTP Request.generated-requests#42" />
-        <item itemvalue="HTTP Request.generated-requests#43" />
-        <item itemvalue="HTTP Request.generated-requests#52" />
-        <item itemvalue="HTTP Request.generated-requests#50" />
-        <item itemvalue="HTTP Request.generated-requests#48" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="" />
+      <changelist id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="registration reiteration" />
       <created>1629230718911</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -146,9 +158,37 @@
       <workItem from="1631042260596" duration="333000" />
       <workItem from="1631133557866" duration="750000" />
       <workItem from="1631137762251" duration="2127000" />
-      <workItem from="1631441525292" duration="4115000" />
-      <workItem from="1631549783410" duration="4808000" />
-      <workItem from="1631563613750" duration="10057000" />
+      <workItem from="1631307060501" duration="11877000" />
+      <workItem from="1631523923618" duration="14534000" />
+      <workItem from="1631552726642" duration="23450000" />
+    </task>
+    <task id="LOCAL-00038" summary="organisations controller revision">
+      <created>1629319541850</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1629319541850</updated>
+    </task>
+    <task id="LOCAL-00039" summary="organisations controller revision">
+      <created>1629320181852</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1629320181853</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Fixing organisation points">
+      <created>1629327656636</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1629327656636</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Fixing organisation points">
+      <created>1629327702103</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1629327702103</updated>
     </task>
     <task id="LOCAL-00042" summary="organisations controller revision">
       <created>1629330985000</created>
@@ -423,77 +463,49 @@
       <option name="project" value="LOCAL" />
       <updated>1631181785703</updated>
     </task>
-    <task id="LOCAL-00081" summary="calendar change event">
-      <created>1631193381366</created>
+    <task id="LOCAL-00081" summary="registration - upload photo">
+      <created>1631188662761</created>
       <option name="number" value="00081" />
       <option name="presentableId" value="LOCAL-00081" />
       <option name="project" value="LOCAL" />
-      <updated>1631193381366</updated>
+      <updated>1631188662761</updated>
     </task>
-    <task id="LOCAL-00082" summary="register organisation">
-      <created>1631200208030</created>
+    <task id="LOCAL-00082" summary="registration reiteration">
+      <created>1631193021097</created>
       <option name="number" value="00082" />
       <option name="presentableId" value="LOCAL-00082" />
       <option name="project" value="LOCAL" />
-      <updated>1631200208030</updated>
+      <updated>1631193021097</updated>
     </task>
-    <task id="LOCAL-00083" summary="register organisation upload image">
-      <created>1631225418594</created>
+    <task id="LOCAL-00083" summary="registration reiteration">
+      <created>1631524545465</created>
       <option name="number" value="00083" />
       <option name="presentableId" value="LOCAL-00083" />
       <option name="project" value="LOCAL" />
-      <updated>1631225418594</updated>
+      <updated>1631524545465</updated>
     </task>
-    <task id="LOCAL-00084" summary="register organisation upload image">
-      <created>1631441883517</created>
+    <task id="LOCAL-00084" summary="beautifying search - search implementation styling">
+      <created>1631558378864</created>
       <option name="number" value="00084" />
       <option name="presentableId" value="LOCAL-00084" />
       <option name="project" value="LOCAL" />
-      <updated>1631441883518</updated>
+      <updated>1631558378864</updated>
     </task>
-    <task id="LOCAL-00085" summary="register organisation confirmation page">
-      <created>1631444879138</created>
+    <task id="LOCAL-00085" summary="search done">
+      <created>1631580618853</created>
       <option name="number" value="00085" />
       <option name="presentableId" value="LOCAL-00085" />
       <option name="project" value="LOCAL" />
-      <updated>1631444879138</updated>
+      <updated>1631580618853</updated>
     </task>
-    <task id="LOCAL-00086" summary="admin Add organisation validation">
-      <created>1631551137110</created>
+    <task id="LOCAL-00086" summary="search done">
+      <created>1631581182890</created>
       <option name="number" value="00086" />
       <option name="presentableId" value="LOCAL-00086" />
       <option name="project" value="LOCAL" />
-      <updated>1631551137110</updated>
+      <updated>1631581182890</updated>
     </task>
-    <task id="LOCAL-00087" summary="admin Add organisation validation">
-      <created>1631551385806</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1631551385806</updated>
-    </task>
-    <task id="LOCAL-00088" summary="calendar edit event changes">
-      <created>1631565536529</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1631565536531</updated>
-    </task>
-    <task id="LOCAL-00089" summary="calendar edit event changes">
-      <created>1631571139881</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1631571139882</updated>
-    </task>
-    <task id="LOCAL-00090" summary="calendar edit event changes time start and end">
-      <created>1631573559444</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1631573559444</updated>
-    </task>
-    <option name="localTasksCounter" value="91" />
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -512,6 +524,8 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="organisations controller revision - add Organisation" />
+    <MESSAGE value="organisations controller revision - suspend" />
     <MESSAGE value="organisations controller revision - activate" />
     <MESSAGE value="organisations controller revision - add website and remove website" />
     <MESSAGE value="organisations controller revision - add address" />
@@ -530,14 +544,12 @@
     <MESSAGE value="registration update" />
     <MESSAGE value="certificate download backend test" />
     <MESSAGE value="QR code intergration and upload test and controller" />
-    <MESSAGE value="calendar change event" />
-    <MESSAGE value="register organisation" />
-    <MESSAGE value="register organisation upload image" />
-    <MESSAGE value="register organisation confirmation page" />
-    <MESSAGE value="admin Add organisation validation" />
-    <MESSAGE value="calendar edit event changes" />
-    <MESSAGE value="calendar edit event changes time start and end" />
-    <option name="LAST_COMMIT_MESSAGE" value="calendar edit event changes time start and end" />
+    <MESSAGE value="registration - upload photo" />
+    <MESSAGE value="registration reiteration" />
+    <MESSAGE value="beautifying search" />
+    <MESSAGE value="beautifying search - search implementation styling" />
+    <MESSAGE value="search done" />
+    <option name="LAST_COMMIT_MESSAGE" value="search done" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

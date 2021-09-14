@@ -14,7 +14,7 @@ public interface BrowseRepository extends JpaRepository<Organisations,Long> {
     @Query("SELECT distinct o.orgSector FROM Organisations AS o")
     List<String> getAllSectors();
 
-    @Query("SELECT distinct o FROM Organisations AS o where o.orgSector = ?1")
+    @Query("SELECT distinct o FROM Organisations AS o where o.orgSector = ?1 AND o.status NOT IN('suspended')")
     List<Organisations> getOrganisationsBySector(String sector);
 
 

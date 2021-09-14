@@ -1,10 +1,9 @@
 import React from "react";
-
+import browse_general_footer from "../../Styles/browse_general_footer.css"
 
 function Footer()
 {
     return (
-
         <div className="footer-clean">
             <footer>
                 <div className="container">

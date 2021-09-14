@@ -1,5 +1,6 @@
 import react from 'react';
 import {useHistory} from "react-router-dom";
+import {Box, Tooltip} from "@material-ui/core";
 
 
 function trim_description(descr)
@@ -39,17 +40,22 @@ export default function Organisation(props)
 
     let description = trim_description(props.orgDescription);
 
+
     return(
-    <div className ="sector_organisation">
-        <img src={org_image} alt={"profile-image"} id={props.orgId} onClick={e => openOrganisation(e,"id")}/>
-        <div className="sector_organisation_meta">
+    <Box className ="sector_organisation">
+        <Tooltip title={props.orgName}  aria-label="add">
+            <img src={org_image} alt={"profile-image"} id={props.orgId} onClick={e => openOrganisation(e,"id")}/>
+        </Tooltip>
+        <Box className="sector_organisation_meta">
             <p className="sector_organisation_title">{props.orgName}</p>
             <p className="sector_organisation_descr">
                 {description}
             </p>
-            <p className="sector_organisation_other">{props.dateAdded}</p>
-            <p className="sector_organisation_other sector_organisation_level">level {props.certificate_level}</p>
-        </div>
-    </div>
+            {/*<p className="sector_organisation_other">{props.dateAdded}</p>*/}
+            <Tooltip title="certificate level"  aria-label="add">
+                <p className="recommended-meta-data-lvl">5 {props.certificate_level}</p>
+            </Tooltip>
+        </Box>
+    </Box>
     );
 }

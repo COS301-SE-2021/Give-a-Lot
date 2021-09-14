@@ -4,7 +4,6 @@ import Browse from './views/browse/Browse';
 import Dashboard from './views/dashboard/Dashboard';
 import Login from './views/login/Login';
 import SignUp from './views/registration/SignUp'
-import Password from './views/login/Components/Password'
 import RegisterOrg from './views/registration/registerOrganisation/RegisterOrganisation'
 import RegisterUser from './views/registration/registerUser/RegisterUser'
 import VerifyCertificate from './views/verifyCertificate/VerifyCertificate'
@@ -17,7 +16,7 @@ import EmailSent from "./views/login/Components/EmailSent";
 function App()
 {
   return(
-      <Router>
+     <Router>
         <Switch>
           <Route path="/" exact component={Home}/>
           <Route path="/browse" exact component={Browse}/>

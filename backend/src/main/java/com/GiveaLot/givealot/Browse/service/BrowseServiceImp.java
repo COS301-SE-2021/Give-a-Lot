@@ -172,7 +172,7 @@ public class BrowseServiceImp implements BrowseService{
             */
             List<Organisations> tmpOrgs = browseRepository.getOrganisationsBySector(sector);
 
-            if(tmpOrgs != null) {
+            if(tmpOrgs != null && tmpOrgs.size() > 0) {
 
                 List<browseSectorOrganisation> browseSectorOrganisation = new LinkedList<>();
 

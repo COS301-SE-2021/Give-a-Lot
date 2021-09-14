@@ -67,8 +67,8 @@ function SignUp()
                                     </div>
 
                                     <div className="terms">
-                                        <p>By signing up, you agree to Givealot's </p>
-                                        <Link  className="BottomLink">
+                                        <p>By signing up, you agree to Givealot's</p>
+                                        <Link to={"/404"}  className="BottomLink">
                                             <p>Terms of service and privacy</p>
                                         </Link>
                                     </div>

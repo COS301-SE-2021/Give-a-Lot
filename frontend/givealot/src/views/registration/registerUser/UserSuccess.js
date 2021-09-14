@@ -10,9 +10,18 @@ export class UserSuccess extends Component {
             backgroundImage: `url(${backgroundImg})`
         }
     }
-    
-    render() {
+
+
+    render()
+    {
+        if(localStorage.getItem( "new_user") === "true")
+        {
+            localStorage.setItem( "new_user", "false");
+        }
+
+
         return (
+
             <div className="registerOrganisation" style={this.styles.main}>
                 <div  id={"banner_filter"}>
                     <Logo/>

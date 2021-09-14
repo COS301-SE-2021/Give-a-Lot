@@ -11,8 +11,6 @@ import closeResults from '../Navbar/Navbar';
 function SearchResults(props)
 {
     let curr_results = [];
-    console.log(props.org_list)
-
 
     if(props.org_list.length !== undefined)
     {

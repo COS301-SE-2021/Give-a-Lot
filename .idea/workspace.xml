@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="beautifying search - search implementation styling">
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/SearchResults/SearchResult.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="search done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Events/controller/eventsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Events/controller/eventsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Search/Controller/searchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Search/Controller/searchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Search/Service/searchServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Search/Service/searchServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Navbar/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Navbar/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Browse/repository/BrowseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Browse/repository/BrowseRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/SearchResults/SearchResults.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/SearchResults/SearchResults.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_desktop.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_desktop.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,9 +115,6 @@
     <configuration name="generated-requests#42" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="42" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#43" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="43" runType="Run single request">
-      <method v="2" />
-    </configuration>
     <configuration name="generated-requests#53" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="53" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -133,6 +122,9 @@
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#55" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="55" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests#56" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="56" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="GivealotApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -144,11 +136,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests#56" />
         <item itemvalue="HTTP Request.generated-requests#53" />
         <item itemvalue="HTTP Request.generated-requests#54" />
         <item itemvalue="HTTP Request.generated-requests#55" />
         <item itemvalue="HTTP Request.generated-requests#42" />
-        <item itemvalue="HTTP Request.generated-requests#43" />
       </list>
     </recent_temporary>
   </component>
@@ -172,14 +164,7 @@
       <workItem from="1631137762251" duration="2127000" />
       <workItem from="1631307060501" duration="11877000" />
       <workItem from="1631523923618" duration="14534000" />
-      <workItem from="1631552726642" duration="22655000" />
-    </task>
-    <task id="LOCAL-00036" summary="organisations controller revision">
-      <created>1629311673486</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1629311673486</updated>
+      <workItem from="1631552726642" duration="23131000" />
     </task>
     <task id="LOCAL-00037" summary="organisations controller revision">
       <created>1629316585116</created>
@@ -517,7 +502,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631558378864</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="search done">
+      <created>1631580618853</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1631580618853</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,7 +528,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="organisations api - get all users ready for frontend" />
     <MESSAGE value="organisations controller revision - add Organisation" />
     <MESSAGE value="organisations controller revision - suspend" />
     <MESSAGE value="organisations controller revision - activate" />
@@ -561,7 +552,8 @@
     <MESSAGE value="registration reiteration" />
     <MESSAGE value="beautifying search" />
     <MESSAGE value="beautifying search - search implementation styling" />
-    <option name="LAST_COMMIT_MESSAGE" value="beautifying search - search implementation styling" />
+    <MESSAGE value="search done" />
+    <option name="LAST_COMMIT_MESSAGE" value="search done" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

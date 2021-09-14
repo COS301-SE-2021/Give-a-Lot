@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="search done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/home/Styles/home_desktop.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/home/Styles/home_desktop.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerUser/RegisterUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerUser/RegisterUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerUser/UserSuccess.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerUser/UserSuccess.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,14 +162,7 @@
       <workItem from="1631137762251" duration="2127000" />
       <workItem from="1631307060501" duration="11877000" />
       <workItem from="1631523923618" duration="14534000" />
-      <workItem from="1631552726642" duration="30754000" />
-    </task>
-    <task id="LOCAL-00042" summary="organisations controller revision">
-      <created>1629330985000</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1629330985000</updated>
+      <workItem from="1631552726642" duration="31602000" />
     </task>
     <task id="LOCAL-00043" summary="Fixing organisation points">
       <created>1629339228939</created>
@@ -512,7 +500,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631615434997</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="search done">
+      <created>1631621066180</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1631621066181</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

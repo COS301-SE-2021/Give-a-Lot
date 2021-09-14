@@ -77,17 +77,17 @@ export class Users extends Component {
                             <TableContainer component={Paper}>
                                 <Table >
                                     <TableHead style={{backgroundColor: "#957b9e"}}>
-                                        {/*<TableCell></TableCell>*/}
-                                        <TableCell style={{color: "white"}}>First Name</TableCell>
-                                        <TableCell style={{color: "white"}}>Last Name</TableCell>
-                                        <TableCell style={{color: "white"}}>Email</TableCell>
-                                        <TableCell style={{color: "white"}}>Activation Date</TableCell>
+                                        <TableRow>
+                                            <TableCell style={{color: "white"}}>First Name</TableCell>
+                                            <TableCell style={{color: "white"}}>Last Name</TableCell>
+                                            <TableCell style={{color: "white"}}>Email</TableCell>
+                                            <TableCell style={{color: "white"}}>Activation Date</TableCell>
+                                        </TableRow>
                                     </TableHead>
                                     <TableBody>
-                                        {users.map((item, index) =>{
+                                        {users.map((item) =>{
                                             return(
-                                                <TableRow>
-                                                    {/*<TableCell><Avatar aria-label="recipe" src="https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg" /> </TableCell>*/}
+                                                <TableRow key={item.id}>
                                                     <TableCell>{item.firstname}</TableCell>
                                                     <TableCell>{item.lastname}</TableCell>
                                                     <TableCell>{item.email}</TableCell>

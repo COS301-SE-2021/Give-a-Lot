@@ -12,7 +12,8 @@ export class Reports extends Component {
         this.state = {
             count: "",
             reports: [],
-            orgId:localStorage.getItem("id"),
+            //orgId:localStorage.getItem("id"),
+            orgId: 60,
             error: "",
         }
     }

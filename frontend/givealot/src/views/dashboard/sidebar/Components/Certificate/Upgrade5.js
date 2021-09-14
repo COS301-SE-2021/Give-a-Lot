@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import "./Style/Certificate.css";
 import 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
-import { withStyles ,makeStyles } from '@material-ui/core/styles'
-import {toast, ToastContainer} from "react-toastify";
+import { withStyles } from '@material-ui/core/styles'
+import {toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
@@ -12,7 +12,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Complete from "../Certificate/Style/complete.png";
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import Axios from "axios";
-import logo from "../../../../../assets/logo/logo3_1.png";
 
 const styles = theme => ({
 
@@ -72,9 +71,6 @@ export class Upgrade5 extends Component {
 
 
     render(){
-        const { classes } = this.props;
-
-
 
         return (
             <div className="upgrade">
@@ -104,7 +100,7 @@ export class Upgrade5 extends Component {
                         </div>
 
                         <div>
-                            <img id="level5" src={Complete} />
+                            <img id="level5" src={Complete}  alt={"level5"}/>
                         </div>
                         <div id="complete_label2">
                             < CheckCircleIcon className="checkIcon" />

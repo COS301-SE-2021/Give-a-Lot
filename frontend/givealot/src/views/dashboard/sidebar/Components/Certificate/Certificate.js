@@ -24,7 +24,8 @@ export class Certificate extends Component {
         super(props)
         this.state={
             level: 0,
-            orgId:localStorage.getItem("id"),
+            //orgId:localStorage.getItem("id"),
+            orgId: 60,
         };
     }
     componentDidMount(){

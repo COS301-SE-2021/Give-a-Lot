@@ -1,19 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-
-
-/* styles import */
-import browse_general_footer from "./Styles/browse_general_footer.css";
-import browseCSS_general from "./Styles/browse_general.css";
-import browseCSS_tablet from "./Styles/browse_tablet.css";
-import browseCSS_mobile_portrait from "./Styles/browse_mobile.css";
-import browseCSS_desktop from "./Styles/browse_desktop.css";
-
-/* styles import end */
-
 
 /* assets import */
-import logo from "../../assets/logo/logo3_1.png";
 import searchIcon from '../../assets/search_black_24dp.svg';
 import filterBtn_mobile from '../../assets/filter_list_black_24dp.svg';
 import ui_message_art from '../../assets/feedback-2044700_1280.jpg';
@@ -25,18 +12,25 @@ import OrganisationRecommended from './Components/Organisation/OrganisationRecom
 import Sector from "./Components/BrowseBySector/Sector";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
+import Loader from "../loader/Loader";
+import SearchResults from "./Components/SearchResults/SearchResults";
 /* components import end */
+
+/*css imports */
+import browse_general from './Styles/browse_general.css';
+import browse_desktop from './Styles/browse_desktop.css';
+import SearchIcon from "@material-ui/icons/Search";
+import {Paper} from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import Avatar from "@material-ui/core/Avatar";
+
 
 function Browse ()
 {
     const [organisations, setOrganisations] = useState([]);
     const [recommendedOrganisations, setRecommendedOrganisations] = useState([]);
-
-    function searchOrganisation(e)
-    {
-        e.preventDefault();
-        alert("searching for " + document.getElementById("browse_search_input").value);
-    }
+    const [pageLoaded, setPageLoaded] = React.useState(false);
 
     const mobile_popUpControl_hide = event =>
     {
@@ -56,16 +50,6 @@ function Browse ()
 
         dark_backdrop_active_for_mobile.style.display = "block";
         browse_filters.style.display = "block";
-    }
-
-    const onKeyUp = event =>
-    {
-        /* 
-            code 13 represents the ENTER button
-        */
-        if (event.charCode === 13) {
-            searchOrganisation(event);
-        }
     }
 
     /* fetch request - organisations by sections - start*/
@@ -102,6 +86,7 @@ function Browse ()
             if(data.message === "success") /*successfully fetched*/
             {
                 setOrganisations(data.object);
+                setPageLoaded(true);
             }
             else
             {
@@ -152,9 +137,7 @@ function Browse ()
         }
     }
 
-
     /* fetch request - recommended - start*/
-
     /*
         REMEMBER HOOKS: ELSE GOOD LUCK TRYING TO SOLVE THE
                         INEVITABLE SHIT SHOW.
@@ -198,7 +181,7 @@ function Browse ()
                 })
 
                 .catch(error => {
-                    alert("failed - organisations - sector")
+                    alert("failed - organisations - recommendations")
                 });
         }
         ,[])
@@ -207,6 +190,7 @@ function Browse ()
     let organisations_recommended = [];
     if(recommendedOrganisations !== undefined)
     {
+
         for (let k = 0; k < recommendedOrganisations.length; k++)
         {
             let orgId = recommendedOrganisations[k].orgId;
@@ -225,34 +209,14 @@ function Browse ()
                                                                     org_sector = {org_sector}
                                                                     orgDescription = {orgDescription}
                                                                     key={orgId}/>);
-            /*
-              Note for future reference: sector takes a list of organisations as prop
-            */
-
-            /*organisations_by_sector.push(<Sector sector={sector}
-                                                 organisations_for_sec={organisations_for_the_sector}
-                                                 key={sector}/>);*/
         }
     }
     return (
-        <div>
+        <div id={"main_browse_page"}>
+            {pageLoaded === false && <Loader />}
             <Navbar/>
 
             <div id="browse_body">
-                <div id="browse_search_container">
-                    <input 
-                        id="browse_search_input"
-                        type="input" 
-                        onKeyPress={onKeyUp}
-                        placeholder="search organisation" 
-                    />
-
-                    <img
-                        src={searchIcon} 
-                        onClick={searchOrganisation}
-                        alt={"search-icon"}
-                    />
-                </div>
 
                 <div id="dark_backdrop_active_for_mobile" onClick={mobile_popUpControl_hide}>
                     {/*this is used on the mobile version of the application,
@@ -264,60 +228,16 @@ function Browse ()
                 </div>
                 
                 <section id="browse_body_main">
-                    
-                    {/*<div id="browse_filters">
-                        <div id="browse_filters_container">
-                    
-                            <div className="browse_filter_sections">
-                                <p>sector</p>
-                                <input type="checkbox" id="level1"  value="1"/>
-                                <label htmlFor="level1">children</label><br/>
-
-                                <input type="checkbox" id="level2" value="2"/>
-                                <label htmlFor="level2">youth</label><br/>
-
-                                <input type="checkbox" id="level3" value="3"/>
-                                <label htmlFor="level3">security</label><br/>
-
-                                <input type="checkbox" id="level4" value="4"/>
-                                <label htmlFor="level4">food drive</label><br/>
-
-                                <input type="checkbox" id="level5" value="5"/>
-                                <label htmlFor="level5">technology</label><br/>
-                            </div>
-
-                            <div className="browse_filter_sections">
-                                <p>level</p>
-
-                                <input type="checkbox" id="level1" value="1"/>
-                                <label htmlFor="level1"> Level 1</label><br/>
-
-                                <input type="checkbox" id="level2" value="2"/>
-                                <label htmlFor="level2"> Level 2</label><br/>
-
-                                <input type="checkbox" id="level3" value="3"/>
-                                <label htmlFor="level3"> Level 3</label><br/>
-
-                                <input type="checkbox" id="level4" value="4"/>
-                                <label htmlFor="level4"> Level 4</label><br/>
-
-                                <input type="checkbox" id="level5" value="5"/>
-                                <label htmlFor="level5"> Level 5</label><br/>
-                            </div>
-                        </div>
-                    </div>*/}
-
                     <div id="browse_organisations">
-                        <div id="recommended_organisations">
-                            <div className="recommended_section">
-                                <p className="browse_sector_name">Recommended for you</p>
-                                <div className="recommended_organisations_container">
-                                    {organisations_recommended}
-                                </div>
+                        <>
+                            <div className="browse_sector">
+                                <p className="browse_sector_name">recommended for you</p>
                             </div>
-                        </div>
+                            <div id="reco_organisations">
+                                {organisations_recommended}
+                            </div>
+                        </>
 
-                        {/* this block was not a part of the initial design */}
                         <div id="ui_element_message">
                             <img src={ui_message_art} alt={""}/>
                             <div id="ui_element_message_text">
@@ -325,7 +245,6 @@ function Browse ()
                                 <p id="ui_element_message_subtext">The following organisations have been individually reviewed by givealot<img /></p>
                             </div>
                         </div>
-                        {/* this block was not a part of the initial design - end */}
 
                         <div id="default_organisations">
                             {organisations_by_sector}
@@ -340,6 +259,8 @@ function Browse ()
                             </div>
                         </div>
                         {/* this block was not a part of the initial design - end */}
+
+
                     </div>
                 </section>
 

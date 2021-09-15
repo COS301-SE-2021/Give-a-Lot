@@ -39,8 +39,9 @@ public class OrganisationController
 
     /* tested - works */
      @GetMapping("/sel/organisation/{orgId}/{userId}") /*tested all good*/
-    public ResponseEntity<selectOrganisationResponse> selectOrganisation(@PathVariable("orgId") @NonNull Long orgId,@PathVariable("userId") @NonNull String userId)
+    public ResponseEntity<selectOrganisationResponse> selectOrganisation(@PathVariable("orgId") @NonNull String orgId,@PathVariable("userId") @NonNull String userId)
     {
+        System.out.println(orgId + " ------------------- " + userId);
         selectOrganisationResponse response;
         try
         {
@@ -48,13 +49,25 @@ public class OrganisationController
             {
                 if(!Character.isDigit(userId.charAt(i)))
                 {
-                    if(!userId.equalsIgnoreCase("default"))
+                    if(!userId.trim().equalsIgnoreCase("default"))
                         return new ResponseEntity<>(new selectOrganisationResponse("bad_org_br_401","this id is not authorized", null),HttpStatus.UNAUTHORIZED);
                     else userId = "-1";
                 }
             }
 
-            response = service.selectOrganisation(orgId, Long.valueOf(userId));
+            Long organisation_id;
+            Long user_id;
+
+            try
+            {
+                organisation_id = Long.valueOf(orgId);
+                user_id = Long.valueOf(userId);
+            }
+            catch(Exception e)
+            {
+                return new ResponseEntity<>(new selectOrganisationResponse("500_bad_id","failed",null), HttpStatus.OK);
+            }
+            response = service.selectOrganisation(organisation_id, user_id);
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)
@@ -108,20 +121,16 @@ public class OrganisationController
     }
 
     @PostMapping("/add/org") /*tested all good*/
-    public ResponseEntity<generalOrganisationResponse> addOrganisation(@RequestBody @NonNull AddOrganisationRequest body)
+    public ResponseEntity<generalOrganisationResponse> addOrganisation(@ModelAttribute AddOrganisationRequest body)
     {
         generalOrganisationResponse response;
         try
         {
-            response = service.addOrganisation(new Organisations(body.getOrgName(),
-                    body.getSlogan(),body.getOrgDescription(),body.getOrgSector(),
-                    body.getOrgEmail(),null,body.getStatus(),body.getContactPerson(),
-                    body.getContactNumber(), "givealot/organisations/", body.getPassword(),null));
+            response = service.addOrganisation(body);
             return new ResponseEntity<>(response,  HttpStatus.OK);
         }
         catch (Exception e)
         {
-
             if(e.toString().equalsIgnoreCase("java.lang.Exception: Email already exists"))
                 return new ResponseEntity<>(new generalOrganisationResponse("add_usr_bad_500","Email already exists"), HttpStatus.BAD_REQUEST);
 
@@ -198,6 +207,7 @@ public class OrganisationController
         }
     }
 
+    @CrossOrigin
     @PutMapping("/investigate/orgId") /* tested - works */
     public ResponseEntity<generalOrganisationResponse> investigateOrganisation(@RequestBody @NonNull InvestigateRequest orgId)
     {
@@ -520,7 +530,7 @@ public class OrganisationController
     }
 
     @PostMapping("/add/logo") /* all good - correctness not tested yet */
-    public ResponseEntity<generalOrganisationResponse> addOrgLogo( @ModelAttribute AddOrgLogoRequest request)
+    public ResponseEntity<generalOrganisationResponse> addOrgLogo(@ModelAttribute AddOrgLogoRequest request)
     {
 
         generalOrganisationResponse response;
@@ -567,7 +577,7 @@ public class OrganisationController
         }
         catch (Exception e)
         {
-            return new ResponseEntity<>(new generalOrganisationResponse("rem_est_500_err","failed: " + e), HttpStatus.OK);
+            return new ResponseEntity<>(new generalOrganisationResponse("add_qr_500_err","failed: " + e), HttpStatus.OK);
         }
     }
 

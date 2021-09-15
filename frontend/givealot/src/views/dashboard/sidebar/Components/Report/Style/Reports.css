@@ -9,7 +9,7 @@
 
     margin: 30px;
     font-size: 25px;
-    color: #515151;
+    color: #957b9e;
     font-family: Verdana;
 
 }
@@ -19,8 +19,9 @@
     position: absolute;
     left: 500px;
     font-family: sans-serif;
-    color: #515151;
+    color:#957b9e;
     display: flex;
+
 }
 .hidden{
     color: white;
@@ -35,6 +36,7 @@
 .iconReport{
 
     color: #91d1a8;
+
 }
 
 .AppealButton{
@@ -47,3 +49,18 @@
     padding: 5px;
 
 }
+
+
+.AppealButton1{
+    border-radius: 5px;
+
+    background-color: slategrey;
+    color: white;
+    width: 60px;
+    border: none;
+    padding: 5px;
+
+}
+
+
+

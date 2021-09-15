@@ -1,6 +1,7 @@
 package com.GiveaLot.givealot.Organisation.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -18,6 +19,9 @@ public class AddOrganisationRequest {
     private String contactPerson;
     private String contactNumber;
     private String password;
+    private MultipartFile image;
+    private String directory;
+    private String dateCreated;
 
 
     public AddOrganisationRequest(@JsonProperty ("orgName") String orgName,
@@ -27,7 +31,8 @@ public class AddOrganisationRequest {
                                   @JsonProperty ("orgEmail") String orgEmail,
                                   @JsonProperty ("contactPerson") String contactPerson,
                                   @JsonProperty ("contactNumber") String contactNumber,
-                                  @JsonProperty ("password") String password
+                                  @JsonProperty ("password") String password,
+                                  @JsonProperty ("image") MultipartFile image
     )
     {
         this.orgName = orgName;
@@ -38,30 +43,19 @@ public class AddOrganisationRequest {
         this.contactNumber = contactNumber;
         this.contactPerson = contactPerson;
         this.password =password;
+        this.image = image;
     }
 
-    public AddOrganisationRequest(long orgId,
-                                  String orgName,
-                                  String slogan,
-                                  String orgDescription,
-                                  String orgSector,
-                                  String orgEmail,
-                                  String status,
-                                  String contactPerson,
-                                  String contactNumber,
-                                  String password
-    )
-    {
-        this.orgId = orgId;
-        this.orgName = orgName;
-        this.slogan = slogan;
-        this.orgDescription = orgDescription;
-        this.orgSector = orgSector;
-        this.orgEmail = orgEmail;
-        this.status = status;
-        this.contactNumber = contactNumber;
-        this.contactPerson = contactPerson;
-        this.password =password;
+    public String getDirectory() {
+        return directory;
+    }
+
+    public MultipartFile getImage() {
+        return image;
+    }
+
+    public void setImage(MultipartFile image) {
+        this.image = image;
     }
 
     public long getOrgId() {
@@ -112,6 +106,13 @@ public class AddOrganisationRequest {
         this.orgEmail = orgEmail;
     }
 
+    public String getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(String dateCreated) {
+        this.dateCreated = dateCreated;
+    }
 
 
     public String getStatus() {
@@ -159,6 +160,10 @@ public class AddOrganisationRequest {
                 ", contactNumber='" + contactNumber + '\'' +
                 ", password='" + password + '\'' +
                 '}';
+    }
+
+    public void setDirectory(String s) {
+        this.directory = s;
     }
 
     public static class MD5 {

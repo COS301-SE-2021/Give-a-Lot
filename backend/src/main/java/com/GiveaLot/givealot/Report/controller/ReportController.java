@@ -29,11 +29,9 @@ public class ReportController {
    @Autowired
    ReportServiceImpl service;
 
-
    @PostMapping("/organisation")
    public ResponseEntity<createReportResponse> createReport(@RequestBody createReportRequest request)
    {
-
       createReportResponse createReportResponse;
       try {
          Report report = new Report(request.getOrgId(), request.getReportDescription(),request.getOrgName() ,request.getReportType(),request.getReporterEmail());
@@ -48,7 +46,6 @@ public class ReportController {
       catch (Exception e)
       {
          return new ResponseEntity<>(new createReportResponse("rep_org_usucc","report unsuccessful",null),HttpStatus.OK);
-
       }
    }
 
@@ -63,7 +60,7 @@ public class ReportController {
       }
       catch(Exception e)
       {
-         return new ResponseEntity<>(new generalReportResponse("rep_org_failed","report unsuccessful"),HttpStatus.BAD_REQUEST);
+         return new ResponseEntity<>(new generalReportResponse("rep_org_failed","report unsuccessful " + e),HttpStatus.BAD_REQUEST);
       }
    }
 
@@ -108,7 +105,4 @@ public class ReportController {
          return new ResponseEntity<>(new responseJSON("get_appeal_failed","report unsuccessful",null),HttpStatus.BAD_REQUEST);
       }
    }
-
-
-
 }

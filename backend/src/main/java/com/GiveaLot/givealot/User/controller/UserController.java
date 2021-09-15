@@ -28,7 +28,8 @@ public class UserController {
     UserServiceImp service;
 
     @Autowired
-    public UserController(UserServiceImp userServiceImp,responseJSON response) {
+    public UserController(UserServiceImp userServiceImp,responseJSON response)
+    {
         this.userServiceImp = userServiceImp;
         this.response = response;
     }
@@ -101,7 +102,6 @@ public class UserController {
         {
             return new ResponseEntity<>(new userResponseGeneral("res_pass_bad_500","failed: " + e), HttpStatus.OK);
         }
-
     }
 
     @PostMapping("/get/user") /*tested all good*/

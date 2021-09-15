@@ -1,257 +1,300 @@
-POST http://localhost:8080/v1/login/user/check_token
-Content-Type: application/json
+GET http://localhost:8080/v1/browse/sectors
 
-{
-  "token": "7faaa92c-5c4e-4498-9a3d-e407198fbf32"
-}
-
-<> 2021-09-14T234709.200.json
+<> 2021-09-14T025534.200.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/check_token
-Content-Type: application/json
+GET http://localhost:8080/search/organisation/browse/care
 
-{
-  "token": "someorg18@gmail.com"
-}
-
-<> 2021-09-14T234640.200.json
+<> 2021-09-14T020438.200.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/forgot_password
-Content-Type: application/json
+GET http://localhost:8080/cert/version/png/47
 
-{
-  "email": "someorg18@gmail.com"
-}
-
-<> 2021-09-14T234529.200.json
+<> 2021-09-14T003558.200.txt
 
 ###
 
-POST http://localhost:8080/v1/login/user/forgot_password
-Content-Type: application/json
+GET http://localhost:8080/search/organisation/browse/Indian%20Confederation%20For%20Healthcare
 
-{
-  "email": "someorg18@gmail.com"
-}
-
-<> 2021-09-14T234349.200.json
+<> 2021-09-14T001537.200.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/forgot_password
+POST http://localhost:8080/event/calender/edit/title
 Content-Type: application/json
 
 {
-  "email": "someorg18@gmail.com"
+  "userEmail" : "coolmail@gmail.com",
+  "eventId" : "43",
+  "newTitle" : "updated title test"
 }
 
-<> 2021-09-14T233959.200.json
+<> 2021-09-13T225327.200.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/forgot_password
+POST http://localhost:8080/event/calender/edit/title
 Content-Type: application/json
 
 {
-  "email": "someorg18@gmail.com"
+  "userEmail" : "coolmail@gmail.com",
+  "eventId" : "43",
+  "newTitle" : "updated title test"
 }
 
-<> 2021-09-14T233822.200.json
+<> 2021-09-13T225020.200.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/check_token
-Content-Type: application/json
+POST http://localhost:8080/event/calender/edit/title
 
 {
-  "token": "someorg18@gmail.com"
+  "userEmail" : "coolmail@gmail.com",
+  "eventId" : "43",
+  newTitle : "updated title test"
 }
 
-<> 2021-09-14T233815.200.json
+<> 2021-09-13T224942.415.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/forgot_password
-Content-Type: application/json
+POST http://localhost:8080/event/calender/edit/title
 
 {
-  "email": "someorg18@gmail.com"
+  "userEmail" : "coolmail@gmail.com",
+  "eventId" : "43",
+  newTitle : "updated title test"
 }
 
-<> 2021-09-14T233802.200.json
+<> 2021-09-13T224937.415.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/forgot_password
-Content-Type: application/json
+GET http://localhost:8080/search/organisation/browse/Indian%20Confederation%20For%20Healthcare
 
-{
-  "email": "someorg18@gmail.com"
-}
-
-<> 2021-09-14T233339.200.json
+<> 2021-09-13T215338.200.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/forgot_password
-Content-Type: application/json
+GET http://localhost:8080/cert/version/png/47
 
-{
-  "email": "someorg18@gmail.com"
-}
-
-<> 2021-09-14T233044.200.json
+<> 2021-09-13T215316.200.txt
 
 ###
 
-POST http://localhost:8080/v1/login/user/forgot_password
-Content-Type: application/json
+GET http://localhost:8080/cert/version/png/47
 
-{
-  "email": "someorg18@gmail.com"
-}
-
-<> 2021-09-14T232916.200.json
+<> 2021-09-13T215304.200.txt
 
 ###
 
-POST http://localhost:8080/v1/login/user/update_password
-Content-Type: application/json
+GET http://localhost:8080/search/organisation/browse/Indian%20Confederation%20For%20Healthcare
 
-{
-  "password": "IAMLEGENDISSUS",
-  "userEmail": "someorg18@gmail.com"
-
-}
-
-<> 2021-09-14T231934.200.json
+<> 2021-09-13T142405.200.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/forgot_password
-Content-Type: application/json
+GET http://localhost:8080/search/organisation/browse/care
 
-{
-  "email": "someorg18@gmail.com"
-}
-
-<> 2021-09-14T231927.200.json
+<> 2021-09-13T142017.200.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/check_token
-Content-Type: application/json
+GET http://localhost:8080/search/organisation/browse/care
 
-{
-  "token": "someorg18@gmail.com"
-}
-
-<> 2021-09-14T231856.200.json
+<> 2021-09-13T141906.400.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/forgot_password
-Content-Type: application/json
+GET http://localhost:8080/search/organisation/browse/dancing
 
-{
-  "email": "someorg18@gmail.com"
-}
-
-<> 2021-09-14T231646.200.json
+<> 2021-09-13T141831.400.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/forgot_password
-Content-Type: application/json
+GET http://localhost:8080/search/organisation/browse/dancing
 
-{
-  "email": "someorg18@gmail.com"
-}
-
-<> 2021-09-14T230004.200.json
+<> 2021-09-13T141113.400.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/forgot_password
-Content-Type: application/json
+GET http://localhost:8080/search/organisation/browse/dancing
 
-{
-  "email": "someorg18@gmail.com"
-}
-
-<> 2021-09-14T225747.200.json
+<> 2021-09-13T132428.400.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/forgot_password
-Content-Type: application/json
+GET http://localhost:8080/search/organisation/browse/bla%20bla%20dancing
 
-{
-  "email": "someorg18@gmail.com"
-}
-
-<> 2021-09-14T225630.200.json
+<> 2021-09-13T132416.400.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/forgot_password
-Content-Type: application/json
+GET http://localhost:8080/search/organisation/browse/bla%20bla
 
-{
-  "email": "someorg18@gmail.com"
-}
-
-<> 2021-09-14T223501.200.json
+<> 2021-09-13T132352.400.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/forgot_password
-Content-Type: application/json
+GET http://localhost:8080/search/organisation/browse/bla+bla
 
-{
-  "email": "someorg18@gmail.com"
-}
-
-<> 2021-09-14T223224.200.json
+<> 2021-09-13T132344.400.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/forgot_password
+POST http://localhost:8080/report/org/
 Content-Type: application/json
 
 {
-  "email": "someorg18@gmail.com"
+  "orgId" : 47,
+  "userId" : 14,
+  "orgName": "Dancing with you all",
+  "description" : "this organisation set up a paypal link that doesn't link to them",
+  "reportType" : "misconduct"
 }
 
-<> 2021-09-14T223155.200.json
+<> 2021-09-09T103223.200.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/forgot_password
+GET http://localhost:8080/certificate/download
 Content-Type: application/json
 
 {
-  "email": "someorg18@gmail.com"
+ "orgId" : 46,
+ "orgName": "Dancing with you all"
 }
 
-<> 2021-09-14T222915.200.json
+<> 2021-09-09T095838.500.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/update_password
+POST http://localhost:8080/report/org/
 Content-Type: application/json
 
 {
-  "password": "IAMLEGENDISSUS",
-  "userEmail": "someorg18@gmail.com"
+  "orgId" : 47,
+  "userId" : 14,
+  "orgName": "Dancing with you all",
+  "description" : "this organisation set up a paypal link that doesn't link to them",
+  "reportType" : "fraud"
+}
+
+<> 2021-09-09T090816.200.json
+
+###
+
+POST http://localhost:8080/report/org/
+Content-Type: application/json
+
+{
+  "orgId" : 47,
+  "orgName": "Dancing with you all",
+  "description" : "this organisation set up a paypal link that doesn't link to them",
+  "type" : "fraud",
+  "email" : "someemail@gmail.com"
 
 }
 
-<> 2021-09-14T222651.200.json
+<> 2021-09-09T090420.400.json
+
+###
+
+POST http://localhost:8080/report/org/
+Content-Type: application/json
+
+{
+  "orgId" : 47,
+  "orgName": "Dancing with you all",
+  "type" : "fraud",
+  "description" : "this organisation set up a paypal link that doesn't link to them",
+  "email" : "someemail@gmail.com"
+
+}
+
+<> 2021-09-09T090338.400.json
+
+###
+
+POST http://localhost:8080/report/org/
+Content-Type: application/json
+
+{
+  "orgId" : 47,
+  "orgName": "Dancing with you all",
+  "type" : "fraud",
+  "description" : "this organisation set up a paypal link that doesn't link to them",
+  "email" : "someemail@gmail.com"
+
+}
+
+<> 2021-09-09T090033.400.json
+
+###
+
+POST http://localhost:8080/report/org/
+Content-Type: application/json
+
+{
+  "orgId" : 47,
+  "orgName": "Dancing with you all",
+  "type" : "fraud",
+  "description" : "this organisation set up a paypal link that doesn't link to them",
+  "email" : "someemail@gmail.com"
+
+}
+
+<> 2021-09-09T085951.400.json
+
+###
+
+POST http://localhost:8080/report/org
+Content-Type: application/json
+
+{
+  "orgId" : 47,
+  "orgName": "Dancing with you all",
+  "type" : "fraud",
+  "description" : "this organisation set up a paypal link that doesn't link to them",
+  "email" : "someemail@gmail.com"
+
+}
+
+<> 2021-09-09T085942.404.json
+
+###
+
+POST http://localhost:8080/report/org/
+Content-Type: application/json
+
+{
+  "orgId" : 47,
+  "orgName": "Dancing with you all",
+  "type" : "fraud",
+  "description" : "this organisation set up a paypal link that doesn't link to them",
+  "email" : "someemail@gmail.com"
+
+}
+
+<> 2021-09-09T085925.400.json
+
+###
+
+POST http://localhost:8080/report/organisation
+Content-Type: application/json
+
+{
+  "orgId" : 47,
+  "orgName": "Dancing with you all",
+  "type" : "fraud",
+  "description" : "this organisation set up a paypal link that doesn't link to them",
+  "email" : "someemail@gmail.com"
+
+}
+
+<> 2021-09-09T085452.200.json
 
 ###
 
@@ -527,95 +570,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-05T234806.200.json
-
-###
-
-POST http://localhost:8080/event/calender/edit/date/start
-Content-Type: application/json
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : 1,
-  "newTime" : "2021-19-21"
-}
-
-<> 2021-09-05T234753.400.json
-
-###
-
-POST http://localhost:8080/event/calender/edit/time/end
-Content-Type: application/json
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : 1,
-  "newTime" : "08:50 PM"
-}
-
-<> 2021-09-05T234706.200.json
-
-###
-
-POST http://localhost:8080/event/calender/edit/time/start
-Content-Type: application/json
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : 1,
-  "newTime" : "08:22 PM"
-}
-
-<> 2021-09-05T234652.200.json
-
-###
-
-POST http://localhost:8080/event/calender/edit/description
-Content-Type: application/json
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : 1,
-  "newDescription" : "revised description"
-}
-
-<> 2021-09-05T234642.200.json
-
-###
-
-POST http://localhost:8080/event/calender/edit/description
-Content-Type: application/json
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : 1,
-  "newDescription" : "revised description"
-}
-
-###
-
-POST http://localhost:8080/event/calender/edit
-Content-Type: application/json
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : 1,
-  "newTitle" : "revised title"
-}
-
-<> 2021-09-05T224408.200.json
-
-###
-
-POST http://localhost:8080/event/calender/edit
-Content-Type: application/json
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : 1,
-  "newTitle" : "revised title"
-}
-
-<> 2021-09-05T224121.200.json
 
 ###
 

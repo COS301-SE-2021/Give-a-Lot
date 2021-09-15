@@ -260,7 +260,7 @@ public class CertificateServiceImpl implements CertificateService {
     }
 
     @Override
-    public boolean compareCertificate(MultipartFile certificate) throws Exception {
+    public long compareCertificate(MultipartFile certificate) throws Exception {
         File certCmp = new File("TempCompareCertificate.pdf");
         if (!certCmp.exists()){
             certCmp.createNewFile();
@@ -273,7 +273,7 @@ public class CertificateServiceImpl implements CertificateService {
         Blockchain blockchain = blockChainRepository.selectBlockchainCertificateHash(
                 blockchainService.hashCertificate(certCmp));
         if (blockchain==null){
-            return false;
+            return -1;
         }
         return blockchainService.compareCertificateHash(blockchain.getIndex(),blockchain.getOrgId(),certCmp);
     }

@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import { Link } from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import "../login/Styles/Login.css";
+
 import backgroundImg from "../../assets/homeBackground.jpg";
-import Logo from "../login/Components/Logo"
+import Logo from "../login/Components/Logo";
+import axios from "axios"
+import "../login/Styles/Login.css";
+import {Alert} from "@material-ui/lab";
 
 
 const styles = {
@@ -13,9 +16,9 @@ const styles = {
 }
 
 const initialState = {
-    username: "",
+    email: "",
     password: "",
-    usernameError: "",
+    emailError: "",
     passwordError: "",
 };
 
@@ -33,24 +36,23 @@ class Login extends Component {
     };
 
     validate = () => {
-        let usernameError = "";
+        let emailError = "";
         let passwordError = "";
 
-        if (!this.state.firstName) {
-            usernameError = "username is required";
+
+        if (!this.state.email.includes("@")) {
+            emailError = "invalid email";
         }
 
 
-        if(this.state.password.length <4) {
-            passwordError="Password must be greater than 4";
+        if(!this.state.password.length ) {
+            passwordError="Password is required";
         }
 
-        if ( usernameError || passwordError) {
-            this.setState({ usernameError, passwordError });
+        if ( emailError || passwordError) {
+            this.setState({ emailError, passwordError });
             return false;
         }
-
-
 
         return true;
     };
@@ -60,93 +62,125 @@ class Login extends Component {
         event.preventDefault();
         const isValid = this.validate();
         if (isValid) {
-            console.log(this.state);
-            // clear form
-            this.setState(initialState);
+
+            const data = {
+                "username" : this.state.email,
+                "password" : this.state.password,
+                "role" : ""
+            }
+            localStorage.clear();
+            document.getElementById("waitInfo").style.display = "flex";
+            document.getElementById("badLogin").style.display = "none";
+            axios.post('http://localhost:8080/v1/login/user/determine', data )
+                .then(response =>{
+                    const loggedUser={
+                        "id":response.data.id,
+                        "email":response.data.username,
+                        "role":response.data.jwttoken
+                    }
+
+                    localStorage.setItem( "id" ,response.data.id);
+                    localStorage.setItem( "role" ,response.data.jwttoken)
+
+                    if (response.data.jwttoken === "general")
+                    {
+                        document.getElementById("waitInfo").style.display = "none";
+                        this.props.history.push("/");
+
+                    }else if (response.data.jwttoken === "admin")
+                    {
+                        document.getElementById("waitInfo").style.display = "none";
+                        this.props.history.push("/dashboard/");
+                    }
+                    else if (response.data.jwttoken === "organisation"){
+                        document.getElementById("waitInfo").style.display = "none";
+                        this.props.history.push("/dashboard/");
+                    }
+                })
+                .catch(error =>{
+                    document.getElementById("badLogin").style.display = "flex";
+                    document.getElementById("waitInfo").style.display = "none";
+                })
         }
     };
+
     render()
-{
-    return (
-        <div>
-            <div className="Login" style={styles.main}>
-                <Logo/>
-                <Link to={"/"}>
-                    <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
-                </Link>
-                <div className="LoginCard">
-                    <div className="wrapper">
-                        <form className="LoginForm" onSubmit={this.handleSubmit}>
+    {
+        return (
+            <div>
+
+                <div className="Login" style={styles.main}>
+                    <div  id={"banner_filter"}>
+                        <Logo/>
+                        <Link to={"/"}>
+                            <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
+                        </Link>
+                        <div className="LoginCard">
+                            <Alert severity="error" id={"badLogin"}>incorrect username or password!</Alert>
+                            <Alert severity="info" id={"waitInfo"}>signing in...</Alert>
+                            <div className="wrapper">
+                                <form className="LoginForm" onSubmit={this.handleSubmit}>
                        <span className="LoginHeader">
                            Sign in
                        </span>
-                            <div className="LoginInput" data-validate="Username is required">
+                                    <div className="LoginInput" data-validate="Username is required">
                                 <span className="LoginInputLabel">
-                                    Username
+                                    Email
                                 </span>
-                                <div>
-                                    <input
-                                        className="innerInput validate"
-                                        type="text"
-                                        name="username"
-                                        placeholder="Enter your username"
-                                        onChange={this.handleChange}
-                                    />
+                                        <div>
+                                            <input
+                                                className="innerInput validate"
+                                                type="email"
+                                                name="email"
+                                                placeholder="Enter your email"
+                                                onChange={this.handleChange}
+                                            />
 
-                                </div>
-                                <span className="loginError">{this.state.usernameError}</span>
+                                        </div>
+                                        <span className="loginError">{this.state.emailError}</span>
+                                    </div>
 
-                            </div>
-
-                            <div className="LoginInput" data-validate="Username is required">
+                                    <div className="LoginInput" data-validate="Username is required">
                                 <span className="LoginInputLabel">
                                     Password
                                 </span>
-                                <div>
-                                    <input
-                                        className="innerInput validate"
-                                        type="password"
-                                        name="username"
-                                        placeholder="Enter your password"
-                                        onChange={this.handleChange}
-                                    />
+                                        <div>
+                                            <input
+                                                className="innerInput validate"
+                                                type="password"
+                                                name="password"
+                                                placeholder="Enter your password"
+                                                onChange={this.handleChange}
+                                            />
 
-                                </div>
-                                <span className="loginError">{this.state.passwordError}</span>
+                                        </div>
+                                        <span className="loginError">{this.state.passwordError}</span>
+                                    </div>
+
+                                    <div className="wrapper-btn">
+
+                                        <button className="Login-btn" id={"loginBTN_less_rounded"} type="submit">
+                                            Login
+                                        </button>
+                                    </div>
+
+                                    <div className="BottomForm">
+                                        <Link to={"/signUp"} className="BottomLinker">
+                                            <span> Need an account?</span>
+                                        </Link>
+
+                                        <Link to={"/Password"} className="BottomLinker">
+                                            <span> Forgot password?</span>
+                                        </Link>
+                                    </div>
+                                </form>
                             </div>
-
-                            <div className="wrapper-btn">
-
-                                <button className="Login-btn" type="submit">
-                                    Login
-                                </button>
-                                {/*} <Link to={"/"} className="linker">
-                                    <button className="Login-btn">
-                                        Login
-                                    </button>
-                                </Link>*/}
-                            </div>
-
-                            <div className="BottomForm">
-                                <Link to={"/signUp"} className="BottomLinker">
-                                    <span> Need an account?</span>
-                                </Link>
-
-                                <Link className="BottomLinker">
-                                    <span> Forgot password?</span>
-                                </Link>
-
-                            </div>
-
-                        </form>
-
+                        </div>
                     </div>
-
                 </div>
             </div>
-        </div>
-    );
-}
+        );
+    }
 }
 
 export default Login;

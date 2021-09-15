@@ -57,6 +57,56 @@ public class MediaController {
 
     }
 
+    @RequestMapping(value = "/logo/version/{orgId}", method = RequestMethod.GET,
+            produces = MediaType.ALL_VALUE)
+    public ResponseEntity<byte[]> getOrganisationLogo(@PathVariable("orgId") String orgId)
+    {
+        try
+        {
+            if(!service.orgIdExists(Long.valueOf(orgId)))
+            {
+                return ResponseEntity
+                        .notFound().build();
+            }
+        }
+        catch (Exception e)
+        {
+            return ResponseEntity
+                    .notFound().build();
+        }
+
+        var imgFile = new ClassPathResource("localFiles/" +orgId+ "/gallery/logo.jpg");
+
+        byte[] bytes = null;
+        try {
+            bytes = StreamUtils.copyToByteArray(imgFile.getInputStream());
+            return ResponseEntity
+                    .ok()
+                    .contentType(MediaType.IMAGE_JPEG)
+                    .body(bytes);
+        }
+        catch (IOException e) /*if jpg fails, then try PNG*/
+        {
+            //try PNG
+
+            imgFile = new ClassPathResource("localFiles/" +orgId+ "/gallery/logo.png");
+            bytes = null;
+            try
+            {
+                bytes = StreamUtils.copyToByteArray(imgFile.getInputStream());
+                return ResponseEntity
+                        .ok()
+                        .contentType(MediaType.IMAGE_PNG)
+                        .body(bytes);
+            }
+            catch (IOException e2)
+            {
+                return ResponseEntity
+                        .notFound().build();
+            }
+        }
+    }
+
     @RequestMapping(value = "/cert/version/pdf/{orgId}", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_PDF_VALUE)
     public ResponseEntity<byte[]> getPDFCertificate(@PathVariable("orgId") String orgId)
@@ -89,6 +139,41 @@ public class MediaController {
         {
             return ResponseEntity
                  .notFound().build();
+        }
+    }
+
+    @RequestMapping(value = "/cert/version/qr_code/{orgId}", method = RequestMethod.GET,
+            produces = MediaType.ALL_VALUE)
+    public ResponseEntity<byte[]> getQRCode(@PathVariable("orgId") String orgId)
+    {
+        try
+        {
+            if(!service.orgIdExists(Long.valueOf(orgId)))
+            {
+                return ResponseEntity
+                        .notFound().build();
+            }
+        }
+        catch (Exception e)
+        {
+            return ResponseEntity
+                    .notFound().build();
+        }
+
+        var imgFile = new ClassPathResource("localFiles/" +orgId+ "/gallery/QRCode.png");
+
+        byte[] bytes = null;
+        try {
+            bytes = StreamUtils.copyToByteArray(imgFile.getInputStream());
+            return ResponseEntity
+                    .ok()
+                    .contentType(MediaType.IMAGE_JPEG)
+                    .body(bytes);
+        }
+        catch (IOException e)
+        {
+            return ResponseEntity
+                    .notFound().build();
         }
     }
 }

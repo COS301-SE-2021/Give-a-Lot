@@ -15,7 +15,7 @@ public interface OrganisationService {
     selectOrganisationResponse selectOrganisation(Long orgId, Long userId) throws Exception;
     selectOrganisationInfoResponse selectOrganisationInfo(Long orgId) throws Exception;
     organisationPointsResponse selectOrganisationPoints(Long orgId) throws Exception;
-    generalOrganisationResponse addOrganisation(Organisations organisation) throws Exception;
+    generalOrganisationResponse addOrganisation(AddOrganisationRequest organisation) throws Exception;
     generalOrganisationResponse reactivateOrganisation(ActivateRequest request) throws Exception;
     generalOrganisationResponse investigateOrganisation(InvestigateRequest request) throws Exception;
     generalOrganisationResponse suspendOrganisation(SuspendRequest request) throws Exception;

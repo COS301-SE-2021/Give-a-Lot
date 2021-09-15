@@ -5,6 +5,7 @@ import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Media from "./Components/Media";
 import Success from "./Components/Success"
+import Confirm from "./Components/Confirm"
 
 export class RegisterOrganisation extends Component {
 
@@ -26,7 +27,7 @@ export class RegisterOrganisation extends Component {
         contactNumberError: '',
         password : "",
         passwordError: '',
-        image: '',
+        images: '',
         imageError: '',
         // loading : false,
 
@@ -51,10 +52,18 @@ export class RegisterOrganisation extends Component {
             isError = true;
             errors.orgEmailError = 'Please enter a valid email address';
         }
-
-        if(this.state.password.length < 4){
+        if (!this.state.orgEmail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
             isError = true;
-            errors.passwordError = 'Password must be at least 4 characters long';
+            errors.orgEmailError = "Please enter email address";
+        }
+
+        if(this.state.password.length < 8){
+            isError = true;
+            errors.passwordError = 'Password must be at least 8 characters long';
+        }
+        if(this.state.password.length > 15) {
+            isError = true;
+            errors.passwordError = 'Password must not exceed 15 characters';
         }
 
             // if(this.state.password !== this.state.confirm){
@@ -65,6 +74,10 @@ export class RegisterOrganisation extends Component {
             isError = true;
             errors.orgNameError = 'orgName cannot be blank';
         }
+        // if (this.state.orgName.match(/^([a-z]+[,.]?[ ]?|[a-z]+['-]?)+$/)) {
+        //     isError = true;
+        //     errors.orgNameError = "Please enter name";
+        // }
 
         if(this.state.step > 1){
             if(this.state.slogan.length < 1){
@@ -80,6 +93,10 @@ export class RegisterOrganisation extends Component {
             if(this.state.orgDescription.length < 1){
                 isError = true;
                 errors.orgDescriptionError = 'Description cannot be blank';
+            }
+            if(this.state.orgDescription.length > 200){
+                isError = true;
+                errors.orgDescriptionError = 'Description too big';
             }
         }
 
@@ -101,10 +118,15 @@ export class RegisterOrganisation extends Component {
             }
         }
 
+
         // if(this.state.step > 4){
-        //     if(this.state.image){
+        //     // if(this.state.image){
+        //     //     isError = true;
+        //     //     errors.imageError = 'Input an image';
+        //     // }
+        //     if (this.state.image !== "jpeg" && this.state.image !== "jpg" && this.state.image !== "png" && this.state.image !== "bmp" && this.state.image !== "gif") {
         //         isError = true;
-        //         errors.imageError = 'Input an image';
+        //             errors.imageError = 'Input an image';
         //     }
         // }
 
@@ -152,16 +174,23 @@ export class RegisterOrganisation extends Component {
     };
     // Handle fields change
     handleChange = input => e => {
-        // console.log(e.target.value);
         this.setState({ [input]: e.target.value });
-        // console.log(e.target.value);
+    };
+    handleChangeImage = input =>e => {
+        console.log("=============================================")
+        console.log(e.target.files[0])
+        this.setState({
+            [input]: e.target.files[0]
+        })
+
     };
 
     render() {
 
         const { step } = this.state;
-        const { orgName, slogan, orgDescription, orgSector, orgEmail, contactPerson, contactNumber, password,image } = this.state;
-        const values = { orgName, slogan, orgDescription, orgSector, orgEmail, contactPerson, contactNumber, password,image };
+        const { orgName, slogan, orgDescription, orgSector, orgEmail, contactPerson, contactNumber, password,images } = this.state;
+        const values = { orgName, slogan, orgDescription, orgSector, orgEmail, contactPerson, contactNumber, password,images };
+
         switch (step) {
             default:
                 return <h1>User Forms not working. Enable Javascript!</h1>;
@@ -206,19 +235,24 @@ export class RegisterOrganisation extends Component {
                         // imageError={this.state.imageError}
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
-                        handleChange={this.handleChange}
                         values={values}
+                        handleChangeImage={this.handleChange}
                     />
                 );
             case 5:
                 return (
-                    <Success
+                    <Confirm
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
                         values={values}
                     />
                 );
-            //
-            // case 5:
-            //     return <Success />;
+            case 6:
+                return (
+                    <Success
+                        // values={values}
+                    />
+                );
         }
     }
 }

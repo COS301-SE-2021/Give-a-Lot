@@ -4,6 +4,8 @@ import "../Styles/registerOrganisation.css"
 import backgroundImg from "../../../../assets/homeBackground.jpg";
 import { IoReload } from "react-icons/io5";
 import Logo from "../../../login/Components/Logo";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 export class Success extends Component {
     styles = {
@@ -11,19 +13,6 @@ export class Success extends Component {
             backgroundImage: `url(${backgroundImg})`
         }
     }
-
-    submit = e => {
-        e.preventDefault();
-        this.setState({ loading: true });
-
-        //Faking API call here
-        setTimeout(() => {
-            this.setState({ loading: false });
-        }, 2000);
-        /////axios submit request. input values are in values
-        ////then redirect to login
-        console.log(this.props)
-    };
 
     constructor() {
         super();
@@ -33,46 +22,31 @@ export class Success extends Component {
         };
     }
 
-
     render() {
-        const {
-            values: { slogan, orgEmail, orgSector, orgDescription, contactNumber, contactPerson, orgName }
-        } = this.props;
         const { loading } = this.state;
         return (
             <div className="registerOrganisation" style={this.styles.main}>
-                <Logo/>
-                <div className="registerCard">
-                    <div className="wrap">
-                        <form className="form">
-                       <span className="headerTag">
-                           Registration was a success
-                       </span>
-                            <div className="button">
-                                <div className="formButton ">
-                                    <button className="register-btn"
-                                            onClick={this.submit}
-                                            disabled={loading}
-                                    >
-                                        {" "}
-                                        {/*Login*/}
-                                        {loading && (
-                                            <IoReload style={{ marginRight: "5px" }} className="refresh"/>
-
-                                            // <i
-                                            //     className="fa fa-refresh fa-spin"
-                                            //     style={{ marginRight: "5px", color: "white" }}
-                                            // />
-                                        )}
-                                        {!loading && <span>Login</span>}
-                                    </button>
+                <div  id={"banner_filter"}>
+                    <Logo/>
+                    <div className="registerCard">
+                        <div className="wrap">
+                        <form className="form1">
+                           <span className="headerTag">
+                               Registration was a success
+                           </span>
+                                <div className="button">
+                                    <div className="formButton ">
+                                        <Link to={"/login"}>
+                                            <button className="register-btn">
+                                                {" "}
+                                                Login
+                                            </button>
+                                        </Link>
+                                    </div>
                                 </div>
-
-                            </div>
-                        </form>
-
+                            </form>
+                        </div>
                     </div>
-
                 </div>
             </div>
         )

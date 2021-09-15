@@ -114,9 +114,32 @@ class EmailSent extends Component {
                 token: this.state.token,
 
             };
+            localStorage.clear();
+            document.getElementById("waitInfo").style.display = "flex";
+            document.getElementById("badLogin").style.display = "none";
             axios.post("http://localhost:8080/v1/login/user/check_token", data)
-                .then(res => console.log(res))
-                .catch(err => console.log(err));
+                .then(res => {
+                    console.log(res)
+                    if (res.data.success === true)
+                    {
+                        document.getElementById("waitInfo").style.display = "none";
+                        this.props.history.push("/EmailSent");
+
+                    }else if (res.data.success === false)
+                    {
+
+                        document.getElementById("badLogin").style.display = "flex";
+
+                    }
+
+
+                })
+                .catch(err =>{
+                    console.log(err)
+                    document.getElementById("badLogin").style.display = "flex";
+                    document.getElementById("waitInfo").style.display = "none";
+                });
+
 
 
         }

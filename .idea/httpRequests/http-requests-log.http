@@ -1,3 +1,260 @@
+POST http://localhost:8080/v1/login/user/check_token
+Content-Type: application/json
+
+{
+  "token": "7faaa92c-5c4e-4498-9a3d-e407198fbf32"
+}
+
+<> 2021-09-14T234709.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/check_token
+Content-Type: application/json
+
+{
+  "token": "someorg18@gmail.com"
+}
+
+<> 2021-09-14T234640.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/forgot_password
+Content-Type: application/json
+
+{
+  "email": "someorg18@gmail.com"
+}
+
+<> 2021-09-14T234529.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/forgot_password
+Content-Type: application/json
+
+{
+  "email": "someorg18@gmail.com"
+}
+
+<> 2021-09-14T234349.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/forgot_password
+Content-Type: application/json
+
+{
+  "email": "someorg18@gmail.com"
+}
+
+<> 2021-09-14T233959.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/forgot_password
+Content-Type: application/json
+
+{
+  "email": "someorg18@gmail.com"
+}
+
+<> 2021-09-14T233822.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/check_token
+Content-Type: application/json
+
+{
+  "token": "someorg18@gmail.com"
+}
+
+<> 2021-09-14T233815.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/forgot_password
+Content-Type: application/json
+
+{
+  "email": "someorg18@gmail.com"
+}
+
+<> 2021-09-14T233802.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/forgot_password
+Content-Type: application/json
+
+{
+  "email": "someorg18@gmail.com"
+}
+
+<> 2021-09-14T233339.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/forgot_password
+Content-Type: application/json
+
+{
+  "email": "someorg18@gmail.com"
+}
+
+<> 2021-09-14T233044.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/forgot_password
+Content-Type: application/json
+
+{
+  "email": "someorg18@gmail.com"
+}
+
+<> 2021-09-14T232916.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/update_password
+Content-Type: application/json
+
+{
+  "password": "IAMLEGENDISSUS",
+  "userEmail": "someorg18@gmail.com"
+
+}
+
+<> 2021-09-14T231934.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/forgot_password
+Content-Type: application/json
+
+{
+  "email": "someorg18@gmail.com"
+}
+
+<> 2021-09-14T231927.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/check_token
+Content-Type: application/json
+
+{
+  "token": "someorg18@gmail.com"
+}
+
+<> 2021-09-14T231856.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/forgot_password
+Content-Type: application/json
+
+{
+  "email": "someorg18@gmail.com"
+}
+
+<> 2021-09-14T231646.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/forgot_password
+Content-Type: application/json
+
+{
+  "email": "someorg18@gmail.com"
+}
+
+<> 2021-09-14T230004.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/forgot_password
+Content-Type: application/json
+
+{
+  "email": "someorg18@gmail.com"
+}
+
+<> 2021-09-14T225747.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/forgot_password
+Content-Type: application/json
+
+{
+  "email": "someorg18@gmail.com"
+}
+
+<> 2021-09-14T225630.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/forgot_password
+Content-Type: application/json
+
+{
+  "email": "someorg18@gmail.com"
+}
+
+<> 2021-09-14T223501.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/forgot_password
+Content-Type: application/json
+
+{
+  "email": "someorg18@gmail.com"
+}
+
+<> 2021-09-14T223224.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/forgot_password
+Content-Type: application/json
+
+{
+  "email": "someorg18@gmail.com"
+}
+
+<> 2021-09-14T223155.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/forgot_password
+Content-Type: application/json
+
+{
+  "email": "someorg18@gmail.com"
+}
+
+<> 2021-09-14T222915.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/update_password
+Content-Type: application/json
+
+{
+  "password": "IAMLEGENDISSUS",
+  "userEmail": "someorg18@gmail.com"
+
+}
+
+<> 2021-09-14T222651.200.json
+
+###
+
 POST http://localhost:8080/v1/user/register/user
 Content-Type: application/json
 
@@ -359,390 +616,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-05T224121.200.json
-
-###
-
-POST http://localhost:8080/event/calender/edit
-Content-Type: application/json
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : 1,
-  "newTitle" : "revised ID"
-}
-
-<> 2021-09-05T223814.200.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "coolmail@gmail.com "
-}
-
-<> 2021-09-05T222833.200.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "coolmail@gmail.com "
-}
-
-<> 2021-09-05T222535.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "coolmail@gmail.com "
-}
-
-<> 2021-09-05T222427.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "coolmail@gmail.com"
-}
-
-<> 2021-09-05T222421.200.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "cos301@gmail.com"
-}
-
-<> 2021-09-05T222354.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userEmail" : "deep@gmail.com"
-}
-
-<> 2021-09-05T222317.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 6
-}
-
-<> 2021-09-05T215056.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 4
-}
-
-<> 2021-09-05T215034.200.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 15
-}
-
-<> 2021-09-05T215014.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 16
-}
-
-<> 2021-09-05T214957.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 9
-}
-
-<> 2021-09-05T214809.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 9
-}
-
-<> 2021-09-05T214627.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 9
-}
-
-<> 2021-09-05T214620.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 16
-}
-
-<> 2021-09-05T214605.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 12
-}
-
-<> 2021-09-05T214539.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 16
-}
-
-<> 2021-09-05T214519.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 12
-}
-
-<> 2021-09-05T214337.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 12
-}
-
-<> 2021-09-05T214217.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 12
-}
-
-<> 2021-09-05T214156.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "review organisations",
-  "eventDescription": "meetup wit the team to review organisations",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 12
-}
-
-<> 2021-09-05T214150.400.json
-
-###
-
-POST http://localhost:8080/event/calender/add
-Content-Type: application/json
-
-{
-  "eventTitle": "meeting",
-  "eventDescription": "meet with the ceo to discuss funds",
-  "eventStartTime": "12:18 PM",
-  "eventEndTime" : "1:40 PM",
-  "eventStartDate":"2021-10-09",
-  "eventEndDate" : "2021-10-09",
-  "userId" : 32
-}
-
-<> 2021-09-05T213706.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/update/info/organisation
-Content-Type: application/json
-
-{
-  "orgId": 32,
-  "type": "orgName",
-  "newValue": "Pistol 3"
-
-}
-
-<> 2021-09-05T151412.200.json
 
 ###
 

@@ -5,11 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Added HTTPStatus.UNAUTHORIZED instead of OK">
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-09-09T001705.400.json" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/2021-09-09T001705.400.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/model/PasswordResetToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/repository/PasswordResetRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/request/ChangePasswordRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/request/ForgotPasswordRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/request/TokenRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/request/createPasswordResetTokenForEmail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/response/ForgotPasswordResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/response/GenericResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/User/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/User/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/service/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/service/LoginServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/service/LoginServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +30,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -99,19 +111,30 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
-    <configuration name="generated-requests#46" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="46" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="generated-requests#47" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="47" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="generated-requests#48" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="48" runType="Run single request">
-      <method v="2" />
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="generated-requests#50" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="50" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#52" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="52" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests#53" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="53" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests#54" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="54" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests#55" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="55" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="GivealotApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -123,11 +146,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests#55" />
+        <item itemvalue="HTTP Request.generated-requests#54" />
+        <item itemvalue="HTTP Request.generated-requests#53" />
         <item itemvalue="HTTP Request.generated-requests#52" />
         <item itemvalue="HTTP Request.generated-requests#50" />
-        <item itemvalue="HTTP Request.generated-requests#48" />
-        <item itemvalue="HTTP Request.generated-requests#47" />
-        <item itemvalue="HTTP Request.generated-requests#46" />
       </list>
     </recent_temporary>
   </component>
@@ -148,14 +171,10 @@
       <workItem from="1631019484675" duration="917000" />
       <workItem from="1631042260596" duration="333000" />
       <workItem from="1631133557866" duration="750000" />
-      <workItem from="1631137762251" duration="2127000" />
-    </task>
-    <task id="LOCAL-00027" summary="organisations controller revision - remove socials">
-      <created>1629267850946</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1629267850946</updated>
+      <workItem from="1631137762251" duration="2546000" />
+      <workItem from="1631562597889" duration="3799000" />
+      <workItem from="1631644471347" duration="2561000" />
+      <workItem from="1631647645463" duration="6074000" />
     </task>
     <task id="LOCAL-00028" summary="organisations controller revision - tax">
       <created>1629268765715</created>
@@ -493,7 +512,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631133925824</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="Added HTTPStatus.UNAUTHORIZED instead of OK">
+      <created>1631139938460</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1631139938461</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -137,7 +137,7 @@ class EmailSent extends Component {
                 <div className="Login" style={styles.main}>
                     <div  id={"banner_filter"}>
                         <Logo/>
-                        <Link to={"/Login"}>
+                        <Link to={"/Password"}>
                             <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
                         </Link>
                         <div className="LoginCard">
@@ -168,7 +168,7 @@ class EmailSent extends Component {
 
                                                 <div className="wrapper-btn">
 
-                                                    <button className="Login-btn" id={"loginBTN_less_rounded"} type="submit" onClick={this.reset}>
+                                                    <button className="Login-btn" id={"loginBTN_less_rounded"} type="submit" >
                                                         Reset password
                                                     </button>
 

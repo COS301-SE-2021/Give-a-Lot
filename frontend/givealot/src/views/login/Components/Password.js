@@ -60,7 +60,7 @@ class Password extends Component {
                 email: this.state.email,
 
             };
-            axios.post("http://localhost:8080/v1/user/register/user", data)
+            axios.post("http://localhost:8080/v1/login/user/forgot_password", data)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 
@@ -115,7 +115,7 @@ class Password extends Component {
 
                                     <div className="wrapper-btn">
 
-                                        <button className="Login-btn" id={"loginBTN_less_rounded"} type="submit" onClick={this.reset}>
+                                        <button className="Login-btn" id={"loginBTN_less_rounded"} type="submit" >
                                             Reset password
                                         </button>
                                     </div>

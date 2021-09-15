@@ -103,8 +103,8 @@ public class UserServiceImp implements UserService {
         /**Sending a verification email**/
         System.out.println("Sending Email...");
 
-        Mail mail = new Mail(newUser.getEmail(),"Givealot SignUp Verification","Congratulations your you have successfully signed up to the Givealot platform" +
-                "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations" +
+        Mail mail = new Mail(newUser.getEmail(),"Givealot SignUp Verification","Congratulations your you have successfully signed up to the Givealot platform." +"\n"+
+                "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations." +
                 "\n" +
                 "\n" +
                 "Kind Regards \n" +

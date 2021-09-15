@@ -122,12 +122,7 @@ class EmailSent extends Component {
         }
     };
 
-    reset=()=>{
-        const isValid = this.validate();
-        if (isValid) {
-            window.location.assign("/EmailSent");
-        }
-    }
+
 
     render()
     {

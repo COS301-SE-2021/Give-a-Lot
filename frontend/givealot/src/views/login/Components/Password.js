@@ -60,20 +60,37 @@ class Password extends Component {
                 email: this.state.email,
 
             };
+            localStorage.clear();
+            document.getElementById("waitInfo").style.display = "flex";
+            document.getElementById("badLogin").style.display = "none";
             axios.post("http://localhost:8080/v1/login/user/forgot_password", data)
-                .then(res => console.log(res))
-                .catch(err => console.log(err));
+                .then(res => {
+                    console.log(res)
+                    if (res.data.success === true)
+                    {
+                        document.getElementById("waitInfo").style.display = "none";
+                        this.props.history.push("/EmailSent");
+
+                    }else if (res.data.success === false)
+                    {
+
+                        document.getElementById("badLogin").style.display = "flex";
+
+                    }
+
+
+                })
+                .catch(err =>{
+                    console.log(err)
+                    document.getElementById("badLogin").style.display = "flex";
+                    document.getElementById("waitInfo").style.display = "none";
+                });
 
 
         }
     };
 
-    reset=()=>{
-        const isValid = this.validate();
-        if (isValid) {
-            window.location.assign("/EmailSent");
-        }
-    }
+
 
     render()
     {
@@ -88,6 +105,7 @@ class Password extends Component {
                         </Link>
                         <div className="LoginCard">
                             <Alert severity="error" id={"badLogin"}>incorrect username or password!</Alert>
+                            <Alert severity="info" id={"waitInfo"}>Sending email...</Alert>
                             <div className="wrapper">
                                 <form className="LoginForm" onSubmit={this.handleSubmit}>
                        <span className="LoginHeader">

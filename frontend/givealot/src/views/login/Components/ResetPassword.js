@@ -60,7 +60,7 @@ class ResetPassword extends Component {
                 email: this.state.email,
 
             };
-            axios.post("http://localhost:8080/v1/user/register/user", data)
+            axios.post("http://localhost:8080/v1/login/user/forgot_password", data)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 

@@ -111,10 +111,10 @@ class EmailSent extends Component {
             console.log(this.state);
 
             const data = {
-                email: this.state.email,
+                token: this.state.token,
 
             };
-            axios.post("http://localhost:8080/v1/user/register/user", data)
+            axios.post("http://localhost:8080/v1/login/user/check_token", data)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 

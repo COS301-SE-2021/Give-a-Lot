@@ -75,7 +75,7 @@ class Password extends Component {
                     {
 
                         document.getElementById("badLogin").style.display = "flex";
-                        document.getElementById("waitInfo").style.display = "none";
+
 
                     }
 

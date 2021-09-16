@@ -242,13 +242,13 @@ public class LoginServiceImp implements LoginService{
         {
             String salt = getMd5(body.getUserEmail());
             String salted = getMd5(body.getPassword() + salt);
-           organisationRepository.updatePassword(body.getUserEmail(),body.getPassword());
+           organisationRepository.updatePassword(body.getUserEmail(),salted);
         }
         else
         {
             String salt = getMd5(body.getUserEmail());
             String salted = getMd5(body.getPassword() + salt);
-            userRepository.updatePassword(body.getUserEmail(),body.getPassword());
+            userRepository.updatePassword(body.getUserEmail(),salted);
         }
         return new ForgotPasswordResponse(true,"password reset successful");
 

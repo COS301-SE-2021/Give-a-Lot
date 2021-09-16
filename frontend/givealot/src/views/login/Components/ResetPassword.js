@@ -16,7 +16,7 @@ const styles = {
 }
 
 const initialState = {
-    email: "",
+    userEmail: "",
     emailError: "",
     password: "",
     passwordError: "",
@@ -37,8 +37,9 @@ class ResetPassword extends Component {
 
     validate = () => {
         let emailError = "";
+        let passwordError = "";
 
-        if (!this.state.email.includes("@")) {
+        if (!this.state.userEmail.includes("@")) {
             emailError = "invalid email";
         }
         if(!this.state.password.length ) {
@@ -46,8 +47,8 @@ class ResetPassword extends Component {
         }
 
 
-        if ( emailError ) {
-            this.setState({ emailError });
+        if ( emailError || passwordError ) {
+            this.setState({ emailError ,  passwordError });
             return false;
         }
 
@@ -62,23 +63,30 @@ class ResetPassword extends Component {
             console.log(this.state);
 
             const data = {
-                email: this.state.email,
+                userEmail: this.state.email,
+                "password" : this.state.password,
 
             };
             axios.post("http://localhost:8080/v1/login/user/update_password", data)
-                .then(res => console.log(res))
+                .then(res => {
+                    console.log(res)
+                    if (res.data.success === true) {
+                        document.getElementById("waitInfo").style.display = "none";
+                        this.props.history.push("/ResetPassword");
+
+                    } else if (res.data.success === false) {
+
+                        document.getElementById("badLogin").style.display = "flex";
+                        document.getElementById("waitInfo").style.display = "none";
+
+                    }
+                })
                 .catch(err => console.log(err));
 
 
         }
     };
 
-    reset=()=>{
-        const isValid = this.validate();
-        if (isValid) {
-            window.location.assign("/EmailSent");
-        }
-    }
 
     render()
     {
@@ -109,7 +117,7 @@ class ResetPassword extends Component {
                                             <input
                                                 className="innerInput validate"
                                                 type="email"
-                                                name="email"
+                                                name="userEmail"
                                                 placeholder="Enter your email"
                                                 onChange={this.handleChange}
                                             />

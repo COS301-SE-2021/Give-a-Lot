@@ -91,7 +91,7 @@ class EmailSent extends Component {
         let tokenError = "";
 
         if (!this.state.token) {
-            tokenError = "invalid email";
+            tokenError = "token required";
         }
 
 

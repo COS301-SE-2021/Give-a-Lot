@@ -328,7 +328,7 @@ public class OrganisationServiceImp implements OrganisationService {
         /**Sending a verification email**/
         System.out.println("Sending Email...");
 
-        Mail mail = new Mail(organisation.getOrgEmail(),"Givealot SignUp Verification","Congratulations your organisation has successfully signed up to the Givealot platform" +
+        Mail mail = new Mail(organisation.getOrgEmail(),"Givealot SignUp Verification","Congratulations your organisation has successfully signed up to the Givealot platform." +"\n"+
                 "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations" +
                 "\n" +
                 "\n" +
@@ -369,7 +369,7 @@ public class OrganisationServiceImp implements OrganisationService {
                 System.out.println("Sending Email...");
 
                 Mail mail = new Mail(organisationRepository.selectOrganisationById(request.getOrgID()).getOrgEmail(),"Givealot Status Change","It is with great regret to inform you that your organisation due to numerous reports against it has been susoended" +
-                        "\n these reports will be reviewed by team and if found to be false we will reactivate your organization." +
+                        "\n these reports will be reviewed by team and if found to be false we will reactivate your organization." +"\n"+
                         "\n We apologise for the inconvienace this may cause" +
                         "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations" +
                         "\n" +

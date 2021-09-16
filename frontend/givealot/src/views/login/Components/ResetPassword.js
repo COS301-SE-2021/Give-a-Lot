@@ -18,6 +18,8 @@ const styles = {
 const initialState = {
     email: "",
     emailError: "",
+    password: "",
+    passwordError: "",
 };
 
 class ResetPassword extends Component {
@@ -38,6 +40,9 @@ class ResetPassword extends Component {
 
         if (!this.state.email.includes("@")) {
             emailError = "invalid email";
+        }
+        if(!this.state.password.length ) {
+            passwordError="Password is required";
         }
 
 
@@ -60,7 +65,7 @@ class ResetPassword extends Component {
                 email: this.state.email,
 
             };
-            axios.post("http://localhost:8080/v1/login/user/forgot_password", data)
+            axios.post("http://localhost:8080/v1/login/user/update_password", data)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 
@@ -91,10 +96,10 @@ class ResetPassword extends Component {
                             <div className="wrapper">
                                 <form className="LoginForm" onSubmit={this.handleSubmit}>
                        <span className="LoginHeader">
-                           Reset your password
+                           Enter new password
                        </span>
                                     <span className="Instruction">
-                           We'll email you instructions to reset the password.
+                           Enter your email and a new password
                        </span>
                                     <div className="LoginInput" data-validate="Username is required">
                                 <span className="LoginInputLabel">
@@ -112,11 +117,27 @@ class ResetPassword extends Component {
                                         </div>
                                         <span className="loginError">{this.state.emailError}</span>
                                     </div>
+                                    <div className="LoginInput" data-validate="Username is required">
+                                <span className="LoginInputLabel">
+                                    New Password
+                                </span>
+                                        <div>
+                                            <input
+                                                className="innerInput validate"
+                                                type="password"
+                                                name="password"
+                                                placeholder="Enter your password"
+                                                onChange={this.handleChange}
+                                            />
+
+                                        </div>
+                                        <span className="loginError">{this.state.passwordError}</span>
+                                    </div>
 
                                     <div className="wrapper-btn">
 
                                         <button className="Login-btn" id={"loginBTN_less_rounded"} type="submit" onClick={this.reset}>
-                                            Reset password
+                                            Submit password
                                         </button>
                                     </div>
 

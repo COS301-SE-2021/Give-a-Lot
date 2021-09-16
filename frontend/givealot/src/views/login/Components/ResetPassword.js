@@ -64,22 +64,21 @@ class ResetPassword extends Component {
 
             const data = {
                 userEmail: this.state.email,
-                "password" : this.state.password,
+                password : this.state.password,
 
             };
             axios.post("http://localhost:8080/v1/login/user/update_password", data)
                 .then(res => {
                     console.log(res)
-                    if (res.data.success === true) {
-                        document.getElementById("waitInfo").style.display = "none";
+                    /*if (res.data.success === true) {
+
                         this.props.history.push("/ResetPassword");
 
                     } else if (res.data.success === false) {
 
-                        document.getElementById("badLogin").style.display = "flex";
-                        document.getElementById("waitInfo").style.display = "none";
 
-                    }
+
+                    }*/
                 })
                 .catch(err => console.log(err));
 

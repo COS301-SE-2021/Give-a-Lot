@@ -44,41 +44,61 @@ const styles = theme => ({
 
 });
 
+const initialState = {
+    level3:{},
+    orgId:"60",
+    //orgId:localStorage.getItem("id"),
+    url:"",
+    urlError:"",
+    type:"",
+    typeError:"",
+    url1:"",
+    url1Error:"",
+    type1:"",
+    type1Error:"",
+    ChairpersonName:"",
+    ChairpersonNameError:"",
+    ChairpersonContacts:"",
+    ChairpersonContactsError:"",
+    managerName:"",
+    managerNameError:"",
+    managerContacts:"",
+    managerContactsError:"",
+    treasurerName:"",
+    treasurerNameError:"",
+    treasurerContacts:"",
+    treasurerContactsError:"",
+    secretaryName:"",
+    secretaryNameError:"",
+    secretaryContacts:"",
+    secretaryContactsError:"",
+    committee:""
+
+};
+
 
 export class Level3 extends Component {
 
     constructor (props) {
         super(props)
-        this.state={
-            level3:[],
-            adminId:14,
-            orgId:"32",
-            url:"",
-            type:"",
-            typeState:false,
-            url1:"",
-            type1:"",
-            type1State:false,
-            ChairpersonName:"",
-            ChairpersonContacts:"",
-            managerName:"",
-            managerContacts:"",
-            treasurerName:"",
-            treasurerContacts:"",
-            secretaryName:"",
-            secretaryContacts:"",
-            committee:""
 
-        };
+
+    }
+
+
+    state = initialState;
+    constructor (props) {
+        super(props)
+
     }
 
     handleSocialChange = e => {
-        this.setState({type: e.target.value, typeState:true});
+        this.setState({type: e.target.value});
 
     };
 
     handleSocial1Change = e => {
-        this.setState({type1: e.target.value, type1State:true});
+        this.setState({type1: e.target.value});
 
     };
 
@@ -100,46 +120,115 @@ export class Level3 extends Component {
         });
     };
 
+    validate = () => {
+
+        let ChairpersonNameError = "";
+        let managerNameError = "";
+        let treasurerNameError = "";
+        let secretaryNameError = "";
+        let ChairpersonContactsError = "";
+        let managerContactsError = "";
+        let treasurerContactsError = "";
+        let secretaryContactsError = "";
+        let urlError = "";
+        let url1Error = "";
+        let typeError = "";
+        let type1Error = "";
+
+
+
+        if (!this.state.ChairpersonName) {
+            ChairpersonNameError = "required";
+        }
+
+        if (!this.state.managerName) {
+            managerNameError = "required";
+        }
+        if (!this.state.treasurerName) {
+            treasurerNameError = "required";
+        }
+        if (!this.state.secretaryName) {
+            secretaryNameError = "required";
+        }
+        if (!this.state.ChairpersonContacts) {
+            ChairpersonContactsError = "required";
+        }
+        if (!this.state.managerContacts) {
+            managerContactsError = "required";
+        }
+        if (!this.state.treasurerContacts) {
+            treasurerContactsError = "required";
+        }
+        if (!this.state.secretaryContacts) {
+            secretaryContactsError = "required";
+        }
+        if (!this.state.url) {
+            urlError = "required";
+        }
+
+        if (!this.state.url1) {
+            url1Error = "required";
+        }
+
+        if (!this.state.type) {
+            typeError = "required";
+        }
+        if (!this.state.type1) {
+            type1Error = "required";
+        }
+
+
+        if ( urlError || url1Error || typeError || type1Error || treasurerContactsError || secretaryContactsError || managerContactsError || ChairpersonContactsError || treasurerNameError || secretaryNameError || managerNameError || ChairpersonNameError) {
+            this.setState({urlError, url1Error, typeError, type1Error , treasurerContactsError, secretaryContactsError,managerContactsError ,ChairpersonContactsError ,treasurerNameError, secretaryNameError, managerNameError ,ChairpersonNameError });
+            return false;
+        }
+
+        return true;
+    };
+
 
     handleFormSubmit = e => {
         e.preventDefault();
-
-        const com={
-            orgId: this.state.orgId,
-            committee :  this.state.ChairpersonName+","+this.state.ChairpersonContacts+","+this.state.managerName+","+this.state.managerContacts+","+this.state.treasurerName+","+this.state.treasurerContacts+","+this.state.treasurerName+","+this.state.treasurerContacts,
-        };
-
-        console.log(com)
-        Axios
-            .post("http://localhost:8080/v1/organisation/add/committee", com)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+        const isValid = this.validate();
+        if (isValid) {
+            const com = {
+                orgId: this.state.orgId,
+                committee: this.state.ChairpersonName + "," + this.state.ChairpersonContacts + "," + this.state.managerName + "," + this.state.managerContacts + "," + this.state.treasurerName + "," + this.state.treasurerContacts + "," + this.state.treasurerName + "," + this.state.treasurerContacts,
+            };
 
 
-        const social = {
-            orgId: this.state.orgId,
-            socialType: this.state.type,
-            url: this.state.url,
-        };
+            const social = {
+                orgId: this.state.orgId,
+                socialType: this.state.type,
+                url: this.state.url,
+            };
 
+            const social1 = {
+                orgId: this.state.orgId,
+                socialType: this.state.type1,
+                url: this.state.url1,
+            };
+            console.log(com)
+            Axios
+                .post("http://localhost:8080/v1/organisation/add/committee", com)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
 
-        console.log(social)
-        Axios
-            .post("http://localhost:8080/v1/organisation/add/socials", social)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+            console.log(social)
+            Axios
+                .post("http://localhost:8080/v1/organisation/add/socials", social)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
 
-        const social1 = {
-            orgId: this.state.orgId,
-            socialType: this.state.type1,
-            url: this.state.url1,
-        };
+            console.log(social1)
+            Axios
+                .post("http://localhost:8080/v1/organisation/add/socials", social1)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
 
-        console.log(social1)
-        Axios
-            .post("http://localhost:8080/v1/organisation/add/socials", social1)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+            // clear form
+            this.setState(initialState);
+        }
 
 
 
@@ -147,41 +236,39 @@ export class Level3 extends Component {
     };
 
     onToast3 = () => {
-        toast.success('Submit successful',{
-            position: toast.POSITION.TOP_RIGHT
+        const isValid = this.validate();
+        if (isValid) {
 
-        });
+            toast.success('Submit successful', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }
+
     }
 
 
-    componentDidMount() {
+
+
+    componentDidMount(){
         let config = {
             headers: {
                 "Content-Type": "application/json",
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        const admin = {
-            "adminId" : this.state.adminId
-        }
-
-        const org = {
-            orgId :32
-        }
-        axios.post('http://localhost:8080/v1/organisation/get/organisations',admin , config)
+        console.log(this.props)
+        axios.get('http://localhost:8080/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config) //Change the API
             .then(response =>{
                 console.log(response)
-                this.setState({level3: response.data.response[0]})
-                console.log(this.state.level3)
-
+                this.setState({level2: response.data.response})
             })
             .catch(error =>{
+                console.log(error)
                 this.setState({error : 'Error Retrieving data'})
             })
 
-
     }
-
 
     render(){
         const { classes } = this.props;

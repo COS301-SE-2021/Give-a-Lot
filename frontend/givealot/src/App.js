@@ -13,17 +13,12 @@ import UserSuccess from "./views/registration/registerUser/UserSuccess";
 import EmailSent from "./views/login/Components/EmailSent";
 import Password from "./views/login/Components/Password";
 import ResetPassword from "./views/login/Components/ResetPassword";
-import ResetSuccess from "./views/login/Components/ResetSuccess";
-import TermsAndConditions from "./views/registration/TermsAndConditions";
-
 import RegisterOrganisation from './views/registration/registerOrganisation/OrganisationRegistration';
 import {ApiUrlProvider} from "./apiContext/ApiContext";
 
 function App()
 {
   return(
-
-
       <ApiUrlProvider>
          <Router>
               <Switch>
@@ -40,9 +35,6 @@ function App()
                 <Route path="/dashboard/" exact component={Dashboard}/>
                 <Route path="/organisation/:id" exact component={ViewOrganisation} />
                 <Route path="/verifyCertificate" exact component={VerifyCertificate} />
-                <Route path="/ResetSuccess" exact component={ResetSuccess}/>
-                <Route path="/TermsAndConditions" exact component={TermsAndConditions}/>
-
               </Switch>
           </Router>
       </ApiUrlProvider>

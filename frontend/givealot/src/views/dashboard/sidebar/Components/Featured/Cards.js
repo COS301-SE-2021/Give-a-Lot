@@ -7,8 +7,12 @@ import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 import ReportIcon from '@material-ui/icons/Report';
 import NotificationsOutlinedIcon from '@material-ui/icons/NotificationsOutlined';
 import axios from "axios";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
+
+
 
 export class Cards extends Component {
+    static contextType = ApiContext;
 
     constructor(props) {
         super(props)
@@ -17,10 +21,11 @@ export class Cards extends Component {
             Users: '',
             Organisations: '',
             notifications: '',
-            adminUserEmail:'admin@email.com',
-            orgId: 72,
+            adminUserEmail:"admin@email.com",
+            orgId: 32,
             reports: [],
-            adminId: 4
+            adminId: 4,
+            serverDomain : 'http://localhost:8080',
         }
     }
 
@@ -31,7 +36,7 @@ export class Cards extends Component {
         this. getReports();
     }
 
-
+/////////////////////////////////////Leave reports for only organisations
     getReports(){
         let config = {
             headers: {
@@ -43,11 +48,11 @@ export class Cards extends Component {
             // "orgId":"id of an organisation"
             "orgId" : this.state.orgId
         }
-        axios.post('http://localhost:8080/report/get/all', adminUsersRequestBodyReports, config)
+        // alert(this.state.serverDomain)
+        axios.post(this.state.serverDomain+'/report/get/all', adminUsersRequestBodyReports, config)
             .then(response =>{
                 console.log(response)
                 this.setState({ reports: response.data.object })
-                // console.log(this.state.Users)
 
             })
             .catch(error =>{
@@ -57,49 +62,56 @@ export class Cards extends Component {
     }
 
     getUsers(){
-        let config = {
-            headers: {
-                "Content-Type": "application/json",
-                'Access-Control-Allow-Origin': '*',
+        if(localStorage.getItem('role') === 'admin') {
+            let config = {
+                headers: {
+                    "Content-Type": "application/json",
+                    'Access-Control-Allow-Origin': '*',
+                }
             }
-        }
-        const adminUsersRequestBody = {
-            "adminUserEmail" : this.state.adminUserEmail
-        }
-        axios.post('http://localhost:8080/v1/user/get/num_user', adminUsersRequestBody, config)
-            .then(response =>{
-                console.log(response)
-                this.setState({ Users: response.data.response })
-                // console.log(this.state.Users)
+            const adminUsersRequestBody = {
+                "adminUserEmail": this.state.adminUserEmail
+            }
+            axios.post(this.state.serverDomain + '/v1/user/get/num_user', adminUsersRequestBody, config)
+                .then(response => {
+                    console.log(response)
+                    this.setState({Users: response.data.response})
+                    // console.log(this.state.Users)
 
-            })
-            .catch(error =>{
-                // console.log(error)
-                this.setState({error : 'Error Retrieving data'})
-            })
+                })
+                .catch(error => {
+                    // console.log(error)
+                    this.setState({error: 'Error Retrieving data'})
+                })
+        }
     }
 
     getOrganisations(){
-        let config = {
-            headers: {
-                "Content-Type": "application/json",
-                'Access-Control-Allow-Origin': '*',
+        if(localStorage.getItem('role') === 'admin'){
+            let config = {
+                headers: {
+                    "Content-Type": "application/json",
+                    'Access-Control-Allow-Origin': '*',
+                }
             }
-        }
-        const adminUsersRequestBodyOrg = {
-            "adminId" : this.state.adminId
-        }
-        axios.post('http://localhost:8080/v1/organisation/get/organisations',adminUsersRequestBodyOrg , config)
-            .then(response =>{
-                console.log(response)
-                this.setState({ Organisations: response.data.response })
-                // console.log(this.state.Organisations)
+            const adminUsersRequestBodyOrg = {
+                "adminId" : this.state.adminId
+            }
+            axios.post(this.state.serverDomain+'/v1/organisation/get/organisations',adminUsersRequestBodyOrg , config)
+                .then(response =>{
+                    console.log(response)
+                    this.setState({ Organisations: response.data.response })
 
-            })
-            .catch(error =>{
-                alert(error)
-                this.setState({error : 'Error Retrieving data'})
-            })
+                })
+                .catch(error =>{
+                    alert(error)
+                    this.setState({error : 'Error Retrieving data'})
+                })
+        }
+        // else{
+        //     alert('current User not admin  ' + localStorage.getItem('role'))
+        // }
+
     }
 
     getNotifications(){

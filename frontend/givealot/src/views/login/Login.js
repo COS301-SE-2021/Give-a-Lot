@@ -70,11 +70,11 @@ function Login ()
                 }else if (response.data.jwttoken === "admin")
                 {
                     document.getElementById("waitInfo").style.display = "none";
-                    history.push("/dashboard/");
+                    history.push("/dashboard");
                 }
                 else if (response.data.jwttoken === "organisation"){
                     document.getElementById("waitInfo").style.display = "none";
-                    history.push("/dashboard/");
+                    history.push("/dashboard");
                 }
             })
             .catch(error =>{

@@ -14,9 +14,9 @@ export class Featured extends Component {
             UsersPerMonth: '',
             OrganisationsPerMonth: '',
             userData: [],
-            adminUserEmail: "admin@email.com",
+            adminUserEmail: "basic@gmail.com",
             OrgData: [],
-            serverDomain: "https://3c73e752688968.localhost.run"
+            serverDomain: "http://localhost:8080"
         }
     }
 

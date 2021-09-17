@@ -23,7 +23,7 @@ export class Org extends Component {
             open: false,
             openInvestigate: false,
             openSuspend: false,
-            serverDomain: 'https://localhost:8080'
+            serverDomain: 'http://localhost:8080'
         }
         // console.log(this.state.orgId)
         // let idUrl = window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
@@ -53,8 +53,8 @@ export class Org extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        console.log(this.state.orgId)
-        axios.get(this.state.serverDomain + '/v1/organisation/admin/sel/organisation/'+this.state.orgId, config)
+        // console.log(this.state.orgId)
+        axios.get(this.state.serverDomain+'/v1/organisation/admin/sel/organisation/'+this.state.orgId, config)
             .then(response =>{
                 // console.log(response)
                 this.setState({orgS: response.data.object})
@@ -190,7 +190,7 @@ export class Org extends Component {
                         <CardContent>
                             <Typography color="textPrimary" gutterBottom>
                                 <div className="userShowBottom">
-                                    <span className="userShowTitle">Location</span>
+                                    <span className="userShowTitle">Status & Sector</span>
                                     <div className="userShowInfo">
                                         <LocationSearching className="userShowIcon" />
                                         <span className="userShowInfoTitle">{orgS.orgSector}</span>

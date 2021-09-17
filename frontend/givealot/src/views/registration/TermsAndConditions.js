@@ -2,33 +2,30 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import "../registration/Styles/SignUp.css"
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import Logo from "../login/Components/Logo"
-
-import backgroundImg from "../../assets/homeBackground.jpg";
-import Button from "@material-ui/core/Button";
-import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
-import PersonIcon from '@material-ui/icons/Person';
+import Logo from "../login/Components/TermsLogo"
 
 
 
-const styles = {
+/*const styles = {
     main: {
-
+        color:"#eff3f6"
     }
-}
+}*/
 
 function TermsAndConditions()
 {
     return (
         <div>
-            <div className="signup" style={styles.main}>
-                <div  id={"banner_filter"}>
+            <div className="Terms" >
+                <div  >
                     <Logo/>
                     <Link to={"/SignUp"}>
-                        <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
+                        <ArrowBackIcon style={{color: "black", marginLeft: "30px", fontSize: "xx-large"}}/>
                     </Link>
                     <div >
-
+                        <span className="LoginHeader">
+                           Terms of use
+                       </span>
 
                     </div>
                 </div>

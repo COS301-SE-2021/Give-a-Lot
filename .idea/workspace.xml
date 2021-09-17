@@ -5,71 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="finalizing frontend&#10;backend updates to add organisation">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/56/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/56/certificate/CertificateImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/56/gallery/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/57/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/57/certificate/CertificateImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/57/gallery/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/58/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/58/certificate/CertificateImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/58/gallery/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/59/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/59/certificate/CertificateImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/59/gallery/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/60/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/60/certificate/CertificateImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/60/gallery/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/61/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/61/certificate/CertificateImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/61/gallery/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/62/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/62/certificate/CertificateImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/62/gallery/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/63/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/63/certificate/CertificateImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/63/gallery/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/64/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/64/certificate/CertificateImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/64/gallery/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/65/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/65/certificate/CertificateImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/65/gallery/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/66/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/66/certificate/CertificateImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/66/gallery/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/67/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/67/certificate/CertificateImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/67/gallery/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/68/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/68/certificate/CertificateImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/68/gallery/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/69/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/69/certificate/CertificateImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/69/gallery/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/70/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/70/certificate/CertificateImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/70/gallery/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/71/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/71/certificate/CertificateImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/71/gallery/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/72/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/72/certificate/CertificateImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/72/gallery/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/73/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/73/certificate/CertificateImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/73/gallery/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/74/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/74/certificate/CertificateImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/74/gallery/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/75/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/75/certificate/CertificateImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/75/gallery/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/76/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/76/certificate/CertificateImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/76/gallery/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/fallback/QRCodeDefault.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/Dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Cards.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,9 +70,9 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.17" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.5418139" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -172,12 +113,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="generated-requests#53" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="53" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="generated-requests#54" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="54" runType="Run single request">
-      <method v="2" />
-    </configuration>
     <configuration name="generated-requests#56" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="56" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -185,6 +120,31 @@
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#61" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="61" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests#63" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="63" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="chat" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="givealot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Chatbot" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Chatbot/chat.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
     <configuration name="GivealotApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -196,11 +156,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests#63" />
+        <item itemvalue="Python.chat" />
         <item itemvalue="HTTP Request.generated-requests#61" />
         <item itemvalue="HTTP Request.generated-requests#59" />
         <item itemvalue="HTTP Request.generated-requests#56" />
-        <item itemvalue="HTTP Request.generated-requests#53" />
-        <item itemvalue="HTTP Request.generated-requests#54" />
       </list>
     </recent_temporary>
   </component>
@@ -227,14 +187,7 @@
       <workItem from="1631552726642" duration="58800000" />
       <workItem from="1631708108011" duration="27620000" />
       <workItem from="1631819750918" duration="3266000" />
-      <workItem from="1631823532933" duration="33878000" />
-    </task>
-    <task id="LOCAL-00047" summary="Last minute changes">
-      <created>1629745300440</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1629745300440</updated>
+      <workItem from="1631823532933" duration="41496000" />
     </task>
     <task id="LOCAL-00048" summary="Cleared temporary organisations">
       <created>1629883245240</created>
@@ -572,7 +525,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631882738879</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="finalizing frontend&#10;backend updates to add organisation">
+      <created>1631884114723</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1631884114723</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

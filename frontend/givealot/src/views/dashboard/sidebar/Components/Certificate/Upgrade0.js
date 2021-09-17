@@ -44,8 +44,8 @@ const initialState = {
     ngoNumberError:"",
     ngoDateError:"",
     logoError:"",
-    //serverDomain: 'https://3c73e752688968.localhost.run'
-    serverDomain : this.context,
+    serverDomain: 'https://localhost:8080'
+    //serverDomain : this.context,
 };
 
 

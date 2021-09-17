@@ -52,6 +52,7 @@ export class Level2 extends Component {
             orgInfoState:false,
             qrCode:"",
             qrCodeState:false,
+            serverDomain : this.context,
 
 
         };
@@ -83,7 +84,7 @@ export class Level2 extends Component {
         alert("take away submit button functionality");
 
         fetch(
-            'http://localhost:8080/v1/organisation/add/logo',
+            this.state.serverDomain + '/v1/organisation/add/logo',
             {
                 method: 'POST',
                 body: formData,
@@ -122,7 +123,7 @@ export class Level2 extends Component {
                 date: this.state.date,
             };
             Axios
-                .post("http://localhost:8080/v1/organisation/add/estdate", data)
+                .post(this.state.serverDomain + "/v1/organisation/add/estdate", data)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
@@ -133,7 +134,7 @@ export class Level2 extends Component {
                 orgInfo: this.state.orgInfo,
             };
             Axios
-                .post("http://localhost:8080/v1/organisation/add/donation/info", paypal)
+                .post(this.state.serverDomain + "/v1/organisation/add/donation/info", paypal)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
@@ -156,7 +157,7 @@ export class Level2 extends Component {
             }
         }
         console.log(this.props)
-        axios.get('http://localhost:8080/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config) //Change the API
+        axios.get(this.state.serverDomain + '/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config) //Change the API
             .then(response =>{
                 console.log(response)
                 this.setState({level2: response.data.response})

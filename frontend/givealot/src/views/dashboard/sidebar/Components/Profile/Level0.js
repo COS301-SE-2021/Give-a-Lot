@@ -35,9 +35,9 @@ const styles = theme => ({
 
 
 const initialState = {
-    level0:[],
+    level0:{},
     adminId:14,
-    orgId:localStorage.getItem("id"),
+    //orgId:localStorage.getItem("id"),
     startDate: new Date(),
     ngoNumber:"",
     ngoNumberState:false,
@@ -145,7 +145,7 @@ export class Level0 extends Component {
         }
     }
 
-    componentDidMount() {
+    /*componentDidMount() {
         let config = {
             headers: {
                 "Content-Type": "application/json",
@@ -170,6 +170,25 @@ export class Level0 extends Component {
                 this.setState({error : 'Error Retrieving data'})
             })
 
+
+    }*/
+    componentDidMount(){
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        console.log(this.props)
+        axios.get('http://localhost:8080/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config)
+            .then(response =>{
+                console.log(response)
+                this.setState({level0: response.data.response})
+            })
+            .catch(error =>{
+                console.log(error)
+                this.setState({error : 'Error Retrieving data'})
+            })
 
     }
 

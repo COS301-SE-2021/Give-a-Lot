@@ -64,7 +64,7 @@ class ResetPassword extends Component {
 
             const data = {
                 password : this.state.password,
-                userEmail: this.state.userEmail,
+                userEmail: this.state.userEmail.toLowerCase(),
 
 
             };

@@ -35,7 +35,7 @@ export class OrganisationsDash extends Component {
             getSector: [],
             adminId: 4,
             openSector: false,
-            serverDomain: "https://3c73e752688968.localhost.run"
+            serverDomain: "http://localhost:8080"
         }
     }
 
@@ -117,7 +117,7 @@ export class OrganisationsDash extends Component {
             "sector" : this.state.sector,
             "adminId" : this.state.adminId
         }
-        axios.post(this.state.serverDomain +  '/v1/organisation/add/sector', AddSector ,config)
+        axios.post(this.state.serverDomain + '/v1/organisation/add/sector', AddSector ,config)
             .then(response =>{
                 console.log(response)
                 this.setState({ openSector: true });

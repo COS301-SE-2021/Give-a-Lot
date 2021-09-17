@@ -14,7 +14,7 @@ export class Validate extends Component {
             valid:[],
             error: "",
             adminUserEmail:'admin@email.com',
-            serverDomain: "https://3c73e752688968.localhost.run"
+            serverDomain: "http://localhost:8080"
         }
     }
     componentDidMount(){

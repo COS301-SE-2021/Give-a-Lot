@@ -81,9 +81,9 @@ function Dashboard() {
                     <Route exact path="/calendar">
                         <Calendar />
                     </Route>
-                    <Route exact path="/profile">
-                        <Profile />
-                    </Route>
+                    {/*<Route exact path="/profile">*/}
+                    {/*    <Profile />*/}
+                    {/*</Route>*/}
                     <Route exact path="/certificate">
                         <Certificate />
                     </Route>

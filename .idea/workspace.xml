@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="organisation reports">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/Org.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/Org.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -162,21 +163,7 @@
       <workItem from="1631638493279" duration="8823000" />
       <workItem from="1631652568961" duration="2011000" />
       <workItem from="1631710952862" duration="3507000" />
-      <workItem from="1631869973238" duration="22928000" />
-    </task>
-    <task id="LOCAL-00062" summary="Last minute changes">
-      <created>1630774212131</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1630774212131</updated>
-    </task>
-    <task id="LOCAL-00063" summary="Last minute changes">
-      <created>1630775166475</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1630775166475</updated>
+      <workItem from="1631869973238" duration="24811000" />
     </task>
     <task id="LOCAL-00064" summary="Last minute changes">
       <created>1630785711516</created>
@@ -507,7 +494,21 @@
       <option name="project" value="LOCAL" />
       <updated>1631909823138</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="organisation reports">
+      <created>1631910545800</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1631910545800</updated>
+    </task>
+    <task id="LOCAL-00112" summary="organisation reports">
+      <created>1631910629160</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1631910629160</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

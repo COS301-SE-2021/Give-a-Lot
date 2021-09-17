@@ -23,7 +23,7 @@ export class Org extends Component {
             open: false,
             openInvestigate: false,
             openSuspend: false,
-            serverDomain: "https://localhost:8080"
+            serverDomain: 'https://localhost:8080'
         }
         // console.log(this.state.orgId)
         // let idUrl = window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
@@ -53,6 +53,7 @@ export class Org extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
+        console.log(this.state.orgId)
         axios.get(this.state.serverDomain + '/v1/organisation/admin/sel/organisation/'+this.state.orgId, config)
             .then(response =>{
                 // console.log(response)

@@ -71,12 +71,9 @@ class Password extends Component {
                         document.getElementById("waitInfo").style.display = "none";
                         this.props.history.push("/EmailSent");
 
-                    }else if (res.data.success === false)
-                    {
-
+                    }else {
                         document.getElementById("badLogin").style.display = "flex";
-
-
+                        document.getElementById("waitInfo").style.display = "none";
                     }
 
 

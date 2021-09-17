@@ -125,14 +125,10 @@ class EmailSent extends Component {
                         document.getElementById("waitInfo").style.display = "none";
                         this.props.history.push("/ResetPassword");
 
-                    }else if (res.data.success === false)
-                    {
-
+                    }else {
                         document.getElementById("badLogin").style.display = "flex";
-
-
+                        document.getElementById("waitInfo").style.display = "none";
                     }
-
 
                 })
                 .catch(err =>{

@@ -78,12 +78,9 @@ class ResetPassword extends Component {
                         this.props.history.push("/ResetSuccess");
                         document.getElementById("waitInfo").style.display = "none";
 
-                    } else if (res.data.success === false) {
+                    } else {
                         document.getElementById("badLogin").style.display = "flex";
-
-
-
-
+                        document.getElementById("waitInfo").style.display = "none";
                     }
                 })
                 .catch(err => {

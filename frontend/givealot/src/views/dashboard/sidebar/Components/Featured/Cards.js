@@ -8,9 +8,10 @@ import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 import ReportIcon from '@material-ui/icons/Report';
 import NotificationsOutlinedIcon from '@material-ui/icons/NotificationsOutlined';
 import axios from "axios";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 
 export class Cards extends Component {
-
+    static contextType = ApiContext;
     constructor(props) {
         super(props)
 
@@ -21,8 +22,8 @@ export class Cards extends Component {
             adminUserEmail:'admin@email.com',
             orgId: 32,
             reports: [],
-            adminId: 14,
-            serverDomain: "https://3c73e752688968.localhost.run"
+            adminId: 4,
+            serverDomain: this.context
         }
     }
 

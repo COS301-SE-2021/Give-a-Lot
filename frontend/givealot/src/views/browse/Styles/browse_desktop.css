@@ -421,7 +421,7 @@
   height: 100vh;
   position: absolute;
   z-index: 1;
-  width: 80vw;
+  width: 100vw;
   top: 0;
   overflow-y: scroll;
 }

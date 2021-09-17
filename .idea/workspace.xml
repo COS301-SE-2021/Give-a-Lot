@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="admin dashboard and organisation serverDomain routes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/Org.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/Org.js" afterDir="false" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="organisation reports">
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Sidebar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,21 +162,7 @@
       <workItem from="1631638493279" duration="8823000" />
       <workItem from="1631652568961" duration="2011000" />
       <workItem from="1631710952862" duration="3507000" />
-      <workItem from="1631869973238" duration="18506000" />
-    </task>
-    <task id="LOCAL-00057" summary="Last minute changes">
-      <created>1630714022262</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1630714022262</updated>
-    </task>
-    <task id="LOCAL-00058" summary="Last minute changes">
-      <created>1630716192825</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1630716192825</updated>
+      <workItem from="1631869973238" duration="18834000" />
     </task>
     <task id="LOCAL-00059" summary="Last minute changes">
       <created>1630719501914</created>
@@ -508,7 +493,21 @@
       <option name="project" value="LOCAL" />
       <updated>1631904902058</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="organisation reports">
+      <created>1631905554590</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1631905554590</updated>
+    </task>
+    <task id="LOCAL-00107" summary="organisation reports">
+      <created>1631905577462</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1631905577462</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,7 +526,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added files" />
     <MESSAGE value="Added additional verify implementation" />
     <MESSAGE value="Last minute changes" />
     <MESSAGE value="Org Name update fix" />
@@ -552,7 +550,8 @@
     <MESSAGE value="conditional rendering side bar" />
     <MESSAGE value="admin dashboard serverDomain routes" />
     <MESSAGE value="admin dashboard and organisation serverDomain routes" />
-    <option name="LAST_COMMIT_MESSAGE" value="admin dashboard and organisation serverDomain routes" />
+    <MESSAGE value="organisation reports" />
+    <option name="LAST_COMMIT_MESSAGE" value="organisation reports" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

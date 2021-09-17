@@ -1,3 +1,24 @@
+POST http://localhost:8080/report/get/all
+Content-Type: application/json
+
+{
+ "orgId" : 75
+}
+
+<> 2021-09-17T220811.200.json
+
+###
+
+POST http://localhost:8080/report/get/all
+
+{
+ "orgId" : 75
+}
+
+<> 2021-09-17T220753.415.json
+
+###
+
 GET http://localhost:8080/v1/organisation/admin/sel/organisation/71
 
 <> 2021-09-17T212037.200.json
@@ -548,37 +569,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-07T131718.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "Ratchet and Clank",
-  "slogan" : "bla bla doing alien stuff",
-  "orgDescription" : "bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuffbla bla doing alien stuff",
-  "orgSector" : "entertainment",
-  "orgEmail" : "ratchet@clank.naughtydog.com",
-  "contactPerson" : "Steven Dog",
-  "contactNumber" : "0112345678",
-  "password" : "revised title 2"
-}
-
-<> 2021-09-07T125819.200.json
-
-###
-
-POST http://localhost:8080/event/calender/edit/title
-Content-Type: application/json
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : 1,
-  "newTitle" : "revised title 2"
-}
-
-<> 2021-09-06T000213.200.json
 
 ###
 

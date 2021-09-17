@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="dedicated organisaiton select for admin users" />
+    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="dedicated organisaiton select for admin users">
+      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/chatbot/Chatbot.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/chatbot/Styles/Chatbot.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_desktop.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_desktop.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/home/Home.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -106,9 +116,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="generated-requests#56" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="56" runType="Run single request">
-      <method v="2" />
-    </configuration>
     <configuration name="generated-requests#59" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="59" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -116,6 +123,9 @@
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#63" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="63" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests#64" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="64" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="chat" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -149,11 +159,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests#64" />
         <item itemvalue="HTTP Request.generated-requests#63" />
         <item itemvalue="Python.chat" />
         <item itemvalue="HTTP Request.generated-requests#61" />
         <item itemvalue="HTTP Request.generated-requests#59" />
-        <item itemvalue="HTTP Request.generated-requests#56" />
       </list>
     </recent_temporary>
   </component>
@@ -180,14 +190,7 @@
       <workItem from="1631552726642" duration="58800000" />
       <workItem from="1631708108011" duration="27620000" />
       <workItem from="1631819750918" duration="3266000" />
-      <workItem from="1631823532933" duration="41824000" />
-    </task>
-    <task id="LOCAL-00049" summary="Cleared temporary organisations">
-      <created>1629883358168</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1629883358168</updated>
+      <workItem from="1631823532933" duration="54640000" />
     </task>
     <task id="LOCAL-00050" summary="Cleared temporary organisations">
       <created>1629883639695</created>
@@ -525,7 +528,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631906528650</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="dedicated organisaiton select for admin users">
+      <created>1631906781397</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1631906781397</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

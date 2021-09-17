@@ -11,6 +11,7 @@ import logo from "../../assets/logo/logo3_1.png";
 
 import home_desktop from './Styles/home_desktop.css'
 import {Box} from "@material-ui/core";
+import Chatbot from "../chatbot/Chatbot";
 
 
 const styles = {
@@ -18,7 +19,6 @@ const styles = {
         backgroundImage: `url(${backgroundImg})`
     }
 }
-
 
 /* 
     Note to self: Remember to use Context to update login status
@@ -49,11 +49,10 @@ function Home()
         }
         ,[])
 
-
-
     return (
         <Box id="banner" style={styles.main}>
             <Box id="banner_filter">
+                <Chatbot/>
                 <Box id="homeNav">
                     <img id="logo" src={logo} alt={"logo"}/>
                     {

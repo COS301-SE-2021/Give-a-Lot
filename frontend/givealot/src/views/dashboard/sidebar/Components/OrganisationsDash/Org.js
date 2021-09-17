@@ -53,7 +53,6 @@ export class Org extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-
         axios.get(this.state.serverDomain + '/v1/organisation/admin/sel/organisation/'+this.state.orgId, config)
             .then(response =>{
                 console.log(response)

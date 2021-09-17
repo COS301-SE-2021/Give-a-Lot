@@ -38,7 +38,7 @@ export class Profile extends Component {
             persons:{},
             level: 5,
             orgId:localStorage.getItem("id"),
-            //orgId: 60,
+            //orgId: 75,
             orgEmail:"",
             orgName1:"",
             orgNameState:false,
@@ -68,10 +68,10 @@ export class Profile extends Component {
             }
         }
         console.log(this.props)
-        axios.get(this.state.serverDomain + '/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config)
+        axios.get(this.state.serverDomain + '/v1/organisation/admin/sel/organisation/'+this.state.orgId, config)
             .then(response =>{
                 console.log(response)
-                this.setState({persons: response.data.response})
+                this.setState({persons: response.data.object})
             })
             .catch(error =>{
                 console.log(error)
@@ -79,12 +79,12 @@ export class Profile extends Component {
             })
 
         const dataa = {
-            "orgId" : this.state.orgId
+            "orgid" : this.state.orgId
         }
 
         axios.post(this.state.serverDomain + '/v1/organisation/get/org_level', dataa  ,config)
             .then(response =>{
-                //this.setState({level: response.data.level})
+                this.setState({level: response.data.level})
                 console.log(response)
 
             })
@@ -375,7 +375,7 @@ export class Profile extends Component {
                                     <span className="userShowTitle">Contact Details</span>
 
                                     <div className="userShowInfo">
-                                        <PhoneAndroid className="userShowIcon" />
+                                        <PermIdentity className="userShowIcon" />
                                         <span className="userShowInfoTitle">{persons.contactPerson}</span>
                                     </div>
                                     <div className="userShowInfo">

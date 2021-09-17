@@ -22,9 +22,9 @@ export class Cards extends Component {
             Organisations: '',
             notifications: '',
             adminUserEmail:"admin@email.com",
-            orgId: 32,
+            orgId: 75,
             reports: [],
-            adminId: 4,
+            adminId: localStorage.getItem('id'),
             serverDomain : 'http://localhost:8080',
         }
     }
@@ -74,7 +74,7 @@ export class Cards extends Component {
             }
             axios.post(this.state.serverDomain + '/v1/user/get/num_user', adminUsersRequestBody, config)
                 .then(response => {
-                    console.log(response)
+                    // console.log(response)
                     this.setState({Users: response.data.response})
                     // console.log(this.state.Users)
 
@@ -99,7 +99,7 @@ export class Cards extends Component {
             }
             axios.post(this.state.serverDomain+'/v1/organisation/get/organisations',adminUsersRequestBodyOrg , config)
                 .then(response =>{
-                    console.log(response)
+                    // console.log(response)
                     this.setState({ Organisations: response.data.response })
 
                 })

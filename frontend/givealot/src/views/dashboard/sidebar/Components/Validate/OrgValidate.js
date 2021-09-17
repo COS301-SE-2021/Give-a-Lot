@@ -24,7 +24,7 @@ export class OrgValidate extends Component {
             openNgoImage: false,
             openNgoImageDeny: false,
             orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1],
-            serverDomain: "https://3c73e752688968.localhost.run"
+            serverDomain: "https://localhost:8080"
         }
     }
     handleClose = () => {
@@ -81,7 +81,7 @@ export class OrgValidate extends Component {
 
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/ngo_date/false', config)
             .then(response =>{
-                console.log(response)
+                // console.log(response)
             })
             .catch(error =>{
                 console.log(error)
@@ -100,7 +100,7 @@ export class OrgValidate extends Component {
 
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/ngo_number/true', config)
             .then(response =>{
-                console.log(response)
+                // console.log(response)
             })
             .catch(error =>{
                 console.log(error)
@@ -119,7 +119,7 @@ export class OrgValidate extends Component {
 
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/ngo_number/false', config)
             .then(response =>{
-                console.log(response)
+                // console.log(response)
             })
             .catch(error =>{
                 console.log(error)

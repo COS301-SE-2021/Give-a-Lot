@@ -21,12 +21,12 @@ export default class Demo extends React.PureComponent {
         this.state = {
             data: [],
             currentDate: new Date().toDateString(),
-            email: 'coolmail@gmail.com',
+            email: 'basic@gmail.com',
             eventAdded: false,
             addedAppointment: {},
             appointmentChanges: {},
             editingAppointment: undefined,
-            serverDomain : 'https://3c73e752688968.localhost.run'
+            serverDomain : 'https://localhost:8080'
         };
 
         this.commitChanges = this.commitChanges.bind(this);

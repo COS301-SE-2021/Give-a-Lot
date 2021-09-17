@@ -38,7 +38,7 @@ export class Featured extends Component {
         }
         axios.post(this.state.serverDomain + '/v1/user/get/num_users/per_month', UserPerMonth, config)
             .then(response =>{
-                console.log(response)
+                // console.log(response)
                 this.setState({ userData:[
                         {
                             name: "jan",
@@ -114,7 +114,7 @@ export class Featured extends Component {
         }
         axios.post(this.state.serverDomain + '/v1/organisation/get/num_organisations/per_month', OrgPerMonth, config)
             .then(response =>{
-                console.log(response)
+                // console.log(response)
                 this.setState({ OrgData:[
                         {
                             name: "jan",

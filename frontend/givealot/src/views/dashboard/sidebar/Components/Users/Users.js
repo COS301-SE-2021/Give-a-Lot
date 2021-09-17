@@ -56,7 +56,7 @@ export class Users extends Component {
 
         axios.post(this.state.serverDomain + '/v1/user/get/users', users ,config)
             .then(response =>{
-                console.log(response)
+                // console.log(response)
                 this.setState({users: response.data.response})
                 // console.log(this.state.users)
             })
@@ -70,7 +70,7 @@ export class Users extends Component {
         return(
             <div className="OrganisationsDash">
                 <div className="userTitle">
-                    All Basic Users on Give Alot
+                    All Basic Users on Givealot
                 </div>
                 <div className="table">
                     <Grid container spacing={3}>

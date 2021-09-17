@@ -32,7 +32,7 @@ export class Validate extends Component {
         axios.post(this.state.serverDomain + '/v1/notifications/get/notifications', adminUsersRequestBody  ,config)
             .then(response =>{
                 this.setState({valid: response.data.response})
-                console.log(response)
+                // console.log(response)
             })
             .catch(error =>{
                 console.log(error)

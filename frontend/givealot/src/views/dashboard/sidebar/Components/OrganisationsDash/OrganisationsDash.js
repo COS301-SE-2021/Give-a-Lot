@@ -33,7 +33,7 @@ export class OrganisationsDash extends Component {
             open: false,
             openAdd: false,
             getSector: [],
-            adminId: 4,
+            adminId: localStorage.getItem('id'),
             openSector: false,
             serverDomain: "http://localhost:8080"
         }

@@ -14,7 +14,6 @@ import {
     ConfirmationDialog,
 } from '@devexpress/dx-react-scheduler-material-ui';
 import axios from "axios";
-import Container from "@material-ui/core/Container";
 
 export default class Demo extends React.PureComponent {
     constructor(props) {
@@ -285,7 +284,6 @@ export default class Demo extends React.PureComponent {
 
         return (
             <div className="calendar">
-                {/*<Container>*/}
                     <Paper>
                         <Scheduler
                             data={data}
@@ -316,8 +314,6 @@ export default class Demo extends React.PureComponent {
                             <AppointmentForm />
                         </Scheduler>
                     </Paper>
-                {/*</Container>*/}
-
             </div>
 
         );

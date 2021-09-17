@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="timeline component">
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Few changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/Dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,20 +152,7 @@
       <workItem from="1631563613750" duration="10845000" />
       <workItem from="1631638493279" duration="8823000" />
       <workItem from="1631652568961" duration="2011000" />
-    </task>
-    <task id="LOCAL-00049" summary="Cleared temporary organisations">
-      <created>1629883358168</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1629883358168</updated>
-    </task>
-    <task id="LOCAL-00050" summary="Cleared temporary organisations">
-      <created>1629883639695</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1629883639696</updated>
+      <workItem from="1631710952862" duration="3507000" />
     </task>
     <task id="LOCAL-00051" summary="Cleared temporary organisations">
       <created>1629884557800</created>
@@ -496,7 +483,21 @@
       <option name="project" value="LOCAL" />
       <updated>1631654227742</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="timeline component">
+      <created>1631711177626</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1631711177626</updated>
+    </task>
+    <task id="LOCAL-00099" summary="Few changes">
+      <created>1631711277093</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1631711277093</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +516,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="organisations controller revision - add Organisation" />
     <MESSAGE value="organisations controller revision" />
     <MESSAGE value="Fixing organisation points" />
     <MESSAGE value="Cleared temporary organisations" />
@@ -540,7 +540,8 @@
     <MESSAGE value="User console errors fixed" />
     <MESSAGE value="calendar clean up" />
     <MESSAGE value="timeline component" />
-    <option name="LAST_COMMIT_MESSAGE" value="timeline component" />
+    <MESSAGE value="Few changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Few changes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -52,7 +52,7 @@ export default function Organisation(props)
             </p>
             {/*<p className="sector_organisation_other">{props.dateAdded}</p>*/}
             <Tooltip title="certificate level"  aria-label="add">
-                <p className="recommended-meta-data-lvl">5 {props.certificate_level}</p>
+                <p className="recommended-meta-data-lvl">{props.certificate_level}</p>
             </Tooltip>
         </Box>
     </Box>

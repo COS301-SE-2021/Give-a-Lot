@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import { Link } from "react-router-dom";
+import React, {useState,useContext} from 'react';
+import {Link, useHistory} from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 import backgroundImg from "../../assets/homeBackground.jpg";
@@ -8,6 +8,7 @@ import axios from "axios"
 import "../login/Styles/Login.css";
 import {Alert} from "@material-ui/lab";
 
+import {ApiContext} from "../../apiContext/ApiContext";
 
 const styles = {
     main: {
@@ -15,172 +16,163 @@ const styles = {
     }
 }
 
-const initialState = {
-    email: "",
-    password: "",
-    emailError: "",
-    passwordError: "",
-};
+function Login ()
+{
+    let history = useHistory();
+    const [email_error_message,set_email_error_message] = useState("");
+    const [password_error_message,set_password_error_message] = useState("");
+    const [serverDomain, setServerDomain] = useState(useContext(ApiContext));
 
-class Login extends Component {
-
-    state = initialState;
-
-    handleChange = event => {
-        const isCheckbox = event.target.type === "checkbox";
-        this.setState({
-            [event.target.name]: isCheckbox
-                ? event.target.checked
-                : event.target.value
-        });
-    };
-
-    validate = () => {
-        let emailError = "";
-        let passwordError = "";
-
-
-        if (!this.state.email.includes("@")) {
-            emailError = "invalid email";
-        }
-
-
-        if(!this.state.password.length ) {
-            passwordError="Password is required";
-        }
-
-        if ( emailError || passwordError) {
-            this.setState({ emailError, passwordError });
-            return false;
-        }
-
-        return true;
-    };
-
-
-    handleSubmit = event => {
+    const validate_email_address = event =>
+    {
         event.preventDefault();
-        const isValid = this.validate();
-        if (isValid) {
+    }
 
+    const determine_current_user_login = event =>
+    {
+        event.preventDefault();
+        localStorage.clear();
+        let login_user_email = document.getElementById("login_user_email").value.toString();
+        let login_user_password = document.getElementById("login_user_password").value.toString();
+
+        if(!login_user_email.includes("@") || login_user_email.length === 0)
+        {
+            set_email_error_message("email is required")
+        }
+
+        if(login_user_password.length === 0)
+        {
+            set_password_error_message("password is required")
+        }
+        else
+        {
             const data = {
-                "username" : this.state.email,
-                "password" : this.state.password,
+                "username" : login_user_email,
+                "password" : login_user_password,
                 "role" : ""
             }
-            localStorage.clear();
+
             document.getElementById("waitInfo").style.display = "flex";
             document.getElementById("badLogin").style.display = "none";
-            axios.post('http://localhost:8080/v1/login/user/determine', data )
-                .then(response =>{
-                    const loggedUser={
-                        "id":response.data.id,
-                        "email":response.data.username,
-                        "role":response.data.jwttoken
-                    }
+            document.getElementById("serverError").style.display = "none";
 
-                    localStorage.setItem( "id" ,response.data.id);
-                    localStorage.setItem( "role" ,response.data.jwttoken)
+            axios.post(serverDomain + '/v1/login/user/determine', data)
+            .then(response =>
+            {
+                localStorage.setItem( "id" ,response.data.id);
+                localStorage.setItem( "role" ,response.data.jwttoken)
 
-                    if (response.data.jwttoken === "general")
-                    {
-                        document.getElementById("waitInfo").style.display = "none";
-                        this.props.history.push("/");
-
-                    }else if (response.data.jwttoken === "admin")
-                    {
-                        document.getElementById("waitInfo").style.display = "none";
-                        this.props.history.push("/dashboard/");
-                    }
-                    else if (response.data.jwttoken === "organisation"){
-                        document.getElementById("waitInfo").style.display = "none";
-                        this.props.history.push("/dashboard/");
-                    }
-                })
-                .catch(error =>{
-                    document.getElementById("badLogin").style.display = "flex";
+                if(response.data.jwttoken === "general")
+                {
                     document.getElementById("waitInfo").style.display = "none";
-                })
+                    history.push("/");
+
+                }else if (response.data.jwttoken === "admin")
+                {
+                    document.getElementById("waitInfo").style.display = "none";
+                    history.push("/dashboard/");
+                }
+                else if (response.data.jwttoken === "organisation"){
+                    document.getElementById("waitInfo").style.display = "none";
+                    history.push("/dashboard/");
+                }
+            })
+            .catch(error =>{
+                if(error.response)
+                {
+                    if(error.response.data.message.includes("organisation not found"))
+                    {
+                        document.getElementById("badLogin").style.display = "flex";
+                        document.getElementById("waitInfo").style.display = "none";
+                    }
+                    else
+                    {
+                        document.getElementById("serverError").style.display = "flex";
+                        document.getElementById("waitInfo").style.display = "none";
+                    }
+                }
+                else
+                {
+                    document.getElementById("serverError").style.display = "flex";
+                    document.getElementById("waitInfo").style.display = "none";
+                }
+            })
         }
     };
 
-    render()
-    {
-        return (
-            <div>
+    return (
+        <div>
+            <div className="Login" style={styles.main}>
+                <div  id={"banner_filter"}>
+                    <Logo/>
+                    <Link to={"/"}>
+                        <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
+                    </Link>
+                    <div className="LoginCard">
+                        <Alert severity="error" id={"badLogin"}>incorrect username or password!</Alert>
+                        <Alert severity="error" id={"serverError"}>server error...</Alert>
+                        <Alert severity="info" id={"waitInfo"}>signing in...</Alert>
+                        <div className="wrapper">
+                            <form className="LoginForm" onSubmit={determine_current_user_login}>
+                               <span className="LoginHeader">
+                                   Sign in
+                               </span>
 
-                <div className="Login" style={styles.main}>
-                    <div  id={"banner_filter"}>
-                        <Logo/>
-                        <Link to={"/"}>
-                            <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
-                        </Link>
-                        <div className="LoginCard">
-                            <Alert severity="error" id={"badLogin"}>incorrect username or password!</Alert>
-                            <Alert severity="info" id={"waitInfo"}>signing in...</Alert>
-                            <div className="wrapper">
-                                <form className="LoginForm" onSubmit={this.handleSubmit}>
-                       <span className="LoginHeader">
-                           Sign in
-                       </span>
-                                    <div className="LoginInput" data-validate="Username is required">
-                                <span className="LoginInputLabel">
-                                    Email
-                                </span>
-                                        <div>
-                                            <input
-                                                className="innerInput validate"
-                                                type="email"
-                                                name="email"
-                                                placeholder="Enter your email"
-                                                onChange={this.handleChange}
-                                            />
+                                <div className="LoginInput" data-validate="Username is required">
+                                    <span className="LoginInputLabel">
+                                        Email
+                                    </span>
 
-                                        </div>
-                                        <span className="loginError">{this.state.emailError}</span>
+                                    <div>
+                                        <input
+                                            id="login_user_email"
+                                            className="innerInput validate"
+                                            type="email"
+                                            name="email"
+                                            placeholder="Enter your email"
+                                            onChange={validate_email_address}
+                                        />
                                     </div>
-
-                                    <div className="LoginInput" data-validate="Username is required">
-                                <span className="LoginInputLabel">
-                                    Password
-                                </span>
-                                        <div>
-                                            <input
-                                                className="innerInput validate"
-                                                type="password"
-                                                name="password"
-                                                placeholder="Enter your password"
-                                                onChange={this.handleChange}
-                                            />
-
-                                        </div>
-                                        <span className="loginError">{this.state.passwordError}</span>
+                                    <span className="loginError">{email_error_message}</span>
+                                </div>
+                                <div className="LoginInput" data-validate="Username is required">
+                                    <span className="LoginInputLabel">
+                                        Password
+                                    </span>
+                                    <div>
+                                        <input
+                                            id={"login_user_password"}
+                                            className="innerInput validate"
+                                            type="password"
+                                            name="password"
+                                            placeholder="Enter your password"
+                                        />
                                     </div>
+                                    <span className="loginError">{password_error_message}</span>
+                                </div>
 
-                                    <div className="wrapper-btn">
+                                <div className="wrapper-btn">
+                                    <button className="Login-btn" id={"loginBTN_less_rounded"} type="submit">
+                                        Login
+                                    </button>
+                                </div>
 
-                                        <button className="Login-btn" id={"loginBTN_less_rounded"} type="submit">
-                                            Login
-                                        </button>
-                                    </div>
+                                <div className="BottomForm">
+                                    <Link to={"/signUp"} className="BottomLinker">
+                                        <span> Need an account?</span>
+                                    </Link>
 
-                                    <div className="BottomForm">
-                                        <Link to={"/signUp"} className="BottomLinker">
-                                            <span> Need an account?</span>
-                                        </Link>
-
-                                        <Link to={"/Password"} className="BottomLinker">
-                                            <span> Forgot password?</span>
-                                        </Link>
-                                    </div>
-                                </form>
-                            </div>
+                                    <Link to={"/Password"} className="BottomLinker">
+                                        <span> Forgot password?</span>
+                                    </Link>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default Login;

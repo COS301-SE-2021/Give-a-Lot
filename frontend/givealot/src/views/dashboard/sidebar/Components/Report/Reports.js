@@ -15,6 +15,7 @@ export class Reports extends Component {
             //orgId:localStorage.getItem("id"),
             orgId: 60,
             error: "",
+            serverDomain: "https://3c73e752688968.localhost.run"
         }
     }
     componentDidMount(){
@@ -28,7 +29,7 @@ export class Reports extends Component {
             "orgId" : this.state.orgId
         }
 
-        axios.post('http://localhost:8080/report/get/all', dataa  ,config)
+        axios.post(this.serverDomain + '/report/get/all', dataa  ,config)
             .then(response =>{
                 this.setState({reports: response.data.object})
                 console.log(response)

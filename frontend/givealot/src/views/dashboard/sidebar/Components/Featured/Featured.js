@@ -15,7 +15,8 @@ export class Featured extends Component {
             OrganisationsPerMonth: '',
             userData: [],
             adminUserEmail: "admin@email.com",
-            OrgData: []
+            OrgData: [],
+            serverDomain: "https://3c73e752688968.localhost.run"
         }
     }
 
@@ -35,7 +36,7 @@ export class Featured extends Component {
             // "orgId" : this.state.orgId
             "adminUserEmail":this.state.adminUserEmail
         }
-        axios.post('http://localhost:8080/v1/user/get/num_users/per_month', UserPerMonth, config)
+        axios.post(this.state.serverDomain + '/v1/user/get/num_users/per_month', UserPerMonth, config)
             .then(response =>{
                 console.log(response)
                 this.setState({ userData:[
@@ -111,7 +112,7 @@ export class Featured extends Component {
             // "orgId" : this.state.orgId
             "adminUserEmail":this.state.adminUserEmail
         }
-        axios.post('http://localhost:8080/v1/organisation/get/num_organisations/per_month', OrgPerMonth, config)
+        axios.post(this.state.serverDomain + '/v1/organisation/get/num_organisations/per_month', OrgPerMonth, config)
             .then(response =>{
                 console.log(response)
                 this.setState({ OrgData:[

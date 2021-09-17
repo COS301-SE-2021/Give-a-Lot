@@ -4,8 +4,11 @@ import "../Styles/registerOrganisation.css"
 import backgroundImg from "../../../../assets/homeBackground.jpg";
 import Logo from "../../../login/Components/Logo";
 import axios from 'axios'
+import {ApiContext} from "../../../../apiContext/ApiContext";
 
 export class RegisterOrganisation extends Component {
+
+    static contextType = ApiContext;
     constructor() {
         super();
         this.state = {
@@ -13,7 +16,8 @@ export class RegisterOrganisation extends Component {
             selectOptions : [],
             id: "",
             name: '',
-            temp: []
+            temp: [],
+            serverDomain: this.context
         };
     }
 
@@ -59,6 +63,7 @@ export class RegisterOrganisation extends Component {
         // }
         // console.log(optionsTemp);
         const { values, handleChange, nextStep } = this.props;
+
         return (
             <div className="registerOrganisation" style={this.styles.main}>
                 <div  id={"banner_filter"}>
@@ -129,12 +134,9 @@ export class RegisterOrganisation extends Component {
                                         next
                                     </button>
                                 </div>
-
                             </div>
                         </form>
-
                     </div>
-
                 </div>
                 </div>
             </div>

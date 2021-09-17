@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import "./Styles/RegisterUser.css";
 import backgroundImg from "../../../assets/homeBackground.jpg";
 import Logo from "../../login/Components/Logo";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import axios from "axios";
+import {Alert} from "@material-ui/lab";
 
-
+import {ApiContext} from "../../../apiContext/ApiContext";
 
 
 const styles = {
@@ -15,20 +16,23 @@ const styles = {
     }
 }
 
-const initialState = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    fnameError: "",
-    lnameError: "",
-    emailError: "",
-    passwordError: "",
-};
+
 
 class RegisterUser extends Component {
 
-    state = initialState;
+    static contextType = ApiContext;
+
+    state = {
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        fnameError: "",
+        lnameError: "",
+        emailError: "",
+        passwordError: "",
+        serverDomain : this.context
+    };
 
     handleChange = event => {
         const isCheckbox = event.target.type === "checkbox";
@@ -57,7 +61,7 @@ class RegisterUser extends Component {
         }
 
         if(this.state.password.length <8) {
-           passwordError="Password must be greater than 8";
+            passwordError="passwords must be 8 characters long and above";
         }
 
         if (emailError || fnameError|| lnameError || passwordError) {
@@ -65,153 +69,175 @@ class RegisterUser extends Component {
             return false;
         }
 
-
-
         return true;
     };
 
-    Success=()=>{
-        const isValid = this.validate();
-        if (isValid) {
-            window.location.assign("/UserSuccess");
-        }
-    }
-
-
     handleSubmit = event => {
         event.preventDefault();
+
+
         const isValid = this.validate();
-        if (isValid) {
-            console.log(this.state);
-            // clear form
-            //this.setState(initialState);
+
+        if (isValid)
+        {
+
+
             const data = {
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
                 email: this.state.email,
                 password: this.state.password,
             };
-            axios.post("http://localhost:8080/v1/user/register/user", data)
-                .then(res =>
-                    localStorage.setItem( "new_user" ,"true")
-                )
-                .catch(err => console.error("error occurred during login"));
 
+            document.getElementById("emailError").style.display = "none";
+            document.getElementById("registrationInfoPrompt").style.display = "none";
+            document.getElementById("registrationInfoPromptWait").style.display = "flex";
+            axios.post(this.state.serverDomain + '/v1/user/register/user', data)
+                .then(response =>
+                {
+                    if(response)
+                    {
+                        if(response.data.message.includes("success"))
+                        {
+                            document.getElementById("registrationInfoPromptWait").style.display = "none";
+                            document.getElementById("registrationInfoPrompt").style.display = "flex";
+                            setTimeout(function(){
+                                window.location.assign("/login");
+                            }, 3000);
+                        }
+                        else
+                        {
+                            alert(response.data.message);
+                        }
+                    }
+                })
+                .catch(error =>{
+                    if(error.response)
+                    {
+                        console.log(error.response)
+                        if(error.response.data.message.includes("the_email_already_been_taken"))
+                        {
+                            document.getElementById("registrationInfoPromptWait").style.display = "none";
+                            document.getElementById("registrationInfoPrompt").style.display = "none";
+                            document.getElementById("emailError").style.display = "flex";
+                        }
+                        else
+                        {
 
+                        }
+                    }
+                    else
+                    {
+                        console.error(error)
+                    }
+                })
         }
     };
 
-render() {
-    return (
-        <div>
-            <div className="registerUser" style={styles.main}>
-                <div  id={"banner_filter"}>
-                    <Logo/>
-                    <Link to={"/signUp"}>
-                        <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
-                    </Link>
-                    <div className="registerUserCard">
-                        <div className="wrapp">
-                            <form className="registerUserForm" onSubmit={this.handleSubmit}>
+    render() {
+        return (
+            <div>
+                <div className="registerUser" style={styles.main}>
+                    <div  id={"banner_filter"}>
+                        <Logo/>
+                        <Link to={"/signUp"}>
+                            <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
+                        </Link>
+                        <div className="registerUserCard">
+                            <Alert severity="error" id={"emailError"}>the provided email is already taken...</Alert>
+                            <Alert severity="success" id={"registrationInfoPrompt"}>registration complete - please wait for redirection</Alert>
+                            <Alert severity="info" id={"registrationInfoPromptWait"}>please wait...</Alert>
+                            {/*
+                        <Alert severity="error" id={"PasswordError"}>your password must be at least 8 characters long!</Alert>
+*/}
+                            <div className="wrapp">
+                                <form className="registerUserForm" onSubmit={this.handleSubmit}>
                                <span className="registerUserHeader">
                                    Sign Up
                                </span>
 
-                                <div className="names">
-                                    <div className="registerUserInput1" data-validate="Username is required">
+                                    <div className="names">
+                                        <div className="registerUserInput1" data-validate="Username is required">
                                         <span className="registerUserInputLabel">
                                             First Name
                                         </span>
-                                        <div>
-                                            <input
-                                                className="nameFields validate"
-                                                type="text"
-                                                name="firstName"
-                                                placeholder="Enter your first name"
-                                                onChange={this.handleChange}
-                                            />
+                                            <div>
+                                                <input
+                                                    className="nameFields validate"
+                                                    type="text"
+                                                    name="firstName"
+                                                    placeholder="Enter your first name"
+                                                    onChange={this.handleChange}
+                                                />
+                                            </div>
+                                            <span className="error">{this.state.fnameError}</span>
                                         </div>
-                                        <span className="error">{this.state.fnameError}</span>
-                                    </div>
 
-                                    <div className="registerUserInput1" data-validate="Username is required">
+                                        <div className="registerUserInput1" data-validate="Username is required">
                                     <span className="registerUserInputLabel">
                                         Last Name
                                     </span>
-                                        <div>
-                                            <input
-                                                className="nameFields validate"
-                                                type="text"
-                                                name="lastName"
-                                                placeholder="Enter your last name"
-                                                onChange={this.handleChange}
-                                            />
+                                            <div>
+                                                <input
+                                                    className="nameFields validate"
+                                                    type="text"
+                                                    name="lastName"
+                                                    placeholder="Enter your last name"
+                                                    onChange={this.handleChange}
+                                                />
+                                            </div>
+                                            <span className="error">{this.state.lnameError}</span>
                                         </div>
-                                        <span className="error">{this.state.lnameError}</span>
+
                                     </div>
 
-                                </div>
-
-                                <div className="registerUserInput" data-validate="surname is required">
+                                    <div className="registerUserInput" data-validate="surname is required">
                                     <span className="registerUserInputLabel">
                                         Email
                                     </span>
-                                    <div>
-                                        <input
-                                            className="registerUserInnerInput validate"
-                                            type="email"
-                                            name="email"
-                                            placeholder="Enter your Email"
-                                           // value={this.state.email}
-                                            onChange={this.handleChange}/>
+                                        <div>
+                                            <input
+                                                className="registerUserInnerInput validate"
+                                                type="email"
+                                                name="email"
+                                                placeholder="Enter your Email"
+                                                // value={this.state.email}
+                                                onChange={this.handleChange}/>
 
+                                        </div>
+                                        <span className="error">{this.state.emailError}</span>
                                     </div>
-                                    <span className="error">{this.state.emailError}</span>
-                                </div>
 
 
-                                <div className="registerUserInput" data-validate="Username is required">
+                                    <div className="registerUserInput" data-validate="Username is required">
                                     <span className="registerUserInputLabel">
                                         Password
                                     </span>
-                                    <div>
-                                    <input
-                                        className="registerUserInnerInput validate"
-                                        type="password"
-                                        name="password"
-                                        minLength="8"
-                                        maxLength="15"
-                                        placeholder="Enter your password"
-                                        //pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                                        //value={this.state.password}
-                                        onChange={this.handleChange}
-                                    />
-                                </div>
-                                    <span className="error">{this.state.passwordError}</span>
-                                </div>
+                                        <div>
+                                            <input
+                                                className="registerUserInnerInput validate"
+                                                type="password"
+                                                name="password"
+                                                minLength="8"
+                                                placeholder="Enter your password"
+                                                onChange={this.handleChange}
+                                            />
+                                        </div>
+                                        <span className="error">{this.state.passwordError}</span>
+                                    </div>
 
-                                <div className="wrapp-btn">
-                                    <button className="registerUser-btn" type="submit" onClick={this.Success}>
-                                        Sign Up
-                                    </button>
-
-                                    {/* <Link to={"/login"} className="registerUserLinker">
-                                        <button className="registerUser-btn">
+                                    <div className="wrapp-btn">
+                                        <button className="registerUser-btn" type="submit" onClick={this.handleSubmit}>
                                             Sign Up
                                         </button>
-                                    </Link>*/}
-                                </div>
-
-
-                            </form>
-
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>
-        </div>
-    );
-}
+        );
+    }
 }
 export default RegisterUser;

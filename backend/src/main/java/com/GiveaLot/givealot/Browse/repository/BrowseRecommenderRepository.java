@@ -26,7 +26,7 @@ public interface BrowseRecommenderRepository extends JpaRepository<Browse,Long>
 
     @Modifying
     @Transactional
-    @Query("UPDATE Browse b SET b.interactions = ?2 WHERE b.userId = ?1")
-    int updateInteractions(Long userId, int interactions);
+    @Query("UPDATE Browse b SET b.interactions = ?2 WHERE b.userId = ?1 AND b.sector = ?3")
+    int updateInteractions(Long userId, int interactions, String sector);
 
 }

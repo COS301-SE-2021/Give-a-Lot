@@ -49,28 +49,22 @@
 
 #view_organisations_card
 {
-
     text-align: center;
     font-family: 'Raleway',sans-serif;
     display: flex;
     flex-direction: column;
-
     height: fit-content;
     width: fit-content;
-
     position: relative;
-    left: 50%;
-    transform: translate(-50%,0);
 }
 
 #id_social_media
 {
-
-    width: fit-content;
     height: fit-content;
-    transform: translateX(07px);
-    margin-top: 25px;
-
+    display: flex;
+    padding: 0;
+    transform: translateX(-15px);
+    margin-top: 15px;
 }
 
 #id_social_media > Button
@@ -91,6 +85,11 @@
     color: white;
 }
 
+.disabledBTN
+{
+    background: gray !important;
+}
+
 #instaIcon
 {
     background:  #c32aa3;
@@ -101,11 +100,11 @@
 {
     text-align: left;
     color: #252226;
-
     font-size: 25px;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 0;
     text-transform: capitalize;
+    width: 350px;
 }
 
 #view_organisations_card > h4
@@ -123,7 +122,6 @@
 {
     display: flex;
     flex-direction: column;
-
 }
 
 
@@ -187,25 +185,21 @@
 
 #imageCover
 {
-    width: 400px;
+    width: 350px;
+    height: 200px;
     object-fit: fill;
     position: relative;
     /*left: 50%;transform: translate(-50%,0);*/
     margin-top: 20px;
     box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.38);
-    border-radius: 10px;
+    border-radius: 1px;
 }
 
 /*
   certificate
 */
 
-#view_organisation_right
-{
 
-
-
-}
 
 #certificate_container
 {
@@ -294,16 +288,16 @@ em
 {
     color: #4b4250;
     font-family: 'Raleway',sans-serif;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 800;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-align: left;
     text-transform: uppercase;
 }
 
 #timeLinePaper
 {
-    padding: 10px;
+    padding: 5px;
     border-radius: 10px;
     background-color: #8b888d;
 
@@ -314,19 +308,19 @@ em
 #timelineParagraph
 {
     color: white;
-    line-height: 19px;
-    font-size: 13px;
+    line-height: 15px;
+    font-size: 10px;
     text-align: left !important;
 }
 
 #organisation_timeline
 {
-
-    height: 500px;
+    height: 100vh;
     overflow-y: scroll;
 }
 
-#organisation_timeline::-webkit-scrollbar {
+#organisation_timeline::-webkit-scrollbar
+{
     width: 10px;
 }
 
@@ -338,4 +332,130 @@ em
 /* Handle */
 #organisation_timeline::-webkit-scrollbar-thumb {
     background: #4b4250;
+}
+
+@media screen and (max-width: 550px) {
+
+    #view_organisations_card > h1
+    {
+        text-align: center;
+        color: #252226;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 0;
+        text-transform: capitalize;
+        width: 350px;
+    }
+
+    #view_organisations_card > h4
+    {
+        text-align: center;
+        color: #252226;
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        text-transform: lowercase;
+    }
+
+    #imageCover
+    {
+        width: 300px;
+        height: 180px;
+        object-fit: cover;
+        position: relative;
+        left: 50%;transform: translate(-50%,0);
+        margin-top: 20px;
+    }
+
+    #view_organisation_container_outer
+    {
+        overflow: hidden;
+
+    }
+
+    #view_organisation_container
+    {
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding: 0 0 0 5px;
+
+
+    }
+
+    #view_organisation
+    {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        width: fit-content !important;
+    }
+
+    #id_social_media
+    {
+        height: fit-content;
+        display: flex;
+        padding: 0;
+        width: fit-content;
+        margin-top: 15px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #id_social_media > Button
+    {
+        font-size: 10px;
+        width: 90px;
+    }
+
+    #view_organisation_gallery
+    {
+        width: 90vw;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%,0);
+    }
+
+    #view_header
+    {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #view_organisation_meta_body_about
+    {
+        font-size: 22px;
+        font-weight: 800;
+        line-height: 72px;
+        margin:  0 0 0 10px;
+    }
+    #view_organisation_right
+    {
+        margin-top: 50px;
+        padding: 0;
+    }
+
+    #view_header_meta_content>div>p
+    {
+        text-align: left;
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    #certificate_award_message
+    {
+        padding: 0;
+        font-size: 13px;
+    }
+
+    #certificate_container > img
+    {
+        width: 90vw;
+        object-fit: contain;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%,0);
+    }
 }

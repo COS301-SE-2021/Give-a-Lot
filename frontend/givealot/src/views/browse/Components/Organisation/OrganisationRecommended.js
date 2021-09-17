@@ -1,10 +1,9 @@
-import react from 'react';
+import react, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import {Box, Tooltip} from "@material-ui/core";
 
 function trim_description(descr)
 {
-
 
     let acceptableLength = 84;
     if(descr !== undefined) {
@@ -25,6 +24,8 @@ function trim_description(descr)
 export default function OrganisationRecommended(props)
 {
     let history = useHistory();
+    const [serverDomain, setServerDomain] = useState("http://localhost:8080")
+
 
     const openOrganisation = el =>
     {
@@ -35,7 +36,7 @@ export default function OrganisationRecommended(props)
     let org_image = props.imgUrl;
     if(org_image === null)
     {
-        org_image =  "http://localhost:8080/logo/version/" + props.orgId;
+        org_image =  serverDomain + "/logo/version/" + props.orgId;
     }
 
     let description = trim_description(props.orgDescription);
@@ -52,7 +53,7 @@ export default function OrganisationRecommended(props)
                 </p>
                 {/*<p className="sector_organisation_other">{props.dateAdded}</p>*/}
                 <Tooltip title="certificate level"  aria-label="add">
-                    <p className="recommended-meta-data-lvl">5 {props.certificate_level}</p>
+                    <p className="recommended-meta-data-lvl">{props.certificate_level}</p>
                 </Tooltip>
             </Box>
         </Box>

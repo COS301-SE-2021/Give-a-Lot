@@ -6,10 +6,10 @@ import java.math.BigInteger;
 
 public class ContractConfig {
 
-    String PRIVATE_KEY = "1480f6e77aad7b16723788216022ae0fd700a74850463a6f40fb12515228ad39";
+    String PRIVATE_KEY = "ad31ba51256b49c445101c870dbc2f2ee0ccd428a19ed7498b74013eaab722b4";
 
 
-    String CONTRACT_ADDRESS = "0x93f25a35fbb80e2d21621dbb88216fd72cd8aec7";
+    String CONTRACT_ADDRESS = "0x49976132c0f3853649eeaf19b96413e549420e84";
 
     private final BigInteger GAS_LIMIT = BigInteger.valueOf(6721975L);
 

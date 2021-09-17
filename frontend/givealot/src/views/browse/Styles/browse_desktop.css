@@ -100,25 +100,36 @@
 
   #browse_body {
     height: 85vh;
-    width: 90vw;
+
     position: relative;
     left: 50%;
     top: 15px;
     transform: translate(-50%, 0);
 
     overflow-y: scroll;
-    padding-right: 50px;
+    padding: 50px;
     box-sizing: content-box;
 
-
-
   }
 
+#browse_body::-webkit-scrollbar {
+  width: 10px;
+}
 
+/* Track */
+#browse_body::-webkit-scrollbar-track {
+  background: #f1f1f100;
+}
 
-  #browse_body::-webkit-scrollbar {
-    display: none;
-  }
+/* Handle */
+#browse_body::-webkit-scrollbar-thumb {
+  background: #4b4250;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(85, 85, 85, 0.719);
+}
 
 
   #browseNavSection {
@@ -144,6 +155,7 @@
     transform: translate(-50%, 14px);
     color: white;
     font-size: 20px;
+    display: block;
   }
 
   #browseLogo {
@@ -152,7 +164,6 @@
     position: relative;
     left: 5px;
     top: 2px;
-
   }
 
   #browse_search_container {
@@ -173,8 +184,7 @@
     display: flex;
     flex-direction: row;
     position: relative;
-    top: 50px;
-
+    width: 100%;
   }
 
   #browse_filters {
@@ -185,9 +195,7 @@
 
   #browse_organisations {
     width: 100%;
-
-
-
+    padding: 0;
   }
 
   #browse_organisations::-webkit-scrollbar {
@@ -241,7 +249,7 @@
     position: relative;
     top: 30px;
     box-sizing: content-box;
-    width: 103%;
+    width: 100%;
   }
 
   #reco_organisations
@@ -249,7 +257,7 @@
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
-    width: 103%;
+    width: 100%;
     box-sizing: content-box;
   }
 
@@ -268,7 +276,7 @@
 
   /* Handle */
   #default_organisations::-webkit-scrollbar-thumb {
-    background: #7c6d814b;
+    background: #4b4250;
   }
 
   .browse_sector {
@@ -317,6 +325,7 @@
     overflow-y: scroll;
     max-height: 350px;
     padding: 5px;
+
   }
 
   #someContainer {
@@ -412,7 +421,7 @@
   height: 100vh;
   position: absolute;
   z-index: 1;
-  width: 80vw;
+  width: 100vw;
   top: 0;
   overflow-y: scroll;
 }
@@ -464,4 +473,41 @@
     right: 10px;
     float: right;
     top: 10px;
+}
+
+@media screen and (max-width: 550px) {
+  #browseLogo {
+    width: 100px;
+    object-fit: contain;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .browseNavSection_searchContainer
+  {
+    right: 10px;
+    position: relative;
+    height: 40px;
+    top: 50%;
+    transform: translate(0,-50%);
+
+  }
+
+  #browse_search_input
+  {
+    width: fit-content !important;
+    padding: 0;
+  }
+
+  .browseNavSection_searchContainer
+  {
+    height: 30px;
+  }
+
+  #browseNavSection > p {
+    display: none;
+  }
+
+
 }

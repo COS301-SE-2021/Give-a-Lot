@@ -26,8 +26,9 @@ function TermsAndConditions()
                         <span className="LoginHeader">
                            Terms of use
                        </span>
-                        <div className="Instruction1">
+                        <div className="terms_text">
                             Overview
+
                             The website and the solutions are operated and managed by separate entities. Refsnes Data offers the website (w3schools.com) including all its content, information, and related tools. The solutions (Such as Spaces, Courses, and My learning) and billing system are operated by W3schools Network. The two entities are separately responsible for the services that they provide, manage and operate.
 
                             Throughout the site, the terms "we", "us" and "our" refer to Refsnes Data and W3schools Network.

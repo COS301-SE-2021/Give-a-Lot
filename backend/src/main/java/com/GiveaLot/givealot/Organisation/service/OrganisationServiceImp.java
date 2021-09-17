@@ -120,7 +120,21 @@ public class OrganisationServiceImp implements OrganisationService
         return new getOrganisationsResponse("get_orgs_200_ok","success",res);
     }
 
-    @Override /*tested all good - converted*/
+    @Override
+    public responseJSON selectOrganisationAdmin(Long orgId) throws Exception
+    {
+        if(orgId == null)
+            throw new Exception("Exception: Id provided is null");
+
+        Organisations res_tmp = organisationRepository.selectOrganisationById(orgId);
+
+        if(res_tmp == null)
+            throw new Exception("organisation does not exist");
+
+        else return new responseJSON("sel_org_200_ok", "success", res_tmp);
+    }
+
+    @Override
     public selectOrganisationResponse selectOrganisation(Long orgId, Long userId) throws Exception {
 
         if(orgId == null || userId == null)
@@ -181,7 +195,6 @@ public class OrganisationServiceImp implements OrganisationService
             {
                 browseRecommenderRepository.updateInteractions(userId,browse.getInteractions() + 1, res.getOrgSector());
             }
-
             return new selectOrganisationResponse("sel_org_200_ok", "success", res);
         }
         else throw new Exception("Exception: id does not exist, check spelling");

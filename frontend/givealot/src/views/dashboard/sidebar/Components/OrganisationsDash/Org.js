@@ -54,7 +54,7 @@ export class Org extends Component {
             }
         }
         console.log(this.props)
-        axios.get(this.state.serverDomain + '/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config)
+        axios.get(this.state.serverDomain + '/v1/organisation/admin/Sep/organisation/'+this.state.orgId, config)
             .then(response =>{
                 console.log(response)
                 this.setState({orgS: response.data.response})

@@ -33,6 +33,7 @@ const initialState = {
     imageError: '',
     sectorS: [],
     openAdd: false,
+    serverDomain: "https://3c73e752688968.localhost.run"
 };
 
 export class AddOrg extends Component {
@@ -116,7 +117,7 @@ export class AddOrg extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        axios.get('http://localhost:8080/v1/organisation/get/sectors',  config)
+        axios.get(this.state.serverDomain + '/v1/organisation/get/sectors',  config)
             .then(response =>{
                 // console.log(response)
                 this.setState({sectorS: response.data.sectors})
@@ -141,7 +142,7 @@ export class AddOrg extends Component {
                 }
             }
             console.log(this.state)
-            axios.post('http://localhost:8080/v1/organisation/add/org', this.state, config)
+            axios.post(this.state.serverDomain + '/v1/organisation/add/org', this.state, config)
                 .then(response =>{
                     console.log(response)
                     this.setState({ openAdd: true });

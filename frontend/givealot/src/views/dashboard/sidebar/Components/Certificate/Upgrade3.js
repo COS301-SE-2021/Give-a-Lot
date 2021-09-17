@@ -69,7 +69,8 @@ const initialState = {
     secretaryNameError:"",
     secretaryContacts:"",
     secretaryContactsError:"",
-    committee:""
+    committee:"",
+    serverDomain: "https://3c73e752688968.localhost.run"
 
 };
 
@@ -199,19 +200,19 @@ export class Upgrade3 extends Component {
             };
             console.log(com)
             Axios
-                .post("http://localhost:8080/v1/organisation/add/committee", com)
+                .post(this.state.serverDomain + "/v1/organisation/add/committee", com)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 
             console.log(social)
             Axios
-                .post("http://localhost:8080/v1/organisation/add/socials", social)
+                .post(this.state.serverDomain + "/v1/organisation/add/socials", social)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 
             console.log(social1)
             Axios
-                .post("http://localhost:8080/v1/organisation/add/socials", social1)
+                .post(this.state.serverDomain + "/v1/organisation/add/socials", social1)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 

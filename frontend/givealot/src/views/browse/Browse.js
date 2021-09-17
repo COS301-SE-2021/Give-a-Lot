@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 
 /* assets import */
+import searchIcon from '../../assets/search_black_24dp.svg';
 import filterBtn_mobile from '../../assets/filter_list_black_24dp.svg';
 import ui_message_art from '../../assets/feedback-2044700_1280.jpg';
 /* assets import end */
@@ -12,17 +13,13 @@ import Sector from "./Components/BrowseBySector/Sector";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import Loader from "../loader/Loader";
-// import SearchResults from "./Components/SearchResults/SearchResults";
+import SearchResults from "./Components/SearchResults/SearchResults";
 /* components import end */
 
 /*css imports */
-// import browse_general from './Styles/browse_general.css';
-// import browse_desktop from './Styles/browse_desktop.css';
-// import SearchIcon from "@material-ui/icons/Search";
-// import {Paper} from "@material-ui/core";
-// import Grid from "@material-ui/core/Grid";
-// import Typography from "@material-ui/core/Typography";
-// import Avatar from "@material-ui/core/Avatar";
+import browse_general from './Styles/browse_general.css';
+import browse_desktop from './Styles/browse_desktop.css';
+import {ApiContext} from "../../apiContext/ApiContext";
 
 
 function Browse ()
@@ -30,6 +27,7 @@ function Browse ()
     const [organisations, setOrganisations] = useState([]);
     const [recommendedOrganisations, setRecommendedOrganisations] = useState([]);
     const [pageLoaded, setPageLoaded] = React.useState(false);
+    const [serverDomain, setServerDomain] = useState(useContext(ApiContext))
 
     const mobile_popUpControl_hide = event =>
     {
@@ -60,7 +58,7 @@ function Browse ()
         TODO: update login to use tokens on the request URL
     */
     useEffect(() => {
-        fetch("http://localhost:8080/v1/browse/sectors")
+        fetch( serverDomain + "/v1/browse/sectors")
         .then(async response =>{
 
             const data = await response.json();
@@ -146,7 +144,7 @@ function Browse ()
     let user_id = "default"; /*TODO: pull this id from dom storage, if user is not logged in, use default*/
 
     useEffect(() => {
-            fetch("http://localhost:8080/v1/browse/sectors/recommendations/"+user_id)
+            fetch(serverDomain + "/v1/browse/sectors/recommendations/"+user_id)
                 .then(async response =>{
 
                     const data = await response.json();
@@ -258,8 +256,6 @@ function Browse ()
                             </div>
                         </div>
                         {/* this block was not a part of the initial design - end */}
-
-
                     </div>
                 </section>
 

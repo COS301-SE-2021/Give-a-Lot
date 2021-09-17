@@ -2,6 +2,8 @@ package com.GiveaLot.givealot.Browse.service;
 
 import com.GiveaLot.givealot.Browse.repository.BrowseRecommenderRepository;
 import com.GiveaLot.givealot.Browse.repository.BrowseRepository;
+import com.GiveaLot.givealot.Blockchain.dataclass.Blockchain;
+import com.GiveaLot.givealot.Blockchain.Repository.BlockChainRepository;
 import com.GiveaLot.givealot.Browse.response.browseOrganisationsBySectorResponse;
 import com.GiveaLot.givealot.Browse.response.browseRecommendedResponse;
 import com.GiveaLot.givealot.Browse.response.browseSectorOrganisation;
@@ -31,6 +33,9 @@ public class BrowseServiceImp implements BrowseService{
 
     @Autowired
     OrganisationRepository organisationRepository;
+
+    @Autowired
+    BlockChainRepository blockChainRepository;
 
     @Autowired
     com.GiveaLot.givealot.Organisation.repository.sectorsRepository sectorsRepository;
@@ -85,7 +90,6 @@ public class BrowseServiceImp implements BrowseService{
                 final int upper_bound = 3;
                 List<browseRecommendedResponse> response = new LinkedList<>();
 
-
                 for (String sector : sectors)
                 {
                     List<Organisations> organisations_by_sector_tmp = browseRepository.getOrganisationsBySector(sector);
@@ -94,11 +98,17 @@ public class BrowseServiceImp implements BrowseService{
 
                     for (int index = 0; index < organisations_by_sector_tmp.size() && index < upper_bound; index++)
                     {
+                        long curr_lvl;
+                        Blockchain blockchain_get_level = blockChainRepository.selectBlockchainOrgId(organisations_by_sector_tmp.get(index).getOrgId());
+                        if(blockchain_get_level != null)
+                            curr_lvl = blockchain_get_level.getLevel();
+                        else continue;
+
                         response.add(new browseRecommendedResponse(organisations_by_sector_tmp.get(index).getOrgId(),
                                                                     organisations_by_sector_tmp.get(index).getOrgName(),
                                                                     organisations_by_sector_tmp.get(index).getDateAdded(),
                                                                     null,
-                                                                    null,
+                                                                    (int)curr_lvl,
                                                                     organisations_by_sector_tmp.get(index).getOrgDescription(),
                                                                     organisations_by_sector_tmp.get(index).getOrgSector()));
                     }
@@ -138,11 +148,17 @@ public class BrowseServiceImp implements BrowseService{
 
                     for (int index = 0; index < organisations_by_sector_tmp.size() && index < upper_bound; index++)
                     {
+                        long curr_lvl;
+                        Blockchain blockchain_get_level = blockChainRepository.selectBlockchainOrgId(organisations_by_sector_tmp.get(index).getOrgId());
+                        if(blockchain_get_level != null)
+                            curr_lvl = blockchain_get_level.getLevel();
+                        else continue;
+
                         response.add(new browseRecommendedResponse(organisations_by_sector_tmp.get(index).getOrgId(),
                                 organisations_by_sector_tmp.get(index).getOrgName(),
                                 organisations_by_sector_tmp.get(index).getDateAdded(),
                                 null,
-                                null,
+                                (int)curr_lvl,
                                 organisations_by_sector_tmp.get(index).getOrgDescription(),
                                 organisations_by_sector_tmp.get(index).getOrgSector()));
                     }
@@ -178,7 +194,14 @@ public class BrowseServiceImp implements BrowseService{
 
                 for (Organisations org : tmpOrgs)
                 {
-                    browseSectorOrganisation.add(new browseSectorOrganisation(org.getOrgId(), org.getOrgName(),org.getDateAdded(), null,null,org.getOrgDescription()));
+                    Blockchain blockchain_get_level = blockChainRepository.selectBlockchainOrgId(org.getOrgId());
+
+                    long curr_lvl;
+                    if(blockchain_get_level != null)
+                        curr_lvl = blockchain_get_level.getLevel();
+                    else continue;
+
+                    browseSectorOrganisation.add(new browseSectorOrganisation(org.getOrgId(), org.getOrgName(),org.getDateAdded(), null,(int)curr_lvl,org.getOrgDescription()));
                 }
                 res.add(new browseOrganisationsBySectorResponse(sector, browseSectorOrganisation));
             }/* don't throw an exception if the query failed, query other sectors instead*/

@@ -1,10 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import Navbar from "../Navbar/Navbar";
 import Button from '@material-ui/core/Button';
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
 import InstagramIcon from '@material-ui/icons/Instagram';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import TwitterIcon from '@material-ui/icons/Twitter';
 
 import view_organisation from '../../Styles/view_organisation.css';
 import {Accordion, AccordionDetails, Avatar, Box, Paper} from "@material-ui/core";
@@ -14,12 +16,14 @@ import Container from '@material-ui/core/Container';
 
 import Timeline from "@material-ui/lab/Timeline";
 import OrganisationTimeLineItem from '../OrganisationTimeLineItem/OrganisationTimeLineItem'
-import {Instagram} from "@material-ui/icons";
+
+
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import Loader from "../../../loader/Loader";
+import {ApiContext} from "../../../../apiContext/ApiContext";
 
 /*
  * certificate component imports
@@ -76,6 +80,8 @@ function ViewOrganisation()
     const [pageLoaded, setPageLoaded] = React.useState(true);
     const [organisationData, setOrganisationData] = React.useState([]);
     const [selectedUserId, setSelectedUserId] = React.useState("default");
+    const [serverDomain, setServerDomain] = useState(useContext(ApiContext))
+
     const [selectedOrgId, setSelectedOrgId] = React.useState(null);
     const [updatedSelectedId, setUpdatedSelectedId] = React.useState(false);
 
@@ -105,7 +111,7 @@ function ViewOrganisation()
 
     useEffect(() => {
 
-            fetch("http://localhost:8080/v1/organisation/sel/organisation/" + id + "/" + selectedUserId)
+            fetch( serverDomain + "/v1/organisation/sel/organisation/" + id + "/" + selectedUserId)
             .then(async response =>
             {
                 const data = await response.json();
@@ -152,7 +158,7 @@ function ViewOrganisation()
     }
 
     return (
-       <div>
+       <div id={"view_organisation_container_outer"}>
            {pageLoaded === false && <Loader />}
 
            <Navbar/>
@@ -164,20 +170,64 @@ function ViewOrganisation()
                            <h4>{organisationData.slogan}</h4>
                        </div>
 
-                       <img src={"http://localhost:8080/logo/version/" + id} id={"imageCover"}/>
+                       <img src={ serverDomain + "/logo/version/" + id} id={"imageCover"}/>
 
                        <div id={"id_social_media"}>
-                           <Button id={"instaIcon"} size={"small"} startIcon={<InstagramIcon />}>
-                                instagram
+                           {organisationData.istagramURl ?
+                               <Button id={"instaIcon"} size={"small"} startIcon={<InstagramIcon/>}
+                                    onClick={() => {
+                                        window.open(organisationData.istagramURl);
+                                    }}>
+                               instagram
                            </Button>
+                               :
+                               <Button id={"instaIcon"}
+                                       disabled
+                                       size={"small"}
+                                       className={"disabledBTN"}
+                                       startIcon={<InstagramIcon/>}>
+                                   instagram
+                               </Button>
+                           }
 
-                           <Button id={"FacebookIcon"} size={"small"} startIcon={<InstagramIcon />}>
-                               facebook
-                           </Button>
+                           {organisationData.facebookUrl ?
+                               <Button id={"FacebookIcon"}
+                                       size={"small"}
+                                       startIcon={<FacebookIcon/>}
+                                        onClick={() => {
+                                            window.open(organisationData.facebookUrl);
+                                        }}>
+                                    facebook
+                               </Button>
+                               :
+                               <Button id={"FacebookIcon"}
+                                       disabled
+                                       size={"small"}
+                                       className={"disabledBTN"}
+                                       startIcon={<FacebookIcon/>}>
+                                    facebook
+                               </Button>
+                           }
 
-                           <Button id={"TwitterIcon"} size={"small"} startIcon={<InstagramIcon />}>
-                               twitter
-                           </Button>
+                           {organisationData.twitterUrl ?
+                               <Button id={"TwitterIcon"} size={"small"} startIcon={<TwitterIcon/>}
+                                    onClick={() => {
+                                        window.open(organisationData.twitterUrl);
+                                    }}>
+                                  twitter
+                               </Button>
+                               :
+                               <Button id={"TwitterIcon"}
+                                       disabled
+                                       size={"small"}
+                                       className={"disabledBTN"}
+                                       startIcon={<TwitterIcon/>}>
+
+                                   twitter
+                               </Button>
+
+
+                           }
                        </div>
 
                    </div>
@@ -218,11 +268,11 @@ function ViewOrganisation()
                                <div>
                                    <p>certificate level</p>
                                </div>
-                               <img src={"https://avatars.dicebear.com/api/initials/1.svg?w=500"} />
+                               <img src={"https://avatars.dicebear.com/api/initials/" + organisationData.certificateLevel + ".svg?w=500"} />
                            </div>
 
                            <Box id={"donateSection"}>
-                               <img src={"http://localhost:8080/cert/version/qr_code/" + id} width={128} height={128}/>
+                               <img src={serverDomain + "/cert/version/qr_code/" + id} width={128} height={128}/>
                                <Button variant={"contained"}>
                                    donate
                                </Button>
@@ -234,13 +284,13 @@ function ViewOrganisation()
                           their organisation and the information they provided to givealot
                        </p>
 
-                       <img src={"http://localhost:8080/cert/version/png/" + id}  />
+                       <img src={serverDomain + "/cert/version/png/" + id}  />
 
 
                        <Button variant="contained" color="secondary"
                                onClick={(e) => {
                                    e.preventDefault();
-                                   window.open('http://localhost:8080/cert/version/pdf/' + id);
+                                   window.open(serverDomain + '/cert/version/pdf/' + id);
                                }}
                        >
                            Download
@@ -248,8 +298,8 @@ function ViewOrganisation()
                    </Box>
 
                    <p id="view_organisation_meta_body_about">timeline</p>
-                   <Box id={"organisation_timeline"}>
 
+                   <Box id={"organisation_timeline"}>
                         <Timeline align="alternate">
                             <OrganisationTimeLineItem id={1} date={"2021-09-16"}
                             title={"Joined givealot"}

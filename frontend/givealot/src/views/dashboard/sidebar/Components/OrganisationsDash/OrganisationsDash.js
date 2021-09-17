@@ -35,6 +35,7 @@ export class OrganisationsDash extends Component {
             getSector: [],
             adminId: 4,
             openSector: false,
+            serverDomain: "https://3c73e752688968.localhost.run"
         }
     }
 
@@ -71,7 +72,7 @@ export class OrganisationsDash extends Component {
         const adminUsersRequestBodyOrgs = {
             "adminId" : this.state.adminId
         }
-        axios.post('http://localhost:8080/v1/organisation/get/organisations',adminUsersRequestBodyOrgs , config)
+        axios.post(this.state.serverDomain + '/v1/organisation/get/organisations',adminUsersRequestBodyOrgs , config)
             .then(response =>{
                 console.log(response)
                 this.setState({org: response.data.response})
@@ -89,7 +90,7 @@ export class OrganisationsDash extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        axios.get('http://localhost:8080/v1/organisation/get/sectors',  config)
+        axios.get(this.state.serverDomain + '/v1/organisation/get/sectors',  config)
             .then(response =>{
                 // console.log(response)
                 this.setState({getSector: response.data.sectors})
@@ -116,7 +117,7 @@ export class OrganisationsDash extends Component {
             "sector" : this.state.sector,
             "adminId" : this.state.adminId
         }
-        axios.post('http://localhost:8080/v1/organisation/add/sector', AddSector ,config)
+        axios.post(this.state.serverDomain +  '/v1/organisation/add/sector', AddSector ,config)
             .then(response =>{
                 console.log(response)
                 this.setState({ openSector: true });

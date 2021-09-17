@@ -52,6 +52,7 @@ export class Profile extends Component {
             ContactPersonState:false,
             orgAddress:"",
             addressState:false,
+            serverDomain: "https://3c73e752688968.localhost.run"
         }
     }
 
@@ -64,7 +65,7 @@ export class Profile extends Component {
             }
         }
         console.log(this.props)
-        axios.get('http://localhost:8080/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config)
+        axios.get(this.state.serverDomain + '/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config)
             .then(response =>{
                 console.log(response)
                 this.setState({persons: response.data.response})
@@ -78,7 +79,7 @@ export class Profile extends Component {
             "orgId" : this.state.orgId
         }
 
-        axios.post('http://localhost:8080/v1/organisation/get/org_level', dataa  ,config)
+        axios.post(this.state.serverDomain + '/v1/organisation/get/org_level', dataa  ,config)
             .then(response =>{
                 //this.setState({level: response.data.level})
                 console.log(response)
@@ -169,7 +170,7 @@ export class Profile extends Component {
             };
             console.log(data1)
             Axios
-                .post("http://localhost:8080/v1/organisation/update/info/organisation", data1)
+                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data1)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
@@ -182,7 +183,7 @@ export class Profile extends Component {
             };
             console.log(data2)
             Axios
-                .post("http://localhost:8080/v1/organisation/update/info/organisation", data2)
+                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data2)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
@@ -196,7 +197,7 @@ export class Profile extends Component {
             };
             console.log(data3)
             Axios
-                .post("http://localhost:8080/v1/organisation/update/info/organisation", data3)
+                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data3)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
@@ -210,7 +211,7 @@ export class Profile extends Component {
             };
             console.log(data4)
             Axios
-                .post("http://localhost:8080/v1/organisation/update/info/organisation", data4)
+                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data4)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
@@ -224,7 +225,7 @@ export class Profile extends Component {
             };
             console.log(data5)
             Axios
-                .post("http://localhost:8080/v1/organisation/update/info/organisation", data5)
+                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data5)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
@@ -238,7 +239,7 @@ export class Profile extends Component {
             };
             console.log(data6)
             Axios
-                .post("http://localhost:8080/v1/organisation/update/info/organisation", data6)
+                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data6)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
@@ -253,7 +254,7 @@ export class Profile extends Component {
             };
             console.log(data7)
             Axios
-                .post("http://localhost:8080/v1/organisation/update/info/organisation", data7)
+                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data7)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }

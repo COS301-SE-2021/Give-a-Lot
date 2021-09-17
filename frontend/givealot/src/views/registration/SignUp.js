@@ -9,8 +9,6 @@ import Button from "@material-ui/core/Button";
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
 import PersonIcon from '@material-ui/icons/Person';
 
-
-
 const styles = {
     main: {
         backgroundImage: `url(${backgroundImg})`
@@ -52,7 +50,7 @@ function SignUp()
 
                                     <div className="signup-wrapper-btn">
 
-                                        <Link to={"/registerOrg"} className="signup-linker">
+                                        <Link to={"/register/organisation"} className="signup-linker">
 
                                             <Button
                                                 className="signup-btn"
@@ -72,13 +70,9 @@ function SignUp()
                                             <p>Terms of service and privacy</p>
                                         </Link>
                                     </div>
-
                                 </div>
-
                             </form>
-
                         </div>
-
                     </div>
                 </div>
             </div>

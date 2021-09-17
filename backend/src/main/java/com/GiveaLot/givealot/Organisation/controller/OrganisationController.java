@@ -37,6 +37,19 @@ public class OrganisationController
         this.response = response;
     }
 
+    @PostMapping("check/email")
+    public ResponseEntity<Boolean> emailExists(@RequestBody emailExistsRequest request)
+    {
+        try
+        {
+            return new ResponseEntity<>(service.emailExists(request), HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(false, HttpStatus.BAD_REQUEST);
+        }
+    }
+
     /* tested - works */
      @GetMapping("/sel/organisation/{orgId}/{userId}") /*tested all good*/
     public ResponseEntity<selectOrganisationResponse> selectOrganisation(@PathVariable("orgId") @NonNull String orgId,@PathVariable("userId") @NonNull String userId)

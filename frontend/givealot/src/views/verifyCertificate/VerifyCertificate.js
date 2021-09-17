@@ -6,6 +6,7 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import "./styles/VerifyCert.css"
 import {Alert} from "@material-ui/lab";
 import Button from "@material-ui/core/Button";
+import {ApiContext} from "../../apiContext/ApiContext";
 
 const styles = {
     main: {
@@ -14,14 +15,15 @@ const styles = {
 }
 
 export class VerifyCertificate extends Component {
-
+    static contextType = ApiContext;
 
 
     constructor() {
         super();
         this.state = {
             selectedFile: '',
-            certificateOrganisationId : ''
+            certificateOrganisationId : '',
+            serverDomain : this.context,
         };
     }
 
@@ -56,7 +58,7 @@ export class VerifyCertificate extends Component {
         AlertPromptWait.style.display = "flex";
 
         fetch(
-            'http://localhost:8080/certificate/compare',
+            this.context + '/certificate/compare',
             {
                 method: 'POST',
                 body: formData,
@@ -93,7 +95,6 @@ export class VerifyCertificate extends Component {
         })
         .catch((error) => {
             console.error('Error:', error);
-
         });
     }
 

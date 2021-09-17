@@ -40,6 +40,7 @@ const initialState = {
     websiteError: "",
     address:"",
     addressError:"",
+    serverDomain: "https://3c73e752688968.localhost.run"
 };
 export class Upgrade1 extends Component {
 
@@ -97,12 +98,12 @@ export class Upgrade1 extends Component {
 
             };
             Axios
-                .post("http://localhost:8080/v1/organisation/add/website", web)
+                .post(this.state.serverDomain + "/v1/organisation/add/website", web)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 
             Axios
-                .post("http://localhost:8080/v1/organisation/add/address", add)
+                .post(this.state.serverDomain + "/v1/organisation/add/address", add)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 

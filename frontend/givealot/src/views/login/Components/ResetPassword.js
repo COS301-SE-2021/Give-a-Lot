@@ -75,7 +75,7 @@ class ResetPassword extends Component {
                     console.log(res)
                     if (res.data.success === true) {
 
-                        this.props.history.push("/ResetPassword");
+                        this.props.history.push("/ResetSuccess");
                         document.getElementById("waitInfo").style.display = "none";
 
                     } else if (res.data.success === false) {

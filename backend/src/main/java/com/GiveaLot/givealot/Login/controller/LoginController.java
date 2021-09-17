@@ -1,6 +1,10 @@
 package com.GiveaLot.givealot.Login.controller;
 
+import com.GiveaLot.givealot.Login.request.ChangePasswordRequest;
+import com.GiveaLot.givealot.Login.request.ForgotPasswordRequest;
 import com.GiveaLot.givealot.Login.request.LoginRequest;
+import com.GiveaLot.givealot.Login.request.TokenRequest;
+import com.GiveaLot.givealot.Login.response.ForgotPasswordResponse;
 import com.GiveaLot.givealot.Login.response.LoginResponse;
 import com.GiveaLot.givealot.Login.service.LoginService;
 import com.GiveaLot.givealot.Login.service.LoginServiceImp;
@@ -58,6 +62,53 @@ public class LoginController {
         catch (Exception e)
         {
             return new ResponseEntity<>(new LoginResponse(false,e.toString(),null, null), HttpStatus.OK);
+        }
+    }
+
+    @PostMapping("/forgot_password")
+    ResponseEntity<ForgotPasswordResponse> forgotPassowrd(@RequestBody @NonNull ForgotPasswordRequest body)
+    {
+        ForgotPasswordResponse response;
+
+        try
+        {
+            response = service.forgotPassward(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new ForgotPasswordResponse(false,"token not sent "+e), HttpStatus.OK);
+        }
+    }
+
+    @PostMapping("/check_token") /*tested - works perfect*/
+    ResponseEntity<ForgotPasswordResponse> checkToken(@RequestBody @NonNull TokenRequest body)
+    {
+        ForgotPasswordResponse response;
+
+        try
+        {
+            response = service.checkToken(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new ForgotPasswordResponse(false,"tokens do not match"), HttpStatus.OK);
+        }
+    }
+    @PostMapping("/update_password") /*tested - works perfect*/
+    ResponseEntity<ForgotPasswordResponse> updatePassword(@RequestBody @NonNull ChangePasswordRequest body)
+    {
+        ForgotPasswordResponse response;
+
+        try
+        {
+            response = service.changePassword(body);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(new ForgotPasswordResponse(false,"password reset failed"), HttpStatus.OK);
         }
     }
 

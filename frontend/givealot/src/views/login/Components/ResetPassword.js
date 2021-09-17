@@ -64,24 +64,31 @@ class ResetPassword extends Component {
 
             const data = {
                 password : this.state.password,
-                userEmail: this.state.userEmail,
+                userEmail: this.state.userEmail.toLowerCase(),
 
 
             };
+            document.getElementById("waitInfo").style.display = "flex";
+            document.getElementById("badLogin").style.display = "none";
             axios.post("http://localhost:8080/v1/login/user/update_password", data)
                 .then(res => {
                     console.log(res)
                     if (res.data.success === true) {
 
-                        this.props.history.push("/ResetPassword");
+                        this.props.history.push("/ResetSuccess");
+                        document.getElementById("waitInfo").style.display = "none";
 
-                    } else if (res.data.success === false) {
-
-
-
+                    } else {
+                        document.getElementById("badLogin").style.display = "flex";
+                        document.getElementById("waitInfo").style.display = "none";
                     }
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err)
+                    document.getElementById("badLogin").style.display = "flex";
+                    document.getElementById("waitInfo").style.display = "none";
+                });
+
 
 
         }
@@ -100,7 +107,8 @@ class ResetPassword extends Component {
                             <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
                         </Link>
                         <div className="LoginCard">
-                            <Alert severity="error" id={"badLogin"}>incorrect username or password!</Alert>
+                            <Alert severity="error" id={"badLogin"}>password reset failed!</Alert>
+                            <Alert severity="info" id={"waitInfo"}>Updating password...</Alert>
                             <div className="wrapper">
                                 <form className="LoginForm" onSubmit={this.handleSubmit}>
                        <span className="LoginHeader">

@@ -34,7 +34,7 @@ export class Profile extends Component {
 
         this.state = {
             persons:{},
-            level: 0,
+            level: 5,
             //orgId:localStorage.getItem("id"),
             orgId: 60,
             orgEmail:"",
@@ -80,7 +80,7 @@ export class Profile extends Component {
 
         axios.post('http://localhost:8080/v1/organisation/get/org_level', dataa  ,config)
             .then(response =>{
-                this.setState({level: response.data.level})
+                //this.setState({level: response.data.level})
                 console.log(response)
 
             })
@@ -386,10 +386,7 @@ export class Profile extends Component {
                                         {status}
                                     </div>
 
-                                    <div className="userShowInfo">
-                                        <LocationSearching className="userShowIcon" />
-                                        <span className="userShowInfoTitle">Pretoria, arcadia</span>
-                                    </div>
+
                                 </div>
                             </div>
 
@@ -448,16 +445,6 @@ export class Profile extends Component {
                                     />
                                 </div>
 
-                                <div className="userUpdateItem">
-                                    <label>Address</label>
-                                    <input
-                                        type="text"
-                                        name="orgAddress"
-                                        onChange={this.handleAddress}
-                                        placeholder="Pretoria, arcadia"
-                                        className="userUpdateInput"
-                                    />
-                                </div>
 
                                 <div className="userUpdateItem">
                                     <label>Description</label>

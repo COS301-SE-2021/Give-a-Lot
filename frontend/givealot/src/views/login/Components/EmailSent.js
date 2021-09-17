@@ -125,14 +125,10 @@ class EmailSent extends Component {
                         document.getElementById("waitInfo").style.display = "none";
                         this.props.history.push("/ResetPassword");
 
-                    }else if (res.data.success === false)
-                    {
-
+                    }else {
                         document.getElementById("badLogin").style.display = "flex";
                         document.getElementById("waitInfo").style.display = "none";
-
                     }
-
 
                 })
                 .catch(err =>{
@@ -160,8 +156,8 @@ class EmailSent extends Component {
                             <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
                         </Link>
                         <div className="LoginCard">
-                            <Alert severity="error" id={"badLogin"}>incorrect username or password!</Alert>
-                            <Alert severity="info" id={"waitInfo"}>Sending email...</Alert>
+                            <Alert severity="error" id={"badLogin"}>Token incorrect!</Alert>
+                            <Alert severity="info" id={"waitInfo"}>Verifying token...</Alert>
                             <div className="wrapper">
                                 <form className="LoginForm" onSubmit={this.handleSubmit}>
                                     <span className="headerTag1">

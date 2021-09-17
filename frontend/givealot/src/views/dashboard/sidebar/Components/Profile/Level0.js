@@ -3,7 +3,7 @@ import "../Certificate/Style/Certificate.css";
 import 'date-fns';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-import { withStyles ,makeStyles } from '@material-ui/core/styles'
+import { withStyles} from '@material-ui/core/styles'
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -35,9 +35,9 @@ const styles = theme => ({
 
 
 const initialState = {
-    level0:[],
-    adminId:14,
-    orgId:localStorage.getItem("id"),
+    level0:{},
+    orgId: 60,
+    //orgId:localStorage.getItem("id"),
     startDate: new Date(),
     ngoNumber:"",
     ngoNumberState:false,
@@ -83,8 +83,7 @@ export class Level0 extends Component {
         formData.append('orgId', this.state.orgId);
         let imageStates = 0;
 
-
-        alert("take away submit button functionality");
+        alert("Do not submit yet");
 
         fetch(
             'http://localhost:8080/v1/organisation/add/logo',
@@ -105,9 +104,9 @@ export class Level0 extends Component {
             });
 
         if(imageStates===1)
-            alert("bring back button functionality");
+            alert("You can not submit");
         else if(imageStates === 2)
-            alert("bring back button functionality also tell the user that the image didnt submit");
+            alert("Image didnt submit");
 
         const isCheckbox = event.target.type === "checkbox";
         this.setState({
@@ -145,31 +144,24 @@ export class Level0 extends Component {
         }
     }
 
-    componentDidMount() {
+
+    componentDidMount(){
         let config = {
             headers: {
                 "Content-Type": "application/json",
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        const admin = {
-            "adminId" : this.state.adminId
-        }
-
-        const org = {
-            orgId :32
-        }
-        axios.post('http://localhost:8080/v1/organisation/get/organisations',admin , config)
+        console.log(this.props)
+        axios.get('http://localhost:8080/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config) //Change the API
             .then(response =>{
                 console.log(response)
-                this.setState({level0: response.data.response[0]})
-                console.log(this.state.level0)
-
+                this.setState({level0: response.data.response})
             })
             .catch(error =>{
+                console.log(error)
                 this.setState({error : 'Error Retrieving data'})
             })
-
 
     }
 
@@ -233,7 +225,7 @@ export class Level0 extends Component {
                                     </div>
 
                                     <div className="profile_files">
-                                        <img src="https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg" height={70} width={70} />
+                                        <img src="https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg" alt={"logoPicture"} height={70} width={70} />
                                     </div>
 
                                 </div>

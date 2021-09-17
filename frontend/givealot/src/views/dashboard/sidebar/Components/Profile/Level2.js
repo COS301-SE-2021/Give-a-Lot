@@ -41,9 +41,9 @@ export class Level2 extends Component {
     constructor (props) {
         super(props)
         this.state={
-            level2:[],
-            orgId:localStorage.getItem("id"),
-            adminId:14,
+            level2:{},
+            //orgId:localStorage.getItem("id"),
+            orgId:60,
             date:"",
             dateState:false,
             startDate: new Date(),
@@ -147,31 +147,23 @@ export class Level2 extends Component {
         }
     }
 
-    componentDidMount() {
+    componentDidMount(){
         let config = {
             headers: {
                 "Content-Type": "application/json",
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        const admin = {
-            "adminId" : this.state.adminId
-        }
-
-        const org = {
-            orgId :32
-        }
-        axios.post('http://localhost:8080/v1/organisation/get/organisations',admin , config)
+        console.log(this.props)
+        axios.get('http://localhost:8080/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config) //Change the API
             .then(response =>{
                 console.log(response)
-                this.setState({level2: response.data.response[0]})
-                console.log(this.state.level2)
-
+                this.setState({level2: response.data.response})
             })
             .catch(error =>{
+                console.log(error)
                 this.setState({error : 'Error Retrieving data'})
             })
-
 
     }
 

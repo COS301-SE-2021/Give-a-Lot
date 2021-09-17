@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="dedicated organisaiton select for admin users">
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/chatbot/Chatbot.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/chatbot/Styles/Chatbot.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_desktop.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_desktop.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/home/Home.js" afterDir="false" />
-    </list>
+    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="dedicated organisation select for admin users" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -190,14 +180,7 @@
       <workItem from="1631552726642" duration="58800000" />
       <workItem from="1631708108011" duration="27620000" />
       <workItem from="1631819750918" duration="3266000" />
-      <workItem from="1631823532933" duration="54640000" />
-    </task>
-    <task id="LOCAL-00050" summary="Cleared temporary organisations">
-      <created>1629883639695</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1629883639696</updated>
+      <workItem from="1631823532933" duration="55364000" />
     </task>
     <task id="LOCAL-00051" summary="Cleared temporary organisations">
       <created>1629884557800</created>
@@ -535,7 +518,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631906781397</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="dedicated organisation select for admin users">
+      <created>1631921327670</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1631921327670</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -554,7 +544,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="organisations controller revision - add website and remove website" />
     <MESSAGE value="organisations controller revision - add address" />
     <MESSAGE value="organisations controller revision - add socials" />
     <MESSAGE value="organisations controller revision - remove socials" />
@@ -579,7 +568,8 @@
     <MESSAGE value="saving workspace" />
     <MESSAGE value="finalizing frontend&#10;backend updates to add organisation" />
     <MESSAGE value="dedicated organisaiton select for admin users" />
-    <option name="LAST_COMMIT_MESSAGE" value="dedicated organisaiton select for admin users" />
+    <MESSAGE value="dedicated organisation select for admin users" />
+    <option name="LAST_COMMIT_MESSAGE" value="dedicated organisation select for admin users" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

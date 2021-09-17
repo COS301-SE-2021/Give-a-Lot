@@ -202,7 +202,7 @@ public class LoginServiceImp implements LoginService{
         passwordResetRepository.save(myToken);
        // System.out.println(myToken.);
         /**Sending a verification email**/
-     /*   System.out.println("Sending Email...");
+        System.out.println("Sending Email...");
 
         Mail mail = new Mail(body.getEmail(),"Forgot Password","Hey there we understand it happens here's your token enter this to get access to change your password" +
                 "\n Token: " +token+
@@ -211,7 +211,7 @@ public class LoginServiceImp implements LoginService{
                 "Kind Regards \n" +
                 "Givealot Team");
 
-        sendMailService.sendMail(mail);*/
+        sendMailService.sendMail(mail);
         System.out.println("Email sent successfully");
 
         return new ForgotPasswordResponse(true,"token sent");
@@ -242,13 +242,13 @@ public class LoginServiceImp implements LoginService{
         {
             String salt = getMd5(body.getUserEmail());
             String salted = getMd5(body.getPassword() + salt);
-           organisationRepository.updatePassword(body.getUserEmail(),body.getPassword());
+           organisationRepository.updatePassword(body.getUserEmail(),salted);
         }
         else
         {
             String salt = getMd5(body.getUserEmail());
             String salted = getMd5(body.getPassword() + salt);
-            userRepository.updatePassword(body.getUserEmail(),body.getPassword());
+            userRepository.updatePassword(body.getUserEmail(),salted);
         }
         return new ForgotPasswordResponse(true,"password reset successful");
 

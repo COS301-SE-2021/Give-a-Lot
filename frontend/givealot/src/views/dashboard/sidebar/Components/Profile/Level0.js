@@ -36,7 +36,7 @@ const styles = theme => ({
 
 const initialState = {
     level0:{},
-    adminId:14,
+    orgId: 60,
     //orgId:localStorage.getItem("id"),
     startDate: new Date(),
     ngoNumber:"",
@@ -145,33 +145,7 @@ export class Level0 extends Component {
         }
     }
 
-    /*componentDidMount() {
-        let config = {
-            headers: {
-                "Content-Type": "application/json",
-                'Access-Control-Allow-Origin': '*',
-            }
-        }
-        const admin = {
-            "adminId" : this.state.adminId
-        }
 
-        const org = {
-            orgId :32
-        }
-        axios.post('http://localhost:8080/v1/organisation/get/organisations',admin , config)
-            .then(response =>{
-                console.log(response)
-                this.setState({level0: response.data.response[0]})
-                console.log(this.state.level0)
-
-            })
-            .catch(error =>{
-                this.setState({error : 'Error Retrieving data'})
-            })
-
-
-    }*/
     componentDidMount(){
         let config = {
             headers: {
@@ -180,7 +154,7 @@ export class Level0 extends Component {
             }
         }
         console.log(this.props)
-        axios.get('http://localhost:8080/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config)
+        axios.get('http://localhost:8080/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config) //Change the API
             .then(response =>{
                 console.log(response)
                 this.setState({level0: response.data.response})

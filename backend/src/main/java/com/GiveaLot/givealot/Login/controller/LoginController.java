@@ -31,11 +31,16 @@ public class LoginController {
 
         try
         {
+            System.out.println("1=========================================");
+            System.out.println(body.getEmail());
+            System.out.println(body.getPassword());
             response = service.login(body);
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)
         {
+            System.out.println("2=========================================");
+            System.out.println(e);
             return new ResponseEntity<>(new LoginResponse(false,e.toString(),null, null), HttpStatus.UNAUTHORIZED);
         }
     }

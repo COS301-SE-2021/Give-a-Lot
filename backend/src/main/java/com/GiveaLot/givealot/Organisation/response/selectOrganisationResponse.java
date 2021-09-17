@@ -7,9 +7,9 @@ import java.util.List;
 public class selectOrganisationResponse {
     private String code;
     private String message;
-    private Organisations response;
+    private OrganisationResponseObject response;
 
-    public selectOrganisationResponse(String code, String message, Organisations response) {
+    public selectOrganisationResponse(String code, String message, OrganisationResponseObject response) {
         this.code = code;
         this.message = message;
         this.response = response;
@@ -31,11 +31,11 @@ public class selectOrganisationResponse {
         this.message = message;
     }
 
-    public Organisations getResponse() {
+    public OrganisationResponseObject getResponse() {
         return response;
     }
 
-    public void setResponse(Organisations response) {
+    public void setResponse(OrganisationResponseObject response) {
         this.response = response;
     }
 }

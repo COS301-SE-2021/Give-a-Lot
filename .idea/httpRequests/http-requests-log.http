@@ -1,3 +1,69 @@
+POST http://localhost:8080/v1/organisation/check/email
+Content-Type: application/json
+
+{
+  "email" : null
+}
+
+<> 2021-09-17T043634.400.json
+
+###
+
+POST http://localhost:8080/v1/organisation/check/email
+Content-Type: application/json
+
+{
+  "email" : ""
+}
+
+<> 2021-09-17T043624.400.json
+
+###
+
+POST http://localhost:8080/v1/organisation/check/email
+Content-Type: application/json
+
+{
+  "email" : "coolmailgmail.com"
+}
+
+<> 2021-09-17T043607.400.json
+
+###
+
+POST http://localhost:8080/v1/organisation/check/email
+Content-Type: application/json
+
+{
+  "email" : "coolmai6576l@gmail.com"
+}
+
+<> 2021-09-17T043542.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/check/email
+Content-Type: application/json
+
+{
+  "email" : "coolmail@gmail.com"
+}
+
+<> 2021-09-17T043533.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation
+Content-Type: application/json
+
+{
+  "email" : "coolmail@gmail.com"
+}
+
+<> 2021-09-17T043445.404.json
+
+###
+
 GET http://localhost:8080/v1/browse/sectors
 
 <> 2021-09-14T025534.200.json
@@ -520,56 +586,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-06T000106.404.json
-
-###
-
-GET http://localhost:8080/event/get/calender/coolmail@gmail.com
-
-<> 2021-09-05T235749.200.json
-
-###
-
-GET http://localhost:8080/event/get/calender/coolmail@gmail.com
-
-<> 2021-09-05T235739.200.json
-
-###
-
-GET http://localhost:8080/event/get/calender/coolmail@gmail.com
-
-<> 2021-09-05T235635.200.json
-
-###
-
-GET http://localhost:8080/event/get/calender/coolmail@gmail.com
-
-<> 2021-09-05T235258.200.json
-
-###
-
-POST http://localhost:8080/event/calender/edit/date/end
-Content-Type: application/json
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : 1,
-  "newDate" : "2021-19-21"
-}
-
-<> 2021-09-05T234835.200.json
-
-###
-
-POST http://localhost:8080/event/calender/edit/date/start
-Content-Type: application/json
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : 1,
-  "newDate" : "2021-19-21"
-}
-
-<> 2021-09-05T234806.200.json
 
 ###
 

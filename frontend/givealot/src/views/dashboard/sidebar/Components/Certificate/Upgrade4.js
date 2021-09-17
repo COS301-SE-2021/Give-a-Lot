@@ -30,6 +30,7 @@ export class Upgrade4 extends Component {
             fileError: "",
             images:"",
             imagesError:"",
+            serverDomain:"https://3c73e752688968.localhost.run"
 
         };
     }
@@ -54,7 +55,7 @@ export class Upgrade4 extends Component {
         alert("take away submit button functionality");
 
         fetch(
-            'http://localhost:8080/v1/organisation/add/logo',
+            this.state.serverDomain + '/v1/organisation/add/logo',
             {
                 method: 'POST',
                 body: formData,
@@ -95,7 +96,7 @@ export class Upgrade4 extends Component {
         alert("take away submit button functionality");
 
         fetch(
-            'http://localhost:8080/v1/organisation/add/logo',
+            this.state.serverDomain + '/v1/organisation/add/logo',
             {
                 method: 'POST',
                 body: formData,

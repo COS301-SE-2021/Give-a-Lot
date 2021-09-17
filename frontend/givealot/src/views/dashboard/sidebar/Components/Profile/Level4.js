@@ -28,6 +28,7 @@ const initialState = {
     fileState: false,
     images:"",
     imagesState:false,
+    serverDomain : "https://3c73e752688968.localhost.run"
 
 
 };
@@ -55,7 +56,7 @@ export class Level4 extends Component {
         alert("take away submit button functionality");
 
         fetch(
-            'http://localhost:8080/v1/organisation/add/logo',
+            this.state.serverDomain + '/v1/organisation/add/logo',
             {
                 method: 'POST',
                 body: formData,
@@ -95,7 +96,7 @@ export class Level4 extends Component {
 
         alert("take away submit button functionality");
         fetch(
-            'http://localhost:8080/v1/organisation/add/logo',
+            this.state.serverDomain + '/v1/organisation/add/logo',
             {
                 method: 'POST',
                 body: formData,

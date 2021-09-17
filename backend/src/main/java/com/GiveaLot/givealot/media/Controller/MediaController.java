@@ -144,23 +144,18 @@ public class MediaController {
 
     @RequestMapping(value = "/cert/version/qr_code/{orgId}", method = RequestMethod.GET,
             produces = MediaType.ALL_VALUE)
-    public ResponseEntity<byte[]> getQRCode(@PathVariable("orgId") String orgId)
-    {
-        try
-        {
-            if(!service.orgIdExists(Long.valueOf(orgId)))
-            {
+    public ResponseEntity<byte[]> getQRCode(@PathVariable("orgId") String orgId) {
+        try {
+            if (!service.orgIdExists(Long.valueOf(orgId))) {
                 return ResponseEntity
                         .notFound().build();
             }
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             return ResponseEntity
                     .notFound().build();
         }
 
-        var imgFile = new ClassPathResource("localFiles/" +orgId+ "/gallery/QRCode.png");
+        var imgFile = new ClassPathResource("localFiles/" + orgId + "/gallery/QRCode.png");
 
         byte[] bytes = null;
         try {
@@ -172,8 +167,21 @@ public class MediaController {
         }
         catch (IOException e)
         {
-            return ResponseEntity
-                    .notFound().build();
+            var fallback = new ClassPathResource("localFiles/fallback/QRCodeDefault.jpeg");
+            bytes = null;
+
+            try {
+                bytes = StreamUtils.copyToByteArray(fallback.getInputStream());
+                return ResponseEntity
+                        .ok()
+                        .contentType(MediaType.IMAGE_JPEG)
+                        .body(bytes);
+            }
+            catch (IOException ew)
+            {
+                return ResponseEntity
+                        .notFound().build();
+            }
         }
     }
 }

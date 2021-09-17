@@ -64,7 +64,6 @@
     height: 60px;
     font-size: 16px;
     color: #333;
-    text-transform: lowercase;
     padding: 0 7px 0 10px;
     outline: none;
     border: 2px solid #4b4250;
@@ -120,7 +119,7 @@
     transform: translate(-50%,0);
 }
 
-#badLogin, #waitInfo
+#badLogin, #waitInfo, #serverError
 {
     position: relative;
     width: fit-content;

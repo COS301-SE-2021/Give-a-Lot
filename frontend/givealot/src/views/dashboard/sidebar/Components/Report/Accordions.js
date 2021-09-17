@@ -46,6 +46,7 @@ export default function Accordions({org,id,title, description,appeal}) {
     const [reportId, setReportId] = React.useState(id);
     const [message, setMessage] = React.useState("");
     const [appeall, setAppeal] = React.useState(appeal);
+    const [serverDomain, setServerDomain] = React.useState("https://3c73e752688968.localhost.run");
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
@@ -74,7 +75,7 @@ export default function Accordions({org,id,title, description,appeal}) {
             orgId,
         };
 
-        axios.post("http://localhost:8080/report/appeal/", postData)
+        axios.post(serverDomain + "/report/appeal/", postData)
             .then(res=>{
                 console.log(res)
             }).catch(err=>{

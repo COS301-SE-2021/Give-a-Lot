@@ -427,6 +427,8 @@ export class Upgrade3 extends Component {
                                         </div>
                                     </div>
 
+
+
                                     <div className="WrapItsSocial">
                                         <div className="social_media">
                                             <div>

@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="finalizing frontend&#10;backend updates to add organisation">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/FaceRecognitionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/FaceRecognitionServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/deploy.prototxt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/face_blur.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/face_model.caffemodel" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/face_pixel.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="Introduced python code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Chatbot/chat.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Chatbot/chat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/56/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Chatbot/intents.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Chatbot/intents.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +162,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="" />
+      <changelist id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="finalizing frontend&#10;backend updates to add organisation" />
       <created>1629230718911</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -186,83 +177,7 @@
       <workItem from="1631042260596" duration="333000" />
       <workItem from="1631133557866" duration="750000" />
       <workItem from="1631137762251" duration="2127000" />
-    </task>
-    <task id="LOCAL-00047" summary="Last minute changes">
-      <created>1629745300440</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1629745300440</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Cleared temporary organisations">
-      <created>1629883245240</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1629883245240</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Cleared temporary organisations">
-      <created>1629883358168</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1629883358168</updated>
-    </task>
-    <task id="LOCAL-00050" summary="Cleared temporary organisations">
-      <created>1629883639695</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1629883639696</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Cleared temporary organisations">
-      <created>1629884557800</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1629884557800</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Added files">
-      <created>1630588992938</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1630588992938</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Added files">
-      <created>1630588998988</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1630588998988</updated>
-    </task>
-    <task id="LOCAL-00054" summary="Added files">
-      <created>1630599527402</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1630599527402</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Added additional verify implementation">
-      <created>1630619170038</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1630619170041</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Last minute changes">
-      <created>1630712128271</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1630712128276</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Last minute changes">
-      <created>1630714022262</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1630714022262</updated>
+      <workItem from="1631921183795" duration="1619000" />
     </task>
     <task id="LOCAL-00058" summary="Last minute changes">
       <created>1630716192825</created>
@@ -530,7 +445,84 @@
       <option name="project" value="LOCAL" />
       <updated>1631882738879</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="Introduced python code">
+      <created>1631921384073</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1631921384073</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Introduced python code">
+      <created>1631921386964</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1631921386964</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Introduced python code">
+      <created>1631921389664</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1631921389664</updated>
+    </task>
+    <task id="LOCAL-00099" summary="Introduced python code">
+      <created>1631921392741</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1631921392741</updated>
+    </task>
+    <task id="LOCAL-00100" summary="Introduced python code">
+      <created>1631921395079</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1631921395079</updated>
+    </task>
+    <task id="LOCAL-00101" summary="Introduced python code">
+      <created>1631921397475</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1631921397475</updated>
+    </task>
+    <task id="LOCAL-00102" summary="Introduced python code">
+      <created>1631921400982</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1631921400982</updated>
+    </task>
+    <task id="LOCAL-00103" summary="Introduced python code">
+      <created>1631921405672</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1631921405672</updated>
+    </task>
+    <task id="LOCAL-00104" summary="Introduced python code">
+      <created>1631921408086</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1631921408086</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Introduced python code">
+      <created>1631921410767</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1631921410767</updated>
+    </task>
+    <task id="LOCAL-00106" summary="Introduced python code">
+      <created>1631921413389</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1631921413389</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -549,7 +541,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="organisations controller revision - activate" />
     <MESSAGE value="organisations controller revision - add website and remove website" />
     <MESSAGE value="organisations controller revision - add address" />
     <MESSAGE value="organisations controller revision - add socials" />
@@ -574,7 +565,8 @@
     <MESSAGE value="search done" />
     <MESSAGE value="saving workspace" />
     <MESSAGE value="finalizing frontend&#10;backend updates to add organisation" />
-    <option name="LAST_COMMIT_MESSAGE" value="finalizing frontend&#10;backend updates to add organisation" />
+    <MESSAGE value="Introduced python code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Introduced python code" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

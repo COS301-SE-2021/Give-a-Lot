@@ -2,20 +2,23 @@ import React, {Component} from 'react'
 import "../Report/Style/Reports.css"
 import Accordions from "../Report/Accordions"
 import axios from "axios";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 
 
 
 export class Reports extends Component {
 
+    static contextType = ApiContext;
     constructor(props) {
         super(props)
         this.state = {
             count: "",
             reports: [],
-            //orgId:localStorage.getItem("id"),
-            orgId: 60,
+            orgId:localStorage.getItem("id"),
             error: "",
-            serverDomain: "https://3c73e752688968.localhost.run"
+            //serverDomain: "https://3c73e752688968.localhost.run"
+            serverDomain : this.context,
+
         }
     }
     componentDidMount(){

@@ -12,6 +12,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Axios from "axios";
 import TextField from "@material-ui/core/TextField";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 
 const styles = theme => ({
 
@@ -43,13 +44,15 @@ const initialState = {
     ngoNumberError:"",
     ngoDateError:"",
     logoError:"",
-    serverDomain: 'https://3c73e752688968.localhost.run'
+    serverDomain: 'https://localhost:8080'
+    //serverDomain : this.context,
 };
 
 
 
 export class Upgrade0 extends Component {
     state = initialState;
+    static contextType = ApiContext;
     constructor (props) {
         super(props)
 

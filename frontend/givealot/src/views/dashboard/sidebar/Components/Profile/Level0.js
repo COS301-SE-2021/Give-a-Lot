@@ -12,6 +12,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Axios from "axios";
 import TextField from "@material-ui/core/TextField";
 import axios from "axios";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 
 const styles = theme => ({
 
@@ -36,8 +37,8 @@ const styles = theme => ({
 
 const initialState = {
     level0:{},
-    orgId: 60,
-    //orgId:localStorage.getItem("id"),
+    //orgId: 60,
+    orgId:localStorage.getItem("id"),
     startDate: new Date(),
     ngoNumber:"",
     ngoNumberState:false,
@@ -45,6 +46,7 @@ const initialState = {
     ngoDateState:false,
     logoState:false,
     logo:"",
+    serverDomain : this.context,
 
 };
 
@@ -52,6 +54,7 @@ const initialState = {
 export class Level0 extends Component {
 
 
+    static contextType = ApiContext;
     state = initialState;
     constructor (props) {
         super(props)
@@ -86,7 +89,7 @@ export class Level0 extends Component {
         alert("Do not submit yet");
 
         fetch(
-            'http://localhost:8080/v1/organisation/add/logo',
+            this.state.serverDomain + '/v1/organisation/add/logo',
             {
                 method: 'POST',
                 body: formData,
@@ -129,7 +132,7 @@ export class Level0 extends Component {
 
             console.log(data)
             Axios
-                .post("http://localhost:8080/v1/organisation/add/ngopdate", data)
+                .post(this.state.serverDomain + "/v1/organisation/add/ngopdate", data)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 
@@ -153,7 +156,7 @@ export class Level0 extends Component {
             }
         }
         console.log(this.props)
-        axios.get('http://localhost:8080/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config) //Change the API
+        axios.get(this.state.serverDomain + '/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config) //Change the API
             .then(response =>{
                 console.log(response)
                 this.setState({level0: response.data.response})

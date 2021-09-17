@@ -15,6 +15,7 @@ import Select from '@material-ui/core/Select';
 import TextField from "@material-ui/core/TextField";
 import Axios from "axios";
 import axios from "axios";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 
 
 const styles = theme => ({
@@ -45,8 +46,8 @@ const styles = theme => ({
 
 const initialState = {
     level3:{},
-    orgId:"60",
-    //orgId:localStorage.getItem("id"),
+    //orgId:"60",
+    orgId:localStorage.getItem("id"),
     url:"",
     urlError:"",
     type:"",
@@ -71,7 +72,8 @@ const initialState = {
     secretaryNameError:"",
     secretaryContacts:"",
     secretaryContactsError:"",
-    committee:""
+    committee:"",
+    serverDomain : this.context,
 
 };
 
@@ -80,6 +82,7 @@ export class Level3 extends Component {
 
 
     state = initialState;
+    static contextType = ApiContext;
     constructor (props) {
         super(props)
 
@@ -203,19 +206,19 @@ export class Level3 extends Component {
             };
             console.log(com)
             Axios
-                .post("http://localhost:8080/v1/organisation/add/committee", com)
+                .post(this.state.serverDomain + "/v1/organisation/add/committee", com)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 
             console.log(social)
             Axios
-                .post("http://localhost:8080/v1/organisation/add/socials", social)
+                .post(this.state.serverDomain + "/v1/organisation/add/socials", social)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 
             console.log(social1)
             Axios
-                .post("http://localhost:8080/v1/organisation/add/socials", social1)
+                .post(this.state.serverDomain + "/v1/organisation/add/socials", social1)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 
@@ -251,7 +254,7 @@ export class Level3 extends Component {
             }
         }
         console.log(this.props)
-        axios.get('http://localhost:8080/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config) //Change the API
+        axios.get(this.state.serverDomain + '/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config) //Change the API
             .then(response =>{
                 console.log(response)
                 this.setState({level3: response.data.response})
@@ -265,7 +268,7 @@ export class Level3 extends Component {
 
     render(){
         const { classes } = this.props;
-        const { level3 } = this.state;
+
 
 
 

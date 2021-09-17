@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -16,6 +16,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import axios from 'axios';
+import {ApiContext} from "../../../../../apiContext/ApiContext";
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -46,6 +48,7 @@ export default function Accordions({org,id,title, description,appeal}) {
     const [reportId] = React.useState(id);
     const [message, setMessage] = React.useState("");
     const [appeal1] = React.useState(appeal);
+    const [serverDomain] = useState(useContext(ApiContext))
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
@@ -74,7 +77,7 @@ export default function Accordions({org,id,title, description,appeal}) {
             orgId,
         };
 
-        axios.post("http://localhost:8080/report/appeal/", postData)
+        axios.post(serverDomain + "/report/appeal/", postData)
             .then(res=>{
                 console.log(res)
             }).catch(err=>{

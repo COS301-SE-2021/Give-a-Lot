@@ -14,6 +14,7 @@ import EmailSent from "./views/login/Components/EmailSent";
 import Password from "./views/login/Components/Password";
 import ResetPassword from "./views/login/Components/ResetPassword";
 import ResetSuccess from "./views/login/Components/ResetSuccess";
+import TermsAndConditions from "./views/registration/TermsAndConditions";
 
 
 function App()
@@ -28,6 +29,7 @@ function App()
         <Route path="/UserSuccess" exact component={UserSuccess}/>
         <Route path="/ResetPassword" exact component={ResetPassword}/>
         <Route path="/ResetSuccess" exact component={ResetSuccess}/>
+        <Route path="/TermsAndConditions" exact component={TermsAndConditions}/>
         <Route path="/Password" exact component={Password}/>
         <Route path="/EmailSent" exact component={EmailSent}/>
         <Route path="/registerOrg" exact component={RegisterOrg}/>

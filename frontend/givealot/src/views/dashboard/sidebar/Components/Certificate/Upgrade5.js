@@ -39,6 +39,7 @@ export class Upgrade5 extends Component {
             orgId:"",
             website: "",
             address:"",
+            serverDomain: 'https://localhost:8080'
 
         };
     }

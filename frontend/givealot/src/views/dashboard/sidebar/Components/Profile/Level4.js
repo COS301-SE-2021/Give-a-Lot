@@ -30,8 +30,7 @@ const initialState = {
     images:"",
     imagesState:false,
     //serverDomain : "https://3c73e752688968.localhost.run"
-    serverDomain : this.context,
-
+    serverDomain : 'http://localhost:8080',
 
 };
 

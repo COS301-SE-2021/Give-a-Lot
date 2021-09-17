@@ -46,7 +46,7 @@ const initialState = {
     ngoDateState:false,
     logoState:false,
     logo:"",
-    serverDomain : this.context,
+    serverDomain : 'http://localhost:8080',
 
 };
 

@@ -49,8 +49,7 @@ export class Level1 extends Component {
             websiteState: false,
             address:"",
             addressState:false,
-            serverDomain : this.context,
-
+            serverDomain : 'http://localhost:8080',
         };
     }
 

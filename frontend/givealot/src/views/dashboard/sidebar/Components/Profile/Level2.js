@@ -52,7 +52,7 @@ export class Level2 extends Component {
             orgInfoState:false,
             qrCode:"",
             qrCodeState:false,
-            serverDomain : this.context,
+            serverDomain : 'http://localhost:8080',
 
 
         };

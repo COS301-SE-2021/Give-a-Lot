@@ -17,7 +17,7 @@ export class Reports extends Component {
             orgId:localStorage.getItem("id"),
             error: "",
             //serverDomain: "https://3c73e752688968.localhost.run"
-            serverDomain : this.context,
+            serverDomain : 'http://localhost:8080',
 
         }
     }

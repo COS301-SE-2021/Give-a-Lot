@@ -23,6 +23,7 @@ export class Certificate extends Component {
         this.state={
             level: 0,
             orgId:localStorage.getItem("id"),
+            serverDomain : 'http://localhost:8080',
 
         };
     }

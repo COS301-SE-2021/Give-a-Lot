@@ -73,7 +73,7 @@ const initialState = {
     secretaryContacts:"",
     secretaryContactsError:"",
     committee:"",
-    serverDomain : this.context,
+    serverDomain : 'http://localhost:8080',
 
 };
 

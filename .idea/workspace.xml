@@ -5,8 +5,71 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="finalizing frontend&#10;backend updates to add organisation">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/56/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/56/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/56/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/57/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/57/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/57/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/58/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/58/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/58/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/59/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/59/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/59/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/60/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/60/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/60/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/61/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/61/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/61/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/62/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/62/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/62/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/63/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/63/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/63/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/64/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/64/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/64/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/65/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/65/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/65/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/66/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/66/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/66/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/67/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/67/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/67/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/68/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/68/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/68/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/69/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/69/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/69/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/70/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/70/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/70/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/71/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/71/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/71/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/72/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/72/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/72/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/73/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/73/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/73/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/74/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/74/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/74/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/75/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/75/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/75/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/76/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/76/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/76/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/fallback/QRCodeDefault.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_desktop.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_desktop.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,14 +227,7 @@
       <workItem from="1631552726642" duration="58800000" />
       <workItem from="1631708108011" duration="27620000" />
       <workItem from="1631819750918" duration="3266000" />
-      <workItem from="1631823532933" duration="32918000" />
-    </task>
-    <task id="LOCAL-00046" summary="Last minute changes">
-      <created>1629382056932</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1629382056932</updated>
+      <workItem from="1631823532933" duration="33878000" />
     </task>
     <task id="LOCAL-00047" summary="Last minute changes">
       <created>1629745300440</created>
@@ -509,7 +565,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631881892800</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="finalizing frontend&#10;backend updates to add organisation">
+      <created>1631882738879</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1631882738879</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

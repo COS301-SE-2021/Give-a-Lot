@@ -51,7 +51,7 @@ export class Cards extends Component {
         // alert(this.state.serverDomain)
         axios.post(this.state.serverDomain+'/report/get/all', adminUsersRequestBodyReports, config)
             .then(response =>{
-                console.log(response)
+                // console.log(response)
                 this.setState({ reports: response.data.object })
 
             })

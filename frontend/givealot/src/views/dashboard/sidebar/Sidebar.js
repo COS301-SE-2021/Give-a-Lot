@@ -13,6 +13,7 @@ import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 import CardGiftcardOutlinedIcon from '@material-ui/icons/CardGiftcardOutlined';
 import { useHistory } from "react-router-dom";
 import TimelineIcon from '@material-ui/icons/Timeline';
+// import ReportGmailerrorredOutlinedIcon from '@material-ui/icons/ReportGmailerrorredOutlined';
 
 /////general organisation admin
 const roles = localStorage.getItem('role')
@@ -53,6 +54,15 @@ function Sidebar(){
                             <li className="sidebarListItem ">
                                 <CardGiftcardOutlinedIcon />
                                 <div className="sideIcon" > Certificate</div>
+                            </li>
+                        </Link>
+                    </div>
+
+                    <div className={splitLocation[1] === "report" ? "active" : ""} >
+                        <Link to='/report' className="link">
+                            <li className="sidebarListItem ">
+                                <TimelineIcon/>
+                                <div className="sideIcon" > Timeline </div>
                             </li>
                         </Link>
                     </div>

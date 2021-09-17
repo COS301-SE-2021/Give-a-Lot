@@ -55,5 +55,6 @@ public interface OrganisationService {
     generalOrganisationResponse updateOrganisationInfo(updateOrganisationInfoRequest request) throws Exception;
     void clearTabels();
     boolean emailExists(emailExistsRequest request) throws Exception;
+    responseJSON selectOrganisationAdmin(Long orgId) throws Exception;
 
 }

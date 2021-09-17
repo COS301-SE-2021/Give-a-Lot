@@ -1,3 +1,9 @@
+GET http://localhost:8080/v1/organisation/admin/sel/organisation/71
+
+<> 2021-09-17T212037.200.json
+
+###
+
 POST http://localhost:8080/v1/organisation/check/email
 Content-Type: application/json
 
@@ -573,19 +579,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-06T000213.200.json
-
-###
-
-POST http://localhost:8080/event/calender/edit
-Content-Type: application/json
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : 1,
-  "newTitle" : "revised title"
-}
-
-<> 2021-09-06T000106.404.json
 
 ###
 

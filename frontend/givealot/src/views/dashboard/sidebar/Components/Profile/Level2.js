@@ -13,6 +13,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Axios from "axios";
 import TextField from "@material-ui/core/TextField";
 import axios from "axios";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 
 const styles = theme => ({
 
@@ -37,12 +38,13 @@ const styles = theme => ({
 
 export class Level2 extends Component {
 
+    static contextType = ApiContext;
     constructor (props) {
         super(props)
         this.state={
             level2:{},
-            //orgId:localStorage.getItem("id"),
-            orgId:60,
+            orgId:localStorage.getItem("id"),
+            //orgId:60,
             date:"",
             dateState:false,
             startDate: new Date(),

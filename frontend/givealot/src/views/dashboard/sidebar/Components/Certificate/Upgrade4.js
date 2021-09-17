@@ -9,6 +9,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 
 /*const styles =theme => ({
 
@@ -21,7 +22,7 @@ import CardContent from '@material-ui/core/CardContent';
 
 
 export class Upgrade4 extends Component {
-
+    static contextType = ApiContext;
     constructor (props) {
         super(props)
         this.state={
@@ -30,7 +31,8 @@ export class Upgrade4 extends Component {
             fileError: "",
             images:"",
             imagesError:"",
-            serverDomain:"https://3c73e752688968.localhost.run"
+            //serverDomain:"https://3c73e752688968.localhost.run"
+            serverDomain : this.context,
 
         };
     }

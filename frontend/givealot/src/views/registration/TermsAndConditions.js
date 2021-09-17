@@ -16,7 +16,7 @@ function TermsAndConditions()
 {
     return (
         <div>
-            <div className="Terms" >
+            <div className="Terms5" >
                 <div  >
                     <Logo/>
                     <Link to={"/SignUp"}>

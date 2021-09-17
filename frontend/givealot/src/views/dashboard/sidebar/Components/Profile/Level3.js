@@ -15,6 +15,7 @@ import Select from '@material-ui/core/Select';
 import TextField from "@material-ui/core/TextField";
 import Axios from "axios";
 import axios from "axios";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 
 
 const styles = theme => ({
@@ -45,8 +46,8 @@ const styles = theme => ({
 
 const initialState = {
     level3:{},
-    orgId:"60",
-    //orgId:localStorage.getItem("id"),
+    //orgId:"60",
+    orgId:localStorage.getItem("id"),
     url:"",
     urlError:"",
     type:"",
@@ -71,7 +72,8 @@ const initialState = {
     secretaryNameError:"",
     secretaryContacts:"",
     secretaryContactsError:"",
-    committee:""
+    committee:"",
+    serverDomain : this.context,
 
 };
 
@@ -80,6 +82,7 @@ export class Level3 extends Component {
 
 
     state = initialState;
+    static contextType = ApiContext;
     constructor (props) {
         super(props)
 

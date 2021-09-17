@@ -19,6 +19,7 @@ import axios from "axios";
 import Axios from "axios";
 import {toast} from "react-toastify";
 import * as PropTypes from "prop-types";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 
 
 function CancelOutlinedIcon(props) {
@@ -29,14 +30,15 @@ CancelOutlinedIcon.propTypes = {className: PropTypes.string};
 
 export class Profile extends Component {
 
+    static contextType = ApiContext;
     constructor(props) {
         super(props)
 
         this.state = {
             persons:{},
             level: 5,
-            //orgId:localStorage.getItem("id"),
-            orgId: 60,
+            orgId:localStorage.getItem("id"),
+            //orgId: 60,
             orgEmail:"",
             orgName1:"",
             orgNameState:false,
@@ -52,7 +54,8 @@ export class Profile extends Component {
             ContactPersonState:false,
             orgAddress:"",
             addressState:false,
-            serverDomain: "https://3c73e752688968.localhost.run"
+            //serverDomain: "https://3c73e752688968.localhost.run"
+            serverDomain : this.context,
         }
     }
 

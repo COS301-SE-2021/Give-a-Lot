@@ -6,6 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import SaveIcon from '@material-ui/icons/Save';
 import axios from "axios";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 
 
 const styles = theme => ({
@@ -17,13 +18,14 @@ const styles = theme => ({
 });
 
 export class Certificate extends Component {
-
+    static contextType = ApiContext;
     constructor (props) {
         super(props)
         this.state={
             level: 0,
-            //orgId:localStorage.getItem("id"),
-            orgId: 60,
+            orgId:localStorage.getItem("id"),
+            serverDomain : this.context,
+
         };
     }
     componentDidMount(){
@@ -37,7 +39,7 @@ export class Certificate extends Component {
             "orgId" : this.state.orgId
         }
 
-        axios.post('http://localhost:8080/v1/organisation/get/org_level', dataa  ,config)
+        axios.post(this.state.serverDomain + '/v1/organisation/get/org_level', dataa  ,config)
             .then(response =>{
                 this.setState({level: response.data.level})
                 console.log(response)

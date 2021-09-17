@@ -11,6 +11,7 @@ import CardContent from '@material-ui/core/CardContent';
 import TextField from "@material-ui/core/TextField";
 import Axios from "axios";
 import axios from "axios";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 
 const styles = theme => ({
 
@@ -37,6 +38,7 @@ const styles = theme => ({
 
 export class Level1 extends Component {
 
+    static contextType = ApiContext;
     constructor (props) {
         super(props)
         this.state={

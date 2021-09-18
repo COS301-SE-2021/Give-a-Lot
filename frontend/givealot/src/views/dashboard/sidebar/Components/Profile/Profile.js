@@ -9,11 +9,10 @@ import Level4 from "./Level4"
 
 import {
     CalendarToday, CheckCircleOutlineOutlined,
-    LocationSearching,
     MailOutline,
     PermIdentity,
-    PhoneAndroid, PieChart, PieChartOutlined,
-    Publish,
+    PhoneAndroid, PieChartOutlined,
+
 } from "@material-ui/icons";
 import axios from "axios";
 import Axios from "axios";
@@ -23,7 +22,7 @@ import {ApiContext} from "../../../../../apiContext/ApiContext";
 import FullPageLoader from "../Report/FullPageLoader";
 
 
-function CancelOutlinedIcon(props) {
+function CancelOutlinedIcon() {
     return null;
 }
 
@@ -465,7 +464,6 @@ export class Profile extends Component {
                                     <label>Description</label>
                                     <textarea
 
-                                        type="text"
                                         name="orgDescription1"
                                         onChange={this.handleDescription}
                                         placeholder={persons.orgDescription}

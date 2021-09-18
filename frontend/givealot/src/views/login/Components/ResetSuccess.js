@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import backgroundImg from "../../../assets/homeBackground.jpg";
 import Logo from "../Components/Logo"
-import axios from "axios"
 import "../Styles/Login.css"
 import {Alert} from "@material-ui/lab";
 

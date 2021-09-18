@@ -1,30 +1,3 @@
-// import React from 'react'
-// import "./styles/Calendar.css"
-// import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Inject } from '@syncfusion/ej2-react-schedule';
-// import { DataManager, ODataV4Adaptor } from '@syncfusion/ej2-data';
-//
-// export default class DemoApp extends React.Component {
-//
-//     constructor() {
-//         super(...arguments);
-//         this.dataManager = new DataManager({
-//             url: 'https://ej2services.syncfusion.com/production/web-services/api/Schedule',
-//             adaptor: new ODataV4Adaptor
-//         });
-//         console.log(this.dataManager)
-//     }
-//
-//     render() {
-//         return (
-//             <div className="calendar">
-//                 <ScheduleComponent height='550px' selectedDate={new Date()} readonly={false} eventSettings={{ dataSource: this.dataManager }}>
-//                     <Inject services={[Day, Week, WorkWeek, Month, Agenda]}/>
-//                 </ScheduleComponent>
-//             </div>
-//         )
-//     }
-// }
-
 import * as React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { ViewState, EditingState } from '@devexpress/dx-react-scheduler';
@@ -48,12 +21,12 @@ export default class Demo extends React.PureComponent {
         this.state = {
             data: [],
             currentDate: new Date().toDateString(),
-            email: 'coolmail@gmail.com',
+            email: 'basic@gmail.com',
             eventAdded: false,
             addedAppointment: {},
             appointmentChanges: {},
             editingAppointment: undefined,
-            serverDomain : 'https://3c73e752688968.localhost.run'
+            serverDomain : 'http://localhost:8080'
         };
 
         this.commitChanges = this.commitChanges.bind(this);
@@ -116,7 +89,7 @@ export default class Demo extends React.PureComponent {
                 }
                 axios.post(this.state.serverDomain + '/event/calender/add', eventDayAndTime ,config)
                     .then(response =>{
-                        console.log(response)
+                        // console.log(response)
                     })
                     .catch(error =>{
                         console.log(error)
@@ -171,7 +144,7 @@ export default class Demo extends React.PureComponent {
                     }
                     axios.post(this.state.serverDomain + '/event/calender/edit/date/start', startDateUpdate ,config)
                         .then(response =>{
-                            console.log(response)
+                            // console.log(response)
                         })
                         .catch(error =>{
                             console.log(error)
@@ -198,7 +171,7 @@ export default class Demo extends React.PureComponent {
                     }
                     axios.post(this.state.serverDomain + '/event/calender/edit/date/end', endDateUpdate ,config)
                         .then(response =>{
-                            console.log(response)
+                            // console.log(response)
                         })
                         .catch(error =>{
                             console.log(error)
@@ -222,7 +195,7 @@ export default class Demo extends React.PureComponent {
                     console.log(startTimeUpdate)
                     axios.post(this.state.serverDomain + '/event/calender/edit/time/start', startTimeUpdate ,config)
                         .then(response =>{
-                            console.log(response)
+                            // console.log(response)
                         })
                         .catch(error =>{
                             console.log(error)
@@ -246,7 +219,7 @@ export default class Demo extends React.PureComponent {
                     console.log(endTimeUpdate)
                     axios.post(this.state.serverDomain + '/event/calender/edit/time/end', endTimeUpdate ,config)
                         .then(response =>{
-                            console.log(response)
+                            // console.log(response)
                         })
                         .catch(error =>{
                             console.log(error)
@@ -254,7 +227,7 @@ export default class Demo extends React.PureComponent {
                 }
 
                 if(testing.notes !== undefined){
-                    console.log(testing.notes)
+                    // console.log(testing.notes)
                     let config = {
                         headers: {
                             "Content-Type": "application/json",
@@ -269,7 +242,7 @@ export default class Demo extends React.PureComponent {
                     console.log(descriptionUpdate)
                     axios.post(this.state.serverDomain + '/event/calender/edit/description', descriptionUpdate ,config)
                         .then(response =>{
-                            console.log(response)
+                            // console.log(response)
                         })
                         .catch(error =>{
                             console.log(error)
@@ -297,7 +270,7 @@ export default class Demo extends React.PureComponent {
         }
         axios.get(this.state.serverDomain +'/event/get/calender/'+this.state.email,  config)
             .then(response =>{
-                console.log(response)
+                // console.log(response)
                 this.setState({data: response.data.object})
             })
             .catch(error =>{
@@ -312,36 +285,36 @@ export default class Demo extends React.PureComponent {
 
         return (
             <div className="calendar">
-                <Paper>
-                    <Scheduler
-                        data={data}
-                        height={660}
-                        remoteFiltering={true}
-                    >
-                        <ViewState
-                            currentDate={currentDate}
-                        />
-                        <EditingState
-                            onCommitChanges={this.commitChanges}
-                            addedAppointment={addedAppointment}
-                            onAddedAppointmentChange={this.changeAddedAppointment}
-                            appointmentChanges={appointmentChanges}
-                            onAppointmentChangesChange={this.changeAppointmentChanges}
-                            editingAppointment={editingAppointment}
-                            onEditingAppointmentChange={this.changeEditingAppointment}
-                        />
-                        <MonthView />
-                        <AllDayPanel />
-                        <EditRecurrenceMenu />
-                        <ConfirmationDialog />
-                        <Appointments />
-                        <AppointmentTooltip
-                            showOpenButton
-                            showDeleteButton
-                        />
-                        <AppointmentForm />
-                    </Scheduler>
-                </Paper>
+                    <Paper>
+                        <Scheduler
+                            data={data}
+                            height={660}
+                            remoteFiltering={true}
+                        >
+                            <ViewState
+                                currentDate={currentDate}
+                            />
+                            <EditingState
+                                onCommitChanges={this.commitChanges}
+                                addedAppointment={addedAppointment}
+                                onAddedAppointmentChange={this.changeAddedAppointment}
+                                appointmentChanges={appointmentChanges}
+                                onAppointmentChangesChange={this.changeAppointmentChanges}
+                                editingAppointment={editingAppointment}
+                                onEditingAppointmentChange={this.changeEditingAppointment}
+                            />
+                            <MonthView />
+                            <AllDayPanel />
+                            <EditRecurrenceMenu />
+                            <ConfirmationDialog />
+                            <Appointments />
+                            <AppointmentTooltip
+                                showOpenButton
+                                showDeleteButton
+                            />
+                            <AppointmentForm />
+                        </Scheduler>
+                    </Paper>
             </div>
 
         );

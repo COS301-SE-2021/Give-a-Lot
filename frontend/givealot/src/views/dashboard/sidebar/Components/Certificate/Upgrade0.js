@@ -3,16 +3,16 @@ import "./Style/Certificate.css";
 import 'date-fns';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-import { withStyles ,makeStyles } from '@material-ui/core/styles'
+import { withStyles } from '@material-ui/core/styles'
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-
 import Axios from "axios";
 import TextField from "@material-ui/core/TextField";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 
 const styles = theme => ({
 
@@ -44,13 +44,15 @@ const initialState = {
     ngoNumberError:"",
     ngoDateError:"",
     logoError:"",
-    serverDomain: 'https://3c73e752688968.localhost.run'
+    serverDomain: 'https://localhost:8080'
+    //serverDomain : this.context,
 };
 
 
 
 export class Upgrade0 extends Component {
     state = initialState;
+    static contextType = ApiContext;
     constructor (props) {
         super(props)
 
@@ -73,12 +75,11 @@ export class Upgrade0 extends Component {
     };
 
     handleChange = event => {
-
         const formData = new FormData();
         formData.append('image', event.target.files[0]);
         formData.append('orgId', this.state.orgId);
-        let imageStates = 0;
 
+        let imageStates = 0;
         alert("take away submit button functionality");
 
         fetch(
@@ -146,11 +147,6 @@ export class Upgrade0 extends Component {
                 orgId: this.state.orgId,
                 ngoDate: this.state.ngoDate,
                 ngoNumber: this.state.ngoNumber,
-
-            };
-            const data_logo = {
-                orgId: this.state.orgId,
-                logo: this.state.logo,
 
             };
             console.log(data)

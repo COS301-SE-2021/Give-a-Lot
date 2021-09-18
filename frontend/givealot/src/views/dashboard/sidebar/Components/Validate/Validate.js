@@ -14,7 +14,7 @@ export class Validate extends Component {
             valid:[],
             error: "",
             adminUserEmail:'admin@email.com',
-            serverDomain: "https://3c73e752688968.localhost.run"
+            serverDomain: "http://localhost:8080"
         }
     }
     componentDidMount(){
@@ -32,7 +32,7 @@ export class Validate extends Component {
         axios.post(this.state.serverDomain + '/v1/notifications/get/notifications', adminUsersRequestBody  ,config)
             .then(response =>{
                 this.setState({valid: response.data.response})
-                console.log(response)
+                // console.log(response)
             })
             .catch(error =>{
                 console.log(error)

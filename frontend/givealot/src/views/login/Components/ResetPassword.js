@@ -16,8 +16,10 @@ const styles = {
 }
 
 const initialState = {
-    email: "",
+    userEmail: "",
     emailError: "",
+    password: "",
+    passwordError: "",
 };
 
 class ResetPassword extends Component {
@@ -35,14 +37,18 @@ class ResetPassword extends Component {
 
     validate = () => {
         let emailError = "";
+        let passwordError = "";
 
-        if (!this.state.email.includes("@")) {
+        if (!this.state.userEmail.includes("@")) {
             emailError = "invalid email";
+        }
+        if(!this.state.password.length ) {
+            passwordError="Password is required";
         }
 
 
-        if ( emailError ) {
-            this.setState({ emailError });
+        if ( emailError || passwordError ) {
+            this.setState({ emailError ,  passwordError });
             return false;
         }
 
@@ -57,23 +63,37 @@ class ResetPassword extends Component {
             console.log(this.state);
 
             const data = {
-                email: this.state.email,
+                password : this.state.password,
+                userEmail: this.state.userEmail.toLowerCase(),
+
 
             };
-            axios.post("http://localhost:8080/v1/user/register/user", data)
-                .then(res => console.log(res))
-                .catch(err => console.log(err));
+            document.getElementById("waitInfo").style.display = "flex";
+            document.getElementById("badLogin").style.display = "none";
+            axios.post("http://localhost:8080/v1/login/user/update_password", data)
+                .then(res => {
+                    console.log(res)
+                    if (res.data.success === true) {
+
+                        this.props.history.push("/ResetSuccess");
+                        document.getElementById("waitInfo").style.display = "none";
+
+                    } else {
+                        document.getElementById("badLogin").style.display = "flex";
+                        document.getElementById("waitInfo").style.display = "none";
+                    }
+                })
+                .catch(err => {
+                    console.log(err)
+                    document.getElementById("badLogin").style.display = "flex";
+                    document.getElementById("waitInfo").style.display = "none";
+                });
+
 
 
         }
     };
 
-    reset=()=>{
-        const isValid = this.validate();
-        if (isValid) {
-            window.location.assign("/EmailSent");
-        }
-    }
 
     render()
     {
@@ -87,14 +107,15 @@ class ResetPassword extends Component {
                             <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
                         </Link>
                         <div className="LoginCard">
-                            <Alert severity="error" id={"badLogin"}>incorrect username or password!</Alert>
+                            <Alert severity="error" id={"badLogin"}>password reset failed!</Alert>
+                            <Alert severity="info" id={"waitInfo"}>Updating password...</Alert>
                             <div className="wrapper">
                                 <form className="LoginForm" onSubmit={this.handleSubmit}>
                        <span className="LoginHeader">
-                           Reset your password
+                           Enter new password
                        </span>
                                     <span className="Instruction">
-                           We'll email you instructions to reset the password.
+                           Enter your email and a new password
                        </span>
                                     <div className="LoginInput" data-validate="Username is required">
                                 <span className="LoginInputLabel">
@@ -104,7 +125,7 @@ class ResetPassword extends Component {
                                             <input
                                                 className="innerInput validate"
                                                 type="email"
-                                                name="email"
+                                                name="userEmail"
                                                 placeholder="Enter your email"
                                                 onChange={this.handleChange}
                                             />
@@ -112,11 +133,27 @@ class ResetPassword extends Component {
                                         </div>
                                         <span className="loginError">{this.state.emailError}</span>
                                     </div>
+                                    <div className="LoginInput" data-validate="Username is required">
+                                <span className="LoginInputLabel">
+                                    New Password
+                                </span>
+                                        <div>
+                                            <input
+                                                className="innerInput validate"
+                                                type="password"
+                                                name="password"
+                                                placeholder="Enter your password"
+                                                onChange={this.handleChange}
+                                            />
+
+                                        </div>
+                                        <span className="loginError">{this.state.passwordError}</span>
+                                    </div>
 
                                     <div className="wrapper-btn">
 
                                         <button className="Login-btn" id={"loginBTN_less_rounded"} type="submit" onClick={this.reset}>
-                                            Reset password
+                                            Submit password
                                         </button>
                                     </div>
 

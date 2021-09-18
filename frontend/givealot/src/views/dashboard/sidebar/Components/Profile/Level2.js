@@ -3,17 +3,17 @@ import "../Certificate/Style/Certificate.css";
 import 'date-fns';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-import { withStyles ,makeStyles } from '@material-ui/core/styles'
+import { withStyles } from '@material-ui/core/styles'
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';
-import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
 import Axios from "axios";
 import TextField from "@material-ui/core/TextField";
 import axios from "axios";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 
 const styles = theme => ({
 
@@ -38,12 +38,13 @@ const styles = theme => ({
 
 export class Level2 extends Component {
 
+    static contextType = ApiContext;
     constructor (props) {
         super(props)
         this.state={
-            level2:[],
+            level2:{},
             orgId:localStorage.getItem("id"),
-            adminId:14,
+            //orgId:60,
             date:"",
             dateState:false,
             startDate: new Date(),
@@ -51,7 +52,8 @@ export class Level2 extends Component {
             orgInfoState:false,
             qrCode:"",
             qrCodeState:false,
-            serverDomain: "https://3c73e752688968.localhost.run"
+            serverDomain : 'http://localhost:8080',
+
 
         };
         this.handleDateChange = this.handleDateChange.bind(this);
@@ -147,31 +149,23 @@ export class Level2 extends Component {
         }
     }
 
-    componentDidMount() {
+    componentDidMount(){
         let config = {
             headers: {
                 "Content-Type": "application/json",
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        const admin = {
-            "adminId" : this.state.adminId
-        }
-
-        const org = {
-            orgId :32
-        }
-        axios.post(this.state.serverDomain + '/v1/organisation/get/organisations',admin , config)
+        console.log(this.props)
+        axios.get(this.state.serverDomain + '/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config) //Change the API
             .then(response =>{
                 console.log(response)
-                this.setState({level2: response.data.response[0]})
-                console.log(this.state.level2)
-
+                this.setState({level2: response.data.response})
             })
             .catch(error =>{
+                console.log(error)
                 this.setState({error : 'Error Retrieving data'})
             })
-
 
     }
 

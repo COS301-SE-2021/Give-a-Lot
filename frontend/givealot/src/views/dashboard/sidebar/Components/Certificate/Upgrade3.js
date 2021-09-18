@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import "./Style/Certificate.css";
 import 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
-import { withStyles ,makeStyles } from '@material-ui/core/styles'
+import { withStyles  } from '@material-ui/core/styles'
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -15,6 +15,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import TextField from "@material-ui/core/TextField";
 import Axios from "axios";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 
 
 const styles = theme => ({
@@ -44,7 +45,7 @@ const styles = theme => ({
 });
 
 const initialState = {
-    orgId:"32",
+    orgId:localStorage.getItem("id"),
     url:"",
     urlError:"",
     type:"",
@@ -70,13 +71,15 @@ const initialState = {
     secretaryContacts:"",
     secretaryContactsError:"",
     committee:"",
-    serverDomain: "https://3c73e752688968.localhost.run"
+    //serverDomain: "https://3c73e752688968.localhost.run"
+    serverDomain: 'https://localhost:8080'
 
 };
 
 export class Upgrade3 extends Component {
 
     state = initialState;
+    static contextType = ApiContext;
     constructor (props) {
         super(props)
 
@@ -427,6 +430,8 @@ export class Upgrade3 extends Component {
 
                                         </div>
                                     </div>
+
+
 
                                     <div className="WrapItsSocial">
                                         <div className="social_media">

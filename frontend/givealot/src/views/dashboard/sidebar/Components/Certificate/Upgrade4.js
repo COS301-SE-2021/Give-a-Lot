@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import "./Style/Certificate.css";
 import 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
-//import { withStyles ,makeStyles } from '@material-ui/core/styles'
+import { withStyles } from '@material-ui/core/styles'
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -11,14 +11,15 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import {ApiContext} from "../../../../../apiContext/ApiContext";
 
-/*const styles =theme => ({
+
+const styles =theme => ({
 
     root: {
         display: "flex",
         flexWrap: "wrap"
     },
 
-});*/
+});
 
 
 export class Upgrade4 extends Component {
@@ -31,6 +32,8 @@ export class Upgrade4 extends Component {
             fileError: "",
             images:"",
             imagesError:"",
+            popUp1:false,
+            popUp2:false,
             //serverDomain:"https://3c73e752688968.localhost.run"
             serverDomain: 'https://localhost:8080'
 
@@ -67,6 +70,8 @@ export class Upgrade4 extends Component {
             .then((result) => {
                 console.log('Success:', result);
                 imageStates = 1;
+                this.setState({popUp1: result.data.message});
+                this.onToastFile();
 
             })
             .catch((error) => {
@@ -108,6 +113,8 @@ export class Upgrade4 extends Component {
             .then((result) => {
                 console.log('Success:', result);
                 imageStates = 1;
+                this.setState({popUp2: result.data.message});
+                this.onToastImage();
 
             })
             .catch((error) => {
@@ -161,13 +168,38 @@ export class Upgrade4 extends Component {
         }
     };
 
-    onToastFour = () => {
-        const isValid = this.validate();
-        if (isValid) {
-            toast.success('Submit successful', {
+
+    onToastFile = () => {
+        if(this.state.popUp1){
+
+            toast.success('File Submitted ', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
+        }else{
+
+            toast.error('failed to send File', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
+    }
+
+    onToastImage= () => {
+        if(this.state.popUp2){
+
+            toast.success('Images Submitted', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to send Images', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
         }
     }
 
@@ -237,7 +269,7 @@ export class Upgrade4 extends Component {
                                     <span className="loginError_certificate">{this.state.fileError}</span>
                                 </div>
                                 <div className="upgrade_Button">
-                                    <button className="upgrade-btn" type="submit" onClick={this.onToastFour}>
+                                    <button className="upgrade-btn" type="submit" >
                                         Submit
                                     </button>
                                 </div>
@@ -257,4 +289,4 @@ export class Upgrade4 extends Component {
         );
     }
 }
-export default Upgrade4;
+export default withStyles(styles)(Upgrade4);

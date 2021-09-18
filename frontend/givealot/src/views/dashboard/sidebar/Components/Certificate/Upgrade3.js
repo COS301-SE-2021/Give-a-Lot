@@ -246,13 +246,13 @@ export class Upgrade3 extends Component {
     onToastCom= () => {
         if(this.state.popUp1){
 
-            toast.success('Website Submitted ', {
+            toast.success('Committee Submitted ', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
         }else{
 
-            toast.error('failed to send Website', {
+            toast.error('failed to send Committee', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
@@ -263,13 +263,13 @@ export class Upgrade3 extends Component {
     onToastSocial = () => {
         if(this.state.popUp2){
 
-            toast.success('Address Submitted', {
+            toast.success('Social media1 Submitted', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
         }else{
 
-            toast.error('failed to send Address', {
+            toast.error('failed to send Social media1 ', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
@@ -280,13 +280,13 @@ export class Upgrade3 extends Component {
     onToastSocial1 = () => {
         if(this.state.popUp3){
 
-            toast.success('Address Submitted', {
+            toast.success('Social media2  Submitted', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
         }else{
 
-            toast.error('failed to send Address', {
+            toast.error('failed to send Social media2 ', {
                 position: toast.POSITION.TOP_RIGHT
 
             });

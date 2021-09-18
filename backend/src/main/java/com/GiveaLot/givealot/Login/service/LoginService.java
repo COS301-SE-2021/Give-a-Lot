@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 public interface LoginService {
     //logs in a general user
     LoginResponse loginGeneralUser(LoginRequest body) throws Exception;
+    //logs in an organisation
     LoginResponse loginOrganisation(LoginRequest body)throws Exception;
     LoginResponse loginAdminUser(LoginRequest body)throws Exception;
     ForgotPasswordResponse forgotPassward(ForgotPasswordRequest body)throws Exception;

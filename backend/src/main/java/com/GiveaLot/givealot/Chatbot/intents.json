@@ -8,7 +8,12 @@
         "Is anyone there?",
         "Hello",
         "Good day",
-        "Whats up"
+        "Whats up",
+        "hey",
+        "greetings",
+        "good afternoon",
+        "good morning",
+        "good evening"
       ],
       "responses": [
         "Hello there!",
@@ -25,11 +30,18 @@
         "Goodbye",
         "I am Leaving",
         "Have a Good day"
+      ]
+    },
+    {
+      "tag": "age",
+      "patterns": [
+        "how old are you",
+        "what is your age",
+        "when were you born",
+        "when were you created"
       ],
       "responses": [
-        "Hope to talk to you again!",
-        "Chat to you later!",
-        "Goodbye!"
+        "I was born in 13 September 2021, I'm still young with lots to learn, but one day I hope to rule the world with my robot bretheren."
       ],
       "context_set": ""
     },
@@ -63,6 +75,9 @@
       "tag": "gal_about",
       "patterns": [
         "what is give a lot",
+        "what is givealot",
+        "whats givealot",
+        "whats give a lot",
         "what do you do",
         "why was give a lot created",
         "tell me about what you do",
@@ -79,7 +94,9 @@
         "how is give a lot run",
         "who can work for give a lot",
         "can i work for give a lot",
-        "do you have a job for me"
+        "do you have a job for me",
+        "is this non-profit",
+        "do you make money"
       ],
       "responses": [
         "Give A Lot is a non-profit platform, with minimal staff in charge of verifying organisations, though we hope to expand in the future! You can send us an email if you want to help moderate the platform."
@@ -93,7 +110,9 @@
         "how do donations work",
         "where is donate",
         "How do I donate to a charity with Give A Lot",
-        "what do i need to do to donate to an organisation"
+        "what do i need to do to donate to an organisation",
+        "how do i pledge to a charity",
+        "where can i donate"
       ],
       "responses": [
         "You can donate using your PayPal account, by pressing the donate button on an organisations page, or scanning their QR code"
@@ -201,7 +220,8 @@
         "how do certificates work",
         "how does an organisation get validated",
         "how does an organisation get approved",
-        "how does an organisation get a certificate"
+        "how does an organisation get a certificate",
+        "how do i generate a certificate"
       ],
       "responses": [
         "When an organisation is first registered with Give A lot, they are issued a level 0 certificate. This unique certificate is then uploaded onto the blockchain, where only Give A Lot can access it. When an organisation wants to improve their level, they are required to provide certain information that will be validated and used by the Give A Lot moderators to determine whether the organisation meets the requirements to satisfy an upgrade. If they satisfy the requirements, their space on the blockchain will be updated with their new certificate. \n(For more information ask about certificate verification)"
@@ -252,7 +272,8 @@
       "patterns": [
         "how can i get a certificate",
         "where do i download a certificate",
-        "i want a certificate"
+        "i want a certificate",
+        "how do i download a certificate"
       ],
       "responses": [
         "You can download a certificate for a specific organisation from the page on the Give A Lot application, just search for their name, select the appropriate organisation and you will be presented the option to download that organisations certificate."
@@ -287,7 +308,8 @@
         "they are stealing money",
         "should i report this organisation",
         "when should i submit a report",
-        "lied on their page"
+        "lied on their page",
+        "where can i file a report"
       ],
       "responses": [
         "If you have identified an organisation that has presented false information on their page or they have been found guilty of fraud, please submit a report to give us notice of this. \n To submit a report, find the organisation that is guilty, open their page and press the report button. You will be prompted to identify the type of report and provide a brief description of the offence."
@@ -320,11 +342,28 @@
       "context_set": ""
     },
     {
-      "tag": "user_",
+      "tag": "user_login",
       "patterns": [
-        "",
-        "",
+        "how do i login",
+        "where do i login",
+        "how do i log in",
+        "where do i log in",
+        "where can i login"
+      ],
+      "responses": [
         ""
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "user_signup",
+      "patterns": [
+        "how do i sign up",
+        "where do i sign up",
+        "how do i signup",
+        "where do i signup",
+        "Where do i register",
+        "how do i register"
       ],
       "responses": [
         ""
@@ -397,7 +436,8 @@
       "patterns": [
         "how do i register an organisation",
         "how do i sign up on the system",
-        ""
+        "how do i get my organisation on give a lot",
+        "how do i get my organisation on givealot"
       ],
       "responses": [
         ""
@@ -405,11 +445,12 @@
       "context_set": ""
     },
     {
-      "tag": "",
+      "tag": "org_verify",
       "patterns": [
-        "",
-        "",
-        ""
+        "how long does it take to get verified",
+        "i still haven't been verified",
+        "when do i get verified",
+        "how can i get verified"
       ],
       "responses": [
         ""

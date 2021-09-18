@@ -71,6 +71,10 @@ const initialState = {
     secretaryContacts:"",
     secretaryContactsError:"",
     committee:"",
+    popUp1:false,
+    popUp2:false,
+    popUp3:false,
+    popUp4:false,
     //serverDomain: "https://3c73e752688968.localhost.run"
     serverDomain: 'https://localhost:8080'
 
@@ -204,23 +208,34 @@ export class Upgrade3 extends Component {
             console.log(com)
             Axios
                 .post(this.state.serverDomain + "/v1/organisation/add/committee", com)
-                .then(res => console.log(res))
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp1: res.data.message});
+                    this. onToastCom ();
+                })
                 .catch(err => console.log(err));
 
             console.log(social)
             Axios
                 .post(this.state.serverDomain + "/v1/organisation/add/socials", social)
-                .then(res => console.log(res))
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp2: res.data.message});
+                    this. onToastSocial();
+                })
                 .catch(err => console.log(err));
 
             console.log(social1)
             Axios
                 .post(this.state.serverDomain + "/v1/organisation/add/socials", social1)
-                .then(res => console.log(res))
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp3: res.data.message});
+                    this. onToastSocial1();
+                })
                 .catch(err => console.log(err));
 
-            // clear form
-            this.setState(initialState);
+
         }
 
 
@@ -228,17 +243,58 @@ export class Upgrade3 extends Component {
 
     };
 
-    onToastThree = () => {
-        const isValid = this.validate();
-        if (isValid) {
+    onToastCom= () => {
+        if(this.state.popUp1){
 
-            toast.success('Submit successful', {
+            toast.success('Website Submitted ', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
-        }
+        }else{
 
+            toast.error('failed to send Website', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
     }
+
+    onToastSocial = () => {
+        if(this.state.popUp2){
+
+            toast.success('Address Submitted', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to send Address', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
+    }
+
+    onToastSocial1 = () => {
+        if(this.state.popUp3){
+
+            toast.success('Address Submitted', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to send Address', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
+    }
+
+
 
 
     render(){
@@ -528,7 +584,7 @@ export class Upgrade3 extends Component {
 
 
                                         <div className="upgrade_Button">
-                                            <button className="upgrade-btn" type="submit" onClick={this.onToastThree}>
+                                            <button className="upgrade-btn" type="submit">
                                                 Submit
                                             </button>
                                         </div>

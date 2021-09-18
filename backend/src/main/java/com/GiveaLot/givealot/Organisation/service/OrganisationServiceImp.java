@@ -1157,6 +1157,7 @@ public class OrganisationServiceImp implements OrganisationService
         * true: for valid
         * false: invalid
         * */
+        Integer CURRENT_PTS = -1;
         if(type.equalsIgnoreCase("address"))
         {
             Integer dps = 10, currentPoints = 0;
@@ -1344,21 +1345,32 @@ public class OrganisationServiceImp implements OrganisationService
         }
         else if(type.equalsIgnoreCase("ngo_date"))
         {
-            Integer currentPoints = 0,dps = 5;
+            OrganisationPoints organisationPoints_current_status = organisationPointsRepository.selectOrganisationPoints(orgId);
+
+            if(organisationPoints_current_status != null && organisationPoints_current_status.isNgoDateIsValid() == confirmValidity)
+            {
+                throw new Exception("ngo date is already updated");
+            }
+            else if(organisationPoints_current_status == null)
+            {
+                throw new Exception("points not allocated for this organisation");
+            }
+
+            Integer currentPoints = 0,dps = 10;
             Integer res = confirmValidity ? organisationPointsRepository.NGO_Date(orgId,true) : organisationPointsRepository.NGO_Date(orgId,false);
             if(res != 1)
                 throw new Exception("Exception: NGO date validity not confirmed");
 
-            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
-            if(certificate_tmp == null) /*perform rollback*/
-            {
-                res = confirmValidity ? organisationPointsRepository.NGO_Date(orgId,false) : organisationPointsRepository.NGO_Date(orgId,true);
-                if(res == 1)
-                    throw new Exception("Exception: error occurred, rollback action performed successfully");
-                else throw new Exception("Exception: error occurred, rollback action failed");
-            }else currentPoints = certificate_tmp.getPoints();
-
+            currentPoints = certificateRepository.select_Points_ById(orgId);
             res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+
+            currentPoints = certificateRepository.select_Points_ById(orgId);
+
+            if(confirmValidity)
+            {
+                CURRENT_PTS = currentPoints + dps;
+            }
+            else CURRENT_PTS = currentPoints - 1;
 
             if(res != 1)
             {
@@ -1370,21 +1382,33 @@ public class OrganisationServiceImp implements OrganisationService
         }
         else if(type.equalsIgnoreCase("ngo_number"))
         {
-            Integer currentPoints = 0,dps = 5;
+            OrganisationPoints organisationPoints_current_status = organisationPointsRepository.selectOrganisationPoints(orgId);
+
+            if(organisationPoints_current_status != null && organisationPoints_current_status.isNgoNoIsValid() == confirmValidity)
+            {
+                throw new Exception("ngo number is already updated");
+            }
+            else if(organisationPoints_current_status == null)
+            {
+                throw new Exception("points not allocated for this organisation");
+            }
+
+            Integer currentPoints = 0,dps = 10;
             Integer res = confirmValidity ? organisationPointsRepository.NGO_Number(orgId,true) : organisationPointsRepository.NGO_Number(orgId,false);
             if(res != 1)
                 throw new Exception("Exception: NGO number validity not confirmed");
 
-            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
-            if(certificate_tmp == null) /*perform rollback*/
-            {
-                res = confirmValidity ? organisationPointsRepository.NGO_Number(orgId,false) : organisationPointsRepository.NGO_Number(orgId,true);
-                if(res == 1)
-                    throw new Exception("Exception: error occurred, rollback action performed successfully");
-                else throw new Exception("Exception: error occurred, rollback action failed");
-            }else currentPoints = certificate_tmp.getPoints();
+            currentPoints = certificateRepository.select_Points_ById(orgId);
 
             res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+
+            currentPoints = certificateRepository.select_Points_ById(orgId);
+
+             if(confirmValidity)
+             {
+                 CURRENT_PTS = currentPoints + dps;
+             }
+             else CURRENT_PTS = currentPoints - 1;
 
             if(res != 1)
             {
@@ -1449,6 +1473,32 @@ public class OrganisationServiceImp implements OrganisationService
             }
         }
         else throw new Exception("Exception: type is incorrect");
+
+        if(confirmValidity)
+        {
+            try
+            {
+                    CURRENT_PTS = certificateRepository.selectPointsById(orgId).getPoints();
+                    if (CURRENT_PTS == 20) {
+                        certificateService.updateCertificate(orgId);
+                    } else if (CURRENT_PTS == 40) {
+                        certificateService.updateCertificate(orgId);
+                    } else if (CURRENT_PTS == 60) {
+                        certificateService.updateCertificate(orgId);
+                    } else if (CURRENT_PTS == 80) {
+                        certificateService.updateCertificate(orgId);
+                    } else if (CURRENT_PTS == 100) {
+                        certificateService.updateCertificate(orgId);
+                    }
+            }
+            catch(Exception e)
+            {
+                System.out.println("Certificate not upgraded yet\n" +
+                        "possible reasons: \n" +
+                        "minimum points required are not satisfied\n" + e
+                );
+            }
+        }
         return new generalOrganisationResponse("confirm_200_OK","success");
     }
 

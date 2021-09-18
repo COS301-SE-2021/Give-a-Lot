@@ -7,10 +7,10 @@
     <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="level 1 info accept-deny">
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Notification/requests/AddNotificationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Notification/requests/AddNotificationRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Upgrade0.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Upgrade0.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/Validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/Validate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/repository/CertificateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/repository/CertificateRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/75/certificate/CertificateComplete.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/75/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/75/certificate/CertificateImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/75/certificate/CertificateImage.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +102,17 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="generated-requests#67" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="67" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -166,21 +177,7 @@
       <workItem from="1631708108011" duration="27620000" />
       <workItem from="1631819750918" duration="3266000" />
       <workItem from="1631823532933" duration="61928000" />
-      <workItem from="1631960615375" duration="12065000" />
-    </task>
-    <task id="LOCAL-00062" summary="Last minute changes">
-      <created>1630774212131</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1630774212131</updated>
-    </task>
-    <task id="LOCAL-00063" summary="Last minute changes">
-      <created>1630775166475</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1630775166475</updated>
+      <workItem from="1631960615375" duration="19996000" />
     </task>
     <task id="LOCAL-00064" summary="Last minute changes">
       <created>1630785711516</created>
@@ -511,7 +508,21 @@
       <option name="project" value="LOCAL" />
       <updated>1631970144021</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="level 1 info accept-deny">
+      <created>1631973644387</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1631973644387</updated>
+    </task>
+    <task id="LOCAL-00112" summary="level 1 info accept-deny">
+      <created>1631973725421</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1631973725422</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

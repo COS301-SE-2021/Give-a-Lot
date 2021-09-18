@@ -25,11 +25,12 @@ export class Certificate extends Component {
             orgId:localStorage.getItem("id"),
             serverDomain : 'http://localhost:8080',
 
+
         };
     }
 
     componentDidMount(){
-        this.setState({loading: true});
+        //this.setState({loading: true});
         let config = {
             headers: {
                 "Content-Type": "application/json",
@@ -43,9 +44,9 @@ export class Certificate extends Component {
         axios.post('http://localhost:8080/v1/organisation/get/org_level', dataa  ,config)
             .then(response =>{
                 alert(response.data.level + " " + this.state.orgId)
-                this.setState({level: response.data.level})
+                //this.setState({level: response.data.level})
                 console.log(response)
-                this.setState({loading: false});
+                //this.setState({loading: false});
             })
             .catch(error =>{
                 console.log(error)

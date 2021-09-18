@@ -79,11 +79,8 @@ export class Upgrade2 extends Component {
         formData.append('orgId', this.state.orgId);
         let imageStates = 0;
 
-
-        alert("take away submit button functionality");
-
         fetch(
-            'https://localhost:8080/v1/organisation/add/logo',
+             'http://localhost:8080/v1/organisation/add/qrcode',
             {
                 method: 'POST',
                 body: formData,
@@ -98,6 +95,7 @@ export class Upgrade2 extends Component {
             .catch((error) => {
                 console.error('Error:', error);
                 imageStates = 2;
+
             });
 
         if(imageStates===1)

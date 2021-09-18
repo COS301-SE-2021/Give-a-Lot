@@ -18,6 +18,9 @@ public interface CertificateRepository extends JpaRepository<Certificate,Long> {
     @Query("select o from Certificate o where o.org_id =?1")
     Certificate selectPointsById(Long orgId);
 
+    @Query("select o.points from Certificate o where o.org_id =?1")
+    int select_Points_ById(Long orgId);
+
     @Modifying
     @Transactional
     @Query("update Certificate o set o.orgRenewal = ?2 where o.org_id = ?1")

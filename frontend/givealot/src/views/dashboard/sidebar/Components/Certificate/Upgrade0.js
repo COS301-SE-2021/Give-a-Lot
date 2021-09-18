@@ -115,7 +115,7 @@ export class Upgrade0 extends Component {
                 .then(res => {
 
                          this.setState({popUp1: res.data.message});
-                         this.onToastTwo();
+                         this.onToastZero();
 
                         Axios
                             .post("http://localhost:8080/v1/notifications/update/notifications", notification_update_body)
@@ -133,7 +133,7 @@ export class Upgrade0 extends Component {
 
     };
 
-    onToastTwo = () => {
+    onToastZero = () => {
 
         if(this.state.popUp1){
 

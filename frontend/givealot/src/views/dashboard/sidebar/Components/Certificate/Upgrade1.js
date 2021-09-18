@@ -41,6 +41,8 @@ const initialState = {
     websiteError: "",
     address:"",
     addressError:"",
+    popUp1:false,
+    popUp2:false,
     //serverDomain: "https://3c73e752688968.localhost.run"
     serverDomain: 'https://localhost:8080'
 };
@@ -102,12 +104,20 @@ export class Upgrade1 extends Component {
             };
             Axios
                 .post( "http://localhost:8080/v1/organisation/add/website", web)
-                .then(res => console.log(res))
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp1: res.data.message});
+                    this.onToastOneWebsite();
+                })
                 .catch(err => console.log(err));
 
             Axios
                 .post("http://localhost:8080/v1/organisation/add/address", add)
-                .then(res => console.log(res))
+                .then(res =>{
+                    console.log(res)
+                    this.setState({popUp2: res.data.message});
+                    this.onToastOne();
+                })
                 .catch(err => console.log(err));
 
             const notification_update_body = {
@@ -124,13 +134,20 @@ export class Upgrade1 extends Component {
         }
     };
 
-    onToastOne = () => {
-        const isValid = this.validate();
-        if (isValid) {
+    onToastOneWebsite = () => {
+        if(this.state.popUp1){
+
             toast.success('Submit successful', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
+        }else{
+
+            toast.error('failed to send', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
         }
     }
 

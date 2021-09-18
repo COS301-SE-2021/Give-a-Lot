@@ -56,7 +56,7 @@ export class Profile extends Component {
             addressState:false,
             //serverDomain: "https://3c73e752688968.localhost.run"
             serverDomain : 'http://localhost:8080',
-            loader:false,
+            //loader:false,
 
 
         }
@@ -65,6 +65,8 @@ export class Profile extends Component {
 
     componentDidMount(){
       this.setState({loader: true});
+
+
         let config = {
             headers: {
                 "Content-Type": "application/json",
@@ -76,7 +78,8 @@ export class Profile extends Component {
             .then(response =>{
                 console.log(response)
                 this.setState({persons: response.data.object})
-                this.setState({loader: false});
+
+
 
             })
             .catch(error =>{
@@ -92,6 +95,8 @@ export class Profile extends Component {
             .then(response =>{
                 this.setState({level: response.data.level})
                 console.log(response)
+                this.setState({loader: false});
+
 
 
             })
@@ -171,6 +176,7 @@ export class Profile extends Component {
 
 
     handleFormSubmit = e => {
+        this.setState({loader: false});
         e.preventDefault();
         if(this.state.emailState) {
             const data1 = {

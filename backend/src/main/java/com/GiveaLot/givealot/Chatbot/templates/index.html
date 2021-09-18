@@ -42,7 +42,12 @@
         .heading_chat_bot,.botText
         {
             text-align: center;
+        }
 
+        .botText
+        {
+            margin-bottom: 10px;
+            font-size: 15px;
         }
 
         .heading_chat_bot
@@ -73,7 +78,6 @@
         {
             padding: 5px 10px;
             width: fit-content;
-
             position: relative;
             left: 100%;
             transform: translateX(-100%);
@@ -81,6 +85,22 @@
             color: #4b4250;
             border-radius: 6px;
             margin: 10px 0;
+            font-size: 12px;
+        }
+
+        .bot_reply
+        {
+            padding: 5px 10px;
+            width: fit-content;
+            position: relative;
+            left: 5px;
+
+            background-color: #c4c4c4;
+            color: #4b4250;
+            border-radius: 6px;
+            margin: 10px 0;
+            font-size: 12px;
+            text-align: left;
         }
     </style>
 </head>
@@ -123,7 +143,7 @@
                 type: "POST",
                 url: "/get",
             }).done(function(data) {
-                var botHtml = '<p class="botText"><span>' + data + "</span></p>";
+                var botHtml = '<p class="botText bot_reply"><span>' + data + "</span></p>";
                 $("#chatbox").append($.parseHTML(botHtml));
                 document.getElementById("userInput").scrollIntoView({
                     block: "start",

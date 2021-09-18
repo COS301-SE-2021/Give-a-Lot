@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="login api">
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-09-18T150017.400.json" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/2021-09-18T150017.400.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Featured, registered users field updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Certificate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Certificate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Upgrade0.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Upgrade0.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Featured.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Featured.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/OrganisationsDash.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/OrganisationsDash.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Users/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Users/Users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/Validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/Validate.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +19,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -62,38 +59,37 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.data.extractors.current.export.id" value="Comma-separated (CSV)_id" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Chatbot" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/src/main/resources/TempDocument" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.17" />
-    <property name="project.structure.side.proportion" value="0.17774086" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.GiveaLot.givealot.Organisation.requests" />
       <recent name="com.GiveaLot.givealot.Organisation.response" />
+      <recent name="com.GiveaLot.givealot.Organisation.requests" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\joshu\Desktop\Give-a-Lot\backend\src\main\java\com\GiveaLot\givealot\Chatbot" />
       <recent name="$PROJECT_DIR$/backend/src/main/resources/TempDocument" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\backend\src\main\resources" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\backend\src\main\java\com\GiveaLot\givealot\Server" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\backend\src\main\java\com\GiveaLot\givealot\Certificate\dataclass" />
+      <recent name="C:\Users\joshu\Desktop\Give-a-Lot\DemoMaterial" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Nqobani_Xpl\Documents\Course\2021\COS301\capstone - restructured\Give-a-Lot\frontend\givealot\src\views\registration\registerOrganisation\Styles" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\frontend\givealot\src\localFiles" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\frontend\givealot\src" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\DemoMaterial" />
       <recent name="C:\Users\Nqobani_Xpl\Documents\Course\2021\COS301\capstone - restructured\Give-a-Lot" />
+      <recent name="C:\Users\Nqobani_Xpl\Documents\Course\2021\COS301\capstone - restructured\Give-a-Lot\backend\src\main\resources" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -106,16 +102,16 @@
     <configuration name="generated-requests#42" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="42" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#63" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="63" runType="Run single request">
+    <configuration name="generated-requests#43" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="43" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#64" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="64" runType="Run single request">
+    <configuration name="generated-requests#48" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="48" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#65" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="65" runType="Run single request">
+    <configuration name="generated-requests#50" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="50" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#66" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="66" runType="Run single request">
+    <configuration name="generated-requests#52" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="52" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="GivealotApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -125,28 +121,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="HTTP Request.generated-requests#63" />
-      <item itemvalue="HTTP Request.generated-requests#64" />
-      <item itemvalue="HTTP Request.generated-requests#65" />
-      <item itemvalue="HTTP Request.generated-requests#42" />
-      <item itemvalue="Spring Boot.GivealotApplication" />
-      <item itemvalue="HTTP Request.generated-requests#66" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.generated-requests#66" />
-        <item itemvalue="HTTP Request.generated-requests#65" />
         <item itemvalue="HTTP Request.generated-requests#42" />
-        <item itemvalue="HTTP Request.generated-requests#64" />
-        <item itemvalue="HTTP Request.generated-requests#63" />
+        <item itemvalue="HTTP Request.generated-requests#43" />
+        <item itemvalue="HTTP Request.generated-requests#52" />
+        <item itemvalue="HTTP Request.generated-requests#50" />
+        <item itemvalue="HTTP Request.generated-requests#48" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="registration reiteration" />
+      <changelist id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="" />
       <created>1629230718911</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -161,104 +149,14 @@
       <workItem from="1631042260596" duration="333000" />
       <workItem from="1631133557866" duration="750000" />
       <workItem from="1631137762251" duration="2127000" />
-      <workItem from="1631307060501" duration="11877000" />
-      <workItem from="1631523923618" duration="14534000" />
-      <workItem from="1631552726642" duration="58800000" />
-      <workItem from="1631708108011" duration="27620000" />
-      <workItem from="1631819750918" duration="3266000" />
-      <workItem from="1631823532933" duration="61928000" />
-      <workItem from="1631960615375" duration="8516000" />
-    </task>
-    <task id="LOCAL-00061" summary="Last minute changes">
-      <created>1630722515991</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1630722515991</updated>
-    </task>
-    <task id="LOCAL-00062" summary="Last minute changes">
-      <created>1630774212131</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1630774212131</updated>
-    </task>
-    <task id="LOCAL-00063" summary="Last minute changes">
-      <created>1630775166475</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1630775166475</updated>
-    </task>
-    <task id="LOCAL-00064" summary="Last minute changes">
-      <created>1630785711516</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1630785711517</updated>
-    </task>
-    <task id="LOCAL-00065" summary="Last minute changes">
-      <created>1630797410507</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1630797410507</updated>
-    </task>
-    <task id="LOCAL-00066" summary="Last minute changes">
-      <created>1630845108483</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1630845108483</updated>
-    </task>
-    <task id="LOCAL-00067" summary="Org Name update fix">
-      <created>1630845874348</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1630845874348</updated>
-    </task>
-    <task id="LOCAL-00068" summary="Org Name update fix">
-      <created>1630846367366</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1630846367366</updated>
-    </task>
-    <task id="LOCAL-00069" summary="Org Name update fix">
-      <created>1630847810323</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1630847810323</updated>
-    </task>
-    <task id="LOCAL-00070" summary="Org Name update fix">
-      <created>1630857749968</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1630857749968</updated>
-    </task>
-    <task id="LOCAL-00071" summary="Org Name update fix">
-      <created>1630858586447</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1630858586448</updated>
-    </task>
-    <task id="LOCAL-00072" summary="Org Name update fix">
-      <created>1630859306015</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1630859306029</updated>
-    </task>
-    <task id="LOCAL-00073" summary="Org Name update fix">
-      <created>1630872367222</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1630872367222</updated>
+      <workItem from="1631441525292" duration="4115000" />
+      <workItem from="1631549783410" duration="4808000" />
+      <workItem from="1631563613750" duration="10845000" />
+      <workItem from="1631638493279" duration="8823000" />
+      <workItem from="1631652568961" duration="2011000" />
+      <workItem from="1631710952862" duration="3507000" />
+      <workItem from="1631869973238" duration="29530000" />
+      <workItem from="1631959618812" duration="8349000" />
     </task>
     <task id="LOCAL-00074" summary="Org Name update fix">
       <created>1631020351728</created>
@@ -309,210 +207,301 @@
       <option name="project" value="LOCAL" />
       <updated>1631181785703</updated>
     </task>
-    <task id="LOCAL-00081" summary="registration - upload photo">
-      <created>1631188662761</created>
+    <task id="LOCAL-00081" summary="calendar change event">
+      <created>1631193381366</created>
       <option name="number" value="00081" />
       <option name="presentableId" value="LOCAL-00081" />
       <option name="project" value="LOCAL" />
-      <updated>1631188662761</updated>
+      <updated>1631193381366</updated>
     </task>
-    <task id="LOCAL-00082" summary="registration reiteration">
-      <created>1631193021097</created>
+    <task id="LOCAL-00082" summary="register organisation">
+      <created>1631200208030</created>
       <option name="number" value="00082" />
       <option name="presentableId" value="LOCAL-00082" />
       <option name="project" value="LOCAL" />
-      <updated>1631193021097</updated>
+      <updated>1631200208030</updated>
     </task>
-    <task id="LOCAL-00083" summary="registration reiteration">
-      <created>1631524545465</created>
+    <task id="LOCAL-00083" summary="register organisation upload image">
+      <created>1631225418594</created>
       <option name="number" value="00083" />
       <option name="presentableId" value="LOCAL-00083" />
       <option name="project" value="LOCAL" />
-      <updated>1631524545465</updated>
+      <updated>1631225418594</updated>
     </task>
-    <task id="LOCAL-00084" summary="beautifying search - search implementation styling">
-      <created>1631558378864</created>
+    <task id="LOCAL-00084" summary="register organisation upload image">
+      <created>1631441883517</created>
       <option name="number" value="00084" />
       <option name="presentableId" value="LOCAL-00084" />
       <option name="project" value="LOCAL" />
-      <updated>1631558378864</updated>
+      <updated>1631441883518</updated>
     </task>
-    <task id="LOCAL-00085" summary="search done">
-      <created>1631580618853</created>
+    <task id="LOCAL-00085" summary="register organisation confirmation page">
+      <created>1631444879138</created>
       <option name="number" value="00085" />
       <option name="presentableId" value="LOCAL-00085" />
       <option name="project" value="LOCAL" />
-      <updated>1631580618853</updated>
+      <updated>1631444879138</updated>
     </task>
-    <task id="LOCAL-00086" summary="search done">
-      <created>1631581182890</created>
+    <task id="LOCAL-00086" summary="admin Add organisation validation">
+      <created>1631551137110</created>
       <option name="number" value="00086" />
       <option name="presentableId" value="LOCAL-00086" />
       <option name="project" value="LOCAL" />
-      <updated>1631581182890</updated>
+      <updated>1631551137110</updated>
     </task>
-    <task id="LOCAL-00087" summary="search done">
-      <created>1631581463591</created>
+    <task id="LOCAL-00087" summary="admin Add organisation validation">
+      <created>1631551385806</created>
       <option name="number" value="00087" />
       <option name="presentableId" value="LOCAL-00087" />
       <option name="project" value="LOCAL" />
-      <updated>1631581463591</updated>
+      <updated>1631551385806</updated>
     </task>
-    <task id="LOCAL-00088" summary="search done">
-      <created>1631613579797</created>
+    <task id="LOCAL-00088" summary="calendar edit event changes">
+      <created>1631565536529</created>
       <option name="number" value="00088" />
       <option name="presentableId" value="LOCAL-00088" />
       <option name="project" value="LOCAL" />
-      <updated>1631613579797</updated>
+      <updated>1631565536531</updated>
     </task>
-    <task id="LOCAL-00089" summary="search done">
-      <created>1631614793335</created>
+    <task id="LOCAL-00089" summary="calendar edit event changes">
+      <created>1631571139881</created>
       <option name="number" value="00089" />
       <option name="presentableId" value="LOCAL-00089" />
       <option name="project" value="LOCAL" />
-      <updated>1631614793335</updated>
+      <updated>1631571139882</updated>
     </task>
-    <task id="LOCAL-00090" summary="search done">
-      <created>1631615434997</created>
+    <task id="LOCAL-00090" summary="calendar edit event changes time start and end">
+      <created>1631573559444</created>
       <option name="number" value="00090" />
       <option name="presentableId" value="LOCAL-00090" />
       <option name="project" value="LOCAL" />
-      <updated>1631615434997</updated>
+      <updated>1631573559444</updated>
     </task>
-    <task id="LOCAL-00091" summary="search done">
-      <created>1631621066180</created>
+    <task id="LOCAL-00091" summary="calendar edit event changes description change">
+      <created>1631573899247</created>
       <option name="number" value="00091" />
       <option name="presentableId" value="LOCAL-00091" />
       <option name="project" value="LOCAL" />
-      <updated>1631621066181</updated>
+      <updated>1631573899247</updated>
     </task>
-    <task id="LOCAL-00092" summary="saving workspace">
-      <created>1631621981497</created>
+    <task id="LOCAL-00092" summary="calendar edit event changes description change">
+      <created>1631638747313</created>
       <option name="number" value="00092" />
       <option name="presentableId" value="LOCAL-00092" />
       <option name="project" value="LOCAL" />
-      <updated>1631621981497</updated>
+      <updated>1631638747313</updated>
     </task>
-    <task id="LOCAL-00093" summary="finalizing frontend&#10;backend updates to add organisation">
-      <created>1631881705437</created>
+    <task id="LOCAL-00093" summary="featured console errors">
+      <created>1631650332675</created>
       <option name="number" value="00093" />
       <option name="presentableId" value="LOCAL-00093" />
       <option name="project" value="LOCAL" />
-      <updated>1631881705438</updated>
+      <updated>1631650332675</updated>
     </task>
-    <task id="LOCAL-00094" summary="finalizing frontend&#10;backend updates to add organisation">
-      <created>1631881892800</created>
+    <task id="LOCAL-00094" summary="Organisation console errors fixed">
+      <created>1631651361924</created>
       <option name="number" value="00094" />
       <option name="presentableId" value="LOCAL-00094" />
       <option name="project" value="LOCAL" />
-      <updated>1631881892800</updated>
+      <updated>1631651361924</updated>
     </task>
-    <task id="LOCAL-00095" summary="finalizing frontend&#10;backend updates to add organisation">
-      <created>1631882738879</created>
+    <task id="LOCAL-00095" summary="User console errors fixed">
+      <created>1631651580017</created>
       <option name="number" value="00095" />
       <option name="presentableId" value="LOCAL-00095" />
       <option name="project" value="LOCAL" />
-      <updated>1631882738879</updated>
+      <updated>1631651580017</updated>
     </task>
-    <task id="LOCAL-00096" summary="finalizing frontend&#10;backend updates to add organisation">
-      <created>1631884114723</created>
+    <task id="LOCAL-00096" summary="calendar clean up">
+      <created>1631652387589</created>
       <option name="number" value="00096" />
       <option name="presentableId" value="LOCAL-00096" />
       <option name="project" value="LOCAL" />
-      <updated>1631884114723</updated>
+      <updated>1631652387589</updated>
     </task>
-    <task id="LOCAL-00097" summary="dedicated organisaiton select for admin users">
-      <created>1631906528649</created>
+    <task id="LOCAL-00097" summary="timeline component">
+      <created>1631654227741</created>
       <option name="number" value="00097" />
       <option name="presentableId" value="LOCAL-00097" />
       <option name="project" value="LOCAL" />
-      <updated>1631906528650</updated>
+      <updated>1631654227742</updated>
     </task>
-    <task id="LOCAL-00098" summary="dedicated organisaiton select for admin users">
-      <created>1631906781397</created>
+    <task id="LOCAL-00098" summary="timeline component">
+      <created>1631711177626</created>
       <option name="number" value="00098" />
       <option name="presentableId" value="LOCAL-00098" />
       <option name="project" value="LOCAL" />
-      <updated>1631906781397</updated>
+      <updated>1631711177626</updated>
     </task>
-    <task id="LOCAL-00099" summary="dedicated organisation select for admin users">
-      <created>1631921327670</created>
+    <task id="LOCAL-00099" summary="Few changes">
+      <created>1631711277093</created>
       <option name="number" value="00099" />
       <option name="presentableId" value="LOCAL-00099" />
       <option name="project" value="LOCAL" />
-      <updated>1631921327670</updated>
+      <updated>1631711277093</updated>
     </task>
-    <task id="LOCAL-00100" summary="dedicated organisation select for admin users">
-      <created>1631922290686</created>
+    <task id="LOCAL-00100" summary="Few changes">
+      <created>1631870195621</created>
       <option name="number" value="00100" />
       <option name="presentableId" value="LOCAL-00100" />
       <option name="project" value="LOCAL" />
-      <updated>1631922290686</updated>
+      <updated>1631870195622</updated>
     </task>
-    <task id="LOCAL-00101" summary="dedicated organisation select for admin users">
-      <created>1631923037055</created>
+    <task id="LOCAL-00101" summary="Few changes">
+      <created>1631882966541</created>
       <option name="number" value="00101" />
       <option name="presentableId" value="LOCAL-00101" />
       <option name="project" value="LOCAL" />
-      <updated>1631923037056</updated>
+      <updated>1631882966541</updated>
     </task>
-    <task id="LOCAL-00102" summary="dedicated organisation select for admin users">
-      <created>1631923246508</created>
+    <task id="LOCAL-00102" summary="Few changes">
+      <created>1631884446199</created>
       <option name="number" value="00102" />
       <option name="presentableId" value="LOCAL-00102" />
       <option name="project" value="LOCAL" />
-      <updated>1631923246509</updated>
+      <updated>1631884446199</updated>
     </task>
-    <task id="LOCAL-00103" summary="dedicated organisation select for admin users">
-      <created>1631924185046</created>
+    <task id="LOCAL-00103" summary="conditional rendering side bar">
+      <created>1631902764554</created>
       <option name="number" value="00103" />
       <option name="presentableId" value="LOCAL-00103" />
       <option name="project" value="LOCAL" />
-      <updated>1631924185046</updated>
+      <updated>1631902764554</updated>
     </task>
-    <task id="LOCAL-00104" summary="chatbot style and additional of a .css file">
-      <created>1631926448938</created>
+    <task id="LOCAL-00104" summary="admin dashboard serverDomain routes">
+      <created>1631904063130</created>
       <option name="number" value="00104" />
       <option name="presentableId" value="LOCAL-00104" />
       <option name="project" value="LOCAL" />
-      <updated>1631926448938</updated>
+      <updated>1631904063131</updated>
     </task>
-    <task id="LOCAL-00105" summary="updated styling chatbot">
-      <created>1631926944918</created>
+    <task id="LOCAL-00105" summary="admin dashboard and organisation serverDomain routes">
+      <created>1631904902058</created>
       <option name="number" value="00105" />
       <option name="presentableId" value="LOCAL-00105" />
       <option name="project" value="LOCAL" />
-      <updated>1631926944919</updated>
+      <updated>1631904902058</updated>
     </task>
-    <task id="LOCAL-00106" summary="updated styling chatbot">
-      <created>1631928105725</created>
+    <task id="LOCAL-00106" summary="organisation reports">
+      <created>1631905554590</created>
       <option name="number" value="00106" />
       <option name="presentableId" value="LOCAL-00106" />
       <option name="project" value="LOCAL" />
-      <updated>1631928105725</updated>
+      <updated>1631905554590</updated>
     </task>
-    <task id="LOCAL-00107" summary="login api">
-      <created>1631963564109</created>
+    <task id="LOCAL-00107" summary="organisation reports">
+      <created>1631905577462</created>
       <option name="number" value="00107" />
       <option name="presentableId" value="LOCAL-00107" />
       <option name="project" value="LOCAL" />
-      <updated>1631963564109</updated>
+      <updated>1631905577462</updated>
     </task>
-    <task id="LOCAL-00108" summary="login api">
-      <created>1631963770377</created>
+    <task id="LOCAL-00108" summary="organisation reports">
+      <created>1631905764909</created>
       <option name="number" value="00108" />
       <option name="presentableId" value="LOCAL-00108" />
       <option name="project" value="LOCAL" />
-      <updated>1631963770377</updated>
+      <updated>1631905764909</updated>
     </task>
-    <task id="LOCAL-00109" summary="login api">
-      <created>1631967450484</created>
+    <task id="LOCAL-00109" summary="organisation reports">
+      <created>1631906844179</created>
       <option name="number" value="00109" />
       <option name="presentableId" value="LOCAL-00109" />
       <option name="project" value="LOCAL" />
-      <updated>1631967450484</updated>
+      <updated>1631906844179</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="organisation reports">
+      <created>1631909823138</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1631909823138</updated>
+    </task>
+    <task id="LOCAL-00111" summary="organisation reports">
+      <created>1631910545800</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1631910545800</updated>
+    </task>
+    <task id="LOCAL-00112" summary="organisation reports">
+      <created>1631910629160</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1631910629160</updated>
+    </task>
+    <task id="LOCAL-00113" summary="organisation by ID">
+      <created>1631913602491</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1631913602491</updated>
+    </task>
+    <task id="LOCAL-00114" summary="organisation by ID fixed">
+      <created>1631914728548</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1631914728548</updated>
+    </task>
+    <task id="LOCAL-00115" summary="admin id from localstorage">
+      <created>1631915584963</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1631915584963</updated>
+    </task>
+    <task id="LOCAL-00116" summary="admin id from localstorage">
+      <created>1631960167359</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1631960167360</updated>
+    </task>
+    <task id="LOCAL-00117" summary="minor changes">
+      <created>1631963751715</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1631963751715</updated>
+    </task>
+    <task id="LOCAL-00118" summary="minor changes">
+      <created>1631966265935</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1631966265935</updated>
+    </task>
+    <task id="LOCAL-00119" summary="minor changes">
+      <created>1631968063931</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1631968063932</updated>
+    </task>
+    <task id="LOCAL-00120" summary="minor changes">
+      <created>1631968075002</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1631968075002</updated>
+    </task>
+    <task id="LOCAL-00121" summary="at login email set complete">
+      <created>1631970068346</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1631970068346</updated>
+    </task>
+    <task id="LOCAL-00122" summary="at login email set complete">
+      <created>1631970196748</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1631970196748</updated>
+    </task>
+    <option name="localTasksCounter" value="123" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,38 +520,35 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="organisations controller revision - remove socials" />
-    <MESSAGE value="organisations controller revision - tax" />
-    <MESSAGE value="organisations controller revision - add Organisation" />
-    <MESSAGE value="organisations controller revision" />
-    <MESSAGE value="Fixing organisation points" />
-    <MESSAGE value="Cleared temporary organisations" />
-    <MESSAGE value="Added files" />
-    <MESSAGE value="Added additional verify implementation" />
-    <MESSAGE value="Last minute changes" />
-    <MESSAGE value="Org Name update fix" />
-    <MESSAGE value="Added HTTPStatus.UNAUTHORIZED instead of OK" />
-    <MESSAGE value="registration update" />
-    <MESSAGE value="certificate download backend test" />
     <MESSAGE value="QR code intergration and upload test and controller" />
-    <MESSAGE value="registration - upload photo" />
-    <MESSAGE value="registration reiteration" />
-    <MESSAGE value="beautifying search" />
-    <MESSAGE value="beautifying search - search implementation styling" />
-    <MESSAGE value="search done" />
-    <MESSAGE value="saving workspace" />
-    <MESSAGE value="finalizing frontend&#10;backend updates to add organisation" />
-    <MESSAGE value="dedicated organisaiton select for admin users" />
-    <MESSAGE value="dedicated organisation select for admin users" />
-    <MESSAGE value="chatbot style and additional of a .css file" />
-    <MESSAGE value="login api" />
-    <option name="LAST_COMMIT_MESSAGE" value="login api" />
+    <MESSAGE value="calendar change event" />
+    <MESSAGE value="register organisation" />
+    <MESSAGE value="register organisation upload image" />
+    <MESSAGE value="register organisation confirmation page" />
+    <MESSAGE value="admin Add organisation validation" />
+    <MESSAGE value="calendar edit event changes" />
+    <MESSAGE value="calendar edit event changes time start and end" />
+    <MESSAGE value="calendar edit event changes description change" />
+    <MESSAGE value="featured console errors" />
+    <MESSAGE value="Organisation console errors fixed" />
+    <MESSAGE value="User console errors fixed" />
+    <MESSAGE value="calendar clean up" />
+    <MESSAGE value="timeline component" />
+    <MESSAGE value="Few changes" />
+    <MESSAGE value="conditional rendering side bar" />
+    <MESSAGE value="admin dashboard serverDomain routes" />
+    <MESSAGE value="admin dashboard and organisation serverDomain routes" />
+    <MESSAGE value="organisation reports" />
+    <MESSAGE value="organisation by ID" />
+    <MESSAGE value="organisation by ID fixed" />
+    <MESSAGE value="admin id from localstorage" />
+    <MESSAGE value="minor changes" />
+    <MESSAGE value="at login email set complete" />
+    <MESSAGE value="Featured, registered users field updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Featured, registered users field updated" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Give_a_Lot$chat.coverage" NAME="chat Coverage Results" MODIFIED="1631920655789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Chatbot" />
   </component>
 </project>

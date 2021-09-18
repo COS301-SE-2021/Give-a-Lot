@@ -89,11 +89,9 @@ export class OrganisationsDash extends Component {
         }
         axios.get(this.state.serverDomain + '/v1/organisation/get/sectors',  config)
             .then(response =>{
-                // console.log(response)
                 this.setState({getSector: response.data.sectors})
             })
             .catch(error =>{
-                // console.log(error)
                 this.setState({error : 'Error Retrieving data'})
             })
     }
@@ -116,7 +114,6 @@ export class OrganisationsDash extends Component {
         }
         axios.post(this.state.serverDomain + '/v1/organisation/add/sector', AddSector ,config)
             .then(response =>{
-                // console.log(response)
                 this.setState({ openSector: true });
             })
             .catch(error =>{
@@ -155,13 +152,9 @@ export class OrganisationsDash extends Component {
                                             <TextField
                                                 id="outlined-full-width"
                                                 label="Sector"
-                                                // style={{ margin: 3 }}
                                                 placeholder="Sector"
                                                 fullWidth
                                                 margin="normal"
-                                                // InputLabelProps={{
-                                                //     shrink: true,
-                                                // }}
                                                 variant="outlined"
                                                 name="sector"
                                                 onChange={this.changeHandler}

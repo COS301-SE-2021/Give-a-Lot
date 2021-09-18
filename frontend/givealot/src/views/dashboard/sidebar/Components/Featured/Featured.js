@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import "./Styles/Featured.css"
 import Chart from "./Chart"
 import Cards from "./Cards"
-// import { userData} from "../../../../../DummyData";
 import axios from "axios";
 
 export class Featured extends Component {
@@ -14,7 +13,7 @@ export class Featured extends Component {
             UsersPerMonth: '',
             OrganisationsPerMonth: '',
             userData: [],
-            adminUserEmail: "basic@gmail.com",
+            adminUserEmail: localStorage.getItem('curr_user_email'),
             OrgData: [],
             serverDomain: "http://localhost:8080"
         }
@@ -33,7 +32,6 @@ export class Featured extends Component {
             }
         }
         const UserPerMonth = {
-            // "orgId" : this.state.orgId
             "adminUserEmail":this.state.adminUserEmail
         }
         axios.post(this.state.serverDomain + '/v1/user/get/num_users/per_month', UserPerMonth, config)
@@ -42,61 +40,58 @@ export class Featured extends Component {
                 this.setState({ userData:[
                         {
                             name: "jan",
-                            "Active User": response.data.object.jan,
+                            "Registered Users": response.data.object.jan,
                         },
                         {
                             name: "feb",
-                            "Active User": response.data.object.feb,
+                            "Registered Users": response.data.object.feb,
                         },
                         {
                             name: "mar",
-                            "Active User": response.data.object.mar,
+                            "Registered Users": response.data.object.mar,
                         },
                         {
                             name: "apr",
-                            "Active User": response.data.object.apr,
+                            "Registered Users": response.data.object.apr,
                         },
                         {
                             name: "may",
-                            "Active User": response.data.object.may,
+                            "Registered Users": response.data.object.may,
                         },
                         {
                             name: "jun",
-                            "Active User": response.data.object.jun,
+                            "Registered Users": response.data.object.jun,
                         },
                         {
                             name: "jul",
-                            "Active User": response.data.object.jul,
+                            "Registered Users": response.data.object.jul,
                         },
                         {
                             name: "aug",
-                            "Active User": response.data.object.aug,
+                            "Registered Users": response.data.object.aug,
                         },
                         {
                             name: "sept",
-                            "Active User": response.data.object.sept,
+                            "Registered Users": response.data.object.sept,
                         },
                         {
                             name: "oct",
-                            "Active User": response.data.object.oct,
+                            "Registered Users": response.data.object.oct,
                         },
                         {
                             name: "nov",
-                            "Active User": response.data.object.nov,
+                            "Registered Users": response.data.object.nov,
                         },
                         {
                             name: "dec",
-                            "Active User": response.data.object.dec,
+                            "Registered Users": response.data.object.dec,
                         }
                     ]
 
                 })
-                // this.setState({ userData: response.data })
-                // console.log(this.state.Users)
 
             })
             .catch(error =>{
-                // console.log(error)
                 this.setState({error : 'Error Retrieving data'})
             })
     }
@@ -109,79 +104,67 @@ export class Featured extends Component {
             }
         }
         const OrgPerMonth = {
-            // "orgId" : this.state.orgId
             "adminUserEmail":this.state.adminUserEmail
         }
         axios.post(this.state.serverDomain + '/v1/organisation/get/num_organisations/per_month', OrgPerMonth, config)
             .then(response =>{
-                // console.log(response)
                 this.setState({ OrgData:[
                         {
                             name: "jan",
-                            "Active User": response.data.object.jan,
+                            "Registered Organisations": response.data.object.jan,
                         },
                         {
                             name: "feb",
-                            "Active User": response.data.object.feb,
+                            "Registered Organisations": response.data.object.feb,
                         },
                         {
                             name: "mar",
-                            "Active User": response.data.object.mar,
+                            "Registered Organisations": response.data.object.mar,
                         },
                         {
                             name: "apr",
-                            "Active User": response.data.object.apr,
+                            "Registered Organisations": response.data.object.apr,
                         },
                         {
                             name: "may",
-                            "Active User": response.data.object.may,
+                            "Registered Organisations": response.data.object.may,
                         },
                         {
                             name: "jun",
-                            "Active User": response.data.object.jun,
+                            "Registered Organisations": response.data.object.jun,
                         },
                         {
                             name: "jul",
-                            "Active User": response.data.object.jul,
+                            "Registered Organisations": response.data.object.jul,
                         },
                         {
                             name: "aug",
-                            "Active User": response.data.object.aug,
+                            "Registered Organisations": response.data.object.aug,
                         },
                         {
                             name: "sept",
-                            "Active User": response.data.object.sept,
+                            "Registered Organisations": response.data.object.sept,
                         },
                         {
                             name: "oct",
-                            "Active User": response.data.object.oct,
+                            "Registered Organisations": response.data.object.oct,
                         },
                         {
                             name: "nov",
-                            "Active User": response.data.object.nov,
+                            "Registered Organisations": response.data.object.nov,
                         },
                         {
                             name: "dec",
-                            "Active User": response.data.object.dec,
+                            "Registered Organisations": response.data.object.dec,
                         }
                     ]
-
             })
-                // this.setState({ userData: response.data })
-                // console.log(this.state.Users)
 
             })
             .catch(error =>{
-                // console.log(error)
                 this.setState({error : 'Error Retrieving data'})
             })
     }
-
-    ////////////////////////////////////////
-
-
-
-    ////////////////////////////////////////
 
     render() {
         const { userData, OrgData } = this.state

@@ -5,13 +5,6 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Logo from "../login/Components/TermsLogo"
 
 
-
-/*const styles = {
-    main: {
-        color:"#eff3f6"
-    }
-}*/
-
 function TermsAndConditions()
 {
     return (

@@ -1,3 +1,90 @@
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/website/true
+
+<> 2021-09-18T194340.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/address/true
+
+<> 2021-09-18T194158.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/address/false
+
+<> 2021-09-18T194129.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/address/true
+
+<> 2021-09-18T194100.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/address/true
+
+<> 2021-09-18T193805.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/website/false
+
+<> 2021-09-18T193741.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/website/true
+
+<> 2021-09-18T193731.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/get/org_level
+Content-Type: application/json
+
+{
+  "orgid": 75
+}
+
+<> 2021-09-18T193724.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/website/true
+
+<> 2021-09-18T193449.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/website/true
+
+<> 2021-09-18T193110.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/get/org_level
+Content-Type: application/json
+
+{
+  "orgid": 75
+}
+
+<> 2021-09-18T184533.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/get/org_level
+Content-Type: application/json
+
+{
+  "orgId": 75
+}
+
+<> 2021-09-18T184028.200.json
+
+###
+
 PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/ngo_number/true
 
 <> 2021-09-18T175747.200.json
@@ -277,150 +364,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-18T144327.200.json
-
-###
-
-POST http://localhost:8080/report/org/
-Content-Type: application/json
-
-{
-  "orgId" : 75,
-  "userId" : 21,
-  "orgName": "Marvel studios",
-  "description" : "this organisation does not have a paypal link",
-  "reportType" : "misconduct"
-}
-
-<> 2021-09-18T140438.200.json
-
-###
-
-POST http://localhost:8080/report/org/
-Content-Type: application/json
-
-{
-  "orgId" : 75,
-  "userId" : 21,
-  "orgName": "Marvel studios",
-  "description" : "this organisation does not have a paypal link",
-  "reportType" : "misconduct"
-}
-
-<> 2021-09-18T140429.200.json
-
-###
-
-POST http://localhost:8080/report/org/
-Content-Type: application/json
-
-{
-  "orgId" : 75,
-  "userId" : 21,
-  "orgName": "Marvel studios",
-  "description" : "this organisation does not have a paypal link",
-  "reportType" : "misconduct"
-}
-
-<> 2021-09-18T134848.200.json
-
-###
-
-POST http://localhost:8080/report/org/
-Content-Type: application/json
-
-{
-  "orgId" : 75,
-  "userId" : 14,
-  "orgName": "Marvel studios",
-  "description" : "this organisation does not have a paypal link",
-  "reportType" : "misconduct"
-}
-
-<> 2021-09-18T134818.400.json
-
-###
-
-POST http://localhost:8080/v1/login/user/determine
-Content-Type: application/json
-
-{
-  "username" : "marvel@studios.com",
-  "password" : "Grandtheft@uto5",
-  "role" : ""
-}
-
-<> 2021-09-18T131549.200.json
-
-###
-
-POST http://localhost:8080/report/get/all
-Content-Type: application/json
-
-{
- "orgId" : 75
-}
-
-<> 2021-09-17T220811.200.json
-
-###
-
-POST http://localhost:8080/report/get/all
-
-{
- "orgId" : 75
-}
-
-<> 2021-09-17T220753.415.json
-
-###
-
-GET http://localhost:8080/v1/organisation/admin/sel/organisation/71
-
-<> 2021-09-17T212037.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/check/email
-Content-Type: application/json
-
-{
-  "email" : null
-}
-
-<> 2021-09-17T043634.400.json
-
-###
-
-POST http://localhost:8080/v1/organisation/check/email
-Content-Type: application/json
-
-{
-  "email" : ""
-}
-
-<> 2021-09-17T043624.400.json
-
-###
-
-POST http://localhost:8080/v1/organisation/check/email
-Content-Type: application/json
-
-{
-  "email" : "coolmailgmail.com"
-}
-
-<> 2021-09-17T043607.400.json
-
-###
-
-POST http://localhost:8080/v1/organisation/check/email
-Content-Type: application/json
-
-{
-  "email" : "coolmai6576l@gmail.com"
-}
-
-<> 2021-09-17T043542.200.json
 
 ###
 

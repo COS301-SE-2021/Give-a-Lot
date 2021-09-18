@@ -101,14 +101,23 @@ export class Upgrade1 extends Component {
 
             };
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/add/website", web)
+                .post( "http://localhost:8080/v1/organisation/add/website", web)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/add/address", add)
+                .post("http://localhost:8080/v1/organisation/add/address", add)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
+
+            const notification_update_body = {
+                org_id: this.state.orgId,
+            };
+
+            Axios
+                .post("http://localhost:8080/v1/notifications/update/notifications", notification_update_body)
+                .then(res => console.log(res))
+                .catch(err => console.log(err))
 
             // clear form
             this.setState(initialState);

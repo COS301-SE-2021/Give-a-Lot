@@ -1096,10 +1096,9 @@ public class OrganisationServiceImp implements OrganisationService
         return new generalOrganisationResponse("add_img_200_OK", "success");
     }
 
-
     @Override /* all good, correctness not tested yet */
-    public generalOrganisationResponse removeOrgImage(Long orgId, int number) throws Exception {
-
+    public generalOrganisationResponse removeOrgImage(Long orgId, int number) throws Exception
+    {
         if (orgId == null)
             throw new Exception("Exception: provided ID is null");
 
@@ -1128,7 +1127,6 @@ public class OrganisationServiceImp implements OrganisationService
 
         if (organisationInfoRepository.decrementImage(orgId, numImages - 1) != 1)
             throw new Exception("Exception: tax reference field not updated");
-
         return new generalOrganisationResponse("rem_img_200_OK", "success");
     }
 
@@ -1157,25 +1155,29 @@ public class OrganisationServiceImp implements OrganisationService
         * true: for valid
         * false: invalid
         * */
-        Integer CURRENT_PTS = -1;
         if(type.equalsIgnoreCase("address"))
         {
-            Integer dps = 10, currentPoints = 0;
+            OrganisationPoints organisationPoints_current_status = organisationPointsRepository.selectOrganisationPoints(orgId);
+
+            if(organisationPoints_current_status != null && organisationPoints_current_status.isAddressIsValid() == confirmValidity)
+            {
+                throw new Exception("ngo address is already updated");
+            }
+            else if(organisationPoints_current_status == null)
+            {
+                throw new Exception("points not allocated for this organisation");
+            }
+
+            Integer dps = 10, currentPoints;
             int res = confirmValidity ? organisationPointsRepository.Address(orgId,true) : organisationPointsRepository.Address(orgId,false);
             if(res != 1)
                 throw new Exception("Exception: address validity not confirmed");
 
-            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
-            if(certificate_tmp == null) /*perform rollback*/
-            {
-                res = confirmValidity ? organisationPointsRepository.Address(orgId,false) : organisationPointsRepository.Address(orgId,true);
-                if(res == 1)
-                    throw new Exception("Exception: error occurred, rollback action performed successfully");
-                else throw new Exception("Exception: error occurred, rollback action failed");
-            }
-            else currentPoints = certificate_tmp.getPoints();
+            currentPoints = certificateRepository.select_Points_ById(orgId);
 
             res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+
+            currentPoints = certificateRepository.select_Points_ById(orgId);
 
             if(res != 1)
             {
@@ -1184,8 +1186,42 @@ public class OrganisationServiceImp implements OrganisationService
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
-
         }
+        else if(type.equalsIgnoreCase("website"))
+        {
+            OrganisationPoints organisationPoints_current_status = organisationPointsRepository.selectOrganisationPoints(orgId);
+
+            if(organisationPoints_current_status != null && organisationPoints_current_status.isWebsiteIsValid() == confirmValidity)
+            {
+                throw new Exception("ngo website is already updated");
+            }
+            else if(organisationPoints_current_status == null)
+            {
+                throw new Exception("points not allocated for this organisation");
+            }
+
+            Integer currentPoints = 0,dps = 10;
+            Integer res = confirmValidity ? organisationPointsRepository.Website(orgId,true) : organisationPointsRepository.Website(orgId,false);
+
+            if(res != 1)
+                throw new Exception("Exception: website validity not confirmed");
+
+            currentPoints = certificateRepository.select_Points_ById(orgId);
+
+            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
+
+            currentPoints = certificateRepository.select_Points_ById(orgId);
+
+            if(res != 1)
+            {
+                res = confirmValidity ? organisationPointsRepository.Website(orgId,false) : organisationPointsRepository.Website(orgId,true);
+                if(res == 1)
+                    throw new Exception("Exception: error occurred, rollback action performed successfully");
+                else throw new Exception("Exception: error occurred, rollback action failed");
+            }
+        }
+
+
         else if(type.equalsIgnoreCase("audit"))
         {
             Integer currentPoints = 0, dps = 15;
@@ -1366,12 +1402,6 @@ public class OrganisationServiceImp implements OrganisationService
 
             currentPoints = certificateRepository.select_Points_ById(orgId);
 
-            if(confirmValidity)
-            {
-                CURRENT_PTS = currentPoints + dps;
-            }
-            else CURRENT_PTS = currentPoints - 1;
-
             if(res != 1)
             {
                 res = confirmValidity ? organisationPointsRepository.NGO_Date(orgId,false) : organisationPointsRepository.NGO_Date(orgId,true);
@@ -1403,12 +1433,6 @@ public class OrganisationServiceImp implements OrganisationService
             res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
 
             currentPoints = certificateRepository.select_Points_ById(orgId);
-
-             if(confirmValidity)
-             {
-                 CURRENT_PTS = currentPoints + dps;
-             }
-             else CURRENT_PTS = currentPoints - 1;
 
             if(res != 1)
             {
@@ -1444,41 +1468,14 @@ public class OrganisationServiceImp implements OrganisationService
 //                else throw new Exception("Exception: error occurred, rollback action failed");
 //            }
         }
-        else if(type.equalsIgnoreCase("website"))
-        {
-            Integer currentPoints = 0,dps = 10;
-            Integer res = confirmValidity ? organisationPointsRepository.Website(orgId,true) : organisationPointsRepository.Website(orgId,false);
 
-            if(res != 1)
-                throw new Exception("Exception: website validity not confirmed");
-
-            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
-            if(certificate_tmp == null) /*perform rollback*/
-            {
-                res = confirmValidity ? organisationPointsRepository.Website(orgId,false) : organisationPointsRepository.Website(orgId,true);
-                if(res == 1)
-                    throw new Exception("Exception: error occurred, rollback action performed successfully");
-                else throw new Exception("Exception: error occurred, rollback action failed");
-            }
-            else currentPoints = certificate_tmp.getPoints();
-
-            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
-
-            if(res != 1)
-            {
-                res = confirmValidity ? organisationPointsRepository.Website(orgId,false) : organisationPointsRepository.Website(orgId,true);
-                if(res == 1)
-                    throw new Exception("Exception: error occurred, rollback action performed successfully");
-                else throw new Exception("Exception: error occurred, rollback action failed");
-            }
-        }
         else throw new Exception("Exception: type is incorrect");
 
         if(confirmValidity)
         {
             try
             {
-                    CURRENT_PTS = certificateRepository.selectPointsById(orgId).getPoints();
+                    Integer CURRENT_PTS = certificateRepository.selectPointsById(orgId).getPoints();
                     if (CURRENT_PTS == 20) {
                         certificateService.updateCertificate(orgId);
                     } else if (CURRENT_PTS == 40) {
@@ -1579,7 +1576,7 @@ public class OrganisationServiceImp implements OrganisationService
         if(request == null)
             throw new Exception("Exception: request is null");
 
-        if(organisationRepository.selectOrganisationById(request.getOrgid())==null)
+        if(!organisationRepository.existsById(request.getOrgid()))
         {
             throw new Exception("organisation does not exist");
         }

@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Give-a-Lot:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Give_a_Lot_jar</output-path>
+    <root id="archive" name="Give-a-Lot.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

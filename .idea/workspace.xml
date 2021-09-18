@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="dedicated organisation select for admin users">
+    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="upgrade to level 4 complete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/FaceRecognitionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/FaceRecognitionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,11 +83,11 @@
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\backend\src\main\java\com\GiveaLot\givealot\Certificate\dataclass" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="C:\Users\Nqobani_Xpl\Documents\Course\2021\COS301\capstone - restructured\Give-a-Lot\frontend\givealot\src\views\registration\registerOrganisation\Styles" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\frontend\givealot\src\localFiles" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\frontend\givealot\src" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\DemoMaterial" />
-      <recent name="C:\Users\Nqobani_Xpl\Documents\Course\2021\COS301\capstone - restructured\Give-a-Lot" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -99,52 +96,31 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Python.chat">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.GivealotApplication">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="generated-requests#59" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="59" runType="Run single request">
+    <configuration name="generated-requests#72" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="72" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#61" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="61" runType="Run single request">
+    <configuration name="generated-requests#73" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="73" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#63" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="63" runType="Run single request">
+    <configuration name="generated-requests#74" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="74" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#64" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="64" runType="Run single request">
+    <configuration name="generated-requests#75" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="75" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="chat" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="givealot" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Chatbot" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Chatbot/chat.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
+    <configuration name="generated-requests#76" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="76" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="GivealotApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -155,20 +131,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.generated-requests#63" />
-      <item itemvalue="HTTP Request.generated-requests#64" />
-      <item itemvalue="HTTP Request.generated-requests#59" />
-      <item itemvalue="HTTP Request.generated-requests#61" />
-      <item itemvalue="Python.chat" />
+      <item itemvalue="HTTP Request.generated-requests#72" />
+      <item itemvalue="HTTP Request.generated-requests#73" />
+      <item itemvalue="HTTP Request.generated-requests#74" />
+      <item itemvalue="HTTP Request.generated-requests#75" />
+      <item itemvalue="HTTP Request.generated-requests#76" />
       <item itemvalue="Spring Boot.GivealotApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.generated-requests#64" />
-        <item itemvalue="HTTP Request.generated-requests#63" />
-        <item itemvalue="Python.chat" />
-        <item itemvalue="HTTP Request.generated-requests#61" />
-        <item itemvalue="HTTP Request.generated-requests#59" />
+        <item itemvalue="HTTP Request.generated-requests#73" />
+        <item itemvalue="HTTP Request.generated-requests#76" />
+        <item itemvalue="HTTP Request.generated-requests#75" />
+        <item itemvalue="HTTP Request.generated-requests#74" />
+        <item itemvalue="HTTP Request.generated-requests#72" />
       </list>
     </recent_temporary>
   </component>
@@ -196,69 +172,7 @@
       <workItem from="1631708108011" duration="27620000" />
       <workItem from="1631819750918" duration="3266000" />
       <workItem from="1631823532933" duration="61928000" />
-    </task>
-    <task id="LOCAL-00058" summary="Last minute changes">
-      <created>1630716192825</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1630716192825</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Last minute changes">
-      <created>1630719501914</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1630719501914</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Last minute changes">
-      <created>1630719533089</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1630719533089</updated>
-    </task>
-    <task id="LOCAL-00061" summary="Last minute changes">
-      <created>1630722515991</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1630722515991</updated>
-    </task>
-    <task id="LOCAL-00062" summary="Last minute changes">
-      <created>1630774212131</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1630774212131</updated>
-    </task>
-    <task id="LOCAL-00063" summary="Last minute changes">
-      <created>1630775166475</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1630775166475</updated>
-    </task>
-    <task id="LOCAL-00064" summary="Last minute changes">
-      <created>1630785711516</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1630785711517</updated>
-    </task>
-    <task id="LOCAL-00065" summary="Last minute changes">
-      <created>1630797410507</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1630797410507</updated>
-    </task>
-    <task id="LOCAL-00066" summary="Last minute changes">
-      <created>1630845108483</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1630845108483</updated>
+      <workItem from="1631960615375" duration="35588000" />
     </task>
     <task id="LOCAL-00067" summary="Org Name update fix">
       <created>1630845874348</created>
@@ -540,7 +454,70 @@
       <option name="project" value="LOCAL" />
       <updated>1631928105725</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="login api">
+      <created>1631963564109</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1631963564109</updated>
+    </task>
+    <task id="LOCAL-00108" summary="login api">
+      <created>1631963770377</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1631963770377</updated>
+    </task>
+    <task id="LOCAL-00109" summary="login api">
+      <created>1631967450484</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1631967450484</updated>
+    </task>
+    <task id="LOCAL-00110" summary="level 1 info add">
+      <created>1631970144021</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1631970144021</updated>
+    </task>
+    <task id="LOCAL-00111" summary="level 1 info accept-deny">
+      <created>1631973644387</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1631973644387</updated>
+    </task>
+    <task id="LOCAL-00112" summary="level 1 info accept-deny">
+      <created>1631973725421</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1631973725422</updated>
+    </task>
+    <task id="LOCAL-00113" summary="level 1 upgrade">
+      <created>1631982031139</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1631982031140</updated>
+    </task>
+    <task id="LOCAL-00114" summary="level 2 upgrade complete">
+      <created>1631987838626</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1631987838655</updated>
+    </task>
+    <task id="LOCAL-00115" summary="upgrade to level 4 complete">
+      <created>1631997680567</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1631997680606</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,12 +536,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="organisations controller revision - add socials" />
-    <MESSAGE value="organisations controller revision - remove socials" />
-    <MESSAGE value="organisations controller revision - tax" />
-    <MESSAGE value="organisations controller revision - add Organisation" />
-    <MESSAGE value="organisations controller revision" />
-    <MESSAGE value="Fixing organisation points" />
     <MESSAGE value="Cleared temporary organisations" />
     <MESSAGE value="Added files" />
     <MESSAGE value="Added additional verify implementation" />
@@ -584,13 +555,16 @@
     <MESSAGE value="dedicated organisaiton select for admin users" />
     <MESSAGE value="dedicated organisation select for admin users" />
     <MESSAGE value="chatbot style and additional of a .css file" />
-    <option name="LAST_COMMIT_MESSAGE" value="chatbot style and additional of a .css file" />
+    <MESSAGE value="login api" />
+    <MESSAGE value="level 1 info add" />
+    <MESSAGE value="level 1 info accept-deny" />
+    <MESSAGE value="level 1 upgrade" />
+    <MESSAGE value="level 2 upgrade complete" />
+    <MESSAGE value="upgrade to level 4 complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="upgrade to level 4 complete" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Give_a_Lot$chat.coverage" NAME="chat Coverage Results" MODIFIED="1631920655789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Chatbot" />
   </component>
 </project>

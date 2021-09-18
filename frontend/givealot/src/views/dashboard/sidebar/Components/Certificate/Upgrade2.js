@@ -44,9 +44,6 @@ const initialState = {
     dateError:"",
     paypalError:"",
     qrError:"",
-    popUp1:false,
-    popUp2:false,
-    popUp3:false,
     //serverDomain: "https://3c73e752688968.localhost.run"
     serverDomain: 'https://localhost:8080'
 };
@@ -83,7 +80,7 @@ export class Upgrade2 extends Component {
         let imageStates = 0;
 
         fetch(
-            'http://localhost:8080/v1/organisation/add/logo',
+             'http://localhost:8080/v1/organisation/add/qrcode',
             {
                 method: 'POST',
                 body: formData,
@@ -93,8 +90,6 @@ export class Upgrade2 extends Component {
             .then((result) => {
                 console.log('Success:', result);
                 imageStates = 1;
-                this.setState({popUp3: result.data.message});
-                this. onToastCode ();
 
             })
             .catch((error) => {
@@ -140,7 +135,6 @@ export class Upgrade2 extends Component {
             this.setState({ dateError, paypalError,qrError });
             return false;
         }
-
         return true;
     };
 
@@ -156,11 +150,7 @@ export class Upgrade2 extends Component {
             };
             Axios
                 .post("http://localhost:8080/v1/organisation/add/estdate", data)
-                .then(res => {
-                    console.log(res)
-                    this.setState({popUp1: res.data.message});
-                    this. onToastDate ();
-                })
+                .then(res => console.log(res))
                 .catch(err => console.log(err));
 
             const paypal = {
@@ -169,63 +159,27 @@ export class Upgrade2 extends Component {
             };
             Axios
                 .post("http://localhost:8080/v1/organisation/add/donation/info", paypal)
-                .then(res => {
-                    console.log(res)
-                    this.setState({popUp2: res.data.message});
-                    this. onToastPaypal ();
-                })
+                .then(res => console.log(res))
                 .catch(err => console.log(err));
+
+            const notification_update_body = {
+                org_id: this.state.orgId,
+            };
+
+            Axios
+                .post("http://localhost:8080/v1/notifications/update/notifications", notification_update_body)
+                .then(res => console.log(res))
+                .catch(err => console.log(err))
         }
     };
 
-    onToastDate = () => {
-        if(this.state.popUp1){
-
-            toast.success('Date Submitted ', {
+    onToastTwo = () => {
+        const isValid = this.validate();
+        if (isValid) {
+            toast.success('Submit successful', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
-        }else{
-
-            toast.error('failed to send Date', {
-                position: toast.POSITION.TOP_RIGHT
-
-            });
-
-        }
-    }
-
-    onToastCode = () => {
-        if(this.state.popUp3){
-
-            toast.success('QrCode Submitted ', {
-                position: toast.POSITION.TOP_RIGHT
-
-            });
-        }else{
-
-            toast.error('failed to send QrCode', {
-                position: toast.POSITION.TOP_RIGHT
-
-            });
-
-        }
-    }
-
-    onToastPaypal = () => {
-        if(this.state.popUp2){
-
-            toast.success('paypal Submitted ', {
-                position: toast.POSITION.TOP_RIGHT
-
-            });
-        }else{
-
-            toast.error('failed to send paypal', {
-                position: toast.POSITION.TOP_RIGHT
-
-            });
-
         }
     }
 
@@ -313,7 +267,7 @@ export class Upgrade2 extends Component {
 
                                 </div>
                                 <div className="upgrade_Button">
-                                    <button className="upgrade-btn" type="submit">
+                                    <button className="upgrade-btn" type="submit" onClick={this.onToastTwo}>
                                         Submit
                                     </button>
                                 </div>

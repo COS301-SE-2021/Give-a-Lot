@@ -51,6 +51,10 @@ const initialState = {
     type:"",
     typeError:"",
     url1:"",
+    url2: "",
+    type2:"",
+    url2Error: "",
+    type2Error:"",
     url1Error:"",
     type1:"",
     type1Error:"",
@@ -95,6 +99,11 @@ export class Upgrade3 extends Component {
 
     };
 
+    handleSocial2Change = e => {
+        this.setState({type2: e.target.value});
+
+    };
+
     handleChange = event => {
         const isCheckbox = event.target.type === "checkbox";
         this.setState({
@@ -127,6 +136,8 @@ export class Upgrade3 extends Component {
         let url1Error = "";
         let typeError = "";
         let type1Error = "";
+        let url2Error = "";
+        let type2Error = "";
 
 
 
@@ -162,6 +173,9 @@ export class Upgrade3 extends Component {
         if (!this.state.url1) {
             url1Error = "required";
         }
+        if (!this.state.url2) {
+            url1Error = "required";
+        }
 
         if (!this.state.type) {
             typeError = "required";
@@ -169,10 +183,13 @@ export class Upgrade3 extends Component {
         if (!this.state.type1) {
             type1Error = "required";
         }
+        if (!this.state.type2) {
+            type1Error = "required";
+        }
 
 
-        if ( urlError || url1Error || typeError || type1Error || treasurerContactsError || secretaryContactsError || managerContactsError || ChairpersonContactsError || treasurerNameError || secretaryNameError || managerNameError || ChairpersonNameError) {
-            this.setState({urlError, url1Error, typeError, type1Error , treasurerContactsError, secretaryContactsError,managerContactsError ,ChairpersonContactsError ,treasurerNameError, secretaryNameError, managerNameError ,ChairpersonNameError });
+        if ( urlError || url1Error || url2Error || typeError || type1Error || type2Error || treasurerContactsError || secretaryContactsError || managerContactsError || ChairpersonContactsError || treasurerNameError || secretaryNameError || managerNameError || ChairpersonNameError) {
+            this.setState({urlError, url1Error,url2Error, typeError, type1Error ,type2Error, treasurerContactsError, secretaryContactsError,managerContactsError ,ChairpersonContactsError ,treasurerNameError, secretaryNameError, managerNameError ,ChairpersonNameError });
             return false;
         }
 
@@ -201,31 +218,47 @@ export class Upgrade3 extends Component {
                 socialType: this.state.type1,
                 url: this.state.url1,
             };
+
+            const social2 = {
+                orgId: this.state.orgId,
+                socialType: this.state.type2,
+                url: this.state.url2,
+            };
             console.log(com)
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/add/committee", com)
+                .post("http://localhost:8080/v1/organisation/add/committee", com)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 
             console.log(social)
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/add/socials", social)
+                .post( "http://localhost:8080/v1/organisation/add/socials", social)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 
             console.log(social1)
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/add/socials", social1)
+                .post("http://localhost:8080/v1/organisation/add/socials", social1)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
+
+            Axios
+                .post( "http://localhost:8080/v1/organisation/add/socials", social2)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+
+            const notification_update_body = {
+                org_id: this.state.orgId,
+            };
+
+            Axios
+                .post("http://localhost:8080/v1/notifications/update/notifications", notification_update_body)
+                .then(res => console.log(res))
+                .catch(err => console.log(err))
 
             // clear form
             this.setState(initialState);
         }
-
-
-
-
     };
 
     onToastThree = () => {
@@ -526,6 +559,50 @@ export class Upgrade3 extends Component {
                                         </div>
 
 
+
+                                        <div className="social_media">
+                                            <div>
+
+                                                <FormControl variant="outlined" className={classes.formControl}>
+                                                    <InputLabel id="demo-controlled-open-select-label">Social media platform</InputLabel>
+                                                    <Select
+                                                        labelId="demo-simple-select-outlined-label"
+                                                        id="demo-simple-select-outlined"
+                                                        value={this.type2}
+                                                        name="type2"
+                                                        onChange={this.handleSocial2Change}
+                                                        label="Social platform"
+
+
+                                                    >
+                                                        <MenuItem value="">
+                                                            <em>None</em>
+                                                        </MenuItem>
+                                                        <MenuItem value={"Facebook"}>Facebook</MenuItem>
+                                                        <MenuItem value={"Instagram"}>Instagram</MenuItem>
+                                                        <MenuItem value={"Twitter"}>Twitter</MenuItem>
+                                                    </Select>
+                                                </FormControl>
+                                                <span className="loginError_certificate">{this.state.type2Error}</span>
+                                            </div>
+                                            <div>
+                                                <TextField
+                                                    id="outlined-full-width"
+                                                    label="Social media url"
+                                                    style={{ margin: 8 }}
+                                                    name="url2"
+                                                    placeholder="Enter your url..."
+                                                    fullWidth
+                                                    margin="normal"
+                                                    InputLabelProps={{
+                                                        shrink: true,
+                                                    }}
+                                                    variant="outlined"
+                                                    onChange={this.handleChange}
+                                                />
+                                                <span className="loginError_certificate">{this.state.url2Error}</span>
+                                            </div>
+                                        </div>
 
                                         <div className="upgrade_Button">
                                             <button className="upgrade-btn" type="submit" onClick={this.onToastThree}>

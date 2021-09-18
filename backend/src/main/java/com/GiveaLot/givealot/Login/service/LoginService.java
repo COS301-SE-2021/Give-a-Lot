@@ -14,6 +14,7 @@ public interface LoginService {
     LoginResponse loginGeneralUser(LoginRequest body) throws Exception;
     //logs in an organisation
     LoginResponse loginOrganisation(LoginRequest body)throws Exception;
+    //logs in an admin user
     LoginResponse loginAdminUser(LoginRequest body)throws Exception;
     ForgotPasswordResponse forgotPassward(ForgotPasswordRequest body)throws Exception;
     ForgotPasswordResponse checkToken(TokenRequest body)throws Exception;

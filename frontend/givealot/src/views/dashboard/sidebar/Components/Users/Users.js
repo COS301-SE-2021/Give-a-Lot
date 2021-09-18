@@ -1,21 +1,4 @@
-// import React, { Component } from 'react'
-// import "../../styles/Organisations.css"
-//
-// export class OrganisationsDash extends Component {
-//
-//     render() {
-//         return (
-//             <div className="organisations">
-//                 orgs here
-//             </div>
-//         )
-//     }
-// }
-//
-// export default OrganisationsDash
-
 import React , { Component } from 'react'
-import Avatar from '@material-ui/core/Avatar';
 import "../../styles/Organisations.css"
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -27,7 +10,6 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios'
 
-// export default function OrganisationsDash() {
 export class Users extends Component {
 
     constructor(props) {
@@ -36,7 +18,8 @@ export class Users extends Component {
         this.state = {
             users:[],
             error: "",
-            adminUserEmail: "admin@email.com",
+            // adminUserEmail: "admin@email.com",
+            adminUserEmail: localStorage.getItem('curr_user_email'),
             serverDomain: "http://localhost:8080"
         }
 

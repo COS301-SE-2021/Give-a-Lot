@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="dedicated organisation select for admin users">
+    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="added salted hash to forgot password">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Notification/service/SendMailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Notification/service/SendMailServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,20 +97,7 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Python.chat">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="HTTP Request.generated-requests#63">
     <configuration name="generated-requests#59" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="59" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -157,14 +144,12 @@
       <item itemvalue="HTTP Request.generated-requests#64" />
       <item itemvalue="HTTP Request.generated-requests#59" />
       <item itemvalue="HTTP Request.generated-requests#61" />
-      <item itemvalue="Python.chat" />
       <item itemvalue="Spring Boot.GivealotApplication" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="HTTP Request.generated-requests#64" />
         <item itemvalue="HTTP Request.generated-requests#63" />
-        <item itemvalue="Python.chat" />
         <item itemvalue="HTTP Request.generated-requests#61" />
         <item itemvalue="HTTP Request.generated-requests#59" />
       </list>
@@ -587,8 +572,5 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Give_a_Lot$chat.coverage" NAME="chat Coverage Results" MODIFIED="1631920655789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Chatbot" />
   </component>
 </project>

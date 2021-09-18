@@ -9,20 +9,20 @@ import Level4 from "./Level4"
 
 import {
     CalendarToday, CheckCircleOutlineOutlined,
-    LocationSearching,
     MailOutline,
     PermIdentity,
-    PhoneAndroid, PieChart, PieChartOutlined,
-    Publish,
+    PhoneAndroid, PieChartOutlined,
+
 } from "@material-ui/icons";
 import axios from "axios";
 import Axios from "axios";
 import {toast} from "react-toastify";
 import * as PropTypes from "prop-types";
 import {ApiContext} from "../../../../../apiContext/ApiContext";
+import FullPageLoader from "../Report/FullPageLoader";
 
 
-function CancelOutlinedIcon(props) {
+function CancelOutlinedIcon() {
     return null;
 }
 
@@ -56,11 +56,15 @@ export class Profile extends Component {
             addressState:false,
             //serverDomain: "https://3c73e752688968.localhost.run"
             serverDomain : 'http://localhost:8080',
+            loader:false,
+
+
         }
     }
 
 
     componentDidMount(){
+      this.setState({loader: true});
         let config = {
             headers: {
                 "Content-Type": "application/json",
@@ -72,6 +76,8 @@ export class Profile extends Component {
             .then(response =>{
                 console.log(response)
                 this.setState({persons: response.data.object})
+                this.setState({loader: false});
+
             })
             .catch(error =>{
                 console.log(error)
@@ -87,10 +93,12 @@ export class Profile extends Component {
                 this.setState({level: response.data.level})
                 console.log(response)
 
+
             })
             .catch(error =>{
                 console.log(error)
             })
+
     }
 
 
@@ -337,6 +345,11 @@ export class Profile extends Component {
             }
         }
 
+        let auto_spinner
+        if(this.state.loader){
+            auto_spinner=<FullPageLoader />
+        }
+
 
 
 
@@ -454,7 +467,6 @@ export class Profile extends Component {
                                     <label>Description</label>
                                     <textarea
 
-                                        type="text"
                                         name="orgDescription1"
                                         onChange={this.handleDescription}
                                         placeholder={persons.orgDescription}
@@ -477,6 +489,9 @@ export class Profile extends Component {
                 </div>
 
                 {levels}
+                { auto_spinner}
+
+
             </div>
         )
     }

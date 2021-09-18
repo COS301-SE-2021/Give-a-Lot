@@ -1,15 +1,13 @@
 import nltk
 from nltk.stem.lancaster import LancasterStemmer
-
-stemmer = LancasterStemmer()
-nltk.download('punkt')
 import numpy as np
 import tflearn as tfl
-import tensorflow as tf
 from tensorflow.python.framework import ops
-import random
 import json
 import pickle
+
+stemmer = LancasterStemmer()
+
 
 def startup():
     with open("intents.json") as file:
@@ -85,47 +83,4 @@ def startup():
         return model
 
 
-# def bag_of_words(stem, words):
-#     bag = [0 for _ in range(len(words))]
-#
-#     wordStem = nltk.word_tokenize(stem)
-#     wordStem = [stemmer.stem(word.lower()) for word in wordStem]
-#
-#     for s in wordStem:
-#         for i, w in enumerate(words):
-#             if w == s:
-#                 bag[i] = 1
-#     return np.array(bag)
-#
-#
-# def chat():
-#     print("Ask the Give A Lot bot a question! (Type 'quit' to stop)")
-#     while True:
-#         inp = input("You: ")
-#         if inp.lower() == "quit":
-#             break
-#         results = model.predict([bag_of_words(inp, words)])[0]
-#         index = np.argmax(results)
-#         tag = labels[index]
-#         if results[index] > 0.7:
-#             for t in data["intents"]:
-#                 if t['tag'] == tag:
-#                     responses = t['responses']
-#             print(random.choice(responses))
-#         else:
-#             options = [1, 2, 3, 4]
-#             res = random.choice(options)
-#             if res == 1:
-#                 print("I don't quite understand, please can you ask another question?")
-#             elif res == 2:
-#                 print("Could you please rephrase the question, I'll try better to understand!")
-#             elif res == 3:
-#                 print("I'm not sure, please ask another question.")
-#             elif res == 4:
-#                 print("Sorry, I can't help you with that question. Try again please!")
-#
-#
-#
-#
-# chat()
-
+startup()

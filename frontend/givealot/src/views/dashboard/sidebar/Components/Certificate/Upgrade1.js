@@ -116,7 +116,7 @@ export class Upgrade1 extends Component {
                 .then(res =>{
                     console.log(res)
                     this.setState({popUp2: res.data.message});
-                    this.onToastOne();
+                    this. onToastOneAddress ();
                 })
                 .catch(err => console.log(err));
 
@@ -137,13 +137,30 @@ export class Upgrade1 extends Component {
     onToastOneWebsite = () => {
         if(this.state.popUp1){
 
-            toast.success('Submit successful', {
+            toast.success('Website Submitted ', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
         }else{
 
-            toast.error('failed to send', {
+            toast.error('failed to send Website', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
+    }
+
+    onToastOneAddress = () => {
+        if(this.state.popUp2){
+
+            toast.success('Address Submitted', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to send Address', {
                 position: toast.POSITION.TOP_RIGHT
 
             });

@@ -8,7 +8,7 @@ function DashLogo()
     return(
         <div className="headers">
             <Link to={"/"}>
-                <img id="logo" src={logo} style={{height: "70px", width: "130px"}}/>
+                <img id="logo" src={logo} alt={"logo"} style={{height: "70px", width: "130px"}}/>
             </Link>
         </div>
     );

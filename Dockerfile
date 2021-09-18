@@ -1,4 +1,6 @@
-FROM openjdk:11
-COPY backend/target/classes/com/GiveaLot/givealot/Notification /tmp
-WORKDIR /tmp
-CMD backend/src/main/java/com/GiveaLot/givealot/Notification
+FROM adoptopenjdk/openjdk11:jdk-11.0.2.9-slim
+WORKDIR /opt
+ENV PORT 8080
+EXPOSE 8080
+COPY target/*.jar /opt/app.jar
+ENTRYPOINT exec java $JAVA_OPTS -jar app.jar

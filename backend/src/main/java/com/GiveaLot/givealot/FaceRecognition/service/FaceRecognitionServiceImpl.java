@@ -10,8 +10,10 @@ import java.io.IOException;
 public class FaceRecognitionServiceImpl implements FaceRecognitionService {
 
     @Override
-    public File FacePixel(long orgId) throws IOException, InterruptedException {
-        try {
+    public File FacePixel(long orgId) throws IOException, InterruptedException
+    {
+        try
+        {
             String id = String.valueOf(orgId);
             ProcessBuilder processBuilder = new ProcessBuilder("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/face_pixel.exe", id)
                     .directory(new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service"));
@@ -23,14 +25,18 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService {
             FileUtils.copyFile(src, dest);
             return dest;
         }
-        catch (Exception e){
+        catch (Exception e)
+        {
             e.printStackTrace();
         }
-        finally {
-            if (new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg").exists()){
+        finally
+        {
+            if(new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg").exists())
+            {
                 new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg").delete();
             }
-            if (new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/pixel" + orgId + ".jpg").exists()){
+            if(new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/pixel" + orgId + ".jpg").exists())
+            {
                 new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/pixel" + orgId + ".jpg").delete();
             }
         }

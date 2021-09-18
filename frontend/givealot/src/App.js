@@ -36,7 +36,7 @@ function App()
                 <Route path="/EmailSent" exact component={EmailSent}/>
                 <Route path="/register/organisation" exact component={RegisterOrganisation}/>
                 <Route path="/registerUser" exact component={RegisterUser}/>
-                <Route path="/dashboard/" exact component={Dashboard}/>
+                <Route exact path="/dashboard/" component={Dashboard}/>
                 <Route path="/organisation/:id" exact component={ViewOrganisation} />
                 <Route path="/verifyCertificate" exact component={VerifyCertificate} />
               </Switch>

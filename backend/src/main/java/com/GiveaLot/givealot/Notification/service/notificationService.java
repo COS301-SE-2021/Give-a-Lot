@@ -17,6 +17,7 @@ public interface notificationService {
     generalNotificationResponse addNotifications(AddNotificationRequest request)throws Exception;
     //removes an already existing notification
     generalNotificationResponse  removeNotifications(Long id)throws Exception;
+    //gets number of notifications available
     getNumberOfNotificationsResponse numberOfNotifications(GetNotificationsRequest request)throws Exception;
     responseJSON getLevelInformation(Long orgid)throws Exception;
     generalNotificationResponse updateNotification(UpdateNotificationRequest request)throws Exception;

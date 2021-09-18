@@ -8,9 +8,12 @@ iframe
 #iframe-givealot-toggle-btn
 {
     width: 120px;
-    position: relative;
+    /*position: relative;
     left: 100%;
-    transform: translateX(-100%);
+    transform: translateX(-100%);*/
+    right: 5px;
+    bottom: 5px;
+    position: absolute;
 }
 #iframe
 {

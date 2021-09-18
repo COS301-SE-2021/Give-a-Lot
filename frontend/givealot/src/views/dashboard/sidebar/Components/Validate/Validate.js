@@ -29,7 +29,7 @@ export class Validate extends Component {
             "adminUserEmail" : this.state.adminUserEmail
         }
 
-        axios.post(this.state.serverDomain + '/v1/notifications/get/notifications', adminUsersRequestBody  ,config)
+        axios.post('http://localhost:8080/v1/notifications/get/notifications', adminUsersRequestBody  ,config)
             .then(response =>{
                 this.setState({valid: response.data.response})
                 // console.log(response)

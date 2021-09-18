@@ -110,8 +110,18 @@ export class Upgrade0 extends Component {
             console.log(data)
             Axios
                 .post("http://localhost:8080/v1/organisation/add/ngopdate", data)
-                .then(res => console.log(res))
+                .then(res =>
+                    Axios
+                        .post("http://localhost:8080/v1/notifications/update/notifications", notification_update_body)
+                        .then(res => console.log(res))
+                        .catch(err => console.log(err))
+                )
                 .catch(err => console.log(err));
+            const notification_update_body = {
+                org_id: this.state.orgId,
+            };
+
+
 
         }
     };

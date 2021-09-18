@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="level 1 info add">
+    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="level 1 info accept-deny">
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Notification/requests/AddNotificationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Notification/requests/AddNotificationRequest.java" afterDir="false" />
@@ -166,7 +166,7 @@
       <workItem from="1631708108011" duration="27620000" />
       <workItem from="1631819750918" duration="3266000" />
       <workItem from="1631823532933" duration="61928000" />
-      <workItem from="1631960615375" duration="11743000" />
+      <workItem from="1631960615375" duration="12065000" />
     </task>
     <task id="LOCAL-00062" summary="Last minute changes">
       <created>1630774212131</created>
@@ -530,7 +530,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="organisations controller revision - tax" />
     <MESSAGE value="organisations controller revision - add Organisation" />
     <MESSAGE value="organisations controller revision" />
     <MESSAGE value="Fixing organisation points" />
@@ -555,7 +554,8 @@
     <MESSAGE value="chatbot style and additional of a .css file" />
     <MESSAGE value="login api" />
     <MESSAGE value="level 1 info add" />
-    <option name="LAST_COMMIT_MESSAGE" value="level 1 info add" />
+    <MESSAGE value="level 1 info accept-deny" />
+    <option name="LAST_COMMIT_MESSAGE" value="level 1 info accept-deny" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

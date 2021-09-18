@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import "./Styles/Featured.css"
 import Chart from "./Chart"
 import Cards from "./Cards"
+// import { userData} from "../../../../../DummyData";
 import axios from "axios";
 
 export class Featured extends Component {
@@ -40,51 +41,51 @@ export class Featured extends Component {
                 this.setState({ userData:[
                         {
                             name: "jan",
-                            "Registered Users": response.data.object.jan,
+                            "Active User": response.data.object.jan,
                         },
                         {
                             name: "feb",
-                            "Registered Users": response.data.object.feb,
+                            "Active User": response.data.object.feb,
                         },
                         {
                             name: "mar",
-                            "Registered Users": response.data.object.mar,
+                            "Active User": response.data.object.mar,
                         },
                         {
                             name: "apr",
-                            "Registered Users": response.data.object.apr,
+                            "Active User": response.data.object.apr,
                         },
                         {
                             name: "may",
-                            "Registered Users": response.data.object.may,
+                            "Active User": response.data.object.may,
                         },
                         {
                             name: "jun",
-                            "Registered Users": response.data.object.jun,
+                            "Active User": response.data.object.jun,
                         },
                         {
                             name: "jul",
-                            "Registered Users": response.data.object.jul,
+                            "Active User": response.data.object.jul,
                         },
                         {
                             name: "aug",
-                            "Registered Users": response.data.object.aug,
+                            "Active User": response.data.object.aug,
                         },
                         {
                             name: "sept",
-                            "Registered Users": response.data.object.sept,
+                            "Active User": response.data.object.sept,
                         },
                         {
                             name: "oct",
-                            "Registered Users": response.data.object.oct,
+                            "Active User": response.data.object.oct,
                         },
                         {
                             name: "nov",
-                            "Registered Users": response.data.object.nov,
+                            "Active User": response.data.object.nov,
                         },
                         {
                             name: "dec",
-                            "Registered Users": response.data.object.dec,
+                            "Active User": response.data.object.dec,
                         }
                     ]
 
@@ -108,56 +109,58 @@ export class Featured extends Component {
         }
         axios.post(this.state.serverDomain + '/v1/organisation/get/num_organisations/per_month', OrgPerMonth, config)
             .then(response =>{
+                // console.log(response)
                 this.setState({ OrgData:[
                         {
                             name: "jan",
-                            "Registered Organisations": response.data.object.jan,
+                            "Active User": response.data.object.jan,
                         },
                         {
                             name: "feb",
-                            "Registered Organisations": response.data.object.feb,
+                            "Active User": response.data.object.feb,
                         },
                         {
                             name: "mar",
-                            "Registered Organisations": response.data.object.mar,
+                            "Active User": response.data.object.mar,
                         },
                         {
                             name: "apr",
-                            "Registered Organisations": response.data.object.apr,
+                            "Active User": response.data.object.apr,
                         },
                         {
                             name: "may",
-                            "Registered Organisations": response.data.object.may,
+                            "Active User": response.data.object.may,
                         },
                         {
                             name: "jun",
-                            "Registered Organisations": response.data.object.jun,
+                            "Active User": response.data.object.jun,
                         },
                         {
                             name: "jul",
-                            "Registered Organisations": response.data.object.jul,
+                            "Active User": response.data.object.jul,
                         },
                         {
                             name: "aug",
-                            "Registered Organisations": response.data.object.aug,
+                            "Active User": response.data.object.aug,
                         },
                         {
                             name: "sept",
-                            "Registered Organisations": response.data.object.sept,
+                            "Active User": response.data.object.sept,
                         },
                         {
                             name: "oct",
-                            "Registered Organisations": response.data.object.oct,
+                            "Active User": response.data.object.oct,
                         },
                         {
                             name: "nov",
-                            "Registered Organisations": response.data.object.nov,
+                            "Active User": response.data.object.nov,
                         },
                         {
                             name: "dec",
-                            "Registered Organisations": response.data.object.dec,
+                            "Active User": response.data.object.dec,
                         }
                     ]
+
             })
 
             })

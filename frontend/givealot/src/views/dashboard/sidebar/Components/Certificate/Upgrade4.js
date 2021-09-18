@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import "./Style/Certificate.css";
 import 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
-//import { withStyles ,makeStyles } from '@material-ui/core/styles'
+import { withStyles ,makeStyles } from '@material-ui/core/styles'
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -10,15 +10,16 @@ import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import {ApiContext} from "../../../../../apiContext/ApiContext";
+import {Upgrade3} from "./Upgrade3";
 
-/*const styles =theme => ({
+const styles =theme => ({
 
     root: {
         display: "flex",
         flexWrap: "wrap"
     },
 
-});*/
+});
 
 
 export class Upgrade4 extends Component {
@@ -49,15 +50,13 @@ export class Upgrade4 extends Component {
     handleFileChange = event => {
         const formData = new FormData();
 
-        formData.append('image', event.target.files[0]);
+        formData.append('file', event.target.files);
         formData.append('orgId', this.state.orgId);
         let imageStates = 0;
 
-
-        alert("take away submit button functionality");
-
+        alert("00000002");
         fetch(
-            this.state.serverDomain + '/v1/organisation/add/logo',
+            'API HERE...',
             {
                 method: 'POST',
                 body: formData,
@@ -88,37 +87,27 @@ export class Upgrade4 extends Component {
     };
 
     handleImageChange = event => {
-        const formData = new FormData();
+        const formData_gallery_images = new FormData();
+        formData_gallery_images.append('orgId', this.state.orgId);
+        formData_gallery_images.append('images', event.target.files);
 
-        formData.append('image', event.target.files);
-        formData.append('orgId', this.state.orgId);
-        let imageStates = 0;
-
-
-        alert("take away submit button functionality");
-
+        alert("images upload -- 2");
+        console.log(event.target.files)
         fetch(
-            this.state.serverDomain + '/v1/organisation/add/logo',
+            'http://localhost:8080/v1/organisation/add/image',
             {
                 method: 'POST',
-                body: formData,
+                body: formData_gallery_images,
             }
         )
             .then((response) => response.json())
             .then((result) => {
-                console.log('Success:', result);
-                imageStates = 1;
-
+                console.log('Success-----:', result);
             })
             .catch((error) => {
-                console.error('Error:', error);
-                imageStates = 2;
-            });
+                console.error('Error-----:', error);
 
-        if(imageStates===1)
-            alert("bring back button functionality");
-        else if(imageStates === 2)
-            alert("bring back button functionality also tell the user that the image didnt submit");
+            });
 
         const isCheckbox = event.target.type === "checkbox";
         this.setState({
@@ -142,8 +131,6 @@ export class Upgrade4 extends Component {
         if(!this.state.images) {
             imagesError="required";
         }
-
-
 
         if ( fileError || imagesError) {
             this.setState({ fileError,imagesError });
@@ -257,4 +244,5 @@ export class Upgrade4 extends Component {
         );
     }
 }
-export default Upgrade4;
+
+export default withStyles(styles)(Upgrade4);

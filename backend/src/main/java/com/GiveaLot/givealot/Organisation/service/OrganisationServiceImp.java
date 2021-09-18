@@ -10,6 +10,7 @@ import com.GiveaLot.givealot.FaceRecognition.service.FaceRecognitionServiceImpl;
 import com.GiveaLot.givealot.Notification.dataclass.Mail;
 import com.GiveaLot.givealot.Notification.repository.NotificationRepository;
 import com.GiveaLot.givealot.Notification.service.SendMailServiceImpl;
+import com.GiveaLot.givealot.Notification.service.notificationServiceImpl;
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
@@ -86,6 +87,9 @@ public class OrganisationServiceImp implements OrganisationService
 
     @Autowired
     private FaceRecognitionServiceImpl faceRecognitionService;
+
+    @Autowired
+    private notificationServiceImpl notificationService;
 
 
     @Autowired
@@ -865,11 +869,8 @@ public class OrganisationServiceImp implements OrganisationService
         if(organisation_tmp == null)
             throw new Exception("Exception: add image function did not finish, organisation does not exist");
 
-
         String name = organisation_tmp.getOrgName();
-
         access.uploadImageQRCode(request.getOrgId(),name,request.getImage());
-
         return new generalOrganisationResponse("add_qr_200_OK", "success");
     }
 
@@ -1064,7 +1065,7 @@ public class OrganisationServiceImp implements OrganisationService
             throw new Exception("Provided ID is null");
 
         else if (request.getImages() == null)
-            throw new Exception("Exception: tax reference not set");
+            throw new Exception("Exception: images are not set");
 
         else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("Exception: Organisation ID does not exist");
@@ -1076,22 +1077,27 @@ public class OrganisationServiceImp implements OrganisationService
 
 
         String name = organisation_tmp.getOrgName();
-
+        System.out.println("======================================#1");
         List<MultipartFile> images = request.getImages();
 
         int numberOFNewImages = 0;
-
+        System.out.println("======================================#2");
         File file = new File("backend/src/main/resources/targetFile.jpg");
-        int numImages = organisationInfoRepository.selectOrganisationInfo(request.getOrgId()).getNumberOfImages();
-
+        //int numImages = organisationInfoRepository.selectOrganisationInfo(request.getOrgId()).getNumberOfImages();
+        int numImages = organisationPointsRepository.getNumberOfImages(request.getOrgId());
+        System.out.println("======================================#3");
         int i=0;
         for (;i<request.getImages().size();i++) {
+            System.out.println("======================================#4");
             access.uploadImageJPG(request.getOrgId(),name,request.getImages().get(i),numImages);
             numImages++;
         }
 
-        if (organisationInfoRepository.incrementImage(request.getOrgId(), numImages) != 1)
+        System.out.println("======================================5");
+        if (organisationPointsRepository.incrementImage(request.getOrgId(), numImages) != 1)
             throw new Exception("Exception: value field failed to update");
+
+        System.out.println("======================================#6");
 
         return new generalOrganisationResponse("add_img_200_OK", "success");
     }
@@ -1316,7 +1322,6 @@ public class OrganisationServiceImp implements OrganisationService
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
         }
-
         else if(type.equalsIgnoreCase("committee"))
         {
             OrganisationPoints organisationPoints_current_status = organisationPointsRepository.selectOrganisationPoints(orgId);
@@ -1349,7 +1354,6 @@ public class OrganisationServiceImp implements OrganisationService
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
         }
-
         else if(type.equalsIgnoreCase("twitter"))
         {
             OrganisationPoints organisationPoints_current_status = organisationPointsRepository.selectOrganisationPoints(orgId);
@@ -1382,7 +1386,6 @@ public class OrganisationServiceImp implements OrganisationService
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
         }
-
         else if(type.equalsIgnoreCase("facebook"))
         {
             OrganisationPoints organisationPoints_current_status = organisationPointsRepository.selectOrganisationPoints(orgId);
@@ -1415,7 +1418,6 @@ public class OrganisationServiceImp implements OrganisationService
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
         }
-
         else if(type.equalsIgnoreCase("instagram"))
         {
             OrganisationPoints organisationPoints_current_status = organisationPointsRepository.selectOrganisationPoints(orgId);
@@ -1448,7 +1450,6 @@ public class OrganisationServiceImp implements OrganisationService
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
         }
-
         else if(type.equalsIgnoreCase("ngo_date"))
         {
             OrganisationPoints organisationPoints_current_status = organisationPointsRepository.selectOrganisationPoints(orgId);
@@ -1512,7 +1513,6 @@ public class OrganisationServiceImp implements OrganisationService
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
         }
-
         else if(type.equalsIgnoreCase("audit"))
         {
             Integer currentPoints = 0, dps = 15;
@@ -1540,32 +1540,6 @@ public class OrganisationServiceImp implements OrganisationService
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
         }
-        else if(type.equalsIgnoreCase("tax_raf"))
-        {
-//            Integer currentPoints = 0,dps = 5;
-//            Integer res = confirmValidity ? organisationPointsRepository.taxRaf(orgId,true) : organisationPointsRepository.taxRaf(orgId,false);
-//            if(res != 1)
-//                throw new Exception("Exception: tax raf validity not confirmed");
-//
-//            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
-//            if(certificate_tmp == null) /*perform rollback*/
-//            {
-//                res = confirmValidity ? organisationPointsRepository.taxRaf(orgId,false) : organisationPointsRepository.taxRaf(orgId,true);
-//                if(res == 1)
-//                    throw new Exception("Exception: error occurred, rollback action performed successfully");
-//                else throw new Exception("Exception: error occurred, rollback action failed");
-//            }else currentPoints = certificate_tmp.getPoints();
-//
-//            res = confirmValidity ? certificateRepository.updatePoints(orgId,currentPoints + dps) : certificateRepository.updatePoints(orgId,currentPoints - dps);
-//
-//            if(res != 1)
-//            {
-//                res = confirmValidity ? organisationPointsRepository.taxRaf(orgId,false) : organisationPointsRepository.taxRaf(orgId,true);
-//                if(res == 1)
-//                    throw new Exception("Exception: error occurred, rollback action performed successfully");
-//                else throw new Exception("Exception: error occurred, rollback action failed");
-//            }
-        }
 
         else throw new Exception("Exception: type is incorrect");
 
@@ -1574,15 +1548,34 @@ public class OrganisationServiceImp implements OrganisationService
             try
             {
                     Integer CURRENT_PTS = certificateRepository.selectPointsById(orgId).getPoints();
-                    if (CURRENT_PTS == 20) {
+                    if(CURRENT_PTS == 20)
+                    {
+                        String query_ = organisationRepository.selectOrganisationById(orgId).getOrgName() + " requesting to upgrade to level 1";
+                        notificationRepository.removeNotification(orgId, query_);
                         certificateService.updateCertificate(orgId);
-                    } else if (CURRENT_PTS == 40) {
+                    }
+                    else if (CURRENT_PTS == 40)
+                    {
+                        String query_ = organisationRepository.selectOrganisationById(orgId).getOrgName() + " requesting to upgrade to level 2";
+                        notificationRepository.removeNotification(orgId, query_);
                         certificateService.updateCertificate(orgId);
-                    } else if (CURRENT_PTS == 60) {
+                    }
+                    else if (CURRENT_PTS == 60)
+                    {
+                        String query_ = organisationRepository.selectOrganisationById(orgId).getOrgName() + " requesting to upgrade to level 3";
+                        notificationRepository.removeNotification(orgId, query_);
                         certificateService.updateCertificate(orgId);
-                    } else if (CURRENT_PTS == 80) {
+                    }
+                    else if (CURRENT_PTS == 80)
+                    {
+                        String query_ = organisationRepository.selectOrganisationById(orgId).getOrgName() + " requesting to upgrade to level 4";
+                        notificationRepository.removeNotification(orgId, query_);
                         certificateService.updateCertificate(orgId);
-                    } else if (CURRENT_PTS == 100) {
+                    }
+                    else if (CURRENT_PTS == 100)
+                    {
+                        String query_ = organisationRepository.selectOrganisationById(orgId).getOrgName() + " requesting to upgrade to level 5";
+                        notificationRepository.removeNotification(orgId, query_);
                         certificateService.updateCertificate(orgId);
                     }
             }

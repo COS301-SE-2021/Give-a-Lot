@@ -26,4 +26,8 @@ public interface NotificationRepository extends JpaRepository<Notification,Long>
     @Query("UPDATE Notification o set o.isOpen=true where o.notification_id=?1")
     boolean removeNotificationByNotification_id(Long notification_id);
 
+    @Modifying
+    @Transactional
+    @Query("UPDATE Notification o set o.isOpen=true where o.org_id=?1 AND o.Description = ?2")
+    void removeNotification(Long orgId, String query_);
 }

@@ -18,7 +18,6 @@ export class Users extends Component {
         this.state = {
             users:[],
             error: "",
-            // adminUserEmail: "admin@email.com",
             adminUserEmail: localStorage.getItem('curr_user_email'),
             serverDomain: "http://localhost:8080"
         }
@@ -39,9 +38,7 @@ export class Users extends Component {
 
         axios.post(this.state.serverDomain + '/v1/user/get/users', users ,config)
             .then(response =>{
-                // console.log(response)
                 this.setState({users: response.data.response})
-                // console.log(this.state.users)
             })
             .catch(error =>{
                 console.log(error)

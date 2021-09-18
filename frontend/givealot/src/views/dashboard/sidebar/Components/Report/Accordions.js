@@ -113,7 +113,7 @@ export default function Accordions({org,id,title, description,appeal}) {
                     </AccordionDetails>
                     <Divider />
                     <AccordionActions>
-                        <Button size="small">Cancel</Button>
+
                         <button size="small" className="AppealButton1" onClick={handleClickOpen}>
                             Appealed
                         </button>
@@ -157,7 +157,7 @@ export default function Accordions({org,id,title, description,appeal}) {
                 </AccordionDetails>
                 <Divider />
                 <AccordionActions>
-                    <Button size="small">Cancel</Button>
+
                     <button size="small" className="AppealButton" onClick={handleClickOpen}>
                         Appeal
                     </button>

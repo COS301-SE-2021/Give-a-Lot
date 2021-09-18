@@ -40,10 +40,8 @@ const initialState = {
     startDate: new Date(),
     ngoNumber:"",
     ngoDate:"",
-    logo:"",
     ngoNumberError:"",
     ngoDateError:"",
-    logoError:"",
     serverDomain: 'https://localhost:8080'
     //serverDomain : this.context,
 };
@@ -74,65 +72,26 @@ export class Upgrade0 extends Component {
         });
     };
 
-    handleChange = event => {
-        const formData = new FormData();
-        formData.append('image', event.target.files[0]);
-        formData.append('orgId', this.state.orgId);
 
-        let imageStates = 0;
-        alert("take away submit button functionality");
-
-        fetch(
-            this.state.serverDomain + '/v1/organisation/add/logo',
-            {
-                method: 'POST',
-                body: formData,
-            }
-        )
-            .then((response) => response.json())
-            .then((result) => {
-                console.log('Success:', result);
-                imageStates = 1;
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                imageStates = 2;
-            });
-
-        if(imageStates===1)
-            alert("bring back button functionality");
-        else if(imageStates === 2)
-            alert("bring back button functionality also tell the user that the image didnt submit");
-
-        const isCheckbox = event.target.type === "checkbox";
-        this.setState({
-            [event.target.name]: isCheckbox
-                ? event.target.checked
-                : event.target.value
-        });
-    };
 
     validate = () => {
         let  ngoNumberError = "";
         let  ngoDateError = "";
-        let  logoError = "";
+
 
 
         if (!this.state.ngoDate) {
             ngoDateError = "Date is require";
         }
 
-        if (!this.state.logo) {
-            logoError = "Logo is require";
-        }
 
 
         if(!this.state.ngoNumber) {
             ngoNumberError="Ngo number is required";
         }
 
-        if ( ngoDateError || ngoNumberError || logoError) {
-            this.setState({ ngoDateError, ngoNumberError, logoError });
+        if ( ngoDateError || ngoNumberError ) {
+            this.setState({ ngoDateError, ngoNumberError});
             return false;
         }
 
@@ -233,22 +192,8 @@ export class Upgrade0 extends Component {
                                             onChange={this.handleInputChange}
                                         />
                                     </div>
-                                    <span className="loginError_certificate">{this.state.ngoNumberError}</span>
-                                    <div>
-                                        <span className="upgrade_label_logo">
-                                            Logo
-                                         </span>
-                                        <input
-                                            className="upgrade_logo"
-                                            type="file"
-                                            name="logo"
-                                            onChange={this.handleChange}
-                                        />
-                                    </div>
-
                                 </div>
 
-                                <span className="loginError_certificate">{this.state.logoError}</span>
                                 <div className="upgrade_Button">
                                     <button className="upgrade-btn" type="submit" onClick={this.onToastZero}>
                                         Submit

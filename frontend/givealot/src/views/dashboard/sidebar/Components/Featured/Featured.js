@@ -41,51 +41,51 @@ export class Featured extends Component {
                 this.setState({ userData:[
                         {
                             name: "jan",
-                            "Active User": response.data.object.jan,
+                            "Registered Users": response.data.object.jan,
                         },
                         {
                             name: "feb",
-                            "Active User": response.data.object.feb,
+                            "Registered Users": response.data.object.feb,
                         },
                         {
                             name: "mar",
-                            "Active User": response.data.object.mar,
+                            "Registered Users": response.data.object.mar,
                         },
                         {
                             name: "apr",
-                            "Active User": response.data.object.apr,
+                            "Registered Users": response.data.object.apr,
                         },
                         {
                             name: "may",
-                            "Active User": response.data.object.may,
+                            "Registered Users": response.data.object.may,
                         },
                         {
                             name: "jun",
-                            "Active User": response.data.object.jun,
+                            "Registered Users": response.data.object.jun,
                         },
                         {
                             name: "jul",
-                            "Active User": response.data.object.jul,
+                            "Registered Users": response.data.object.jul,
                         },
                         {
                             name: "aug",
-                            "Active User": response.data.object.aug,
+                            "Registered Users": response.data.object.aug,
                         },
                         {
                             name: "sept",
-                            "Active User": response.data.object.sept,
+                            "Registered Users": response.data.object.sept,
                         },
                         {
                             name: "oct",
-                            "Active User": response.data.object.oct,
+                            "Registered Users": response.data.object.oct,
                         },
                         {
                             name: "nov",
-                            "Active User": response.data.object.nov,
+                            "Registered Users": response.data.object.nov,
                         },
                         {
                             name: "dec",
-                            "Active User": response.data.object.dec,
+                            "Registered Users": response.data.object.dec,
                         }
                     ]
 
@@ -113,51 +113,51 @@ export class Featured extends Component {
                 this.setState({ OrgData:[
                         {
                             name: "jan",
-                            "Active User": response.data.object.jan,
+                            "Registered Organisations": response.data.object.jan,
                         },
                         {
                             name: "feb",
-                            "Active User": response.data.object.feb,
+                            "Registered Organisations": response.data.object.feb,
                         },
                         {
                             name: "mar",
-                            "Active User": response.data.object.mar,
+                            "Registered Organisations": response.data.object.mar,
                         },
                         {
                             name: "apr",
-                            "Active User": response.data.object.apr,
+                            "Registered Organisations": response.data.object.apr,
                         },
                         {
                             name: "may",
-                            "Active User": response.data.object.may,
+                            "Registered Organisations": response.data.object.may,
                         },
                         {
                             name: "jun",
-                            "Active User": response.data.object.jun,
+                            "Registered Organisations": response.data.object.jun,
                         },
                         {
                             name: "jul",
-                            "Active User": response.data.object.jul,
+                            "Registered Organisations": response.data.object.jul,
                         },
                         {
                             name: "aug",
-                            "Active User": response.data.object.aug,
+                            "Registered Organisations": response.data.object.aug,
                         },
                         {
                             name: "sept",
-                            "Active User": response.data.object.sept,
+                            "Registered Organisations": response.data.object.sept,
                         },
                         {
                             name: "oct",
-                            "Active User": response.data.object.oct,
+                            "Registered Organisations": response.data.object.oct,
                         },
                         {
                             name: "nov",
-                            "Active User": response.data.object.nov,
+                            "Registered Organisations": response.data.object.nov,
                         },
                         {
                             name: "dec",
-                            "Active User": response.data.object.dec,
+                            "Registered Organisations": response.data.object.dec,
                         }
                     ]
 
@@ -178,10 +178,10 @@ export class Featured extends Component {
                         <Cards />
                         <div style={{display: "flex", flexDirection: "column"}}>
                             <div className="dashGraph">
-                                <Chart data={userData} title="Users who registered on the system" grid dataKey="Active User" />
+                                <Chart data={userData} title="Users who registered on the system" grid dataKey="Registered Users" />
                             </div>
                             <div className="dashGraph">
-                                <Chart data={OrgData} title="Organisations who registered on the system" grid dataKey="Active User" />
+                                <Chart data={OrgData} title="Organisations who registered on the system" grid dataKey="Registered Organisations" />
                             </div>
                         </div>
                     </div>

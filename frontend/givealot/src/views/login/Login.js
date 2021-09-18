@@ -61,6 +61,7 @@ function Login ()
             {
                 localStorage.setItem( "id" ,response.data.id);
                 localStorage.setItem( "role" ,response.data.jwttoken)
+                localStorage.setItem( "curr_user_email" ,response.data.curr_user_email)
 
                 if(response.data.jwttoken === "general")
                 {

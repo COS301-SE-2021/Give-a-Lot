@@ -13,7 +13,7 @@ export class Validate extends Component {
         this.state = {
             valid:[],
             error: "",
-            adminUserEmail:'admin@email.com',
+            adminUserEmail:localStorage.getItem('curr_user_email'),
             serverDomain: "http://localhost:8080"
         }
     }

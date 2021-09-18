@@ -21,7 +21,7 @@ export default class Demo extends React.PureComponent {
         this.state = {
             data: [],
             currentDate: new Date().toDateString(),
-            email: 'basic@gmail.com',
+            email: localStorage.getItem('curr_user_email'),
             eventAdded: false,
             addedAppointment: {},
             appointmentChanges: {},

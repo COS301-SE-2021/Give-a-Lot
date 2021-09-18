@@ -21,7 +21,7 @@ export default class Demo extends React.PureComponent {
         this.state = {
             data: [],
             currentDate: new Date().toDateString(),
-            email: 'basic@gmail.com',
+            email: localStorage.getItem('curr_user_email'),
             eventAdded: false,
             addedAppointment: {},
             appointmentChanges: {},
@@ -76,10 +76,8 @@ export default class Demo extends React.PureComponent {
                     eventEndTime: endTime,
                     eventStartDate: eventStartDate,
                     eventEndDate: eventEndDate,
-                    // userId: this.state.userId,
                     userEmail : this.state.email
                 }
-                // console.log(eventDayAndTime)
 
                 let config = {
                     headers: {
@@ -96,10 +94,9 @@ export default class Demo extends React.PureComponent {
                     })
             }
             if (changed) {
-                let eventId = data[data.length-1].eventId
-                console.log(eventId)
+
                 let testing = changed.undefined
-                console.log({ testing } )
+
                 if(testing.title !== undefined){
                     let config = {
                         headers: {
@@ -107,12 +104,13 @@ export default class Demo extends React.PureComponent {
                             'Access-Control-Allow-Origin': '*',
                         }
                     }
-                    // let eventId = data[data.length-1].eventId;
+                    let eventId = data[data.length-1].eventId
                     const titleUpdate = {
                         "userEmail" : this.state.email,
                         "eventId" : eventId,
                         "newTitle" : testing.title
                     }
+                    console.log(eventId)
 
                     axios.post(this.state.serverDomain + '/event/calender/edit/title', titleUpdate ,config)
                         .then(response =>{
@@ -137,6 +135,7 @@ export default class Demo extends React.PureComponent {
                     let startDateDay = testing.startDate.toString().split(" ")[2];
                     let eventStartDate = startDateYear +'-' + startDateMonth + '-' + startDateDay;
 
+                    let eventId = data[data.length-1].eventId
                     const startDateUpdate = {
                         "userEmail" : this.state.email,
                         "eventId" : eventId,
@@ -152,8 +151,6 @@ export default class Demo extends React.PureComponent {
                 }
 
                 if(testing.endDate !== undefined){
-                    // console.log(testing.endDate)
-
                     let config = {
                         headers: {
                             "Content-Type": "application/json",
@@ -164,6 +161,8 @@ export default class Demo extends React.PureComponent {
                     let endDateYear = testing.endDate.toString().split(" ")[3];
                     let endDateDay = testing.endDate.toString().split(" ")[2];
                     let eventEndDate = endDateYear +'-' + endDateMonth + '-' + endDateDay;
+
+                    let eventId = data[data.length-1].eventId
                     const endDateUpdate = {
                         "userEmail" : this.state.email,
                         "eventId" : eventId,
@@ -180,19 +179,18 @@ export default class Demo extends React.PureComponent {
 
                 if(testing.startDate !== undefined){
                     let startTime =testing.startDate.toString().split(" ")[4];
-                    console.log(startTime)
                     let config = {
                         headers: {
                             "Content-Type": "application/json",
                             'Access-Control-Allow-Origin': '*',
                         }
                     }
+                    let eventId = data[data.length-1].eventId
                     const startTimeUpdate = {
                         "userEmail" : this.state.email,
                         "eventId" : eventId,
                         "newTime" : startTime
                     }
-                    console.log(startTimeUpdate)
                     axios.post(this.state.serverDomain + '/event/calender/edit/time/start', startTimeUpdate ,config)
                         .then(response =>{
                             // console.log(response)
@@ -211,6 +209,7 @@ export default class Demo extends React.PureComponent {
                             'Access-Control-Allow-Origin': '*',
                         }
                     }
+                    let eventId = data[data.length-1].eventId
                     const endTimeUpdate = {
                         "userEmail" : this.state.email,
                         "eventId" : eventId,
@@ -234,6 +233,7 @@ export default class Demo extends React.PureComponent {
                             'Access-Control-Allow-Origin': '*',
                         }
                     }
+                    let eventId = data[data.length-1].eventId
                     const descriptionUpdate = {
                         "userEmail" : this.state.email,
                         "eventId" : eventId,

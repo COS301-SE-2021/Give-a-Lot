@@ -19,6 +19,7 @@ public interface notificationService {
     generalNotificationResponse  removeNotifications(Long id)throws Exception;
     //gets number of notifications available
     getNumberOfNotificationsResponse numberOfNotifications(GetNotificationsRequest request)throws Exception;
+    //gets the organisations level
     responseJSON getLevelInformation(Long orgid)throws Exception;
     generalNotificationResponse updateNotification(UpdateNotificationRequest request)throws Exception;
     GetLevelResponse getLevel(GetLevelRequest request)throws Exception;

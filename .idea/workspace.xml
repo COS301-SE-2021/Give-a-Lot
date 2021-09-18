@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="added salted hash to forgot password">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Notification/service/SendMailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Notification/service/SendMailServiceImpl.java" afterDir="false" />
+    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="added necessary comments">
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Notification/service/notificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Notification/service/notificationService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,62 +178,6 @@
       <workItem from="1631708108011" duration="27620000" />
       <workItem from="1631819750918" duration="3266000" />
       <workItem from="1631823532933" duration="61928000" />
-    </task>
-    <task id="LOCAL-00058" summary="Last minute changes">
-      <created>1630716192825</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1630716192825</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Last minute changes">
-      <created>1630719501914</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1630719501914</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Last minute changes">
-      <created>1630719533089</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1630719533089</updated>
-    </task>
-    <task id="LOCAL-00061" summary="Last minute changes">
-      <created>1630722515991</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1630722515991</updated>
-    </task>
-    <task id="LOCAL-00062" summary="Last minute changes">
-      <created>1630774212131</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1630774212131</updated>
-    </task>
-    <task id="LOCAL-00063" summary="Last minute changes">
-      <created>1630775166475</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1630775166475</updated>
-    </task>
-    <task id="LOCAL-00064" summary="Last minute changes">
-      <created>1630785711516</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1630785711517</updated>
-    </task>
-    <task id="LOCAL-00065" summary="Last minute changes">
-      <created>1630797410507</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1630797410507</updated>
     </task>
     <task id="LOCAL-00066" summary="Last minute changes">
       <created>1630845108483</created>
@@ -523,7 +466,63 @@
       <option name="project" value="LOCAL" />
       <updated>1631928105725</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="added necessary comments">
+      <created>1631967396647</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1631967396647</updated>
+    </task>
+    <task id="LOCAL-00108" summary="added necessary comments">
+      <created>1631967537472</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1631967537472</updated>
+    </task>
+    <task id="LOCAL-00109" summary="added necessary comments">
+      <created>1631967602618</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1631967602618</updated>
+    </task>
+    <task id="LOCAL-00110" summary="added necessary comments">
+      <created>1631967628813</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1631967628813</updated>
+    </task>
+    <task id="LOCAL-00111" summary="added necessary comments">
+      <created>1631967671015</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1631967671015</updated>
+    </task>
+    <task id="LOCAL-00112" summary="added necessary comments">
+      <created>1631967692906</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1631967692906</updated>
+    </task>
+    <task id="LOCAL-00113" summary="added necessary comments">
+      <created>1631967710722</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1631967710722</updated>
+    </task>
+    <task id="LOCAL-00114" summary="added necessary comments">
+      <created>1631967742274</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1631967742274</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -542,7 +541,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="organisations controller revision - add socials" />
     <MESSAGE value="organisations controller revision - remove socials" />
     <MESSAGE value="organisations controller revision - tax" />
     <MESSAGE value="organisations controller revision - add Organisation" />
@@ -567,7 +565,8 @@
     <MESSAGE value="dedicated organisaiton select for admin users" />
     <MESSAGE value="dedicated organisation select for admin users" />
     <MESSAGE value="chatbot style and additional of a .css file" />
-    <option name="LAST_COMMIT_MESSAGE" value="chatbot style and additional of a .css file" />
+    <MESSAGE value="added necessary comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="added necessary comments" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

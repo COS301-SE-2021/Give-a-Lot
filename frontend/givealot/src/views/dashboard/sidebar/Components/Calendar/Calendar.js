@@ -87,7 +87,6 @@ export default class Demo extends React.PureComponent {
                 }
                 axios.post(this.state.serverDomain + '/event/calender/add', eventDayAndTime ,config)
                     .then(response =>{
-                        // console.log(response)
                     })
                     .catch(error =>{
                         console.log(error)
@@ -114,7 +113,7 @@ export default class Demo extends React.PureComponent {
 
                     axios.post(this.state.serverDomain + '/event/calender/edit/title', titleUpdate ,config)
                         .then(response =>{
-                            console.log(response)
+
                         })
                         .catch(error =>{
                             console.log(error)

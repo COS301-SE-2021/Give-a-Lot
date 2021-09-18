@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import "./Styles/Featured.css"
 import Chart from "./Chart"
 import Cards from "./Cards"
+// import { userData} from "../../../../../DummyData";
 import axios from "axios";
 
 export class Featured extends Component {
@@ -108,6 +109,7 @@ export class Featured extends Component {
         }
         axios.post(this.state.serverDomain + '/v1/organisation/get/num_organisations/per_month', OrgPerMonth, config)
             .then(response =>{
+                // console.log(response)
                 this.setState({ OrgData:[
                         {
                             name: "jan",
@@ -158,6 +160,7 @@ export class Featured extends Component {
                             "Registered Organisations": response.data.object.dec,
                         }
                     ]
+
             })
 
             })
@@ -175,10 +178,10 @@ export class Featured extends Component {
                         <Cards />
                         <div style={{display: "flex", flexDirection: "column"}}>
                             <div className="dashGraph">
-                                <Chart data={userData} title="Users who registered on the system" grid dataKey="Active User" />
+                                <Chart data={userData} title="Users who registered on the system" grid dataKey="Registered Users" />
                             </div>
                             <div className="dashGraph">
-                                <Chart data={OrgData} title="Organisations who registered on the system" grid dataKey="Active User" />
+                                <Chart data={OrgData} title="Organisations who registered on the system" grid dataKey="Registered Organisations" />
                             </div>
                         </div>
                     </div>

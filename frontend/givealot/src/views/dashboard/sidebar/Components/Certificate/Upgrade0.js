@@ -106,11 +106,10 @@ export class Upgrade0 extends Component {
                 orgId: this.state.orgId,
                 ngoDate: this.state.ngoDate,
                 ngoNumber: this.state.ngoNumber,
-
             };
             console.log(data)
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/add/ngopdate", data)
+                .post("http://localhost:8080/v1/organisation/add/ngopdate", data)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 
@@ -130,8 +129,6 @@ export class Upgrade0 extends Component {
 
     render(){
         const { classes } = this.props;
-
-
 
         return (
             <div className="upgrade">

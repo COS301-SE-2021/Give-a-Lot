@@ -968,6 +968,9 @@ public class OrganisationServiceImp implements OrganisationService
         if (organisationInfoRepository.addNGODate(request.getOrgId(), tmp_date) != 1)
             throw new Exception("Exception: value field failed to update");
 
+        if(organisationInfoRepository.addNGONumber(request.getOrgId(), request.getNgoNumber()) != 1)
+            throw new Exception("Exception: ngo number not added");
+
         return new generalOrganisationResponse("add_ngo_200_OK","success");
     }
 

@@ -441,7 +441,7 @@ public class OrganisationController
         }
         catch (Exception e)
         {
-            return new ResponseEntity<>(new generalOrganisationResponse("add_ngo_500_err","failed: " + e), HttpStatus.OK);
+            return new ResponseEntity<>(new generalOrganisationResponse("add_ngo_500_err","failed: " + e), HttpStatus.BAD_REQUEST);
         }
     }
     @DeleteMapping("/delete/ngodate/{orgId}") /*tested - works */

@@ -14,7 +14,6 @@ const styles = theme => ({
         margin: theme.spacing(4),
 
     },
-
 });
 
 export class Certificate extends Component {
@@ -22,7 +21,7 @@ export class Certificate extends Component {
     constructor (props) {
         super(props)
         this.state={
-            level: 1,
+            level: 0,
             orgId:localStorage.getItem("id"),
             serverDomain : 'http://localhost:8080',
             loading:false,
@@ -43,7 +42,7 @@ export class Certificate extends Component {
 
         axios.post('http://localhost:8080/v1/organisation/get/org_level', dataa  ,config)
             .then(response =>{
-                //this.setState({level: /*response.data.level*/})
+                this.setState({level: response.data.level})
                 console.log(response)
                 this.setState({loading: false});
 

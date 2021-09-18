@@ -371,12 +371,12 @@ public class OrganisationServiceImp implements OrganisationService
         /**Sending a verification email**/
         System.out.println("Sending Email...");
 
-        Mail mail = new Mail(organisation.getOrgEmail(),"Givealot SignUp Verification","Congratulations your organisation has successfully signed up to the Givealot platform." +"\n"+
+        Mail mail = new Mail(organisation.getOrgEmail(),"Givealot SignUp Verification","Congratulations your organisation has successfully signed up to the Give A Lot platform." +"\n"+
                 "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations" +
                 "\n" +
                 "\n" +
                 "Kind Regards \n" +
-                "Givealot Team");
+                "Give A Lot Team");
 
         sendMailService.sendMail(mail);
         System.out.println("Email sent successfully");
@@ -411,17 +411,29 @@ public class OrganisationServiceImp implements OrganisationService
                 /**Sending Status change email**/
                 System.out.println("Sending Email...");
 
-                Mail mail = new Mail(organisationRepository.selectOrganisationById(request.getOrgID()).getOrgEmail(),"Givealot Status Change","It is with great regret to inform you that your organisation due to numerous reports against it has been susoended" +
-                        "\n these reports will be reviewed by team and if found to be false we will reactivate your organization." +"\n"+
-                        "\n We apologise for the inconvienace this may cause" +
+                Mail mail = new Mail(organisationRepository.selectOrganisationById(request.getOrgID()).getOrgEmail(),"Givealot Status Change","Dear User " + "\n \n Your organisation has been placed under investigation due to numerous reports." +
+                        "\n The reports will be reviewed by Give A Lot and if they are found to be false, we will reactivate your organization." +"\n"+
+                        "\n All of your organisation's images in the gallery have been censored for privacy and safety. \n"  +
+                        "\n We apologise for the inconvenience this may cause" +
                         "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations" +
                         "\n" +
                         "\n" +
                         "Kind Regards \n" +
-                        "Givealot Team");
+                        "Give A Lot Team");
 
                 sendMailService.sendMail(mail);
                 System.out.println("Email sent successfully");
+
+                int images = organisationInfoRepository.selectOrganisationInfo(request.getOrgID()).getNumberOfImages();
+                FaceRecognitionServiceImpl faceRecognitionService = new FaceRecognitionServiceImpl();
+                try {
+                    for (int i = 0; i < images; i++) {
+                        faceRecognitionService.FaceBlurSuspend(request.getOrgID(), i);
+                    }
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
 
                 return new generalOrganisationResponse("sus_org_200_ok", "success");
             }

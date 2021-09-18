@@ -43,7 +43,7 @@ public class NotificationsController {
     }
 
     @PostMapping("/add/notifications")
-    public ResponseEntity<generalNotificationResponse> addOrganisation(@RequestBody @NonNull AddNotificationRequest body)
+    public ResponseEntity<generalNotificationResponse> addNotification(@RequestBody @NonNull AddNotificationRequest body)
     {
         generalNotificationResponse response;
         try

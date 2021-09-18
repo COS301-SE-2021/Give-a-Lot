@@ -106,7 +106,6 @@ export class Upgrade0 extends Component {
                 orgId: this.state.orgId,
                 ngoDate: this.state.ngoDate,
                 ngoNumber: this.state.ngoNumber,
-
             };
             console.log(data)
             Axios
@@ -130,8 +129,6 @@ export class Upgrade0 extends Component {
 
     render(){
         const { classes } = this.props;
-
-
 
         return (
             <div className="upgrade">

@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="dedicated organisation select for admin users">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Chatbot/templates/index.css" afterDir="false" />
+    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="chatbot style and additional of a .css file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Chatbot/templates/index.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Chatbot/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Chatbot/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/chatbot/Chatbot.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/chatbot/Chatbot.js" afterDir="false" />
     </list>
@@ -185,14 +185,7 @@
       <workItem from="1631552726642" duration="58800000" />
       <workItem from="1631708108011" duration="27620000" />
       <workItem from="1631819750918" duration="3266000" />
-      <workItem from="1631823532933" duration="59650000" />
-    </task>
-    <task id="LOCAL-00055" summary="Added additional verify implementation">
-      <created>1630619170038</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1630619170041</updated>
+      <workItem from="1631823532933" duration="60166000" />
     </task>
     <task id="LOCAL-00056" summary="Last minute changes">
       <created>1630712128271</created>
@@ -530,7 +523,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631924185046</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="chatbot style and additional of a .css file">
+      <created>1631926448938</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1631926448938</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -549,7 +549,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="organisations controller revision - add address" />
     <MESSAGE value="organisations controller revision - add socials" />
     <MESSAGE value="organisations controller revision - remove socials" />
     <MESSAGE value="organisations controller revision - tax" />
@@ -574,7 +573,8 @@
     <MESSAGE value="finalizing frontend&#10;backend updates to add organisation" />
     <MESSAGE value="dedicated organisaiton select for admin users" />
     <MESSAGE value="dedicated organisation select for admin users" />
-    <option name="LAST_COMMIT_MESSAGE" value="dedicated organisation select for admin users" />
+    <MESSAGE value="chatbot style and additional of a .css file" />
+    <option name="LAST_COMMIT_MESSAGE" value="chatbot style and additional of a .css file" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -23,7 +23,7 @@ function Chatbot()
     return (
         <Box id={"iframe-container"}>
             <div id={"iframe"}>
-                <iframe src={"file:///C:/Users/Nqobani_Xpl/Documents/Course/2021/COS301/capstone%20-%20restructured/Give-a-Lot/backend/src/main/java/com/GiveaLot/givealot/Chatbot/templates/index.html"}>
+                <iframe src={""}>
                     sorry, the bot is not available for you
                 </iframe>
             </div>

@@ -6,6 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import SaveIcon from '@material-ui/icons/Save';
 import axios from "axios";
+import {BeatLoader} from "react-spinners";
 
 
 const styles = theme => ({
@@ -24,10 +25,12 @@ export class Certificate extends Component {
             level: 0,
             orgId:localStorage.getItem("id"),
             serverDomain : 'http://localhost:8080',
+            loading:false,
 
         };
     }
     componentDidMount(){
+        this.setState({loading: true});
         let config = {
             headers: {
                 "Content-Type": "application/json",
@@ -42,11 +45,13 @@ export class Certificate extends Component {
             .then(response =>{
                 this.setState({level: response.data.level})
                 console.log(response)
+                this.setState({loading: false});
 
             })
             .catch(error =>{
                 console.log(error)
             })
+
     }
 
     render(){
@@ -132,10 +137,21 @@ export class Certificate extends Component {
                 </Button>
             </Link>
         }
+        let spinner
+        if(this.loading===true){
+            spinner=   <div className="spinners">
+                <BeatLoader
+                    size={50}
+                    color={"#4b4250"}
+                    loading={this.state.loading}
+
+                />
+            </div>
+        }
 
     return (
         <div className="certificate">
-
+            {spinner}
 
             <div className="view">
                 {upgrade}
@@ -160,7 +176,7 @@ export class Certificate extends Component {
             </div>
 
             <div className="display">
-                <img src={"http://localhost:8080/cert/version/png/" + this.state.orgId} alt={"certificate"} height={566} width={733}/>
+                <img src={"http://localhost:8080/cert/version/png/" + this.state.orgId} alt={"certificate"} height={546} width={713}/>
             </div>
         </div>
     );

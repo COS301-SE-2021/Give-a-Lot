@@ -20,6 +20,7 @@ import SearchResults from "./Components/SearchResults/SearchResults";
 import browse_general from './Styles/browse_general.css';
 import browse_desktop from './Styles/browse_desktop.css';
 import {ApiContext} from "../../apiContext/ApiContext";
+import Chatbot from "../chatbot/Chatbot";
 
 
 function Browse ()
@@ -210,9 +211,10 @@ function Browse ()
     }
     return (
         <div id={"main_browse_page"}>
+
             {pageLoaded === false && <Loader />}
             <Navbar/>
-
+            <Chatbot/>
             <div id="browse_body">
 
                 <div id="dark_backdrop_active_for_mobile" onClick={mobile_popUpControl_hide}>

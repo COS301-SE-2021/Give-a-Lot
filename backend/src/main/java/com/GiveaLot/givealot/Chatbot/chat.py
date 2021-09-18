@@ -1,20 +1,14 @@
 import nltk
 from nltk.stem.lancaster import LancasterStemmer
-
 from main import startup
-
-stemmer = LancasterStemmer()
-nltk.download('punkt')
 import numpy as np
-import tflearn as tfl
-import tensorflow as tf
-from tensorflow.python.framework import ops
 import random
 import json
 import pickle
 from flask import Flask, render_template, request
 from flask_ngrok import run_with_ngrok
-from keras.models import load_model
+
+stemmer = LancasterStemmer()
 
 with open("intents.json") as file:
     data = json.load(file)

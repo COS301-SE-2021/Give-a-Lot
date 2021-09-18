@@ -1,12 +1,15 @@
 package com.GiveaLot.givealot.FaceRecognition.service;
 
 import org.apache.commons.io.FileUtils;
+import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
 
-public class FaceRecognitionServiceImpl {
+@Service
+public class FaceRecognitionServiceImpl implements FaceRecognitionService {
 
+    @Override
     public File FacePixel(long orgId) throws IOException, InterruptedException {
         try {
             String id = String.valueOf(orgId);
@@ -34,6 +37,7 @@ public class FaceRecognitionServiceImpl {
         return null;
     }
 
+    @Override
     public File FaceBlur(long orgId) throws IOException, InterruptedException {
         try {
             String id = String.valueOf(orgId);

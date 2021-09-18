@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="added necessary comments">
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Notification/service/notificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Notification/service/notificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Notification/controller/NotificationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Notification/controller/NotificationsController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,14 +98,11 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.generated-requests#63">
+  <component name="RunManager">
     <configuration name="generated-requests#59" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="59" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#61" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="61" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="generated-requests#63" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="63" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#64" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="64" runType="Run single request">
@@ -139,7 +138,6 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.generated-requests#63" />
       <item itemvalue="HTTP Request.generated-requests#64" />
       <item itemvalue="HTTP Request.generated-requests#59" />
       <item itemvalue="HTTP Request.generated-requests#61" />
@@ -148,7 +146,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="HTTP Request.generated-requests#64" />
-        <item itemvalue="HTTP Request.generated-requests#63" />
         <item itemvalue="HTTP Request.generated-requests#61" />
         <item itemvalue="HTTP Request.generated-requests#59" />
       </list>
@@ -178,34 +175,6 @@
       <workItem from="1631708108011" duration="27620000" />
       <workItem from="1631819750918" duration="3266000" />
       <workItem from="1631823532933" duration="61928000" />
-    </task>
-    <task id="LOCAL-00066" summary="Last minute changes">
-      <created>1630845108483</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1630845108483</updated>
-    </task>
-    <task id="LOCAL-00067" summary="Org Name update fix">
-      <created>1630845874348</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1630845874348</updated>
-    </task>
-    <task id="LOCAL-00068" summary="Org Name update fix">
-      <created>1630846367366</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1630846367366</updated>
-    </task>
-    <task id="LOCAL-00069" summary="Org Name update fix">
-      <created>1630847810323</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1630847810323</updated>
     </task>
     <task id="LOCAL-00070" summary="Org Name update fix">
       <created>1630857749968</created>
@@ -522,7 +491,35 @@
       <option name="project" value="LOCAL" />
       <updated>1631967742274</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="added necessary comments">
+      <created>1631967812891</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1631967812891</updated>
+    </task>
+    <task id="LOCAL-00116" summary="added necessary comments">
+      <created>1631967841570</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1631967841570</updated>
+    </task>
+    <task id="LOCAL-00117" summary="added necessary comments">
+      <created>1631967858660</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1631967858660</updated>
+    </task>
+    <task id="LOCAL-00118" summary="added necessary comments">
+      <created>1631967913064</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1631967913064</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

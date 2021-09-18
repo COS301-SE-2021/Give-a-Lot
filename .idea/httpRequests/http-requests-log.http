@@ -1,506 +1,315 @@
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/ngo_date/true
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/committee/true
 
-<> 2021-09-18T155327.200.json
-
-###
-
-PUT https://localhost:8080/v1/organisation/delete/validity/confirm/75/35/ngo_date/true
+<> 2021-09-18T223331.200.json
 
 ###
 
-POST http://localhost:8080/v1/notifications/get/level_information
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/facebook/true
+
+<> 2021-09-18T223149.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/instagram/true
+
+<> 2021-09-18T223138.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/true
+
+<> 2021-09-18T223128.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/facebook/false
+
+<> 2021-09-18T221517.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/facebook/true
+
+<> 2021-09-18T221505.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/facebook/true
+
+<> 2021-09-18T221438.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/facebook/false
+
+<> 2021-09-18T221426.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/instagram/false
+
+<> 2021-09-18T221410.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/instagram/false
+
+<> 2021-09-18T221352.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/instagram/true
+
+<> 2021-09-18T221314.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/instagram/true
+
+<> 2021-09-18T221309.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/instagram/false
+
+<> 2021-09-18T221258.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/false
+
+<> 2021-09-18T221245.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/false
+
+<> 2021-09-18T220718.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/false
+
+<> 2021-09-18T220658.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/true
+
+<> 2021-09-18T220625.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/false
+
+<> 2021-09-18T220611.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/committee/true
+
+<> 2021-09-18T220220.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/true
+
+<> 2021-09-18T220109.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/true
+
+<> 2021-09-18T215925.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/true
+
+<> 2021-09-18T215752.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/true
+
+<> 2021-09-18T215348.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/true
+
+<> 2021-09-18T215047.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/true
+
+<> 2021-09-18T214819.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/committee/false
+
+<> 2021-09-18T214623.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/committee/false
+
+<> 2021-09-18T214532.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/committee/true
+
+<> 2021-09-18T214407.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/donation_link/true
+
+<> 2021-09-18T203009.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/qr_code/true
+
+<> 2021-09-18T202853.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/establishment_date/true
+
+<> 2021-09-18T202847.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/donation_link/false
+
+<> 2021-09-18T202822.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/donation_link/true
+
+<> 2021-09-18T202754.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/qr_code/false
+
+<> 2021-09-18T202714.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/qr_code/true
+
+<> 2021-09-18T202639.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/establishment_date/false
+
+<> 2021-09-18T202543.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/establishment_date/true
+
+<> 2021-09-18T202436.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/website/true
+
+<> 2021-09-18T194340.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/address/true
+
+<> 2021-09-18T194158.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/address/false
+
+<> 2021-09-18T194129.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/address/true
+
+<> 2021-09-18T194100.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/address/true
+
+<> 2021-09-18T193805.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/website/false
+
+<> 2021-09-18T193741.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/website/true
+
+<> 2021-09-18T193731.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/get/org_level
+Content-Type: application/json
+
+{
+  "orgid": 75
+}
+
+<> 2021-09-18T193724.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/website/true
+
+<> 2021-09-18T193449.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/website/true
+
+<> 2021-09-18T193110.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/get/org_level
+Content-Type: application/json
+
+{
+  "orgid": 75
+}
+
+<> 2021-09-18T184533.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/get/org_level
 Content-Type: application/json
 
 {
   "orgId": 75
 }
 
-<> 2021-09-18T152847.200.json
+<> 2021-09-18T184028.200.json
 
 ###
 
-POST http://localhost:8080/v1/notifications/update/notifications
-Content-Type: application/json
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/ngo_number/true
 
-{
- "org_id" : "75"
-}
-
-<> 2021-09-18T152523.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/add/notifications
-Content-Type: application/json
-
-{
-  "organisation_id" : "75",
-  "isOpen" : "false",
-  "description" : "update to level 1 request",
-  "notification_type" : "Marvel Studios"
-}
-
-<> 2021-09-18T152425.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/get/notifications
-Content-Type: application/json
-
-{
-  "adminUserEmail": "ionside47@gmail.com"
-}
-
-<> 2021-09-18T151101.200.json
-
-###
-
-POST http://localhost:8080/v1/notifications/get/notifications
-Content-Type: application/json
-
-{
-  "adminUserEmail": "ionside48@gmail.com"
-}
-
-<> 2021-09-18T151051.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-  "orgId": 75,
-  "ngoDate": "2021/09/16",
-  "ngoNumber": "9987857498584"
-}
-
-<> 2021-09-18T150017.400.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-  "orgId": 75,
-  "ngoDate": "2021/09/16",
-  "ngoNumber": "9987857498584"
-}
-
-<> 2021-09-18T145304.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/ngopdate
-Content-Type: application/json
-
-{
-  "orgId": 75,
-  "ngoDate": "2021-09-16",
-  "ngoNumber": "9987857498584"
-}
-
-<> 2021-09-18T145252.200.json
-
-###
-
-POST http://localhost:8080/v1/login/user/determine
-Content-Type: application/json
-
-{
-  "username" : "marvel@studios.com",
-  "password" : "Grandtheft@uto5",
-  "role" : ""
-}
-
-<> 2021-09-18T144327.200.json
-
-###
-
-POST http://localhost:8080/report/org/
-Content-Type: application/json
-
-{
-  "orgId" : 75,
-  "userId" : 21,
-  "orgName": "Marvel studios",
-  "description" : "this organisation does not have a paypal link",
-  "reportType" : "misconduct"
-}
-
-<> 2021-09-18T140438.200.json
-
-###
-
-POST http://localhost:8080/report/org/
-Content-Type: application/json
-
-{
-  "orgId" : 75,
-  "userId" : 21,
-  "orgName": "Marvel studios",
-  "description" : "this organisation does not have a paypal link",
-  "reportType" : "misconduct"
-}
-
-<> 2021-09-18T140429.200.json
-
-###
-
-POST http://localhost:8080/report/org/
-Content-Type: application/json
-
-{
-  "orgId" : 75,
-  "userId" : 21,
-  "orgName": "Marvel studios",
-  "description" : "this organisation does not have a paypal link",
-  "reportType" : "misconduct"
-}
-
-<> 2021-09-18T134848.200.json
-
-###
-
-POST http://localhost:8080/report/org/
-Content-Type: application/json
-
-{
-  "orgId" : 75,
-  "userId" : 14,
-  "orgName": "Marvel studios",
-  "description" : "this organisation does not have a paypal link",
-  "reportType" : "misconduct"
-}
-
-<> 2021-09-18T134818.400.json
-
-###
-
-POST http://localhost:8080/v1/login/user/determine
-Content-Type: application/json
-
-{
-  "username" : "marvel@studios.com",
-  "password" : "Grandtheft@uto5",
-  "role" : ""
-}
-
-<> 2021-09-18T131549.200.json
-
-###
-
-POST http://localhost:8080/report/get/all
-Content-Type: application/json
-
-{
- "orgId" : 75
-}
-
-<> 2021-09-17T220811.200.json
-
-###
-
-POST http://localhost:8080/report/get/all
-
-{
- "orgId" : 75
-}
-
-<> 2021-09-17T220753.415.json
-
-###
-
-GET http://localhost:8080/v1/organisation/admin/sel/organisation/71
-
-<> 2021-09-17T212037.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/check/email
-Content-Type: application/json
-
-{
-  "email" : null
-}
-
-<> 2021-09-17T043634.400.json
-
-###
-
-POST http://localhost:8080/v1/organisation/check/email
-Content-Type: application/json
-
-{
-  "email" : ""
-}
-
-<> 2021-09-17T043624.400.json
-
-###
-
-POST http://localhost:8080/v1/organisation/check/email
-Content-Type: application/json
-
-{
-  "email" : "coolmailgmail.com"
-}
-
-<> 2021-09-17T043607.400.json
-
-###
-
-POST http://localhost:8080/v1/organisation/check/email
-Content-Type: application/json
-
-{
-  "email" : "coolmai6576l@gmail.com"
-}
-
-<> 2021-09-17T043542.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/check/email
-Content-Type: application/json
-
-{
-  "email" : "coolmail@gmail.com"
-}
-
-<> 2021-09-17T043533.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation
-Content-Type: application/json
-
-{
-  "email" : "coolmail@gmail.com"
-}
-
-<> 2021-09-17T043445.404.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors
-
-<> 2021-09-14T025534.200.json
-
-###
-
-GET http://localhost:8080/search/organisation/browse/care
-
-<> 2021-09-14T020438.200.json
-
-###
-
-GET http://localhost:8080/cert/version/png/47
-
-<> 2021-09-14T003558.200.txt
-
-###
-
-GET http://localhost:8080/search/organisation/browse/Indian%20Confederation%20For%20Healthcare
-
-<> 2021-09-14T001537.200.json
-
-###
-
-POST http://localhost:8080/event/calender/edit/title
-Content-Type: application/json
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : "43",
-  "newTitle" : "updated title test"
-}
-
-<> 2021-09-13T225327.200.json
-
-###
-
-POST http://localhost:8080/event/calender/edit/title
-Content-Type: application/json
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : "43",
-  "newTitle" : "updated title test"
-}
-
-<> 2021-09-13T225020.200.json
-
-###
-
-POST http://localhost:8080/event/calender/edit/title
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : "43",
-  newTitle : "updated title test"
-}
-
-<> 2021-09-13T224942.415.json
-
-###
-
-POST http://localhost:8080/event/calender/edit/title
-
-{
-  "userEmail" : "coolmail@gmail.com",
-  "eventId" : "43",
-  newTitle : "updated title test"
-}
-
-<> 2021-09-13T224937.415.json
-
-###
-
-GET http://localhost:8080/search/organisation/browse/Indian%20Confederation%20For%20Healthcare
-
-<> 2021-09-13T215338.200.json
-
-###
-
-GET http://localhost:8080/cert/version/png/47
-
-<> 2021-09-13T215316.200.txt
-
-###
-
-GET http://localhost:8080/cert/version/png/47
-
-<> 2021-09-13T215304.200.txt
-
-###
-
-GET http://localhost:8080/search/organisation/browse/Indian%20Confederation%20For%20Healthcare
-
-<> 2021-09-13T142405.200.json
-
-###
-
-GET http://localhost:8080/search/organisation/browse/care
-
-<> 2021-09-13T142017.200.json
-
-###
-
-GET http://localhost:8080/search/organisation/browse/care
-
-<> 2021-09-13T141906.400.json
-
-###
-
-GET http://localhost:8080/search/organisation/browse/dancing
-
-<> 2021-09-13T141831.400.json
-
-###
-
-GET http://localhost:8080/search/organisation/browse/dancing
-
-<> 2021-09-13T141113.400.json
-
-###
-
-GET http://localhost:8080/search/organisation/browse/dancing
-
-<> 2021-09-13T132428.400.json
-
-###
-
-GET http://localhost:8080/search/organisation/browse/bla%20bla%20dancing
-
-<> 2021-09-13T132416.400.json
-
-###
-
-GET http://localhost:8080/search/organisation/browse/bla%20bla
-
-<> 2021-09-13T132352.400.json
-
-###
-
-GET http://localhost:8080/search/organisation/browse/bla+bla
-
-<> 2021-09-13T132344.400.json
-
-###
-
-POST http://localhost:8080/report/org/
-Content-Type: application/json
-
-{
-  "orgId" : 47,
-  "userId" : 14,
-  "orgName": "Dancing with you all",
-  "description" : "this organisation set up a paypal link that doesn't link to them",
-  "reportType" : "misconduct"
-}
-
-<> 2021-09-09T103223.200.json
-
-###
-
-GET http://localhost:8080/certificate/download
-Content-Type: application/json
-
-{
- "orgId" : 46,
- "orgName": "Dancing with you all"
-}
-
-<> 2021-09-09T095838.500.json
-
-###
-
-POST http://localhost:8080/report/org/
-Content-Type: application/json
-
-{
-  "orgId" : 47,
-  "userId" : 14,
-  "orgName": "Dancing with you all",
-  "description" : "this organisation set up a paypal link that doesn't link to them",
-  "reportType" : "fraud"
-}
-
-<> 2021-09-09T090816.200.json
-
-###
-
-POST http://localhost:8080/report/org/
-Content-Type: application/json
-
-{
-  "orgId" : 47,
-  "orgName": "Dancing with you all",
-  "description" : "this organisation set up a paypal link that doesn't link to them",
-  "type" : "fraud",
-  "email" : "someemail@gmail.com"
-
-}
-
-<> 2021-09-09T090420.400.json
-
-###
-
-POST http://localhost:8080/report/org/
-Content-Type: application/json
-
-{
-  "orgId" : 47,
-  "orgName": "Dancing with you all",
-  "type" : "fraud",
-  "description" : "this organisation set up a paypal link that doesn't link to them",
-  "email" : "someemail@gmail.com"
-
-}
-
-<> 2021-09-09T090338.400.json
+<> 2021-09-18T175747.200.json
 
 ###
 

@@ -78,5 +78,4 @@ public interface organisationPointsRepository extends JpaRepository<Organisation
     int DonationQR(long orgId, boolean value);
 
 
-
 }

@@ -79,11 +79,8 @@ export class Upgrade2 extends Component {
         formData.append('orgId', this.state.orgId);
         let imageStates = 0;
 
-
-        alert("take away submit button functionality");
-
         fetch(
-            this.state.serverDomain + '/v1/organisation/add/logo',
+             'http://localhost:8080/v1/organisation/add/qrcode',
             {
                 method: 'POST',
                 body: formData,
@@ -98,6 +95,7 @@ export class Upgrade2 extends Component {
             .catch((error) => {
                 console.error('Error:', error);
                 imageStates = 2;
+
             });
 
         if(imageStates===1)
@@ -137,7 +135,6 @@ export class Upgrade2 extends Component {
             this.setState({ dateError, paypalError,qrError });
             return false;
         }
-
         return true;
     };
 
@@ -152,7 +149,7 @@ export class Upgrade2 extends Component {
                 date: this.state.date,
             };
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/add/estdate", data)
+                .post("http://localhost:8080/v1/organisation/add/estdate", data)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 
@@ -161,9 +158,18 @@ export class Upgrade2 extends Component {
                 orgInfo: this.state.orgInfo,
             };
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/add/donation/info", paypal)
+                .post("http://localhost:8080/v1/organisation/add/donation/info", paypal)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
+
+            const notification_update_body = {
+                org_id: this.state.orgId,
+            };
+
+            Axios
+                .post("http://localhost:8080/v1/notifications/update/notifications", notification_update_body)
+                .then(res => console.log(res))
+                .catch(err => console.log(err))
         }
     };
 

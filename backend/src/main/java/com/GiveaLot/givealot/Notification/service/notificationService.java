@@ -13,6 +13,7 @@ public interface notificationService {
 
     //gets all notifications
     GetNotificationsResponse getNotifications(GetNotificationsRequest request) throws Exception;
+    //adds a new notification
     generalNotificationResponse addNotifications(AddNotificationRequest request)throws Exception;
     generalNotificationResponse  removeNotifications(Long id)throws Exception;
     getNumberOfNotificationsResponse numberOfNotifications(GetNotificationsRequest request)throws Exception;

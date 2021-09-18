@@ -2,15 +2,17 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}" />
-    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css.css')}}" /> -->
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css')}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <!-- <<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css.css')}}" /> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
     <div class="row">
         <div class="col-md-10 mr-auto ml-auto">
-    <h1>Give A Lot Chat Bot</h1>
+    <h1 class="heading_chat_bot">Giveabot</h1>
     <form>
         <div id="chatbox">
             <div class="col-md-8 ml-auto mr-auto">

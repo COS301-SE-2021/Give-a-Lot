@@ -9,19 +9,20 @@ import Level4 from "./Level4"
 
 import {
     CalendarToday, CheckCircleOutlineOutlined,
-    LocationSearching,
     MailOutline,
     PermIdentity,
-    PhoneAndroid, PieChart, PieChartOutlined,
-    Publish,
+    PhoneAndroid, PieChartOutlined,
+
 } from "@material-ui/icons";
 import axios from "axios";
 import Axios from "axios";
 import {toast} from "react-toastify";
 import * as PropTypes from "prop-types";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
+import FullPageLoader from "../Report/FullPageLoader";
 
 
-function CancelOutlinedIcon(props) {
+function CancelOutlinedIcon() {
     return null;
 }
 
@@ -29,14 +30,15 @@ CancelOutlinedIcon.propTypes = {className: PropTypes.string};
 
 export class Profile extends Component {
 
+    static contextType = ApiContext;
     constructor(props) {
         super(props)
 
         this.state = {
             persons:{},
-            level: 0,
-            //orgId:localStorage.getItem("id"),
-            orgId: 49,
+            level: 5,
+            orgId:localStorage.getItem("id"),
+            //orgId: 75,
             orgEmail:"",
             orgName1:"",
             orgNameState:false,
@@ -52,12 +54,19 @@ export class Profile extends Component {
             ContactPersonState:false,
             orgAddress:"",
             addressState:false,
-            serverDomain: "https://3c73e752688968.localhost.run"
+            //serverDomain: "https://3c73e752688968.localhost.run"
+            serverDomain : 'http://localhost:8080',
+            //loader:false,
+
+
         }
     }
 
 
     componentDidMount(){
+      this.setState({loader: true});
+
+
         let config = {
             headers: {
                 "Content-Type": "application/json",
@@ -65,10 +74,13 @@ export class Profile extends Component {
             }
         }
         console.log(this.props)
-        axios.get(this.state.serverDomain + '/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config)
+        axios.get(this.state.serverDomain + '/v1/organisation/admin/sel/organisation/'+this.state.orgId, config)
             .then(response =>{
                 console.log(response)
-                this.setState({persons: response.data.response})
+                this.setState({persons: response.data.object})
+
+
+
             })
             .catch(error =>{
                 console.log(error)
@@ -76,18 +88,22 @@ export class Profile extends Component {
             })
 
         const dataa = {
-            "orgId" : this.state.orgId
+            "orgid" : this.state.orgId
         }
 
         axios.post(this.state.serverDomain + '/v1/organisation/get/org_level', dataa  ,config)
             .then(response =>{
                 this.setState({level: response.data.level})
                 console.log(response)
+                this.setState({loader: false});
+
+
 
             })
             .catch(error =>{
                 console.log(error)
             })
+
     }
 
 
@@ -160,6 +176,7 @@ export class Profile extends Component {
 
 
     handleFormSubmit = e => {
+        this.setState({loader: false});
         e.preventDefault();
         if(this.state.emailState) {
             const data1 = {
@@ -280,53 +297,63 @@ export class Profile extends Component {
 
         let status
 
-        if(persons.status==="active"){
-           status=  <div className="userShowInfo">
-                        <CheckCircleOutlineOutlined className="userShowIcon" />
-                        <span className="userShowInfoTitle">{persons.status}</span>
-                    </div>
-        }else if(persons.status==="suspended"){
-            status= <div className="userShowInfo">
-                        <CancelOutlinedIcon className="userShowIcon" />
-                        <span className="userShowInfoTitle">{persons.status}</span>
-                    </div>
+        if(persons.status) {
+
+            if (persons.status === "active") {
+                status = <div className="userShowInfo">
+                    <CheckCircleOutlineOutlined className="userShowIcon"/>
+                    <span className="userShowInfoTitle">{persons.status}</span>
+                </div>
+            } else if (persons.status === "suspended") {
+                status = <div className="userShowInfo">
+                    <CancelOutlinedIcon className="userShowIcon"/>
+                    <span className="userShowInfoTitle">{persons.status}</span>
+                </div>
+            }
         }
 
         let levels
-        if(this.state.level==0){
-            levels= <div >
-                    </div>
-        }else if(this.state.level==1){
-            levels= <div >
-                        <Level0 />
-                    </div>
-        }else if(this.state.level==2){
-            levels= <div >
-                        <Level0 />
-                        <Level1 />
+        if(this.state.level!==undefined ) {
+            if (this.state.level === 0) {
+                levels =<div>
+                            -
+                        </div>
+            } else if (this.state.level === 1) {
+                levels =<div>
+                            <Level0/>
+                        </div>
+            } else if (this.state.level === 2) {
+                levels =<div>
+                            <Level0/>
+                            <Level1/>
+                        </div>
+            } else if (this.state.level === 3) {
+                levels =<div>
+                            <Level0/>
+                            <Level1/>
+                            <Level2/>
+                        </div>
+            } else if (this.state.level === 4) {
+                levels =<div>
+                            <Level0/>
+                            <Level1/>
+                            <Level2/>
+                            <Level3/>
+                        </div>
+            } else if (this.state.level === 5) {
+                levels =<div>
+                            <Level0/>
+                            <Level1/>
+                            <Level2/>
+                            <Level3/>
+                            <Level4/>
+                         </div>
+            }
+        }
 
-                    </div>
-        }else if(this.state.level==3){
-            levels= <div >
-                        <Level0 />
-                        <Level1 />
-                        <Level2 />
-                    </div>
-        }else if(this.state.level==4){
-            levels= <div >
-                        <Level0 />
-                        <Level1 />
-                        <Level2 />
-                        <Level3 />
-                    </div>
-        }else if(this.state.level==5){
-            levels= <div >
-                        <Level0 />
-                        <Level1 />
-                        <Level2 />
-                        <Level3 />
-                        <Level4 />
-                    </div>
+        let auto_spinner
+        if(this.state.loader){
+            auto_spinner=<FullPageLoader />
         }
 
 
@@ -367,7 +394,7 @@ export class Profile extends Component {
                                     <span className="userShowTitle">Contact Details</span>
 
                                     <div className="userShowInfo">
-                                        <PhoneAndroid className="userShowIcon" />
+                                        <PermIdentity className="userShowIcon" />
                                         <span className="userShowInfoTitle">{persons.contactPerson}</span>
                                     </div>
                                     <div className="userShowInfo">
@@ -382,10 +409,7 @@ export class Profile extends Component {
                                         {status}
                                     </div>
 
-                                    <div className="userShowInfo">
-                                        <LocationSearching className="userShowIcon" />
-                                        <span className="userShowInfoTitle">Pretoria, arcadia</span>
-                                    </div>
+
                                 </div>
                             </div>
 
@@ -444,22 +468,11 @@ export class Profile extends Component {
                                     />
                                 </div>
 
-                                <div className="userUpdateItem">
-                                    <label>Address</label>
-                                    <input
-                                        type="text"
-                                        name="orgAddress"
-                                        onChange={this.handleAddress}
-                                        placeholder="Pretoria, arcadia"
-                                        className="userUpdateInput"
-                                    />
-                                </div>
 
                                 <div className="userUpdateItem">
                                     <label>Description</label>
                                     <textarea
 
-                                        type="text"
                                         name="orgDescription1"
                                         onChange={this.handleDescription}
                                         placeholder={persons.orgDescription}
@@ -482,6 +495,9 @@ export class Profile extends Component {
                 </div>
 
                 {levels}
+                { auto_spinner}
+
+
             </div>
         )
     }

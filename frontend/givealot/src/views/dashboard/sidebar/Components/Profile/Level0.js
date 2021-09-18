@@ -3,7 +3,7 @@ import "../Certificate/Style/Certificate.css";
 import 'date-fns';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-import { withStyles ,makeStyles } from '@material-ui/core/styles'
+import { withStyles} from '@material-ui/core/styles'
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -12,6 +12,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Axios from "axios";
 import TextField from "@material-ui/core/TextField";
 import axios from "axios";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 
 const styles = theme => ({
 
@@ -35,17 +36,15 @@ const styles = theme => ({
 
 
 const initialState = {
-    level0:[],
-    adminId:14,
+    level0:{},
+    //orgId: 60,
     orgId:localStorage.getItem("id"),
     startDate: new Date(),
     ngoNumber:"",
     ngoNumberState:false,
     ngoDate:"",
     ngoDateState:false,
-    logoState:false,
-    logo:"",
-    serverDomain: "https://3c73e752688968.localhost.run"
+    serverDomain : 'http://localhost:8080',
 
 };
 
@@ -53,6 +52,7 @@ const initialState = {
 export class Level0 extends Component {
 
 
+    static contextType = ApiContext;
     state = initialState;
     constructor (props) {
         super(props)
@@ -76,47 +76,6 @@ export class Level0 extends Component {
     }
 
 
-    handleChange = event => {
-
-        this.setState({logoState: true})
-        const formData = new FormData();
-        formData.append('image', event.target.files[0]);
-        formData.append('orgId', this.state.orgId);
-        let imageStates = 0;
-
-
-        alert("take away submit button functionality");
-
-        fetch(
-            this.state.serverDomain + '/v1/organisation/add/logo',
-            {
-                method: 'POST',
-                body: formData,
-            }
-        )
-            .then((response) => response.json())
-            .then((result) => {
-                console.log('Success:', result);
-                imageStates = 1;
-
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                imageStates = 2;
-            });
-
-        if(imageStates===1)
-            alert("bring back button functionality");
-        else if(imageStates === 2)
-            alert("bring back button functionality also tell the user that the image didnt submit");
-
-        const isCheckbox = event.target.type === "checkbox";
-        this.setState({
-            [event.target.name]: isCheckbox
-                ? event.target.checked
-                : event.target.value
-        });
-    };
 
     handleFormSubmit = e => {
         e.preventDefault();
@@ -138,7 +97,7 @@ export class Level0 extends Component {
 
     };
     onToast0 = () => {
-        if ( this.state.logoState || this.state.ngoDateState || this.state.ngoNumberState ) {
+        if (  this.state.ngoDateState || this.state.ngoNumberState ) {
             toast.success('Submit successful', {
                 position: toast.POSITION.TOP_RIGHT
 
@@ -146,31 +105,24 @@ export class Level0 extends Component {
         }
     }
 
-    componentDidMount() {
+
+    componentDidMount(){
         let config = {
             headers: {
                 "Content-Type": "application/json",
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        const admin = {
-            "adminId" : this.state.adminId
-        }
-
-        const org = {
-            orgId :32
-        }
-        axios.post(this.state.serverDomain + '/v1/organisation/get/organisations',admin , config)
+        console.log(this.props)
+        axios.get(this.state.serverDomain + '/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config) //Change the API
             .then(response =>{
                 console.log(response)
-                this.setState({level0: response.data.response[0]})
-                console.log(this.state.level0)
-
+                this.setState({level0: response.data.response})
             })
             .catch(error =>{
+                console.log(error)
                 this.setState({error : 'Error Retrieving data'})
             })
-
 
     }
 
@@ -221,21 +173,8 @@ export class Level0 extends Component {
                                         variant="outlined"
                                         onChange={this.handleNumber}
                                     />
-                                    <div>
-                                        <span className="upgrade_label_logo">
-                                            Logo
-                                         </span>
-                                        <input
-                                            className="upgrade_logoo"
-                                            type="file"
-                                            name="file"
-                                            onChange={this.handleInputChange}
-                                        />
-                                    </div>
 
-                                    <div className="profile_files">
-                                        <img src="https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg" height={70} width={70} />
-                                    </div>
+
 
                                 </div>
                                 <div className="upgrade_Button">

@@ -10,6 +10,9 @@
     "@fullcalendar/daygrid": "^5.9.0",
     "@fullcalendar/interaction": "^5.9.0",
     "@fullcalendar/timegrid": "^5.9.0",
+    "@mui/material": "latest",
+    "@emotion/styled": "latest",
+    "@emotion/react": "latest",
     "@material-ui/core": "^4.12.3",
     "@material-ui/data-grid": "^4.0.0-alpha.37",
     "@material-ui/icons": "^4.11.2",
@@ -71,6 +74,7 @@
   },
   "devDependencies": {
     "@fullcalendar/react": "^5.9.0",
+    "@mui/material": "^5.0.0",
     "@syncfusion/ej2-data": "^19.2.60",
     "prop-types": "^15.7.2",
     "webpack-cli": "^4.8.0",

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import "./Styles/Featured.css"
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 import ReportIcon from '@material-ui/icons/Report';
@@ -10,8 +9,11 @@ import NotificationsOutlinedIcon from '@material-ui/icons/NotificationsOutlined'
 import axios from "axios";
 import {ApiContext} from "../../../../../apiContext/ApiContext";
 
+
+
 export class Cards extends Component {
     static contextType = ApiContext;
+
     constructor(props) {
         super(props)
 
@@ -19,11 +21,11 @@ export class Cards extends Component {
             Users: '',
             Organisations: '',
             notifications: '',
-            adminUserEmail:'admin@email.com',
-            orgId: 32,
+            adminUserEmail:"admin@email.com",
+            orgId: 75,
             reports: [],
-            adminId: 4,
-            serverDomain: this.context
+            adminId: localStorage.getItem('id'),
+            serverDomain : 'http://localhost:8080',
         }
     }
 
@@ -34,7 +36,7 @@ export class Cards extends Component {
         this. getReports();
     }
 
-
+/////////////////////////////////////Leave reports for only organisations
     getReports(){
         let config = {
             headers: {
@@ -46,11 +48,11 @@ export class Cards extends Component {
             // "orgId":"id of an organisation"
             "orgId" : this.state.orgId
         }
-        axios.post(this.state.serverDomain + '/report/get/all', adminUsersRequestBodyReports, config)
+        // alert(this.state.serverDomain)
+        axios.post(this.state.serverDomain+'/report/get/all', adminUsersRequestBodyReports, config)
             .then(response =>{
-                console.log(response)
+                // console.log(response)
                 this.setState({ reports: response.data.object })
-                // console.log(this.state.Users)
 
             })
             .catch(error =>{
@@ -60,49 +62,56 @@ export class Cards extends Component {
     }
 
     getUsers(){
-        let config = {
-            headers: {
-                "Content-Type": "application/json",
-                'Access-Control-Allow-Origin': '*',
+        if(localStorage.getItem('role') === 'admin') {
+            let config = {
+                headers: {
+                    "Content-Type": "application/json",
+                    'Access-Control-Allow-Origin': '*',
+                }
             }
-        }
-        const adminUsersRequestBody = {
-            "adminUserEmail" : this.state.adminUserEmail
-        }
-        axios.post(this.state.serverDomain + '/v1/user/get/num_user', adminUsersRequestBody, config)
-            .then(response =>{
-                console.log(response)
-                this.setState({ Users: response.data.response })
-                // console.log(this.state.Users)
+            const adminUsersRequestBody = {
+                "adminUserEmail": this.state.adminUserEmail
+            }
+            axios.post(this.state.serverDomain + '/v1/user/get/num_user', adminUsersRequestBody, config)
+                .then(response => {
+                    // console.log(response)
+                    this.setState({Users: response.data.response})
+                    // console.log(this.state.Users)
 
-            })
-            .catch(error =>{
-                // console.log(error)
-                this.setState({error : 'Error Retrieving data'})
-            })
+                })
+                .catch(error => {
+                    // console.log(error)
+                    this.setState({error: 'Error Retrieving data'})
+                })
+        }
     }
 
     getOrganisations(){
-        let config = {
-            headers: {
-                "Content-Type": "application/json",
-                'Access-Control-Allow-Origin': '*',
+        if(localStorage.getItem('role') === 'admin'){
+            let config = {
+                headers: {
+                    "Content-Type": "application/json",
+                    'Access-Control-Allow-Origin': '*',
+                }
             }
-        }
-        const adminUsersRequestBodyOrg = {
-            "adminId" : this.state.adminId
-        }
-        axios.post(this.state.serverDomain + '/v1/organisation/get/organisations',adminUsersRequestBodyOrg , config)
-            .then(response =>{
-                console.log(response)
-                this.setState({ Organisations: response.data.response })
-                // console.log(this.state.Organisations)
+            const adminUsersRequestBodyOrg = {
+                "adminId" : this.state.adminId
+            }
+            axios.post(this.state.serverDomain+'/v1/organisation/get/organisations',adminUsersRequestBodyOrg , config)
+                .then(response =>{
+                    // console.log(response)
+                    this.setState({ Organisations: response.data.response })
 
-            })
-            .catch(error =>{
-                // console.log(error)
-                this.setState({error : 'Error Retrieving data'})
-            })
+                })
+                .catch(error =>{
+                    alert(error)
+                    this.setState({error : 'Error Retrieving data'})
+                })
+        }
+        // else{
+        //     alert('current User not admin  ' + localStorage.getItem('role'))
+        // }
+
     }
 
     getNotifications(){
@@ -115,7 +124,7 @@ export class Cards extends Component {
         const adminUsersRequestBodyNotification = {
             "adminUserEmail" : this.state.adminUserEmail
         }
-        axios.post(this.state.serverDomain + '/v1/notifications/get/num_notifications',adminUsersRequestBodyNotification , config)
+        axios.post('http://localhost:8080/v1/notifications/get/num_notifications',adminUsersRequestBodyNotification , config)
             .then(response =>{
                 // console.log(response)
                 this.setState({ notifications: response.data.response })
@@ -134,65 +143,65 @@ export class Cards extends Component {
             <div style={{display: "flex"}} className= "featuredCards">
                 <Card variant="outlined" className="cardElement">
                     <CardContent style={{display: "flex", alignItems: "center", justifyContent: "space-evenly"}}>
-                        <Typography>
-                            <Typography color="textPrimary">
+                        <div>
+                            <div color="textPrimary">
                                 Users
-                            </Typography>
-                            <Typography color="textSecondary">
+                            </div>
+                            <div color="textSecondary">
                                 {Users}
-                            </Typography>
-                        </Typography>
-                        <Typography color="textSecondary" className="cardIconUser" >
+                            </div>
+                        </div>
+                        <div color="textSecondary" className="cardIconUser" >
                             <PersonOutlineIcon />
-                        </Typography>
+                        </div>
                     </CardContent>
                 </Card>
 
                 <Card variant="outlined" className="cardElement">
                     <CardContent style={{display: "flex", alignItems: "center", justifyContent: "space-evenly"}}>
-                        <Typography>
-                            <Typography color="textPrimary">
+                        <div>
+                            <div color="textPrimary">
                                 Organisations
-                            </Typography>
-                            <Typography color="textSecondary">
+                            </div>
+                            <div color="textSecondary">
                                 {Organisations.length}
-                            </Typography>
-                        </Typography>
-                        <Typography color="textSecondary" className="cardIconOrg" >
+                            </div>
+                        </div>
+                        <div color="textSecondary" className="cardIconOrg" >
                             <PeopleOutlineIcon />
-                        </Typography>
+                        </div>
                     </CardContent>
                 </Card>
 
                 <Card variant="outlined" className="cardElement">
                     <CardContent style={{display: "flex", alignItems: "center", justifyContent: "space-evenly"}}>
-                        <Typography>
-                            <Typography color="textPrimary">
+                        <div>
+                            <div color="textPrimary">
                                 Reports
-                            </Typography>
-                            <Typography color="textSecondary">
+                            </div>
+                            <div color="textSecondary">
                                 {reports.length}
-                            </Typography>
-                        </Typography>
-                        <Typography color="textSecondary" className="cardIconReports" >
+                            </div>
+                        </div>
+                        <div color="textSecondary" className="cardIconReports" >
                             <ReportIcon />
-                        </Typography>
+                        </div>
                     </CardContent>
                 </Card>
 
                 <Card variant="outlined" className="cardElement">
                     <CardContent style={{display: "flex", alignItems: "center", justifyContent: "space-evenly"}}>
-                        <Typography>
-                            <Typography color="textPrimary">
+                        <div>
+                            <div color="textPrimary">
                                 Notifications
-                            </Typography>
-                            <Typography color="textSecondary">
+                            </div>
+                            <div color="textSecondary">
                                 {notifications}
-                            </Typography>
-                        </Typography>
-                        <Typography color="textSecondary" className="cardIconNotifications" >
+                            </div>
+                        </div>
+                        <div color="textSecondary" className="cardIconNotifications" >
                             <NotificationsOutlinedIcon />
-                        </Typography>
+                        </div>
                     </CardContent>
                 </Card>
 

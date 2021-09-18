@@ -1,5 +1,5 @@
 import React, {useState,useContext} from 'react';
-import {Link, useHistory} from "react-router-dom";
+import {Link, useHistory,Redirect} from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 import backgroundImg from "../../assets/homeBackground.jpg";
@@ -61,20 +61,23 @@ function Login ()
             {
                 localStorage.setItem( "id" ,response.data.id);
                 localStorage.setItem( "role" ,response.data.jwttoken)
+                localStorage.setItem( "curr_user_email" ,response.data.curr_user_email)
 
                 if(response.data.jwttoken === "general")
                 {
                     document.getElementById("waitInfo").style.display = "none";
-                    history.push("/");
-
-                }else if (response.data.jwttoken === "admin")
+                    window.location.href = "http://localhost:3000/";
+                }
+                else if(response.data.jwttoken === "admin")
                 {
                     document.getElementById("waitInfo").style.display = "none";
-                    history.push("/dashboard/");
+                    window.location.href = "http://localhost:3000/dashboard/";
                 }
-                else if (response.data.jwttoken === "organisation"){
+                else if(response.data.jwttoken === "organisation")
+                {
                     document.getElementById("waitInfo").style.display = "none";
-                    history.push("/dashboard/");
+                    window.location.href = "http://localhost:3000/dashboard/";
+
                 }
             })
             .catch(error =>{

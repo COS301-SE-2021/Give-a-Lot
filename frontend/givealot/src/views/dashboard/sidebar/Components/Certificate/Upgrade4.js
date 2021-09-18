@@ -2,26 +2,27 @@ import React, {Component} from 'react';
 import "./Style/Certificate.css";
 import 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
-import { withStyles ,makeStyles } from '@material-ui/core/styles'
+//import { withStyles ,makeStyles } from '@material-ui/core/styles'
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 
-const styles = theme => ({
+/*const styles =theme => ({
 
     root: {
         display: "flex",
         flexWrap: "wrap"
     },
 
-});
+});*/
 
 
 export class Upgrade4 extends Component {
-
+    static contextType = ApiContext;
     constructor (props) {
         super(props)
         this.state={
@@ -30,7 +31,8 @@ export class Upgrade4 extends Component {
             fileError: "",
             images:"",
             imagesError:"",
-            serverDomain:"https://3c73e752688968.localhost.run"
+            //serverDomain:"https://3c73e752688968.localhost.run"
+            serverDomain: 'https://localhost:8080'
 
         };
     }
@@ -255,4 +257,4 @@ export class Upgrade4 extends Component {
         );
     }
 }
-export default withStyles(styles)(Upgrade4);
+export default Upgrade4;

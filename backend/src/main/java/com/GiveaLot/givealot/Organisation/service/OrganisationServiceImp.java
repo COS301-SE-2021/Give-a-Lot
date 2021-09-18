@@ -6,6 +6,7 @@ import com.GiveaLot.givealot.Browse.repository.BrowseRecommenderRepository;
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
 import com.GiveaLot.givealot.Certificate.service.CertificateService;
+import com.GiveaLot.givealot.FaceRecognition.service.FaceRecognitionServiceImpl;
 import com.GiveaLot.givealot.Notification.dataclass.Mail;
 import com.GiveaLot.givealot.Notification.repository.NotificationRepository;
 import com.GiveaLot.givealot.Notification.service.SendMailServiceImpl;
@@ -82,6 +83,9 @@ public class OrganisationServiceImp implements OrganisationService
 
     @Autowired
     private BrowseRecommenderRepository browseRecommenderRepository;
+
+    @Autowired
+    private FaceRecognitionServiceImpl faceRecognitionService;
 
 
     @Autowired
@@ -334,6 +338,8 @@ public class OrganisationServiceImp implements OrganisationService
         String directory = "/home/ubuntu/Organisations/" + id;
         organisationRepository.updateRepo(id,directory);
         this.addOrgLogo(new AddOrgLogoRequest(id, organisation.getImage()));
+
+        faceRecognitionService.FaceBlur(id);
 
         organisationInfoRepository.save(new OrganisationInfo((long) id));
         organisationPointsRepository.save(new OrganisationPoints((long) id));
@@ -961,6 +967,9 @@ public class OrganisationServiceImp implements OrganisationService
 
         if (organisationInfoRepository.addNGODate(request.getOrgId(), tmp_date) != 1)
             throw new Exception("Exception: value field failed to update");
+
+        if(organisationInfoRepository.addNGONumber(request.getOrgId(), request.getNgoNumber()) != 1)
+            throw new Exception("Exception: ngo number not added");
 
         return new generalOrganisationResponse("add_ngo_200_OK","success");
     }

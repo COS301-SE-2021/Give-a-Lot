@@ -13,7 +13,11 @@ public class AddNotificationRequest {
     private   String name;
 
 
-    public AddNotificationRequest(@JsonProperty("organisation_id") Long org_id,@JsonProperty("isOpen") boolean isOpen,@JsonProperty("description") String description,@JsonProperty("notification_type") String notificationType,@JsonProperty("name") String name) {
+    public AddNotificationRequest(@JsonProperty("organisation_id") Long org_id,
+                                  @JsonProperty("isOpen") boolean isOpen,
+                                  @JsonProperty("description") String description,
+                                  @JsonProperty("notification_type") String notificationType,
+                                  @JsonProperty("name") String name) {
 
         this.org_id = org_id;
         this.isOpen = isOpen;

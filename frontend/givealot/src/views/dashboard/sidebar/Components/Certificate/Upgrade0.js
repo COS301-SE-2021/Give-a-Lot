@@ -3,16 +3,16 @@ import "./Style/Certificate.css";
 import 'date-fns';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-import { withStyles ,makeStyles } from '@material-ui/core/styles'
+import { withStyles } from '@material-ui/core/styles'
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-
 import Axios from "axios";
 import TextField from "@material-ui/core/TextField";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 
 const styles = theme => ({
 
@@ -40,17 +40,17 @@ const initialState = {
     startDate: new Date(),
     ngoNumber:"",
     ngoDate:"",
-    logo:"",
     ngoNumberError:"",
     ngoDateError:"",
-    logoError:"",
-    serverDomain: 'https://3c73e752688968.localhost.run'
+    serverDomain: 'https://localhost:8080'
+    //serverDomain : this.context,
 };
 
 
 
 export class Upgrade0 extends Component {
     state = initialState;
+    static contextType = ApiContext;
     constructor (props) {
         super(props)
 
@@ -72,66 +72,26 @@ export class Upgrade0 extends Component {
         });
     };
 
-    handleChange = event => {
 
-        const formData = new FormData();
-        formData.append('image', event.target.files[0]);
-        formData.append('orgId', this.state.orgId);
-        let imageStates = 0;
-
-        alert("take away submit button functionality");
-
-        fetch(
-            this.state.serverDomain + '/v1/organisation/add/logo',
-            {
-                method: 'POST',
-                body: formData,
-            }
-        )
-            .then((response) => response.json())
-            .then((result) => {
-                console.log('Success:', result);
-                imageStates = 1;
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                imageStates = 2;
-            });
-
-        if(imageStates===1)
-            alert("bring back button functionality");
-        else if(imageStates === 2)
-            alert("bring back button functionality also tell the user that the image didnt submit");
-
-        const isCheckbox = event.target.type === "checkbox";
-        this.setState({
-            [event.target.name]: isCheckbox
-                ? event.target.checked
-                : event.target.value
-        });
-    };
 
     validate = () => {
         let  ngoNumberError = "";
         let  ngoDateError = "";
-        let  logoError = "";
+
 
 
         if (!this.state.ngoDate) {
             ngoDateError = "Date is require";
         }
 
-        if (!this.state.logo) {
-            logoError = "Logo is require";
-        }
 
 
         if(!this.state.ngoNumber) {
             ngoNumberError="Ngo number is required";
         }
 
-        if ( ngoDateError || ngoNumberError || logoError) {
-            this.setState({ ngoDateError, ngoNumberError, logoError });
+        if ( ngoDateError || ngoNumberError ) {
+            this.setState({ ngoDateError, ngoNumberError});
             return false;
         }
 
@@ -146,18 +106,22 @@ export class Upgrade0 extends Component {
                 orgId: this.state.orgId,
                 ngoDate: this.state.ngoDate,
                 ngoNumber: this.state.ngoNumber,
-
-            };
-            const data_logo = {
-                orgId: this.state.orgId,
-                logo: this.state.logo,
-
             };
             console.log(data)
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/add/ngopdate", data)
-                .then(res => console.log(res))
+                .post("http://localhost:8080/v1/organisation/add/ngopdate", data)
+                .then(res =>
+                    Axios
+                        .post("http://localhost:8080/v1/notifications/update/notifications", notification_update_body)
+                        .then(res => console.log(res))
+                        .catch(err => console.log(err))
+                )
                 .catch(err => console.log(err));
+            const notification_update_body = {
+                org_id: this.state.orgId,
+            };
+
+
 
         }
     };
@@ -175,8 +139,6 @@ export class Upgrade0 extends Component {
 
     render(){
         const { classes } = this.props;
-
-
 
         return (
             <div className="upgrade">
@@ -237,22 +199,8 @@ export class Upgrade0 extends Component {
                                             onChange={this.handleInputChange}
                                         />
                                     </div>
-                                    <span className="loginError_certificate">{this.state.ngoNumberError}</span>
-                                    <div>
-                                        <span className="upgrade_label_logo">
-                                            Logo
-                                         </span>
-                                        <input
-                                            className="upgrade_logo"
-                                            type="file"
-                                            name="logo"
-                                            onChange={this.handleChange}
-                                        />
-                                    </div>
-
                                 </div>
 
-                                <span className="loginError_certificate">{this.state.logoError}</span>
                                 <div className="upgrade_Button">
                                     <button className="upgrade-btn" type="submit" onClick={this.onToastZero}>
                                         Submit

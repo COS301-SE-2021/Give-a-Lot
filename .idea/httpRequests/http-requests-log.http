@@ -1,3 +1,196 @@
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/ngo_date/true
+
+<> 2021-09-18T155327.200.json
+
+###
+
+PUT https://localhost:8080/v1/organisation/delete/validity/confirm/75/35/ngo_date/true
+
+###
+
+POST http://localhost:8080/v1/notifications/get/level_information
+Content-Type: application/json
+
+{
+  "orgId": 75
+}
+
+<> 2021-09-18T152847.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/update/notifications
+Content-Type: application/json
+
+{
+ "org_id" : "75"
+}
+
+<> 2021-09-18T152523.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/add/notifications
+Content-Type: application/json
+
+{
+  "organisation_id" : "75",
+  "isOpen" : "false",
+  "description" : "update to level 1 request",
+  "notification_type" : "Marvel Studios"
+}
+
+<> 2021-09-18T152425.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/get/notifications
+Content-Type: application/json
+
+{
+  "adminUserEmail": "ionside47@gmail.com"
+}
+
+<> 2021-09-18T151101.200.json
+
+###
+
+POST http://localhost:8080/v1/notifications/get/notifications
+Content-Type: application/json
+
+{
+  "adminUserEmail": "ionside48@gmail.com"
+}
+
+<> 2021-09-18T151051.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/ngopdate
+Content-Type: application/json
+
+{
+  "orgId": 75,
+  "ngoDate": "2021/09/16",
+  "ngoNumber": "9987857498584"
+}
+
+<> 2021-09-18T150017.400.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/ngopdate
+Content-Type: application/json
+
+{
+  "orgId": 75,
+  "ngoDate": "2021/09/16",
+  "ngoNumber": "9987857498584"
+}
+
+<> 2021-09-18T145304.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/add/ngopdate
+Content-Type: application/json
+
+{
+  "orgId": 75,
+  "ngoDate": "2021-09-16",
+  "ngoNumber": "9987857498584"
+}
+
+<> 2021-09-18T145252.200.json
+
+###
+
+POST http://localhost:8080/v1/login/user/determine
+Content-Type: application/json
+
+{
+  "username" : "marvel@studios.com",
+  "password" : "Grandtheft@uto5",
+  "role" : ""
+}
+
+<> 2021-09-18T144327.200.json
+
+###
+
+POST http://localhost:8080/report/org/
+Content-Type: application/json
+
+{
+  "orgId" : 75,
+  "userId" : 21,
+  "orgName": "Marvel studios",
+  "description" : "this organisation does not have a paypal link",
+  "reportType" : "misconduct"
+}
+
+<> 2021-09-18T140438.200.json
+
+###
+
+POST http://localhost:8080/report/org/
+Content-Type: application/json
+
+{
+  "orgId" : 75,
+  "userId" : 21,
+  "orgName": "Marvel studios",
+  "description" : "this organisation does not have a paypal link",
+  "reportType" : "misconduct"
+}
+
+<> 2021-09-18T140429.200.json
+
+###
+
+POST http://localhost:8080/report/org/
+Content-Type: application/json
+
+{
+  "orgId" : 75,
+  "userId" : 21,
+  "orgName": "Marvel studios",
+  "description" : "this organisation does not have a paypal link",
+  "reportType" : "misconduct"
+}
+
+<> 2021-09-18T134848.200.json
+
+###
+
+POST http://localhost:8080/report/org/
+Content-Type: application/json
+
+{
+  "orgId" : 75,
+  "userId" : 14,
+  "orgName": "Marvel studios",
+  "description" : "this organisation does not have a paypal link",
+  "reportType" : "misconduct"
+}
+
+<> 2021-09-18T134818.400.json
+
+###
+
+POST http://localhost:8080/v1/login/user/determine
+Content-Type: application/json
+
+{
+  "username" : "marvel@studios.com",
+  "password" : "Grandtheft@uto5",
+  "role" : ""
+}
+
+<> 2021-09-18T131549.200.json
+
+###
+
 POST http://localhost:8080/report/get/all
 Content-Type: application/json
 
@@ -308,267 +501,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-09T090338.400.json
-
-###
-
-POST http://localhost:8080/report/org/
-Content-Type: application/json
-
-{
-  "orgId" : 47,
-  "orgName": "Dancing with you all",
-  "type" : "fraud",
-  "description" : "this organisation set up a paypal link that doesn't link to them",
-  "email" : "someemail@gmail.com"
-
-}
-
-<> 2021-09-09T090033.400.json
-
-###
-
-POST http://localhost:8080/report/org/
-Content-Type: application/json
-
-{
-  "orgId" : 47,
-  "orgName": "Dancing with you all",
-  "type" : "fraud",
-  "description" : "this organisation set up a paypal link that doesn't link to them",
-  "email" : "someemail@gmail.com"
-
-}
-
-<> 2021-09-09T085951.400.json
-
-###
-
-POST http://localhost:8080/report/org
-Content-Type: application/json
-
-{
-  "orgId" : 47,
-  "orgName": "Dancing with you all",
-  "type" : "fraud",
-  "description" : "this organisation set up a paypal link that doesn't link to them",
-  "email" : "someemail@gmail.com"
-
-}
-
-<> 2021-09-09T085942.404.json
-
-###
-
-POST http://localhost:8080/report/org/
-Content-Type: application/json
-
-{
-  "orgId" : 47,
-  "orgName": "Dancing with you all",
-  "type" : "fraud",
-  "description" : "this organisation set up a paypal link that doesn't link to them",
-  "email" : "someemail@gmail.com"
-
-}
-
-<> 2021-09-09T085925.400.json
-
-###
-
-POST http://localhost:8080/report/organisation
-Content-Type: application/json
-
-{
-  "orgId" : 47,
-  "orgName": "Dancing with you all",
-  "type" : "fraud",
-  "description" : "this organisation set up a paypal link that doesn't link to them",
-  "email" : "someemail@gmail.com"
-
-}
-
-<> 2021-09-09T085452.200.json
-
-###
-
-POST http://localhost:8080/v1/user/register/user
-Content-Type: application/json
-
-{
-  "firstName":"Steven",
-  "lastName":"Jobs",
-  "email":"apple1@icloud.com",
-  "password":"weLive@jobs"
-
-}
-
-<> 2021-09-09T001705.400.json
-
-###
-
-POST http://localhost:8080/v1/user/register/user
-Content-Type: application/json
-
-{
-  "firstName":"Steven",
-  "lastName":"Jobs",
-  "email":"apple1@icloud.com",
-  "password":"weLive@jobs"
-
-}
-
-<> 2021-09-09T001407.500.json
-
-###
-
-POST http://localhost:8080/v1/user/register/user
-Content-Type: application/json
-
-{
-  "firstName":"Steven",
-  "lastName":"Jobs",
-  "email":"apple1@icloud.com",
-  "password":"weLive@jobs"
-
-}
-
-<> 2021-09-09T001140.500.json
-
-###
-
-POST http://localhost:8080/v1/user/register/user
-Content-Type: application/json
-
-{
-  "firstName":"Steven",
-  "lastName":"Jobs",
-  "email":"apple1@icloud.com",
-  "password":"weLive@jobs"
-
-}
-
-<> 2021-09-09T001134.200.json
-
-###
-
-POST http://localhost:8080/v1/user/register/user
-Content-Type: application/json
-
-{
-  "firstName":"Steven",
-  "lastName":"Jobs",
-  "email":"apple1@icloud.com",
-  "password":"weLive@jobs"
-
-}
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "Dancing with you all",
-  "slogan" : "There's relief in the moves",
-  "orgDescription" : "we dance and dance. and dance we dance and dance. and dance we dance and dance. and dance we dance and dance. and dance we dance and dance. and dance we dance and dance. and dance we dance and dance. and dancewe dance and dance. and dance",
-  "orgSector" : "entertainment",
-  "orgEmail" : "rdance@clank.naughtydog.com",
-  "contactPerson" : "Steven Dog",
-  "contactNumber" : "01123456783",
-  "password" : "revised title 2"
-}
-
-<> 2021-09-07T134023.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "Ratchet and Clank",
-  "slogan" : "bla bla doing alien stuff",
-  "orgDescription" : "bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuffbla bla doing alien stuff",
-  "orgSector" : "entertainment",
-  "orgEmail" : "ratchet@clank.naughtydog.com",
-  "contactPerson" : "Steven Dog",
-  "contactNumber" : "0112345678",
-  "password" : "revised title 2"
-}
-
-<> 2021-09-07T133817.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "Ratchet and Clank",
-  "slogan" : "bla bla doing alien stuff",
-  "orgDescription" : "bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuffbla bla doing alien stuff",
-  "orgSector" : "entertainment",
-  "orgEmail" : "ratchet@clank.naughtydog.com",
-  "contactPerson" : "Steven Dog",
-  "contactNumber" : "0112345678",
-  "password" : "revised title 2"
-}
-
-<> 2021-09-07T133159.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "Ratchet and Clank",
-  "slogan" : "bla bla doing alien stuff",
-  "orgDescription" : "bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuffbla bla doing alien stuff",
-  "orgSector" : "entertainment",
-  "orgEmail" : "ratchet@clank.naughtydog.com",
-  "contactPerson" : "Steven Dog",
-  "contactNumber" : "0112345678",
-  "password" : "revised title 2"
-}
-
-<> 2021-09-07T133035.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "Ratchet and Clank",
-  "slogan" : "bla bla doing alien stuff",
-  "orgDescription" : "bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuffbla bla doing alien stuff",
-  "orgSector" : "entertainment",
-  "orgEmail" : "ratchet@clank.naughtydog.com",
-  "contactPerson" : "Steven Dog",
-  "contactNumber" : "0112345678",
-  "password" : "revised title 2"
-}
-
-<> 2021-09-07T132044.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/org
-Content-Type: application/json
-
-{
-  "orgName" : "Ratchet and Clank",
-  "slogan" : "bla bla doing alien stuff",
-  "orgDescription" : "bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuff bla bla doing alien stuffbla bla doing alien stuff",
-  "orgSector" : "entertainment",
-  "orgEmail" : "ratchet@clank.naughtydog.com",
-  "contactPerson" : "Steven Dog",
-  "contactNumber" : "0112345678",
-  "password" : "revised title 2"
-}
-
-<> 2021-09-07T131718.200.json
 
 ###
 

@@ -1,21 +1,4 @@
-// import React, { Component } from 'react'
-// import "../../styles/Organisations.css"
-//
-// export class OrganisationsDash extends Component {
-//
-//     render() {
-//         return (
-//             <div className="organisations">
-//                 orgs here
-//             </div>
-//         )
-//     }
-// }
-//
-// export default OrganisationsDash
-
 import React , { Component } from 'react'
-import Avatar from '@material-ui/core/Avatar';
 import "../../styles/Organisations.css"
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -27,7 +10,6 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios'
 
-// export default function OrganisationsDash() {
 export class Users extends Component {
 
     constructor(props) {
@@ -36,8 +18,9 @@ export class Users extends Component {
         this.state = {
             users:[],
             error: "",
-            adminUserEmail: "admin@email.com",
-            serverDomain: "https://3c73e752688968.localhost.run"
+            // adminUserEmail: "admin@email.com",
+            adminUserEmail: localStorage.getItem('curr_user_email'),
+            serverDomain: "http://localhost:8080"
         }
 
     }
@@ -56,7 +39,7 @@ export class Users extends Component {
 
         axios.post(this.state.serverDomain + '/v1/user/get/users', users ,config)
             .then(response =>{
-                console.log(response)
+                // console.log(response)
                 this.setState({users: response.data.response})
                 // console.log(this.state.users)
             })
@@ -70,7 +53,7 @@ export class Users extends Component {
         return(
             <div className="OrganisationsDash">
                 <div className="userTitle">
-                    All Basic Users on Give Alot
+                    All Basic Users on Givealot
                 </div>
                 <div className="table">
                     <Grid container spacing={3}>
@@ -78,17 +61,17 @@ export class Users extends Component {
                             <TableContainer component={Paper}>
                                 <Table >
                                     <TableHead style={{backgroundColor: "#957b9e"}}>
-                                        {/*<TableCell></TableCell>*/}
-                                        <TableCell style={{color: "white"}}>First Name</TableCell>
-                                        <TableCell style={{color: "white"}}>Last Name</TableCell>
-                                        <TableCell style={{color: "white"}}>Email</TableCell>
-                                        <TableCell style={{color: "white"}}>Activation Date</TableCell>
+                                        <TableRow>
+                                            <TableCell style={{color: "white"}}>First Name</TableCell>
+                                            <TableCell style={{color: "white"}}>Last Name</TableCell>
+                                            <TableCell style={{color: "white"}}>Email</TableCell>
+                                            <TableCell style={{color: "white"}}>Activation Date</TableCell>
+                                        </TableRow>
                                     </TableHead>
                                     <TableBody>
-                                        {users.map((item, index) =>{
+                                        {users.map((item) =>{
                                             return(
-                                                <TableRow>
-                                                    {/*<TableCell><Avatar aria-label="recipe" src="https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg" /> </TableCell>*/}
+                                                <TableRow key={item.id}>
                                                     <TableCell>{item.firstname}</TableCell>
                                                     <TableCell>{item.lastname}</TableCell>
                                                     <TableCell>{item.email}</TableCell>

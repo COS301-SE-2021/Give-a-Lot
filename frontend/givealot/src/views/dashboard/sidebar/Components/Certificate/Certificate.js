@@ -5,9 +5,8 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import SaveIcon from '@material-ui/icons/Save';
-import pic from "./Style/cert5Complete.png"
-import DashHeader from "../../DashHeader/DashHeader";
 import axios from "axios";
+import {BeatLoader} from "react-spinners";
 
 
 const styles = theme => ({
@@ -15,7 +14,6 @@ const styles = theme => ({
         margin: theme.spacing(4),
 
     },
-
 });
 
 export class Certificate extends Component {
@@ -23,12 +21,15 @@ export class Certificate extends Component {
     constructor (props) {
         super(props)
         this.state={
-            level: 0,
+            level: 1,
             orgId:localStorage.getItem("id"),
-            serverDomain : 'https://3c73e752688968.localhost.run'
+            serverDomain : 'http://localhost:8080',
+            loading:false,
         };
     }
+
     componentDidMount(){
+        this.setState({loading: true});
         let config = {
             headers: {
                 "Content-Type": "application/json",
@@ -39,15 +40,17 @@ export class Certificate extends Component {
             "orgId" : this.state.orgId
         }
 
-        axios.post(this.state.serverDomain + '/v1/organisation/get/org_level', dataa  ,config)
+        axios.post('http://localhost:8080/v1/organisation/get/org_level', dataa  ,config)
             .then(response =>{
                 this.setState({level: response.data.level})
                 console.log(response)
+                this.setState({loading: false});
 
             })
             .catch(error =>{
                 console.log(error)
             })
+
     }
 
     render(){
@@ -133,10 +136,21 @@ export class Certificate extends Component {
                 </Button>
             </Link>
         }
+        let spinner
+        if(this.loading===true){
+            spinner=   <div className="spinners">
+                <BeatLoader
+                    size={50}
+                    color={"#4b4250"}
+                    loading={this.state.loading}
+
+                />
+            </div>
+        }
 
     return (
         <div className="certificate">
-
+            {spinner}
 
             <div className="view">
                 {upgrade}
@@ -150,7 +164,7 @@ export class Certificate extends Component {
                         startIcon={<SaveIcon />}
                         onClick={(e) => {
                             e.preventDefault();
-                            window.open(this.state.serverDomain + '/cert/version/pdf/' + this.state.orgId);
+                            window.open('http://localhost:8080/cert/version/pdf/' + this.state.orgId);
                         }}
                     >
                         Download
@@ -161,7 +175,7 @@ export class Certificate extends Component {
             </div>
 
             <div className="display">
-                <img src={this.state.serverDomain + "/cert/version/png/" + this.state.orgId} height={566} width={733}/>
+                <img src={"http://localhost:8080/cert/version/png/" + this.state.orgId} alt={"certificate"} height={546} width={713}/>
             </div>
         </div>
     );

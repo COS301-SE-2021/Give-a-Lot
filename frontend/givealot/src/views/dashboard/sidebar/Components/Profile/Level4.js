@@ -12,6 +12,7 @@ import CardContent from '@material-ui/core/CardContent';
 import { FormHelperText } from '@material-ui/core';
 import TextField from "@material-ui/core/TextField";
 import Axios from "axios";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 
 const styles = theme => ({
 
@@ -28,14 +29,15 @@ const initialState = {
     fileState: false,
     images:"",
     imagesState:false,
-    serverDomain : "https://3c73e752688968.localhost.run"
-
+    //serverDomain : "https://3c73e752688968.localhost.run"
+    serverDomain : 'http://localhost:8080',
 
 };
 
 export class Level4 extends Component {
 
     state = initialState;
+    static contextType = ApiContext;
     constructor (props) {
         super(props)
         this.state={

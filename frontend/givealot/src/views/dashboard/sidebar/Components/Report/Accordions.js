@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -16,6 +16,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import axios from 'axios';
+import {ApiContext} from "../../../../../apiContext/ApiContext";
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -42,11 +44,11 @@ const useStyles = makeStyles((theme) => ({
 export default function Accordions({org,id,title, description,appeal}) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
-    const [orgId, setId] = React.useState(org);
-    const [reportId, setReportId] = React.useState(id);
+    const [orgId] = React.useState(org);
+    const [reportId] = React.useState(id);
     const [message, setMessage] = React.useState("");
-    const [appeall, setAppeal] = React.useState(appeal);
-    const [serverDomain, setServerDomain] = React.useState("https://3c73e752688968.localhost.run");
+    const [appeal1] = React.useState(appeal);
+    const [serverDomain] = useState(useContext(ApiContext))
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
@@ -85,7 +87,7 @@ export default function Accordions({org,id,title, description,appeal}) {
     }
 
 
-    if(appeall){
+    if(appeal1){
         return (
             <div className={classes.root}>
 
@@ -113,7 +115,7 @@ export default function Accordions({org,id,title, description,appeal}) {
                     <AccordionActions>
                         <Button size="small">Cancel</Button>
                         <button size="small" className="AppealButton1" onClick={handleClickOpen}>
-                            Appeal
+                            Appealed
                         </button>
                     </AccordionActions>
                 </Accordion>

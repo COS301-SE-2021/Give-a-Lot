@@ -39,7 +39,8 @@ public class LoginServiceImp implements LoginService{
     @Autowired
     PasswordResetRepository passwordResetRepository;
 
-    public LoginResponse login(LoginRequest request) throws Exception {
+    public LoginResponse login(LoginRequest request) throws Exception
+    {
         if(request == null)
         {
             throw new Exception("Exception: login request object is null");
@@ -111,7 +112,7 @@ public class LoginServiceImp implements LoginService{
         {
             throw new Exception("user password is incorrect");
         }
-        return new LoginResponse(true,"User logged in successfully","general", user.getId());
+        return new LoginResponse(request.getEmail().trim(),true,"User logged in successfully","general", user.getId());
     }
 
     @Override /*tested - works perfect*/
@@ -145,7 +146,7 @@ public class LoginServiceImp implements LoginService{
         {
             throw new Exception("user password is incorrect");
         }
-        return new LoginResponse(true,"User logged in succesfully","organisation",user.getOrgId());
+        return new LoginResponse(request.getEmail(),true,"User logged in succesfully","organisation",user.getOrgId());
     }
 
     @Override /*tested - works perfect*/
@@ -183,7 +184,7 @@ public class LoginServiceImp implements LoginService{
         {
             throw new Exception("user password is incorrect");
         }
-        return new LoginResponse(true,"User logged in succesfully","admin", user.getId());
+        return new LoginResponse(request.getEmail(),true,"User logged in succesfully","admin", user.getId());
     }
 
     @Override
@@ -202,7 +203,7 @@ public class LoginServiceImp implements LoginService{
         passwordResetRepository.save(myToken);
        // System.out.println(myToken.);
         /**Sending a verification email**/
-     /*   System.out.println("Sending Email...");
+        System.out.println("Sending Email...");
 
         Mail mail = new Mail(body.getEmail(),"Forgot Password","Hey there we understand it happens here's your token enter this to get access to change your password" +
                 "\n Token: " +token+
@@ -211,7 +212,7 @@ public class LoginServiceImp implements LoginService{
                 "Kind Regards \n" +
                 "Givealot Team");
 
-        sendMailService.sendMail(mail);*/
+        sendMailService.sendMail(mail);
         System.out.println("Email sent successfully");
 
         return new ForgotPasswordResponse(true,"token sent");

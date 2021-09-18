@@ -7,7 +7,7 @@ import SignUp from './views/registration/SignUp'
 import RegisterOrg from './views/registration/registerOrganisation/RegisterOrganisation'
 import RegisterUser from './views/registration/registerUser/RegisterUser'
 import VerifyCertificate from './views/verifyCertificate/VerifyCertificate'
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import ViewOrganisation from "./views/browse/Components/Organisation/ViewOrganisation";
 import UserSuccess from "./views/registration/registerUser/UserSuccess";
 import EmailSent from "./views/login/Components/EmailSent";
@@ -15,6 +15,8 @@ import Password from "./views/login/Components/Password";
 import ResetPassword from "./views/login/Components/ResetPassword";
 import RegisterOrganisation from './views/registration/registerOrganisation/OrganisationRegistration';
 import {ApiUrlProvider} from "./apiContext/ApiContext";
+import ResetSuccess from "./views/login/Components/ResetSuccess";
+import TermsAndConditions from "./views/registration/TermsAndConditions";
 
 function App()
 {
@@ -27,12 +29,14 @@ function App()
                 <Route path="/login" exact component={Login}/>
                 <Route path="/signUp" exact component={SignUp}/>
                 <Route path="/UserSuccess" exact component={UserSuccess}/>
+                <Route path="/ResetSuccess" exact component={ResetSuccess}/>
+                <Route path="/TermsAndConditions" exact component={TermsAndConditions}/>
                 <Route path="/ResetPassword" exact component={ResetPassword}/>
                 <Route path="/Password" exact component={Password}/>
                 <Route path="/EmailSent" exact component={EmailSent}/>
                 <Route path="/register/organisation" exact component={RegisterOrganisation}/>
                 <Route path="/registerUser" exact component={RegisterUser}/>
-                <Route path="/dashboard/" exact component={Dashboard}/>
+                <Route exact path="/dashboard/" component={Dashboard}/>
                 <Route path="/organisation/:id" exact component={ViewOrganisation} />
                 <Route path="/verifyCertificate" exact component={VerifyCertificate} />
               </Switch>

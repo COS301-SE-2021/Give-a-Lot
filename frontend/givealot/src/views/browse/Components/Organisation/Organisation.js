@@ -1,4 +1,3 @@
-import react from 'react';
 import {useHistory} from "react-router-dom";
 import {Box, Tooltip} from "@material-ui/core";
 
@@ -44,7 +43,7 @@ export default function Organisation(props)
     return(
     <Box className ="sector_organisation">
         <Tooltip title={props.orgName}  aria-label="add">
-            <img src={org_image} alt={"profile-image"} id={props.orgId} onClick={e => openOrganisation(e,"id")}/>
+            <img src={org_image} alt={"profile-image"} id={props.orgId} onClick={e => openOrganisation(e,"id")} />
         </Tooltip>
         <Box className="sector_organisation_meta">
             <p className="sector_organisation_title">{props.orgName}</p>

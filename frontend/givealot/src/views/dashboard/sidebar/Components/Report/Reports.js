@@ -2,11 +2,13 @@ import React, {Component} from 'react'
 import "../Report/Style/Reports.css"
 import Accordions from "../Report/Accordions"
 import axios from "axios";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 
 
 
 export class Reports extends Component {
 
+    static contextType = ApiContext;
     constructor(props) {
         super(props)
         this.state = {
@@ -14,7 +16,7 @@ export class Reports extends Component {
             reports: [],
             orgId:localStorage.getItem("id"),
             error: "",
-            serverDomain: "https://3c73e752688968.localhost.run"
+            serverDomain : 'http://localhost:8080',
         }
     }
     componentDidMount(){
@@ -28,7 +30,7 @@ export class Reports extends Component {
             "orgId" : this.state.orgId
         }
 
-        axios.post(this.serverDomain + '/report/get/all', dataa  ,config)
+        axios.post('http://localhost:8080/report/get/all', dataa  ,config)
             .then(response =>{
                 this.setState({reports: response.data.object})
                 console.log(response)
@@ -58,7 +60,7 @@ export class Reports extends Component {
                     </div>
                     <div className="accordion">
 
-                        {reports.map((item, index) =>{
+                        {reports.map((item) =>{
                             return(
                                 <Accordions
                                     org={item.orgId}

@@ -67,7 +67,8 @@ export class Level3 extends Component {
             treasurerContacts:"",
             secretaryName:"",
             secretaryContacts:"",
-            committee:""
+            committee:"",
+            serverDomain: "https://3c73e752688968.localhost.run"
 
         };
     }
@@ -111,7 +112,7 @@ export class Level3 extends Component {
 
         console.log(com)
         Axios
-            .post("http://localhost:8080/v1/organisation/add/committee", com)
+            .post(this.state.serverDomain + "/v1/organisation/add/committee", com)
             .then(res => console.log(res))
             .catch(err => console.log(err));
 
@@ -125,7 +126,7 @@ export class Level3 extends Component {
 
         console.log(social)
         Axios
-            .post("http://localhost:8080/v1/organisation/add/socials", social)
+            .post(this.state.serverDomain + "/v1/organisation/add/socials", social)
             .then(res => console.log(res))
             .catch(err => console.log(err));
 
@@ -137,13 +138,9 @@ export class Level3 extends Component {
 
         console.log(social1)
         Axios
-            .post("http://localhost:8080/v1/organisation/add/socials", social1)
+            .post(this.state.serverDomain + "/v1/organisation/add/socials", social1)
             .then(res => console.log(res))
             .catch(err => console.log(err));
-
-
-
-
     };
 
     onToast3 = () => {
@@ -168,7 +165,7 @@ export class Level3 extends Component {
         const org = {
             orgId :32
         }
-        axios.post('http://localhost:8080/v1/organisation/get/organisations',admin , config)
+        axios.post(this.state.serverDomain + '/v1/organisation/get/organisations',admin , config)
             .then(response =>{
                 console.log(response)
                 this.setState({level3: response.data.response[0]})

@@ -25,6 +25,7 @@ export class Certificate extends Component {
         this.state={
             level: 0,
             orgId:localStorage.getItem("id"),
+            serverDomain : 'https://3c73e752688968.localhost.run'
         };
     }
     componentDidMount(){
@@ -38,7 +39,7 @@ export class Certificate extends Component {
             "orgId" : this.state.orgId
         }
 
-        axios.post('http://localhost:8080/v1/organisation/get/org_level', dataa  ,config)
+        axios.post(this.state.serverDomain + '/v1/organisation/get/org_level', dataa  ,config)
             .then(response =>{
                 this.setState({level: response.data.level})
                 console.log(response)
@@ -149,7 +150,7 @@ export class Certificate extends Component {
                         startIcon={<SaveIcon />}
                         onClick={(e) => {
                             e.preventDefault();
-                            window.open('http://localhost:8080/cert/version/pdf/' + this.state.orgId);
+                            window.open(this.state.serverDomain + '/cert/version/pdf/' + this.state.orgId);
                         }}
                     >
                         Download
@@ -160,7 +161,7 @@ export class Certificate extends Component {
             </div>
 
             <div className="display">
-                <img src={"http://localhost:8080/cert/version/png/" + this.state.orgId} height={566} width={733}/>
+                <img src={this.state.serverDomain + "/cert/version/png/" + this.state.orgId} height={566} width={733}/>
             </div>
         </div>
     );

@@ -62,15 +62,14 @@
     line-height: 1.5;
     padding-left: 7px;
 }
-.registerUserInnerInput{
-
+.registerUserInnerInput
+{
     line-height: 1.2;
     display: block;
     width: 100%;
     height: 60px;
     font-size: 16px;
     color: #333;
-    text-transform: lowercase;
     padding: 0 7px 0 10px;
     outline: none;
     border: 2px solid #4b4250;
@@ -80,11 +79,9 @@
 
 .nameFields
 {
-
     height: 60px;
     font-size: 16px;
     color: #333;
-    text-transform: lowercase;
     padding: 0 7px 0 10px;
     outline: none;
     border: 2px solid #4b4250;
@@ -180,5 +177,16 @@
 .error{
     color: red;
     float: right;
+}
 
+#emailError,#PasswordError, #registrationInfoPrompt, #registrationInfoPromptWait
+{
+    position: relative;
+    width: fit-content;
+    flex-direction: row;
+    display: none;
+
+    left: 50%;
+    margin-bottom: 10px;
+    transform: translateX(-50%);
 }

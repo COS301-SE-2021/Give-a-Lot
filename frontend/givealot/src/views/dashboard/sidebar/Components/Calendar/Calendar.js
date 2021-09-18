@@ -53,6 +53,7 @@ export default class Demo extends React.PureComponent {
             addedAppointment: {},
             appointmentChanges: {},
             editingAppointment: undefined,
+            serverDomain : 'https://3c73e752688968.localhost.run'
         };
 
         this.commitChanges = this.commitChanges.bind(this);
@@ -113,7 +114,7 @@ export default class Demo extends React.PureComponent {
                         'Access-Control-Allow-Origin': '*',
                     }
                 }
-                axios.post('http://localhost:8080/event/calender/add', eventDayAndTime ,config)
+                axios.post(this.state.serverDomain + '/event/calender/add', eventDayAndTime ,config)
                     .then(response =>{
                         console.log(response)
                     })
@@ -140,7 +141,7 @@ export default class Demo extends React.PureComponent {
                         "newTitle" : testing.title
                     }
 
-                    axios.post('http://localhost:8080/event/calender/edit/title', titleUpdate ,config)
+                    axios.post(this.state.serverDomain + '/event/calender/edit/title', titleUpdate ,config)
                         .then(response =>{
                             console.log(response)
                         })
@@ -168,7 +169,7 @@ export default class Demo extends React.PureComponent {
                         "eventId" : eventId,
                         "newDate" : eventStartDate
                     }
-                    axios.post('http://localhost:8080/event/calender/edit/date/start', startDateUpdate ,config)
+                    axios.post(this.state.serverDomain + '/event/calender/edit/date/start', startDateUpdate ,config)
                         .then(response =>{
                             console.log(response)
                         })
@@ -195,7 +196,7 @@ export default class Demo extends React.PureComponent {
                         "eventId" : eventId,
                         "newDate" : eventEndDate
                     }
-                    axios.post('http://localhost:8080/event/calender/edit/date/end', endDateUpdate ,config)
+                    axios.post(this.state.serverDomain + '/event/calender/edit/date/end', endDateUpdate ,config)
                         .then(response =>{
                             console.log(response)
                         })
@@ -219,7 +220,7 @@ export default class Demo extends React.PureComponent {
                         "newTime" : startTime
                     }
                     console.log(startTimeUpdate)
-                    axios.post('http://localhost:8080/event/calender/edit/time/start', startTimeUpdate ,config)
+                    axios.post(this.state.serverDomain + '/event/calender/edit/time/start', startTimeUpdate ,config)
                         .then(response =>{
                             console.log(response)
                         })
@@ -243,7 +244,7 @@ export default class Demo extends React.PureComponent {
                         "newTime" : endTime
                     }
                     console.log(endTimeUpdate)
-                    axios.post('http://localhost:8080/event/calender/edit/time/end', endTimeUpdate ,config)
+                    axios.post(this.state.serverDomain + '/event/calender/edit/time/end', endTimeUpdate ,config)
                         .then(response =>{
                             console.log(response)
                         })
@@ -266,7 +267,7 @@ export default class Demo extends React.PureComponent {
                         "newDescription" : testing.notes
                     }
                     console.log(descriptionUpdate)
-                    axios.post('http://localhost:8080/event/calender/edit/description', descriptionUpdate ,config)
+                    axios.post(this.state.serverDomain + '/event/calender/edit/description', descriptionUpdate ,config)
                         .then(response =>{
                             console.log(response)
                         })
@@ -294,7 +295,7 @@ export default class Demo extends React.PureComponent {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        axios.get('http://localhost:8080/event/get/calender/'+this.state.email,  config)
+        axios.get(this.state.serverDomain +'/event/get/calender/'+this.state.email,  config)
             .then(response =>{
                 console.log(response)
                 this.setState({data: response.data.object})

@@ -45,6 +45,7 @@ const initialState = {
     ngoDateState:false,
     logoState:false,
     logo:"",
+    serverDomain: "https://3c73e752688968.localhost.run"
 
 };
 
@@ -87,7 +88,7 @@ export class Level0 extends Component {
         alert("take away submit button functionality");
 
         fetch(
-            'http://localhost:8080/v1/organisation/add/logo',
+            this.state.serverDomain + '/v1/organisation/add/logo',
             {
                 method: 'POST',
                 body: formData,
@@ -130,7 +131,7 @@ export class Level0 extends Component {
 
             console.log(data)
             Axios
-                .post("http://localhost:8080/v1/organisation/add/ngopdate", data)
+                .post(this.state.serverDomain + "/v1/organisation/add/ngopdate", data)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 
@@ -159,7 +160,7 @@ export class Level0 extends Component {
         const org = {
             orgId :32
         }
-        axios.post('http://localhost:8080/v1/organisation/get/organisations',admin , config)
+        axios.post(this.state.serverDomain + '/v1/organisation/get/organisations',admin , config)
             .then(response =>{
                 console.log(response)
                 this.setState({level0: response.data.response[0]})

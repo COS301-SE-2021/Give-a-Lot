@@ -24,6 +24,7 @@ export class OrgValidate extends Component {
             openNgoImage: false,
             openNgoImageDeny: false,
             orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1],
+            serverDomain: "https://3c73e752688968.localhost.run"
         }
     }
     handleClose = () => {
@@ -57,7 +58,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/ngo_date/true', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/ngo_date/true', config)
             .then(response =>{
                 console.log(response)
                 // console.log(this.state.validation)
@@ -78,7 +79,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/ngo_date/false', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/ngo_date/false', config)
             .then(response =>{
                 console.log(response)
             })
@@ -97,7 +98,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/ngo_number/true', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/ngo_number/true', config)
             .then(response =>{
                 console.log(response)
             })
@@ -116,7 +117,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/ngo_number/false', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/ngo_number/false', config)
             .then(response =>{
                 console.log(response)
             })
@@ -135,7 +136,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/image/true', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/image/true', config)
             .then(response =>{
                 console.log(response)
             })
@@ -155,7 +156,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/image/false', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/image/false', config)
             .then(response =>{
                 console.log(response)
             })
@@ -173,7 +174,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/website/true', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/website/true', config)
             .then(response =>{
                 console.log(response)
             })
@@ -191,7 +192,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/website/false', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/website/false', config)
             .then(response =>{
                 console.log(response)
             })
@@ -209,7 +210,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/address/true', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/address/true', config)
             .then(response =>{
                 console.log(response)
             })
@@ -227,7 +228,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/address/false', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/address/false', config)
             .then(response =>{
                 console.log(response)
             })
@@ -245,7 +246,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/establishment_date/true', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/establishment_date/true', config)
             .then(response =>{
                 console.log(response)
             })
@@ -263,7 +264,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/establishment_date/false', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/establishment_date/false', config)
             .then(response =>{
                 console.log(response)
             })
@@ -281,7 +282,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/donation_url/true', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/donation_url/true', config)
             .then(response =>{
                 console.log(response)
             })
@@ -299,7 +300,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/donation_url/false', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/donation_url/false', config)
             .then(response =>{
                 console.log(response)
             })
@@ -317,7 +318,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/qrCodeUrl/true', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/qrCodeUrl/true', config)
             .then(response =>{
                 console.log(response)
             })
@@ -335,7 +336,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/qrCodeUrl/false', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/qrCodeUrl/false', config)
             .then(response =>{
                 console.log(response)
             })
@@ -354,7 +355,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/committee_details/true', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/committee_details/true', config)
             .then(response =>{
                 console.log(response)
             })
@@ -372,7 +373,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/committee_details/false', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/committee_details/false', config)
             .then(response =>{
                 console.log(response)
             })
@@ -390,7 +391,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/socialMedia1/true', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/socialMedia1/true', config)
             .then(response =>{
                 console.log(response)
             })
@@ -408,7 +409,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/socialMedia1/false', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/socialMedia1/false', config)
             .then(response =>{
                 console.log(response)
             })
@@ -426,7 +427,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/socialMedia2/true', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/socialMedia2/true', config)
             .then(response =>{
                 console.log(response)
             })
@@ -444,7 +445,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/socialMedia2/false', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/socialMedia2/false', config)
             .then(response =>{
                 console.log(response)
             })
@@ -462,7 +463,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/audit_document/true', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/audit_document/true', config)
             .then(response =>{
                 console.log(response)
             })
@@ -480,7 +481,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/audit_document/false', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/audit_document/false', config)
             .then(response =>{
                 console.log(response)
             })
@@ -499,7 +500,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/images/true', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/images/true', config)
             .then(response =>{
                 console.log(response)
             })
@@ -517,7 +518,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/images/false', config)
+        axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ 14+ '/images/false', config)
             .then(response =>{
                 console.log(response)
             })
@@ -538,7 +539,7 @@ export class OrgValidate extends Component {
             "orgId":this.state.orgId
         }
 
-        axios.post('http://localhost:8080/v1/notifications/get/level_information', adminUsersRequestBody ,config)
+        axios.post(this.state.serverDomain + '/v1/notifications/get/level_information', adminUsersRequestBody ,config)
             .then(response =>{
                 // console.log(response)
                 this.setState({validation: response.data.object})

@@ -47,6 +47,7 @@ export class Level1 extends Component {
             websiteState: false,
             address:"",
             addressState:false,
+            serverDomain: "https://3c73e752688968.localhost.run"
 
         };
     }
@@ -84,7 +85,7 @@ export class Level1 extends Component {
             };
 
             Axios
-                .post("http://localhost:8080/v1/organisation/add/website", web)
+                .post(this.state.serverDomain + "/v1/organisation/add/website", web)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
@@ -97,7 +98,7 @@ export class Level1 extends Component {
             };
 
             Axios
-                .post("http://localhost:8080/v1/organisation/add/address", add)
+                .post(this.state.serverDomain + "/v1/organisation/add/address", add)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
@@ -127,7 +128,7 @@ export class Level1 extends Component {
         const org = {
             orgId :32
         }
-        axios.post('http://localhost:8080/v1/organisation/get/organisations',admin , config)
+        axios.post(this.state.serverDomain + '/v1/organisation/get/organisations',admin , config)
             .then(response =>{
                 console.log(response)
                 this.setState({level1: response.data.response[0]})

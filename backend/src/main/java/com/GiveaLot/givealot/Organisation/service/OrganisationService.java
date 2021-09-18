@@ -53,7 +53,8 @@ public interface OrganisationService {
     getOrgCertLevelResponse getOrgCertLevel(GetOrganisationCertificateLevelRequest request)throws Exception;
     responseJSON getNumPerMonth(getNumOrganisationPerMonthRequest request)throws Exception;
     generalOrganisationResponse updateOrganisationInfo(updateOrganisationInfoRequest request) throws Exception;
-
     void clearTabels();
+    boolean emailExists(emailExistsRequest request) throws Exception;
+    responseJSON selectOrganisationAdmin(Long orgId) throws Exception;
 
 }

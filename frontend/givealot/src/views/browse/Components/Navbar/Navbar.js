@@ -1,9 +1,10 @@
 import {Link} from "react-router-dom";
 import logo from "../../../../assets/logo/logo3_1.png";
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {TextField} from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import SearchResults from "../SearchResults/SearchResults";
+import {ApiContext} from "../../../../apiContext/ApiContext";
 
 
 
@@ -14,12 +15,13 @@ function Navbar()
     const [searchResultsOrganisations, setSearchResultsOrganisations] = useState([]);
     const [showSearchResults, SetShowSearchResults] = useState(false);
     const [searchResultsOrganisationsRelated, setSearchResultsOrganisationsRelated] = useState([]);
+    const [serverDomain, setServerDomain] = useState(useContext(ApiContext))
 
 
     function searchOrganisation(e)
     {
         e.preventDefault();
-        fetch("http://localhost:8080/search/organisation/browse/"+document.getElementById("browse_search_input").value)
+        fetch(serverDomain + "/search/organisation/browse/"+document.getElementById("browse_search_input").value)
         .then(async response =>{
             const data = await response.json();
 

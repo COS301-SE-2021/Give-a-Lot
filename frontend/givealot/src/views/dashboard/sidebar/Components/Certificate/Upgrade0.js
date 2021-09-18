@@ -44,6 +44,7 @@ const initialState = {
     ngoNumberError:"",
     ngoDateError:"",
     logoError:"",
+    serverDomain: 'https://3c73e752688968.localhost.run'
 };
 
 
@@ -81,7 +82,7 @@ export class Upgrade0 extends Component {
         alert("take away submit button functionality");
 
         fetch(
-            'http://localhost:8080/v1/organisation/add/logo',
+            this.state.serverDomain + '/v1/organisation/add/logo',
             {
                 method: 'POST',
                 body: formData,
@@ -154,7 +155,7 @@ export class Upgrade0 extends Component {
             };
             console.log(data)
             Axios
-                .post("http://localhost:8080/v1/organisation/add/ngopdate", data)
+                .post(this.state.serverDomain + "/v1/organisation/add/ngopdate", data)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 

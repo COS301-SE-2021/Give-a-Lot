@@ -22,7 +22,8 @@ export class Org extends Component {
             investigate: '',
             open: false,
             openInvestigate: false,
-            openSuspend: false
+            openSuspend: false,
+            serverDomain: "https://3c73e752688968.localhost.run"
         }
         // console.log(this.state.orgId)
         // let idUrl = window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
@@ -53,7 +54,7 @@ export class Org extends Component {
             }
         }
         console.log(this.props)
-        axios.get('http://localhost:8080/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config)
+        axios.get(this.state.serverDomain + '/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config)
             .then(response =>{
                 console.log(response)
                 this.setState({orgS: response.data.response})
@@ -76,7 +77,7 @@ export class Org extends Component {
             orgID : window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
         }
         // console.log(activate)
-        axios.put('http://localhost:8080/v1/organisation/activate/orgId',activate ,config)
+        axios.put(this.state.serverDomain + '/v1/organisation/activate/orgId',activate ,config)
             .then(response =>{
                 console.log(response)
             })
@@ -100,7 +101,7 @@ export class Org extends Component {
             orgID : window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
         }
         // console.log("investigate")
-        axios.put('http://localhost:8080/v1/organisation/investigate/orgId',investigate ,config)
+        axios.put(this.state.serverDomain + '/v1/organisation/investigate/orgId',investigate ,config)
             .then(response =>{
                 console.log(response)
                 // this.setState({investigate: response.data})
@@ -124,7 +125,7 @@ export class Org extends Component {
             orgID : window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
         }
         // console.log("investigate")
-        axios.put('http://localhost:8080/v1/organisation/suspend/orgId',suspend ,config)
+        axios.put(this.state.serverDomain + '/v1/organisation/suspend/orgId',suspend ,config)
             .then(response =>{
                 console.log(response)
                 // this.setState({investigate: response.data})

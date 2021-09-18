@@ -9,7 +9,6 @@ import OrganisationsDash from "./sidebar/Components/OrganisationsDash/Organisati
 import Users from "./sidebar/Components/Users/Users"
 import Email from "./sidebar/Components/Email/Email"
 import Featured from "./sidebar/Components/Featured/Featured";
-import DashLogo from "../login/Components/DashLogo";
 import Reports from "../../views/dashboard/sidebar/Components/Report/Reports"
 import Org from "../dashboard/sidebar/Components/OrganisationsDash/Org"
 import Profile from "../dashboard/sidebar/Components/Profile/Profile"
@@ -20,7 +19,6 @@ import Upgrade5 from "./sidebar/Components/Certificate/Upgrade5"
 import Upgrade4 from "./sidebar/Components/Certificate/Upgrade4"
 import Upgrade0 from "./sidebar/Components/Certificate/Upgrade0"
 import Upgrade1 from "./sidebar/Components/Certificate/Upgrade1"
-// import Todos from "../dashboard/sidebar/Components/Todos/Todos"
 import Calendar from "../dashboard/sidebar/Components/Calendar/Calendar"
 import Validate from "../dashboard/sidebar/Components/Validate/Validate"
 import AddOrg from "../dashboard/sidebar/Components/OrganisationsDash/AddOrg"
@@ -96,7 +94,6 @@ function Dashboard() {
                 </div>
             </div>
         </Router>
-
     );
 }
 

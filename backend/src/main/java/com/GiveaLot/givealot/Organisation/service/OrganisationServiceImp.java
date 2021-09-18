@@ -1,5 +1,4 @@
 package com.GiveaLot.givealot.Organisation.service;
-
 import com.GiveaLot.givealot.Blockchain.Repository.BlockChainRepository;
 import com.GiveaLot.givealot.Blockchain.dataclass.Blockchain;
 import com.GiveaLot.givealot.Browse.model.Browse;
@@ -46,11 +45,11 @@ import java.util.Locale;
 
 @Service
 @Configurable
-public class OrganisationServiceImp implements OrganisationService {
-
-
+public class OrganisationServiceImp implements OrganisationService
+{
     @Autowired
     private OrganisationRepository organisationRepository;
+
     @Autowired
     private NotificationRepository notificationRepository;
 
@@ -121,14 +120,53 @@ public class OrganisationServiceImp implements OrganisationService {
         return new getOrganisationsResponse("get_orgs_200_ok","success",res);
     }
 
-    @Override /*tested all good - converted*/
+    @Override
+    public responseJSON selectOrganisationAdmin(Long orgId) throws Exception
+    {
+        if(orgId == null)
+            throw new Exception("Exception: Id provided is null");
+
+        Organisations res_tmp = organisationRepository.selectOrganisationById(orgId);
+
+        if(res_tmp == null)
+            throw new Exception("organisation does not exist");
+
+        else return new responseJSON("sel_org_200_ok", "success", res_tmp);
+    }
+
+    @Override
     public selectOrganisationResponse selectOrganisation(Long orgId, Long userId) throws Exception {
 
         if(orgId == null || userId == null)
             throw new Exception("Exception: Id provided is null");
 
-        Organisations res = organisationRepository.selectOrganisationById(orgId);
+        Organisations res_tmp = organisationRepository.selectOrganisationById(orgId);
+        OrganisationResponseObject res = new OrganisationResponseObject(res_tmp.getOrgName(),
+                res_tmp.getSlogan(),
+                res_tmp.getOrgDescription(),
+                res_tmp.getOrgSector(),
+                null,
+                null,
+                null,
+                null,
+                null);
 
+        Blockchain blockchain_get_level = blockChainRepository.selectBlockchainOrgId(orgId);
+
+        if(blockchain_get_level == null)
+            throw new Exception("fatal: level not available");
+        else res.setCertificateLevel(blockchain_get_level.getLevel());
+
+        OrganisationInfo get_org_socials = organisationInfoRepository.selectOrganisationInfo(orgId);
+
+        if(get_org_socials == null)
+            throw new Exception("fatal: info not available");
+        else
+        {
+            res.setFacebookUrl(get_org_socials.getFacebook());
+            res.setIstagramURl(get_org_socials.getInstagram());
+            res.setTwitterUrl(get_org_socials.getTwitter());
+        }
 
         if(userId != -1) {
             User user = userRepository.findUserById(userId);
@@ -155,9 +193,8 @@ public class OrganisationServiceImp implements OrganisationService {
             }
             else
             {
-                browseRecommenderRepository.updateInteractions(userId,browse.getInteractions() + 1);
+                browseRecommenderRepository.updateInteractions(userId,browse.getInteractions() + 1, res.getOrgSector());
             }
-
             return new selectOrganisationResponse("sel_org_200_ok", "success", res);
         }
         else throw new Exception("Exception: id does not exist, check spelling");
@@ -1708,9 +1745,22 @@ public class OrganisationServiceImp implements OrganisationService {
         organisationRepository.deleteAllInBatch();
         notificationRepository.deleteAllInBatch();
         organisationPointsRepository.deleteAllInBatch();
-
     }
 
 
+    @Override
+    public boolean emailExists(emailExistsRequest request)throws Exception {
+        if(request == null)
+            throw new Exception("request is NULL");
+        else if(request.getEmail() == null)
+            throw new Exception("email is null");
+        else if(request.getEmail().isEmpty() || !request.getEmail().contains("@"))
+            throw new Exception("email is invalid");
 
+        if(organisationRepository.selectOrganisationByEmail(request.getEmail()) == null)
+        {
+            return userRepository.findUserByEmail(request.getEmail()) != null;
+        }
+        return true;
+    }
 }

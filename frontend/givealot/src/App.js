@@ -13,29 +13,31 @@ import UserSuccess from "./views/registration/registerUser/UserSuccess";
 import EmailSent from "./views/login/Components/EmailSent";
 import Password from "./views/login/Components/Password";
 import ResetPassword from "./views/login/Components/ResetPassword";
-
+import RegisterOrganisation from './views/registration/registerOrganisation/OrganisationRegistration';
+import {ApiUrlProvider} from "./apiContext/ApiContext";
 
 function App()
 {
   return(
-     <Router>
-        <Switch>
-          <Route path="/" exact component={Home}/>
-          <Route path="/browse" exact component={Browse}/>
-          <Route path="/login" exact component={Login}/>
-          <Route path="/signUp" exact component={SignUp}/>
-          <Route path="/UserSuccess" exact component={UserSuccess}/>
-          <Route path="/ResetPassword" exact component={ResetPassword}/>
-          <Route path="/Password" exact component={Password}/>
-          <Route path="/EmailSent" exact component={EmailSent}/>
-          <Route path="/registerOrg" exact component={RegisterOrg}/>
-          <Route path="/registerUser" exact component={RegisterUser}/>
-          <Route path="/dashboard/" exact component={Dashboard}/>
-          <Route path="/organisation/:id" exact component={ViewOrganisation} />
-          <Route path="/verifyCertificate" exact component={VerifyCertificate} />
-        </Switch>
-      </Router>
-
+      <ApiUrlProvider>
+         <Router>
+              <Switch>
+                <Route path="/" exact component={Home}/>
+                <Route path="/browse" exact component={Browse}/>
+                <Route path="/login" exact component={Login}/>
+                <Route path="/signUp" exact component={SignUp}/>
+                <Route path="/UserSuccess" exact component={UserSuccess}/>
+                <Route path="/ResetPassword" exact component={ResetPassword}/>
+                <Route path="/Password" exact component={Password}/>
+                <Route path="/EmailSent" exact component={EmailSent}/>
+                <Route path="/register/organisation" exact component={RegisterOrganisation}/>
+                <Route path="/registerUser" exact component={RegisterUser}/>
+                <Route path="/dashboard/" exact component={Dashboard}/>
+                <Route path="/organisation/:id" exact component={ViewOrganisation} />
+                <Route path="/verifyCertificate" exact component={VerifyCertificate} />
+              </Switch>
+          </Router>
+      </ApiUrlProvider>
   );
 }
 

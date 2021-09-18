@@ -8,9 +8,10 @@ import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 import ReportIcon from '@material-ui/icons/Report';
 import NotificationsOutlinedIcon from '@material-ui/icons/NotificationsOutlined';
 import axios from "axios";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 
 export class Cards extends Component {
-
+    static contextType = ApiContext;
     constructor(props) {
         super(props)
 
@@ -21,7 +22,8 @@ export class Cards extends Component {
             adminUserEmail:'admin@email.com',
             orgId: 32,
             reports: [],
-            adminId: 14
+            adminId: 4,
+            serverDomain: this.context
         }
     }
 
@@ -44,7 +46,7 @@ export class Cards extends Component {
             // "orgId":"id of an organisation"
             "orgId" : this.state.orgId
         }
-        axios.post('http://localhost:8080/report/get/all', adminUsersRequestBodyReports, config)
+        axios.post(this.state.serverDomain + '/report/get/all', adminUsersRequestBodyReports, config)
             .then(response =>{
                 console.log(response)
                 this.setState({ reports: response.data.object })
@@ -67,7 +69,7 @@ export class Cards extends Component {
         const adminUsersRequestBody = {
             "adminUserEmail" : this.state.adminUserEmail
         }
-        axios.post('http://localhost:8080/v1/user/get/num_user', adminUsersRequestBody, config)
+        axios.post(this.state.serverDomain + '/v1/user/get/num_user', adminUsersRequestBody, config)
             .then(response =>{
                 console.log(response)
                 this.setState({ Users: response.data.response })
@@ -90,7 +92,7 @@ export class Cards extends Component {
         const adminUsersRequestBodyOrg = {
             "adminId" : this.state.adminId
         }
-        axios.post('http://localhost:8080/v1/organisation/get/organisations',adminUsersRequestBodyOrg , config)
+        axios.post(this.state.serverDomain + '/v1/organisation/get/organisations',adminUsersRequestBodyOrg , config)
             .then(response =>{
                 console.log(response)
                 this.setState({ Organisations: response.data.response })
@@ -113,7 +115,7 @@ export class Cards extends Component {
         const adminUsersRequestBodyNotification = {
             "adminUserEmail" : this.state.adminUserEmail
         }
-        axios.post('http://localhost:8080/v1/notifications/get/num_notifications',adminUsersRequestBodyNotification , config)
+        axios.post(this.state.serverDomain + '/v1/notifications/get/num_notifications',adminUsersRequestBodyNotification , config)
             .then(response =>{
                 // console.log(response)
                 this.setState({ notifications: response.data.response })

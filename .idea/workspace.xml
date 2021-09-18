@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="at login email set complete">
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Featured, registered users field updated">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Featured.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Featured.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/OrganisationsDash.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/OrganisationsDash.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Users/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Users/Users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/Validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/Validate.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +156,7 @@
       <workItem from="1631652568961" duration="2011000" />
       <workItem from="1631710952862" duration="3507000" />
       <workItem from="1631869973238" duration="29530000" />
-      <workItem from="1631959618812" duration="7985000" />
+      <workItem from="1631959618812" duration="8349000" />
     </task>
     <task id="LOCAL-00074" summary="Org Name update fix">
       <created>1631020351728</created>
@@ -516,7 +520,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="certificate download backend test" />
     <MESSAGE value="QR code intergration and upload test and controller" />
     <MESSAGE value="calendar change event" />
     <MESSAGE value="register organisation" />
@@ -541,7 +544,8 @@
     <MESSAGE value="admin id from localstorage" />
     <MESSAGE value="minor changes" />
     <MESSAGE value="at login email set complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="at login email set complete" />
+    <MESSAGE value="Featured, registered users field updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Featured, registered users field updated" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

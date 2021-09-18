@@ -22,7 +22,7 @@ export class Certificate extends Component {
     constructor (props) {
         super(props)
         this.state={
-            level: 1,
+            level: 0,
             orgId:localStorage.getItem("id"),
             serverDomain : 'http://localhost:8080',
             loading:false,

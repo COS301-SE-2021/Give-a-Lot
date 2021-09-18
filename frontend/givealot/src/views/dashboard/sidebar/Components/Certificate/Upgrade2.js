@@ -83,7 +83,7 @@ export class Upgrade2 extends Component {
         alert("take away submit button functionality");
 
         fetch(
-            this.state.serverDomain + '/v1/organisation/add/logo',
+            'https://localhost:8080/v1/organisation/add/logo',
             {
                 method: 'POST',
                 body: formData,

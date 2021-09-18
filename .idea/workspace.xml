@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="admin id from localstorage">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/login/Login.js" afterDir="false" />
-    </list>
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="minor changes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,14 +150,7 @@
       <workItem from="1631652568961" duration="2011000" />
       <workItem from="1631710952862" duration="3507000" />
       <workItem from="1631869973238" duration="29530000" />
-      <workItem from="1631959618812" duration="2624000" />
-    </task>
-    <task id="LOCAL-00068" summary="Org Name update fix">
-      <created>1630846367366</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1630846367366</updated>
+      <workItem from="1631959618812" duration="3539000" />
     </task>
     <task id="LOCAL-00069" summary="Org Name update fix">
       <created>1630847810323</created>
@@ -498,7 +488,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631960167360</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="minor changes">
+      <created>1631963751715</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1631963751715</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -517,7 +514,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added HTTPStatus.UNAUTHORIZED instead of OK" />
     <MESSAGE value="registration update" />
     <MESSAGE value="certificate download backend test" />
     <MESSAGE value="QR code intergration and upload test and controller" />
@@ -542,7 +538,8 @@
     <MESSAGE value="organisation by ID" />
     <MESSAGE value="organisation by ID fixed" />
     <MESSAGE value="admin id from localstorage" />
-    <option name="LAST_COMMIT_MESSAGE" value="admin id from localstorage" />
+    <MESSAGE value="minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor changes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -43,7 +43,7 @@ public class NotificationsController {
     }
 
     @PostMapping("/add/notifications")
-    public ResponseEntity<generalNotificationResponse> addOrganisation(@RequestBody @NonNull AddNotificationRequest body)
+    public ResponseEntity<generalNotificationResponse> addNotification(@RequestBody @NonNull AddNotificationRequest body)
     {
         generalNotificationResponse response;
         try
@@ -72,7 +72,7 @@ public class NotificationsController {
         }
     }
 
-    @PutMapping("/remove/notification")
+    @PutMapping("/remove/notification/{notification_id}")
     public ResponseEntity<generalNotificationResponse> removeNotification(@PathVariable("notification_id") @NonNull Long notification_id)
     {
         generalNotificationResponse response;
@@ -130,5 +130,4 @@ public class NotificationsController {
             return new ResponseEntity<>(new GetLevelResponse("get_notifications_500_bad","failed: " + e, 0), HttpStatus.OK);
         }
     }
-
 }

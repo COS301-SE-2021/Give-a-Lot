@@ -517,24 +517,26 @@ public class OrganisationController
         }
         catch (Exception e)
         {
-            return new ResponseEntity<>(new generalOrganisationResponse("rem_est_500_err","failed: " + e), HttpStatus.OK);
+            return new ResponseEntity<>(new generalOrganisationResponse("rem_est_500_err","failed: " + e), HttpStatus.BAD_REQUEST);
         }
     }
 
     @PostMapping("/add/image") /* all good - correctness not tested yet */
     public ResponseEntity<generalOrganisationResponse> addOrgImage(@ModelAttribute AddOrgImageMultipartRequest body)
     {
+        System.out.println("===================got in=======================");
         generalOrganisationResponse response;
-        System.out.println(body.getImages().get(0));
-        List<MultipartFile> images = body.getImages();
         try
         {
+            System.out.println("===================got in 2=======================");
             response = service.addOrgImage(body);
+            System.out.println("===================got in 3=======================");
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)
         {
-            return new ResponseEntity<>(new generalOrganisationResponse("rem_est_500_err","failed: " + e), HttpStatus.OK);
+            System.out.println("===================got out with error=======================");
+            return new ResponseEntity<>(new generalOrganisationResponse("add_imgs_500_err","failed: " + e), HttpStatus.BAD_REQUEST);
         }
     }
 

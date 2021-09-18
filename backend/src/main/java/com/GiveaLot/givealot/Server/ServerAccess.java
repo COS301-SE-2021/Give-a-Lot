@@ -297,7 +297,6 @@ public class ServerAccess {
 
             //Update number of images
         //    organisationInfoRepository.incrementNumImagesd(orgId);
-            System.out.println("hhhhhhhh");
 
             //image.delete();
            // imageHolder.delete();

@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="face recognition">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="login api">
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/FaceRecognitionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/FaceRecognitionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/response/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/response/LoginResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/service/LoginServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Login/service/LoginServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/media/Controller/MediaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/media/Controller/MediaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Certificate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Certificate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Report/Reports.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Report/Reports.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/login/Login.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,10 +101,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
-    <configuration name="generated-requests#59" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="59" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="generated-requests#61" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="61" runType="Run single request">
+    <configuration name="generated-requests#42" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="42" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#63" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="63" runType="Run single request">
@@ -150,19 +145,18 @@
     <list>
       <item itemvalue="HTTP Request.generated-requests#63" />
       <item itemvalue="HTTP Request.generated-requests#64" />
-      <item itemvalue="HTTP Request.generated-requests#59" />
-      <item itemvalue="HTTP Request.generated-requests#61" />
+      <item itemvalue="HTTP Request.generated-requests#65" />
       <item itemvalue="Python.chat" />
       <item itemvalue="Spring Boot.GivealotApplication" />
-      <item itemvalue="HTTP Request.generated-requests#65" />
+      <item itemvalue="HTTP Request.generated-requests#42" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests#42" />
         <item itemvalue="HTTP Request.generated-requests#65" />
         <item itemvalue="HTTP Request.generated-requests#64" />
         <item itemvalue="HTTP Request.generated-requests#63" />
         <item itemvalue="Python.chat" />
-        <item itemvalue="HTTP Request.generated-requests#61" />
       </list>
     </recent_temporary>
   </component>
@@ -190,21 +184,7 @@
       <workItem from="1631708108011" duration="27620000" />
       <workItem from="1631819750918" duration="3266000" />
       <workItem from="1631823532933" duration="61928000" />
-      <workItem from="1631960615375" duration="2136000" />
-    </task>
-    <task id="LOCAL-00058" summary="Last minute changes">
-      <created>1630716192825</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1630716192825</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Last minute changes">
-      <created>1630719501914</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1630719501914</updated>
+      <workItem from="1631960615375" duration="5928000" />
     </task>
     <task id="LOCAL-00060" summary="Last minute changes">
       <created>1630719533089</created>
@@ -535,7 +515,21 @@
       <option name="project" value="LOCAL" />
       <updated>1631928105725</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="login api">
+      <created>1631963564109</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1631963564109</updated>
+    </task>
+    <task id="LOCAL-00108" summary="login api">
+      <created>1631963770377</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1631963770377</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -554,7 +548,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="organisations controller revision - add socials" />
     <MESSAGE value="organisations controller revision - remove socials" />
     <MESSAGE value="organisations controller revision - tax" />
     <MESSAGE value="organisations controller revision - add Organisation" />
@@ -579,7 +572,8 @@
     <MESSAGE value="dedicated organisaiton select for admin users" />
     <MESSAGE value="dedicated organisation select for admin users" />
     <MESSAGE value="chatbot style and additional of a .css file" />
-    <option name="LAST_COMMIT_MESSAGE" value="chatbot style and additional of a .css file" />
+    <MESSAGE value="login api" />
+    <option name="LAST_COMMIT_MESSAGE" value="login api" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

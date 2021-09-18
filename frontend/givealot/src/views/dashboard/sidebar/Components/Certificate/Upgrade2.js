@@ -135,7 +135,6 @@ export class Upgrade2 extends Component {
             this.setState({ dateError, paypalError,qrError });
             return false;
         }
-
         return true;
     };
 
@@ -150,7 +149,7 @@ export class Upgrade2 extends Component {
                 date: this.state.date,
             };
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/add/estdate", data)
+                .post("http://localhost:8080/v1/organisation/add/estdate", data)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 
@@ -159,9 +158,18 @@ export class Upgrade2 extends Component {
                 orgInfo: this.state.orgInfo,
             };
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/add/donation/info", paypal)
+                .post("http://localhost:8080/v1/organisation/add/donation/info", paypal)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
+
+            const notification_update_body = {
+                org_id: this.state.orgId,
+            };
+
+            Axios
+                .post("http://localhost:8080/v1/notifications/update/notifications", notification_update_body)
+                .then(res => console.log(res))
+                .catch(err => console.log(err))
         }
     };
 

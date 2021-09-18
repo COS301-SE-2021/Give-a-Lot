@@ -235,7 +235,7 @@ export class Upgrade1 extends Component {
                                 <span className="loginError_certificate">{this.state.addressError}</span>
                             </div>
                                 <div className="upgrade_Button">
-                                    <button className="upgrade-btn" type="submit" onClick={this.onToastOne}>
+                                    <button className="upgrade-btn" type="submit" >
                                         Submit
                                     </button>
                                 </div>

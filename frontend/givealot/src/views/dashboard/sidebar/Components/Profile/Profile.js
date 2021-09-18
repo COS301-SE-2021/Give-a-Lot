@@ -56,7 +56,7 @@ export class Profile extends Component {
             addressState:false,
             //serverDomain: "https://3c73e752688968.localhost.run"
             serverDomain : 'http://localhost:8080',
-            loader:true,
+            loader:false,
 
 
         }
@@ -76,7 +76,8 @@ export class Profile extends Component {
             .then(response =>{
                 console.log(response)
                 this.setState({persons: response.data.object})
-                //this.setState({loader: false});
+                this.setState({loader: false});
+
             })
             .catch(error =>{
                 console.log(error)
@@ -92,10 +93,12 @@ export class Profile extends Component {
                 this.setState({level: response.data.level})
                 console.log(response)
 
+
             })
             .catch(error =>{
                 console.log(error)
             })
+
     }
 
 

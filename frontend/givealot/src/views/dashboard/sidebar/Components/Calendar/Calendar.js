@@ -52,6 +52,7 @@ export default class Demo extends React.PureComponent {
         this.setState((state) => {
             let { data } = state;
             console.log(data)
+
             if (added) {
                 const startingAddedId = data.length > 0 ? data[data.length - 1].id + 1 : 0;
                 data = [...data, { id: startingAddedId, ...added }];

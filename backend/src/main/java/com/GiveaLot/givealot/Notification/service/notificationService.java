@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface notificationService {
 
+    //gets all notifications
     GetNotificationsResponse getNotifications(GetNotificationsRequest request) throws Exception;
     generalNotificationResponse addNotifications(AddNotificationRequest request)throws Exception;
     generalNotificationResponse  removeNotifications(Long id)throws Exception;

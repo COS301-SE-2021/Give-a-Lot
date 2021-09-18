@@ -74,12 +74,9 @@ export class OrganisationsDash extends Component {
         }
         axios.post(this.state.serverDomain + '/v1/organisation/get/organisations',adminUsersRequestBodyOrgs , config)
             .then(response =>{
-                console.log(response)
                 this.setState({org: response.data.response})
-                // console.log(this.state.org)
             })
             .catch(error =>{
-                // console.log(error)
                 this.setState({error : 'Error Retrieving data'})
             })
     }

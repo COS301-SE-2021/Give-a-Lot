@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="minor changes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Users/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Users/Users.js" afterDir="false" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="at login email set complete">
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/OrganisationsDash.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/OrganisationsDash.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,14 +152,7 @@
       <workItem from="1631652568961" duration="2011000" />
       <workItem from="1631710952862" duration="3507000" />
       <workItem from="1631869973238" duration="29530000" />
-      <workItem from="1631959618812" duration="7286000" />
-    </task>
-    <task id="LOCAL-00072" summary="Org Name update fix">
-      <created>1630859306015</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1630859306029</updated>
+      <workItem from="1631959618812" duration="7658000" />
     </task>
     <task id="LOCAL-00073" summary="Org Name update fix">
       <created>1630872367222</created>
@@ -498,7 +490,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631968075002</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="at login email set complete">
+      <created>1631970068346</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1631970068346</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -517,7 +516,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="registration update" />
     <MESSAGE value="certificate download backend test" />
     <MESSAGE value="QR code intergration and upload test and controller" />
     <MESSAGE value="calendar change event" />
@@ -542,7 +540,8 @@
     <MESSAGE value="organisation by ID fixed" />
     <MESSAGE value="admin id from localstorage" />
     <MESSAGE value="minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor changes" />
+    <MESSAGE value="at login email set complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="at login email set complete" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

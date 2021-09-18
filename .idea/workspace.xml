@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Featured, field updated and code clean up">
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="level one upgrade image removed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,21 +153,7 @@
       <workItem from="1631652568961" duration="2011000" />
       <workItem from="1631710952862" duration="3507000" />
       <workItem from="1631869973238" duration="29530000" />
-      <workItem from="1631959618812" duration="10351000" />
-    </task>
-    <task id="LOCAL-00079" summary="certificate download backend test">
-      <created>1631180159727</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1631180159727</updated>
-    </task>
-    <task id="LOCAL-00080" summary="QR code intergration and upload test and controller">
-      <created>1631181785703</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1631181785703</updated>
+      <workItem from="1631959618812" duration="15951000" />
     </task>
     <task id="LOCAL-00081" summary="calendar change event">
       <created>1631193381366</created>
@@ -498,7 +484,21 @@
       <option name="project" value="LOCAL" />
       <updated>1631971829946</updated>
     </task>
-    <option name="localTasksCounter" value="128" />
+    <task id="LOCAL-00128" summary="Featured, field updated and code clean up">
+      <created>1631973750040</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1631973750040</updated>
+    </task>
+    <task id="LOCAL-00129" summary="level one upgrade image removed">
+      <created>1631974035555</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1631974035555</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -517,7 +517,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="register organisation" />
     <MESSAGE value="register organisation upload image" />
     <MESSAGE value="register organisation confirmation page" />
     <MESSAGE value="admin Add organisation validation" />
@@ -542,7 +541,8 @@
     <MESSAGE value="Featured, registered users field updated" />
     <MESSAGE value="Featured, registered users field updated and code clean up" />
     <MESSAGE value="Featured, field updated and code clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="Featured, field updated and code clean up" />
+    <MESSAGE value="level one upgrade image removed" />
+    <option name="LAST_COMMIT_MESSAGE" value="level one upgrade image removed" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

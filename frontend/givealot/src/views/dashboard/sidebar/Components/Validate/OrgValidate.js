@@ -21,11 +21,10 @@ export class OrgValidate extends Component {
             openValidDate: false,
             openNgoNumber: false,
             openNgoNumberDeny: false,
-            openNgoImage: false,
-            openNgoImageDeny: false,
             orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1],
             adminId: localStorage.getItem("id"),
-            serverDomain: "http://localhost:8080"
+            serverDomain: "http://localhost:8080",
+            isConfirmed: false
         }
     }
     handleClose = () => {
@@ -42,12 +41,6 @@ export class OrgValidate extends Component {
     handleCloseNgoNumberDeny = () => {
         this.setState({ openNgoNumberDeny: false });
     }
-    handleCloseNgoImage = () => {
-        this.setState({ openNgoImage: false });
-    }
-    handleCloseNgoImageDeny = () => {
-        this.setState({ openNgoImageDeny: false });
-    }
 
     acceptNgoDate() {
         this.setState({ openValid: true });
@@ -62,9 +55,14 @@ export class OrgValidate extends Component {
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+this.state.adminId+ '/ngo_date/true', config)
             .then(response =>{
                 console.log(response)
-                // console.log(this.state.validation)
-                // this.setState({ validation: {} });
-
+                if(response.data.message === 'success'){
+                    // return(
+                    //     <>
+                    //
+                    //     </>
+                    // )
+                    console.log('success')
+                }
             })
             .catch(error =>{
                 console.log(error)
@@ -141,6 +139,7 @@ export class OrgValidate extends Component {
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/website/true', config)
             .then(response =>{
                 console.log(response)
+                this.setState({isConfirmed: true})
             })
             .catch(error =>{
                 console.log(error)
@@ -505,9 +504,8 @@ export class OrgValidate extends Component {
 
         axios.post('http://localhost:8080/v1/notifications/get/level_information', adminUsersRequestBody ,config)
             .then(response =>{
-                // console.log(response)
-                this.setState({validation: response.data.object})
                 console.log(response)
+                this.setState({validation: response.data.object})
             })
             .catch(error =>{
                 console.log(error)
@@ -657,7 +655,7 @@ export class OrgValidate extends Component {
                                     }}>
                                         <Grid>
                                             <Button variant="contained" className="buttonValidViewAccept"
-                                                    onClick={this.acceptNgoWebsite.bind(this)}
+                                                    onClick={this.acceptNgoWebsite.bind(this)} disabled={this.state.isConfirmed}
                                             >
                                                 Accept
                                             </Button>
@@ -682,7 +680,7 @@ export class OrgValidate extends Component {
                                             Address:
                                         </div>
                                         <div style={{marginLeft: "1em"}}>
-                                            {validation.Address}
+                                            {validation.address}
                                         </div>
                                     </Typography>
                                     <Typography style={{

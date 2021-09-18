@@ -682,7 +682,7 @@ export class OrgValidate extends Component {
                                             Address:
                                         </div>
                                         <div style={{marginLeft: "1em"}}>
-                                            {validation.Address}
+                                            {validation.address}
                                         </div>
                                     </Typography>
                                     <Typography style={{

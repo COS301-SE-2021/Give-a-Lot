@@ -53,8 +53,6 @@ public class MediaController {
                     .notFound().build();
 
         }
-
-
     }
 
     @RequestMapping(value = "/logo/version/{orgId}", method = RequestMethod.GET,
@@ -106,6 +104,8 @@ public class MediaController {
             }
         }
     }
+
+
 
     @RequestMapping(value = "/cert/version/pdf/{orgId}", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_PDF_VALUE)

@@ -12,7 +12,7 @@ public class SendMailServiceImpl implements SendMailService{
     public SendMailServiceImpl(JavaMailSender javaMailSender) {
         this.javaMailSender = javaMailSender;
     }
-
+//send email to user
     @Override
     public void sendMail(Mail mail) {
 

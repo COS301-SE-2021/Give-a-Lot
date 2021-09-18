@@ -89,10 +89,6 @@ public class OrganisationServiceImp implements OrganisationService
     private FaceRecognitionServiceImpl faceRecognitionService;
 
     @Autowired
-    private notificationServiceImpl notificationService;
-
-
-    @Autowired
     public void setOrganisationServiceImp(OrganisationRepository organisationRepository, OrganisationInfoRepository organisationInfoRepository, organisationPointsRepository organisationPointsRepository, CertificateRepository certificateRepository, UserRepository userRepository){
         this.organisationRepository = organisationRepository;
         this.organisationInfoRepository = organisationInfoRepository;

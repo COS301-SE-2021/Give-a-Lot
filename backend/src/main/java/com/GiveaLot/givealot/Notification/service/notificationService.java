@@ -23,5 +23,6 @@ public interface notificationService {
     responseJSON getLevelInformation(Long orgid)throws Exception;
     //updates a notification
     generalNotificationResponse updateNotification(UpdateNotificationRequest request)throws Exception;
+    //gets an organisations certificate level
     GetLevelResponse getLevel(GetLevelRequest request)throws Exception;
 }

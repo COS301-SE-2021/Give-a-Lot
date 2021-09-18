@@ -94,8 +94,13 @@ export default class Demo extends React.PureComponent {
                     })
             }
             if (changed) {
+                data = data.map(appointment => (
+                    changed[appointment.id] ?
+                        { ...appointment, ...changed[appointment.id] } : appointment));
 
                 let testing = changed.undefined
+                // let event = data[data.length-1].eventId
+                // console.log(event)
 
                 if(testing.title !== undefined){
                     let config = {
@@ -110,7 +115,6 @@ export default class Demo extends React.PureComponent {
                         "eventId" : eventId,
                         "newTitle" : testing.title
                     }
-                    console.log(eventId)
 
                     axios.post(this.state.serverDomain + '/event/calender/edit/title', titleUpdate ,config)
                         .then(response =>{
@@ -261,7 +265,6 @@ export default class Demo extends React.PureComponent {
         }
         axios.get(this.state.serverDomain +'/event/get/calender/'+this.state.email,  config)
             .then(response =>{
-                // console.log(response)
                 this.setState({data: response.data.object})
             })
             .catch(error =>{

@@ -153,21 +153,7 @@
       <workItem from="1631652568961" duration="2011000" />
       <workItem from="1631710952862" duration="3507000" />
       <workItem from="1631869973238" duration="29530000" />
-      <workItem from="1631959618812" duration="18677000" />
-    </task>
-    <task id="LOCAL-00083" summary="register organisation upload image">
-      <created>1631225418594</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1631225418594</updated>
-    </task>
-    <task id="LOCAL-00084" summary="register organisation upload image">
-      <created>1631441883517</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1631441883518</updated>
+      <workItem from="1631959618812" duration="24610000" />
     </task>
     <task id="LOCAL-00085" summary="register organisation confirmation page">
       <created>1631444879138</created>
@@ -498,7 +484,21 @@
       <option name="project" value="LOCAL" />
       <updated>1631990331441</updated>
     </task>
-    <option name="localTasksCounter" value="132" />
+    <task id="LOCAL-00132" summary="level one upgrade image removed">
+      <created>1632000073297</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1632000073297</updated>
+    </task>
+    <task id="LOCAL-00133" summary="level one upgrade image removed">
+      <created>1632000095365</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1632000095365</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

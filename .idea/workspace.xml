@@ -115,6 +115,9 @@
     <configuration name="generated-requests#64" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="64" runType="Run single request">
       <method v="2" />
     </configuration>
+    <configuration name="generated-requests#65" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="65" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="chat" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="givealot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -151,14 +154,15 @@
       <item itemvalue="HTTP Request.generated-requests#61" />
       <item itemvalue="Python.chat" />
       <item itemvalue="Spring Boot.GivealotApplication" />
+      <item itemvalue="HTTP Request.generated-requests#65" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests#65" />
         <item itemvalue="HTTP Request.generated-requests#64" />
         <item itemvalue="HTTP Request.generated-requests#63" />
         <item itemvalue="Python.chat" />
         <item itemvalue="HTTP Request.generated-requests#61" />
-        <item itemvalue="HTTP Request.generated-requests#59" />
       </list>
     </recent_temporary>
   </component>

@@ -41,6 +41,14 @@ function TermsAndConditions()
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales iaculis urna nec interdum. Quisque vel ullamcorper nisi. In blandit dictum mi, a tincidunt ligula mattis non. Pellentesque id mi tristique, posuere risus sit amet, lacinia dui. Cras non bibendum nulla. Suspendisse tempor non urna ac laoreet. Maecenas et dictum dui, dictum sagittis ligula. Curabitur sodales, leo id volutpat euismod, risus purus vulputate ex, sit amet mattis velit mauris vel purus. Phasellus bibendum iaculis quam ut lacinia. Nullam elementum suscipit leo, sed tincidunt mi tincidunt vitae.
                         </div>
 
+                        <span className="LoginHeader">
+                           Personal information we collect
+                       </span>
+                        <div className="terms_text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales iaculis urna nec interdum. Quisque vel ullamcorper nisi. In blandit dictum mi, a tincidunt ligula mattis non. Pellentesque id mi tristique, posuere risus sit amet, lacinia dui. Cras non bibendum nulla. Suspendisse tempor non urna ac laoreet. Maecenas et dictum dui, dictum sagittis ligula. Curabitur sodales, leo id volutpat euismod, risus purus vulputate ex, sit amet mattis velit mauris vel purus. Phasellus bibendum iaculis quam ut lacinia. Nullam elementum suscipit leo, sed tincidunt mi tincidunt vitae.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales iaculis urna nec interdum. Quisque vel ullamcorper nisi. In blandit dictum mi, a tincidunt ligula mattis non. Pellentesque id mi tristique, posuere risus sit amet, lacinia dui. Cras non bibendum nulla. Suspendisse tempor non urna ac laoreet. Maecenas et dictum dui, dictum sagittis ligula. Curabitur sodales, leo id volutpat euismod, risus purus vulputate ex, sit amet mattis velit mauris vel purus. Phasellus bibendum iaculis quam ut lacinia. Nullam elementum suscipit leo, sed tincidunt mi tincidunt vitae.
+                        </div>
+
                     </div>
                 </div>
             </div>

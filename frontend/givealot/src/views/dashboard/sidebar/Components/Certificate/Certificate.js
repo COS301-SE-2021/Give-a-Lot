@@ -22,13 +22,13 @@ export class Certificate extends Component {
     constructor (props) {
         super(props)
         this.state={
-            level: 0,
+            level: 1,
             orgId:localStorage.getItem("id"),
             serverDomain : 'http://localhost:8080',
             loading:false,
-
         };
     }
+
     componentDidMount(){
         this.setState({loading: true});
         let config = {
@@ -43,7 +43,7 @@ export class Certificate extends Component {
 
         axios.post('http://localhost:8080/v1/organisation/get/org_level', dataa  ,config)
             .then(response =>{
-                this.setState({level: response.data.level})
+                //this.setState({level: /*response.data.level*/})
                 console.log(response)
                 this.setState({loading: false});
 

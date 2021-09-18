@@ -65,18 +65,18 @@ function Login ()
                 if(response.data.jwttoken === "general")
                 {
                     document.getElementById("waitInfo").style.display = "none";
-                    history.push("/");
-
-
-                }else if (response.data.jwttoken === "admin")
+                    window.location.href = "http://localhost:3000/";
+                }
+                else if(response.data.jwttoken === "admin")
                 {
                     document.getElementById("waitInfo").style.display = "none";
-                    history.push("/dashboard/");
-
+                    window.location.href = "http://localhost:3000/dashboard/";
                 }
-                else if (response.data.jwttoken === "organisation"){
+                else if(response.data.jwttoken === "organisation")
+                {
                     document.getElementById("waitInfo").style.display = "none";
-                    history.push("/dashboard/");
+                    window.location.href = "http://localhost:3000/dashboard/";
+
                 }
             })
             .catch(error =>{

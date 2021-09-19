@@ -5,6 +5,7 @@ import com.GiveaLot.givealot.FaceRecognition.service.requests.AddFRImageMultipar
 import com.GiveaLot.givealot.FaceRecognition.service.response.generalFaceRecognitionResponse;
 import com.GiveaLot.givealot.Organisation.requests.AddOrgImageMultipartRequest;
 import com.GiveaLot.givealot.Organisation.response.generalOrganisationResponse;
+import com.GiveaLot.givealot.Server.ServerAccess;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,20 +16,19 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("v1/frecognition")
 public class FacialRecognitionController {
     @Autowired
-    FaceRecognitionServiceImpl faceRecognitionService;
+    ServerAccess serverAccess;
 
     @PostMapping("/blur")
     public ResponseEntity<generalFaceRecognitionResponse> addOrgImage(@ModelAttribute AddFRImageMultipartRequest body)
     {
-        generalOrganisationResponse response;
         try
         {
-            response = faceRecognitionService.FaceBlur(body);
-            return new ResponseEntity<>(response, HttpStatus.OK);
+            serverAccess.uploadImageAnon(body.getOrgId(),body.getImage());
+            return new ResponseEntity<>(new generalFaceRecognitionResponse("added_blur","success"), HttpStatus.OK);
         }
         catch (Exception e)
         {
-            return new ResponseEntity<>(new generalOrganisationResponse("add_blur_500_err","failed: " + e), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new generalFaceRecognitionResponse("add_blur_500_err","failed: " + e), HttpStatus.BAD_REQUEST);
         }
     }
 }

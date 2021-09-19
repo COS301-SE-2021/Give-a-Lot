@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="Add server access for facial image upload">
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/PythonSource/Anonamizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/PythonSource/Anonamizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/PythonSource/face_blur.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/PythonSource/face_blur.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/PythonSource/face_pixel.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/PythonSource/face_pixel.py" afterDir="false" />
+    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="Fixed bug">
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/Controller/faceRecognitionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/Controller/faceRecognitionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,34 +176,6 @@
       <workItem from="1631823532933" duration="61928000" />
       <workItem from="1631960615375" duration="45209000" />
       <workItem from="1632043880990" duration="33452000" />
-    </task>
-    <task id="LOCAL-00113" summary="level 1 upgrade">
-      <created>1631982031139</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
-      <option name="project" value="LOCAL" />
-      <updated>1631982031140</updated>
-    </task>
-    <task id="LOCAL-00114" summary="level 2 upgrade complete">
-      <created>1631987838626</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1631987838655</updated>
-    </task>
-    <task id="LOCAL-00115" summary="upgrade to level 4 complete">
-      <created>1631997680567</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1631997680606</updated>
-    </task>
-    <task id="LOCAL-00116" summary="upgrade to level 4 complete">
-      <created>1631998047770</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1631998047783</updated>
     </task>
     <task id="LOCAL-00117" summary="upgrade to level 4 complete">
       <created>1632009154892</created>
@@ -521,7 +492,35 @@
       <option name="project" value="LOCAL" />
       <updated>1632093416146</updated>
     </task>
-    <option name="localTasksCounter" value="162" />
+    <task id="LOCAL-00162" summary="Add server access for facial image upload">
+      <created>1632093551646</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1632093551646</updated>
+    </task>
+    <task id="LOCAL-00163" summary="Add server access for facial image upload">
+      <created>1632093554658</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1632093554658</updated>
+    </task>
+    <task id="LOCAL-00164" summary="Add server access for facial image upload">
+      <created>1632093557627</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1632093557627</updated>
+    </task>
+    <task id="LOCAL-00165" summary="Add server access for facial image upload">
+      <created>1632093560023</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1632093560023</updated>
+    </task>
+    <option name="localTasksCounter" value="166" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -540,7 +539,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="registration update" />
     <MESSAGE value="certificate download backend test" />
     <MESSAGE value="QR code intergration and upload test and controller" />
     <MESSAGE value="registration - upload photo" />
@@ -565,7 +563,8 @@
     <MESSAGE value="reports system done and integrated" />
     <MESSAGE value="Add python code for source" />
     <MESSAGE value="Add server access for facial image upload" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add server access for facial image upload" />
+    <MESSAGE value="Fixed bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -123,7 +123,11 @@ export class Upgrade0 extends Component {
                             .catch(err => console.log(err))
                     }
                 )
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err)
+                    this.setState({popUp1: false});
+                    this.onToastZero();
+                });
                 const notification_update_body = {
                 org_id: this.state.orgId,
             };
@@ -216,8 +220,13 @@ export class Upgrade0 extends Component {
                                         />
                                     </div>
                                 </div>
-                                <span className="loginError_certificate">{this.state.ngoNumberError}</span>
+                                <div>
+                                    <span className="loginError_certificate">{this.state.ngoNumberError}</span>
+                                </div>
 
+                                <div className="empty_space">
+                                    empty space
+                                </div>
                                 <div className="upgrade_Button">
                                     <button className="upgrade-btn" type="submit" >
                                         Submit

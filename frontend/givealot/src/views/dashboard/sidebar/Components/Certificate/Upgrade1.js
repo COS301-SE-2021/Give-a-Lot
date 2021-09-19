@@ -109,16 +109,24 @@ export class Upgrade1 extends Component {
                     this.setState({popUp1: res.data.message});
                     this.onToastOneWebsite();
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err)
+                    this.setState({popUp1: false});
+                    this.onToastOneWebsite();
+                });
 
             Axios
                 .post("http://localhost:8080/v1/organisation/add/address", add)
                 .then(res =>{
                     console.log(res)
                     this.setState({popUp2: res.data.message});
-                    this. onToastOneAddress ();
+                    this.onToastOneAddress ();
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err)
+                    this.setState({popUp1: false});
+                    this.onToastOneAddress ();
+                });
 
             const notification_update_body = {
                 org_id: this.state.orgId,
@@ -234,6 +242,9 @@ export class Upgrade1 extends Component {
                                 />
                                 <span className="loginError_certificate">{this.state.addressError}</span>
                             </div>
+                                <div className="empty_space">
+                                    empty space
+                                </div>
                                 <div className="upgrade_Button">
                                     <button className="upgrade-btn" type="submit" >
                                         Submit

@@ -76,7 +76,7 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService
     public boolean FaceBlurSuspend(long orgId, int num) throws IOException, InterruptedException
     {
         try {
-            //Retrieves image from localfiles and copies it to the working directory
+            /** Retrieves image from localfiles and copies it to the working directory **/
             String localFile = "backend/src/main/resources/localFiles/" + orgId + "/gallery/image" + num + ".jpg";
             FileUtils.copyFile(new File(localFile), new File( "backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg"));
             /** Executes python.exe script to blur the image **/

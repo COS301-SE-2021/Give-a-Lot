@@ -3,6 +3,9 @@ import "../Report/Style/Reports.css"
 import Accordions from "../Report/Accordions"
 import axios from "axios";
 import {ApiContext} from "../../../../../apiContext/ApiContext";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+import Card from "@material-ui/core/Card";
 
 
 
@@ -52,7 +55,27 @@ export class Reports extends Component {
                     </h1>
                 </div>
             )
-        }else {
+        }
+        else if(reports.length === 0){
+            return(
+                <div className="report">
+                    <div className="reportHeader">
+                        Reports list
+                    </div>
+                    <Card style={{margin: "1em", width: "100%"}}>
+                        <CardContent>
+                            <Typography className="valid">
+                                <Typography>
+                                    No Reports
+                                </Typography>
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </div>
+            )
+        }
+
+        else{
             return (
                 <div className="report">
                     <div className="reportHeader">

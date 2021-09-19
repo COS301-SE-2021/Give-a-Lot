@@ -75,6 +75,10 @@ const initialState = {
     secretaryContacts:"",
     secretaryContactsError:"",
     committee:"",
+    popUp1:false,
+    popUp2:false,
+    popUp3:false,
+    popUp4:false,
     //serverDomain: "https://3c73e752688968.localhost.run"
     serverDomain: 'https://localhost:8080'
 
@@ -174,7 +178,7 @@ export class Upgrade3 extends Component {
             url1Error = "required";
         }
         if (!this.state.url2) {
-            url1Error = "required";
+            url2Error = "required";
         }
 
         if (!this.state.type) {
@@ -184,7 +188,7 @@ export class Upgrade3 extends Component {
             type1Error = "required";
         }
         if (!this.state.type2) {
-            type1Error = "required";
+            type2Error = "required";
         }
 
 
@@ -227,25 +231,57 @@ export class Upgrade3 extends Component {
             console.log(com)
             Axios
                 .post("http://localhost:8080/v1/organisation/add/committee", com)
-                .then(res => console.log(res))
-                .catch(err => console.log(err));
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp1: res.data.message});
+                    this. onToastCom ();
+                })
+                .catch(err => {
+                    console.log(err)
+                    this.setState({popUp1: false});
+                    this. onToastCom();
+                });
 
             console.log(social)
             Axios
-                .post( "http://localhost:8080/v1/organisation/add/socials", social)
-                .then(res => console.log(res))
-                .catch(err => console.log(err));
+                .post("http://localhost:8080/v1/organisation/add/socials", social)
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp2: res.data.message});
+                    this. onToastSocial();
+                })
+                .catch(err => {
+                    console.log(err)
+                    this.setState({popUp2: false});
+                    this. onToastSocial();
+                });
 
             console.log(social1)
             Axios
                 .post("http://localhost:8080/v1/organisation/add/socials", social1)
-                .then(res => console.log(res))
-                .catch(err => console.log(err));
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp3: res.data.message});
+                    this. onToastSocial1();
+                })
+                .catch(err => {
+                    console.log(err)
+                    this.setState({popUp3: false});
+                    this. onToastSocial1();
+                });
 
             Axios
                 .post( "http://localhost:8080/v1/organisation/add/socials", social2)
-                .then(res => console.log(res))
-                .catch(err => console.log(err));
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp4: res.data.message});
+                    this. onToastSocial2();
+                })
+                .catch(err => {
+                    console.log(err)
+                    this.setState({popUp4: false});
+                    this. onToastSocial2();
+                });
 
             const notification_update_body = {
                 org_id: this.state.orgId,
@@ -261,16 +297,74 @@ export class Upgrade3 extends Component {
         }
     };
 
-    onToastThree = () => {
-        const isValid = this.validate();
-        if (isValid) {
+    onToastCom= () => {
+        if(this.state.popUp1){
 
-            toast.success('Submit successful', {
+            toast.success('Committee Submitted ', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
-        }
+        }else{
 
+            toast.error('failed to send Committee', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
+    }
+
+    onToastSocial = () => {
+        if(this.state.popUp2){
+
+            toast.success('Social media1 Submitted', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to send Social media1 ', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
+    }
+
+    onToastSocial1 = () => {
+        if(this.state.popUp3){
+
+            toast.success('Social media2  Submitted', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to send Social media2 ', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+
+        }
+    }
+
+    onToastSocial2 = () => {
+        if(this.state.popUp4){
+
+            toast.success('Social media3  Submitted', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to send Social media3 ', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+
+        }
     }
 
 
@@ -605,7 +699,7 @@ export class Upgrade3 extends Component {
                                         </div>
 
                                         <div className="upgrade_Button">
-                                            <button className="upgrade-btn" type="submit" onClick={this.onToastThree}>
+                                            <button className="upgrade-btn" type="submit">
                                                 Submit
                                             </button>
                                         </div>

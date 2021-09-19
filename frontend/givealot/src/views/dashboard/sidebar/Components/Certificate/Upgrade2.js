@@ -44,6 +44,9 @@ const initialState = {
     dateError:"",
     paypalError:"",
     qrError:"",
+    popUp1:false,
+    popUp2:false,
+    popUp3:false,
     //serverDomain: "https://3c73e752688968.localhost.run"
     serverDomain: 'https://localhost:8080'
 };
@@ -80,7 +83,7 @@ export class Upgrade2 extends Component {
         let imageStates = 0;
 
         fetch(
-             'http://localhost:8080/v1/organisation/add/qrcode',
+            'http://localhost:8080/v1/organisation/add/qrcode',
             {
                 method: 'POST',
                 body: formData,
@@ -90,11 +93,15 @@ export class Upgrade2 extends Component {
             .then((result) => {
                 console.log('Success:', result);
                 imageStates = 1;
+                this.setState({popUp3: result.data.message});
+                this. onToastCode ();
 
             })
             .catch((error) => {
                 console.error('Error:', error);
                 imageStates = 2;
+                this.setState({popUp3: false});
+                this. onToastCode ();
 
             });
 
@@ -150,8 +157,16 @@ export class Upgrade2 extends Component {
             };
             Axios
                 .post("http://localhost:8080/v1/organisation/add/estdate", data)
-                .then(res => console.log(res))
-                .catch(err => console.log(err));
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp1: res.data.message});
+                    this. onToastDate ();
+                })
+                .catch(err => {
+                    console.log(err)
+                    this.setState({popUp1: false});
+                    this. onToastDate ();
+                });
 
             const paypal = {
                 orgId: this.state.orgId,
@@ -159,8 +174,16 @@ export class Upgrade2 extends Component {
             };
             Axios
                 .post("http://localhost:8080/v1/organisation/add/donation/info", paypal)
-                .then(res => console.log(res))
-                .catch(err => console.log(err));
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp2: res.data.message});
+                    this. onToastPaypal ();
+                })
+                .catch(err => {
+                    console.log(err)
+                    this.setState({popUp2: false});
+                    this. onToastPaypal ();
+                });
 
             const notification_update_body = {
                 org_id: this.state.orgId,
@@ -173,13 +196,54 @@ export class Upgrade2 extends Component {
         }
     };
 
-    onToastTwo = () => {
-        const isValid = this.validate();
-        if (isValid) {
-            toast.success('Submit successful', {
+    onToastDate = () => {
+        if(this.state.popUp1){
+
+            toast.success('Date Submitted ', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
+        }else{
+
+            toast.error('failed to send Date', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
+    }
+
+    onToastCode = () => {
+        if(this.state.popUp3){
+
+            toast.success('QrCode Submitted ', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to send QrCode', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
+    }
+
+    onToastPaypal = () => {
+        if(this.state.popUp2){
+
+            toast.success('paypal Submitted ', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to send paypal', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
         }
     }
 
@@ -266,8 +330,11 @@ export class Upgrade2 extends Component {
                                     <span className="loginError_certificate">{this.state.qrError}</span>
 
                                 </div>
+                                <div className="empty_space">
+                                    empty space
+                                </div>
                                 <div className="upgrade_Button">
-                                    <button className="upgrade-btn" type="submit" onClick={this.onToastTwo}>
+                                    <button className="upgrade-btn" type="submit">
                                         Submit
                                     </button>
                                 </div>

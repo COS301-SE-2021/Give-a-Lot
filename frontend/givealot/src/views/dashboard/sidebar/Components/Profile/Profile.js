@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 import "../Profile/Styles/Profile.css"
-import Level0 from "./Level0"
-import Level1 from "./Level1"
-import Level2 from "./Level2"
-import Level3 from "./Level3"
-import Level4 from "./Level4"
+import {toast, ToastContainer} from "react-toastify";
 
 
 import {
@@ -16,7 +12,6 @@ import {
 } from "@material-ui/icons";
 import axios from "axios";
 import Axios from "axios";
-import {toast} from "react-toastify";
 import * as PropTypes from "prop-types";
 import {ApiContext} from "../../../../../apiContext/ApiContext";
 import FullPageLoader from "../Report/FullPageLoader";
@@ -54,9 +49,14 @@ export class Profile extends Component {
             ContactPersonState:false,
             orgAddress:"",
             addressState:false,
-            //serverDomain: "https://3c73e752688968.localhost.run"
+            popUp1:false,
+            popUp2:false,
+            popUp3:false,
+            popUp4:false,
+            popUp5:false,
+            popUp6:false,
             serverDomain : 'http://localhost:8080',
-            //loader:false,
+            loader:false,
 
 
         }
@@ -78,31 +78,13 @@ export class Profile extends Component {
             .then(response =>{
                 console.log(response)
                 this.setState({persons: response.data.object})
-
-
-
+                this.setState({loader: false});
             })
             .catch(error =>{
                 console.log(error)
                 this.setState({error : 'Error Retrieving data'})
             })
 
-        const dataa = {
-            "orgid" : this.state.orgId
-        }
-
-        axios.post(this.state.serverDomain + '/v1/organisation/get/org_level', dataa  ,config)
-            .then(response =>{
-                this.setState({level: response.data.level})
-                console.log(response)
-                this.setState({loader: false});
-
-
-
-            })
-            .catch(error =>{
-                console.log(error)
-            })
 
     }
 
@@ -176,7 +158,7 @@ export class Profile extends Component {
 
 
     handleFormSubmit = e => {
-        this.setState({loader: false});
+
         e.preventDefault();
         if(this.state.emailState) {
             const data1 = {
@@ -187,9 +169,14 @@ export class Profile extends Component {
             };
             console.log(data1)
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data1)
-                .then(res => console.log(res))
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data1)
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp1: res.data.message});
+                    this.onToastEmail();
+                })
                 .catch(err => console.log(err));
+
         }
         if(this.state.orgDescriptionState) {
             const data2 = {
@@ -200,8 +187,12 @@ export class Profile extends Component {
             };
             console.log(data2)
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data2)
-                .then(res => console.log(res))
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data2)
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp2: res.data.message});
+                    this.onToastDes();
+                })
                 .catch(err => console.log(err));
         }
 
@@ -214,8 +205,12 @@ export class Profile extends Component {
             };
             console.log(data3)
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data3)
-                .then(res => console.log(res))
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data3)
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp3: res.data.message});
+                    this.onToastCPerson();
+                })
                 .catch(err => console.log(err));
         }
 
@@ -228,8 +223,12 @@ export class Profile extends Component {
             };
             console.log(data4)
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data4)
-                .then(res => console.log(res))
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data4)
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp4: res.data.message});
+                    this.onToastContacts();
+                })
                 .catch(err => console.log(err));
         }
 
@@ -242,8 +241,12 @@ export class Profile extends Component {
             };
             console.log(data5)
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data5)
-                .then(res => console.log(res))
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data5)
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp5: res.data.message});
+                    this.onToastName();
+                })
                 .catch(err => console.log(err));
         }
 
@@ -256,8 +259,12 @@ export class Profile extends Component {
             };
             console.log(data6)
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data6)
-                .then(res => console.log(res))
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data6)
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp6: res.data.message});
+                    this.onToastAddress();
+                })
                 .catch(err => console.log(err));
         }
 
@@ -271,8 +278,12 @@ export class Profile extends Component {
             };
             console.log(data7)
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data7)
-                .then(res => console.log(res))
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data7)
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp7: res.data.message});
+                    this.onToastSlogan();
+                })
                 .catch(err => console.log(err));
         }
 
@@ -280,16 +291,144 @@ export class Profile extends Component {
 
 
 
+    onToastEmail = () => {
 
+        if(this.state.popUp1){
 
-    onToastP = () => {
-        if (this.state.orgNameState || this.state.orgDescriptionState || this.state.emailState || this.state.ContactNumberState || this.state.ContactPersonState || this.state.sloganState || this.state.addressState) {
-            toast.success('Submit successful', {
+            toast.success('Email Updated successful', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
+        }else{
+
+            toast.error('failed to update Email', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
         }
     }
+
+    onToastDes = () => {
+
+        if(this.state.popUp2){
+
+            toast.success('Description Updated successful', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to update Description', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
+    }
+
+    onToastCPerson = () => {
+
+        if(this.state.popUp3){
+
+            toast.success('Contact Person Updated successful', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to update Contact Person', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
+    }
+
+    onToastContacts = () => {
+
+        if(this.state.popUp4){
+
+            toast.success('Contacts Updated successful', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to update Contacts', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
+    }
+    onToastName = () => {
+
+        if(this.state.popUp5){
+
+            toast.success('Name Updated successful', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to update Name', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
+    }
+
+    onToastSlogan = () => {
+
+        if(this.state.popUp7){
+
+            toast.success('Slogan Updated successful', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to update Slogan', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
+    }
+
+    onToastAddress = () => {
+
+        if(this.state.popUp6){
+
+            toast.success('Address Updated successful', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to update Address', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
+    }
+
+
+
+
+
+
+    /* onToastP = () => {
+         if (this.state.orgNameState || this.state.orgDescriptionState || this.state.emailState || this.state.ContactNumberState || this.state.ContactPersonState || this.state.sloganState || this.state.addressState) {
+             toast.success('Submit successful', {
+                 position: toast.POSITION.TOP_RIGHT
+
+             });
+         }
+     }*/
 
 
     render() {
@@ -309,45 +448,6 @@ export class Profile extends Component {
                     <CancelOutlinedIcon className="userShowIcon"/>
                     <span className="userShowInfoTitle">{persons.status}</span>
                 </div>
-            }
-        }
-
-        let levels
-        if(this.state.level!==undefined ) {
-            if (this.state.level === 0) {
-                levels =<div>
-                            -
-                        </div>
-            } else if (this.state.level === 1) {
-                levels =<div>
-                            <Level0/>
-                        </div>
-            } else if (this.state.level === 2) {
-                levels =<div>
-                            <Level0/>
-                            <Level1/>
-                        </div>
-            } else if (this.state.level === 3) {
-                levels =<div>
-                            <Level0/>
-                            <Level1/>
-                            <Level2/>
-                        </div>
-            } else if (this.state.level === 4) {
-                levels =<div>
-                            <Level0/>
-                            <Level1/>
-                            <Level2/>
-                            <Level3/>
-                        </div>
-            } else if (this.state.level === 5) {
-                levels =<div>
-                            <Level0/>
-                            <Level1/>
-                            <Level2/>
-                            <Level3/>
-                            <Level4/>
-                         </div>
             }
         }
 
@@ -482,19 +582,22 @@ export class Profile extends Component {
                             </div>
                             <div className="userUpdateRight">
 
-                                <button className="userUpdateButton"  onClick={this.onToastP}>Update</button>
+                                <button className="userUpdateButton" >Update</button>
+                            </div>
+                            <div className="form-group">
+                                <ToastContainer/>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div className="line">
                     <div className="profile_line"/>
-                    <div className="line_title"> Certificate Updates </div>
+                    <div className="line_title"> Profile Updates </div>
                     <div className="profile_line"/>
 
                 </div>
 
-                {levels}
+
                 { auto_spinner}
 
 

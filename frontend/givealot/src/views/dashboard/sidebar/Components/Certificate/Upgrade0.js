@@ -42,7 +42,9 @@ const initialState = {
     ngoDate:"",
     ngoNumberError:"",
     ngoDateError:"",
-    serverDomain: 'https://localhost:8080'
+    serverDomain: 'https://localhost:8080',
+    popUp1:false,
+    popUp2:false,
     //serverDomain : this.context,
 };
 
@@ -110,31 +112,49 @@ export class Upgrade0 extends Component {
             console.log(data)
             Axios
                 .post("http://localhost:8080/v1/organisation/add/ngopdate", data)
-                .then(res =>
-                    Axios
-                        .post("http://localhost:8080/v1/notifications/update/notifications", notification_update_body)
-                        .then(res => console.log(res))
-                        .catch(err => console.log(err))
+                .then(res => {
+
+                         this.setState({popUp1: res.data.message});
+                         this.onToastZero();
+
+                        Axios
+                            .post("http://localhost:8080/v1/notifications/update/notifications", notification_update_body)
+                            .then(res => console.log(res))
+                            .catch(err => console.log(err))
+                    }
                 )
-                .catch(err => console.log(err));
-            const notification_update_body = {
+                .catch(err => {
+                    console.log(err)
+                    this.setState({popUp1: false});
+                    this.onToastZero();
+                });
+                const notification_update_body = {
                 org_id: this.state.orgId,
             };
 
-
-
         }
+
+
     };
 
     onToastZero = () => {
-        const isValid = this.validate();
-        if (isValid) {
+
+        if(this.state.popUp1){
+
             toast.success('Submit successful', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
+        }else{
+
+            toast.error('failed to send', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
         }
     }
+
 
 
     render(){
@@ -200,9 +220,15 @@ export class Upgrade0 extends Component {
                                         />
                                     </div>
                                 </div>
+                                <div>
+                                    <span className="loginError_certificate">{this.state.ngoNumberError}</span>
+                                </div>
 
+                                <div className="empty_space">
+                                    empty space
+                                </div>
                                 <div className="upgrade_Button">
-                                    <button className="upgrade-btn" type="submit" onClick={this.onToastZero}>
+                                    <button className="upgrade-btn" type="submit" >
                                         Submit
                                     </button>
                                 </div>

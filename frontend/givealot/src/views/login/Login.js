@@ -83,6 +83,7 @@ function Login ()
             .catch(error =>{
                 if(error.response)
                 {
+                    console.log(error.response)
                     if(error.response.data.message.includes("organisation not found"))
                     {
                         document.getElementById("badLogin").style.display = "flex";

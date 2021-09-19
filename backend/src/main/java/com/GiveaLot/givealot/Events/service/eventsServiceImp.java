@@ -307,7 +307,8 @@ public class eventsServiceImp implements eventsService{
         Timeline timeline = new Timeline();
         timeline.setOrgId(request.getOrgId());
         timeline.setEventDate(request.getEventDate());
-        timeline.setEventTitle(request.getEventShortDescription());
+        timeline.setEventShortDescription(request.getEventShortDescription());
+        timeline.setEventTitle(request.getEventTitle());
         timelineRepository.save(timeline);
 
         return new generalResponse("add_time_event_200_OK","success");

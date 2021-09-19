@@ -23,7 +23,7 @@ import Calendar from "../dashboard/sidebar/Components/Calendar/Calendar"
 import Validate from "../dashboard/sidebar/Components/Validate/Validate"
 import AddOrg from "../dashboard/sidebar/Components/OrganisationsDash/AddOrg"
 import OrgValidate from "../dashboard/sidebar/Components/Validate/OrgValidate"
-import Timeline from "../dashboard/sidebar/Components/Timeline/Timeline"
+import OrganisationTimeline from "./sidebar/Components/Timeline/Timeline";
 
 
 const roles = localStorage.getItem('role')
@@ -64,7 +64,7 @@ function Dashboard() {
                         <OrgValidate />
                     </Route>
                     <Route exact path="/timeline">
-                        <Timeline />
+                        <OrganisationTimeline />
                     </Route>
                 </Switch>
             )
@@ -106,7 +106,7 @@ function Dashboard() {
                         <Upgrade0 />
                     </Route>
                     <Route exact path="/timeline">
-                        <Timeline />
+                        <OrganisationTimeline />
                     </Route>
                 </Switch>
             )

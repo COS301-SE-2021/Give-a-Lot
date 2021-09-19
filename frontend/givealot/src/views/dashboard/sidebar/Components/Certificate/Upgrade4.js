@@ -121,18 +121,15 @@ export class Upgrade4 extends Component {
         let fileError = "";
         let imagesError = "";
 
-
-
         if (!this.state.file) {
             fileError = "required";
         }
-
 
         if(!this.state.images) {
             imagesError="required";
         }
 
-        if ( fileError || imagesError) {
+        if( fileError || imagesError) {
             this.setState({ fileError,imagesError });
             return false;
         }
@@ -159,10 +156,9 @@ export class Upgrade4 extends Component {
     }
 
 
-    render(){
+    render()
+    {
         const { classes } = this.props;
-
-
 
         return (
             <div className="upgrade">

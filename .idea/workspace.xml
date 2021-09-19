@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="Updated python code" />
+    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="Formatted coded">
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Blockchain/Repository/BlockChainRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Blockchain/Repository/BlockChainRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Blockchain/contract/CertificateContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Blockchain/contract/CertificateContract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Blockchain/dataclass/Blockchain.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Blockchain/dataclass/Blockchain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Blockchain/service/BlockchainServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Blockchain/service/BlockchainServiceImpl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -173,90 +178,6 @@
       <workItem from="1631823532933" duration="61928000" />
       <workItem from="1631960615375" duration="45209000" />
       <workItem from="1632043880990" duration="33452000" />
-    </task>
-    <task id="LOCAL-00143" summary="Add python code for source">
-      <created>1632093166695</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1632093166696</updated>
-    </task>
-    <task id="LOCAL-00144" summary="Add python code for source">
-      <created>1632093169599</created>
-      <option name="number" value="00144" />
-      <option name="presentableId" value="LOCAL-00144" />
-      <option name="project" value="LOCAL" />
-      <updated>1632093169599</updated>
-    </task>
-    <task id="LOCAL-00145" summary="Add python code for source">
-      <created>1632093172344</created>
-      <option name="number" value="00145" />
-      <option name="presentableId" value="LOCAL-00145" />
-      <option name="project" value="LOCAL" />
-      <updated>1632093172344</updated>
-    </task>
-    <task id="LOCAL-00146" summary="Add python code for source">
-      <created>1632093175184</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1632093175184</updated>
-    </task>
-    <task id="LOCAL-00147" summary="Add python code for source">
-      <created>1632093178041</created>
-      <option name="number" value="00147" />
-      <option name="presentableId" value="LOCAL-00147" />
-      <option name="project" value="LOCAL" />
-      <updated>1632093178041</updated>
-    </task>
-    <task id="LOCAL-00148" summary="Add python code for source">
-      <created>1632093180692</created>
-      <option name="number" value="00148" />
-      <option name="presentableId" value="LOCAL-00148" />
-      <option name="project" value="LOCAL" />
-      <updated>1632093180692</updated>
-    </task>
-    <task id="LOCAL-00149" summary="Add python code for source">
-      <created>1632093183273</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL-00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1632093183273</updated>
-    </task>
-    <task id="LOCAL-00150" summary="Add python code for source">
-      <created>1632093187842</created>
-      <option name="number" value="00150" />
-      <option name="presentableId" value="LOCAL-00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1632093187842</updated>
-    </task>
-    <task id="LOCAL-00151" summary="Add python code for source">
-      <created>1632093190820</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL-00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1632093190820</updated>
-    </task>
-    <task id="LOCAL-00152" summary="Add python code for source">
-      <created>1632093193969</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1632093193969</updated>
-    </task>
-    <task id="LOCAL-00153" summary="Add python code for source">
-      <created>1632093197196</created>
-      <option name="number" value="00153" />
-      <option name="presentableId" value="LOCAL-00153" />
-      <option name="project" value="LOCAL" />
-      <updated>1632093197196</updated>
-    </task>
-    <task id="LOCAL-00154" summary="Add python code for source">
-      <created>1632093200001</created>
-      <option name="number" value="00154" />
-      <option name="presentableId" value="LOCAL-00154" />
-      <option name="project" value="LOCAL" />
-      <updated>1632093200001</updated>
     </task>
     <task id="LOCAL-00155" summary="Add python code for source">
       <created>1632093203453</created>
@@ -517,7 +438,91 @@
       <option name="project" value="LOCAL" />
       <updated>1632094647978</updated>
     </task>
-    <option name="localTasksCounter" value="192" />
+    <task id="LOCAL-00192" summary="Updated python code">
+      <created>1632094780253</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1632094780253</updated>
+    </task>
+    <task id="LOCAL-00193" summary="Updated python code">
+      <created>1632094800848</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
+      <option name="project" value="LOCAL" />
+      <updated>1632094800848</updated>
+    </task>
+    <task id="LOCAL-00194" summary="Updated face detection code">
+      <created>1632094828332</created>
+      <option name="number" value="00194" />
+      <option name="presentableId" value="LOCAL-00194" />
+      <option name="project" value="LOCAL" />
+      <updated>1632094828332</updated>
+    </task>
+    <task id="LOCAL-00195" summary="Updated face detection code">
+      <created>1632094838646</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1632094838646</updated>
+    </task>
+    <task id="LOCAL-00196" summary="Updated face detection code">
+      <created>1632094850102</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1632094850102</updated>
+    </task>
+    <task id="LOCAL-00197" summary="Updated face detection code">
+      <created>1632094862320</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1632094862320</updated>
+    </task>
+    <task id="LOCAL-00198" summary="Updated face detection code">
+      <created>1632094898645</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1632094898645</updated>
+    </task>
+    <task id="LOCAL-00199" summary="Formatted coded">
+      <created>1632094919337</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1632094919337</updated>
+    </task>
+    <task id="LOCAL-00200" summary="Formatted coded">
+      <created>1632094935383</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1632094935383</updated>
+    </task>
+    <task id="LOCAL-00201" summary="Formatted coded">
+      <created>1632094944192</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1632094944192</updated>
+    </task>
+    <task id="LOCAL-00202" summary="Formatted coded">
+      <created>1632094954450</created>
+      <option name="number" value="00202" />
+      <option name="presentableId" value="LOCAL-00202" />
+      <option name="project" value="LOCAL" />
+      <updated>1632094954450</updated>
+    </task>
+    <task id="LOCAL-00203" summary="Formatted coded">
+      <created>1632094967715</created>
+      <option name="number" value="00203" />
+      <option name="presentableId" value="LOCAL-00203" />
+      <option name="project" value="LOCAL" />
+      <updated>1632094967715</updated>
+    </task>
+    <option name="localTasksCounter" value="204" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,8 +541,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="QR code intergration and upload test and controller" />
-    <MESSAGE value="registration - upload photo" />
     <MESSAGE value="registration reiteration" />
     <MESSAGE value="beautifying search" />
     <MESSAGE value="beautifying search - search implementation styling" />
@@ -561,7 +564,9 @@
     <MESSAGE value="Add server access for facial image upload" />
     <MESSAGE value="Fixed bug" />
     <MESSAGE value="Updated python code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated python code" />
+    <MESSAGE value="Updated face detection code" />
+    <MESSAGE value="Formatted coded" />
+    <option name="LAST_COMMIT_MESSAGE" value="Formatted coded" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

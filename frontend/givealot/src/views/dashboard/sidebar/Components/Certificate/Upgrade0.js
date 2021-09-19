@@ -224,7 +224,9 @@ export class Upgrade0 extends Component {
                                     <span className="loginError_certificate">{this.state.ngoNumberError}</span>
                                 </div>
 
-
+                                <div className="empty_space">
+                                    empty space
+                                </div>
                                 <div className="upgrade_Button">
                                     <button className="upgrade-btn" type="submit" >
                                         Submit

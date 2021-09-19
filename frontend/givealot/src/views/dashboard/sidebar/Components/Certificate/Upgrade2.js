@@ -330,6 +330,9 @@ export class Upgrade2 extends Component {
                                     <span className="loginError_certificate">{this.state.qrError}</span>
 
                                 </div>
+                                <div className="empty_space">
+                                    empty space
+                                </div>
                                 <div className="upgrade_Button">
                                     <button className="upgrade-btn" type="submit">
                                         Submit

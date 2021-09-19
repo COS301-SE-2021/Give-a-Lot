@@ -57,7 +57,7 @@ export class Upgrade4 extends Component {
 
         alert("00000002");
         fetch(
-            this.state.serverDomain + '/v1/organisation/add/logo',
+            'http://localhost:8080/v1/organisation/add/audit',
             {
                 method: 'POST',
                 body: formData,
@@ -74,6 +74,8 @@ export class Upgrade4 extends Component {
             .catch((error) => {
                 console.error('Error:', error);
                 imageStates = 2;
+                this.setState({popUp1: false});
+                this.onToastFile();
             });
 
         if(imageStates===1)
@@ -111,6 +113,8 @@ export class Upgrade4 extends Component {
             })
             .catch((error) => {
                 console.error('Error-----:', error);
+                this.setState({popUp2: false});
+                this.onToastImage();
 
             });
 
@@ -238,6 +242,9 @@ export class Upgrade4 extends Component {
                                         {/* <FormHelperText className="helper">labelPlacement start</FormHelperText>*/}
                                     </div>
                                     <span className="loginError_certificate">{this.state.imagesError}</span>
+                                    <div className="empty_space">
+                                        empty space
+                                    </div>
                                     <div>
                                         <span className="upgrade_label_logo">
                                             Audit financial document
@@ -252,6 +259,9 @@ export class Upgrade4 extends Component {
                                     </div>
                                     <span className="loginError_certificate">{this.state.fileError}</span>
                                 </div>
+                                    <div className="empty_space">
+                                        empty space
+                                    </div>
                                 <div className="upgrade_Button">
                                     <button className="upgrade-btn" type="submit" >
                                         Submit

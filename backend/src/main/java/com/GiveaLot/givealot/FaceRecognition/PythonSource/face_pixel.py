@@ -9,6 +9,7 @@
 #     image = cv2.imread('tempImages/temp' + org_id + '.jpg')
 #     (h, w) = image.shape[:2]
 #
+#     #(image, scale factor, size, colour)
 #     blob = cv2.dnn.blobFromImage(image, 1.0, (300, 300), (104.0, 177.0, 123.0))
 #
 #     model.setInput(blob)

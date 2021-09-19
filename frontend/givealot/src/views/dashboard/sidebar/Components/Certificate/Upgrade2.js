@@ -83,7 +83,7 @@ export class Upgrade2 extends Component {
         let imageStates = 0;
 
         fetch(
-             'http://localhost:8080/v1/organisation/add/qrcode',
+            'http://localhost:8080/v1/organisation/add/logo',
             {
                 method: 'POST',
                 body: formData,
@@ -140,7 +140,6 @@ export class Upgrade2 extends Component {
             this.setState({ dateError, paypalError,qrError });
             return false;
         }
-
         return true;
     };
 
@@ -234,6 +233,7 @@ export class Upgrade2 extends Component {
                 position: toast.POSITION.TOP_RIGHT
 
             });
+
         }
     }
 

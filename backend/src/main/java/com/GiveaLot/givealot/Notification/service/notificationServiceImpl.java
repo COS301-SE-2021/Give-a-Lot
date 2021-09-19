@@ -160,15 +160,9 @@ public class notificationServiceImpl implements notificationService {
             String facebook = organisationInfo.getFacebook();
             String instagram = organisationInfo.getInstagram();
 
-            //You can only upload two social Media's so toggle between the one's you can upload
-            if (twitter == null) {
-                return new responseJSON("get_level_200_OK", "success", new levelFourInformationResponse(4L,committee_details, facebook, instagram,organisations.getOrgName(),orgid));
-            } else if (facebook == null) {
-                return new responseJSON("get_level_200_OK", "success", new levelFourInformationResponse(4L,committee_details, twitter, instagram,organisations.getOrgName(),orgid));
-            } else {
-                return new responseJSON("get_level_200_OK", "success", new levelFourInformationResponse(4L,committee_details, twitter, facebook,organisations.getOrgName(),orgid));
 
-            }
+            return new responseJSON("get_level_200_OK", "success", new levelFourInformationResponse(4L,committee_details, facebook, instagram,twitter ,organisations.getOrgName(),orgid));
+
 
         } else if (level == 4) {
             String image1 = "localfiles/" + orgid + "/Gallery/image0";

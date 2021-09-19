@@ -8,14 +8,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="givealot" />
+        <module name="Give-a-Lot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Give-a-Lot" target="9" />
       <module name="givealot" target="9" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Give-a-Lot" options="-parameters" />
       <module name="givealot" options="-parameters" />
     </option>
   </component>

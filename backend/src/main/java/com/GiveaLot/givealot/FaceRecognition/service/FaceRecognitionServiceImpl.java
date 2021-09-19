@@ -48,6 +48,7 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService
     public File FaceBlur(long orgId) throws IOException, InterruptedException {
         try {
             /** Executes python.exe script to blur the image **/
+
             String id = String.valueOf(orgId);
             ProcessBuilder processBuilder = new ProcessBuilder("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/face_blur.exe", id)
                     .directory(new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service"));

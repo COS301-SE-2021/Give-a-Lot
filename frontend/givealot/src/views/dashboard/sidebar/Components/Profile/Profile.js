@@ -54,9 +54,14 @@ export class Profile extends Component {
             ContactPersonState:false,
             orgAddress:"",
             addressState:false,
-            //serverDomain: "https://3c73e752688968.localhost.run"
+            popUp1:false,
+            popUp2:false,
+            popUp3:false,
+            popUp4:false,
+            popUp5:false,
+            popUp6:false,
             serverDomain : 'http://localhost:8080',
-            //loader:false,
+            loader:false,
 
 
         }

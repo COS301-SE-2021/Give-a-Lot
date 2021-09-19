@@ -13,10 +13,8 @@ import {Accordion, AccordionDetails, Avatar, Box, Paper} from "@material-ui/core
 import Footer from "../Footer/Footer";
 import Container from '@material-ui/core/Container';
 
-
 import Timeline from "@material-ui/lab/Timeline";
 import OrganisationTimeLineItem from '../OrganisationTimeLineItem/OrganisationTimeLineItem'
-
 
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import AccordionSummary from "@material-ui/core/AccordionSummary";

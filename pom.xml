@@ -8,16 +8,15 @@
 		<version>2.5.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+	<packaging>jar</packaging>
 	<groupId>com.Give-a-Lot</groupId>
 	<artifactId>givealot</artifactId>
-	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>givealot</name>
 	<description>Givealot backend</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -258,20 +257,12 @@
 			<artifactId>pdf-renderer</artifactId>
 			<version>1.0.5</version>
 		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
-		</dependency>
+
 	</dependencies>
 
 	<build>
 		<plugins>
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -288,9 +279,6 @@
 					<target>9</target>
 				</configuration>
 			</plugin>
-
-
-
 		</plugins>
 	</build>
 

@@ -112,6 +112,6 @@ modules.xml
 /backend/src/main/java/com/GiveaLot/givealot/Server/known_hosts
 /backend/src/main/java/com/GiveaLot/givealot/Server/ServerConfig.java
 /backend/src/main/java/com/GiveaLot/givealot/Certificate/dataclass/ContractConfig.java
-/frontend/givealot/node_modules/
-/frontend/givealot/package-lock.json
+/backend/src/main/frontend/givealot/node_modules/
+/backend/src/main/frontend/givealot/package-lock.json
 /lib/package-lock.json

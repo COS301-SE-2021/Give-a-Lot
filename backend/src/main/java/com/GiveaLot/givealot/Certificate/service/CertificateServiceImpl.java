@@ -299,8 +299,4 @@ public class CertificateServiceImpl implements CertificateService {
         }
         return blockchainService.compareCertificateHash(blockchain.getIndex(),blockchain.getOrgId(),certCmp);
     }
-
-
-
-
 }

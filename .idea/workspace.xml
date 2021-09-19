@@ -7,7 +7,6 @@
     <list default="true" id="7ddaa827-9a97-4781-a244-37344572183b" name="Default Changelist" comment="timeline - welcome message on registration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/TempDocument/image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/TempDocument/image.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -179,14 +178,7 @@
       <workItem from="1631819750918" duration="3266000" />
       <workItem from="1631823532933" duration="61928000" />
       <workItem from="1631960615375" duration="45209000" />
-      <workItem from="1632043880990" duration="16067000" />
-    </task>
-    <task id="LOCAL-00075" summary="Added HTTPStatus.UNAUTHORIZED instead of OK">
-      <created>1631133925823</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1631133925824</updated>
+      <workItem from="1632043880990" duration="17120000" />
     </task>
     <task id="LOCAL-00076" summary="registration update">
       <created>1631172099333</created>
@@ -524,7 +516,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632057485289</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="timeline - welcome message on registration">
+      <created>1632060988616</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1632060988616</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

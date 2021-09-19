@@ -12,7 +12,6 @@ function useForceUpdate()
     return () => setValue(value => value + 1); // update the state to force render
 }
 
-
 function OrganisationTimeline()
 {
     let [timelineEvents, setTimelineEvents] = useState([]);

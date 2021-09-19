@@ -300,6 +300,7 @@ public class ServerAccess {
             String localFile2 = "backend/src/main/resources/localFiles/" + orgId + "/gallery/backup/image" + numberOfImages + ".jpg";
             String localFile = "backend/src/main/resources/localFiles/" + orgId + "/gallery/image" + numberOfImages + ".jpg";
             FileUtils.copyFile(imageHolder, new File(localFile));
+            FileUtils.copyFile(imageHolder, new File(localFile2));
 
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + numberOfImages + ".jpg");
             channelSftp.put(localFile2, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/Backup/image" + numberOfImages + ".jpg");

@@ -83,7 +83,7 @@ export class Upgrade2 extends Component {
         let imageStates = 0;
 
         fetch(
-            'http://localhost:8080/v1/organisation/add/logo',
+             'http://localhost:8080/v1/organisation/add/qrcode',
             {
                 method: 'POST',
                 body: formData,
@@ -175,6 +175,15 @@ export class Upgrade2 extends Component {
                     this. onToastPaypal ();
                 })
                 .catch(err => console.log(err));
+
+            const notification_update_body = {
+                org_id: this.state.orgId,
+            };
+
+            Axios
+                .post("http://localhost:8080/v1/notifications/update/notifications", notification_update_body)
+                .then(res => console.log(res))
+                .catch(err => console.log(err))
         }
     };
 
@@ -225,7 +234,6 @@ export class Upgrade2 extends Component {
                 position: toast.POSITION.TOP_RIGHT
 
             });
-
         }
     }
 

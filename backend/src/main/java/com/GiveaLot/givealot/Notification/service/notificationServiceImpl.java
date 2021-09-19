@@ -111,7 +111,6 @@ public class notificationServiceImpl implements notificationService {
             return new generalNotificationResponse("remove_notification_200_ok", "success");
         else
             throw new Exception("An error has occured");
-
     }
 
     @Override

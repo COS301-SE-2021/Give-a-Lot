@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddaa827-9a97-4781-a244-37344572183b" name="Default Changelist" comment="level 2-level 4 validate done">
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/BlurImages/BlurImages.js" afterDir="false" />
+    <list default="true" id="7ddaa827-9a97-4781-a244-37344572183b" name="Default Changelist" comment="blur images">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/Dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Sidebar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,14 +175,7 @@
       <workItem from="1631823532933" duration="61928000" />
       <workItem from="1631960615375" duration="45209000" />
       <workItem from="1632043880990" duration="1694000" />
-      <workItem from="1632057387882" duration="3903000" />
-    </task>
-    <task id="LOCAL-00075" summary="Added HTTPStatus.UNAUTHORIZED instead of OK">
-      <created>1631133925823</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1631133925824</updated>
+      <workItem from="1632057387882" duration="4890000" />
     </task>
     <task id="LOCAL-00076" summary="registration update">
       <created>1631172099333</created>
@@ -523,7 +513,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632081351328</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="blur images">
+      <created>1632089845011</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1632089845011</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -543,7 +540,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Last minute changes" />
     <MESSAGE value="Org Name update fix" />
     <MESSAGE value="Added HTTPStatus.UNAUTHORIZED instead of OK" />
     <MESSAGE value="registration update" />
@@ -568,7 +564,8 @@
     <MESSAGE value="added  organisation" />
     <MESSAGE value="level 2 validate done" />
     <MESSAGE value="level 2-level 4 validate done" />
-    <option name="LAST_COMMIT_MESSAGE" value="level 2-level 4 validate done" />
+    <MESSAGE value="blur images" />
+    <option name="LAST_COMMIT_MESSAGE" value="blur images" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

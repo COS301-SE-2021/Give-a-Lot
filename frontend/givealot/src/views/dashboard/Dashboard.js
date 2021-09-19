@@ -67,9 +67,6 @@ function Dashboard() {
                     <Route exact path="/timeline">
                         <OrganisationTimeline />
                     </Route>
-                    <Route exact path="/blurImages">
-                        <BlurImages />
-                    </Route>
                 </Switch>
             )
         }
@@ -111,6 +108,9 @@ function Dashboard() {
                     </Route>
                     <Route exact path="/timeline">
                         <OrganisationTimeline />
+                    </Route>
+                    <Route exact path="/blurImages">
+                        <BlurImages />
                     </Route>
                 </Switch>
             )

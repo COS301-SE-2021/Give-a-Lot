@@ -5,7 +5,41 @@
     /*margin-top: 10px;*/
 
 }
-.link{
+.link
+{
     text-decoration: none;
     color: inherit;
+}
+
+#timeline_title
+{
+    text-align: center;
+    color: #4b4250;
+    font-family: 'Raleway',sans-serif;
+    font-size: 23px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+#timeline_slogan
+{
+    text-align: center;
+    color: #4b4250;
+    font-family: 'Raleway',sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 17px;
+}
+
+#timeline_container
+{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+#timeline_container > .timeline-text-field
+{
+    margin: 5px 0;
 }

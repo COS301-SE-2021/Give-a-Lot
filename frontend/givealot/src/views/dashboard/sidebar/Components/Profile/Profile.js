@@ -227,7 +227,11 @@ export class Profile extends Component {
             console.log(data4)
             Axios
                 .post("http://localhost:8080/v1/organisation/update/info/organisation", data4)
-                .then(res => console.log(res))
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp4: res.data.message});
+                    this.onToastContacts();
+                })
                 .catch(err => console.log(err));
         }
 
@@ -331,6 +335,25 @@ export class Profile extends Component {
 
         }
     }
+
+    onToastContacts = () => {
+
+        if(this.state.popUp4){
+
+            toast.success('Contacts Updated successful', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to update Contacts', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
+    }
+
 
 
 

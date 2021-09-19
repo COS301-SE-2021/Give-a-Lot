@@ -28,6 +28,13 @@ export class OrgValidate extends Component {
             isConfirmedNumber: false,
             isConfirmedWebsite: false,
             isConfirmedStreet: false,
+            isConfirmedEd: false,
+            isConfirmedDonate: false,
+            isConfirmedQr: false,
+            isConfirmedCommittee: false,
+            isConfirmedTwitter: false,
+            isConfirmedFacebook: false,
+            isConfirmedInstagram: false,
         }
     }
     handleClose = () => {
@@ -195,7 +202,6 @@ export class OrgValidate extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        // this.setState({isConfirmedStreet: true})
 
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/address/false', config)
             .then(response =>{
@@ -218,7 +224,7 @@ export class OrgValidate extends Component {
 
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/establishment_date/true', config)
             .then(response =>{
-                console.log(response)
+                this.setState({isConfirmedEd: true})
             })
             .catch(error =>{
                 console.log(error)
@@ -236,7 +242,7 @@ export class OrgValidate extends Component {
 
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/establishment_date/false', config)
             .then(response =>{
-                console.log(response)
+                this.setState({isConfirmedEd: true})
             })
             .catch(error =>{
                 console.log(error)
@@ -254,7 +260,7 @@ export class OrgValidate extends Component {
 
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/donation_link/true', config)
             .then(response =>{
-                console.log(response)
+                this.setState({isConfirmedDonate: true})
             })
             .catch(error =>{
                 console.log(error)
@@ -272,7 +278,7 @@ export class OrgValidate extends Component {
 
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/donation_link/false', config)
             .then(response =>{
-                console.log(response)
+                this.setState({isConfirmedDonate: true})
             })
             .catch(error =>{
                 console.log(error)
@@ -290,7 +296,7 @@ export class OrgValidate extends Component {
 
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/qr_code/true', config)
             .then(response =>{
-                console.log(response)
+                this.setState({isConfirmedQr: true})
             })
             .catch(error =>{
                 console.log(error)
@@ -308,7 +314,7 @@ export class OrgValidate extends Component {
 
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/qr_code/false', config)
             .then(response =>{
-                console.log(response)
+                this.setState({isConfirmedQr: true})
             })
             .catch(error =>{
                 console.log(error)
@@ -327,7 +333,7 @@ export class OrgValidate extends Component {
 
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/committee/true', config)
             .then(response =>{
-                console.log(response)
+                this.setState({isConfirmedCommittee: true})
             })
             .catch(error =>{
                 console.log(error)
@@ -345,7 +351,7 @@ export class OrgValidate extends Component {
 
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/committee/false', config)
             .then(response =>{
-                console.log(response)
+                this.setState({isConfirmedCommittee: true})
             })
             .catch(error =>{
                 console.log(error)
@@ -363,7 +369,7 @@ export class OrgValidate extends Component {
 
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/facebook/true', config)
             .then(response =>{
-                console.log(response)
+                this.setState({isConfirmedFacebook: true})
             })
             .catch(error =>{
                 console.log(error)
@@ -381,7 +387,7 @@ export class OrgValidate extends Component {
 
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/facebook/false', config)
             .then(response =>{
-                console.log(response)
+                this.setState({isConfirmedFacebook: true})
             })
             .catch(error =>{
                 console.log(error)
@@ -399,7 +405,7 @@ export class OrgValidate extends Component {
 
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/instagram/true', config)
             .then(response =>{
-                console.log(response)
+                this.setState({isConfirmedInstagram: true})
             })
             .catch(error =>{
                 console.log(error)
@@ -417,7 +423,7 @@ export class OrgValidate extends Component {
 
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/instagram/false', config)
             .then(response =>{
-                console.log(response)
+                this.setState({isConfirmedInstagram: true})
             })
             .catch(error =>{
                 console.log(error)
@@ -435,7 +441,7 @@ export class OrgValidate extends Component {
 
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/twitter/true', config)
             .then(response =>{
-                console.log(response)
+                this.setState({isConfirmedTwitter: true})
             })
             .catch(error =>{
                 console.log(error)
@@ -453,7 +459,7 @@ export class OrgValidate extends Component {
 
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/twitter/false', config)
             .then(response =>{
-                console.log(response)
+                this.setState({isConfirmedTwitter: true})
             })
             .catch(error =>{
                 console.log(error)
@@ -584,17 +590,6 @@ export class OrgValidate extends Component {
                                             >
                                                 Accept
                                             </Button>
-                                            {/*<Dialog onClose={this.handleClose.bind(this)} open={this.state.openValid}>*/}
-                                            {/*    <DialogTitle>NGO Date accepted</DialogTitle>*/}
-                                            {/*    <DialogContent>*/}
-                                            {/*        <Button variant="contained" color="primary"*/}
-                                            {/*                onClick={this.handleClose.bind(this)}*/}
-                                            {/*                style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}*/}
-                                            {/*        >*/}
-                                            {/*            Close*/}
-                                            {/*        </Button>*/}
-                                            {/*    </DialogContent>*/}
-                                            {/*</Dialog>*/}
                                         </Grid>
                                         <Grid style={{marginLeft: "1em"}}>
                                             <Button variant="contained" className="buttonValidViewDeny"
@@ -603,17 +598,6 @@ export class OrgValidate extends Component {
                                                 Deny
                                             </Button>
                                         </Grid>
-                                        {/*<Dialog onClose={this.handleCloseDate.bind(this)} open={this.state.openValidDate}>*/}
-                                        {/*    <DialogTitle>NGO Date Denied</DialogTitle>*/}
-                                        {/*    <DialogContent>*/}
-                                        {/*        <Button variant="contained" color="primary"*/}
-                                        {/*                onClick={this.handleCloseDate.bind(this)}*/}
-                                        {/*                style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}*/}
-                                        {/*        >*/}
-                                        {/*            Close*/}
-                                        {/*        </Button>*/}
-                                        {/*    </DialogContent>*/}
-                                        {/*</Dialog>*/}
                                     </Typography>
                                 </Typography>
                             </CardContent>
@@ -750,14 +734,14 @@ export class OrgValidate extends Component {
                                     }}>
                                         <Grid>
                                             <Button variant="contained" className="buttonValidViewAccept"
-                                                    onClick={this.acceptNgoEstablish.bind(this)} disabled={this.state.isConfirmedTwo}
+                                                    onClick={this.acceptNgoEstablish.bind(this)} disabled={this.state.isConfirmedEd}
                                             >
                                                 Accept
                                             </Button>
                                         </Grid>
                                         <Grid style={{marginLeft: "1em"}}>
                                             <Button variant="contained" className="buttonValidViewDeny"
-                                                    onClick={this.denyNgoEstablish.bind(this)} disabled={this.state.isConfirmedTwo2}
+                                                    onClick={this.denyNgoEstablish.bind(this)} disabled={this.state.isConfirmedEd}
                                             >
                                                 Deny
                                             </Button>
@@ -785,14 +769,14 @@ export class OrgValidate extends Component {
                                     }}>
                                         <Grid>
                                             <Button variant="contained" className="buttonValidViewAccept"
-                                                    onClick={this.acceptNgoDonateUrl.bind(this)}
+                                                    onClick={this.acceptNgoDonateUrl.bind(this)} disabled={this.state.isConfirmedDonate}
                                             >
                                                 Accept
                                             </Button>
                                         </Grid>
                                         <Grid style={{marginLeft: "1em"}}>
                                             <Button variant="contained" className="buttonValidViewDeny"
-                                                onClick={this.denyNgoDonateUrl.bind(this)}
+                                                onClick={this.denyNgoDonateUrl.bind(this)} disabled={this.state.isConfirmedDonate}
                                             >
                                                 Deny
                                             </Button>
@@ -810,7 +794,7 @@ export class OrgValidate extends Component {
                                             QR code Url:
                                         </div>
                                         <div style={{marginLeft: "1em"}}>
-                                            {validation.qrCode_url}
+                                            <img src={validation.qrCode_url}/>
                                         </div>
                                     </Typography>
                                     <Typography style={{
@@ -820,14 +804,14 @@ export class OrgValidate extends Component {
                                     }}>
                                         <Grid>
                                             <Button variant="contained" className="buttonValidViewAccept"
-                                                    onClick={this.acceptNgoQrUrl.bind(this)}
+                                                    onClick={this.acceptNgoQrUrl.bind(this)} disabled={this.state.isConfirmedQr}
                                             >
                                                 Accept
                                             </Button>
                                         </Grid>
                                         <Grid style={{marginLeft: "1em"}}>
                                             <Button variant="contained" className="buttonValidViewDeny"
-                                                onClick={this.denyNgoQrUrl.bind(this)}
+                                                onClick={this.denyNgoQrUrl.bind(this)} disabled={this.state.isConfirmedQr}
                                             >
                                                 Deny
                                             </Button>
@@ -861,6 +845,7 @@ export class OrgValidate extends Component {
                                         <Grid>
                                             <Button variant="contained" className="buttonValidViewAccept"
                                                     onClick={this.acceptCommitteeDetails.bind(this)}
+                                                    disabled={this.state.isConfirmedCommittee}
                                             >
                                                 Accept
                                             </Button>
@@ -868,6 +853,7 @@ export class OrgValidate extends Component {
                                         <Grid style={{marginLeft: "1em"}}>
                                             <Button variant="contained" className="buttonValidViewDeny"
                                                     onClick={this.denyCommitteeDetails.bind(this)}
+                                                    disabled={this.state.isConfirmedCommittee}
                                                 >
                                                 Deny
                                             </Button>
@@ -897,6 +883,7 @@ export class OrgValidate extends Component {
                                         <Grid>
                                             <Button variant="contained" className="buttonValidViewAccept"
                                                     onClick={this.acceptSocialMedia3.bind(this)}
+                                                    disabled={this.state.isConfirmedTwitter}
                                             >
                                                 Accept
                                             </Button>
@@ -904,6 +891,7 @@ export class OrgValidate extends Component {
                                         <Grid style={{marginLeft: "1em"}}>
                                             <Button variant="contained" className="buttonValidViewDeny"
                                                     onClick={this.denySocialMedia3.bind(this)}
+                                                    disabled={this.state.isConfirmedTwitter}
                                             >
                                                 Deny
                                             </Button>
@@ -933,6 +921,7 @@ export class OrgValidate extends Component {
                                         <Grid>
                                             <Button variant="contained" className="buttonValidViewAccept"
                                                     onClick={this.acceptSocialMedia1.bind(this)}
+                                                    disabled={this.state.isConfirmedFacebook}
                                             >
                                                 Accept
                                             </Button>
@@ -940,6 +929,7 @@ export class OrgValidate extends Component {
                                         <Grid style={{marginLeft: "1em"}}>
                                             <Button variant="contained" className="buttonValidViewDeny"
                                                     onClick={this.denySocialMedia1.bind(this)}
+                                                    disabled={this.state.isConfirmedFacebook}
                                             >
                                                 Deny
                                             </Button>
@@ -969,6 +959,7 @@ export class OrgValidate extends Component {
                                         <Grid>
                                             <Button variant="contained" className="buttonValidViewAccept"
                                                     onClick={this.acceptSocialMedia2.bind(this)}
+                                                    disabled={this.state.isConfirmedInstagram}
                                             >
                                                 Accept
                                             </Button>
@@ -976,6 +967,7 @@ export class OrgValidate extends Component {
                                         <Grid style={{marginLeft: "1em"}}>
                                             <Button variant="contained" className="buttonValidViewDeny"
                                                     onClick={this.denySocialMedia2.bind(this)}
+                                                    disabled={this.state.isConfirmedInstagram}
                                             >
                                                 Deny
                                             </Button>

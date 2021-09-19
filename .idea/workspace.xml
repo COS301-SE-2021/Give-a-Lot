@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddaa827-9a97-4781-a244-37344572183b" name="Default Changelist" comment="validate page when validation object is empty">
+    <list default="true" id="7ddaa827-9a97-4781-a244-37344572183b" name="Default Changelist" comment="level 2 validate done">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/77/gallery/QRCode.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wanda'sorganisationCertificate.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/77/certificate/CertificateComplete.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/77/certificate/CertificateComplete.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/77/certificate/CertificateImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/77/certificate/CertificateImage.png" afterDir="false" />
@@ -52,6 +54,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -179,13 +182,6 @@
       <workItem from="1631823532933" duration="61928000" />
       <workItem from="1631960615375" duration="45209000" />
       <workItem from="1632043880990" duration="1694000" />
-    </task>
-    <task id="LOCAL-00072" summary="Org Name update fix">
-      <created>1630859306015</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1630859306029</updated>
     </task>
     <task id="LOCAL-00073" summary="Org Name update fix">
       <created>1630872367222</created>
@@ -523,7 +519,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632045659958</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="level 2 validate done">
+      <created>1632051500360</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1632051500360</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -542,7 +545,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added files" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Added additional verify implementation" />
     <MESSAGE value="Last minute changes" />
     <MESSAGE value="Org Name update fix" />
@@ -567,7 +570,8 @@
     <MESSAGE value="level 2 upgrade complete" />
     <MESSAGE value="upgrade to level 4 complete" />
     <MESSAGE value="added  organisation" />
-    <option name="LAST_COMMIT_MESSAGE" value="added  organisation" />
+    <MESSAGE value="level 2 validate done" />
+    <option name="LAST_COMMIT_MESSAGE" value="level 2 validate done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

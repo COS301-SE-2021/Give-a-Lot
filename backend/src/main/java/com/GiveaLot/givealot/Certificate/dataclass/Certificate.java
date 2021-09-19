@@ -56,14 +56,14 @@ public class Certificate {
     )
     int points;
 
-    public Certificate(){
+    public Certificate() {
         //Dependant on what will be on the certificate
         this.dateCreated = "";
         this.dateExpiry = "";
         this.points = 0;
     }
 
-    public Certificate(long org_id, String dateCreated, String dateExpiry, int points){
+    public Certificate(long org_id, String dateCreated, String dateExpiry, int points) {
         this.org_id = org_id;
         this.dateCreated = dateCreated;
         this.dateExpiry = dateExpiry;

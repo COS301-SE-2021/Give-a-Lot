@@ -897,6 +897,42 @@ export class OrgValidate extends Component {
                                             Twitter:
                                         </div>
                                         <div style={{marginLeft: "1em"}}>
+                                            {validation.socialMedia3}
+                                        </div>
+
+                                    </Typography>
+                                    <Typography style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "space-between"
+                                    }}>
+                                        <Grid>
+                                            <Button variant="contained" className="buttonValidViewAccept"
+                                                    onClick={this.acceptSocialMedia3.bind(this)}
+                                            >
+                                                Accept
+                                            </Button>
+                                        </Grid>
+                                        <Grid style={{marginLeft: "1em"}}>
+                                            <Button variant="contained" className="buttonValidViewDeny"
+                                                    onClick={this.denySocialMedia3.bind(this)}
+                                            >
+                                                Deny
+                                            </Button>
+                                        </Grid>
+                                    </Typography>
+                                </Typography>
+                            </CardContent>
+                        </Card>
+
+                        <Card style={{margin: "1em", width: "100%"}}>
+                            <CardContent>
+                                <Typography className="valid">
+                                    <Typography>
+                                        <div>
+                                            Facebook:
+                                        </div>
+                                        <div style={{marginLeft: "1em"}}>
                                             {validation.socialMedia1}
                                         </div>
 
@@ -930,7 +966,7 @@ export class OrgValidate extends Component {
                                 <Typography className="valid">
                                     <Typography>
                                         <div>
-                                            Facebook:
+                                            Instagram:
                                         </div>
                                         <div style={{marginLeft: "1em"}}>
                                             {validation.socialMedia2}
@@ -952,42 +988,6 @@ export class OrgValidate extends Component {
                                         <Grid style={{marginLeft: "1em"}}>
                                             <Button variant="contained" className="buttonValidViewDeny"
                                                     onClick={this.denySocialMedia2.bind(this)}
-                                            >
-                                                Deny
-                                            </Button>
-                                        </Grid>
-                                    </Typography>
-                                </Typography>
-                            </CardContent>
-                        </Card>
-
-                        <Card style={{margin: "1em", width: "100%"}}>
-                            <CardContent>
-                                <Typography className="valid">
-                                    <Typography>
-                                        <div>
-                                            Instagram:
-                                        </div>
-                                        <div style={{marginLeft: "1em"}}>
-                                            {validation.socialMedia2}
-                                        </div>
-
-                                    </Typography>
-                                    <Typography style={{
-                                        display: "flex",
-                                        alignItems: "center",
-                                        justifyContent: "space-between"
-                                    }}>
-                                        <Grid>
-                                            <Button variant="contained" className="buttonValidViewAccept"
-                                                    onClick={this.acceptSocialMedia3.bind(this)}
-                                            >
-                                                Accept
-                                            </Button>
-                                        </Grid>
-                                        <Grid style={{marginLeft: "1em"}}>
-                                            <Button variant="contained" className="buttonValidViewDeny"
-                                                    onClick={this.denySocialMedia3.bind(this)}
                                             >
                                                 Deny
                                             </Button>

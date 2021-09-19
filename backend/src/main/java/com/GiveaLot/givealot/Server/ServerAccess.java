@@ -500,6 +500,22 @@ public class ServerAccess {
         }
     }
 
+    public void uploadImageAnon(long orgId, MultipartFile imageMPF) throws Exception {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            File image = new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg");
+            if (!image.exists()){
+                image.createNewFile();
+            }
+            try (OutputStream os = new FileOutputStream(image)) {
+                os.write(imageMPF.getBytes());
+            }
+            image.renameTo(new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg"));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public void uploadReport(long orgId, File report, String date) throws Exception {
 
         ChannelSftp channelSftp = setupJsch();

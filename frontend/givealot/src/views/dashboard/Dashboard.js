@@ -24,6 +24,7 @@ import Validate from "../dashboard/sidebar/Components/Validate/Validate"
 import AddOrg from "../dashboard/sidebar/Components/OrganisationsDash/AddOrg"
 import OrgValidate from "../dashboard/sidebar/Components/Validate/OrgValidate"
 import OrganisationTimeline from "./sidebar/Components/Timeline/Timeline";
+import BlurImages from "./sidebar/Components/BlurImages/BlurImages"
 
 
 const roles = localStorage.getItem('role')
@@ -65,6 +66,9 @@ function Dashboard() {
                     </Route>
                     <Route exact path="/timeline">
                         <OrganisationTimeline />
+                    </Route>
+                    <Route exact path="/blurImages">
+                        <BlurImages />
                     </Route>
                 </Switch>
             )

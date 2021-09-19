@@ -76,6 +76,15 @@ function Sidebar(){
                         </Link>
                     </div>
 
+                    <div className={splitLocation[1] === "blurImages" ? "active" : ""}>
+                        <Link to='/blurImages' className="link">
+                            <li className="sidebarListItem ">
+                                <CalendarTodayOutlinedIcon />
+                                <div className="sideIcon" > Blur Images </div>
+                            </li>
+                        </Link>
+                    </div>
+
                     <div className={splitLocation[1] === "calendar" ? "active" : ""}>
                         <Link to='/calendar' className="link">
                             <li className="sidebarListItem ">

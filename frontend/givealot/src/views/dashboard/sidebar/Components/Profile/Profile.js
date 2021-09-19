@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 import "../Profile/Styles/Profile.css"
-import Level0 from "./Level0"
-import Level1 from "./Level1"
-import Level2 from "./Level2"
-import Level3 from "./Level3"
-import Level4 from "./Level4"
+import {toast, ToastContainer} from "react-toastify";
 
 
 import {
@@ -16,7 +12,6 @@ import {
 } from "@material-ui/icons";
 import axios from "axios";
 import Axios from "axios";
-import {toast} from "react-toastify";
 import * as PropTypes from "prop-types";
 import {ApiContext} from "../../../../../apiContext/ApiContext";
 import FullPageLoader from "../Report/FullPageLoader";
@@ -178,8 +173,13 @@ export class Profile extends Component {
             console.log(data1)
             Axios
                 .post("http://localhost:8080/v1/organisation/update/info/organisation", data1)
-                .then(res => console.log(res))
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp1: res.data.message});
+                    this.onToastEmail();
+                })
                 .catch(err => console.log(err));
+
         }
         if(this.state.orgDescriptionState) {
             const data2 = {
@@ -270,16 +270,33 @@ export class Profile extends Component {
 
 
 
+    onToastEmail = () => {
+
+        if(this.state.popUp1){
+
+            toast.success('Email Updated successful', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to update', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
+    }
 
 
-    onToastP = () => {
+   /* onToastP = () => {
         if (this.state.orgNameState || this.state.orgDescriptionState || this.state.emailState || this.state.ContactNumberState || this.state.ContactPersonState || this.state.sloganState || this.state.addressState) {
             toast.success('Submit successful', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
         }
-    }
+    }*/
 
 
     render() {
@@ -433,7 +450,10 @@ export class Profile extends Component {
                             </div>
                             <div className="userUpdateRight">
 
-                                <button className="userUpdateButton"  onClick={this.onToastP}>Update</button>
+                                <button className="userUpdateButton" >Update</button>
+                            </div>
+                            <div className="form-group">
+                                <ToastContainer/>
                             </div>
                         </form>
                     </div>

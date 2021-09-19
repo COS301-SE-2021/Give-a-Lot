@@ -9,7 +9,7 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 
 import view_organisation from '../../Styles/view_organisation.css';
-import {Accordion, AccordionDetails, Avatar, Box, Paper} from "@material-ui/core";
+import {Accordion, AccordionDetails, Avatar, Box, Paper, TextField} from "@material-ui/core";
 import Footer from "../Footer/Footer";
 import Container from '@material-ui/core/Container';
 
@@ -22,6 +22,8 @@ import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import Loader from "../../../loader/Loader";
 import {ApiContext} from "../../../../apiContext/ApiContext";
+import axios from "axios";
+import {Alert} from "@material-ui/lab";
 
 /*
  * certificate component imports
@@ -88,23 +90,70 @@ function ViewOrganisation()
 
     let {id} = useParams();
     let image_id = id + "";
+    let showReportFormTrack = false;
+    const reportFormToggle = event =>
+    {
+        event.preventDefault();
 
-    let images = [{
-        original : "/images_tmp/1.jpg",
-        thumbnail: "/images_tmp/1.jpg"
-    },
+        if(showReportFormTrack === false)
         {
-            original : "/images_tmp/2.jpg",
-            thumbnail: "/images_tmp/2.jpg"
-        },
+            document.getElementById("report_form_container").style.display = "flex";
+            showReportFormTrack = true;
+        }
+        else
         {
-            original : "/images_tmp/15.png",
-            thumbnail: "/images_tmp/15.png"
-        },
+            document.getElementById("report_form_container").style.display = "none";
+            showReportFormTrack = false;
+        }
+    }
+    const reportOrganisation = event =>
+    {
+        event.preventDefault();
+        let orgId = id;
+        let userId = localStorage.getItem("id");
+        let reportType = document.getElementById("report-title-input").value;
+        let reportDescription = document.getElementById("report-description-input").value;
+
+        let reportRequest = {
+            orgId : orgId,
+            userId : userId,
+            reportType : reportType,
+            description : reportDescription
+        }
+
+        console.log(reportRequest)
+
+        if(userId === "default")
         {
-            original : "/images_tmp/23.jpg",
-            thumbnail: "/images_tmp/23.jpg"
-        }];
+            alert("please sign in if you want to report an organisation");
+            window.location.assign("/login");
+        }
+        else
+        {
+            axios.post(serverDomain + '/report/org/', reportRequest)
+                .then(response =>
+                {
+                    if(response)
+                    {
+                        document.getElementById('report_success_alert').style.display = "flex";
+                        setTimeout(function(){
+                            document.getElementById('report_success_alert').style.display = "none";
+                        }, 3000);
+                    }
+                })
+                .catch(error =>
+                {
+                    if(error.response)
+                    {
+                        console.error(error.response)
+                    }
+                    else
+                    {
+                        console.error(error)
+                    }
+                })
+        }
+    }
 
     useEffect(() => {
 
@@ -128,6 +177,7 @@ function ViewOrganisation()
 
                 if (data.message === "success") /*successfully fetched*/
                 {
+
                     setOrganisationData(data.response);
                     setPageLoaded(true);
                 }
@@ -139,10 +189,10 @@ function ViewOrganisation()
             })
 
             .catch(error => {
-                alert("failed - organisations - sector")
+                alert("failed - select - sector")
             });
 
-            fetch( "http://localhost:8080/event/get/timeline/" + id)
+            fetch( serverDomain + "/event/get/timeline/" + id)
                 .then(async response =>{
 
                     const data = await response.json();
@@ -209,6 +259,25 @@ function ViewOrganisation()
                 />
             )
         }
+    }
+
+    let number_of_images = 0;
+    if(organisationData !== undefined)
+    {
+        number_of_images = organisationData.numberOfImages;
+
+    }
+
+
+    let images = [];
+
+    for(let i = 0; i < number_of_images; i++)
+    {
+        let image = {
+            original : serverDomain + "/gallery/image/version/"+id+"/" + i,
+            thumbnail: serverDomain + "/gallery/image/version/"+id+"/" + i
+        }
+        images.push(image);
     }
 
     return (
@@ -300,13 +369,24 @@ function ViewOrganisation()
                                </Typography>
                            </AccordionDetails>
                        </Accordion>
+                   </div>
 
-                   </div>
-                   <p id="view_organisation_meta_body_about">gallery</p>
-                   <div id="view_organisation_gallery">
-                       <p>{images.length} pictures</p>
-                       <ImageGallery items={images} />
-                   </div>
+                   {images.length > 0 ?
+                       <>
+                           <p id="view_organisation_meta_body_about">gallery</p>
+                           <div id="view_organisation_gallery">
+                           <p>{images.length} pictures</p>
+                           <ImageGallery items={images}/>
+                           </div>
+                       </>
+
+                       :
+
+                       <></>
+                   }
+
+
+
                </Container>
 
                <Container maxWidth="sm" id="view_organisation_right">
@@ -338,6 +418,57 @@ function ViewOrganisation()
                        >
                            Download
                        </Button>
+                   </Box>
+
+                   <Box id={"report_organisation_container"}>
+                       <p>
+                           your satisfaction matters to us,
+                           report an organisation if you have any suspicions
+                       </p>
+                       <Button
+                        variant={"outlined"}
+                        color={"secondary"}
+                        onClick={reportFormToggle}
+                       >
+                           report
+                       </Button>
+
+                           <Box id={"report_form_container"}>
+                               <Alert
+                                   id={"report_success_alert"}
+                                   severity={"success"}
+                               >
+                                   successfully reported
+                               </Alert>
+                               <TextField
+                                   className={"report_form_input"}
+                                   id={"report-title-input"}
+                                   variant={"outlined"}
+                                   label="what's your accusation?"
+                                   placeholder={"example, imposter"}
+                                   type="text"
+                               />
+
+                               <TextField
+                                   className={"report_form_input"}
+                                   variant={"outlined"}
+                                   id={"report-description-input"}
+                                   label="describe the event"
+                                   placeholder="describe the accusation in detail"
+                                   maxRows={3}
+                                   multiline
+                               />
+
+
+
+                               <Button
+                               variant={"contained"}
+                               color={"primary"}
+                               onClick={reportOrganisation}
+                               >
+                                   submit
+                               </Button>
+                           </Box>
                    </Box>
 
                    <p id="view_organisation_meta_body_about">timeline</p>

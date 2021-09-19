@@ -6,6 +6,8 @@ import com.GiveaLot.givealot.Browse.repository.BrowseRecommenderRepository;
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
 import com.GiveaLot.givealot.Certificate.service.CertificateService;
+import com.GiveaLot.givealot.Events.requests.addTimeLineEventRequest;
+import com.GiveaLot.givealot.Events.service.eventsServiceImp;
 import com.GiveaLot.givealot.FaceRecognition.service.FaceRecognitionServiceImpl;
 import com.GiveaLot.givealot.Notification.dataclass.Mail;
 import com.GiveaLot.givealot.Notification.repository.NotificationRepository;
@@ -89,6 +91,9 @@ public class OrganisationServiceImp implements OrganisationService
     private FaceRecognitionServiceImpl faceRecognitionService;
 
     @Autowired
+    private eventsServiceImp eventsService;
+
+    @Autowired
     public void setOrganisationServiceImp(OrganisationRepository organisationRepository, OrganisationInfoRepository organisationInfoRepository, organisationPointsRepository organisationPointsRepository, CertificateRepository certificateRepository, UserRepository userRepository){
         this.organisationRepository = organisationRepository;
         this.organisationInfoRepository = organisationInfoRepository;
@@ -153,7 +158,7 @@ public class OrganisationServiceImp implements OrganisationService
                 null,
                 null,
                 null,
-                null);
+                organisationPointsRepository.getNumberOfImages(orgId));
 
         Blockchain blockchain_get_level = blockChainRepository.selectBlockchainOrgId(orgId);
 
@@ -178,6 +183,7 @@ public class OrganisationServiceImp implements OrganisationService
             if (user == null)
                 throw new Exception("Exception: invalid user id");
         }
+
 
         if (res != null)
         {
@@ -390,6 +396,8 @@ public class OrganisationServiceImp implements OrganisationService
             System.out.println("Failed");
             System.out.println("#######################################################################################");
         }
+
+        eventsService.addTimelineEvent(new addTimeLineEventRequest(id,dateCreated, "joined give a lot","we welcome you to the give a lot community"));
         return new generalOrganisationResponse("add_org_200_ok", "success-" + id);
     }
 
@@ -482,6 +490,14 @@ public class OrganisationServiceImp implements OrganisationService
                 throw new Exception("status not updated");
             else
             {
+                int numberOfImages = organisationPointsRepository.getNumberOfImages(request.getOrgID());
+
+                for(int i = 0; i < numberOfImages; i++)
+                {
+                    System.out.println("bluring image" + i);
+                    faceRecognitionService.FaceBlurSuspend(request.getOrgID(),i);
+                }
+
                 /**Sending Status change email**/
                 System.out.println("Sending Email...");
 

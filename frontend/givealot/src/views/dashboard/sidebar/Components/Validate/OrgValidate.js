@@ -53,14 +53,15 @@ export class OrgValidate extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
+        this.setState({isConfirmed: true})
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+this.state.adminId+ '/ngo_date/true', config)
-            .then(response =>{
-                console.log(response)
-            })
-            .catch(error =>{
-                console.log(error)
-            })
+        // axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+this.state.adminId+ '/ngo_date/true', config)
+        //     .then(response =>{
+        //         console.log(response)
+        //     })
+        //     .catch(error =>{
+        //         console.log(error)
+        //     })
     }
     denyNgoDate(){
         this.setState({ openValidDate: true });
@@ -71,14 +72,15 @@ export class OrgValidate extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
+        this.setState({isConfirmed: true})
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/ngo_date/false', config)
-            .then(response =>{
-                // console.log(response)
-            })
-            .catch(error =>{
-                console.log(error)
-            })
+        // axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/ngo_date/false', config)
+        //     .then(response =>{
+        //         // console.log(response)
+        //     })
+        //     .catch(error =>{
+        //         console.log(error)
+        //     })
     }
 
     acceptNgoNumber(){
@@ -570,40 +572,40 @@ export class OrgValidate extends Component {
                                     }}>
                                         <Grid>
                                             <Button variant="contained" className="buttonValidViewAccept"
-                                                    onClick={this.acceptNgoDate.bind(this)}
+                                                    onClick={this.acceptNgoDate.bind(this)} disabled={this.state.isConfirmed}
                                             >
                                                 Accept
                                             </Button>
-                                            <Dialog onClose={this.handleClose.bind(this)} open={this.state.openValid}>
-                                                <DialogTitle>NGO Date accepted</DialogTitle>
-                                                <DialogContent>
-                                                    <Button variant="contained" color="primary"
-                                                            onClick={this.handleClose.bind(this)}
-                                                            style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}
-                                                    >
-                                                        Close
-                                                    </Button>
-                                                </DialogContent>
-                                            </Dialog>
+                                            {/*<Dialog onClose={this.handleClose.bind(this)} open={this.state.openValid}>*/}
+                                            {/*    <DialogTitle>NGO Date accepted</DialogTitle>*/}
+                                            {/*    <DialogContent>*/}
+                                            {/*        <Button variant="contained" color="primary"*/}
+                                            {/*                onClick={this.handleClose.bind(this)}*/}
+                                            {/*                style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}*/}
+                                            {/*        >*/}
+                                            {/*            Close*/}
+                                            {/*        </Button>*/}
+                                            {/*    </DialogContent>*/}
+                                            {/*</Dialog>*/}
                                         </Grid>
                                         <Grid style={{marginLeft: "1em"}}>
                                             <Button variant="contained" className="buttonValidViewDeny"
-                                                    onClick={this.denyNgoDate.bind(this)}
+                                                    onClick={this.denyNgoDate.bind(this)} disabled={this.state.isConfirmed}
                                                 >
                                                 Deny
                                             </Button>
                                         </Grid>
-                                        <Dialog onClose={this.handleCloseDate.bind(this)} open={this.state.openValidDate}>
-                                            <DialogTitle>NGO Date Denied</DialogTitle>
-                                            <DialogContent>
-                                                <Button variant="contained" color="primary"
-                                                        onClick={this.handleCloseDate.bind(this)}
-                                                        style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}
-                                                >
-                                                    Close
-                                                </Button>
-                                            </DialogContent>
-                                        </Dialog>
+                                        {/*<Dialog onClose={this.handleCloseDate.bind(this)} open={this.state.openValidDate}>*/}
+                                        {/*    <DialogTitle>NGO Date Denied</DialogTitle>*/}
+                                        {/*    <DialogContent>*/}
+                                        {/*        <Button variant="contained" color="primary"*/}
+                                        {/*                onClick={this.handleCloseDate.bind(this)}*/}
+                                        {/*                style={{paddingTop: "0.5em", paddingBottom: "0.5em"}}*/}
+                                        {/*        >*/}
+                                        {/*            Close*/}
+                                        {/*        </Button>*/}
+                                        {/*    </DialogContent>*/}
+                                        {/*</Dialog>*/}
                                     </Typography>
                                 </Typography>
                             </CardContent>

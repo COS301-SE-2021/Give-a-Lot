@@ -82,9 +82,9 @@ public class CertificateServiceImpl implements CertificateService {
 
         Organisations organisation = organisationRepository.selectOrganisationById(orgId);
 
-       boolean certificateCreated = createPDFDocument(cert,organisation,0);
+        boolean certificateCreated = createPDFDocument(cert, organisation, 0);
 
-        if(!certificateCreated){
+        if (!certificateCreated) {
             throw new Exception("Exception: Problem creating and storing certificate");
         }
 
@@ -96,7 +96,7 @@ public class CertificateServiceImpl implements CertificateService {
         String txHash = result[1];
         long index = blockchainService.findCertificateIndex(orgId);
 
-        Blockchain blockchain = new Blockchain(orgId,index,0,txHash,certificateHash);
+        Blockchain blockchain = new Blockchain(orgId, index, 0, txHash, certificateHash);
 
         blockChainRepository.save(blockchain);
 
@@ -110,28 +110,28 @@ public class CertificateServiceImpl implements CertificateService {
         Certificate cert = certificateRepository.selectCertificateById(orgId);
         Blockchain blockchain = blockChainRepository.selectBlockchainOrgId(orgId);
 
-        boolean certificateCreated = createPDFDocument(cert,organisation,cert.getPoints());
+        boolean certificateCreated = createPDFDocument(cert, organisation, cert.getPoints());
 
-        if(!certificateCreated){
+        if (!certificateCreated) {
             throw new Exception("Exception: Problem creating and storing certificate");
         }
 
         File certificate = retrieveCertificate(new RetrieveCertificateRequest(orgId, organisation.getOrgName()));
 
         String[] result = blockchainService
-                .upgradeCertificate(blockchain.getIndex(),orgId, certificate,blockchain.getLevel());
+                .upgradeCertificate(blockchain.getIndex(), orgId, certificate, blockchain.getLevel());
 
         String certificateHash = result[0];
         String txHash = result[1];
         long lev = blockchain.getLevel();
-        blockChainRepository.UpdateBlockchain(blockchain.getIndex(),blockchain.getLevel()+1,txHash,certificateHash,orgId);
+        blockChainRepository.UpdateBlockchain(blockchain.getIndex(), blockchain.getLevel() + 1, txHash, certificateHash, orgId);
 
         Date dateCurrent = new Date();
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         String dateCreated = format.format(dateCurrent);
-        eventsService.addTimelineEvent(new addTimeLineEventRequest(orgId,dateCreated, "certificate upgraded","congratulations, your certificate was upgraded to level " + (lev + 1)));
+        eventsService.addTimelineEvent(new addTimeLineEventRequest(orgId, dateCreated, "certificate upgraded", "congratulations, your certificate was upgraded to level " + (lev + 1)));
 
-        Mail mail = new Mail(organisation.getOrgEmail(),"Givealot Certificate Upgrade","Congratulations your organisation has successfully upgraded their certificate from level: "+lev+" to level:"+lev+1 +"\n"+
+        Mail mail = new Mail(organisation.getOrgEmail(), "Givealot Certificate Upgrade", "Congratulations your organisation has successfully upgraded their certificate from level: " + lev + " to level:" + lev + 1 + "\n" +
                 "\n Thank you for supporting safe and authentic practices we look forward for you next upgrade" +
                 "\n" +
                 "\n" +
@@ -145,14 +145,14 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     public File retrieveCertificate(RetrieveCertificateRequest request) throws Exception {
-        return access.downloadCertificate(request.getOrgId(),request.getOrgName());
+        return access.downloadCertificate(request.getOrgId(), request.getOrgName());
     }
 
     @Override
     public boolean createPDFDocument(Certificate cert, Organisations organisation, int points) throws Exception {
         access.downloadCertificateTemplate(points);
 
-        if (points!=0){
+        if (points != 0) {
             File deletion = new File("frontend/givealot/src/localFiles/" + organisation.getOrgId() + "certificate/CertificateComplete.pdf");
             deletion.delete();
         }
@@ -191,14 +191,14 @@ public class CertificateServiceImpl implements CertificateService {
                 acroForm.flatten();
 
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Exception: unable to create certificate: " + e);
         }
 
         document.save(completeCertificate);
         document.close();
 
-        imageCreator(completeCertificate,organisation.getOrgId());
+        imageCreator(completeCertificate, organisation.getOrgId());
 
         access.uploadCertificate(organisation.getOrgId(), organisation.getOrgName());
 
@@ -213,12 +213,11 @@ public class CertificateServiceImpl implements CertificateService {
     public boolean imageCreator(String filepath, long orgId) throws IOException {
         PDDocument document = PDDocument.load(new File(filepath));
         PDFRenderer pdfRenderer = new PDFRenderer(document);
-        for (int page = 0; page < document.getNumberOfPages(); ++page)
-        {
+        for (int page = 0; page < document.getNumberOfPages(); ++page) {
             BufferedImage bim = pdfRenderer.renderImageWithDPI(page, 300, ImageType.RGB);
 
             // suffix in filename will be used as the file format
-            ImageIOUtil.writeImage(bim, "backend/src/main/resources/localFiles/" + orgId+ "/certificate/CertificateImage.png", 300);
+            ImageIOUtil.writeImage(bim, "backend/src/main/resources/localFiles/" + orgId + "/certificate/CertificateImage.png", 300);
         }
         document.close();
         return true;
@@ -232,7 +231,8 @@ public class CertificateServiceImpl implements CertificateService {
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
         List<Long> id = new ArrayList<>();
-        List<Date> expiry = new ArrayList<>();;
+        List<Date> expiry = new ArrayList<>();
+        ;
 
         for (int i = 0; i < certificateList.size(); i++) {
             id.add(certificateList.get(i).getOrgId());
@@ -240,15 +240,15 @@ public class CertificateServiceImpl implements CertificateService {
         }
 
         for (int i = 0; i < id.size(); i++) {
-            if(expiry.get(i)==null)
+            if (expiry.get(i) == null)
                 throw new NullPointerException();
 
             Date sqlDate = expiry.get(i);
 
             boolean check = dateCurrent.after(sqlDate);
             if (check) {
-                certificateRepository.updateOrgRenewal(id.get(i),false);
-                certificateRepository.updateAdminRenewal(id.get(i),false);
+                certificateRepository.updateOrgRenewal(id.get(i), false);
+                certificateRepository.updateAdminRenewal(id.get(i), false);
             }
         }
         return true;
@@ -271,20 +271,20 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     public boolean organisationRenewal(long orgId) throws Exception {
-        certificateRepository.updateOrgRenewal(orgId,true);
+        certificateRepository.updateOrgRenewal(orgId, true);
         return true;
     }
 
     @Override
     public boolean adminRenewal(long orgId) throws Exception {
-        certificateRepository.updateAdminRenewal(orgId,true);
+        certificateRepository.updateAdminRenewal(orgId, true);
         return true;
     }
 
     @Override
     public long compareCertificate(MultipartFile certificate) throws Exception {
         File certCmp = new File("TempCompareCertificate.pdf");
-        if (!certCmp.exists()){
+        if (!certCmp.exists()) {
             certCmp.createNewFile();
         }
 
@@ -294,9 +294,9 @@ public class CertificateServiceImpl implements CertificateService {
 
         Blockchain blockchain = blockChainRepository.selectBlockchainCertificateHash(
                 blockchainService.hashCertificate(certCmp));
-        if (blockchain==null){
+        if (blockchain == null) {
             return -1;
         }
-        return blockchainService.compareCertificateHash(blockchain.getIndex(),blockchain.getOrgId(),certCmp);
+        return blockchainService.compareCertificateHash(blockchain.getIndex(), blockchain.getOrgId(), certCmp);
     }
 }

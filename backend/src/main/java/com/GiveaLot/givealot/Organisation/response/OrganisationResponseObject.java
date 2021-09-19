@@ -20,8 +20,7 @@ public class OrganisationResponseObject {
                                       String facebookUrl,
                                       String twitterUrl,
                                       String istagramURl,
-                                      Integer numberOfImages)
-    {
+                                      Integer numberOfImages) {
         this.orgName = orgName;
         this.slogan = slogan;
         this.orgDescription = orgDescription;
@@ -33,8 +32,7 @@ public class OrganisationResponseObject {
         this.numberOfImages = numberOfImages;
     }
 
-    public String getOrgName()
-    {
+    public String getOrgName() {
         return orgName;
     }
 

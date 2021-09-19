@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Organisations {
 
     @Column(
-            name="org_name",
+            name = "org_name",
             nullable = false,
             columnDefinition = "TEXT"
     )
@@ -18,28 +18,28 @@ public class Organisations {
 
 
     @Column(
-            name="org_slogan",
+            name = "org_slogan",
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String slogan;
 
     @Column(
-            name="org_description",
+            name = "org_description",
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String orgDescription;
 
     @Column(
-            name="org_sector",
+            name = "org_sector",
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String orgSector;
 
     @Column(
-            name="org_email",
+            name = "org_email",
             nullable = false,
             columnDefinition = "TEXT"
     )
@@ -51,41 +51,41 @@ public class Organisations {
     public Long orgId;
 
     @Column(
-            name="status",
+            name = "status",
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String status;
 
     @Column(
-            name="contact_person",
+            name = "contact_person",
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String contactPerson;
 
     @Column(
-            name="contact_number",
+            name = "contact_number",
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String contactNumber;
 
     @Column(
-            name="directory",
+            name = "directory",
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String directory;
     @Column(
-            name="password",
+            name = "password",
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String password;
 
     @Column(
-            name="date_added",
+            name = "date_added",
             nullable = false,
             columnDefinition = "TEXT"
     )
@@ -115,9 +115,10 @@ public class Organisations {
         this.dateAdded = dateAdded;
     }
 
-    public Organisations(){}
+    public Organisations() {
+    }
 
-    public String getOrgName(){
+    public String getOrgName() {
         return orgName;
     }
 

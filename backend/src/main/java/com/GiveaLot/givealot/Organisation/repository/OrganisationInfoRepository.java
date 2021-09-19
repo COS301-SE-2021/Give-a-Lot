@@ -1,4 +1,5 @@
 package com.GiveaLot.givealot.Organisation.repository;
+
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -9,22 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
-/*
-*  Todo:
-*   1) select organisation info - done
-*   2) create organisation points field for an organisation - done
-*   3) add organisation website - done
-*   4) remove organisation website - done
-*   5) add org address - done
-*   6) remove org address - done
-*   7) add tax reference - done
-*   8) remove tax reference - done
-*   9) add twitter, facebook, instagram - done
-*/
 
 @Repository
-public interface OrganisationInfoRepository extends JpaRepository<OrganisationInfo,Long>
-{
+public interface OrganisationInfoRepository extends JpaRepository<OrganisationInfo, Long> {
     @Query("select i from OrganisationInfo i where i.orgId = ?1")
     OrganisationInfo selectOrganisationInfo(Long orgId);
 

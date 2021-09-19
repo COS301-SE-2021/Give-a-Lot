@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public interface CertificateRepository extends JpaRepository<Certificate,Long> {
+public interface CertificateRepository extends JpaRepository<Certificate, Long> {
 
     @Query("select o from Certificate o where o.org_id =?1")
     Certificate selectCertificateById(Long orgId);

@@ -7,8 +7,8 @@ public class AddOrgDonationInfoRequest {
     private Long orgId;
     private String orgInfo;
 
-    public AddOrgDonationInfoRequest(@JsonProperty ("orgId") long orgId,
-                                     @JsonProperty ("orgInfo") String orgInfo) {
+    public AddOrgDonationInfoRequest(@JsonProperty("orgId") long orgId,
+                                     @JsonProperty("orgInfo") String orgInfo) {
         this.orgId = orgId;
         this.orgInfo = orgInfo;
     }

@@ -10,18 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/*
-* Todo:
-*  1) Register organisation - done
-*  2) Select AddOrganisationRequest - done
-*  3) suspend AddOrganisationRequest - done
-*  4) activate AddOrganisationRequest - done
-*  5) investigate AddOrganisationRequest - done
-*/
 
 @Repository
-public interface OrganisationRepository extends JpaRepository<Organisations,Long>
-{
+public interface OrganisationRepository extends JpaRepository<Organisations, Long> {
     @Query("SELECT distinct o FROM Organisations AS o")
     List<Organisations> getAllOrganisations();
 
@@ -58,6 +49,7 @@ public interface OrganisationRepository extends JpaRepository<Organisations,Long
     @Transactional
     @Query("UPDATE Organisations o SET o.orgName = ?2 WHERE o.orgId = ?1")
     int updateOrgName(Long orgId, String newValue);
+
     @Modifying
     @Transactional
     @Query("UPDATE Organisations o SET o.contactNumber = ?2 WHERE o.orgId = ?1")

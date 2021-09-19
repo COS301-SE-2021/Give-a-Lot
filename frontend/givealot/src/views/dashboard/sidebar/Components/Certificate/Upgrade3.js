@@ -236,7 +236,11 @@ export class Upgrade3 extends Component {
                     this.setState({popUp1: res.data.message});
                     this. onToastCom ();
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err)
+                    this.setState({popUp1: false});
+                    this. onToastCom();
+                });
 
             console.log(social)
             Axios
@@ -246,7 +250,11 @@ export class Upgrade3 extends Component {
                     this.setState({popUp2: res.data.message});
                     this. onToastSocial();
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err)
+                    this.setState({popUp2: false});
+                    this. onToastSocial();
+                });
 
             console.log(social1)
             Axios
@@ -256,12 +264,24 @@ export class Upgrade3 extends Component {
                     this.setState({popUp3: res.data.message});
                     this. onToastSocial1();
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err)
+                    this.setState({popUp3: false});
+                    this. onToastSocial1();
+                });
 
             Axios
                 .post( "http://localhost:8080/v1/organisation/add/socials", social2)
-                .then(res => console.log(res))
-                .catch(err => console.log(err));
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp4: res.data.message});
+                    this. onToastSocial2();
+                })
+                .catch(err => {
+                    console.log(err)
+                    this.setState({popUp4: false});
+                    this. onToastSocial2();
+                });
 
             const notification_update_body = {
                 org_id: this.state.orgId,
@@ -321,6 +341,24 @@ export class Upgrade3 extends Component {
         }else{
 
             toast.error('failed to send Social media2 ', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+
+        }
+    }
+
+    onToastSocial2 = () => {
+        if(this.state.popUp4){
+
+            toast.success('Social media3  Submitted', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to send Social media3 ', {
                 position: toast.POSITION.TOP_RIGHT
 
             });

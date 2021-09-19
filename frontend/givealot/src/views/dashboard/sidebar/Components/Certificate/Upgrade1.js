@@ -103,7 +103,7 @@ export class Upgrade1 extends Component {
 
             };
             Axios
-                .post( "http://localhost:8080/v1/organisation/add/websitee", web)
+                .post( "http://localhost:8080/v1/organisation/add/website", web)
                 .then(res => {
                     console.log(res)
                     this.setState({popUp1: res.data.message});
@@ -116,7 +116,7 @@ export class Upgrade1 extends Component {
                 });
 
             Axios
-                .post("http://localhost:8080/v1/organisation/add/addresss", add)
+                .post("http://localhost:8080/v1/organisation/add/address", add)
                 .then(res =>{
                     console.log(res)
                     this.setState({popUp2: res.data.message});

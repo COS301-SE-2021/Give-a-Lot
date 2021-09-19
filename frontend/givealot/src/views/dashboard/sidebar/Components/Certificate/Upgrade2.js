@@ -83,7 +83,7 @@ export class Upgrade2 extends Component {
         let imageStates = 0;
 
         fetch(
-            'http://localhost:8080/v1/organisation/add/logo',
+            'http://localhost:8080/v1/organisation/add/qrcode',
             {
                 method: 'POST',
                 body: formData,
@@ -100,6 +100,8 @@ export class Upgrade2 extends Component {
             .catch((error) => {
                 console.error('Error:', error);
                 imageStates = 2;
+                this.setState({popUp3: false});
+                this. onToastCode ();
 
             });
 
@@ -160,7 +162,11 @@ export class Upgrade2 extends Component {
                     this.setState({popUp1: res.data.message});
                     this. onToastDate ();
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err)
+                    this.setState({popUp1: false});
+                    this. onToastDate ();
+                });
 
             const paypal = {
                 orgId: this.state.orgId,
@@ -173,7 +179,11 @@ export class Upgrade2 extends Component {
                     this.setState({popUp2: res.data.message});
                     this. onToastPaypal ();
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err)
+                    this.setState({popUp2: false});
+                    this. onToastPaypal ();
+                });
 
             const notification_update_body = {
                 org_id: this.state.orgId,

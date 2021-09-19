@@ -63,6 +63,7 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService
             e.printStackTrace();
         }
         finally {
+            /** Deletes all unnecessary files **/
             if (new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg").exists()){
                 new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg").delete();
             }
@@ -77,6 +78,7 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService
         try {
             String localFile = "backend/src/main/resources/localFiles/" + orgId + "/gallery/image" + num + ".jpg";
             FileUtils.copyFile(new File(localFile), new File( "backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg"));
+            /** Executes python.exe script to blur the image **/
             String id = String.valueOf(orgId);
             ProcessBuilder processBuilder = new ProcessBuilder("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/face_blur.exe", id)
                     .directory(new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service"));
@@ -91,6 +93,7 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService
             e.printStackTrace();
         }
         finally {
+            /** Deletes all unnecessary files **/
             if (new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg").exists()){
                 new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg").delete();
             }

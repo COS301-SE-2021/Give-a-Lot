@@ -8,8 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface sectorsRepository extends JpaRepository<Sectors,String>
-{
+public interface sectorsRepository extends JpaRepository<Sectors, String> {
     @Query("SELECT s.sector FROM Sectors AS s order by s.sector")
     List<String> getSectors();
 

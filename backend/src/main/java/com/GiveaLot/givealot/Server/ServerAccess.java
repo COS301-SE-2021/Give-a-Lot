@@ -76,6 +76,7 @@ public class ServerAccess {
 
             directoryLocal.mkdir();
             directoryImageLocal.mkdir();
+            directoryImageLocal2.mkdir();
             directoryCertLocal.mkdir();
 
 

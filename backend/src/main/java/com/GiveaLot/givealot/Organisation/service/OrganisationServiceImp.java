@@ -396,7 +396,7 @@ public class OrganisationServiceImp implements OrganisationService
             System.out.println("#######################################################################################");
         }
 
-        eventsService.addTimelineEvent(new addTimeLineEventRequest(id,dateCreated, "joined give a lot","we welcome you to the give a lot platform"));
+        eventsService.addTimelineEvent(new addTimeLineEventRequest(id,dateCreated, "joined give a lot","we welcome you to the give a lot community"));
         return new generalOrganisationResponse("add_org_200_ok", "success-" + id);
     }
 

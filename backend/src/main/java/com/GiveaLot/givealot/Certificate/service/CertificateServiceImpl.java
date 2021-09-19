@@ -7,6 +7,8 @@ import com.GiveaLot.givealot.Blockchain.service.BlockchainServiceImpl;
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
 import com.GiveaLot.givealot.Certificate.requests.RetrieveCertificateRequest;
+import com.GiveaLot.givealot.Events.requests.addTimeLineEventRequest;
+import com.GiveaLot.givealot.Events.service.eventsServiceImp;
 import com.GiveaLot.givealot.Notification.dataclass.Mail;
 import com.GiveaLot.givealot.Notification.service.SendMailService;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
@@ -62,6 +64,9 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Autowired
     private final SendMailService service;
+
+    @Autowired
+    private eventsServiceImp eventsService;
 
     @Autowired
     public CertificateServiceImpl(BlockchainService blockchainService, OrganisationRepository organisationRepository, CertificateRepository certificateRepository, BlockChainRepository blockChainRepository, SendMailService service) {
@@ -120,6 +125,12 @@ public class CertificateServiceImpl implements CertificateService {
         String txHash = result[1];
         long lev = blockchain.getLevel();
         blockChainRepository.UpdateBlockchain(blockchain.getIndex(),blockchain.getLevel()+1,txHash,certificateHash,orgId);
+
+        Date dateCurrent = new Date();
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String dateCreated = format.format(dateCurrent);
+        eventsService.addTimelineEvent(new addTimeLineEventRequest(orgId,dateCreated, "certificate upgraded","congratulations, your certificate was upgraded to level " + (lev + 1)));
+
         Mail mail = new Mail(organisation.getOrgEmail(),"Givealot Certificate Upgrade","Congratulations your organisation has successfully upgraded their certificate from level: "+lev+" to level:"+lev+1 +"\n"+
                 "\n Thank you for supporting safe and authentic practices we look forward for you next upgrade" +
                 "\n" +

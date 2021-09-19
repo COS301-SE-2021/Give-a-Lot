@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddaa827-9a97-4781-a244-37344572183b" name="Default Changelist" comment="timeline implemented, however further halted due to internal reasons">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/Controller/faceRecognitionController.java" afterDir="false" />
+    <list default="true" id="7ddaa827-9a97-4781-a244-37344572183b" name="Default Changelist" comment="timeline - welcome message on registration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/FaceRecognitionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/FaceRecognitionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Upgrade4.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Upgrade4.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/TempDocument/image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/TempDocument/image.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,14 +179,7 @@
       <workItem from="1631819750918" duration="3266000" />
       <workItem from="1631823532933" duration="61928000" />
       <workItem from="1631960615375" duration="45209000" />
-      <workItem from="1632043880990" duration="12617000" />
-    </task>
-    <task id="LOCAL-00074" summary="Org Name update fix">
-      <created>1631020351728</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1631020351729</updated>
+      <workItem from="1632043880990" duration="16067000" />
     </task>
     <task id="LOCAL-00075" summary="Added HTTPStatus.UNAUTHORIZED instead of OK">
       <created>1631133925823</created>
@@ -525,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632052089868</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="timeline - welcome message on registration">
+      <created>1632057485288</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1632057485289</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -544,7 +543,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added additional verify implementation" />
     <MESSAGE value="Last minute changes" />
     <MESSAGE value="Org Name update fix" />
     <MESSAGE value="Added HTTPStatus.UNAUTHORIZED instead of OK" />
@@ -569,7 +567,8 @@
     <MESSAGE value="upgrade to level 4 complete" />
     <MESSAGE value="added  organisation" />
     <MESSAGE value="timeline implemented, however further halted due to internal reasons" />
-    <option name="LAST_COMMIT_MESSAGE" value="timeline implemented, however further halted due to internal reasons" />
+    <MESSAGE value="timeline - welcome message on registration" />
+    <option name="LAST_COMMIT_MESSAGE" value="timeline - welcome message on registration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

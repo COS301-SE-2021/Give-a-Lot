@@ -191,7 +191,11 @@ export class Profile extends Component {
             console.log(data2)
             Axios
                 .post("http://localhost:8080/v1/organisation/update/info/organisation", data2)
-                .then(res => console.log(res))
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp2: res.data.message});
+                    this.onToastDes();
+                })
                 .catch(err => console.log(err));
         }
 
@@ -280,7 +284,25 @@ export class Profile extends Component {
             });
         }else{
 
-            toast.error('failed to update', {
+            toast.error('failed to update Email', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
+    }
+
+    onToastDes = () => {
+
+        if(this.state.popUp2){
+
+            toast.success('Description Updated successful', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to update Description', {
                 position: toast.POSITION.TOP_RIGHT
 
             });

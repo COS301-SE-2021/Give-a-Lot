@@ -10,12 +10,13 @@
 	</parent>
 	<groupId>com.Give-a-Lot</groupId>
 	<artifactId>givealot</artifactId>
+	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>givealot</name>
 	<description>Givealot backend</description>
 	<properties>
 		<java.version>11</java.version>
-		</properties>
+	</properties>
 
 	<dependencies>
 		<dependency>

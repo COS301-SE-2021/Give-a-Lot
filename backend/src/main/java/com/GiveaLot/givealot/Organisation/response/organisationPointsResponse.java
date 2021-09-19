@@ -9,8 +9,7 @@ public class organisationPointsResponse {
     private String message;
     private OrganisationPoints response;
 
-    public organisationPointsResponse(String code, String message, OrganisationPoints response)
-    {
+    public organisationPointsResponse(String code, String message, OrganisationPoints response) {
         this.code = code;
         this.message = message;
         this.response = response;

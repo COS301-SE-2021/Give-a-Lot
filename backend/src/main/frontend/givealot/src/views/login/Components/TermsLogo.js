@@ -7,7 +7,7 @@ function TermsLogo()
     return(
         <div style={{width: "200px", marginLeft: "15px"}}>
             <Link to={"/"}>
-                <img id="logo" src={logo} />
+                <img id="logo" src={logo} alt={"logo"} />
             </Link>
         </div>
     );

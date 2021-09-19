@@ -1,3 +1,14 @@
+POST http://localhost:8080/v1/notifications/get/level_information
+Content-Type: application/json
+
+{
+   "orgId" : 76
+}
+
+<> 2021-09-19T033314.200.json
+
+###
+
 PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/committee/true
 
 <> 2021-09-18T223331.200.json
@@ -304,12 +315,6 @@ Content-Type: application/json
 }
 
 <> 2021-09-18T184028.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/ngo_number/true
-
-<> 2021-09-18T175747.200.json
 
 ###
 

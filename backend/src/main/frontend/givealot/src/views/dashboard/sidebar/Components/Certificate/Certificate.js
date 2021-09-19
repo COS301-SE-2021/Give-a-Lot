@@ -21,15 +21,16 @@ export class Certificate extends Component {
     constructor (props) {
         super(props)
         this.state={
-            level: 1,
+            level: 2,
             orgId:localStorage.getItem("id"),
             serverDomain : 'http://localhost:8080',
-            loading:false,
+
+
         };
     }
 
     componentDidMount(){
-        this.setState({loading: true});
+        //this.setState({loading: true});
         let config = {
             headers: {
                 "Content-Type": "application/json",
@@ -45,7 +46,7 @@ export class Certificate extends Component {
                 alert(response.data.level + " " + this.state.orgId)
                 this.setState({level: response.data.level})
                 console.log(response)
-                this.setState({loading: false});
+                //this.setState({loading: false});
             })
             .catch(error =>{
                 console.log(error)

@@ -77,5 +77,8 @@ public interface organisationPointsRepository extends JpaRepository<Organisation
     @Query("UPDATE OrganisationPoints op SET op.qrCodeIsValid = ?2 WHERE op.orgId = ?1")
     int DonationQR(long orgId, boolean value);
 
-
+    @Modifying
+    @Transactional
+    @Query("UPDATE OrganisationPoints op SET op.numberOfImages = ?2 WHERE op.orgId = ?1")
+    Integer incrementImage(Long orgId, int imageCount);
 }

@@ -32,11 +32,9 @@ export class Validate extends Component {
         axios.post('http://localhost:8080/v1/notifications/get/notifications', adminUsersRequestBody  ,config)
             .then(response =>{
                 this.setState({valid: response.data.response})
-                // console.log(response)
             })
             .catch(error =>{
                 console.log(error)
-                // this.setState({error : 'Error Retrieving data'})
             })
     }
 

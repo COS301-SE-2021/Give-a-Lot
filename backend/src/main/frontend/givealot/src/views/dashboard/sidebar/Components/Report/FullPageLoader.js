@@ -14,7 +14,7 @@ class FullPageLoader extends Component{
 
                 <div className="loading_spinner">
 
-                    <img src={LoaderGif}/>
+                    <img src={LoaderGif} alt={"loader"}/>
 
                 </div>
 

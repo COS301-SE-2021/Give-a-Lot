@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./Styles/SignUp.css"
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Logo from "../login/Components/Logo"
-
 import backgroundImg from "../../assets/homeBackground.jpg";
 import Button from "@material-ui/core/Button";
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt';

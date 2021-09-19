@@ -6,10 +6,8 @@ import { withStyles ,makeStyles } from '@material-ui/core/styles'
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';
-import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import { FormHelperText } from '@material-ui/core';
 import TextField from "@material-ui/core/TextField";
 import Axios from "axios";
 import {ApiContext} from "../../../../../apiContext/ApiContext";
@@ -160,7 +158,7 @@ export class Level4 extends Component {
 
                                     <div>
                                         <span className="upgrade_label">
-                                            Upload images
+                                            Upload images 2222
                                          </span>
                                         <input
                                             className="upgrade_datee"

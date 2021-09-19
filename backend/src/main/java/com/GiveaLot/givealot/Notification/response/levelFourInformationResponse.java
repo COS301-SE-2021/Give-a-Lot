@@ -5,17 +5,26 @@ public class levelFourInformationResponse {
     private String commiteeMembers;
     private String socialMedia1;
     private String socialMedia2;
+    private String socialMedia3;
     String orgName;
     Long orgID;
 
-
-    public levelFourInformationResponse(Long level, String commiteeMembers, String socialMedia1, String socialMedia2, String orgName, Long orgID) {
+    public levelFourInformationResponse(Long level, String commiteeMembers, String socialMedia1, String socialMedia2,String socialMedia3, String orgName, Long orgID) {
         this.level = level;
         this.commiteeMembers = commiteeMembers;
         this.socialMedia1 = socialMedia1;
         this.socialMedia2 = socialMedia2;
+        this.socialMedia3 = socialMedia3;
         this.orgName = orgName;
         this.orgID = orgID;
+    }
+
+    public String getSocialMedia3() {
+        return socialMedia3;
+    }
+
+    public void setSocialMedia3(String socialMedia3) {
+        this.socialMedia3 = socialMedia3;
     }
 
     public Long getLevel() {

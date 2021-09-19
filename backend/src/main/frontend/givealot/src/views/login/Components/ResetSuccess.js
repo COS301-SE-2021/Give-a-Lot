@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import { Link } from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import backgroundImg from "../../../assets/homeBackground.jpg";
-import Logo from "./Logo"
-import axios from "axios"
+import Logo from "../Components/Logo"
 import "../Styles/Login.css"
 import {Alert} from "@material-ui/lab";
 

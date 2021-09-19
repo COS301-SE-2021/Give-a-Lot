@@ -41,6 +41,8 @@ const initialState = {
     websiteError: "",
     address:"",
     addressError:"",
+    popUp1:false,
+    popUp2:false,
     //serverDomain: "https://3c73e752688968.localhost.run"
     serverDomain: 'https://localhost:8080'
 };
@@ -102,12 +104,20 @@ export class Upgrade1 extends Component {
             };
             Axios
                 .post( "http://localhost:8080/v1/organisation/add/website", web)
-                .then(res => console.log(res))
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp1: res.data.message});
+                    this.onToastOneWebsite();
+                })
                 .catch(err => console.log(err));
 
             Axios
                 .post("http://localhost:8080/v1/organisation/add/address", add)
-                .then(res => console.log(res))
+                .then(res =>{
+                    console.log(res)
+                    this.setState({popUp2: res.data.message});
+                    this. onToastOneAddress ();
+                })
                 .catch(err => console.log(err));
 
             const notification_update_body = {
@@ -124,13 +134,37 @@ export class Upgrade1 extends Component {
         }
     };
 
-    onToastOne = () => {
-        const isValid = this.validate();
-        if (isValid) {
-            toast.success('Submit successful', {
+    onToastOneWebsite = () => {
+        if(this.state.popUp1){
+
+            toast.success('Website Submitted ', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
+        }else{
+
+            toast.error('failed to send Website', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
+    }
+
+    onToastOneAddress = () => {
+        if(this.state.popUp2){
+
+            toast.success('Address Submitted', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to send Address', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
         }
     }
 
@@ -201,7 +235,7 @@ export class Upgrade1 extends Component {
                                 <span className="loginError_certificate">{this.state.addressError}</span>
                             </div>
                                 <div className="upgrade_Button">
-                                    <button className="upgrade-btn" type="submit" onClick={this.onToastOne}>
+                                    <button className="upgrade-btn" type="submit" >
                                         Submit
                                     </button>
                                 </div>

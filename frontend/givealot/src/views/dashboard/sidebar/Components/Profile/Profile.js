@@ -85,9 +85,6 @@ export class Profile extends Component {
                 this.setState({error : 'Error Retrieving data'})
             })
 
-        const dataa = {
-            "orgid" : this.state.orgId
-        }
 
     }
 
@@ -245,7 +242,11 @@ export class Profile extends Component {
             console.log(data5)
             Axios
                 .post("http://localhost:8080/v1/organisation/update/info/organisation", data5)
-                .then(res => console.log(res))
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp5: res.data.message});
+                    this.onToastName();
+                })
                 .catch(err => console.log(err));
         }
 
@@ -353,6 +354,24 @@ export class Profile extends Component {
 
         }
     }
+    onToastName = () => {
+
+        if(this.state.popUp5){
+
+            toast.success('Contacts Updated successful', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to update Contacts', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
+    }
+
 
 
 

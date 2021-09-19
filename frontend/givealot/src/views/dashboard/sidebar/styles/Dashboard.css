@@ -38,7 +38,7 @@
     justify-content: space-around;
     width: fit-content;
     position: absolute;
-    left: 50%;
+    left: 53%;
     transform: translate(-50%,20px);
 }
 
@@ -48,6 +48,7 @@
     flex-direction: column;
     margin-top: 15px;
     margin-left: 15px;
+    max-width: 400px;
 }
 
 #timeline_add_event_container > .timeline-text-field

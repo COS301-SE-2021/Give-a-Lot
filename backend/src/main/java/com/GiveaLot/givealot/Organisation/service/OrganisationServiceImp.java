@@ -158,7 +158,7 @@ public class OrganisationServiceImp implements OrganisationService
                 null,
                 null,
                 null,
-                null);
+                organisationPointsRepository.getNumberOfImages(orgId));
 
         Blockchain blockchain_get_level = blockChainRepository.selectBlockchainOrgId(orgId);
 
@@ -183,6 +183,7 @@ public class OrganisationServiceImp implements OrganisationService
             if (user == null)
                 throw new Exception("Exception: invalid user id");
         }
+
 
         if (res != null)
         {

@@ -474,6 +474,17 @@
     top: 10px;
 }
 
+#report_organisation_container
+{
+
+}
+
+#report_organisation_container > Button
+{
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
 
 
 @media screen and (max-width: 550px) {

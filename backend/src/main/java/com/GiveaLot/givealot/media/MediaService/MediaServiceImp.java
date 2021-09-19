@@ -4,6 +4,8 @@ import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Locale;
+
 @Service
 public class MediaServiceImp implements MediaService{
     @Autowired
@@ -24,5 +26,16 @@ public class MediaServiceImp implements MediaService{
                 return false;
             }
         }
+    }
+
+
+    @Override
+    public String getOrganisationStatus(Long orgId) throws Exception
+    {
+        if(this.orgIdExists(orgId))
+        {
+           return organisationRepository.selectOrganisationById(orgId).getStatus().toLowerCase().trim();
+        }
+        return null;
     }
 }

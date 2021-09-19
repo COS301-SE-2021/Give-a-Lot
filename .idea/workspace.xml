@@ -5,9 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ddaa827-9a97-4781-a244-37344572183b" name="Default Changelist" comment="timeline - welcome message on registration">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/75/gallery/image0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/75/gallery/image1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/75/gallery/image2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/78/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/78/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/78/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/79/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/80/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/81/gallery/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/82/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/82/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/82/gallery/backup/image0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/82/gallery/backup/image1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/82/gallery/backup/image2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/82/gallery/image0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/82/gallery/image1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/82/gallery/image2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/82/gallery/logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Report/controller/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Report/controller/ReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/media/Controller/MediaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/media/Controller/MediaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/media/MediaService/MediaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/media/MediaService/MediaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/media/MediaService/MediaServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/media/MediaService/MediaServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/TempDocument/image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/TempDocument/image.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_desktop.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_desktop.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/view_organisation.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/view_organisation.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Timeline/Timeline.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Timeline/Timeline.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/styles/Dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/styles/Dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/OrganisationRegistration.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/OrganisationRegistration.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,14 +206,7 @@
       <workItem from="1631819750918" duration="3266000" />
       <workItem from="1631823532933" duration="61928000" />
       <workItem from="1631960615375" duration="45209000" />
-      <workItem from="1632043880990" duration="17120000" />
-    </task>
-    <task id="LOCAL-00076" summary="registration update">
-      <created>1631172099333</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1631172099333</updated>
+      <workItem from="1632043880990" duration="33099000" />
     </task>
     <task id="LOCAL-00077" summary="registration update">
       <created>1631176795092</created>
@@ -523,7 +544,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632060988616</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="timeline - welcome message on registration">
+      <created>1632061975180</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1632061975180</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

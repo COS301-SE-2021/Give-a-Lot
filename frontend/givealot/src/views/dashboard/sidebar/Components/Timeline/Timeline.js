@@ -5,17 +5,26 @@ import React, {useEffect, useState} from "react";
 import Timeline from "@material-ui/lab/Timeline";
 import OrganisationTimeLineItem from "../../../../browse/Components/OrganisationTimeLineItem/OrganisationTimeLineItem";
 
+
+function useForceUpdate()
+{
+    const [value, setValue] = useState(0); // integer state
+    return () => setValue(value => value + 1); // update the state to force render
+}
+
+
 function OrganisationTimeline()
 {
     let [timelineEvents, setTimelineEvents] = useState([]);
     let [curr_organisation_id, set_curr_organisation_id] = useState(localStorage.getItem('id'));
-
+    const forceUpdate = useForceUpdate();
     const addTimelineEvent = event =>
     {
         event.preventDefault();
         let timelineTitle = document.getElementById("timeline-event-title-input").value;
         let timelineDate = document.getElementById("timeline-event-date-input").value;
         let timelineDescription = document.getElementById("timeline-event-description-input").value;
+
 
         const addTimeLineEventRequest =
         {
@@ -35,7 +44,7 @@ function OrganisationTimeline()
             {
                 if(response.data.message.includes("success"))
                 {
-                     alert("okay")
+
                 }
                 else
                 {
@@ -120,7 +129,7 @@ function OrganisationTimeline()
         <div>
             <Box id={"timeline_container"}>
                 <Box id={"timeline_add_event_container"}>
-                    <p id={"timeline_title"}>TIMELINE - ORGANISATION NAME HERE</p>
+                    <p id={"timeline_title"}>TIMELINE - REMEMBER WHAT'S IMPORTANT</p>
                     <p id={"timeline_slogan"}>
                         Keep everyone updated, add a timeline event
                         for your organisation.
@@ -154,7 +163,7 @@ function OrganisationTimeline()
                     <Button
                         variant={"contained"}
                         color={"secondary"}
-                        onClick={addTimelineEvent}
+                        onClick={forceUpdate}
                     >
                         add event
                     </Button>

@@ -49,7 +49,6 @@ public class ReportController {
       }
    }
 
-
    @CrossOrigin
    @PostMapping("/org/")
    public ResponseEntity<generalReportResponse> reportOrganisation(@RequestBody @NonNull reportRequest request)

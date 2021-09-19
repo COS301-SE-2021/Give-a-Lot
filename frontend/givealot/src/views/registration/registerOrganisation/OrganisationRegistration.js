@@ -308,7 +308,7 @@ function OrganisationRegistration()
         }
         axios.get(serverDomain + '/v1/organisation/get/sectors', config)
             .then(response =>{
-                // console.log(response)
+
                 set_registration_sector_options(response.data.sectors)
             })
             .catch(error =>{

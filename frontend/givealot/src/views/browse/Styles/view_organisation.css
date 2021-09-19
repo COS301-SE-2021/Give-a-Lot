@@ -333,6 +333,22 @@ em
     background: #4b4250;
 }
 
+#report_form_container
+{
+    flex-direction: column;
+    display: none;
+}
+
+#report_success_alert
+{
+    display: none;
+}
+
+.report_form_input
+{
+    margin-bottom: 10px !important;
+}
+
 @media screen and (max-width: 550px) {
 
     #view_organisations_card > h1

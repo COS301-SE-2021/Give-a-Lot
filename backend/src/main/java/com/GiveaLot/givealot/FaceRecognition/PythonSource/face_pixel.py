@@ -26,7 +26,7 @@
 #
 #             image[startY:endY, startX:endX] = face
 #
-#     cv2.imwrite('tempImages/pixel' + org_id + '.jpg', image)
+#     cv2.imwrite('tempImages/blur' + org_id + '.jpg', image)
 #
 # if __name__ == '__main__':
 #     import sys

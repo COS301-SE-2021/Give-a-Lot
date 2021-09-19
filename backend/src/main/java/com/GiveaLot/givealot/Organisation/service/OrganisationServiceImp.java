@@ -895,6 +895,7 @@ public class OrganisationServiceImp implements OrganisationService
 
         String name = organisation_tmp.getOrgName();
         access.uploadImageQRCode(request.getOrgId(),name,request.getImage());
+        System.out.println("=======================================added qr code");
         return new generalOrganisationResponse("add_qr_200_OK", "success");
     }
 

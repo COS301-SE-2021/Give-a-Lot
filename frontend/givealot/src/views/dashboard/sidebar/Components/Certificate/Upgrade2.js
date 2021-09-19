@@ -82,6 +82,7 @@ export class Upgrade2 extends Component {
         formData.append('orgId', this.state.orgId);
         let imageStates = 0;
 
+        alert(this.state.orgId)
         fetch(
             'http://localhost:8080/v1/organisation/add/qrcode',
             {
@@ -93,12 +94,12 @@ export class Upgrade2 extends Component {
             .then((result) => {
                 console.log('Success:', result);
                 imageStates = 1;
-                this.setState({popUp3: result.data.message});
+                this.setState({popUp3: true});
                 this. onToastCode ();
 
             })
             .catch((error) => {
-                console.error('Error:', error);
+                console.error('Error:', error.response);
                 imageStates = 2;
                 this.setState({popUp3: false});
                 this. onToastCode ();
@@ -214,6 +215,7 @@ export class Upgrade2 extends Component {
     }
 
     onToastCode = () => {
+
         if(this.state.popUp3){
 
             toast.success('QrCode Submitted ', {
@@ -226,7 +228,6 @@ export class Upgrade2 extends Component {
                 position: toast.POSITION.TOP_RIGHT
 
             });
-
         }
     }
 

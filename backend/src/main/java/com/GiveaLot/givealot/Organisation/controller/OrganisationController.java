@@ -598,11 +598,12 @@ public class OrganisationController
         try
         {
             response = service.addOrgDonationQRCode(body);
+
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)
         {
-            return new ResponseEntity<>(new generalOrganisationResponse("add_qr_500_err","failed: " + e), HttpStatus.OK);
+            return new ResponseEntity<>(new generalOrganisationResponse("add_qr_500_err","failed: " + e), HttpStatus.BAD_REQUEST);
         }
     }
 

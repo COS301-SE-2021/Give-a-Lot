@@ -20,7 +20,7 @@ public interface CertificateService {
     public boolean updateCertificate(long orgId) throws Exception;
 
     public File retrieveCertificate(RetrieveCertificateRequest request) throws Exception;
-
+//
     //public boolean compare;
 
     public boolean createPDFDocument(Certificate cert, Organisations organisation, int points) throws Exception;

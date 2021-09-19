@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2932529a-da38-447a-9d8c-4f4cea2780ec" name="Default Changelist" comment="moved pom.xml to root">
+    <list default="true" id="7ddaa827-9a97-4781-a244-37344572183b" name="Default Changelist" comment="Last minute changes">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +29,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="frontend-develop" />
+        <entry key="$PROJECT_DIR$" value="backendTest" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -83,11 +85,11 @@
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\backend\src\main\java\com\GiveaLot\givealot\Certificate\dataclass" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
       <recent name="C:\Users\Nqobani_Xpl\Documents\Course\2021\COS301\capstone - restructured\Give-a-Lot\frontend\givealot\src\views\registration\registerOrganisation\Styles" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\frontend\givealot\src\localFiles" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\frontend\givealot\src" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\DemoMaterial" />
+      <recent name="C:\Users\Nqobani_Xpl\Documents\Course\2021\COS301\capstone - restructured\Give-a-Lot" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -140,10 +142,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.generated-requests#73" />
         <item itemvalue="HTTP Request.generated-requests#76" />
         <item itemvalue="HTTP Request.generated-requests#75" />
         <item itemvalue="HTTP Request.generated-requests#74" />
+        <item itemvalue="HTTP Request.generated-requests#73" />
         <item itemvalue="HTTP Request.generated-requests#72" />
       </list>
     </recent_temporary>
@@ -172,7 +174,21 @@
       <workItem from="1631708108011" duration="27620000" />
       <workItem from="1631819750918" duration="3266000" />
       <workItem from="1631823532933" duration="61928000" />
-      <workItem from="1631960615375" duration="35588000" />
+      <workItem from="1631960615375" duration="45209000" />
+    </task>
+    <task id="LOCAL-00068" summary="Org Name update fix">
+      <created>1630846367366</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1630846367366</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Org Name update fix">
+      <created>1630847810323</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1630847810323</updated>
     </task>
     <task id="LOCAL-00070" summary="Org Name update fix">
       <created>1630857749968</created>
@@ -496,28 +512,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631997680606</updated>
     </task>
-    <task id="LOCAL-00116" summary="moved pom.xml to root">
-      <created>1632007035253</created>
+    <task id="LOCAL-00116" summary="upgrade to level 4 complete">
+      <created>1631998047770</created>
       <option name="number" value="00116" />
       <option name="presentableId" value="LOCAL-00116" />
       <option name="project" value="LOCAL" />
-      <updated>1632007035253</updated>
+      <updated>1631998047783</updated>
     </task>
-    <task id="LOCAL-00117" summary="moved pom.xml to root">
-      <created>1632007329274</created>
-      <option name="number" value="00117" />
-      <option name="presentableId" value="LOCAL-00117" />
-      <option name="project" value="LOCAL" />
-      <updated>1632007329274</updated>
-    </task>
-    <task id="LOCAL-00118" summary="moved pom.xml to root">
-      <created>1632007561704</created>
-      <option name="number" value="00118" />
-      <option name="presentableId" value="LOCAL-00118" />
-      <option name="project" value="LOCAL" />
-      <updated>1632007561704</updated>
-    </task>
-    <option name="localTasksCounter" value="119" />
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,6 +538,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Cleared temporary organisations" />
     <MESSAGE value="Added files" />
     <MESSAGE value="Added additional verify implementation" />
     <MESSAGE value="Last minute changes" />
@@ -560,8 +563,17 @@
     <MESSAGE value="level 1 upgrade" />
     <MESSAGE value="level 2 upgrade complete" />
     <MESSAGE value="upgrade to level 4 complete" />
-    <MESSAGE value="moved pom.xml to root" />
-    <option name="LAST_COMMIT_MESSAGE" value="moved pom.xml to root" />
+    <option name="LAST_COMMIT_MESSAGE" value="upgrade to level 4 complete" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

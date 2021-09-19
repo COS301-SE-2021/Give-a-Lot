@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddaa827-9a97-4781-a244-37344572183b" name="Default Changelist" comment="added  organisation" />
+    <list default="true" id="7ddaa827-9a97-4781-a244-37344572183b" name="Default Changelist" comment="added  organisation">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/75/gallery/QRCode.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/76/gallery/QRCode.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/77/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/77/certificate/CertificateImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/77/gallery/logo.png" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,6 +101,19 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="generated-requests#73" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="73" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -161,14 +180,7 @@
       <workItem from="1631819750918" duration="3266000" />
       <workItem from="1631823532933" duration="61928000" />
       <workItem from="1631960615375" duration="45209000" />
-      <workItem from="1632043880990" duration="1265000" />
-    </task>
-    <task id="LOCAL-00071" summary="Org Name update fix">
-      <created>1630858586447</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1630858586448</updated>
+      <workItem from="1632043880990" duration="1694000" />
     </task>
     <task id="LOCAL-00072" summary="Org Name update fix">
       <created>1630859306015</created>
@@ -506,7 +518,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632045585511</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="added  organisation">
+      <created>1632045659942</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1632045659958</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

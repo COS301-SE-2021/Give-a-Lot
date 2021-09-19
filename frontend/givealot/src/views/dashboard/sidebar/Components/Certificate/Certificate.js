@@ -21,7 +21,7 @@ export class Certificate extends Component {
     constructor (props) {
         super(props)
         this.state={
-            level: 0,
+            level: 1,
             popUp1:false,
             popUp2:false,
             orgId:localStorage.getItem("id"),
@@ -32,7 +32,7 @@ export class Certificate extends Component {
     }
 
     componentDidMount(){
-        //this.setState({loading: true});
+
         let config = {
             headers: {
                 "Content-Type": "application/json",
@@ -45,9 +45,9 @@ export class Certificate extends Component {
 
         axios.post('http://localhost:8080/v1/organisation/get/org_level', dataa  ,config)
             .then(response =>{
-                this.setState({level: response.data.level})
+                //this.setState({level: response.data.level})
                 console.log(response)
-                //this.setState({loading: false});
+
             })
             .catch(error =>{
                 console.log(error)

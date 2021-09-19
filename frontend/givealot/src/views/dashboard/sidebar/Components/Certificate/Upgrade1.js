@@ -103,22 +103,30 @@ export class Upgrade1 extends Component {
 
             };
             Axios
-                .post( "http://localhost:8080/v1/organisation/add/website", web)
+                .post( "http://localhost:8080/v1/organisation/add/websitee", web)
                 .then(res => {
                     console.log(res)
                     this.setState({popUp1: res.data.message});
                     this.onToastOneWebsite();
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err)
+                    this.setState({popUp1: false});
+                    this.onToastOneWebsite();
+                });
 
             Axios
-                .post("http://localhost:8080/v1/organisation/add/address", add)
+                .post("http://localhost:8080/v1/organisation/add/addresss", add)
                 .then(res =>{
                     console.log(res)
                     this.setState({popUp2: res.data.message});
-                    this. onToastOneAddress ();
+                    this.onToastOneAddress ();
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err)
+                    this.setState({popUp1: false});
+                    this.onToastOneAddress ();
+                });
 
             const notification_update_body = {
                 org_id: this.state.orgId,

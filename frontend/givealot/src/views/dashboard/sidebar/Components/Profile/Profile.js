@@ -262,7 +262,7 @@ export class Profile extends Component {
                 .post("http://localhost:8080/v1/organisation/update/info/organisation", data6)
                 .then(res => {
                     console.log(res)
-                    this.setState({popUp7: res.data.message});
+                    this.setState({popUp6: res.data.message});
                     this.onToastAddress();
                 })
                 .catch(err => console.log(err));
@@ -279,7 +279,11 @@ export class Profile extends Component {
             console.log(data7)
             Axios
                 .post("http://localhost:8080/v1/organisation/update/info/organisation", data7)
-                .then(res => console.log(res))
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp7: res.data.message});
+                    this.onToastSlogan();
+                })
                 .catch(err => console.log(err));
         }
 
@@ -362,13 +366,13 @@ export class Profile extends Component {
 
         if(this.state.popUp5){
 
-            toast.success('Contacts Updated successful', {
+            toast.success('Name Updated successful', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
         }else{
 
-            toast.error('failed to update Contacts', {
+            toast.error('failed to update Name', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
@@ -378,15 +382,33 @@ export class Profile extends Component {
 
     onToastSlogan = () => {
 
-        if(this.state.popUp6){
+        if(this.state.popUp7){
 
-            toast.success('Contacts Updated successful', {
+            toast.success('Slogan Updated successful', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
         }else{
 
-            toast.error('failed to update Contacts', {
+            toast.error('failed to update Slogan', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
+    }
+
+    onToastAddress = () => {
+
+        if(this.state.popUp6){
+
+            toast.success('Address Updated successful', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to update Address', {
                 position: toast.POSITION.TOP_RIGHT
 
             });

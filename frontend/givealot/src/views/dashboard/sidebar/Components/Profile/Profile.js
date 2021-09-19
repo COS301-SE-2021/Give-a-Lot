@@ -78,9 +78,7 @@ export class Profile extends Component {
             .then(response =>{
                 console.log(response)
                 this.setState({persons: response.data.object})
-
-
-
+                this.setState({loader: false});
             })
             .catch(error =>{
                 console.log(error)
@@ -90,19 +88,6 @@ export class Profile extends Component {
         const dataa = {
             "orgid" : this.state.orgId
         }
-
-        axios.post(this.state.serverDomain + '/v1/organisation/get/org_level', dataa  ,config)
-            .then(response =>{
-                this.setState({level: response.data.level})
-                console.log(response)
-                this.setState({loader: false});
-
-
-
-            })
-            .catch(error =>{
-                console.log(error)
-            })
 
     }
 
@@ -176,7 +161,7 @@ export class Profile extends Component {
 
 
     handleFormSubmit = e => {
-        this.setState({loader: false});
+
         e.preventDefault();
         if(this.state.emailState) {
             const data1 = {
@@ -187,7 +172,7 @@ export class Profile extends Component {
             };
             console.log(data1)
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data1)
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data1)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
@@ -200,7 +185,7 @@ export class Profile extends Component {
             };
             console.log(data2)
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data2)
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data2)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
@@ -214,7 +199,7 @@ export class Profile extends Component {
             };
             console.log(data3)
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data3)
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data3)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
@@ -228,7 +213,7 @@ export class Profile extends Component {
             };
             console.log(data4)
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data4)
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data4)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
@@ -242,7 +227,7 @@ export class Profile extends Component {
             };
             console.log(data5)
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data5)
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data5)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
@@ -256,7 +241,7 @@ export class Profile extends Component {
             };
             console.log(data6)
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data6)
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data6)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
@@ -271,7 +256,7 @@ export class Profile extends Component {
             };
             console.log(data7)
             Axios
-                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data7)
+                .post("http://localhost:8080/v1/organisation/update/info/organisation", data7)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
@@ -309,45 +294,6 @@ export class Profile extends Component {
                     <CancelOutlinedIcon className="userShowIcon"/>
                     <span className="userShowInfoTitle">{persons.status}</span>
                 </div>
-            }
-        }
-
-        let levels
-        if(this.state.level!==undefined ) {
-            if (this.state.level === 0) {
-                levels =<div>
-                            -
-                        </div>
-            } else if (this.state.level === 1) {
-                levels =<div>
-                            <Level0/>
-                        </div>
-            } else if (this.state.level === 2) {
-                levels =<div>
-                            <Level0/>
-                            <Level1/>
-                        </div>
-            } else if (this.state.level === 3) {
-                levels =<div>
-                            <Level0/>
-                            <Level1/>
-                            <Level2/>
-                        </div>
-            } else if (this.state.level === 4) {
-                levels =<div>
-                            <Level0/>
-                            <Level1/>
-                            <Level2/>
-                            <Level3/>
-                        </div>
-            } else if (this.state.level === 5) {
-                levels =<div>
-                            <Level0/>
-                            <Level1/>
-                            <Level2/>
-                            <Level3/>
-                            <Level4/>
-                         </div>
             }
         }
 
@@ -489,12 +435,12 @@ export class Profile extends Component {
                 </div>
                 <div className="line">
                     <div className="profile_line"/>
-                    <div className="line_title"> Certificate Updates </div>
+                    <div className="line_title"> Profile Updates </div>
                     <div className="profile_line"/>
 
                 </div>
 
-                {levels}
+
                 { auto_spinner}
 
 

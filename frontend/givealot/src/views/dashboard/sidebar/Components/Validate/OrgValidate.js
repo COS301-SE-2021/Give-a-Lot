@@ -24,7 +24,9 @@ export class OrgValidate extends Component {
             orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1],
             adminId: localStorage.getItem("id"),
             serverDomain: "http://localhost:8080",
-            isConfirmed: false
+            isConfirmed: false,
+            isConfirmedTwo: false,
+            isConfirmedTwo2: false,
         }
     }
     handleClose = () => {
@@ -150,6 +152,7 @@ export class OrgValidate extends Component {
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/website/false', config)
             .then(response =>{
                 console.log(response)
+                this.setState({isConfirmed: true})
             })
             .catch(error =>{
                 console.log(error)
@@ -168,6 +171,7 @@ export class OrgValidate extends Component {
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/address/true', config)
             .then(response =>{
                 console.log(response)
+                this.setState({isConfirmedTwo: true})
             })
             .catch(error =>{
                 console.log(error)
@@ -186,6 +190,7 @@ export class OrgValidate extends Component {
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/address/false', config)
             .then(response =>{
                 console.log(response)
+                this.setState({isConfirmedTwo2: true})
             })
             .catch(error =>{
                 console.log(error)
@@ -237,7 +242,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/donation_url/true', config)
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/donation_link/true', config)
             .then(response =>{
                 console.log(response)
             })
@@ -255,7 +260,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/donation_url/false', config)
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/donation_link/false', config)
             .then(response =>{
                 console.log(response)
             })
@@ -273,7 +278,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/qrCodeUrl/true', config)
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/qr_code/true', config)
             .then(response =>{
                 console.log(response)
             })
@@ -291,7 +296,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/qrCodeUrl/false', config)
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/qr_code/false', config)
             .then(response =>{
                 console.log(response)
             })
@@ -310,7 +315,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/committee_details/true', config)
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/committee/true', config)
             .then(response =>{
                 console.log(response)
             })
@@ -328,7 +333,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/committee_details/false', config)
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/committee/false', config)
             .then(response =>{
                 console.log(response)
             })
@@ -346,7 +351,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/socialMedia1/true', config)
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/facebook/true', config)
             .then(response =>{
                 console.log(response)
             })
@@ -364,7 +369,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/socialMedia1/false', config)
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/facebook/false', config)
             .then(response =>{
                 console.log(response)
             })
@@ -382,7 +387,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/socialMedia2/true', config)
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/instagram/true', config)
             .then(response =>{
                 console.log(response)
             })
@@ -400,7 +405,43 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/socialMedia2/false', config)
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/instagram/false', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    acceptSocialMedia3(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/twitter/true', config)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+    denySocialMedia3(){
+        this.setState({ orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1] });
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/twitter/false', config)
             .then(response =>{
                 console.log(response)
             })
@@ -418,7 +459,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/audit_document/true', config)
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/audit/true', config)
             .then(response =>{
                 console.log(response)
             })
@@ -436,7 +477,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/audit_document/false', config)
+        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/audit/false', config)
             .then(response =>{
                 console.log(response)
             })
@@ -654,7 +695,7 @@ export class OrgValidate extends Component {
                                         </Grid>
                                         <Grid style={{marginLeft: "1em"}}>
                                             <Button variant="contained" className="buttonValidViewDeny"
-                                                    onClick={this.denyNgoWebsite.bind(this)}
+                                                    onClick={this.denyNgoWebsite.bind(this)} disabled={this.state.isConfirmed}
                                             >
                                                 Deny
                                             </Button>
@@ -711,7 +752,7 @@ export class OrgValidate extends Component {
                                             Establishment Date:
                                         </div>
                                         <div style={{marginLeft: "1em"}}>
-                                            {validation.establishementDate}
+                                            {validation.establishmentDate}
                                         </div>
                                     </Typography>
                                     <Typography style={{
@@ -721,14 +762,14 @@ export class OrgValidate extends Component {
                                     }}>
                                         <Grid>
                                             <Button variant="contained" className="buttonValidViewAccept"
-                                                    onClick={this.acceptNgoEstablish.bind(this)}
+                                                    onClick={this.acceptNgoEstablish.bind(this)} disabled={this.state.isConfirmedTwo}
                                             >
                                                 Accept
                                             </Button>
                                         </Grid>
                                         <Grid style={{marginLeft: "1em"}}>
                                             <Button variant="contained" className="buttonValidViewDeny"
-                                                    onClick={this.denyNgoEstablish.bind(this)}
+                                                    onClick={this.denyNgoEstablish.bind(this)} disabled={this.state.isConfirmedTwo2}
                                             >
                                                 Deny
                                             </Button>
@@ -781,7 +822,7 @@ export class OrgValidate extends Component {
                                             QR code Url:
                                         </div>
                                         <div style={{marginLeft: "1em"}}>
-                                            {validation.qrCodeUrl}
+                                            {validation.qrCode_url}
                                         </div>
                                     </Typography>
                                     <Typography style={{
@@ -820,7 +861,7 @@ export class OrgValidate extends Component {
                                             Commitee Details:
                                         </div>
                                         <div style={{marginLeft: "1em"}}>
-                                            {validation.committee_details}
+                                            {validation.commiteeMembers}
                                         </div>
 
                                     </Typography>
@@ -853,7 +894,7 @@ export class OrgValidate extends Component {
                                 <Typography className="valid">
                                     <Typography>
                                         <div>
-                                            Social Media 1:
+                                            Twitter:
                                         </div>
                                         <div style={{marginLeft: "1em"}}>
                                             {validation.socialMedia1}
@@ -889,7 +930,7 @@ export class OrgValidate extends Component {
                                 <Typography className="valid">
                                     <Typography>
                                         <div>
-                                            Social Media 2:
+                                            Facebook:
                                         </div>
                                         <div style={{marginLeft: "1em"}}>
                                             {validation.socialMedia2}
@@ -911,6 +952,42 @@ export class OrgValidate extends Component {
                                         <Grid style={{marginLeft: "1em"}}>
                                             <Button variant="contained" className="buttonValidViewDeny"
                                                     onClick={this.denySocialMedia2.bind(this)}
+                                            >
+                                                Deny
+                                            </Button>
+                                        </Grid>
+                                    </Typography>
+                                </Typography>
+                            </CardContent>
+                        </Card>
+
+                        <Card style={{margin: "1em", width: "100%"}}>
+                            <CardContent>
+                                <Typography className="valid">
+                                    <Typography>
+                                        <div>
+                                            Instagram:
+                                        </div>
+                                        <div style={{marginLeft: "1em"}}>
+                                            {validation.socialMedia2}
+                                        </div>
+
+                                    </Typography>
+                                    <Typography style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "space-between"
+                                    }}>
+                                        <Grid>
+                                            <Button variant="contained" className="buttonValidViewAccept"
+                                                    onClick={this.acceptSocialMedia3.bind(this)}
+                                            >
+                                                Accept
+                                            </Button>
+                                        </Grid>
+                                        <Grid style={{marginLeft: "1em"}}>
+                                            <Button variant="contained" className="buttonValidViewDeny"
+                                                    onClick={this.denySocialMedia3.bind(this)}
                                             >
                                                 Deny
                                             </Button>

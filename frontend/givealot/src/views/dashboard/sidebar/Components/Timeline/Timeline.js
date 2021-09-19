@@ -25,7 +25,6 @@ function OrganisationTimeline()
         let timelineDate = document.getElementById("timeline-event-date-input").value;
         let timelineDescription = document.getElementById("timeline-event-description-input").value;
 
-
         const addTimeLineEventRequest =
         {
             orgId : localStorage.getItem('id'),

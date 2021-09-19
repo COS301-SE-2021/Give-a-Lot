@@ -7,8 +7,8 @@ import java.io.File;
 import java.io.IOException;
 
 @Service
-public class FaceRecognitionServiceImpl implements FaceRecognitionService {
-
+public class FaceRecognitionServiceImpl implements FaceRecognitionService
+{
     @Override
     public File FacePixel(long orgId) throws IOException, InterruptedException
     {
@@ -69,7 +69,8 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService {
         }
         return null;
     }
-    public boolean FaceBlurSuspend(long orgId, int num) throws IOException, InterruptedException {
+    public boolean FaceBlurSuspend(long orgId, int num) throws IOException, InterruptedException
+    {
         try {
             String localFile = "backend/src/main/resources/localFiles/" + orgId + "/gallery/image" + num + ".jpg";
             FileUtils.copyFile(new File(localFile), new File( "backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg"));

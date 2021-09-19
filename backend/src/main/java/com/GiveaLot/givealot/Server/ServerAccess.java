@@ -60,19 +60,23 @@ public class ServerAccess {
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Reports");
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Documents");
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Gallery");
+            channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/Backup");
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Certificates");
             channelSftp.put( remoteDir + "Organisations/" + orgIdString + "/" + orgNameSpace);
 
             String localStorage = "backend/src/main/resources/localFiles/" + orgIdString;
             String localImageStorage = "backend/src/main/resources/localFiles/" + orgIdString + "/gallery";
+            String localImageStorage2 = "backend/src/main/resources/localFiles/" + orgIdString + "/gallery/backup";
             String localCertificateStorage = "backend/src/main/resources/localFiles/" + orgIdString + "/certificate";
 
             File directoryLocal = new File(localStorage);
             File directoryImageLocal = new File(localImageStorage);
+            File directoryImageLocal2 = new File(localImageStorage2);
             File directoryCertLocal = new File(localCertificateStorage);
 
             directoryLocal.mkdir();
             directoryImageLocal.mkdir();
+            directoryImageLocal2.mkdir();
             directoryCertLocal.mkdir();
 
 
@@ -81,6 +85,9 @@ public class ServerAccess {
             }
             if (directoryImageLocal.mkdir()){
                 throw new Exception("Exception: image directory could not be created");
+            }
+            if (directoryImageLocal2.mkdir()){
+                throw new Exception("Exception: image backup directory could not be created");
             }
             if (directoryCertLocal.mkdir()){
                 throw new Exception("Exception: certificate directory could not be created");
@@ -290,10 +297,13 @@ public class ServerAccess {
 
             String orgIdString = String.valueOf(orgId);
 
+            String localFile2 = "backend/src/main/resources/localFiles/" + orgId + "/gallery/backup/image" + numberOfImages + ".jpg";
             String localFile = "backend/src/main/resources/localFiles/" + orgId + "/gallery/image" + numberOfImages + ".jpg";
             FileUtils.copyFile(imageHolder, new File(localFile));
+            FileUtils.copyFile(imageHolder, new File(localFile2));
 
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + numberOfImages + ".jpg");
+            channelSftp.put(localFile2, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/Backup/image" + numberOfImages + ".jpg");
 
             //Update number of images
         //    organisationInfoRepository.incrementNumImagesd(orgId);

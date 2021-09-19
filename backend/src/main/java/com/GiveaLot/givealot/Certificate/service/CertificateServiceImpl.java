@@ -46,6 +46,9 @@ public class CertificateServiceImpl implements CertificateService {
     private BlockchainService blockchainService;
 
     @Autowired
+    private SendMailService sendMailService;
+
+    @Autowired
     private OrganisationRepository organisationRepository;
 
     @Autowired
@@ -115,9 +118,17 @@ public class CertificateServiceImpl implements CertificateService {
 
         String certificateHash = result[0];
         String txHash = result[1];
-
+        long lev = blockchain.getLevel();
         blockChainRepository.UpdateBlockchain(blockchain.getIndex(),blockchain.getLevel()+1,txHash,certificateHash,orgId);
+        Mail mail = new Mail(organisation.getOrgEmail(),"Givealot Certificate Upgrade","Congratulations your organisation has successfully upgraded their certificate from level: "+lev+" to level:"+lev+1 +"\n"+
+                "\n Thank you for supporting safe and authentic practices we look forward for you next upgrade" +
+                "\n" +
+                "\n" +
+                "Kind Regards \n" +
+                "Give A Lot Team");
 
+        sendMailService.sendMail(mail);
+        System.out.println("Email sent successfully");
         return true;
     }
 

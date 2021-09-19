@@ -1,12 +1,15 @@
 import {Box, TextField} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Timeline from "@material-ui/lab/Timeline";
 import OrganisationTimeLineItem from "../../../../browse/Components/OrganisationTimeLineItem/OrganisationTimeLineItem";
 
 function OrganisationTimeline()
 {
+    let [timelineEvents, setTimelineEvents] = useState([]);
+    let [curr_organisation_id, set_curr_organisation_id] = useState(localStorage.getItem('id'));
+
     const addTimelineEvent = event =>
     {
         event.preventDefault();
@@ -25,32 +28,92 @@ function OrganisationTimeline()
         console.log(addTimeLineEventRequest)
 
         axios.post('http://localhost:8080/event/add/timeline/', addTimeLineEventRequest)
-            .then(response =>
+        .then(response =>
+        {
+            console.log(response)
+            if(response)
             {
-                console.log(response)
-                if(response)
+                if(response.data.message.includes("success"))
                 {
-                    if(response.data.message.includes("success"))
-                    {
-                         alert("okay")
-                    }
-                    else
-                    {
-                        alert(response.data.message);
-                    }
-                }
-            })
-            .catch(error =>
-            {
-                if(error.response)
-                {
-                    console.log(error.response)
+                     alert("okay")
                 }
                 else
                 {
-                    console.error(error)
+                    alert(response.data.message);
                 }
-            })
+            }
+        })
+        .catch(error =>
+        {
+            if(error.response)
+            {
+                console.log(error.response)
+            }
+            else
+            {
+                console.error(error)
+            }
+        })
+    }
+
+    useEffect(() => {
+            fetch( "http://localhost:8080/event/get/timeline/" + curr_organisation_id)
+                .then(async response =>{
+
+                    const data = await response.json();
+
+                    if(!response.ok) /* error handling here */
+                    {
+                        if(response.status === 500)
+                        {
+                            alert("bad parameters, fatal");
+                        }
+                        else if(response.status === 401)
+                        {
+                            alert("this token is unauthorized"); /* take them back to login */
+                        }
+
+                        if(typeof data !== 'undefined')
+                        {
+                            alert(data.message);
+                        }
+                    }
+
+                    if(data.message === "success") /*successfully fetched*/
+                    {
+                        console.log(data.object);
+                        setTimelineEvents(data.object)
+                    }
+                    else
+                    {
+                        alert("error occured: " + data.code);
+                    }
+                })
+
+                .catch(error => {
+                    alert("failed - organisations - sector")
+                });
+        }
+        ,[])
+
+    let fetched_timeline_events = [];
+    if(timelineEvents !== undefined)
+    {
+        for (let i = 0; i < timelineEvents.length; i++)
+        {
+            let timeline_event_date = timelineEvents[i].eventDate;
+            let timeline_event_title = timelineEvents[i].eventTitle;
+            let timeline_event_id = timelineEvents[i].eventId;
+            let timeline_event_description = timelineEvents[i].eventShortDescription;
+
+            fetched_timeline_events.push(
+                <OrganisationTimeLineItem id={timeline_event_id}
+                                          date={timeline_event_date}
+                                          title={timeline_event_title}
+                                          description={timeline_event_description}
+                />
+            )
+        }
     }
 
     return (
@@ -69,7 +132,6 @@ function OrganisationTimeline()
                         variant={"outlined"}
                         label="event title"
                         type="text"
-
                     />
 
                     <TextField
@@ -98,13 +160,11 @@ function OrganisationTimeline()
                     </Button>
                 </Box>
 
-                <Timeline align="alternate">
-                    <OrganisationTimeLineItem id={1} date={"2021-09-16"}
-                                              title={"Joined givealot"}
-                                              description={"The givealot team welcomes your organisation family after" +
-                                              " passing our verification process"}
-                    />
-                </Timeline>
+                <Box id={"timeline-event-dashboard-container"}>
+                    <Timeline align="alternate">
+                        {fetched_timeline_events}
+                    </Timeline>
+                </Box>
 
             </Box>
         </div>

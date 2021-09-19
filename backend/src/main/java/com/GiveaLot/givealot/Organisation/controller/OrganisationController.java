@@ -524,18 +524,14 @@ public class OrganisationController
     @PostMapping("/add/image") /* all good - correctness not tested yet */
     public ResponseEntity<generalOrganisationResponse> addOrgImage(@ModelAttribute AddOrgImageMultipartRequest body)
     {
-        System.out.println("===================got in=======================");
         generalOrganisationResponse response;
         try
         {
-            System.out.println("===================got in 2=======================");
             response = service.addOrgImage(body);
-            System.out.println("===================got in 3=======================");
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)
         {
-            System.out.println("===================got out with error=======================");
             return new ResponseEntity<>(new generalOrganisationResponse("add_imgs_500_err","failed: " + e), HttpStatus.BAD_REQUEST);
         }
     }

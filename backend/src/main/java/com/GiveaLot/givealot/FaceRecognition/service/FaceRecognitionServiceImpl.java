@@ -10,8 +10,7 @@ import java.io.IOException;
 public class FaceRecognitionServiceImpl implements FaceRecognitionService
 {
     @Override
-    public File FacePixel(long orgId) throws IOException, InterruptedException
-    {
+    public File FacePixel(long orgId) throws IOException, InterruptedException {
         try
         {
             /** Executes python.exe script to blur the image **/

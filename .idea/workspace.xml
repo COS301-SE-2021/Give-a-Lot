@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="level one upgrade image removed">
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="pushing dev changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ElectronicArtsCertificate.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/ElectronicArtsCertificate.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/76/certificate/CertificateComplete.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/76/certificate/CertificateComplete.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/76/certificate/CertificateImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/76/certificate/CertificateImage.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,6 +118,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="HTTP Request.generated-requests#42" />
+      <item itemvalue="HTTP Request.generated-requests#43" />
+      <item itemvalue="HTTP Request.generated-requests#48" />
+      <item itemvalue="HTTP Request.generated-requests#50" />
+      <item itemvalue="HTTP Request.generated-requests#52" />
+      <item itemvalue="Spring Boot.GivealotApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="HTTP Request.generated-requests#42" />

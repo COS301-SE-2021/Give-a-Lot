@@ -1,7 +1,6 @@
 package com.GiveaLot.givealot.Organisation.response;
 
-public class numberOfImagesResponse
-{
+public class numberOfImagesResponse {
     private String code;
     private String message;
     private Integer number_of_images;

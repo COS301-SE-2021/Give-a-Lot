@@ -209,7 +209,11 @@ export class Profile extends Component {
             console.log(data3)
             Axios
                 .post("http://localhost:8080/v1/organisation/update/info/organisation", data3)
-                .then(res => console.log(res))
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp3: res.data.message});
+                    this.onToastCPerson();
+                })
                 .catch(err => console.log(err));
         }
 
@@ -310,15 +314,34 @@ export class Profile extends Component {
         }
     }
 
+    onToastCPerson = () => {
 
-   /* onToastP = () => {
-        if (this.state.orgNameState || this.state.orgDescriptionState || this.state.emailState || this.state.ContactNumberState || this.state.ContactPersonState || this.state.sloganState || this.state.addressState) {
-            toast.success('Submit successful', {
+        if(this.state.popUp3){
+
+            toast.success('Contact Person Updated successful', {
                 position: toast.POSITION.TOP_RIGHT
 
             });
+        }else{
+
+            toast.error('failed to update Contact Person', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
         }
-    }*/
+    }
+
+
+
+    /* onToastP = () => {
+         if (this.state.orgNameState || this.state.orgDescriptionState || this.state.emailState || this.state.ContactNumberState || this.state.ContactPersonState || this.state.sloganState || this.state.addressState) {
+             toast.success('Submit successful', {
+                 position: toast.POSITION.TOP_RIGHT
+
+             });
+         }
+     }*/
 
 
     render() {

@@ -64,6 +64,7 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService
         }
         finally {
             /** Deletes all unnecessary files **/
+
             if (new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg").exists()){
                 new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg").delete();
             }

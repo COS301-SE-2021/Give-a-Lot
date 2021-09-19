@@ -44,7 +44,7 @@ export class Certificate extends Component {
         axios.post('http://localhost:8080/v1/organisation/get/org_level', dataa  ,config)
             .then(response =>{
                 alert(response.data.level + " " + this.state.orgId)
-                //this.setState({level: response.data.level})
+                this.setState({level: response.data.level})
                 console.log(response)
                 //this.setState({loading: false});
             })

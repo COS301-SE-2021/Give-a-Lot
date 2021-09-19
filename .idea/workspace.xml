@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="level one upgrade image removed" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="level one upgrade image removed">
+      <change afterPath="$PROJECT_DIR$/ElectronicArtsCertificate.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Give-a-Lot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Give-a-Lot.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/76/certificate/CertificateComplete.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/76/certificate/CertificateComplete.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/76/certificate/CertificateImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/76/certificate/CertificateImage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Certificate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Certificate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,6 +56,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -150,14 +161,7 @@
       <workItem from="1631652568961" duration="2011000" />
       <workItem from="1631710952862" duration="3507000" />
       <workItem from="1631869973238" duration="29530000" />
-      <workItem from="1631959618812" duration="25236000" />
-    </task>
-    <task id="LOCAL-00086" summary="admin Add organisation validation">
-      <created>1631551137110</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1631551137110</updated>
+      <workItem from="1631959618812" duration="27708000" />
     </task>
     <task id="LOCAL-00087" summary="admin Add organisation validation">
       <created>1631551385806</created>
@@ -495,7 +499,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632009143829</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="level one upgrade image removed">
+      <created>1632009177459</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1632009177459</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,6 +525,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="register organisation upload image" />
     <MESSAGE value="register organisation confirmation page" />
     <MESSAGE value="admin Add organisation validation" />

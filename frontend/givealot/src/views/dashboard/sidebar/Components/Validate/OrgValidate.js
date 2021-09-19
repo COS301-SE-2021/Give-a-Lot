@@ -55,14 +55,6 @@ export class OrgValidate extends Component {
         axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+this.state.adminId+ '/ngo_date/true', config)
             .then(response =>{
                 console.log(response)
-                if(response.data.message === 'success'){
-                    // return(
-                    //     <>
-                    //
-                    //     </>
-                    // )
-                    console.log('success')
-                }
             })
             .catch(error =>{
                 console.log(error)

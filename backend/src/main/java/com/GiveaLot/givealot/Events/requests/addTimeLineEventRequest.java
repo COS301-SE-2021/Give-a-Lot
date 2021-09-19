@@ -2,8 +2,8 @@ package com.GiveaLot.givealot.Events.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class addTimeLineEventRequest {
-
+public class addTimeLineEventRequest
+{
     private Long orgId;
     private String eventDate;
     private String eventTitle;

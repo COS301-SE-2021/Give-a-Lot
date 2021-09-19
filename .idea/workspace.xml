@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddaa827-9a97-4781-a244-37344572183b" name="Default Changelist" comment="added image backup directory">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="7ddaa827-9a97-4781-a244-37344572183b" name="Default Changelist" comment="added image backup directory" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -164,13 +162,6 @@
       <workItem from="1631823532933" duration="61928000" />
       <workItem from="1631960615375" duration="45209000" />
       <workItem from="1632043880990" duration="7224000" />
-    </task>
-    <task id="LOCAL-00074" summary="Org Name update fix">
-      <created>1631020351728</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1631020351729</updated>
     </task>
     <task id="LOCAL-00075" summary="Added HTTPStatus.UNAUTHORIZED instead of OK">
       <created>1631133925823</created>
@@ -508,7 +499,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632056475822</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="added image backup directory">
+      <created>1632060895068</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1632060895069</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

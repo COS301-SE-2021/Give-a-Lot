@@ -20,7 +20,7 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService
             processBuilder.inheritIO();
             Process process = processBuilder.start();
             process.waitFor();
-            File src = new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/blur" + orgId + ".jpg");
+            File src = new File("bckend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/blur" + orgId + ".jpg");
             File dest = new File("backend/src/main/resources/localFiles/" + orgId + "/gallery/blur.jpg");
             FileUtils.copyFile(src, dest);
             return dest;

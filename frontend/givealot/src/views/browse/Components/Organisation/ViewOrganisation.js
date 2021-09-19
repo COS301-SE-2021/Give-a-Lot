@@ -62,7 +62,6 @@ function trim_description(descr)
 
             summary = summary + "[expand to read more]";
 
-
             for (let k = i; k < descr.length; k++) {
                 complete_descr = complete_descr + descr[k];
             }
@@ -80,8 +79,8 @@ function ViewOrganisation()
     const [selectedUserId, setSelectedUserId] = React.useState("default");
     const [serverDomain, setServerDomain] = useState(useContext(ApiContext))
 
-    const [selectedOrgId, setSelectedOrgId] = React.useState(null);
-    const [updatedSelectedId, setUpdatedSelectedId] = React.useState(false);
+    let [timelineEvents, setTimelineEvents] = useState([]);
+    let [curr_organisation_id, set_curr_organisation_id] = useState(localStorage.getItem('id'));
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
@@ -131,7 +130,9 @@ function ViewOrganisation()
                 {
                     setOrganisationData(data.response);
                     setPageLoaded(true);
-                } else {
+                }
+                else
+                {
                     alert("error occured: " + data.code);
                     setOrganisationData([]);
                 }
@@ -140,11 +141,46 @@ function ViewOrganisation()
             .catch(error => {
                 alert("failed - organisations - sector")
             });
+
+            fetch( "http://localhost:8080/event/get/timeline/" + id)
+                .then(async response =>{
+
+                    const data = await response.json();
+
+                    if(!response.ok) /* error handling here */
+                    {
+                        if(response.status === 500)
+                        {
+                            alert("bad parameters, fatal");
+                        }
+                        else if(response.status === 401)
+                        {
+                            alert("this token is unauthorized"); /* take them back to login */
+                        }
+
+                        if(typeof data !== 'undefined')
+                        {
+                            alert(data.message);
+                        }
+                    }
+
+                    if(data.message === "success") /*successfully fetched*/
+                        setTimelineEvents(data.object)
+
+                    else
+                    {
+                        alert("error occured: " + data.code);
+                    }
+                })
+
+                .catch(error => {
+                    alert("failed - organisations - sector")
+                });
         }
         ,[])
     /* fetch request - organisations by sections - end*/
 
-    console.log(organisationData);
+
 
     let description = [];
     description[0] = "";
@@ -153,6 +189,26 @@ function ViewOrganisation()
     if(organisationData !== undefined)
     {
         description = trim_description(organisationData.orgDescription);
+    }
+
+    let fetched_timeline_events = [];
+    if(timelineEvents !== undefined)
+    {
+        for (let i = 0; i < timelineEvents.length; i++)
+        {
+            let timeline_event_date = timelineEvents[i].eventDate;
+            let timeline_event_title = timelineEvents[i].eventTitle;
+            let timeline_event_id = timelineEvents[i].eventId;
+            let timeline_event_description = timelineEvents[i].eventShortDescription;
+
+            fetched_timeline_events.push(
+                <OrganisationTimeLineItem id={timeline_event_id}
+                                          date={timeline_event_date}
+                                          title={timeline_event_title}
+                                          description={timeline_event_description}
+                />
+            )
+        }
     }
 
     return (
@@ -220,14 +276,10 @@ function ViewOrganisation()
                                        size={"small"}
                                        className={"disabledBTN"}
                                        startIcon={<TwitterIcon/>}>
-
                                    twitter
                                </Button>
-
-
                            }
                        </div>
-
                    </div>
 
                    <div id="view_organisation_meta_body">
@@ -251,9 +303,7 @@ function ViewOrganisation()
 
                    </div>
                    <p id="view_organisation_meta_body_about">gallery</p>
-
                    <div id="view_organisation_gallery">
-
                        <p>{images.length} pictures</p>
                        <ImageGallery items={images} />
                    </div>
@@ -263,17 +313,13 @@ function ViewOrganisation()
                    <Box maxWidth={500} id="certificate_container" color="text.primary">
                        <div>
                            <div id={"view_header_meta_content"}>
-                               <div>
-                                   <p>certificate level</p>
-                               </div>
+                               <div><p>certificate level</p></div>
                                <img src={"https://avatars.dicebear.com/api/initials/" + organisationData.certificateLevel + ".svg?w=500"} />
                            </div>
 
                            <Box id={"donateSection"}>
                                <img src={serverDomain + "/cert/version/qr_code/" + id} width={128} height={128}/>
-                               <Button variant={"contained"}>
-                                   donate
-                               </Button>
+                               <Button variant={"contained"}>donate</Button>
                            </Box>
                        </div>
 
@@ -283,7 +329,6 @@ function ViewOrganisation()
                        </p>
 
                        <img src={serverDomain + "/cert/version/png/" + id}  />
-
 
                        <Button variant="contained" color="secondary"
                                onClick={(e) => {
@@ -299,41 +344,7 @@ function ViewOrganisation()
 
                    <Box id={"organisation_timeline"}>
                         <Timeline align="alternate">
-                            <OrganisationTimeLineItem id={1} date={"2021-09-16"}
-                            title={"Joined givealot"}
-                            description={"The givealot team welcomes your organisation family after" +
-                                           " passing our verification process"}
-                            />
-
-                            <OrganisationTimeLineItem id={2} date={"2021-09-21"}
-                                                      title={"level 5 verification "}
-                                                      description={"The givealot team congratulates the organisation" +
-                                                      " for reaching level 5 verification"}
-                            />
-
-                            <OrganisationTimeLineItem id={3} date={"2021-09-21"}
-                                                      title={"level 5 verification "}
-                                                      description={"The givealot team congratulates the organisation" +
-                                                      " for reaching level 5 verification"}
-                            />
-
-                            <OrganisationTimeLineItem id={4} date={"2021-09-21"}
-                                                      title={"level 5 verification "}
-                                                      description={"The givealot team congratulates the organisation" +
-                                                      " for reaching level 5 verification"}
-                            />
-
-                            <OrganisationTimeLineItem id={5} date={"2021-09-21"}
-                                                      title={"level 5 verification "}
-                                                      description={"The givealot team congratulates the organisation" +
-                                                      " for reaching level 5 verification"}
-                            />
-
-                            <OrganisationTimeLineItem id={6} date={"2021-09-21"}
-                                                      title={"level 5 verification "}
-                                                      description={"The givealot team congratulates the organisation" +
-                                                      " for reaching level 5 verification"}
-                            />
+                            {fetched_timeline_events}
                         </Timeline>
                    </Box>
                </Container>

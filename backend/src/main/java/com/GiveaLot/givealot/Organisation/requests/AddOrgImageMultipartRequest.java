@@ -10,9 +10,8 @@ public class AddOrgImageMultipartRequest {
     private Long orgId;
     private List<MultipartFile> images;
 
-    public AddOrgImageMultipartRequest(@JsonProperty ("orgId") Long orgId,
-                              @JsonProperty ("images") List<MultipartFile> images)
-    {
+    public AddOrgImageMultipartRequest(@JsonProperty("orgId") Long orgId,
+                                       @JsonProperty("images") List<MultipartFile> images) {
         this.orgId = orgId;
         this.images = images;
     }

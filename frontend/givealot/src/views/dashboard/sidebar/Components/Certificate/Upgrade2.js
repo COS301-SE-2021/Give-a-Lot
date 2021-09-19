@@ -81,8 +81,6 @@ export class Upgrade2 extends Component {
         formData.append('image', event.target.files[0]);
         formData.append('orgId', this.state.orgId);
         let imageStates = 0;
-
-        alert(this.state.orgId)
         fetch(
             'http://localhost:8080/v1/organisation/add/qrcode',
             {

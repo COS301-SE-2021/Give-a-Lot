@@ -136,7 +136,6 @@ export class Upgrade1 extends Component {
                 .post("http://localhost:8080/v1/notifications/update/notifications", notification_update_body)
                 .then(res => console.log(res))
                 .catch(err => console.log(err))
-
             // clear form
             this.setState(initialState);
         }
@@ -172,15 +171,12 @@ export class Upgrade1 extends Component {
                 position: toast.POSITION.TOP_RIGHT
 
             });
-
         }
     }
 
 
     render(){
         const { classes } = this.props;
-
-
 
         return (
             <div className="upgrade">

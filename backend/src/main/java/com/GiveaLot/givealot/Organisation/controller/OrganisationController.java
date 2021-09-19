@@ -598,7 +598,6 @@ public class OrganisationController
         try
         {
             response = service.addOrgDonationQRCode(body);
-
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)
@@ -606,7 +605,6 @@ public class OrganisationController
             return new ResponseEntity<>(new generalOrganisationResponse("add_qr_500_err","failed: " + e), HttpStatus.BAD_REQUEST);
         }
     }
-
 
     @DeleteMapping("/delete/qrcode/{orgId}")
     public ResponseEntity<generalOrganisationResponse> removeOrgQRCode(@PathVariable("orgId") @NonNull Long orgId)

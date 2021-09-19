@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ddaa827-9a97-4781-a244-37344572183b" name="Default Changelist" comment="level 2-level 4 validate done">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/78/gallery/QRCode.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/78/gallery/image0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/78/gallery/image1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/BlurImages/BlurImages.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/TempDocument/image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/TempDocument/image.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/Dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Sidebar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +101,17 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="generated-requests#73" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="73" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -169,14 +178,7 @@
       <workItem from="1631823532933" duration="61928000" />
       <workItem from="1631960615375" duration="45209000" />
       <workItem from="1632043880990" duration="1694000" />
-      <workItem from="1632057387882" duration="2989000" />
-    </task>
-    <task id="LOCAL-00074" summary="Org Name update fix">
-      <created>1631020351728</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1631020351729</updated>
+      <workItem from="1632057387882" duration="3903000" />
     </task>
     <task id="LOCAL-00075" summary="Added HTTPStatus.UNAUTHORIZED instead of OK">
       <created>1631133925823</created>
@@ -514,7 +516,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632056097813</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="level 2-level 4 validate done">
+      <created>1632081351327</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1632081351328</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

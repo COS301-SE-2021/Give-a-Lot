@@ -163,13 +163,6 @@
       <workItem from="1631960615375" duration="45209000" />
       <workItem from="1632043880990" duration="7224000" />
     </task>
-    <task id="LOCAL-00075" summary="Added HTTPStatus.UNAUTHORIZED instead of OK">
-      <created>1631133925823</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1631133925824</updated>
-    </task>
     <task id="LOCAL-00076" summary="registration update">
       <created>1631172099333</created>
       <option name="number" value="00076" />
@@ -506,7 +499,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632060895069</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="added image backup directory">
+      <created>1632061740236</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1632061740236</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

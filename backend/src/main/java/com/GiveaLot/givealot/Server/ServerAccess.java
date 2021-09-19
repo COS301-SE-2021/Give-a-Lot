@@ -305,7 +305,7 @@ public class ServerAccess {
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + numberOfImages + ".jpg");
             channelSftp.put(localFile2, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/Backup/image" + numberOfImages + ".jpg");
 
-            //Update number of images
+           // //Update number of images
         //    organisationInfoRepository.incrementNumImagesd(orgId);
 
             //image.delete();

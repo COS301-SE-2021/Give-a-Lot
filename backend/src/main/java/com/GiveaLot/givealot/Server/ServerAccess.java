@@ -501,7 +501,7 @@ public class ServerAccess {
     }
 
     public void uploadImageAnon(long orgId, MultipartFile imageMPF) throws Exception {
-        ChannelSftp channelSftp = setupJsch();
+
         try {
             File image = new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg");
             if (!image.exists()){

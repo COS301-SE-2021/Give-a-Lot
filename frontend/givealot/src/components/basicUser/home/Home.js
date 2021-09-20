@@ -44,6 +44,20 @@ export class Home extends Component {
 
                     </div>
 
+                    <div className="list">
+                        <div className="searchIconHome">
+                            <SearchIcon />
+                        </div>
+                        <div>
+                            <Button variant="outlined" type="submit" className="home_button" onClick={this.redirectHandler} >Login</Button>
+                            {this.renderRedirect()}
+                        </div>
+                        <div className="menuIconHome">
+                            <MenuIcon/>
+                        </div>
+
+                    </div>
+
                     <div >
                         <img src={logo} alt="" className="home_image"/>
                     </div>

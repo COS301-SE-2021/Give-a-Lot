@@ -86,6 +86,14 @@ export class Home extends Component {
                         GiveAlot aims to solve this problem by becoming a central point
                         of reference for the verification for charities and other kinds of organisations.
                     </p>
+                      <p className="smallWord">
+                          GiveAlot is a relatively simple idea that is meant
+                          to solve the problem that individuals and organisations
+                          encounter when it comes to verifying the authenticity of
+                          charities and many other different kinds of Organisations.
+                          GiveAlot aims to solve this problem by becoming a central point
+                          of reference for the verification for charities and other kinds of organisations.
+                      </p>
                   </div>
                 </div>
                 <button type="submit" className="browse_button">Browse Organisations</button>

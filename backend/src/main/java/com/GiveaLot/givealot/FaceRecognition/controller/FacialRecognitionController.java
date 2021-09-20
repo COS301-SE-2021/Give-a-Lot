@@ -1,10 +1,7 @@
-package com.GiveaLot.givealot.FaceRecognition.service.controller;
+package com.GiveaLot.givealot.FaceRecognition.controller;
 
-import com.GiveaLot.givealot.FaceRecognition.service.FaceRecognitionServiceImpl;
 import com.GiveaLot.givealot.FaceRecognition.service.requests.AddFRImageMultipartRequest;
 import com.GiveaLot.givealot.FaceRecognition.service.response.generalFaceRecognitionResponse;
-import com.GiveaLot.givealot.Organisation.requests.AddOrgImageMultipartRequest;
-import com.GiveaLot.givealot.Organisation.response.generalOrganisationResponse;
 import com.GiveaLot.givealot.Server.ServerAccess;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +17,7 @@ public class FacialRecognitionController {
 
     @PostMapping("/blur")
     public ResponseEntity<generalFaceRecognitionResponse> addOrgImage(@ModelAttribute AddFRImageMultipartRequest body)
-    {
+    {//
         try
         {
             serverAccess.uploadImageAnon(body.getOrgId(),body.getImage());

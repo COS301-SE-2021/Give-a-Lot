@@ -20,6 +20,7 @@ public class FacialRecognitionController {
     {//
         try
         {
+            System.out.println(body.getOrgId() + " ==============))))))))))))))=============  " + body.getType());
             serverAccess.uploadImageAnon(body.getOrgId(),body.getImage(), body.getType());
             return new ResponseEntity<>(new generalFaceRecognitionResponse("added_blur","success"), HttpStatus.OK);
         }

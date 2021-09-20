@@ -9,8 +9,13 @@ import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import com.GiveaLot.givealot.Login.model.PasswordResetToken;
 import com.GiveaLot.givealot.Login.repository.LoginRepository;
+import com.GiveaLot.givealot.Login.repository.PasswordResetRepository;
+import com.GiveaLot.givealot.Login.request.ChangePasswordRequest;
 import com.GiveaLot.givealot.Login.request.LoginRequest;
+import com.GiveaLot.givealot.Login.request.TokenRequest;
+import com.GiveaLot.givealot.Login.response.ForgotPasswordResponse;
 import com.GiveaLot.givealot.Login.response.LoginResponse;
 import com.GiveaLot.givealot.Login.service.LoginServiceImp;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
@@ -20,13 +25,13 @@ import com.GiveaLot.givealot.User.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-@ContextConfiguration(classes = {LoginServiceImp.class})
+@SpringBootTest
 @ExtendWith(SpringExtension.class)
-public class LoginServiceImpTest {
+class LoginServiceImpTest {
     @MockBean
     private LoginRepository loginRepository;
 
@@ -37,10 +42,13 @@ public class LoginServiceImpTest {
     private OrganisationRepository organisationRepository;
 
     @MockBean
+    private PasswordResetRepository passwordResetRepository;
+
+    @MockBean
     private UserRepository userRepository;
 
     @Test
-    public void testLoginAdmin() throws Exception {
+    void testLogin() throws Exception {
         User user = new User();
         user.setEmail("jane.doe@example.org");
         user.setPassword("iloveyou");
@@ -48,7 +56,7 @@ public class LoginServiceImpTest {
         user.setAdmin(true);
         user.setFirstname("Jane");
         user.setLastname("Doe");
-        when(this.userRepository.findUserByEmail((String) any())).thenReturn(user);
+        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user);
 
         User user1 = new User();
         user1.setEmail("jane.doe@example.org");
@@ -57,48 +65,23 @@ public class LoginServiceImpTest {
         user1.setAdmin(true);
         user1.setFirstname("Jane");
         user1.setLastname("Doe");
-        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user1);
+        when(this.userRepository.findUserByEmail((String) any())).thenReturn(user1);
         assertThrows(Exception.class,
                 () -> this.loginServiceImp.login(new LoginRequest("jane.doe@example.org", "iloveyou", "Role")));
-        verify(this.userRepository).findUserByEmail((String) any());
         verify(this.loginRepository, atLeast(1)).findUserByEmail((String) any());
-    }
-
-    @Test
-    public void testLoginNotAdmin() throws Exception {
-        User user = new User();
-        user.setEmail("jane.doe@example.org");
-        user.setPassword("iloveyou");
-        user.setActivateDate("2020-03-01");
-        user.setAdmin(false);
-        user.setFirstname("Jane");
-        user.setLastname("Doe");
-        when(this.userRepository.findUserByEmail((String) any())).thenReturn(user);
-
-        User user1 = new User();
-        user1.setEmail("jane.doe@example.org");
-        user1.setPassword("iloveyou");
-        user1.setActivateDate("2020-03-01");
-        user1.setAdmin(true);
-        user1.setFirstname("Jane");
-        user1.setLastname("Doe");
-        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user1);
-        assertThrows(Exception.class,
-                () -> this.loginServiceImp.login(new LoginRequest("jane.doe@example.org", "iloveyou", "Role")));
         verify(this.userRepository).findUserByEmail((String) any());
-        verify(this.loginRepository).findUserByEmail((String) any());
     }
 
     @Test
-    public void testLoginNull() throws Exception {
+    void testLoginFail() throws Exception {
         User user = new User();
         user.setEmail("jane.doe@example.org");
-        user.setPassword("iloveyou");
+        user.setPassword("aac2ecb6661a94209898bcd6066ef479");
         user.setActivateDate("2020-03-01");
-        user.setAdmin(null);
+        user.setAdmin(true);
         user.setFirstname("Jane");
         user.setLastname("Doe");
-        when(this.userRepository.findUserByEmail((String) any())).thenReturn(user);
+        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user);
 
         User user1 = new User();
         user1.setEmail("jane.doe@example.org");
@@ -107,12 +90,21 @@ public class LoginServiceImpTest {
         user1.setAdmin(true);
         user1.setFirstname("Jane");
         user1.setLastname("Doe");
-        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user1);
-        assertThrows(Exception.class, () -> this.loginServiceImp.login(null));
+        when(this.userRepository.findUserByEmail((String) any())).thenReturn(user1);
+        LoginResponse actualLoginResult = this.loginServiceImp
+                .login(new LoginRequest("jane.doe@example.org", "iloveyou", "Role"));
+        assertEquals("jane.doe@example.org", actualLoginResult.getCurr_user_email());
+        assertTrue(actualLoginResult.isSuccess());
+        assertEquals("User logged in succesfully", actualLoginResult.getMessage());
+        assertEquals("admin", actualLoginResult.getJWTToken());
+        assertNull(actualLoginResult.getId());
+        verify(this.loginRepository, atLeast(1)).findUserByEmail((String) any());
+        verify(this.userRepository).findUserByEmail((String) any());
     }
 
+
     @Test
-    public void testLoginGeneralUser() throws Exception {
+    void testLoginGeneralUser() throws Exception {
         User user = new User();
         user.setEmail("jane.doe@example.org");
         user.setPassword("iloveyou");
@@ -127,7 +119,7 @@ public class LoginServiceImpTest {
     }
 
     @Test
-    public void testLoginGeneralUserCorrectToken() throws Exception {
+    void testLoginGeneralUserFail() throws Exception {
         User user = new User();
         user.setEmail("jane.doe@example.org");
         user.setPassword("aac2ecb6661a94209898bcd6066ef479");
@@ -138,90 +130,20 @@ public class LoginServiceImpTest {
         when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user);
         LoginResponse actualLoginGeneralUserResult = this.loginServiceImp
                 .loginGeneralUser(new LoginRequest("jane.doe@example.org", "iloveyou", "Role"));
-        assertNull(actualLoginGeneralUserResult.getId());
+        assertEquals("jane.doe@example.org", actualLoginGeneralUserResult.getCurr_user_email());
         assertTrue(actualLoginGeneralUserResult.isSuccess());
         assertEquals("User logged in successfully", actualLoginGeneralUserResult.getMessage());
         assertEquals("general", actualLoginGeneralUserResult.getJWTToken());
+        assertNull(actualLoginGeneralUserResult.getId());
         verify(this.loginRepository).findUserByEmail((String) any());
     }
 
     @Test
-    public void testLoginGeneralUserWrongEmail() throws Exception {
-        User user = new User();
-        user.setEmail("jane.doe@example.org");
-        user.setPassword("iloveyou");
-        user.setActivateDate("2020-03-01");
-        user.setAdmin(true);
-        user.setFirstname("Jane");
-        user.setLastname("Doe");
-        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user);
-        assertThrows(Exception.class,
-                () -> this.loginServiceImp.loginGeneralUser(new LoginRequest("MD5", "iloveyou", "Role")));
-        verify(this.loginRepository).findUserByEmail((String) any());
-    }
-
-    @Test
-    public void testLoginGeneralUserNoEmail() throws Exception {
-        User user = new User();
-        user.setEmail("jane.doe@example.org");
-        user.setPassword("iloveyou");
-        user.setActivateDate("2020-03-01");
-        user.setAdmin(true);
-        user.setFirstname("Jane");
-        user.setLastname("Doe");
-        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user);
-        assertThrows(Exception.class,
-                () -> this.loginServiceImp.loginGeneralUser(new LoginRequest(null, "iloveyou", "Role")));
-    }
-
-    @Test
-    public void testLoginGeneralUserEmptyEmail() throws Exception {
-        User user = new User();
-        user.setEmail("jane.doe@example.org");
-        user.setPassword("iloveyou");
-        user.setActivateDate("2020-03-01");
-        user.setAdmin(true);
-        user.setFirstname("Jane");
-        user.setLastname("Doe");
-        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user);
-        assertThrows(Exception.class,
-                () -> this.loginServiceImp.loginGeneralUser(new LoginRequest("", "iloveyou", "Role")));
-    }
-
-    @Test
-    public void testLoginGeneralUserNullPassword() throws Exception {
-        User user = new User();
-        user.setEmail("jane.doe@example.org");
-        user.setPassword("iloveyou");
-        user.setActivateDate("2020-03-01");
-        user.setAdmin(true);
-        user.setFirstname("Jane");
-        user.setLastname("Doe");
-        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user);
-        assertThrows(Exception.class,
-                () -> this.loginServiceImp.loginGeneralUser(new LoginRequest("jane.doe@example.org", null, "Role")));
-    }
-
-    @Test
-    public void testLoginGeneralUserEmptyPassword() throws Exception {
-        User user = new User();
-        user.setEmail("jane.doe@example.org");
-        user.setPassword("iloveyou");
-        user.setActivateDate("2020-03-01");
-        user.setAdmin(true);
-        user.setFirstname("Jane");
-        user.setLastname("Doe");
-        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user);
-        assertThrows(Exception.class,
-                () -> this.loginServiceImp.loginGeneralUser(new LoginRequest("jane.doe@example.org", "", "Role")));
-    }
-
-    @Test
-    public void testLoginOrganisation() throws Exception {
+    void testLoginOrganisation() throws Exception {
         Organisations organisations = new Organisations();
         organisations.setOrgId(123L);
         organisations.setPassword("iloveyou");
-        organisations.setContactNumber("Contact Number");
+        organisations.setContactNumber("42");
         organisations.setOrgEmail("jane.doe@example.org");
         organisations.setStatus("Status");
         organisations.setOrgSector("Org Sector");
@@ -230,6 +152,7 @@ public class LoginServiceImpTest {
         organisations.setOrgDescription("Org Description");
         organisations.setOrgName("Org Name");
         organisations.setDirectory("/tmp");
+        organisations.setDateAdded("2020-03-01");
         when(this.organisationRepository.selectOrganisationByEmail((String) any())).thenReturn(organisations);
         assertThrows(Exception.class,
                 () -> this.loginServiceImp.loginOrganisation(new LoginRequest("jane.doe@example.org", "iloveyou", "Role")));
@@ -237,11 +160,11 @@ public class LoginServiceImpTest {
     }
 
     @Test
-    public void testLoginOrganisationCorrectToken() throws Exception {
+    void testLoginOrganisationFail() throws Exception {
         Organisations organisations = new Organisations();
         organisations.setOrgId(123L);
         organisations.setPassword("aac2ecb6661a94209898bcd6066ef479");
-        organisations.setContactNumber("Contact Number");
+        organisations.setContactNumber("42");
         organisations.setOrgEmail("jane.doe@example.org");
         organisations.setStatus("Status");
         organisations.setOrgSector("Org Sector");
@@ -250,76 +173,20 @@ public class LoginServiceImpTest {
         organisations.setOrgDescription("Org Description");
         organisations.setOrgName("Org Name");
         organisations.setDirectory("/tmp");
+        organisations.setDateAdded("2020-03-01");
         when(this.organisationRepository.selectOrganisationByEmail((String) any())).thenReturn(organisations);
         LoginResponse actualLoginOrganisationResult = this.loginServiceImp
                 .loginOrganisation(new LoginRequest("jane.doe@example.org", "iloveyou", "Role"));
-        assertEquals(123L, actualLoginOrganisationResult.getId().longValue());
+        assertEquals("jane.doe@example.org", actualLoginOrganisationResult.getCurr_user_email());
         assertTrue(actualLoginOrganisationResult.isSuccess());
         assertEquals("User logged in succesfully", actualLoginOrganisationResult.getMessage());
         assertEquals("organisation", actualLoginOrganisationResult.getJWTToken());
+        assertEquals(123L, actualLoginOrganisationResult.getId().longValue());
         verify(this.organisationRepository).selectOrganisationByEmail((String) any());
     }
 
     @Test
-    public void testLoginOrganisationWrongEmail() throws Exception {
-        Organisations organisations = new Organisations();
-        organisations.setOrgId(123L);
-        organisations.setPassword("iloveyou");
-        organisations.setContactNumber("Contact Number");
-        organisations.setOrgEmail("jane.doe@example.org");
-        organisations.setStatus("Status");
-        organisations.setOrgSector("Org Sector");
-        organisations.setContactPerson("Contact Person");
-        organisations.setSlogan("Slogan");
-        organisations.setOrgDescription("Org Description");
-        organisations.setOrgName("Org Name");
-        organisations.setDirectory("/tmp");
-        when(this.organisationRepository.selectOrganisationByEmail((String) any())).thenReturn(organisations);
-        assertThrows(Exception.class,
-                () -> this.loginServiceImp.loginOrganisation(new LoginRequest("MD5", "iloveyou", "Role")));
-        verify(this.organisationRepository).selectOrganisationByEmail((String) any());
-    }
-
-    @Test
-    public void testLoginOrganisationNullEmail() throws Exception {
-        Organisations organisations = new Organisations();
-        organisations.setOrgId(123L);
-        organisations.setPassword("iloveyou");
-        organisations.setContactNumber("Contact Number");
-        organisations.setOrgEmail("jane.doe@example.org");
-        organisations.setStatus("Status");
-        organisations.setOrgSector("Org Sector");
-        organisations.setContactPerson("Contact Person");
-        organisations.setSlogan("Slogan");
-        organisations.setOrgDescription("Org Description");
-        organisations.setOrgName("Org Name");
-        organisations.setDirectory("/tmp");
-        when(this.organisationRepository.selectOrganisationByEmail((String) any())).thenReturn(organisations);
-        assertThrows(Exception.class,
-                () -> this.loginServiceImp.loginOrganisation(new LoginRequest(null, "iloveyou", "Role")));
-    }
-
-    @Test
-    public void testLoginOrganisationEmptyEmail() throws Exception {
-        Organisations organisations = new Organisations();
-        organisations.setOrgId(123L);
-        organisations.setPassword("iloveyou");
-        organisations.setContactNumber("Contact Number");
-        organisations.setOrgEmail("jane.doe@example.org");
-        organisations.setStatus("Status");
-        organisations.setOrgSector("Org Sector");
-        organisations.setContactPerson("Contact Person");
-        organisations.setSlogan("Slogan");
-        organisations.setOrgDescription("Org Description");
-        organisations.setOrgName("Org Name");
-        organisations.setDirectory("/tmp");
-        when(this.organisationRepository.selectOrganisationByEmail((String) any())).thenReturn(organisations);
-        assertThrows(Exception.class,
-                () -> this.loginServiceImp.loginOrganisation(new LoginRequest("", "iloveyou", "Role")));
-    }
-
-    @Test
-    public void testLoginAdminUser() throws Exception {
+    void testLoginAdminUser() throws Exception {
         User user = new User();
         user.setEmail("jane.doe@example.org");
         user.setPassword("iloveyou");
@@ -334,7 +201,7 @@ public class LoginServiceImpTest {
     }
 
     @Test
-    public void testLoginAdminUserCorrectToken() throws Exception {
+    void testLoginAdminUserFail() throws Exception {
         User user = new User();
         user.setEmail("jane.doe@example.org");
         user.setPassword("aac2ecb6661a94209898bcd6066ef479");
@@ -345,30 +212,16 @@ public class LoginServiceImpTest {
         when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user);
         LoginResponse actualLoginAdminUserResult = this.loginServiceImp
                 .loginAdminUser(new LoginRequest("jane.doe@example.org", "iloveyou", "Role"));
-        assertNull(actualLoginAdminUserResult.getId());
+        assertEquals("jane.doe@example.org", actualLoginAdminUserResult.getCurr_user_email());
         assertTrue(actualLoginAdminUserResult.isSuccess());
         assertEquals("User logged in succesfully", actualLoginAdminUserResult.getMessage());
         assertEquals("admin", actualLoginAdminUserResult.getJWTToken());
+        assertNull(actualLoginAdminUserResult.getId());
         verify(this.loginRepository, atLeast(1)).findUserByEmail((String) any());
     }
 
     @Test
-    public void testLoginAdminUserNotAdmin() throws Exception {
-        User user = new User();
-        user.setEmail("jane.doe@example.org");
-        user.setPassword("iloveyou");
-        user.setActivateDate("2020-03-01");
-        user.setAdmin(false);
-        user.setFirstname("Jane");
-        user.setLastname("Doe");
-        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user);
-        assertThrows(Exception.class,
-                () -> this.loginServiceImp.loginAdminUser(new LoginRequest("jane.doe@example.org", "iloveyou", "Role")));
-        verify(this.loginRepository, atLeast(1)).findUserByEmail((String) any());
-    }
-
-    @Test
-    public void testLoginAdminUserWrongEmail() throws Exception {
+    void testForgotPassward() throws Exception {
         User user = new User();
         user.setEmail("jane.doe@example.org");
         user.setPassword("iloveyou");
@@ -376,14 +229,56 @@ public class LoginServiceImpTest {
         user.setAdmin(true);
         user.setFirstname("Jane");
         user.setLastname("Doe");
-        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user);
-        assertThrows(Exception.class,
-                () -> this.loginServiceImp.loginAdminUser(new LoginRequest("MD5", "iloveyou", "Role")));
-        verify(this.loginRepository, atLeast(1)).findUserByEmail((String) any());
+        when(this.userRepository.findUserByEmail((String) any())).thenReturn(user);
+
+        PasswordResetToken passwordResetToken = new PasswordResetToken();
+        passwordResetToken.setUserEmail("jane.doe@example.org");
+        passwordResetToken.setId(123L);
+        passwordResetToken.setToken("ABC123");
+        when(this.passwordResetRepository.save((PasswordResetToken) any())).thenReturn(passwordResetToken);
+
+        Organisations organisations = new Organisations();
+        organisations.setOrgId(123L);
+        organisations.setPassword("iloveyou");
+        organisations.setContactNumber("42");
+        organisations.setOrgEmail("jane.doe@example.org");
+        organisations.setStatus("Status");
+        organisations.setOrgSector("Org Sector");
+        organisations.setContactPerson("Contact Person");
+        organisations.setSlogan("Slogan");
+        organisations.setOrgDescription("Org Description");
+        organisations.setOrgName("Org Name");
+        organisations.setDirectory("/tmp");
+        organisations.setDateAdded("2020-03-01");
+        when(this.organisationRepository.selectOrganisationByEmail((String) any())).thenReturn(organisations);
+        assertThrows(Exception.class, () -> this.loginServiceImp.forgotPassward(null));
     }
 
     @Test
-    public void testLoginAdminUserNullEmail() throws Exception {
+    void testCheckToken() throws Exception {
+        PasswordResetToken passwordResetToken = new PasswordResetToken();
+        passwordResetToken.setUserEmail("jane.doe@example.org");
+        passwordResetToken.setId(123L);
+        passwordResetToken.setToken("ABC123");
+        when(this.passwordResetRepository.findToken((String) any())).thenReturn(passwordResetToken);
+        ForgotPasswordResponse actualCheckTokenResult = this.loginServiceImp.checkToken(new TokenRequest("ABC123"));
+        assertEquals("token matched", actualCheckTokenResult.getMessage());
+        assertTrue(actualCheckTokenResult.isSuccess());
+        verify(this.passwordResetRepository).findToken((String) any());
+    }
+
+    @Test
+    void testCheckTokenFail() throws Exception {
+        PasswordResetToken passwordResetToken = new PasswordResetToken();
+        passwordResetToken.setUserEmail("jane.doe@example.org");
+        passwordResetToken.setId(123L);
+        passwordResetToken.setToken("ABC123");
+        when(this.passwordResetRepository.findToken((String) any())).thenReturn(passwordResetToken);
+        assertThrows(Exception.class, () -> this.loginServiceImp.checkToken(null));
+    }
+
+    @Test
+    void testChangePassword() throws Exception {
         User user = new User();
         user.setEmail("jane.doe@example.org");
         user.setPassword("iloveyou");
@@ -391,13 +286,34 @@ public class LoginServiceImpTest {
         user.setAdmin(true);
         user.setFirstname("Jane");
         user.setLastname("Doe");
-        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user);
-        assertThrows(Exception.class,
-                () -> this.loginServiceImp.loginAdminUser(new LoginRequest(null, "iloveyou", "Role")));
+        when(this.userRepository.findUserByEmail((String) any())).thenReturn(user);
+
+        Organisations organisations = new Organisations();
+        organisations.setOrgId(123L);
+        organisations.setPassword("iloveyou");
+        organisations.setContactNumber("42");
+        organisations.setOrgEmail("jane.doe@example.org");
+        organisations.setStatus("Status");
+        organisations.setOrgSector("Org Sector");
+        organisations.setContactPerson("Contact Person");
+        organisations.setSlogan("Slogan");
+        organisations.setOrgDescription("Org Description");
+        organisations.setOrgName("Org Name");
+        organisations.setDirectory("/tmp");
+        organisations.setDateAdded("2020-03-01");
+        when(this.organisationRepository.updatePassword((String) any(), (String) any())).thenReturn(1);
+        when(this.organisationRepository.selectOrganisationByEmail((String) any())).thenReturn(organisations);
+        ForgotPasswordResponse actualChangePasswordResult = this.loginServiceImp
+                .changePassword(new ChangePasswordRequest("iloveyou", "jane.doe@example.org"));
+        assertEquals("password reset successful", actualChangePasswordResult.getMessage());
+        assertTrue(actualChangePasswordResult.isSuccess());
+        verify(this.userRepository).findUserByEmail((String) any());
+        verify(this.organisationRepository).selectOrganisationByEmail((String) any());
+        verify(this.organisationRepository).updatePassword((String) any(), (String) any());
     }
 
     @Test
-    public void testLoginAdminUserEmptyEmail() throws Exception {
+    void testChangePasswordFail() throws Exception {
         User user = new User();
         user.setEmail("jane.doe@example.org");
         user.setPassword("iloveyou");
@@ -405,12 +321,34 @@ public class LoginServiceImpTest {
         user.setAdmin(true);
         user.setFirstname("Jane");
         user.setLastname("Doe");
-        when(this.loginRepository.findUserByEmail((String) any())).thenReturn(user);
-        assertThrows(Exception.class, () -> this.loginServiceImp.loginAdminUser(new LoginRequest("", "iloveyou", "Role")));
+        when(this.userRepository.findUserByEmail((String) any())).thenReturn(user);
+
+        Organisations organisations = new Organisations();
+        organisations.setOrgId(123L);
+        organisations.setPassword("iloveyou");
+        organisations.setContactNumber("42");
+        organisations.setOrgEmail("jane.doe@example.org");
+        organisations.setStatus("Status");
+        organisations.setOrgSector("Org Sector");
+        organisations.setContactPerson("Contact Person");
+        organisations.setSlogan("Slogan");
+        organisations.setOrgDescription("Org Description");
+        organisations.setOrgName("Org Name");
+        organisations.setDirectory("/tmp");
+        organisations.setDateAdded("2020-03-01");
+        when(this.organisationRepository.updatePassword((String) any(), (String) any())).thenReturn(1);
+        when(this.organisationRepository.selectOrganisationByEmail((String) any())).thenReturn(organisations);
+        ForgotPasswordResponse actualChangePasswordResult = this.loginServiceImp
+                .changePassword(new ChangePasswordRequest("iloveyou", "MD5"));
+        assertEquals("password reset successful", actualChangePasswordResult.getMessage());
+        assertTrue(actualChangePasswordResult.isSuccess());
+        verify(this.userRepository).findUserByEmail((String) any());
+        verify(this.organisationRepository).selectOrganisationByEmail((String) any());
+        verify(this.organisationRepository).updatePassword((String) any(), (String) any());
     }
 
     @Test
-    public void testGetMd5() {
+    void testGetMd5() {
         assertEquals("0e9c20d9b237aecc65de77a491061be5", this.loginServiceImp.getMd5("27c7cf400229103e00c6d8830029e29b"));
     }
 }

@@ -122,6 +122,23 @@ class Emails extends Component {
         })
     }
 
+    togglePropertyHandler = async (message, property) => {
+        const index = this.state.messages.indexOf(message)
+
+        this.setState({
+            messages: [
+                ...this.state.messages.slice(0, index),
+                { ...message, [property]: !message[property] },
+                ...this.state.messages.slice(index + 1)
+            ],
+            message: [
+                ...this.state.messages.slice(0, index),
+                { ...message, [property]: !message[property] },
+                ...this.state.messages.slice(index + 1)
+            ]
+        })
+    }
+
     // ================================================
     // Toggle Start
     // ================================================

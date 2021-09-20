@@ -17,7 +17,7 @@ public class FacialRecognitionController {
 
     @PostMapping("/blur")
     public ResponseEntity<generalFaceRecognitionResponse> addOrgImage(@ModelAttribute AddFRImageMultipartRequest body)
-    {
+    {//
         try
         {
             serverAccess.uploadImageAnon(body.getOrgId(),body.getImage());

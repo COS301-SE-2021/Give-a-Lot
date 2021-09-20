@@ -62,6 +62,18 @@ class Login extends Component {
             })
     }
 
+    GetHandler = (e) =>{
+        e.preventDefault()
+        console.log(this.state)
+        axios.post('https://jsonplaceholder.typicode.com/posts', this.state)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>{
+
+            })
+    }
+
 
     render() {
         const {email, password} = this.state

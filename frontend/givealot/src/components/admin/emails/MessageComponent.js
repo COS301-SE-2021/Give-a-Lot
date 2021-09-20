@@ -54,6 +54,15 @@ class MessageComponent extends Component {
                     { labels }
                     { message.subject }
                 </div>
+                <div className='col'>
+                    { message.subject }
+                    { labels }
+
+                </div>
+                <div className='11'>
+
+                    { message.subject }
+                </div>
             </div>
         )
     }

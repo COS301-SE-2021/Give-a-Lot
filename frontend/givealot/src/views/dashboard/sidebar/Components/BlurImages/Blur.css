@@ -7,7 +7,16 @@
 {
     text-align: center;
     position: relative;
+}
 
+#processing_photo_info
+{
+    width: 400px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+    margin-top: 20px;
+    display: none;
 }
 
 #blur-image-container > p
@@ -15,9 +24,10 @@
     text-align: center;
     color: #4b4250;
     font-family: 'Raleway',sans-serif;
-    font-size: 23px;
+    font-size: 28px;
     font-weight: 800;
     margin-bottom: 20px;
+    text-transform: capitalize;
 }
 
 

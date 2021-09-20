@@ -105,63 +105,6 @@ public class MediaController {
         }
     }
 
-    @RequestMapping(value = "/gallery/image/version/{orgId}/{image_id}", method = RequestMethod.GET,
-            produces = MediaType.ALL_VALUE)
-    public ResponseEntity<byte[]> getGalleryImage(@PathVariable("orgId") String orgId, @PathVariable("image_id") int image_id) throws Exception {
-        try
-        {
-            if(!service.orgIdExists(Long.valueOf(orgId)))
-            {
-                return ResponseEntity
-                        .notFound().build();
-            }
-        }
-        catch (Exception e)
-        {
-            return ResponseEntity
-                    .notFound().build();
-        }
-
-        var imgFile = new ClassPathResource("localFiles/" +orgId+ "/gallery/backup/image"+image_id+".jpg");
-
-        if(service.getOrganisationStatus(Long.valueOf(orgId)).equals("investigating"))
-            imgFile = new ClassPathResource("localFiles/" +orgId+ "/gallery/image"+image_id+".jpg");
-
-
-        byte[] bytes = null;
-        try {
-            bytes = StreamUtils.copyToByteArray(imgFile.getInputStream());
-            return ResponseEntity
-                    .ok()
-                    .contentType(MediaType.IMAGE_JPEG)
-                    .body(bytes);
-        }
-        catch (IOException e) /*if jpg fails, then try PNG*/
-        {
-            //try PNG
-
-            imgFile = new ClassPathResource("localFiles/" +orgId+ "/gallery/backup/image"+image_id+".png");
-
-            if(service.getOrganisationStatus(Long.valueOf(orgId)).equals("investigating"))
-                imgFile = new ClassPathResource("localFiles/" +orgId+ "/gallery/image"+image_id+".jpg");
-
-            bytes = null;
-            try
-            {
-                bytes = StreamUtils.copyToByteArray(imgFile.getInputStream());
-                return ResponseEntity
-                        .ok()
-                        .contentType(MediaType.IMAGE_PNG)
-                        .body(bytes);
-            }
-            catch (IOException e2)
-            {
-                return ResponseEntity
-                        .notFound().build();
-            }
-        }
-    }
-
 
 
     @RequestMapping(value = "/cert/version/pdf/{orgId}", method = RequestMethod.GET,
@@ -239,6 +182,41 @@ public class MediaController {
                 return ResponseEntity
                         .notFound().build();
             }
+        }
+    }
+
+    @RequestMapping(value = "/pixelorblur/version/{orgId}", method = RequestMethod.GET,
+            produces = MediaType.ALL_VALUE)
+    public ResponseEntity<byte[]> getPixelOrBlur(@PathVariable("orgId") String orgId)
+    {
+        try
+        {
+            if(!service.orgIdExists(Long.valueOf(orgId)))
+            {
+                return ResponseEntity
+                        .notFound().build();
+            }
+        }
+        catch (Exception e)
+        {
+            return ResponseEntity
+                    .notFound().build();
+        }
+
+        var imgFile = new ClassPathResource("localFiles/" +orgId+ "/gallery/blur.jpg");
+        byte[] bytes = null;
+
+        try {
+            bytes = StreamUtils.copyToByteArray(imgFile.getInputStream());
+            return ResponseEntity
+                    .ok()
+                    .contentType(MediaType.IMAGE_JPEG)
+                    .body(bytes);
+        }
+        catch (IOException e)
+        {
+            return ResponseEntity
+                    .notFound().build();
         }
     }
 }

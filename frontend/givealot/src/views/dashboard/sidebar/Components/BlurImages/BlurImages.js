@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import "./Blur.css"
 import {Box, TextField} from "@material-ui/core";
 import blurredFallback from '../../../../../assets/blurredFallback.jpeg';
+import {Alert} from "@material-ui/lab";
 function BlurImages()
 {
 
@@ -11,9 +12,10 @@ function BlurImages()
         alert("he0")
         const form_data = new FormData();
         form_data.append('orgId', localStorage.getItem('id'));
-        form_data.append('images', event.target.files[0]);
+        form_data.append('image', event.target.files[0]);
+        form_data.append('type',1);
 
-        console.log(event.target.files)
+        document.getElementById("processing_photo_info").style.display = "flex";
 
         fetch(
             'http://localhost:8080/v1/frecognition/blur',
@@ -25,12 +27,12 @@ function BlurImages()
         .then((response) => response.json())
         .then((result) =>
         {
-            alert("he2")
-            console.log(result)
+
+            set_current_image("http://localhost:8080/pixelorblur/version/" + localStorage.getItem('id'))
+            document.getElementById("processing_photo_info").style.display = "none";
         })
         .catch((error) => {
             console.error('Error:', error.response);
-            alert("he")
         });
     }
 
@@ -38,7 +40,7 @@ function BlurImages()
         <div className="blur">
             <Box id={"blur-image-container"}>
                 <p>
-                    upload an image to blur faces from
+                    Upload an image to blur faces
                 </p>
                     <TextField
                         className={"blur-image-input"}
@@ -49,9 +51,16 @@ function BlurImages()
                         accept="image/*"
                     />
 
+                <Alert
+                    severity={'info'}
+                    id={"processing_photo_info"}
+                >
+                    please wait while we process the photo
+                </Alert>
                 <Box>
                     <img id={"blurred_image_here"} src={current_image} width={400}/>
                 </Box>
+
             </Box>
         </div>
     );

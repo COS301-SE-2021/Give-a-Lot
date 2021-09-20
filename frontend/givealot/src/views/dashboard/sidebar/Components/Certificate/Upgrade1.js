@@ -169,11 +169,9 @@ export class Upgrade1 extends Component {
 
             toast.error('failed to send Address', {
                 position: toast.POSITION.TOP_RIGHT
-
             });
         }
     }
-
 
     render(){
         const { classes } = this.props;

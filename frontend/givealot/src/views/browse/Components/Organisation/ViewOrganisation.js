@@ -8,8 +8,8 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 
-import view_organisation from '../../Styles/view_organisation.css';
-import {Accordion, AccordionDetails, Avatar, Box, Paper, TextField} from "@material-ui/core";
+import '../../Styles/view_organisation.css';
+import {Accordion, AccordionDetails,Box, TextField} from "@material-ui/core";
 import Footer from "../Footer/Footer";
 import Container from '@material-ui/core/Container';
 
@@ -24,10 +24,6 @@ import Loader from "../../../loader/Loader";
 import {ApiContext} from "../../../../apiContext/ApiContext";
 import axios from "axios";
 import {Alert} from "@material-ui/lab";
-
-/*
- * certificate component imports
- */
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -121,8 +117,6 @@ function ViewOrganisation()
             description : reportDescription
         }
 
-        console.log(reportRequest)
-
         if(userId === "default")
         {
             alert("please sign in if you want to report an organisation");
@@ -149,7 +143,7 @@ function ViewOrganisation()
                     }
                     else
                     {
-                        console.error(error)
+
                     }
                 })
         }
@@ -458,8 +452,6 @@ function ViewOrganisation()
                                    maxRows={3}
                                    multiline
                                />
-
-
 
                                <Button
                                variant={"contained"}

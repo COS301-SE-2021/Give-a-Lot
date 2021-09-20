@@ -1,4 +1,4 @@
-import react, {useState} from 'react';
+import {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import {Box, Tooltip} from "@material-ui/core";
 
@@ -44,7 +44,7 @@ export default function OrganisationRecommended(props)
     return(
         <Box className ="recommended">
             <Tooltip title={props.orgName}  aria-label="add">
-                <img src={org_image} alt={"profile-image"} id={props.orgId} onClick={e => openOrganisation(e,"id")}/>
+                <img src={org_image} alt={"profile"} id={props.orgId} onClick={e => openOrganisation(e,"id")}/>
             </Tooltip>
             <Box className="recommended-meta-data-container">
                 <p className="recommended-meta-data-title">{props.orgName} - <span className="recommended-meta-data-sector">{props.org_sector}</span> </p>

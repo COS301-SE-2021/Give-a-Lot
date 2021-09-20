@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react';
 
 /* assets import */
-import searchIcon from '../../assets/search_black_24dp.svg';
 import filterBtn_mobile from '../../assets/filter_list_black_24dp.svg';
 import ui_message_art from '../../assets/feedback-2044700_1280.jpg';
 /* assets import end */
@@ -13,7 +12,6 @@ import Sector from "./Components/BrowseBySector/Sector";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import Loader from "../loader/Loader";
-import SearchResults from "./Components/SearchResults/SearchResults";
 /* components import end */
 
 /*css imports */
@@ -68,7 +66,7 @@ function Browse ()
             {            
                 if(response.status === 500)
                 {
-                    alert("bad parameters, fatal");
+                    window.location.assign("/browse");
                 }
                 else if(response.status === 401)
                 {
@@ -77,7 +75,7 @@ function Browse ()
 
                 if(typeof data !== 'undefined')
                 {
-                    alert(data.message);
+
                 }
             }
 
@@ -228,35 +226,45 @@ function Browse ()
                 
                 <section id="browse_body_main">
                     <div id="browse_organisations">
-                        <>
-                            <div className="browse_sector">
-                                <p className="browse_sector_name">recommended for you</p>
-                            </div>
-                            <div id="reco_organisations">
-                                {organisations_recommended}
-                            </div>
-                        </>
 
-                        <div id="ui_element_message">
+
+                        {organisations_recommended.length > 0 &&
+                            <>
+                                <div className="browse_sector">
+                                    <p className="browse_sector_name">recommended for you</p>
+                                </div>
+                                <div id="reco_organisations">
+                                    {organisations_recommended}
+                                </div>
+                            </>
+                        }
+
+                        {organisations_by_sector.length > 0 &&
+                            <div id="ui_element_message">
                             <img src={ui_message_art} alt={""}/>
                             <div id="ui_element_message_text">
                                 <p id="ui_element_message_head">Find a cause that you care about</p>
-                                <p id="ui_element_message_subtext">The following organisations have been individually reviewed by givealot<img /></p>
+                                <p id="ui_element_message_subtext">The following organisations have been individually
+                                    reviewed by Give A Lot<img/></p>
                             </div>
-                        </div>
+                        </div>}
 
                         <div id="default_organisations">
                             {organisations_by_sector}
                         </div>
 
                         {/* this block was not a part of the initial design */}
+
+                        {organisations_by_sector.length > 0 &&
                         <div id="ui_element_message">
                             <img src={ui_message_art} alt={""}/>
                             <div id="ui_element_message_text">
-                                <p id="ui_element_message_head">Find a cause that you care about</p>
-                                <p id="ui_element_message_subtext">The following organisations have been individually reviewed by givealot<img /></p>
+                                    <p id="ui_element_message_head">Find a cause that you care about</p>
+                                    <p id="ui_element_message_subtext">The following organisations have been individually
+                                    reviewed by Give A Lot<img/></p>
                             </div>
-                        </div>
+                            </div>
+                        }
                         {/* this block was not a part of the initial design - end */}
                     </div>
                 </section>

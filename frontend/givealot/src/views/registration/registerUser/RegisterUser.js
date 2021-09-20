@@ -16,8 +16,6 @@ const styles = {
     }
 }
 
-
-
 class RegisterUser extends Component {
 
     static contextType = ApiContext;

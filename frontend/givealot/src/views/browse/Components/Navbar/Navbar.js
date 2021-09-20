@@ -1,14 +1,9 @@
 import {Link} from "react-router-dom";
 import logo from "../../../../assets/logo/logo3_1.png";
 import React, {useContext, useEffect, useState} from "react";
-import {TextField} from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import SearchResults from "../SearchResults/SearchResults";
 import {ApiContext} from "../../../../apiContext/ApiContext";
-
-
-
-
 
 function Navbar()
 {
@@ -36,7 +31,7 @@ function Navbar()
                 }
             }
 
-            if(data.message === "success") /*successfully fetched*/
+            if(data.message === "success")
             {
                 setSearchResultsOrganisations(data.results);
                 setSearchResultsOrganisationsRelated(data.suggestions);

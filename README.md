@@ -42,6 +42,16 @@
 
 <a href="https://drive.google.com/file/d/1KEjxb9IEYz-uaWCV3jwbreG89nyj_W5Z/view"> Architectural requirements document </a>
 
+<br>
+<h3>Demo 4 Documentation</h3>
+<a href="https://drive.google.com/file/d/1FYyejSdub74KVhEqdOXkgoPvOc54ZvWF/view?usp=sharing"> User Manual </a>
+<br><br>
+<a href="https://drive.google.com/file/d/123aRJl8D7Qkcs_2Id9Ko4v2-yG4ciglG/view?usp=sharing"> Technical Installation Documents </a>
+<br><br>
+<a href="https://drive.google.com/file/d/1tAVUItAUwhj-VxbbebN-Dj67L6y6_cES/view?usp=sharing"> SRS Document </a>
+<br><br>
+<a href="https://drive.google.com/file/d/1d2mmmjHTeDIyyrKhxPyu8q_SxNpFCn-P/view?usp=sharing"> Architectural requirements document </a>
+<a href=""> Testing Policy </a>
 
 
 
@@ -83,7 +93,7 @@ phases of the project to the stakeholders of the Give a lot project.
 * <a href=""> Demo 1 </a>
 * <a href="https://drive.google.com/file/d/1nVGxjAXg2Bps2CiWN2UObfZMa0Hhtgmt/view?usp=sharing"> Demo 2 </a>
 * <a href=""> Demo 3 </a>
-* <a href=""> Demo 4 </a>
+
 
 </div>
 

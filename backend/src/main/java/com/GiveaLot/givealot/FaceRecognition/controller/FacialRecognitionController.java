@@ -20,7 +20,7 @@ public class FacialRecognitionController {
     {//
         try
         {
-            serverAccess.uploadImageAnon(body.getOrgId(),body.getImage());
+            serverAccess.uploadImageAnon(body.getOrgId(),body.getImage(), body.getType());
             return new ResponseEntity<>(new generalFaceRecognitionResponse("added_blur","success"), HttpStatus.OK);
         }
         catch (Exception e)

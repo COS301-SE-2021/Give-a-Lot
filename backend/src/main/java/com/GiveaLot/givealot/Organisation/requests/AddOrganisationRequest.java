@@ -24,17 +24,16 @@ public class AddOrganisationRequest {
     private String dateCreated;
 
 
-    public AddOrganisationRequest(@JsonProperty ("orgName") String orgName,
-                                  @JsonProperty ("slogan") String slogan,
-                                  @JsonProperty ("orgDescription") String orgDescription,
-                                  @JsonProperty ("orgSector") String orgSector,
-                                  @JsonProperty ("orgEmail") String orgEmail,
-                                  @JsonProperty ("contactPerson") String contactPerson,
-                                  @JsonProperty ("contactNumber") String contactNumber,
-                                  @JsonProperty ("password") String password,
-                                  @JsonProperty ("image") MultipartFile image
-    )
-    {
+    public AddOrganisationRequest(@JsonProperty("orgName") String orgName,
+                                  @JsonProperty("slogan") String slogan,
+                                  @JsonProperty("orgDescription") String orgDescription,
+                                  @JsonProperty("orgSector") String orgSector,
+                                  @JsonProperty("orgEmail") String orgEmail,
+                                  @JsonProperty("contactPerson") String contactPerson,
+                                  @JsonProperty("contactNumber") String contactNumber,
+                                  @JsonProperty("password") String password,
+                                  @JsonProperty("image") MultipartFile image
+    ) {
         this.orgName = orgName;
         this.slogan = slogan;
         this.orgDescription = orgDescription;
@@ -42,7 +41,7 @@ public class AddOrganisationRequest {
         this.orgEmail = orgEmail;
         this.contactNumber = contactNumber;
         this.contactPerson = contactPerson;
-        this.password =password;
+        this.password = password;
         this.image = image;
     }
 
@@ -66,7 +65,7 @@ public class AddOrganisationRequest {
         this.orgId = orgId;
     }
 
-    public String getOrgName(){
+    public String getOrgName() {
         return orgName;
     }
 
@@ -167,8 +166,7 @@ public class AddOrganisationRequest {
     }
 
     public static class MD5 {
-        public String getMd5(String input)
-        {
+        public String getMd5(String input) {
             try {
                 MessageDigest md = MessageDigest.getInstance("MD5");
 
@@ -181,8 +179,7 @@ public class AddOrganisationRequest {
                     hashtext = "0" + hashtext;
                 }
                 return hashtext;
-            }
-            catch (NoSuchAlgorithmException e) {
+            } catch (NoSuchAlgorithmException e) {
                 throw new RuntimeException(e);
             }
         }

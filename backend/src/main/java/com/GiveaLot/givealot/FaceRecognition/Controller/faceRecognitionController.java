@@ -1,4 +1,4 @@
-package com.GiveaLot.givealot.FaceRecognition.Controller;
+package com.GiveaLot.givealot.FaceRecognition.controller;
 
 
 import org.springframework.web.bind.annotation.PostMapping;

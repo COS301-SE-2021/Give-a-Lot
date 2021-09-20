@@ -6,7 +6,7 @@ public class RetrieveCertificateRequest {
     Long orgId;
     String orgName;
 
-    public RetrieveCertificateRequest(@JsonProperty("orgId") Long orgId,@JsonProperty("orgName") String orgName) {
+    public RetrieveCertificateRequest(@JsonProperty("orgId") Long orgId, @JsonProperty("orgName") String orgName) {
         this.orgId = orgId;
         this.orgName = orgName;
     }

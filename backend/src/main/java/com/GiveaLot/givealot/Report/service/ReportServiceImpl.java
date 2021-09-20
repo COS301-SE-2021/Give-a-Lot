@@ -43,7 +43,7 @@ public class ReportServiceImpl implements ReportService {
     private final ServerAccess access = new ServerAccess();
 
     @Override
-    public createReportResponse createReportFile(Report report) throws Exception{
+    public createReportResponse createReportFile(Report report) throws Exception {
         try {
 
             /** Create file **/
@@ -90,10 +90,9 @@ public class ReportServiceImpl implements ReportService {
             /** Update database **/
 
             updateNumberOfReports(report.getOrgId());
-            access.uploadReport(report.getOrgId(),file,date);
-            return new createReportResponse("report_org_200_ok","success",report);
-        }
-        catch (Exception e) {
+            access.uploadReport(report.getOrgId(), file, date);
+            return new createReportResponse("report_org_200_ok", "success", report);
+        } catch (Exception e) {
             throw new Exception("Exception: " + e);
         }
     }
@@ -104,24 +103,24 @@ public class ReportServiceImpl implements ReportService {
             int reports = organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfReports();
             organisationInfoRepository.incrementReports(orgId, reports + 1);
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Exception: ID is not present in the database" + e);
         }
     }
 
     @Override
     public generalReportResponse reportOrganisation(reportRequest request) throws Exception {
-        if(request == null)
+        if (request == null)
             throw new Exception("request is null");
-        else if(request.getDescription() == null || request.getDescription().isEmpty())
+        else if (request.getDescription() == null || request.getDescription().isEmpty())
             throw new Exception("Invalid description, null or empty provided");
-        else if(request.getReportType() == null || request.getReportType().isEmpty())
+        else if (request.getReportType() == null || request.getReportType().isEmpty())
             throw new Exception("Invalid report type, null or empty provided");
-        else if(request.getOrgId() == null || request.getUserId() == null)
+        else if (request.getOrgId() == null || request.getUserId() == null)
             throw new Exception("Invalid id, null provided");
-        else if(userRepository.findUserById(request.getUserId()) == null)
+        else if (userRepository.findUserById(request.getUserId()) == null)
             throw new Exception("user id does not exist");
-        else if(organisationRepository.selectOrganisationById(request.getOrgId()) == null)
+        else if (organisationRepository.selectOrganisationById(request.getOrgId()) == null)
             throw new Exception("org id does not exist");
 
         Reports reports = new Reports();
@@ -138,15 +137,15 @@ public class ReportServiceImpl implements ReportService {
         reports.setDescription(request.getDescription());
         reportRepository.save(reports);
 
-        return new generalReportResponse("report_200_OK","success");
+        return new generalReportResponse("report_200_OK", "success");
     }
 
     @Override
     public responseJSON getAllReports(Long orgId) throws Exception {
-        if(orgId == null)
+        if (orgId == null)
             throw new Exception("provided ID is null");
 
-        if(organisationRepository.selectOrganisationById(orgId) == null)
+        if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("id does not exist");
 
         List<Reports> res = reportRepository.getAllReports(orgId);
@@ -155,13 +154,13 @@ public class ReportServiceImpl implements ReportService {
 
     @Override
     public generalReportResponse appealReport(Long orgId, Long reportId) throws Exception {
-        if(orgId == null)
+        if (orgId == null)
             throw new Exception("provided ID is null");
 
-        if(organisationRepository.selectOrganisationById(orgId) == null)
+        if (organisationRepository.selectOrganisationById(orgId) == null)
             throw new Exception("id does not exist");
 
-        if(reportRepository.getReportById(reportId) == null)
+        if (reportRepository.getReportById(reportId) == null)
             throw new Exception("report does not exist");
 
         reportRepository.appealReport(reportId);
@@ -170,23 +169,22 @@ public class ReportServiceImpl implements ReportService {
     }
 
     @Override
-    public responseJSON getAppealedReports(Long adminId) throws Exception
-    {
-        if(adminId == null)
+    public responseJSON getAppealedReports(Long adminId) throws Exception {
+        if (adminId == null)
             throw new Exception("id is null");
-        else if(userRepository.findUserById(adminId) == null)
+        else if (userRepository.findUserById(adminId) == null)
             throw new Exception("user not found");
-        else if(!userRepository.findUserById(adminId).getAdmin())
+        else if (!userRepository.findUserById(adminId).getAdmin())
             throw new Exception("not authorized");
 
-        return new responseJSON("get_app_reports_OK","success",reportRepository.getAppealedReports());
+        return new responseJSON("get_app_reports_OK", "success", reportRepository.getAppealedReports());
     }
 
 
     public static void main(String[] args) throws Exception {
         ReportServiceImpl reportService = new ReportServiceImpl();
 
-        Report report = new Report(45,"New Org","they stole my money","theft","reporterEmail");
+        Report report = new Report(45, "New Org", "they stole my money", "theft", "reporterEmail");
 
         reportService.createReportFile(report);
     }

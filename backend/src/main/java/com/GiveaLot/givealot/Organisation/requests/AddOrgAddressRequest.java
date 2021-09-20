@@ -8,7 +8,7 @@ public class AddOrgAddressRequest {
     private Long orgId;
     private String address;
 
-    public AddOrgAddressRequest(@JsonProperty("orgId") Long orgId,@JsonProperty("address") String address) {
+    public AddOrgAddressRequest(@JsonProperty("orgId") Long orgId, @JsonProperty("address") String address) {
         this.orgId = orgId;
         this.address = address;
     }

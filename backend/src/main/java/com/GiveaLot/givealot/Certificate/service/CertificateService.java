@@ -15,15 +15,14 @@ import java.security.NoSuchAlgorithmException;
 @Service
 public interface CertificateService {
 
-  public boolean addCertificate(long orgId, Certificate certificate) throws Exception;
+    public boolean addCertificate(long orgId, Certificate certificate) throws Exception;
 
     public boolean updateCertificate(long orgId) throws Exception;
 
     public File retrieveCertificate(RetrieveCertificateRequest request) throws Exception;
 
-    //public boolean compare;
-
     public boolean createPDFDocument(Certificate cert, Organisations organisation, int points) throws Exception;
+
     public boolean checkRenewal() throws Exception;
 
     public boolean CertificateExpiredEmail(String orgName, String orgEmail) throws Exception;
@@ -32,7 +31,7 @@ public interface CertificateService {
 
     public boolean adminRenewal(long orgId) throws Exception;
 
-  public long compareCertificate(MultipartFile certificate) throws Exception;
+    public long compareCertificate(MultipartFile certificate) throws Exception;
 
 }
 

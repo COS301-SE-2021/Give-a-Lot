@@ -2,16 +2,15 @@ package com.GiveaLot.givealot.Organisation.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class AddSocialsRequest
-{
+public class AddSocialsRequest {
     private String type;
     private Long orgId;
     private String url;
 
     public AddSocialsRequest(
-                             @JsonProperty ("socialType") String type,
-                             @JsonProperty ("orgId") Long orgId,
-                             @JsonProperty ("url") String url) {
+            @JsonProperty("socialType") String type,
+            @JsonProperty("orgId") Long orgId,
+            @JsonProperty("url") String url) {
         this.url = url;
         this.type = type;
         this.orgId = orgId;

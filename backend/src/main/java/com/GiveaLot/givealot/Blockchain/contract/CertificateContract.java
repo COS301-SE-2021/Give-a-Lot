@@ -58,58 +58,66 @@ public class CertificateContract extends Contract {
 
     public RemoteFunctionCall<TransactionReceipt> addCertificate(String _certificateHash, BigInteger _organisationId, BigInteger _level) {
         final Function function = new Function(
-                FUNC_ADDCERTIFICATE, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Utf8String(_certificateHash), 
-                new org.web3j.abi.datatypes.generated.Uint256(_organisationId), 
-                new org.web3j.abi.datatypes.generated.Uint256(_level)), 
+                FUNC_ADDCERTIFICATE,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.Utf8String(_certificateHash),
+                        new org.web3j.abi.datatypes.generated.Uint256(_organisationId),
+                        new org.web3j.abi.datatypes.generated.Uint256(_level)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteFunctionCall<Tuple3<BigInteger, String, BigInteger>> certificates(BigInteger param0) {
-        final Function function = new Function(FUNC_CERTIFICATES, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(param0)), 
-                Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}, new TypeReference<Utf8String>() {}, new TypeReference<Uint256>() {}));
+        final Function function = new Function(FUNC_CERTIFICATES,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(param0)),
+                Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {
+                }, new TypeReference<Utf8String>() {
+                }, new TypeReference<Uint256>() {
+                }));
         return new RemoteFunctionCall<Tuple3<BigInteger, String, BigInteger>>(function,
                 new Callable<Tuple3<BigInteger, String, BigInteger>>() {
                     @Override
                     public Tuple3<BigInteger, String, BigInteger> call() throws Exception {
                         List<Type> results = executeCallMultipleValueReturn(function);
                         return new Tuple3<BigInteger, String, BigInteger>(
-                                (BigInteger) results.get(0).getValue(), 
-                                (String) results.get(1).getValue(), 
+                                (BigInteger) results.get(0).getValue(),
+                                (String) results.get(1).getValue(),
                                 (BigInteger) results.get(2).getValue());
                     }
                 });
     }
 
     public RemoteFunctionCall<Boolean> compareCertificate(String _certificateHash) {
-        final Function function = new Function(FUNC_COMPARECERTIFICATE, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Utf8String(_certificateHash)), 
-                Arrays.<TypeReference<?>>asList(new TypeReference<Bool>() {}));
+        final Function function = new Function(FUNC_COMPARECERTIFICATE,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.Utf8String(_certificateHash)),
+                Arrays.<TypeReference<?>>asList(new TypeReference<Bool>() {
+                }));
         return executeRemoteCallSingleValueReturn(function, Boolean.class);
     }
 
     public RemoteFunctionCall<BigInteger> findCertificateIndex(BigInteger _organisationId) {
-        final Function function = new Function(FUNC_FINDCERTIFICATEINDEX, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_organisationId)), 
-                Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
+        final Function function = new Function(FUNC_FINDCERTIFICATEINDEX,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_organisationId)),
+                Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {
+                }));
         return executeRemoteCallSingleValueReturn(function, BigInteger.class);
     }
 
     public RemoteFunctionCall<Tuple3<BigInteger, String, BigInteger>> retrieveCertificate(BigInteger _index, BigInteger _organisationId) {
-        final Function function = new Function(FUNC_RETRIEVECERTIFICATE, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_index), 
-                new org.web3j.abi.datatypes.generated.Uint256(_organisationId)), 
-                Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}, new TypeReference<Utf8String>() {}, new TypeReference<Uint256>() {}));
+        final Function function = new Function(FUNC_RETRIEVECERTIFICATE,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_index),
+                        new org.web3j.abi.datatypes.generated.Uint256(_organisationId)),
+                Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {
+                }, new TypeReference<Utf8String>() {
+                }, new TypeReference<Uint256>() {
+                }));
         return new RemoteFunctionCall<Tuple3<BigInteger, String, BigInteger>>(function,
                 new Callable<Tuple3<BigInteger, String, BigInteger>>() {
                     @Override
                     public Tuple3<BigInteger, String, BigInteger> call() throws Exception {
                         List<Type> results = executeCallMultipleValueReturn(function);
                         return new Tuple3<BigInteger, String, BigInteger>(
-                                (BigInteger) results.get(0).getValue(), 
-                                (String) results.get(1).getValue(), 
+                                (BigInteger) results.get(0).getValue(),
+                                (String) results.get(1).getValue(),
                                 (BigInteger) results.get(2).getValue());
                     }
                 });
@@ -117,11 +125,11 @@ public class CertificateContract extends Contract {
 
     public RemoteFunctionCall<TransactionReceipt> upgradeCertificate(BigInteger index, String _certificateHash, BigInteger _organisationId, BigInteger _level) {
         final Function function = new Function(
-                FUNC_UPGRADECERTIFICATE, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(index), 
-                new org.web3j.abi.datatypes.Utf8String(_certificateHash), 
-                new org.web3j.abi.datatypes.generated.Uint256(_organisationId), 
-                new org.web3j.abi.datatypes.generated.Uint256(_level)), 
+                FUNC_UPGRADECERTIFICATE,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(index),
+                        new org.web3j.abi.datatypes.Utf8String(_certificateHash),
+                        new org.web3j.abi.datatypes.generated.Uint256(_organisationId),
+                        new org.web3j.abi.datatypes.generated.Uint256(_level)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }

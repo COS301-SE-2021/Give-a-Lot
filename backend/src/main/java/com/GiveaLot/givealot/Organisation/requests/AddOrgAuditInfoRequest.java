@@ -5,8 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 
-public class AddOrgAuditInfoRequest
-{
+public class AddOrgAuditInfoRequest {
     private Long orgId;
     private MultipartFile audit;
 

@@ -62,7 +62,7 @@ public class ServerAccess {
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Gallery");
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/Backup");
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Certificates");
-            channelSftp.put( remoteDir + "Organisations/" + orgIdString + "/" + orgNameSpace);
+            channelSftp.put(remoteDir + "Organisations/" + orgIdString + "/" + orgNameSpace);
 
             String localStorage = "backend/src/main/resources/localFiles/" + orgIdString;
             String localImageStorage = "backend/src/main/resources/localFiles/" + orgIdString + "/gallery";
@@ -80,23 +80,22 @@ public class ServerAccess {
             directoryCertLocal.mkdir();
 
 
-            if (directoryLocal.mkdir()){
+            if (directoryLocal.mkdir()) {
                 throw new Exception("Exception: local directory could not be created");
             }
-            if (directoryImageLocal.mkdir()){
+            if (directoryImageLocal.mkdir()) {
                 throw new Exception("Exception: image directory could not be created");
             }
-            if (directoryImageLocal2.mkdir()){
+            if (directoryImageLocal2.mkdir()) {
                 throw new Exception("Exception: image backup directory could not be created");
             }
-            if (directoryCertLocal.mkdir()){
+            if (directoryCertLocal.mkdir()) {
                 throw new Exception("Exception: certificate directory could not be created");
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Exception: Failed to interact with the server: " + e);
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
@@ -113,10 +112,9 @@ public class ServerAccess {
 
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Certificates" + "/" + orgName.replaceAll("\\s+", "") + "Certificate.pdf");
 
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Exception: Failed to interact with the server");
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
@@ -158,10 +156,9 @@ public class ServerAccess {
             FileUtils.copyInputStreamToFile(stream, fileLocation);
 
 
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Exception: Failed to download certificate template");
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
@@ -185,10 +182,9 @@ public class ServerAccess {
 
             return fileLocation;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Exception: Failed to download certificate");
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
@@ -198,7 +194,7 @@ public class ServerAccess {
         ChannelSftp channelSftp = setupJsch();
         try {
             File image = new File("backend/src/main/resources/TempDocument/audit.pdf");
-            if (!image.exists()){
+            if (!image.exists()) {
                 image.createNewFile();
             }
             try (OutputStream os = new FileOutputStream(image)) {
@@ -214,10 +210,9 @@ public class ServerAccess {
 
             File deletion = new File(localFile);
             deletion.delete();
-        }catch (Exception e){
-            throw new Exception("Exception: Failed to interact with the server"+e);
-        }
-        finally {
+        } catch (Exception e) {
+            throw new Exception("Exception: Failed to interact with the server" + e);
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
@@ -240,10 +235,9 @@ public class ServerAccess {
 
             return fileLocation;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Exception: Failed to download certificate");
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
@@ -280,12 +274,12 @@ public class ServerAccess {
         }
     }*/
 
-    public void uploadImageJPG(long orgId, String orgName, MultipartFile image,int numberOfImages) throws Exception {
+    public void uploadImageJPG(long orgId, String orgName, MultipartFile image, int numberOfImages) throws Exception {
 
         ChannelSftp channelSftp = setupJsch();
         try {
             File imageHolder = new File("backend/src/main/resources/TempDocument/image.jpg");
-            if (!imageHolder.exists()){
+            if (!imageHolder.exists()) {
                 imageHolder.createNewFile();
             }
             try (OutputStream os = new FileOutputStream(imageHolder)) {
@@ -306,14 +300,13 @@ public class ServerAccess {
             channelSftp.put(localFile2, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/Backup/image" + numberOfImages + ".jpg");
 
             //Update number of images
-        //    organisationInfoRepository.incrementNumImagesd(orgId);
+            //    organisationInfoRepository.incrementNumImagesd(orgId);
 
             //image.delete();
-           // imageHolder.delete();
-        }catch (Exception e){
+            // imageHolder.delete();
+        } catch (Exception e) {
             throw new Exception("Exception: Failed to interact with the server: " + e);
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
@@ -336,10 +329,9 @@ public class ServerAccess {
 
             return fileLocation;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Exception: Failed to download certificate");
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
@@ -349,7 +341,7 @@ public class ServerAccess {
         ChannelSftp channelSftp = setupJsch();
         try {
             File image = new File("backend/src/main/resources/TempDocument/TempImg.png");
-            if (!image.exists()){
+            if (!image.exists()) {
                 image.createNewFile();
             }
             try (OutputStream os = new FileOutputStream(image)) {
@@ -358,8 +350,6 @@ public class ServerAccess {
             image.renameTo(new File("backend/src/main/resources/TempDocument/image.png"));
 
             channelSftp.connect();
-
-            //Query to certificate for number of images
 
             int imageNumber = organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfImages() + 1;
 
@@ -372,19 +362,19 @@ public class ServerAccess {
 
 
             image.delete();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
     }
+
     public void uploadImageLogo(long orgId, String orgName, MultipartFile imageMPF) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
             File image = new File("backend/src/main/resources/TempDocument/image.png");
-            if (!image.exists()){
+            if (!image.exists()) {
                 image.createNewFile();
             }
             try (OutputStream os = new FileOutputStream(image)) {
@@ -402,19 +392,19 @@ public class ServerAccess {
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/logo.png");
 
             image.delete();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
     }
+
     public void uploadImageQRCode(long orgId, String orgName, MultipartFile imageMPF) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
             File image = new File("backend/src/main/resources/TempDocument/imageQr.png");
-            if (!image.exists()){
+            if (!image.exists()) {
                 image.createNewFile();
             }
             try (OutputStream os = new FileOutputStream(image)) {
@@ -432,14 +422,14 @@ public class ServerAccess {
 
 
             image.delete();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
     }
+
     public void deleteQR(long orgId) throws JSchException {
         ChannelSftp channelSftp = setupJsch();
         try {
@@ -451,10 +441,9 @@ public class ServerAccess {
 
             channelSftp.rm(remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/QRCode.png");
             image.delete();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
@@ -471,10 +460,9 @@ public class ServerAccess {
 
             channelSftp.rm(remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/logo.png");
             image.delete();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
@@ -491,12 +479,27 @@ public class ServerAccess {
 
             channelSftp.rm(remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + number + ".png");
             image.delete();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
+        }
+    }
+
+    public void uploadImageAnon(long orgId, MultipartFile imageMPF) throws Exception {
+
+        try {
+            File image = new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg");
+            if (!image.exists()) {
+                image.createNewFile();
+            }
+            try (OutputStream os = new FileOutputStream(image)) {
+                os.write(imageMPF.getBytes());
+            }
+            image.renameTo(new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg"));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -510,7 +513,7 @@ public class ServerAccess {
             channelSftp.connect();
 
 
-            int reportNumber =organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfReports();
+            int reportNumber = organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfReports();
 
             String orgIdString = String.valueOf(orgId);
 
@@ -519,12 +522,11 @@ public class ServerAccess {
             FileUtils.copyFile(report, new File(localFile));
 
 
-            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Reports/report" + reportNumber + "-" + date +".txt");
+            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Reports/report" + reportNumber + "-" + date + ".txt");
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             //report.delete();
             channelSftp.exit();
             session.disconnect();
@@ -548,10 +550,9 @@ public class ServerAccess {
 
             return fileLocation;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Exception: Failed to download certificate");
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
@@ -562,7 +563,7 @@ public class ServerAccess {
 
         File file = new File("C:/test.jpg");
 
-        access.createOrganisationDirectory(1,"The Local Guys");
+        access.createOrganisationDirectory(1, "The Local Guys");
 
         //File doc = access.downloadCertificate(45,"New Org");
 

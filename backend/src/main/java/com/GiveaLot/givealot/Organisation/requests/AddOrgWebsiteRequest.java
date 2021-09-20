@@ -2,14 +2,12 @@ package com.GiveaLot.givealot.Organisation.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class AddOrgWebsiteRequest
-{
+public class AddOrgWebsiteRequest {
     private Long orgId;
     private String website;
 
-    public AddOrgWebsiteRequest(@JsonProperty ("orgId") Long orgId,
-                                @JsonProperty ("website") String website)
-    {
+    public AddOrgWebsiteRequest(@JsonProperty("orgId") Long orgId,
+                                @JsonProperty("website") String website) {
         this.orgId = orgId;
         this.website = website;
     }

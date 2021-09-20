@@ -53,6 +53,22 @@ export class AdminUsers extends Component {
         });
         return posts;
     }
+
+    assemble= () => {
+
+        let posts =this.state.posts.map((post) => {
+            return (
+                {
+                    number: post.name,
+                    title: post.username,
+                    user: post.email,
+
+                }
+            )
+        });
+        return posts;
+    }
+
     render() {
         const data = {
             columns: [

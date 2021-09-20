@@ -86,6 +86,16 @@ class Emails extends Component {
         })
     }
 
+    toggleSelect = () => {
+        const selectedMessages = this.state.messages.filter(message => message.selected)
+
+        const selected = selectedMessages.length !== this.state.messages.length
+        this.setState({
+            messages: this.state.messages.map(message => message.selected !== selected ? { ...message, selected } : message)
+        })
+    }
+
+
     // ================================================
     // Toggle Property
     // ================================================

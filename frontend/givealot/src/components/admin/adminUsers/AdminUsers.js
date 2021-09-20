@@ -27,7 +27,17 @@ export class AdminUsers extends Component {
                 console.log(this.state.tableRows);
             });
     }
-
+    componentDidMount=async() => {
+        await axios.get('http://jsonplaceholder.typicode.com/users')
+            .then(response => response.data)
+            .then(data => {
+                this.setState({ posts: data })
+            })
+            .then(async() => {
+                this.setState({ tableRows:this.assemblePosts(), isLoading:false })
+                console.log(this.state.tableRows);
+            });
+    }
 
     assemblePosts= () => {
 

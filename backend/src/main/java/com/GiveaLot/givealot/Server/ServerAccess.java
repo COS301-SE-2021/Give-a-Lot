@@ -1,6 +1,7 @@
 
 package com.GiveaLot.givealot.Server;
 
+import com.GiveaLot.givealot.FaceRecognition.service.FaceRecognitionServiceImpl;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
@@ -487,7 +488,7 @@ public class ServerAccess {
         }
     }
 
-    public void uploadImageAnon(long orgId, MultipartFile imageMPF) throws Exception {
+    public void uploadImageAnon(long orgId, MultipartFile imageMPF, int type) throws Exception {
 
         try {
             File image = new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg");
@@ -498,6 +499,17 @@ public class ServerAccess {
                 os.write(imageMPF.getBytes());
             }
             image.renameTo(new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg"));
+
+            FaceRecognitionServiceImpl faceRecognitionService = new FaceRecognitionServiceImpl();
+            if (type==0){
+                faceRecognitionService.FaceBlur(orgId);
+            }
+            else if (type ==1){
+                faceRecognitionService.FacePixel(orgId);
+            }
+            else{
+                throw new Exception("Exception: invalid type");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

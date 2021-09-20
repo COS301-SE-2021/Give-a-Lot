@@ -35,6 +35,15 @@ class MessageComponent extends Component {
                                 readOnly={true}
                             />
                         </div>
+
+                        <div className='col-xs-2'>
+                            <input
+                                onClick={() => toggleSelect(message)}
+                                type='text'
+
+                                readOnly={true}
+                            />
+                        </div>
                         <div className='col-xs-2'>
                             {/* <i className={`star fa ${starClass}`} onClick={() => toggleStar(message)}></i> */}
                             <i className={ `star fa ${starClass}` } onClick={ starMessage } />

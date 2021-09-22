@@ -4,229 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f78d0bc-105a-4490-a724-3f99f807d042" name="Default Changelist" comment="Testing complete">
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/public/assets/blurredFallback.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+    <list default="true" id="5f78d0bc-105a-4490-a724-3f99f807d042" name="Default Changelist" comment="Updated stuff">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Blockchain/service/BlockchainServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Blockchain/service/BlockchainServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/GivealotApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/GivealotApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationPoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationPoints.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/56/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/56/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/56/gallery/blur.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/57/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/57/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/57/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/58/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/58/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/58/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/59/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/59/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/59/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/60/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/60/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/60/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/61/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/61/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/61/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/62/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/62/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/62/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/63/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/63/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/63/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/64/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/64/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/64/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/65/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/65/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/65/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/66/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/66/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/66/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/67/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/67/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/67/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/68/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/68/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/68/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/69/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/69/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/69/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/70/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/70/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/70/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/71/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/71/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/71/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/72/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/72/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/72/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/73/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/73/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/73/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/74/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/74/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/74/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/75/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/75/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/75/gallery/QRCode.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/75/gallery/image0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/75/gallery/image1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/75/gallery/image2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/75/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/76/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/76/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/76/gallery/QRCode.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/76/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/77/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/77/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/77/gallery/QRCode.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/77/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/78/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/78/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/78/gallery/QRCode.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/78/gallery/image0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/78/gallery/image1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/78/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/79/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/80/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/81/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/82/certificate/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/82/certificate/CertificateImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/82/gallery/backup/image0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/82/gallery/backup/image1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/82/gallery/backup/image2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/82/gallery/image0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/82/gallery/image1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/82/gallery/image2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/82/gallery/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/DummyData.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/apiContext/ApiContext.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/assets/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/assets/browse_design-1.xd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/assets/feedback-2044700_1280.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/assets/filter_list_black_24dp.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/assets/homeBackground.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/assets/logo/givealot-logo-red..png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/assets/logo/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/assets/logo/logo2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/assets/logo/logo3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/assets/logo/logo3_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/assets/search_black_24dp.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/BrowseBySector/Sector.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Footer/Footer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Navbar/Navbar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/Organisation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/OrganisationRecommended.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/OrganisationTimeLineItem/OrganisationTimeLineItem.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/PDFCert.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/SearchResults/SearchResult.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/SearchResults/SearchResults.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_desktop.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_general.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_general_footer.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/view_organisation.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/chatbot/Chatbot.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/chatbot/Styles/Chatbot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/Dashboard.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/Loader/Loader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/BlurImages/Blur.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/BlurImages/BlurImages.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/Calendar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Calendar/styles/Calendar.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Certificate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Style/Certificate.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Style/CertificateComplete.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Style/UpgradeDemo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Style/cert5Complete.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Style/complete.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Upgrade0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Upgrade1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Upgrade2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Upgrade3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Upgrade4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Upgrade5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Email/Email.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Email/Styles/Email.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Cards.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Chart.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Featured.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Styles/Featured.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/AddOrg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/Org.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/OrganisationsDash.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Profile/Level0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Profile/Level1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Profile/Level2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Profile/Level3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Profile/Level4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Profile/Profile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Profile/Styles/Profile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Report/Accordions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Report/FullPageLoader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Report/Reports.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Report/Style/Curve-Loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Report/Style/FullPageLoader.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Report/Style/Reports.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Timeline/Timeline.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Todos/Todos.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Users/Users.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/Validate.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/Validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/DashHeader/DashHeader.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/DashHeader/DashHeader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Sidebar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/styles/Dashboard.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/styles/Organisations.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/styles/Sidebar.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/home/Home.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/home/Styles/home_desktop.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/home/Styles/home_general.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/home/Styles/home_mobile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/home/Styles/home_tablet.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/loader/Loader.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/loader/Loader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/login/Components/DashLogo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/login/Components/EmailSent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/login/Components/Logo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/login/Components/Password.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/login/Components/ResetPassword.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/login/Components/ResetSuccess.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/login/Components/TermsLogo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/login/Login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/login/Styles/Login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/SignUp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/Styles/SignUp.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/TermsAndConditions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/About.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/Confirm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/Contact.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/Info.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/Media.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Components/Success.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/OrganisationRegistration.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/RegisterOrganisation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Styles/OrganisationRegistration.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Styles/registerOrganisation.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerUser/RegisterUser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerUser/Styles/RegisterUser.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerUser/UserSuccess.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/verifyCertificate/VerifyCertificate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/verifyCertificate/dropzone/Dropezone.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/verifyCertificate/dropzone/Dropzone.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/verifyCertificate/progress/Progress.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/verifyCertificate/progress/Progress.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/verifyCertificate/styles/VerifyCert.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,7 +45,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -526,14 +304,7 @@
       <workItem from="1632124340157" duration="973000" />
       <workItem from="1632125413993" duration="8503000" />
       <workItem from="1632134204054" duration="7766000" />
-      <workItem from="1632232231467" duration="4006000" />
-    </task>
-    <task id="LOCAL-00089" summary="search done">
-      <created>1631614793335</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1631614793335</updated>
+      <workItem from="1632232231467" duration="6208000" />
     </task>
     <task id="LOCAL-00090" summary="search done">
       <created>1631615434997</created>
@@ -871,7 +642,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632131119914</updated>
     </task>
-    <option name="localTasksCounter" value="138" />
+    <task id="LOCAL-00138" summary="Updated stuff">
+      <created>1632320703784</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1632320703784</updated>
+    </task>
+    <option name="localTasksCounter" value="139" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -893,7 +671,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/backend" />
     </ignored-roots>
-    <MESSAGE value="certificate download backend test" />
     <MESSAGE value="QR code intergration and upload test and controller" />
     <MESSAGE value="registration - upload photo" />
     <MESSAGE value="registration reiteration" />
@@ -918,7 +695,8 @@
     <MESSAGE value="backup" />
     <MESSAGE value="Master Integration" />
     <MESSAGE value="Testing complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing complete" />
+    <MESSAGE value="Updated stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

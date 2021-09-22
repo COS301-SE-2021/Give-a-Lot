@@ -44,7 +44,7 @@ const initialState = {
     ngoNumberState:false,
     ngoDate:"",
     ngoDateState:false,
-    serverDomain : 'http://localhost:8080',
+    serverDomain : 'http://0948-105-208-196-136.ngrok.io',
 
 };
 

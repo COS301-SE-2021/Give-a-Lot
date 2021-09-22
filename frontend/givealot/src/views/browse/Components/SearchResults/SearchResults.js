@@ -14,8 +14,6 @@ function SearchResults(props)
     let curr_results = [];
     const [serverDomain, setServerDomain] = useState(useContext(ApiContext));
 
-    alert(serverDomain)
-
     if(props.org_list.length !== undefined)
     {
         for (let i = 0; i < props.org_list.length; i++) {

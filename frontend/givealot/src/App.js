@@ -4,7 +4,6 @@ import Browse from './views/browse/Browse';
 import Dashboard from './views/dashboard/Dashboard';
 import Login from './views/login/Login';
 import SignUp from './views/registration/SignUp'
-import RegisterOrg from './views/registration/registerOrganisation/RegisterOrganisation'
 import RegisterUser from './views/registration/registerUser/RegisterUser'
 import VerifyCertificate from './views/verifyCertificate/VerifyCertificate'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
@@ -17,6 +16,7 @@ import RegisterOrganisation from './views/registration/registerOrganisation/Orga
 import {ApiUrlProvider} from "./apiContext/ApiContext";
 import ResetSuccess from "./views/login/Components/ResetSuccess";
 import TermsAndConditions from "./views/registration/TermsAndConditions";
+import Default404 from "./views/default/Default404";
 
 function App()
 {
@@ -39,6 +39,7 @@ function App()
                 <Route exact path="/dashboard/" component={Dashboard}/>
                 <Route path="/organisation/:id" exact component={ViewOrganisation} />
                 <Route path="/verifyCertificate" exact component={VerifyCertificate} />
+                <Route path="/*" exact component={Default404} />
               </Switch>
           </Router>
       </ApiUrlProvider>

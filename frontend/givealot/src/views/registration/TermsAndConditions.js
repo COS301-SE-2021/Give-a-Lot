@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import "../registration/Styles/SignUp.css"
+import "./Styles/SignUp.css"
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Logo from "../login/Components/TermsLogo"
 

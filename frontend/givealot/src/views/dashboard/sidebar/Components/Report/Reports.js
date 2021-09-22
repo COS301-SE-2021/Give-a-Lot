@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import "../Report/Style/Reports.css"
-import Accordions from "../Report/Accordions"
+import "./Style/Reports.css"
+import Accordions from "./Accordions"
 import axios from "axios";
 import {ApiContext} from "../../../../../apiContext/ApiContext";
 import CardContent from "@material-ui/core/CardContent";
@@ -19,7 +19,7 @@ export class Reports extends Component {
             reports: [],
             orgId:localStorage.getItem("id"),
             error: "",
-            serverDomain : 'http://localhost:8080',
+            serverDomain : 'http://0948-105-208-196-136.ngrok.io',
         }
     }
     componentDidMount(){
@@ -33,7 +33,7 @@ export class Reports extends Component {
             "orgId" : this.state.orgId
         }
 
-        axios.post('http://localhost:8080/report/get/all', dataa  ,config)
+        axios.post('http://0948-105-208-196-136.ngrok.io/report/get/all', dataa  ,config)
             .then(response =>{
                 this.setState({reports: response.data.object})
                 console.log(response)

@@ -1,5 +1,5 @@
 import {Box} from "@material-ui/core";
-import chatbot from "./Styles/Chatbot.css";
+import "./Styles/Chatbot.css";
 import Button from "@material-ui/core/Button";
 
 function Chatbot()

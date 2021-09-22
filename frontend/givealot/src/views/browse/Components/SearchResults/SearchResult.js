@@ -12,6 +12,7 @@ function SearchResult(props)
             history.push("/organisation/"+props.orgId)
         }
         }>
+
             <Box>
                 <img className={"Result-image"} src={props.orgImage} width={200}/>
             </Box>

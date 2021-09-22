@@ -7,6 +7,10 @@ import React, {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import {Alert} from "@material-ui/lab";
 import {ApiContext} from "../../../apiContext/ApiContext";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import {Link} from "react-router-dom";
+import logo from "../../../assets/logo/logo3_1.png";
+import Logo from "../../login/Components/Logo";
 const styles = {
     main: {
         backgroundImage: `url(${backgroundImg})`
@@ -26,16 +30,6 @@ function OrganisationRegistration()
     let registration_form_orgContact_person = null;
     let registration_form_orgContact_number = null;
     let image_tmp = null;
-
-    window.onbeforeunload = (event) => {
-        const e = event || window.event;
-        // Cancel the event
-        e.preventDefault();
-        if (e) {
-            e.returnValue = ''; // Legacy method for cross browser support
-        }
-        return ''; // Legacy method for cross browser support
-    };
 
     const validate_organisation_credentials = event =>
     {
@@ -322,6 +316,10 @@ function OrganisationRegistration()
 
             <Box id={"banner_filter"}>
                 {/*credentials*/}
+                <Logo/>
+                <Link to={"/login"}>
+                    <ArrowBackIcon style={{color: "white", marginLeft: "30px", fontSize: "xx-large"}}/>
+                </Link>
 
                 <Box id={"register_organisation_outter_container_credentials"} className={"register_organisation_outter_container"}>
                     <Alert id={"email_exists_toast"} severity={"error"}>

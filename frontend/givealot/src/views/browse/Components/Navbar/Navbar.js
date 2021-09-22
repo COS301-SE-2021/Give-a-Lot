@@ -1,14 +1,9 @@
 import {Link} from "react-router-dom";
 import logo from "../../../../assets/logo/logo3_1.png";
 import React, {useContext, useEffect, useState} from "react";
-import {TextField} from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import SearchResults from "../SearchResults/SearchResults";
 import {ApiContext} from "../../../../apiContext/ApiContext";
-
-
-
-
 
 function Navbar()
 {
@@ -29,14 +24,12 @@ function Navbar()
             {
                 if(response.status === 500)
                 {}
-
                 if(typeof data !== 'undefined')
                 {
-                    alert(data.message);
                 }
             }
 
-            if(data.message === "success") /*successfully fetched*/
+            if(data.message === "success")
             {
                 setSearchResultsOrganisations(data.results);
                 setSearchResultsOrganisationsRelated(data.suggestions);
@@ -46,7 +39,7 @@ function Navbar()
             }
             else
             {
-                alert("error occured: " + data.code);
+
             }
         })
         .catch(error => {
@@ -80,6 +73,7 @@ function Navbar()
                     id={"browse_search_input"}
                     placeholder="search organisation"
                     type="text"
+
                     onKeyPress={onKeyUp}
                 />
                 <SearchIcon

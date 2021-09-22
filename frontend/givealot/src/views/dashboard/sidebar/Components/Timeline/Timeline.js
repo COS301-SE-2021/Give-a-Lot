@@ -34,7 +34,7 @@ function OrganisationTimeline()
 
         console.log(addTimeLineEventRequest)
 
-        axios.post('http://localhost:8080/event/add/timeline/', addTimeLineEventRequest)
+        axios.post('http://0948-105-208-196-136.ngrok.io/event/add/timeline/', addTimeLineEventRequest)
         .then(response =>
         {
             console.log(response)
@@ -64,7 +64,7 @@ function OrganisationTimeline()
     }
 
     useEffect(() => {
-            fetch( "http://localhost:8080/event/get/timeline/" + curr_organisation_id)
+            fetch( "http://0948-105-208-196-136.ngrok.io/event/get/timeline/" + curr_organisation_id)
                 .then(async response =>{
 
                     const data = await response.json();

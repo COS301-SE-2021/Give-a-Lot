@@ -3,9 +3,9 @@ import {Link, useHistory,Redirect} from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 import backgroundImg from "../../assets/homeBackground.jpg";
-import Logo from "../login/Components/Logo";
+import Logo from "./Components/Logo";
 import axios from "axios"
-import "../login/Styles/Login.css";
+import "./Styles/Login.css";
 import {Alert} from "@material-ui/lab";
 
 import {ApiContext} from "../../apiContext/ApiContext";
@@ -66,17 +66,17 @@ function Login ()
                 if(response.data.jwttoken === "general")
                 {
                     document.getElementById("waitInfo").style.display = "none";
-                    window.location.href = "http://localhost:3000/";
+                    window.location.href = "http://c294-102-250-7-72.ngrok.io/";
                 }
                 else if(response.data.jwttoken === "admin")
                 {
                     document.getElementById("waitInfo").style.display = "none";
-                    window.location.href = "http://localhost:3000/dashboard/";
+                    window.location.href = "http://c294-102-250-7-72.ngrok.io/";
                 }
                 else if(response.data.jwttoken === "organisation")
                 {
                     document.getElementById("waitInfo").style.display = "none";
-                    window.location.href = "http://localhost:3000/dashboard/";
+                    window.location.href = "http://c294-102-250-7-72.ngrok.io/";
 
                 }
             })
@@ -84,7 +84,7 @@ function Login ()
                 if(error.response)
                 {
                     console.log(error.response)
-                    if(error.response.data.message.includes("organisation not found"))
+                    if(error.response.data.message.includes("organisation not found") || error.response.data.message.includes("user password is incorrect"))
                     {
                         document.getElementById("badLogin").style.display = "flex";
                         document.getElementById("waitInfo").style.display = "none";
@@ -103,6 +103,7 @@ function Login ()
             })
         }
     };
+
 
     return (
         <div>

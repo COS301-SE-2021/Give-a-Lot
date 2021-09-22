@@ -25,7 +25,7 @@ export class Cards extends Component {
             orgId: 75,
             reports: [],
             adminId: localStorage.getItem('id'),
-            serverDomain : 'http://localhost:8080',
+            serverDomain : 'http://0948-105-208-196-136.ngrok.io',
         }
     }
 
@@ -124,7 +124,7 @@ export class Cards extends Component {
         const adminUsersRequestBodyNotification = {
             "adminUserEmail" : this.state.adminUserEmail
         }
-        axios.post('http://localhost:8080/v1/notifications/get/num_notifications',adminUsersRequestBodyNotification , config)
+        axios.post('http://0948-105-208-196-136.ngrok.io/v1/notifications/get/num_notifications',adminUsersRequestBodyNotification , config)
             .then(response =>{
                 // console.log(response)
                 this.setState({ notifications: response.data.response })

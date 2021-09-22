@@ -35,7 +35,6 @@ function OrganisationTimeLineItem(props)
                 </Paper>
             </TimelineContent>
         </TimelineItem>
-
     )
 }
 

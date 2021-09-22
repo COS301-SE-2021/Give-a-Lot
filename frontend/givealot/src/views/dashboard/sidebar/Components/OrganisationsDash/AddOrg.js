@@ -33,7 +33,7 @@ const initialState = {
     imageError: '',
     sectorS: [],
     openAdd: false,
-    serverDomain: "https://3c73e752688968.localhost.run"
+    serverDomain: "http://0948-105-208-196-136.ngrok.io"
 };
 
 export class AddOrg extends Component {

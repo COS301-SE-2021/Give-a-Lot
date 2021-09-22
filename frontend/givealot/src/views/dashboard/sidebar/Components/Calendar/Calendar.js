@@ -26,7 +26,7 @@ export default class Demo extends React.PureComponent {
             addedAppointment: {},
             appointmentChanges: {},
             editingAppointment: undefined,
-            serverDomain : 'http://localhost:8080'
+            serverDomain : 'http://0948-105-208-196-136.ngrok.io'
         };
 
         this.commitChanges = this.commitChanges.bind(this);

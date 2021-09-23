@@ -8,11 +8,11 @@ public class AddOrgNGORequest
 {
     private long orgId;
     private String ngoNumber;
-    private Date ngoDate;
+    private String ngoDate;
 
-    public AddOrgNGORequest(@JsonProperty long orgId,
-                            @JsonProperty String ngoNumber,
-                            @JsonProperty Date ngoDate) {
+    public AddOrgNGORequest(@JsonProperty("orgId") long orgId,
+                            @JsonProperty("ngoNumber") String ngoNumber,
+                            @JsonProperty("ngoDate") String ngoDate) {
         this.orgId = orgId;
         this.ngoNumber = ngoNumber;
         this.ngoDate = ngoDate;
@@ -34,11 +34,11 @@ public class AddOrgNGORequest
         this.ngoNumber = ngoNumber;
     }
 
-    public Date getNgoDate() {
+    public String getNgoDate() {
         return ngoDate;
     }
 
-    public void setNgoDate(Date ngoDate) {
+    public void setNgoDate(String ngoDate) {
         this.ngoDate = ngoDate;
     }
 }

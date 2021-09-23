@@ -21,7 +21,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.io.File;
 
 @SpringBootApplication
-public class GivealotApplication implements CommandLineRunner {
+public class GivealotApplication /*implements CommandLineRunner*/ {
 
     @Autowired
     OrganisationRepository organisationRepository;
@@ -44,43 +44,43 @@ public class GivealotApplication implements CommandLineRunner {
     @Autowired
     UserService userService;
 
-
     @Autowired
     public static void main(String[] args) {
         SpringApplication.run(GivealotApplication.class, args);
     }
 
-
-
-
-
+   /* @Override
+    public  void run(String... args) throws Exception {
+        System.out.println(blockchainService.deploySmartContract());
+    }*/
 
     /** Add an organisation **/
 
-//	@Override
-//	public  void run(String... args) throws Exception {
-//		Organisations organisations = new Organisations();
-//		organisations.setOrgId(123L);
-//		organisations.setPassword("iloveyou");
-//		organisations.setContactNumber("Contact Number");
-//		organisations.setOrgEmail("futuremoroke@gmail.com");
-//		organisations.setStatus("Status");
-//		organisations.setOrgSector("Animals");
-//		organisations.setContactPerson("Contact Person");
-//		organisations.setSlogan("Slogan");
-//		organisations.setOrgDescription("Org Description");
-//		organisations.setOrgName("The Kgomotso Inc.");
-//		organisations.setDirectory("/tmp");
-//		organisationService.addOrganisation(organisations);
-//
-//	}
+/*	@Override
+	public  void run(String... args) throws Exception {
+        Organisations organisations = new Organisations();
+        organisations.setOrgId(113L);
+        organisations.setPassword("Pistol");
+        organisations.setContactNumber("Contact Number");
+        organisations.setOrgEmail("Pigurewreeroa@gmail.com");
+        organisations.setStatus("Status");
+        organisations.setOrgSector("environment");
+        organisations.setContactPerson("Contact Person");
+        organisations.setSlogan("Slogan");
+        organisations.setOrgDescription("Founded in 1975 and reorganized in 1999, Pistol serves approximately 500 students or scholars in the Washington, D.C. metro area at five sites. Its budget is $1.7 million and there is a current staff of 20. With the assistance of 300 volunteer mentors, Higher Achievement scholars spend 650 hours per year in after-school and summer instruction. In 2006, Higher Achievement plans to begin a process of regional scaling with a long-term goal of a national scaling initiative. Higher Achievement is currently engaged in a highly-regarded randomized study run by Public/Private Ventures to measure the tangible outcomes of its efforts.");
+        organisations.setOrgName("Pstol");
+        organisations.setDirectory("/tmp");
+        organisations.setDateAdded("2020-01-01");
+        organisationService.addOrganisation(organisations);
+
+	}*/
 
 	/** Compare valid certificate **/
-	@Override
-	public  void run(String... args) throws Exception {
-		File test = new File("frontend/givealot/localFiles/20/certificate/CertificateComplete.pdf");
-		System.out.println(certificateService.compareCertificate(test));
-	}
+//	@Override
+//	public  void run(String... args) throws Exception {
+//		File test = new File("frontend/givealot/localFiles/20/certificate/CertificateComplete.pdf");
+//		System.out.println(certificateService.compareCertificate(test));
+//	}
 
 	/** Compare invalid Certificate **/
 

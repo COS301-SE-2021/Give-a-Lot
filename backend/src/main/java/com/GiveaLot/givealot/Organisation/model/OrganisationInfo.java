@@ -22,7 +22,8 @@ public class OrganisationInfo
     public Long orgId;
     @Column(name = "address",
             nullable = true,
-            unique = false)
+            unique = false
+    )
     private String address;
     @Column(name = "number_of_images",
             nullable = true,
@@ -48,11 +49,6 @@ public class OrganisationInfo
             unique = false)
 
     private String committeeDetails;
-    @Column(name = "tax_reference",
-            nullable = true,
-            unique = false)
-
-    private String taxReference;
     @Column(name = "audit_document",
             nullable = true,
             unique = false)
@@ -67,7 +63,7 @@ public class OrganisationInfo
             nullable = true,
             unique = false)
 
-    private Date NGODate;
+    private String NGODate;
     @Column(name = "twitter",
             nullable = true,
             unique = false)
@@ -88,6 +84,12 @@ public class OrganisationInfo
             nullable = true,
             unique = false)
     private String establishmentDate;
+    @Column(
+            name = "donation_url",
+            nullable = true,
+            unique = false)
+    private String donationURL;
+
 
     public OrganisationInfo(Long orgId)
     {
@@ -106,6 +108,7 @@ public class OrganisationInfo
         this.facebook = null;
         this.instagram = null;
         this.establishmentDate = null;
+        this.donationURL = null;
     }
 
     public Integer getNumberOfReports() {
@@ -124,14 +127,6 @@ public class OrganisationInfo
         this.website = website;
     }
 
-    public String getTaxReference() {
-        return taxReference;
-    }
-
-    public void setTaxReference(String taxReference) {
-        this.taxReference = taxReference;
-    }
-
     public String getAuditDocument() {
         return auditDocument;
     }
@@ -140,11 +135,11 @@ public class OrganisationInfo
         this.auditDocument = auditDocument;
     }
 
-    public Date getNGODate() {
+    public String getNGODate() {
         return NGODate;
     }
 
-    public void setNGODate(Date NGODate) {
+    public void setNGODate(String NGODate) {
         this.NGODate = NGODate;
     }
 
@@ -190,6 +185,14 @@ public class OrganisationInfo
 
     public String getNGONumber() {
         return NGONumber;
+    }
+
+    public String getDonationURL() {
+        return donationURL;
+    }
+
+    public void setDonationURL(String donationURL) {
+        this.donationURL = donationURL;
     }
 
     public void setNGONumber(String NGONumber) {

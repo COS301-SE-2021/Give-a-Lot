@@ -7,7 +7,10 @@ public class LoginRequest {
     private final String password;
     private final String role; /*user,admin, organisation*/
 
-    public LoginRequest(@JsonProperty("username") String email,@JsonProperty("password")  String password, @JsonProperty("role")  String role){
+    public LoginRequest(@JsonProperty("username") String email,
+                        @JsonProperty("password") String password,
+                        @JsonProperty("role")  String role)
+    {
         this.email = email;
         this.password = password;
         this.role = role;

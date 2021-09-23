@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service;
 @JsonPropertyOrder({"code", "message", ""})
 @JsonRootName("result")
 @Service
-public class responseJSON
-{
+public class responseJSON {
     private String code;
     private String message;
     private Object object;

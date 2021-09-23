@@ -1,4 +1,5 @@
 package com.GiveaLot.givealot.Organisation.repository;
+
 import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -9,22 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
-/*
-*  Todo:
-*   1) select organisation info - done
-*   2) create organisation points field for an organisation - done
-*   3) add organisation website - done
-*   4) remove organisation website - done
-*   5) add org address - done
-*   6) remove org address - done
-*   7) add tax reference - done
-*   8) remove tax reference - done
-*   9) add twitter, facebook, instagram - done
-*/
 
 @Repository
-public interface OrganisationInfoRepository extends JpaRepository<OrganisationInfo,Long>
-{
+public interface OrganisationInfoRepository extends JpaRepository<OrganisationInfo, Long> {
     @Query("select i from OrganisationInfo i where i.orgId = ?1")
     OrganisationInfo selectOrganisationInfo(Long orgId);
 
@@ -50,13 +38,13 @@ public interface OrganisationInfoRepository extends JpaRepository<OrganisationIn
 
     @Modifying
     @Transactional
-    @Query("UPDATE OrganisationInfo i SET i.taxReference = ?2 WHERE i.orgId = ?1")
-    Integer addOrgTaxRef(Long orgId, String taxRef);
+    @Query("UPDATE OrganisationInfo i SET i.donationURL = ?2 WHERE i.orgId = ?1")
+    Integer addOrgDonationURL(Long orgId, String taxRef);
 
     @Modifying
     @Transactional
-    @Query("UPDATE OrganisationInfo i SET i.taxReference = null WHERE i.orgId = ?1")
-    Integer removeOrgTaxRef(Long orgId);
+    @Query("UPDATE OrganisationInfo i SET i.donationURL = null WHERE i.orgId = ?1")
+    Integer removeOrgDonationURL(Long orgId);
 
     @Modifying
     @Transactional
@@ -101,7 +89,7 @@ public interface OrganisationInfoRepository extends JpaRepository<OrganisationIn
     @Modifying
     @Transactional
     @Query("UPDATE OrganisationInfo i SET i.NGODate = ?2 WHERE i.orgId = ?1")
-    Integer addNGODate(Long orgId, Date NGODate);
+    Integer addNGODate(Long orgId, String NGODate);
 
     @Modifying
     @Transactional
@@ -122,6 +110,11 @@ public interface OrganisationInfoRepository extends JpaRepository<OrganisationIn
     @Transactional
     @Query("UPDATE OrganisationInfo i SET i.numberOfImages = ?2 WHERE i.orgId = ?1")
     Integer incrementImage(Long orgId, int imageCount);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE OrganisationInfo i SET i.numberOfImages = i.numberOfImages+1 WHERE i.orgId = ?1")
+    Integer incrementNumImagesd(Long orgId);
 
     @Modifying
     @Transactional

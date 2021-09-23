@@ -6,8 +6,8 @@ public class AddOrgCommitteeRequest {
     private Long orgId;
     private String committee;
 
-    public AddOrgCommitteeRequest(@JsonProperty ("orgId") Long orgId,
-                                  @JsonProperty ("committee") String committee) {
+    public AddOrgCommitteeRequest(@JsonProperty("orgId") Long orgId,
+                                  @JsonProperty("committee") String committee) {
         this.orgId = orgId;
         this.committee = committee;
     }

@@ -7,32 +7,22 @@ import static org.mockito.Mockito.mock;
 
 import com.GiveaLot.givealot.Organisation.controller.OrganisationController;
 import com.GiveaLot.givealot.Organisation.requests.AddOrgAddressRequest;
-import com.GiveaLot.givealot.Organisation.requests.AddOrgAuditInfoRequest;
-import com.GiveaLot.givealot.Organisation.requests.AddOrgAuditorRequest;
 import com.GiveaLot.givealot.Organisation.requests.AddOrgCommitteeRequest;
 import com.GiveaLot.givealot.Organisation.requests.AddOrgDonationInfoRequest;
 import com.GiveaLot.givealot.Organisation.requests.AddOrgEstDateRequest;
-import com.GiveaLot.givealot.Organisation.requests.AddOrgImageRequest;
-import com.GiveaLot.givealot.Organisation.requests.AddOrgTaxRefRequest;
 import com.GiveaLot.givealot.Organisation.requests.AddOrgWebsiteRequest;
 import com.GiveaLot.givealot.Organisation.requests.AddOrganisationRequest;
 import com.GiveaLot.givealot.Organisation.requests.AddSocialsRequest;
 import com.GiveaLot.givealot.Organisation.requests.GetOrganisationsRequest;
-import com.GiveaLot.givealot.Organisation.response.generalOrganisationResponse;
-import com.GiveaLot.givealot.Organisation.response.getOrganisationsResponse;
 import com.GiveaLot.givealot.Organisation.service.OrganisationServiceImp;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.nio.file.Paths;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.ResultActions;
@@ -76,20 +66,6 @@ public class OrganisationControllerTest {
         ObjectMapper objectMapper = new ObjectMapper();
         MockHttpServletRequestBuilder requestBuilder = contentTypeResult
                 .content(objectMapper.writeValueAsString(new AddOrgAddressRequest(123L, "42 Main St")));
-        MockMvcBuilders.standaloneSetup(this.organisationController)
-                .build()
-                .perform(requestBuilder)
-                .andExpect(MockMvcResultMatchers.status().isOk());
-    }
-
-    @Test
-    public void testAddOrgAuditor() throws Exception {
-        MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/organisation/add/auditor")
-                .contentType(MediaType.APPLICATION_JSON);
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-                .content(objectMapper.writeValueAsString(new AddOrgAuditorRequest(123L, "Auditor")));
         MockMvcBuilders.standaloneSetup(this.organisationController)
                 .build()
                 .perform(requestBuilder)
@@ -152,19 +128,6 @@ public class OrganisationControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
-    @Test
-    public void testAddOrgTaxRef() throws Exception {
-        MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/organisation/add/taxref")
-                .contentType(MediaType.APPLICATION_JSON);
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        MockHttpServletRequestBuilder requestBuilder = contentTypeResult.content(objectMapper.writeValueAsString(
-                new AddOrgTaxRefRequest(123L, Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toFile())));
-        MockMvcBuilders.standaloneSetup(this.organisationController)
-                .build()
-                .perform(requestBuilder)
-                .andExpect(MockMvcResultMatchers.status().isOk());
-    }
 
     @Test
     public void testAddOrgWebsite() throws Exception {
@@ -180,7 +143,7 @@ public class OrganisationControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
-    @Test
+    /*@Test
     public void testAddOrganisation() throws Exception {
         MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/organisation/add/org")
                 .contentType(MediaType.APPLICATION_JSON);
@@ -193,7 +156,7 @@ public class OrganisationControllerTest {
                 .build()
                 .perform(requestBuilder)
                 .andExpect(MockMvcResultMatchers.status().isOk());
-    }
+    }*/
 
     @Test
     public void testConfirmValidity() throws Exception {
@@ -205,7 +168,7 @@ public class OrganisationControllerTest {
         actualPerformResult.andExpect(MockMvcResultMatchers.status().is(400));
     }
 
-    @Test
+   /* @Test
     public void testAddOrgImage() {
         OrganisationServiceImp service = mock(OrganisationServiceImp.class);
         OrganisationController organisationController = new OrganisationController(service, new responseJSON());
@@ -215,10 +178,10 @@ public class OrganisationControllerTest {
         assertEquals("<200 OK OK,[]>", actualAddOrgImageResult.toString());
         assertEquals(HttpStatus.OK, actualAddOrgImageResult.getStatusCode());
         assertTrue(actualAddOrgImageResult.getHeaders().isEmpty());
-    }
+    }*/
 
 
-    @Test
+   /* @Test
     public void testGetOrganisations() throws Exception {
         MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/v1/organisation/get/organisations")
                 .contentType(MediaType.APPLICATION_JSON);
@@ -230,7 +193,7 @@ public class OrganisationControllerTest {
                 .build()
                 .perform(requestBuilder)
                 .andExpect(MockMvcResultMatchers.status().isOk());
-    }
+    }*/
 
     @Test
     public void testGetOrganisationsTemporal() throws Exception {

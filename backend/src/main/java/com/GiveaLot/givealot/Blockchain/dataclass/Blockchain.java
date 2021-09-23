@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(
-        name="blockchain"
+        name = "blockchain"
 )
 public class Blockchain {
     @Id
@@ -42,7 +42,6 @@ public class Blockchain {
             columnDefinition = "TEXT"
     )
     String certificateHash;
-
 
 
     public Blockchain(long orgId, long index, long level, String transactionHash, String certificateHash) {

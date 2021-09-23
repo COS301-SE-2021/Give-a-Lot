@@ -26,8 +26,7 @@ public class BlockchainServiceImpl implements BlockchainService {
     public final BlockChainRepository blockChainRepository;
 
     @Autowired
-    BlockchainServiceImpl(  BlockChainRepository blockChainRepository)
-    {
+    BlockchainServiceImpl(BlockChainRepository blockChainRepository) {
         this.blockChainRepository = blockChainRepository;
     }
 
@@ -46,9 +45,10 @@ public class BlockchainServiceImpl implements BlockchainService {
             result[1] = latestTransaction.getTransactionHash();
 
             return result;
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Exception: Blockchain transaction failed: " + e);
-        }    }
+        }
+    }
 
     @Override
     public String[] upgradeCertificate(long index, long orgId, File certificate, long level) throws Exception {
@@ -65,9 +65,10 @@ public class BlockchainServiceImpl implements BlockchainService {
             result[0] = hashedCertificate;
             result[1] = latestTransaction.getTransactionHash();
             return result;
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Exception: Blockchain transaction failed");
-        }    }
+        }
+    }
 
     @Override
     public long findCertificateIndex(long orgId) throws Exception {
@@ -79,15 +80,10 @@ public class BlockchainServiceImpl implements BlockchainService {
                     return j;
                 }
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             throw new Exception("Exception: Blockchain transaction failed: " + e);
         }
         return 9999;
-//        try {
-//            return certificateContract.findCertificateIndex(_orgId).send().longValue();
-//        }catch (Exception e){
-//            throw new Exception("Exception: Blockchain transaction failed: " + e);
-//        }
     }
 
     @Override
@@ -98,15 +94,21 @@ public class BlockchainServiceImpl implements BlockchainService {
         try {
             Tuple3<BigInteger, String, BigInteger> test = certificateContract.retrieveCertificate(_index, _orgId).send();
             return test.component2();
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Exception: Blockchain transaction failed");
-        }    }
+        }
+    }
 
     @Override
-    public boolean compareCertificateHash(long index, long orgId, File certificate) throws Exception {
+    public long compareCertificateHash(long index, long orgId, File certificate) throws Exception {
+
         String blockchainCertificateHash = retrieveCertificateHash(index, orgId);
         String uploadCertificateHash = hashCertificate(certificate);
-        return blockchainCertificateHash.equals(uploadCertificateHash);
+        if (blockchainCertificateHash.equals(uploadCertificateHash)) {
+            return orgId;
+        } else {
+            return -1;
+        }
     }
 
     @Override
@@ -115,7 +117,7 @@ public class BlockchainServiceImpl implements BlockchainService {
         FileInputStream inputStream = new FileInputStream(certificate);
         byte[] byteArray = new byte[1024];
         int bytes = 0;
-        while ((bytes = inputStream.read(byteArray)) != -1){
+        while ((bytes = inputStream.read(byteArray)) != -1) {
             shaDigest.update(byteArray, 0, bytes);
         }
         inputStream.close();
@@ -124,7 +126,8 @@ public class BlockchainServiceImpl implements BlockchainService {
         for (int i = 0; i < hashBytes.length; i++) {
             stringBuilder.append(Integer.toString((hashBytes[i] & 0xff) + 0x100, 16).substring(1));
         }
-        return stringBuilder.toString();    }
+        return stringBuilder.toString();
+    }
 
     @Override
     public Web3j buildWeb3jClient() {
@@ -139,19 +142,25 @@ public class BlockchainServiceImpl implements BlockchainService {
             return CertificateContract.deploy(client, getCredentialsFromPrivateKey(), config.getGasPrice(), config.getGasLimit())
                     .send()
                     .getContractAddress();
-        }catch (Exception e){
-            throw new Exception("Exception: Blockchain transaction failed");
-        }    }
+        } catch (Exception e) {
+            throw new Exception("Exception: Blockchain transaction failed" + e);
+        }
+    }
 
     @Override
-    public CertificateContract loadSmartContract() {
+    public CertificateContract loadSmartContract() throws Exception {
         ContractConfig config = new ContractConfig();
         Web3j client = buildWeb3jClient();
-        return CertificateContract.load(config.getCONTRACT_ADDRESS(), client, getCredentialsFromPrivateKey(), config.getGasPrice(), config.getGasLimit());    }
+
+
+        return CertificateContract.load(config.getCONTRACT_ADDRESS(), client, getCredentialsFromPrivateKey(), config.getGasPrice(), config.getGasLimit());
+    }
 
     @Override
     public Credentials getCredentialsFromPrivateKey() {
         ContractConfig config = new ContractConfig();
-        return Credentials.create(config.getPRIVATE_KEY());    }
+        return Credentials.create(config.getPRIVATE_KEY());
+    }
+
 
 }

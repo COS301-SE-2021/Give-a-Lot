@@ -5,7 +5,7 @@ import com.GiveaLot.givealot.User.response.UserResponse;
 
 import java.util.List;
 
-public class getOrganisationsResponse  {
+public class getOrganisationsResponse {
     private String code;
     private String message;
     private List<Organisations> response;

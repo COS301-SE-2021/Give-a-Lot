@@ -1,13 +1,18 @@
 package com.GiveaLot.givealot.User.service;
 
+import com.GiveaLot.givealot.Browse.repository.BrowseRecommenderRepository;
 import com.GiveaLot.givealot.Notification.dataclass.Mail;
 import com.GiveaLot.givealot.Notification.service.SendMailServiceImpl;
+import com.GiveaLot.givealot.Organisation.model.Organisations;
+import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
+import com.GiveaLot.givealot.Organisation.repository.sectorsRepository;
+import com.GiveaLot.givealot.Organisation.response.getNumOrganisationPerMonthResponse;
+import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
 import com.GiveaLot.givealot.User.dataclass.User;
 import com.GiveaLot.givealot.User.exception.UserNotAuthorisedException;
 import com.GiveaLot.givealot.User.repository.UserRepository;
 import com.GiveaLot.givealot.User.requests.*;
-import com.GiveaLot.givealot.User.response.UserResponse;
-import com.GiveaLot.givealot.User.response.userResponseGeneral;
+import com.GiveaLot.givealot.User.response.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +32,15 @@ public class UserServiceImp implements UserService {
 
     @Autowired
     SendMailServiceImpl sendMailService;
+
+    @Autowired
+    OrganisationRepository organisationRepository;
+
+    @Autowired
+    BrowseRecommenderRepository browseRecommenderRepository;
+
+    @Autowired
+    sectorsRepository sectorsRepository;
 
     @Override /*tested - all good*/
     public userResponseGeneral Register(RegisterUserRequest request) throws Exception{
@@ -55,6 +69,10 @@ public class UserServiceImp implements UserService {
             throw new Exception("Registration not set, password not valid");
 
         }
+        if(organisationRepository.selectOrganisationByEmail(request.getEmail())!=null)
+        {
+            throw new Exception("This email already exists");
+        }
 
         // salts and hashes of passwords
         String salt = getMd5(request.getEmail());
@@ -72,12 +90,20 @@ public class UserServiceImp implements UserService {
         String dateCreated = format.format(dateCurrent);
         newUser.setActivateDate(dateCreated);
 
+
+        /*save the new user in the database*/
         userRepository.save(newUser);
+
+
+        User tmp_user = userRepository.findUserByEmail(request.getEmail());
+        List<String> sectors = sectorsRepository.getSectors();
+
+
         /**Sending a verification email**/
         System.out.println("Sending Email...");
 
-        Mail mail = new Mail(newUser.getEmail(),"Givealot SignUp Verification","Congratulations your you have successfully signed up to the Givealot platform" +
-                "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations" +
+        Mail mail = new Mail(newUser.getEmail(),"Givealot SignUp Verification","Congratulations your you have successfully signed up to the Givealot platform." +"\n"+
+                "\n We are please to be working with you to provide a safe space were user's can donate to authentic organisations." +
                 "\n" +
                 "\n" +
                 "Kind Regards \n" +
@@ -226,6 +252,95 @@ public class UserServiceImp implements UserService {
             return userRepository.findAll();
         }
 
+    @Override
+    public getNumberofUsersResponse getNumberOfUser(GetUsersRequest request) throws Exception {
+
+        return new getNumberofUsersResponse(true,"success",GetUsers(request).size());
+
+    }
+
+    @Override
+    public responseJSON getNumPerMonth(getNumUserPerMonthRequest request) throws Exception {
+        if(request == null)
+            throw new Exception("Exception: request is null");
+        String month ="";
+        int jan = 0;
+        int feb= 0;
+        int mar= 0;
+        int apr= 0;
+        int may= 0;
+        int jun= 0;
+        int jul= 0;
+        int aug= 0;
+        int sept= 0;
+        int oct= 0;
+        int nov= 0;
+        int dec= 0;
+        int i = 0;
+        List<User>users = userRepository.findAll();
+        while(i<users.size())
+        {
+            month=users.get(i).getActivateDate().substring(5,7);
+            if(month.equals("01"))
+            {
+                jan++;
+            }
+            else if(month.equals("02"))
+            {
+                feb++;
+            }
+            else if(month.equals("03"))
+            {
+                mar++;
+            }  else if(month.equals("04"))
+            {
+                apr++;
+            }   else if(month.equals("05"))
+            {
+                may++;
+            }  else if(month.equals("06"))
+            {
+                jun++;
+            }  else if(month.equals("07"))
+            {
+                jul++;
+            }  else if(month.equals("08"))
+            {
+                aug++;
+            }  else if(month.equals("09"))
+            {
+                sept++;
+            }  else if(month.equals("10"))
+            {
+                oct++;
+            }  else if(month.equals("11"))
+            {
+                nov++;
+            }
+            else if(month.equals("12"))
+            {
+                dec++;
+            }
+            i++;
+        }
+
+
+        return new responseJSON("get_num_orgs_per_month","success",new getNumUsersPerMonthResponse(jan,feb,mar,apr,may,jun,jul,aug,sept,oct,nov,dec));
+
+    }
+/*
+
+    @Override
+    public GetActivationDateResponse getDateByMonth(GetActivationDateRequest request) throws Exception {
+            if(request == null)
+                throw new Exception("request is null");
+
+            return new GetActivationDateResponse("getDateMonth_ok",true,)
+
+    }
+*/
+
+
     public String getMd5(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -244,4 +359,5 @@ public class UserServiceImp implements UserService {
         }
 
     }
+
 }

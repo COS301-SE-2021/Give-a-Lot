@@ -1,9 +1,0 @@
-<changelist name="Uncommitted_changes_before_Update_at_2021_08_18_03_02_[Default_Changelist]" date="1629248545072" recycled="true" deleted="true">
-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_18_03_02_[Default_Changelist]/shelved.patch" />
-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2021/08/18 03:02 [Default Changelist]" />
-  <binary>
-    <option name="BEFORE_PATH" value="backend/target/classes/com/GiveaLot/givealot/Blockchain/service/BlockchainServiceImpl.class" />
-    <option name="AFTER_PATH" value="backend/target/classes/com/GiveaLot/givealot/Blockchain/service/BlockchainServiceImpl.class" />
-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_08_18_03_02_[Default_Changelist]/BlockchainServiceImpl.class" />
-  </binary>
-</changelist>

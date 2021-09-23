@@ -1,382 +1,310 @@
-GET http://localhost:8080/v1/organisation/get/organisations/temporal
+GET http://localhost:8080/event/get/timeline/77
 
-<> 2021-08-19T021130.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/get/organisations/temporal
-
-<> 2021-08-19T021043.200.json
+<> 2021-09-19T122706.200.json
 
 ###
 
-GET http://localhost:8080/v1/organisation/get/organisations/temporal
+GET http://localhost:8080/event/get/timeline/74
 
-<> 2021-08-19T015551.200.json
-
-###
-
-GET http://localhost:8080/v1/organisation/get/organisations/temporal
-
-<> 2021-08-19T015137.200.json
+<> 2021-09-19T050915.200.json
 
 ###
 
-GET http://localhost:8080/get/organisations/temporal
+GET http://localhost:8080/event/get/timeline/76
 
-<> 2021-08-19T015007.404.json
-
-###
-
-GET http://localhost:8080/v1/browse/sectors
-
-<> 2021-08-19T010140.200.json
+<> 2021-09-19T050808.200.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/determine
+POST http://localhost:8080/v1/notifications/get/level_information
 Content-Type: application/json
 
 {
-  "username" : "some@email.com",
-  "password" : "pass1234",
-  "role" : "default"
+   "orgId" : 76
 }
 
-<> 2021-08-18T225758.200.json
+<> 2021-09-19T033314.200.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/determine
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/committee/true
+
+<> 2021-09-18T223331.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/facebook/true
+
+<> 2021-09-18T223149.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/instagram/true
+
+<> 2021-09-18T223138.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/true
+
+<> 2021-09-18T223128.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/facebook/false
+
+<> 2021-09-18T221517.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/facebook/true
+
+<> 2021-09-18T221505.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/facebook/true
+
+<> 2021-09-18T221438.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/facebook/false
+
+<> 2021-09-18T221426.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/instagram/false
+
+<> 2021-09-18T221410.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/instagram/false
+
+<> 2021-09-18T221352.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/instagram/true
+
+<> 2021-09-18T221314.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/instagram/true
+
+<> 2021-09-18T221309.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/instagram/false
+
+<> 2021-09-18T221258.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/false
+
+<> 2021-09-18T221245.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/false
+
+<> 2021-09-18T220718.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/false
+
+<> 2021-09-18T220658.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/true
+
+<> 2021-09-18T220625.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/false
+
+<> 2021-09-18T220611.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/committee/true
+
+<> 2021-09-18T220220.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/true
+
+<> 2021-09-18T220109.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/true
+
+<> 2021-09-18T215925.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/true
+
+<> 2021-09-18T215752.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/true
+
+<> 2021-09-18T215348.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/true
+
+<> 2021-09-18T215047.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/twitter/true
+
+<> 2021-09-18T214819.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/committee/false
+
+<> 2021-09-18T214623.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/committee/false
+
+<> 2021-09-18T214532.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/committee/true
+
+<> 2021-09-18T214407.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/donation_link/true
+
+<> 2021-09-18T203009.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/qr_code/true
+
+<> 2021-09-18T202853.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/establishment_date/true
+
+<> 2021-09-18T202847.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/donation_link/false
+
+<> 2021-09-18T202822.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/donation_link/true
+
+<> 2021-09-18T202754.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/qr_code/false
+
+<> 2021-09-18T202714.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/qr_code/true
+
+<> 2021-09-18T202639.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/establishment_date/false
+
+<> 2021-09-18T202543.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/establishment_date/true
+
+<> 2021-09-18T202436.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/website/true
+
+<> 2021-09-18T194340.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/address/true
+
+<> 2021-09-18T194158.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/address/false
+
+<> 2021-09-18T194129.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/address/true
+
+<> 2021-09-18T194100.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/address/true
+
+<> 2021-09-18T193805.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/website/false
+
+<> 2021-09-18T193741.200.json
+
+###
+
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/website/true
+
+<> 2021-09-18T193731.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/get/org_level
 Content-Type: application/json
 
 {
-  "username" : "some@email.com",
-  "password" : "pass1234",
-  "role" : "default"
+  "orgid": 75
 }
 
-<> 2021-08-18T225313.200.json
+<> 2021-09-18T193724.200.json
 
 ###
 
-POST http://localhost:8080/v1/login/user/determine
-Content-Type: application/json
+PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/website/true
 
-{
-  "username" : "some@email.com",
-  "password" : "pass1234",
-  "role" : "default"
-}
-
-<> 2021-08-18T224555.200.json
-
-###
-
-POST http://localhost:8080/v1/login/user/determine
-Content-Type: application/json
-
-{
-  "username" : "some@email.com",
-  "password" : "pass1234",
-  "role" : "default"
-}
-
-<> 2021-08-18T222658.200.json
-
-###
-
-POST http://localhost:8080/v1/login/user/determine
-Content-Type: application/json
-
-{
-  "username" : "admin@email.com",
-  "password" : "pass1234",
-  "role" : "default"
-}
-
-<> 2021-08-18T222630.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/tax_raf/false
-
-<> 2021-08-18T202727.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/tax_raf/true
-
-<> 2021-08-18T202654.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/ngo_number/true
-
-<> 2021-08-18T202647.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/ngo_date/true
-
-<> 2021-08-18T202642.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/twitter/true
-
-<> 2021-08-18T202634.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/instagram/true
-
-<> 2021-08-18T202625.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/facebook/true
-
-<> 2021-08-18T202616.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/establishment_date/true
-
-<> 2021-08-18T202605.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/committee/true
-
-<> 2021-08-18T202553.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/auditor/true
-
-<> 2021-08-18T202544.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/audit/true
-
-<> 2021-08-18T202536.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/address/true
-
-<> 2021-08-18T202525.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/website/true
-
-<> 2021-08-18T202305.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/website/true
-
-<> 2021-08-18T202134.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/website/true
-
-<> 2021-08-18T201805.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/website/true
-
-<> 2021-08-18T201521.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/website/true
-
-<> 2021-08-18T201411.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/website/true
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/website/true
-
-<> 2021-08-18T201254.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/website/true
-
-<> 2021-08-18T194808.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/18/4/website/true
-
-<> 2021-08-18T194213.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/estdate/18
-
-<> 2021-08-18T190627.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/estdate
-Content-Type: application/json
-
-{
-  "date" : "2020/18/21",
-  "orgId" : "18"
-}
-
-<> 2021-08-18T185112.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/address
-Content-Type: application/json
-
-{
-  "orgId": "18",
-  "address": "458 Give alot str, Pretoria, SA"
-}
-
-<> 2021-08-18T175603.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/socials/18/facebook
-
-<> 2021-08-18T082301.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/socials
-Content-Type: application/json
-
-{
-  "socialType": "facebook",
-  "orgId" : "",
-  "url" : "someurlnotvalidated"
-}
-
-<> 2021-08-18T081447.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/socials
-Content-Type: application/json
-
-{
-  "socialType": "facebook",
-  "orgId" : "18",
-  "url" : "someurlnotvalidated"
-}
-
-<> 2021-08-18T081440.200.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/address/18
-
-<> 2021-08-18T080442.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/add/address
-Content-Type: application/json
-
-{
-  "orgId": "18",
-  "address": "458 Give alot str, Pretoria, SA"
-}
-
-<> 2021-08-18T075444.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/add/address
-
-{
-  "orgId": "18",
-  "address": "458 Give alot str, Pretoria, SA"
-}
-
-<> 2021-08-18T075428.415.json
-
-###
-
-DELETE http://localhost:8080/v1/organisation/delete/website/18
-
-<> 2021-08-18T074450.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/website
-Content-Type: application/json
-
-{
-  "orgId": "18",
-  "website": "www.someweb.org"
-}
-
-<> 2021-08-18T073344.200.json
-
-###
-
-POST http://localhost:8080/v1/organisation/add/website
-Content-Type: application/json
-
-{
-  "orgId": "18",
-  "website": "www.someweb.org"
-}
-
-<> 2021-08-18T073255.404.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/investigate/18
-
-<> 2021-08-18T072247.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/investigate/18d
-
-<> 2021-08-18T072235.400.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/investigate/18
-
-<> 2021-08-18T072223.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/activate/18
-
-<> 2021-08-18T072021.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/suspend/18
-
-<> 2021-08-18T070326.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/suspend/18
-
-<> 2021-08-18T065905.200.json
+<> 2021-09-18T193449.200.json
 
 ###
 

@@ -1,16 +1,16 @@
 package com.GiveaLot.givealot.Organisation.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 
-public class AddOrgAuditInfoRequest
-{
+public class AddOrgAuditInfoRequest {
     private Long orgId;
-    private File audit;
+    private MultipartFile audit;
 
     public AddOrgAuditInfoRequest(@JsonProperty Long orgId,
-                                  @JsonProperty File audit) {
+                                  @JsonProperty("audit") MultipartFile audit) {
         this.orgId = orgId;
         this.audit = audit;
     }
@@ -23,11 +23,11 @@ public class AddOrgAuditInfoRequest
         this.orgId = orgId;
     }
 
-    public File getAudit() {
+    public MultipartFile getAudit() {
         return audit;
     }
 
-    public void setAudit(File audit) {
+    public void setAudit(MultipartFile audit) {
         this.audit = audit;
     }
 }

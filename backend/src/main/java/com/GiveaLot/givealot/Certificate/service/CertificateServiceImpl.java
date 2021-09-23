@@ -6,22 +6,32 @@ import com.GiveaLot.givealot.Blockchain.service.BlockchainService;
 import com.GiveaLot.givealot.Blockchain.service.BlockchainServiceImpl;
 import com.GiveaLot.givealot.Certificate.dataclass.Certificate;
 import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
+import com.GiveaLot.givealot.Certificate.requests.RetrieveCertificateRequest;
+import com.GiveaLot.givealot.Events.requests.addTimeLineEventRequest;
+import com.GiveaLot.givealot.Events.service.eventsServiceImp;
 import com.GiveaLot.givealot.Notification.dataclass.Mail;
 import com.GiveaLot.givealot.Notification.service.SendMailService;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Server.ServerAccess;
-import org.apache.pdfbox.Loader;
+import org.apache.commons.io.FileUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
 import org.apache.pdfbox.pdmodel.interactive.form.PDField;
+import org.apache.pdfbox.rendering.ImageType;
+import org.apache.pdfbox.rendering.PDFRenderer;
+import org.apache.pdfbox.tools.imageio.ImageIOUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
@@ -36,6 +46,9 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Autowired
     private BlockchainService blockchainService;
+
+    @Autowired
+    private SendMailService sendMailService;
 
     @Autowired
     private OrganisationRepository organisationRepository;
@@ -53,6 +66,9 @@ public class CertificateServiceImpl implements CertificateService {
     private final SendMailService service;
 
     @Autowired
+    private eventsServiceImp eventsService;
+
+    @Autowired
     public CertificateServiceImpl(BlockchainService blockchainService, OrganisationRepository organisationRepository, CertificateRepository certificateRepository, BlockChainRepository blockChainRepository, SendMailService service) {
         this.blockchainService = blockchainService;
         this.organisationRepository = organisationRepository;
@@ -66,13 +82,13 @@ public class CertificateServiceImpl implements CertificateService {
 
         Organisations organisation = organisationRepository.selectOrganisationById(orgId);
 
-       boolean certificateCreated = createPDFDocument(cert,organisation,0);
+        boolean certificateCreated = createPDFDocument(cert, organisation, 0);
 
-        if(!certificateCreated){
+        if (!certificateCreated) {
             throw new Exception("Exception: Problem creating and storing certificate");
         }
 
-        File certificate = retrieveCertificate(orgId, organisation.getOrgName());
+        File certificate = retrieveCertificate(new RetrieveCertificateRequest(orgId, organisation.getOrgName()));
 
         String[] result = blockchainService
                 .uploadCertificate(orgId, certificate);
@@ -80,7 +96,7 @@ public class CertificateServiceImpl implements CertificateService {
         String txHash = result[1];
         long index = blockchainService.findCertificateIndex(orgId);
 
-        Blockchain blockchain = new Blockchain(orgId,index,0,txHash,certificateHash);
+        Blockchain blockchain = new Blockchain(orgId, index, 0, txHash, certificateHash);
 
         blockChainRepository.save(blockchain);
 
@@ -94,47 +110,61 @@ public class CertificateServiceImpl implements CertificateService {
         Certificate cert = certificateRepository.selectCertificateById(orgId);
         Blockchain blockchain = blockChainRepository.selectBlockchainOrgId(orgId);
 
-        boolean certificateCreated = createPDFDocument(cert,organisation,cert.getPoints());
+        boolean certificateCreated = createPDFDocument(cert, organisation, cert.getPoints());
 
-        if(!certificateCreated){
+        if (!certificateCreated) {
             throw new Exception("Exception: Problem creating and storing certificate");
         }
 
-        File certificate = retrieveCertificate(orgId, organisation.getOrgName());
+        File certificate = retrieveCertificate(new RetrieveCertificateRequest(orgId, organisation.getOrgName()));
 
         String[] result = blockchainService
-                .upgradeCertificate(0,orgId, certificate,0);
+                .upgradeCertificate(blockchain.getIndex(), orgId, certificate, blockchain.getLevel());
 
         String certificateHash = result[0];
         String txHash = result[1];
+        long lev = blockchain.getLevel();
+        blockChainRepository.UpdateBlockchain(blockchain.getIndex(), blockchain.getLevel() + 1, txHash, certificateHash, orgId);
 
-        blockChainRepository.UpdateBlockchain(blockchain.getIndex(),blockchain.getLevel()+1,txHash,certificateHash,orgId);
+        Date dateCurrent = new Date();
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String dateCreated = format.format(dateCurrent);
+        eventsService.addTimelineEvent(new addTimeLineEventRequest(orgId, dateCreated, "certificate upgraded", "congratulations, your certificate was upgraded to level " + (lev + 1)));
 
+        Mail mail = new Mail(organisation.getOrgEmail(), "Givealot Certificate Upgrade", "Congratulations your organisation has successfully upgraded their certificate from level: " + lev + " to level:" + lev + 1 + "\n" +
+                "\n Thank you for supporting safe and authentic practices we look forward for you next upgrade" +
+                "\n" +
+                "\n" +
+                "Kind Regards \n" +
+                "Give A Lot Team");
+
+        sendMailService.sendMail(mail);
+        System.out.println("Email sent successfully");
         return true;
     }
 
     @Override
-    public File retrieveCertificate(long orgId, String orgName) throws Exception {
-        return access.downloadCertificate(orgId,orgName);
+    public File retrieveCertificate(RetrieveCertificateRequest request) throws Exception {
+        return access.downloadCertificate(request.getOrgId(), request.getOrgName());
     }
 
     @Override
     public boolean createPDFDocument(Certificate cert, Organisations organisation, int points) throws Exception {
         access.downloadCertificateTemplate(points);
 
-        if (points!=0){
-            File deletion = new File("frontend/givealot/localFiles/" + organisation.getOrgId() + "certificate/CertificateComplete.pdf");
+        if (points != 0) {
+            File deletion = new File("frontend/givealot/src/localFiles/" + organisation.getOrgId() + "certificate/CertificateComplete.pdf");
             deletion.delete();
         }
 
         String templateCertificate = "backend/src/main/resources/TempCertificate/CertificateTemplate.pdf";
-        String completeCertificate = "frontend/givealot/localFiles/" + organisation.getOrgId() + "/certificate/CertificateComplete.pdf";
+        String completeCertificate = "backend/src/main/resources/localFiles/" + organisation.getOrgId() + "/certificate/CertificateComplete.pdf";
 
         /** Setup the pdf file **/
 
         File template = new File(templateCertificate);
 
-        PDDocument document = Loader.loadPDF(template);
+        PDDocument document = PDDocument.load(template);
         PDDocumentCatalog catalog = document.getDocumentCatalog();
 
         PDAcroForm acroForm = catalog.getAcroForm();
@@ -161,14 +191,14 @@ public class CertificateServiceImpl implements CertificateService {
                 acroForm.flatten();
 
             }
-            System.out.println("works2");
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Exception: unable to create certificate: " + e);
         }
-        System.out.println("works3");
 
         document.save(completeCertificate);
         document.close();
+
+        imageCreator(completeCertificate, organisation.getOrgId());
 
         access.uploadCertificate(organisation.getOrgId(), organisation.getOrgName());
 
@@ -180,6 +210,19 @@ public class CertificateServiceImpl implements CertificateService {
 
     }
 
+    public boolean imageCreator(String filepath, long orgId) throws IOException {
+        PDDocument document = PDDocument.load(new File(filepath));
+        PDFRenderer pdfRenderer = new PDFRenderer(document);
+        for (int page = 0; page < document.getNumberOfPages(); ++page) {
+            BufferedImage bim = pdfRenderer.renderImageWithDPI(page, 300, ImageType.RGB);
+
+            // suffix in filename will be used as the file format
+            ImageIOUtil.writeImage(bim, "backend/src/main/resources/localFiles/" + orgId + "/certificate/CertificateImage.png", 300);
+        }
+        document.close();
+        return true;
+    }
+
     @Override
     public boolean checkRenewal() throws Exception {
         List<Certificate> certificateList = certificateRepository.findAll();
@@ -188,7 +231,8 @@ public class CertificateServiceImpl implements CertificateService {
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
         List<Long> id = new ArrayList<>();
-        List<Date> expiry = new ArrayList<>();;
+        List<Date> expiry = new ArrayList<>();
+        ;
 
         for (int i = 0; i < certificateList.size(); i++) {
             id.add(certificateList.get(i).getOrgId());
@@ -196,15 +240,15 @@ public class CertificateServiceImpl implements CertificateService {
         }
 
         for (int i = 0; i < id.size(); i++) {
-            if(expiry.get(i)==null)
+            if (expiry.get(i) == null)
                 throw new NullPointerException();
 
             Date sqlDate = expiry.get(i);
 
             boolean check = dateCurrent.after(sqlDate);
             if (check) {
-                certificateRepository.updateOrgRenewal(id.get(i),false);
-                certificateRepository.updateAdminRenewal(id.get(i),false);
+                certificateRepository.updateOrgRenewal(id.get(i), false);
+                certificateRepository.updateAdminRenewal(id.get(i), false);
             }
         }
         return true;
@@ -227,25 +271,32 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     public boolean organisationRenewal(long orgId) throws Exception {
-        certificateRepository.updateOrgRenewal(orgId,true);
+        certificateRepository.updateOrgRenewal(orgId, true);
         return true;
     }
 
     @Override
     public boolean adminRenewal(long orgId) throws Exception {
-        certificateRepository.updateAdminRenewal(orgId,true);
+        certificateRepository.updateAdminRenewal(orgId, true);
         return true;
     }
 
     @Override
-    public boolean compareCertificate(File certificate) throws Exception {
-        Blockchain blockchain = blockChainRepository.selectBlockchainCertificateHash(
-                blockchainService.hashCertificate(certificate));
-        if (blockchain==null){
-            return false;
+    public long compareCertificate(MultipartFile certificate) throws Exception {
+        File certCmp = new File("TempCompareCertificate.pdf");
+        if (!certCmp.exists()) {
+            certCmp.createNewFile();
         }
-        return blockchainService.compareCertificateHash(blockchain.getIndex(),blockchain.getOrgId(),certificate);
+
+        try (OutputStream os = new FileOutputStream(certCmp)) {
+            os.write(certificate.getBytes());
+        }
+
+        Blockchain blockchain = blockChainRepository.selectBlockchainCertificateHash(
+                blockchainService.hashCertificate(certCmp));
+        if (blockchain == null) {
+            return -1;
+        }
+        return blockchainService.compareCertificateHash(blockchain.getIndex(), blockchain.getOrgId(), certCmp);
     }
-
-
 }

@@ -32,7 +32,7 @@ contract CertificateContract {
     public onlyAdmin
     {
         incrementCount();
-        certificates[certificateCount] = Certificate(_organisationId,_certificateHash,_level);
+        certificates[certificateCount] = Certificate(_organisationId, _certificateHash, _level);
     }
 
     function upgradeCertificate(
@@ -43,8 +43,8 @@ contract CertificateContract {
     )
     public onlyAdmin
     {
-        if(certificates[index].organisationId == _organisationId){
-            certificates[index] = Certificate(_organisationId,_certificateHash,_level);
+        if (certificates[index].organisationId == _organisationId) {
+            certificates[index] = Certificate(_organisationId, _certificateHash, _level);
         }
 
     }
@@ -53,12 +53,12 @@ contract CertificateContract {
         uint256 _organisationId
     )
     public onlyAdmin view
-    returns(uint256)
+    returns (uint256)
     {
 
         uint256 i = 0;
-        for (i; i<=certificateCount; i++){
-            if(certificates[i].organisationId == _organisationId){
+        for (i; i <= certificateCount; i++) {
+            if (certificates[i].organisationId == _organisationId) {
                 return i;
             }
         }
@@ -70,17 +70,17 @@ contract CertificateContract {
         uint256 _organisationId
     )
     public onlyAdmin view
-    returns(uint256,string memory,uint256)
+    returns (uint256, string memory, uint256)
     {
 
 
-        if(certificates[_index].organisationId == _organisationId){
-            return (certificates[_index].organisationId,certificates[_index].certificateHash,certificates[_index].level);
+        if (certificates[_index].organisationId == _organisationId) {
+            return (certificates[_index].organisationId, certificates[_index].certificateHash, certificates[_index].level);
         }
-        return (0,"notFound",0);
+        return (0, "notFound", 0);
     }
 
-    function incrementCount() internal{
+    function incrementCount() internal {
         certificateCount += 1;
     }
 
@@ -88,13 +88,13 @@ contract CertificateContract {
         string memory _certificateHash
     )
     public onlyAdmin view
-    returns(bool)
+    returns (bool)
     {
 
 
         uint256 i = 0;
-        for (i; i<=certificateCount; i++){
-            if(keccak256(abi.encodePacked(certificates[i].certificateHash)) == keccak256(abi.encodePacked(_certificateHash))){
+        for (i; i <= certificateCount; i++) {
+            if (keccak256(abi.encodePacked(certificates[i].certificateHash)) == keccak256(abi.encodePacked(_certificateHash))) {
                 return true;
             }
         }

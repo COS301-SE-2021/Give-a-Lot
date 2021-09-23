@@ -15,12 +15,9 @@ public class OrganisationPoints {
 
     @Id
     private Long orgId;
-    private int points;
     private boolean addressIsValid;
     private boolean websiteIsValid;
     private boolean auditIsValid;
-    private boolean taxRefIsValid;
-    private boolean auditorIsValid;
     private boolean committeeIsValid;
     private boolean ngoNoIsValid;
     private boolean ngoDateIsValid;
@@ -30,36 +27,38 @@ public class OrganisationPoints {
     private boolean estDateIsValid;
     private int numberOfImages;
     private String socialMediaType;
+    private boolean donationURLIsValid;
+    private boolean qrCodeIsValid;
 
 
     public OrganisationPoints()
     {
 
     }
-    public OrganisationPoints(String Long, int points, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean taxRefIsValid, boolean auditorIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, String socialMediaType, boolean estDateIsValid, int numberOfImages) {
+    public OrganisationPoints( Long orgId, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, String socialMediaType, boolean estDateIsValid, int numberOfImages, boolean donationURLIsValid, boolean qrCodeIsValid) {
         this.orgId = orgId;
-        this.points = points;
+
         this.addressIsValid = addressIsValid;
         this.websiteIsValid = websiteIsValid;
         this.auditIsValid = auditIsValid;
-        this.taxRefIsValid = taxRefIsValid;
-        this.auditorIsValid = auditorIsValid;
+
         this.committeeIsValid = committeeIsValid;
         this.ngoNoIsValid = ngoNoIsValid;
         this.ngoDateIsValid = ngoDateIsValid;
         this.estDateIsValid = estDateIsValid;
         this.numberOfImages = numberOfImages;
         this.socialMediaType = socialMediaType;
+        this.donationURLIsValid = donationURLIsValid;
+        this.qrCodeIsValid =qrCodeIsValid;
     }
 
-    public OrganisationPoints(Long orgId, int points, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean taxRefIsValid, boolean auditorIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, boolean instagramIsValid, boolean facebookIsValid, boolean twitterIsValid, boolean estDateIsValid, int numberOfImages) {
+
+    public OrganisationPoints(Long orgId, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, boolean instagramIsValid, boolean facebookIsValid, boolean twitterIsValid, boolean estDateIsValid, int numberOfImages, boolean donationURLIsValid, boolean qrCodeIsValid) {
         this.orgId = orgId;
-        this.points = points;
         this.addressIsValid = addressIsValid;
         this.websiteIsValid = websiteIsValid;
         this.auditIsValid = auditIsValid;
-        this.taxRefIsValid = taxRefIsValid;
-        this.auditorIsValid = auditorIsValid;
+
         this.committeeIsValid = committeeIsValid;
         this.ngoNoIsValid = ngoNoIsValid;
         this.ngoDateIsValid = ngoDateIsValid;
@@ -68,6 +67,8 @@ public class OrganisationPoints {
         this.facebookIsValid = facebookIsValid;
         this.twitterIsValid = twitterIsValid;
         this.numberOfImages = numberOfImages;
+        this.donationURLIsValid = donationURLIsValid;
+        this.qrCodeIsValid = qrCodeIsValid;
 
     }
 
@@ -81,14 +82,6 @@ public class OrganisationPoints {
 
     public void setOrgId(Long orgId) {
         this.orgId = orgId;
-    }
-
-    public int getPoints() {
-        return points;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
     }
 
     public boolean isAddressIsValid() {
@@ -113,22 +106,6 @@ public class OrganisationPoints {
 
     public void setAuditIsValid(boolean auditIsValid) {
         this.auditIsValid = auditIsValid;
-    }
-
-    public boolean isTaxRefIsValid() {
-        return taxRefIsValid;
-    }
-
-    public void setTaxRefIsValid(boolean taxRefIsValid) {
-        this.taxRefIsValid = taxRefIsValid;
-    }
-
-    public boolean isAuditorIsValid() {
-        return auditorIsValid;
-    }
-
-    public void setAuditorIsValid(boolean auditorIsValid) {
-        this.auditorIsValid = auditorIsValid;
     }
 
     public boolean isCommitteeIsValid() {
@@ -201,5 +178,21 @@ public class OrganisationPoints {
 
     public void setSocialMediaType(String socialMediaType) {
         this.socialMediaType = socialMediaType;
+    }
+
+    public boolean isDonationURLIsValid() {
+        return donationURLIsValid;
+    }
+
+    public void setDonationURLIsValid(boolean donationURLIsValid) {
+        this.donationURLIsValid = donationURLIsValid;
+    }
+
+    public boolean isQrCodeIsValid() {
+        return qrCodeIsValid;
+    }
+
+    public void setQrCodeIsValid(boolean qrCodeIsValid) {
+        this.qrCodeIsValid = qrCodeIsValid;
     }
 }

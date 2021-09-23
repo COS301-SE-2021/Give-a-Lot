@@ -1,6 +1,7 @@
 
 package com.GiveaLot.givealot.Server;
 
+import com.GiveaLot.givealot.FaceRecognition.service.FaceRecognitionServiceImpl;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
@@ -9,9 +10,13 @@ import com.jcraft.jsch.Session;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.GiveaLot.givealot.Server.ServerConfig;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.OutputStream;
 
 @Service
 public class ServerAccess {
@@ -56,36 +61,42 @@ public class ServerAccess {
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Reports");
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Documents");
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Gallery");
+            channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/Backup");
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Certificates");
-            channelSftp.put( remoteDir + "Organisations/" + orgIdString + "/" + orgNameSpace);
+            channelSftp.put(remoteDir + "Organisations/" + orgIdString + "/" + orgNameSpace);
 
-            String localStorage = "frontend/givealot/localFiles/" + orgIdString;
-            String localImageStorage = "frontend/givealot/localFiles/" + orgIdString + "/gallery";
-            String localCertificateStorage = "frontend/givealot/localFiles/" + orgIdString + "/certificate";
+            String localStorage = "backend/src/main/resources/localFiles/" + orgIdString;
+            String localImageStorage = "backend/src/main/resources/localFiles/" + orgIdString + "/gallery";
+            String localImageStorage2 = "backend/src/main/resources/localFiles/" + orgIdString + "/gallery/backup";
+            String localCertificateStorage = "backend/src/main/resources/localFiles/" + orgIdString + "/certificate";
 
             File directoryLocal = new File(localStorage);
             File directoryImageLocal = new File(localImageStorage);
+            File directoryImageLocal2 = new File(localImageStorage2);
             File directoryCertLocal = new File(localCertificateStorage);
 
             directoryLocal.mkdir();
             directoryImageLocal.mkdir();
+            directoryImageLocal2.mkdir();
             directoryCertLocal.mkdir();
 
 
-            if (directoryLocal.mkdir()){
+            if (directoryLocal.mkdir()) {
                 throw new Exception("Exception: local directory could not be created");
             }
-            if (directoryImageLocal.mkdir()){
+            if (directoryImageLocal.mkdir()) {
                 throw new Exception("Exception: image directory could not be created");
             }
-            if (directoryCertLocal.mkdir()){
+            if (directoryImageLocal2.mkdir()) {
+                throw new Exception("Exception: image backup directory could not be created");
+            }
+            if (directoryCertLocal.mkdir()) {
                 throw new Exception("Exception: certificate directory could not be created");
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Exception: Failed to interact with the server: " + e);
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
@@ -98,14 +109,13 @@ public class ServerAccess {
             channelSftp.connect();
 
             String orgIdString = String.valueOf(orgId);
-            String localFile = "frontend/givealot/localFiles/" + orgIdString + "/certificate/CertificateComplete.pdf";
+            String localFile = "backend/src/main/resources/localFiles/" + orgIdString + "/certificate/CertificateComplete.pdf";
 
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Certificates" + "/" + orgName.replaceAll("\\s+", "") + "Certificate.pdf");
 
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Exception: Failed to interact with the server");
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
@@ -147,10 +157,9 @@ public class ServerAccess {
             FileUtils.copyInputStreamToFile(stream, fileLocation);
 
 
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Exception: Failed to download certificate template");
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
@@ -174,21 +183,25 @@ public class ServerAccess {
 
             return fileLocation;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Exception: Failed to download certificate");
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
     }
 
-    public void uploadAuditDocument(long orgId, String orgName, File document) throws Exception {
+    public void uploadAuditDocument(long orgId, String orgName, MultipartFile document) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
-
-            document.renameTo(new File("backend/src/main/resources/TempDocument/audit.pdf"));
-
+            File image = new File("backend/src/main/resources/TempDocument/audit.pdf");
+            if (!image.exists()) {
+                image.createNewFile();
+            }
+            try (OutputStream os = new FileOutputStream(image)) {
+                os.write(document.getBytes());
+            }
+            image.renameTo(new File("backend/src/main/resources/TempDocument/audit.pdf"));
             channelSftp.connect();
 
             String orgIdString = String.valueOf(orgId);
@@ -198,10 +211,9 @@ public class ServerAccess {
 
             File deletion = new File(localFile);
             deletion.delete();
-        }catch (Exception e){
-            throw new Exception("Exception: Failed to interact with the server");
-        }
-        finally {
+        } catch (Exception e) {
+            throw new Exception("Exception: Failed to interact with the server" + e);
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
@@ -224,93 +236,78 @@ public class ServerAccess {
 
             return fileLocation;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Exception: Failed to download certificate");
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
     }
 
-    public void uploadTaxReference(long orgId, String orgName, File document) throws Exception {
+  /*  public void uploadImageQRCode(long orgId, String orgName, MultipartFile imageMPF) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
-
-            document.renameTo(new File("backend/src/main/resources/TempDocument/taxRef.pdf"));
-
-            channelSftp.connect();
-
-            String orgIdString = String.valueOf(orgId);
-            String localFile = "backend/src/main/resources/TempDocument/taxRef.pdf";
-
-            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Documents" + "/" + orgName.replaceAll("\\s+", "") + "TaxReference.pdf");
-
-            File deletion = new File(localFile);
-            deletion.delete();
-        }catch (Exception e){
-            throw new Exception("Exception: Failed to interact with the server");
-        }
-        finally {
-            channelSftp.exit();
-            session.disconnect();
-        }
-    }
-
-    public File downloadTaxRef(long orgId, String orgName) throws Exception {
-        ChannelSftp channelSftp = setupJsch();
-        try {
-            channelSftp.connect();
-
-            String orgIdString = String.valueOf(orgId);
-
-            String templateLocation;
-
-            templateLocation = remoteDir + "Organisations/" + orgIdString + "/" + "Documents" + "/" + orgName.replaceAll("\\s+", "") + "TaxReference.pdf";
-
-            File fileLocation = new File(orgName.replaceAll("\\s+", "") + "TaxReference.pdf");
-            InputStream stream = channelSftp.get(templateLocation);
-            FileUtils.copyInputStreamToFile(stream, fileLocation);
-
-            return fileLocation;
-
-        }catch (Exception e){
-            throw new Exception("Exception: Failed to download certificate");
-        }
-        finally {
-            channelSftp.exit();
-            session.disconnect();
-        }
-    }
-
-    public void uploadImageJPG(long orgId, String orgName, File image) throws Exception {
-
-        ChannelSftp channelSftp = setupJsch();
-        try {
-
-            if(!image.renameTo(new File("backend/src/main/resources/TempDocument/image.jpg"))){
-                //throw new Exception("Exception: Failed to interact with the server: Image could not be moved");
+            File image = new File("backend/src/main/resources/TempDocument/imageQr.png");
+            if (!image.exists()){
+                image.createNewFile();
             }
+            try (OutputStream os = new FileOutputStream(image)) {
+                os.write(imageMPF.getBytes());
+            }
+            image.renameTo(new File("backend/src/main/resources/TempDocument/imageQr.png"));
+
+            channelSftp.connect();
+            String orgIdString = String.valueOf(orgId);
+            String localFile = "frontend/givealot/src/localFiles/" + orgId + "/gallery/QRCode.png";
+
+            FileUtils.copyFile(image, new File(localFile));
+
+            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/QRCode.png");
+
+
+            image.delete();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }*/
+
+    public void uploadImageJPG(long orgId, String orgName, MultipartFile image, int numberOfImages) throws Exception {
+
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            File imageHolder = new File("backend/src/main/resources/TempDocument/image.jpg");
+            if (!imageHolder.exists()) {
+                imageHolder.createNewFile();
+            }
+            try (OutputStream os = new FileOutputStream(imageHolder)) {
+                os.write(image.getBytes());
+            }
+            imageHolder.renameTo(new File("backend/src/main/resources/TempDocument/image.jpg"));
 
             channelSftp.connect();
 
-            int imageNumber = organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfImages() + 1;
-
             String orgIdString = String.valueOf(orgId);
-            String localFile = "frontend/givealot/localFiles/" + orgId + "/gallery/image" + imageNumber + ".jpg";
-            File file = new File(localFile);
-            File temp = new File("backend/src/main/resources/TempDocument/image.jpg");
-            file.createNewFile();
-            FileUtils.copyFile(temp, new File(localFile));
 
-            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + imageNumber + ".jpg");
+            String localFile2 = "backend/src/main/resources/localFiles/" + orgId + "/gallery/backup/image" + numberOfImages + ".jpg";
+            String localFile = "backend/src/main/resources/localFiles/" + orgId + "/gallery/image" + numberOfImages + ".jpg";
+            FileUtils.copyFile(imageHolder, new File(localFile));
+            FileUtils.copyFile(imageHolder, new File(localFile2));
+
+            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + numberOfImages + ".jpg");
+            channelSftp.put(localFile2, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/Backup/image" + numberOfImages + ".jpg");
+
+            //Update number of images
+            //    organisationInfoRepository.incrementNumImagesd(orgId);
 
             //image.delete();
-            temp.delete();
-        }catch (Exception e){
+            // imageHolder.delete();
+        } catch (Exception e) {
             throw new Exception("Exception: Failed to interact with the server: " + e);
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
@@ -333,29 +330,32 @@ public class ServerAccess {
 
             return fileLocation;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Exception: Failed to download certificate");
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
     }
 
-    public void uploadImagePNG(long orgId, String orgName, File image) throws Exception {
+    public void uploadImagePNG(long orgId, String orgName, MultipartFile imageMPF) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
-
+            File image = new File("backend/src/main/resources/TempDocument/TempImg.png");
+            if (!image.exists()) {
+                image.createNewFile();
+            }
+            try (OutputStream os = new FileOutputStream(image)) {
+                os.write(imageMPF.getBytes());
+            }
             image.renameTo(new File("backend/src/main/resources/TempDocument/image.png"));
 
             channelSftp.connect();
 
-            //Query to certificate for number of images
-
             int imageNumber = organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfImages() + 1;
 
             String orgIdString = String.valueOf(orgId);
-            String localFile = "frontend/givealot/localFiles/" + orgId + "gallery/image" + imageNumber + ".png";
+            String localFile = "backend/src/main/resources/localFiles/" + orgId + "gallery/image" + imageNumber + ".png";
 
             FileUtils.copyFile(image, new File(localFile));
 
@@ -363,12 +363,155 @@ public class ServerAccess {
 
 
             image.delete();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
+        }
+    }
+
+    public void uploadImageLogo(long orgId, String orgName, MultipartFile imageMPF) throws Exception {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            File image = new File("backend/src/main/resources/TempDocument/image.png");
+            if (!image.exists()) {
+                image.createNewFile();
+            }
+            try (OutputStream os = new FileOutputStream(image)) {
+                os.write(imageMPF.getBytes());
+            }
+            image.renameTo(new File("backend/src/main/resources/TempDocument/image.png"));
+
+            channelSftp.connect();
+
+            String orgIdString = String.valueOf(orgId);
+            String localFile = "backend/src/main/resources/localFiles/" + orgId + "/gallery/logo.png";
+
+            FileUtils.copyFile(image, new File(localFile));
+
+            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/logo.png");
+
+            image.delete();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+
+    public void uploadImageQRCode(long orgId, String orgName, MultipartFile imageMPF) throws Exception {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            File image = new File("backend/src/main/resources/TempDocument/imageQr.png");
+            if (!image.exists()) {
+                image.createNewFile();
+            }
+            try (OutputStream os = new FileOutputStream(image)) {
+                os.write(imageMPF.getBytes());
+            }
+            image.renameTo(new File("backend/src/main/resources/TempDocument/imageQr.png"));
+
+            channelSftp.connect();
+            String orgIdString = String.valueOf(orgId);
+            String localFile = "backend/src/main/resources/localFiles/" + orgId + "/gallery/QRCode.png";
+
+            FileUtils.copyFile(image, new File(localFile));
+
+            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/QRCode.png");
+
+
+            image.delete();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+
+    public void deleteQR(long orgId) throws JSchException {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            channelSftp.connect();
+            String orgIdString = String.valueOf(orgId);
+            String localFile = "backend/src/main/resources/localFiles/" + orgId + "gallery/QRCode.png";
+
+            File image = new File(localFile);
+
+            channelSftp.rm(remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/QRCode.png");
+            image.delete();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+
+    public void deleteLogo(long orgId) throws JSchException {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            channelSftp.connect();
+            String orgIdString = String.valueOf(orgId);
+            String localFile = "backend/src/main/resources/localFiles/" + orgId + "gallery/logo.png";
+
+            File image = new File(localFile);
+
+            channelSftp.rm(remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/logo.png");
+            image.delete();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+
+    public void deleteImage(long orgId, int number) throws JSchException {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            channelSftp.connect();
+            String orgIdString = String.valueOf(orgId);
+            String localFile = "backend/src/main/resources/localFiles/" + orgId + "gallery/image" + number + ".png";
+
+            File image = new File(localFile);
+
+            channelSftp.rm(remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + number + ".png");
+            image.delete();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+
+    public void uploadImageAnon(long orgId, MultipartFile imageMPF, int type) throws Exception {
+
+        try {
+            File image = new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg");
+            if (!image.exists()) {
+                image.createNewFile();
+            }
+            try (OutputStream os = new FileOutputStream(image)) {
+                os.write(imageMPF.getBytes());
+            }
+            image.renameTo(new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg"));
+
+            FaceRecognitionServiceImpl faceRecognitionService = new FaceRecognitionServiceImpl();
+            if (type==0){
+                faceRecognitionService.FaceBlur(orgId);
+            }
+            else if (type ==1){
+                faceRecognitionService.FacePixel(orgId);
+            }
+            else{
+                throw new Exception("Exception: invalid type");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -382,21 +525,20 @@ public class ServerAccess {
             channelSftp.connect();
 
 
-            int reportNumber =organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfReports();
+            int reportNumber = organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfReports();
 
             String orgIdString = String.valueOf(orgId);
 
-            String localFile = "frontend/givealot/localFiles/" + orgId + "/reports/report" + reportNumber + ".txt";
+            String localFile = "backend/src/main/resources/localFiles/" + orgId + "/reports/report" + reportNumber + ".txt";
 
             FileUtils.copyFile(report, new File(localFile));
 
 
-            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Reports/report" + reportNumber + "-" + date +".txt");
+            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Reports/report" + reportNumber + "-" + date + ".txt");
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             //report.delete();
             channelSftp.exit();
             session.disconnect();
@@ -420,10 +562,9 @@ public class ServerAccess {
 
             return fileLocation;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Exception: Failed to download certificate");
-        }
-        finally {
+        } finally {
             channelSftp.exit();
             session.disconnect();
         }
@@ -434,7 +575,7 @@ public class ServerAccess {
 
         File file = new File("C:/test.jpg");
 
-        access.createOrganisationDirectory(1,"The Local Guys");
+        access.createOrganisationDirectory(1, "The Local Guys");
 
         //File doc = access.downloadCertificate(45,"New Org");
 
@@ -442,7 +583,6 @@ public class ServerAccess {
 
 //        File image = access.downloadImagePNG(45,0);
 //
-        access.uploadImageJPG(1,"New Org", file);
     }
 
 

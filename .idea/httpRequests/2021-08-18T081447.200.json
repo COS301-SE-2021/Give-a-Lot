@@ -1,4 +1,0 @@
-{
-  "code": "add_soc_500_err",
-  "message": "failed: java.lang.Exception: Exception: provided ID is null"
-}

@@ -19,7 +19,7 @@ export class Users extends Component {
             users:[],
             error: "",
             adminUserEmail: localStorage.getItem('curr_user_email'),
-            serverDomain: "http://localhost:8080"
+            serverDomain: "http://0948-105-208-196-136.ngrok.io"
         }
 
     }

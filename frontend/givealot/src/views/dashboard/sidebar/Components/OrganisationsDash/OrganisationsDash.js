@@ -35,7 +35,7 @@ export class OrganisationsDash extends Component {
             getSector: [],
             adminId: localStorage.getItem('id'),
             openSector: false,
-            serverDomain: "http://localhost:8080"
+            serverDomain: "http://0948-105-208-196-136.ngrok.io"
         }
     }
 

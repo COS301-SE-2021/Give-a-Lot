@@ -41,7 +41,6 @@ public class OrganisationPoints {
         this.addressIsValid = addressIsValid;
         this.websiteIsValid = websiteIsValid;
         this.auditIsValid = auditIsValid;
-
         this.committeeIsValid = committeeIsValid;
         this.ngoNoIsValid = ngoNoIsValid;
         this.ngoDateIsValid = ngoDateIsValid;
@@ -58,7 +57,6 @@ public class OrganisationPoints {
         this.addressIsValid = addressIsValid;
         this.websiteIsValid = websiteIsValid;
         this.auditIsValid = auditIsValid;
-
         this.committeeIsValid = committeeIsValid;
         this.ngoNoIsValid = ngoNoIsValid;
         this.ngoDateIsValid = ngoDateIsValid;

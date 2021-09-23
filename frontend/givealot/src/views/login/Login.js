@@ -3,9 +3,9 @@ import {Link, useHistory,Redirect} from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 import backgroundImg from "../../assets/homeBackground.jpg";
-import Logo from "../login/Components/Logo";
+import Logo from "./Components/Logo";
 import axios from "axios"
-import "../login/Styles/Login.css";
+import "./Styles/Login.css";
 import {Alert} from "@material-ui/lab";
 
 import {ApiContext} from "../../apiContext/ApiContext";
@@ -66,7 +66,7 @@ function Login ()
                 if(response.data.jwttoken === "general")
                 {
                     document.getElementById("waitInfo").style.display = "none";
-                    window.location.href = "http://c294-102-250-7-72.ngrok.io/";
+                    window.location.href = "http://localhost:3000/";
                 }
                 else if(response.data.jwttoken === "admin")
                 {
@@ -102,6 +102,7 @@ function Login ()
             })
         }
     };
+
 
     return (
         <div>

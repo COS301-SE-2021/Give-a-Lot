@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import "../Profile/Styles/Profile.css"
+import "./Styles/Profile.css"
 import {toast, ToastContainer} from "react-toastify";
 
 
@@ -55,7 +55,7 @@ export class Profile extends Component {
             popUp4:false,
             popUp5:false,
             popUp6:false,
-            serverDomain : 'http://localhost:8080',
+            serverDomain : 'http://0948-105-208-196-136.ngrok.io',
             loader:false,
 
 
@@ -169,7 +169,7 @@ export class Profile extends Component {
             };
             console.log(data1)
             Axios
-                .post("http://localhost:8080/v1/organisation/update/info/organisation", data1)
+                .post("http://0948-105-208-196-136.ngrok.io/v1/organisation/update/info/organisation", data1)
                 .then(res => {
                     console.log(res)
                     this.setState({popUp1: res.data.message});
@@ -187,7 +187,7 @@ export class Profile extends Component {
             };
             console.log(data2)
             Axios
-                .post("http://localhost:8080/v1/organisation/update/info/organisation", data2)
+                .post("http://0948-105-208-196-136.ngrok.io/v1/organisation/update/info/organisation", data2)
                 .then(res => {
                     console.log(res)
                     this.setState({popUp2: res.data.message});
@@ -205,7 +205,7 @@ export class Profile extends Component {
             };
             console.log(data3)
             Axios
-                .post("http://localhost:8080/v1/organisation/update/info/organisation", data3)
+                .post("http://0948-105-208-196-136.ngrok.io/v1/organisation/update/info/organisation", data3)
                 .then(res => {
                     console.log(res)
                     this.setState({popUp3: res.data.message});
@@ -223,7 +223,7 @@ export class Profile extends Component {
             };
             console.log(data4)
             Axios
-                .post("http://localhost:8080/v1/organisation/update/info/organisation", data4)
+                .post("http://0948-105-208-196-136.ngrok.io/v1/organisation/update/info/organisation", data4)
                 .then(res => {
                     console.log(res)
                     this.setState({popUp4: res.data.message});
@@ -241,7 +241,7 @@ export class Profile extends Component {
             };
             console.log(data5)
             Axios
-                .post("http://localhost:8080/v1/organisation/update/info/organisation", data5)
+                .post("http://0948-105-208-196-136.ngrok.io/v1/organisation/update/info/organisation", data5)
                 .then(res => {
                     console.log(res)
                     this.setState({popUp5: res.data.message});
@@ -259,7 +259,7 @@ export class Profile extends Component {
             };
             console.log(data6)
             Axios
-                .post("http://localhost:8080/v1/organisation/update/info/organisation", data6)
+                .post("http://0948-105-208-196-136.ngrok.io/v1/organisation/update/info/organisation", data6)
                 .then(res => {
                     console.log(res)
                     this.setState({popUp6: res.data.message});
@@ -278,7 +278,7 @@ export class Profile extends Component {
             };
             console.log(data7)
             Axios
-                .post("http://localhost:8080/v1/organisation/update/info/organisation", data7)
+                .post("http://0948-105-208-196-136.ngrok.io/v1/organisation/update/info/organisation", data7)
                 .then(res => {
                     console.log(res)
                     this.setState({popUp7: res.data.message});

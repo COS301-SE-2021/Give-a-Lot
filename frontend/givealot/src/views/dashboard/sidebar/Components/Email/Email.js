@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "../Email/Styles/Email.css";
+import "./Styles/Email.css";
 import Axios from "axios";
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';

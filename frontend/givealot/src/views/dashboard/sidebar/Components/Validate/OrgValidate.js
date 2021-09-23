@@ -23,7 +23,7 @@ export class OrgValidate extends Component {
             openNgoNumberDeny: false,
             orgId: window.location.pathname.split('/')[window.location.pathname.split('/').length - 1],
             adminId: localStorage.getItem("id"),
-            serverDomain: "http://localhost:8080",
+            serverDomain: "http://0948-105-208-196-136.ngrok.io",
             isConfirmed: false,
             isConfirmedNumber: false,
             isConfirmedWebsite: false,
@@ -63,7 +63,7 @@ export class OrgValidate extends Component {
         }
 
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+this.state.adminId+ '/ngo_date/true', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+this.state.adminId+ '/ngo_date/true', config)
             .then(response =>{
                 this.setState({isConfirmed: true})
             })
@@ -82,7 +82,7 @@ export class OrgValidate extends Component {
         }
 
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/ngo_date/false', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/ngo_date/false', config)
             .then(response =>{
                 this.setState({isConfirmed: true})
             })
@@ -102,7 +102,7 @@ export class OrgValidate extends Component {
         }
 
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/ngo_number/true', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/ngo_number/true', config)
             .then(response =>{
                 this.setState({isConfirmedNumber: true})
             })
@@ -124,7 +124,7 @@ export class OrgValidate extends Component {
 
 
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/ngo_number/false', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/ngo_number/false', config)
             .then(response =>{
                 this.setState({isConfirmedNumber: true})
             })
@@ -144,7 +144,7 @@ export class OrgValidate extends Component {
         }
         // this.setState({isConfirmedWebsite: true})
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/website/true', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/website/true', config)
             .then(response =>{
                 console.log(response)
                 this.setState({isConfirmedWebsite: true})
@@ -164,7 +164,7 @@ export class OrgValidate extends Component {
         }
         // this.setState({isConfirmedWebsite: true})
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/website/false', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/website/false', config)
             .then(response =>{
                 console.log(response)
                 this.setState({isConfirmedWebsite: true})
@@ -184,7 +184,7 @@ export class OrgValidate extends Component {
         }
         // this.setState({isConfirmedStreet: true})
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/address/true', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/address/true', config)
             .then(response =>{
                 console.log(response)
                 this.setState({isConfirmedStreet: true})
@@ -203,7 +203,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/address/false', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/address/false', config)
             .then(response =>{
                 console.log(response)
                 this.setState({isConfirmedStreet: true})
@@ -222,7 +222,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/establishment_date/true', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/establishment_date/true', config)
             .then(response =>{
                 this.setState({isConfirmedEd: true})
             })
@@ -240,7 +240,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/establishment_date/false', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/establishment_date/false', config)
             .then(response =>{
                 this.setState({isConfirmedEd: true})
             })
@@ -258,7 +258,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/donation_link/true', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/donation_link/true', config)
             .then(response =>{
                 this.setState({isConfirmedDonate: true})
             })
@@ -276,7 +276,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/donation_link/false', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/donation_link/false', config)
             .then(response =>{
                 this.setState({isConfirmedDonate: true})
             })
@@ -294,7 +294,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/qr_code/true', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/qr_code/true', config)
             .then(response =>{
                 this.setState({isConfirmedQr: true})
             })
@@ -312,7 +312,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/qr_code/false', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/qr_code/false', config)
             .then(response =>{
                 this.setState({isConfirmedQr: true})
             })
@@ -331,7 +331,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/committee/true', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/committee/true', config)
             .then(response =>{
                 this.setState({isConfirmedCommittee: true})
             })
@@ -349,7 +349,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/committee/false', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/committee/false', config)
             .then(response =>{
                 this.setState({isConfirmedCommittee: true})
             })
@@ -367,7 +367,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/facebook/true', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/facebook/true', config)
             .then(response =>{
                 this.setState({isConfirmedFacebook: true})
             })
@@ -385,7 +385,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/facebook/false', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/facebook/false', config)
             .then(response =>{
                 this.setState({isConfirmedFacebook: true})
             })
@@ -403,7 +403,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/instagram/true', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/instagram/true', config)
             .then(response =>{
                 this.setState({isConfirmedInstagram: true})
             })
@@ -421,7 +421,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/instagram/false', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/instagram/false', config)
             .then(response =>{
                 this.setState({isConfirmedInstagram: true})
             })
@@ -439,7 +439,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/twitter/true', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/twitter/true', config)
             .then(response =>{
                 this.setState({isConfirmedTwitter: true})
             })
@@ -457,7 +457,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/twitter/false', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/twitter/false', config)
             .then(response =>{
                 this.setState({isConfirmedTwitter: true})
             })
@@ -475,7 +475,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/audit/true', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/audit/true', config)
             .then(response =>{
                 console.log(response)
             })
@@ -493,7 +493,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/audit/false', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/audit/false', config)
             .then(response =>{
                 console.log(response)
             })
@@ -512,7 +512,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/images/true', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/images/true', config)
             .then(response =>{
                 console.log(response)
             })
@@ -530,7 +530,7 @@ export class OrgValidate extends Component {
             }
         }
 
-        axios.put('http://localhost:8080/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/images/false', config)
+        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/images/false', config)
             .then(response =>{
                 console.log(response)
             })
@@ -551,7 +551,7 @@ export class OrgValidate extends Component {
             "orgId":this.state.orgId
         }
 
-        axios.post('http://localhost:8080/v1/notifications/get/level_information', adminUsersRequestBody ,config)
+        axios.post('http://0948-105-208-196-136.ngrok.io/v1/notifications/get/level_information', adminUsersRequestBody ,config)
             .then(response =>{
                 console.log(response)
                 this.setState({validation: response.data.object})

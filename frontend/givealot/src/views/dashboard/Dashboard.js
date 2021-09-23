@@ -3,26 +3,26 @@ import {
     Switch,
     Route
 } from "react-router-dom";
-import Sidebar from "../dashboard/sidebar/Sidebar"
+import Sidebar from "./sidebar/Sidebar"
 import "./sidebar/styles/Dashboard.css"
 import OrganisationsDash from "./sidebar/Components/OrganisationsDash/OrganisationsDash"
 import Users from "./sidebar/Components/Users/Users"
 import Email from "./sidebar/Components/Email/Email"
 import Featured from "./sidebar/Components/Featured/Featured";
-import Reports from "../../views/dashboard/sidebar/Components/Report/Reports"
-import Org from "../dashboard/sidebar/Components/OrganisationsDash/Org"
-import Profile from "../dashboard/sidebar/Components/Profile/Profile"
-import Certificate from "../dashboard/sidebar/Components/Certificate/Certificate"
+import Reports from "./sidebar/Components/Report/Reports"
+import Org from "./sidebar/Components/OrganisationsDash/Org"
+import Profile from "./sidebar/Components/Profile/Profile"
+import Certificate from "./sidebar/Components/Certificate/Certificate"
 import Upgrade2 from "./sidebar/Components/Certificate/Upgrade2"
 import Upgrade3 from "./sidebar/Components/Certificate/Upgrade3"
 import Upgrade5 from "./sidebar/Components/Certificate/Upgrade5"
 import Upgrade4 from "./sidebar/Components/Certificate/Upgrade4"
 import Upgrade0 from "./sidebar/Components/Certificate/Upgrade0"
 import Upgrade1 from "./sidebar/Components/Certificate/Upgrade1"
-import Calendar from "../dashboard/sidebar/Components/Calendar/Calendar"
-import Validate from "../dashboard/sidebar/Components/Validate/Validate"
-import AddOrg from "../dashboard/sidebar/Components/OrganisationsDash/AddOrg"
-import OrgValidate from "../dashboard/sidebar/Components/Validate/OrgValidate"
+import Calendar from "./sidebar/Components/Calendar/Calendar"
+import Validate from "./sidebar/Components/Validate/Validate"
+import AddOrg from "./sidebar/Components/OrganisationsDash/AddOrg"
+import OrgValidate from "./sidebar/Components/Validate/OrgValidate"
 import OrganisationTimeline from "./sidebar/Components/Timeline/Timeline";
 import BlurImages from "./sidebar/Components/BlurImages/BlurImages"
 

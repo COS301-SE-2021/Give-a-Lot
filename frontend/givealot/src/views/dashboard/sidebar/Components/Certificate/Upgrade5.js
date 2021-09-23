@@ -9,7 +9,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Complete from "../Certificate/Style/complete.png";
+import Complete from "./Style/complete.png";
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import Axios from "axios";
 
@@ -39,7 +39,7 @@ export class Upgrade5 extends Component {
             orgId:"",
             website: "",
             address:"",
-            serverDomain: 'https://localhost:8080'
+            serverDomain: 'http://0948-105-208-196-136.ngrok.io'
 
         };
     }

@@ -44,7 +44,7 @@ const initialState = {
     popUp1:false,
     popUp2:false,
     //serverDomain: "https://3c73e752688968.localhost.run"
-    serverDomain: 'https://localhost:8080'
+    serverDomain: 'http://0948-105-208-196-136.ngrok.io'
 };
 export class Upgrade1 extends Component {
 

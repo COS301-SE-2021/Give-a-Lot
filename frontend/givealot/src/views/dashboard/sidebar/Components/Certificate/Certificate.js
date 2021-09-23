@@ -43,7 +43,7 @@ export class Certificate extends Component {
             "orgid" : this.state.orgId
         }
 
-        axios.post('http://localhost:8080/v1/organisation/get/org_level', dataa  ,config)
+        axios.post('http://0948-105-208-196-136.ngrok.io/v1/organisation/get/org_level', dataa  ,config)
             .then(response =>{
                 this.setState({level: response.data.level})
                 console.log(response)

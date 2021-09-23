@@ -446,7 +446,6 @@ public class OrganisationController
         }
     }
 
-
     @DeleteMapping("/delete/images/{orgId}")
     public ResponseEntity<generalOrganisationResponse> removeOrgImage(@PathVariable("orgId") @NonNull Long orgId)
     {

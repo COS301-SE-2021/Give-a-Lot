@@ -31,16 +31,6 @@ function OrganisationRegistration()
     let registration_form_orgContact_number = null;
     let image_tmp = null;
 
-    window.onbeforeunload = (event) => {
-        const e = event || window.event;
-        // Cancel the event
-        e.preventDefault();
-        if (e) {
-            e.returnValue = ''; // Legacy method for cross browser support
-        }
-        return ''; // Legacy method for cross browser support
-    };
-
     const validate_organisation_credentials = event =>
     {
         event.preventDefault();

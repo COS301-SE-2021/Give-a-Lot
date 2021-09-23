@@ -84,7 +84,7 @@ export class Level2 extends Component {
         alert("take away submit button functionality");
 
         fetch(
-            this.state.serverDomain + '/v1/organisation/add/logo',
+            'http://0948-105-208-196-136.ngrok.io/v1/organisation/add/logo',
             {
                 method: 'POST',
                 body: formData,
@@ -157,7 +157,7 @@ export class Level2 extends Component {
             }
         }
         console.log(this.props)
-        axios.get(this.state.serverDomain + '/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config) //Change the API
+        axios.get('http://0948-105-208-196-136.ngrok.io/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config) //Change the API
             .then(response =>{
                 console.log(response)
                 this.setState({level2: response.data.response})

@@ -72,7 +72,7 @@ export class OrganisationsDash extends Component {
         const adminUsersRequestBodyOrgs = {
             "adminId" : this.state.adminId
         }
-        axios.post(this.state.serverDomain + '/v1/organisation/get/organisations',adminUsersRequestBodyOrgs , config)
+        axios.post('http://0948-105-208-196-136.ngrok.io/v1/organisation/get/organisations',adminUsersRequestBodyOrgs , config)
             .then(response =>{
                 this.setState({org: response.data.response})
             })
@@ -87,7 +87,7 @@ export class OrganisationsDash extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        axios.get(this.state.serverDomain + '/v1/organisation/get/sectors',  config)
+        axios.get('http://0948-105-208-196-136.ngrok.io/v1/organisation/get/sectors',  config)
             .then(response =>{
                 this.setState({getSector: response.data.sectors})
             })
@@ -112,7 +112,7 @@ export class OrganisationsDash extends Component {
             "sector" : this.state.sector,
             "adminId" : this.state.adminId
         }
-        axios.post(this.state.serverDomain + '/v1/organisation/add/sector', AddSector ,config)
+        axios.post('http://0948-105-208-196-136.ngrok.io/v1/organisation/add/sector', AddSector ,config)
             .then(response =>{
                 this.setState({ openSector: true });
             })

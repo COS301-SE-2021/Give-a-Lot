@@ -36,7 +36,7 @@ export class Users extends Component {
             "adminUserEmail":this.state.adminUserEmail
         }
 
-        axios.post(this.state.serverDomain + '/v1/user/get/users', users ,config)
+        axios.post('http://0948-105-208-196-136.ngrok.io/v1/user/get/users', users ,config)
             .then(response =>{
                 this.setState({users: response.data.response})
             })

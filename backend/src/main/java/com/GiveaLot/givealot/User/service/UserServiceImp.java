@@ -99,7 +99,6 @@ public class UserServiceImp implements UserService {
         List<String> sectors = sectorsRepository.getSectors();
 
 
-
         /**Sending a verification email**/
         System.out.println("Sending Email...");
 

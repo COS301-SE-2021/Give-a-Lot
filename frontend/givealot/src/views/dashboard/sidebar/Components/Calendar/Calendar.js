@@ -26,7 +26,7 @@ export default class Demo extends React.PureComponent {
             addedAppointment: {},
             appointmentChanges: {},
             editingAppointment: undefined,
-            serverDomain : 'http://localhost:8080'
+            serverDomain : 'http://0948-105-208-196-136.ngrok.io'
         };
 
         this.commitChanges = this.commitChanges.bind(this);
@@ -86,7 +86,7 @@ export default class Demo extends React.PureComponent {
                         'Access-Control-Allow-Origin': '*',
                     }
                 }
-                axios.post(this.state.serverDomain + '/event/calender/add', eventDayAndTime ,config)
+                axios.post('http://0948-105-208-196-136.ngrok.io/event/calender/add', eventDayAndTime ,config)
                     .then(response =>{
                     })
                     .catch(error =>{
@@ -116,7 +116,7 @@ export default class Demo extends React.PureComponent {
                         "newTitle" : testing.title
                     }
 
-                    axios.post(this.state.serverDomain + '/event/calender/edit/title', titleUpdate ,config)
+                    axios.post('http://0948-105-208-196-136.ngrok.io/event/calender/edit/title', titleUpdate ,config)
                         .then(response =>{
 
                         })
@@ -145,12 +145,12 @@ export default class Demo extends React.PureComponent {
                         "eventId" : eventId,
                         "newDate" : eventStartDate
                     }
-                    axios.post(this.state.serverDomain + '/event/calender/edit/date/start', startDateUpdate ,config)
-                        .then(response =>{
-                        })
-                        .catch(error =>{
-                            console.log(error)
-                        })
+                    axios.post('http://0948-105-208-196-136.ngrok.io/event/calender/edit/date/start', startDateUpdate ,config)
+                    .then(response =>{
+                    })
+                    .catch(error =>{
+                        console.log(error)
+                    })
                 }
 
                 if(testing.endDate !== undefined){
@@ -171,7 +171,7 @@ export default class Demo extends React.PureComponent {
                         "eventId" : eventId,
                         "newDate" : eventEndDate
                     }
-                    axios.post(this.state.serverDomain + '/event/calender/edit/date/end', endDateUpdate ,config)
+                    axios.post('http://0948-105-208-196-136.ngrok.io/event/calender/edit/date/end', endDateUpdate ,config)
                         .then(response =>{
                         })
                         .catch(error =>{
@@ -193,7 +193,7 @@ export default class Demo extends React.PureComponent {
                         "eventId" : eventId,
                         "newTime" : startTime
                     }
-                    axios.post(this.state.serverDomain + '/event/calender/edit/time/start', startTimeUpdate ,config)
+                    axios.post('http://0948-105-208-196-136.ngrok.io/event/calender/edit/time/start', startTimeUpdate ,config)
                         .then(response =>{
                         })
                         .catch(error =>{
@@ -216,7 +216,7 @@ export default class Demo extends React.PureComponent {
                         "newTime" : endTime
                     }
                     console.log(endTimeUpdate)
-                    axios.post(this.state.serverDomain + '/event/calender/edit/time/end', endTimeUpdate ,config)
+                    axios.post('http://0948-105-208-196-136.ngrok.io/event/calender/edit/time/end', endTimeUpdate ,config)
                         .then(response =>{
                         })
                         .catch(error =>{
@@ -238,7 +238,7 @@ export default class Demo extends React.PureComponent {
                         "newDescription" : testing.notes
                     }
                     console.log(descriptionUpdate)
-                    axios.post(this.state.serverDomain + '/event/calender/edit/description', descriptionUpdate ,config)
+                    axios.post('http://0948-105-208-196-136.ngrok.io/event/calender/edit/description', descriptionUpdate ,config)
                         .then(response =>{
                         })
                         .catch(error =>{

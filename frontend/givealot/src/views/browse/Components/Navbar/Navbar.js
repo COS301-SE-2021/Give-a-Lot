@@ -24,10 +24,8 @@ function Navbar()
             {
                 if(response.status === 500)
                 {}
-
                 if(typeof data !== 'undefined')
                 {
-                    alert(data.message);
                 }
             }
 
@@ -41,7 +39,7 @@ function Navbar()
             }
             else
             {
-                alert("error occured: " + data.code);
+
             }
         })
         .catch(error => {
@@ -75,6 +73,7 @@ function Navbar()
                     id={"browse_search_input"}
                     placeholder="search organisation"
                     type="text"
+
                     onKeyPress={onKeyUp}
                 />
                 <SearchIcon

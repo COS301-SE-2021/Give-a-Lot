@@ -55,7 +55,6 @@ export class Upgrade4 extends Component {
         formData.append('orgId', this.state.orgId);
         let imageStates = 0;
 
-        alert("00000002");
         fetch(
             'http://localhost:8080/v1/organisation/add/audit',
             {

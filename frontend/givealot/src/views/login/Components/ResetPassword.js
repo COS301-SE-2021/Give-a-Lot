@@ -156,9 +156,6 @@ class ResetPassword extends Component {
                                             Submit password
                                         </button>
                                     </div>
-
-
-
                                 </form>
                             </div>
                         </div>

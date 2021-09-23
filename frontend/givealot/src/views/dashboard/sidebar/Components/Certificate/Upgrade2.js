@@ -82,7 +82,7 @@ export class Upgrade2 extends Component {
         formData.append('orgId', this.state.orgId);
         let imageStates = 0;
         fetch(
-            'http://localhost:8080/v1/organisation/add/qrcode',
+            'http://0948-105-208-196-136.ngrok.io/v1/organisation/add/qrcode',
             {
                 method: 'POST',
                 body: formData,

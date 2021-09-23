@@ -66,25 +66,24 @@ function Login ()
                 if(response.data.jwttoken === "general")
                 {
                     document.getElementById("waitInfo").style.display = "none";
-                    window.location.href = "http://localhost:3000/";
+                    window.location.href = "http://c294-102-250-7-72.ngrok.io/";
                 }
                 else if(response.data.jwttoken === "admin")
                 {
                     document.getElementById("waitInfo").style.display = "none";
-                    window.location.href = "http://localhost:3000/dashboard/";
+                    window.location.href = "http://c294-102-250-7-72.ngrok.io/dashboard/";
                 }
                 else if(response.data.jwttoken === "organisation")
                 {
                     document.getElementById("waitInfo").style.display = "none";
-                    window.location.href = "http://localhost:3000/dashboard/";
-
+                    window.location.href = "http://c294-102-250-7-72.ngrok.io/dashboard/";
                 }
             })
             .catch(error =>{
                 if(error.response)
                 {
                     console.log(error.response)
-                    if(error.response.data.message.includes("organisation not found"))
+                    if(error.response.data.message.includes("organisation not found") || error.response.data.message.includes("user password is incorrect"))
                     {
                         document.getElementById("badLogin").style.display = "flex";
                         document.getElementById("waitInfo").style.display = "none";

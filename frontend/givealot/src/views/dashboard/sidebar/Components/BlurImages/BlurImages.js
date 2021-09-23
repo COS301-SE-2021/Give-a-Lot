@@ -5,11 +5,9 @@ import blurredFallback from '../../../../../assets/blurredFallback.jpeg';
 import {Alert} from "@material-ui/lab";
 function BlurImages()
 {
-
     let [current_image, set_current_image] = useState(blurredFallback);
     const uploadImage = event =>
     {
-        alert("he0")
         const form_data = new FormData();
         form_data.append('orgId', localStorage.getItem('id'));
         form_data.append('image', event.target.files[0]);
@@ -18,7 +16,7 @@ function BlurImages()
         document.getElementById("processing_photo_info").style.display = "flex";
 
         fetch(
-            'http://localhost:8080/v1/frecognition/blur',
+            'http://0948-105-208-196-136.ngrok.io/v1/frecognition/blur',
             {
                 method: 'POST',
                 body: form_data,
@@ -27,8 +25,7 @@ function BlurImages()
         .then((response) => response.json())
         .then((result) =>
         {
-
-            set_current_image("http://localhost:8080/pixelorblur/version/" + localStorage.getItem('id'))
+            set_current_image("http://0948-105-208-196-136.ngrok.io/pixelorblur/version/" + localStorage.getItem('id'))
             document.getElementById("processing_photo_info").style.display = "none";
         })
         .catch((error) => {

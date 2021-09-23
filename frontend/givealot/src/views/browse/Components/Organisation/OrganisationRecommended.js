@@ -24,7 +24,7 @@ function trim_description(descr)
 export default function OrganisationRecommended(props)
 {
     let history = useHistory();
-    const [serverDomain, setServerDomain] = useState("http://localhost:8080")
+    const [serverDomain, setServerDomain] = useState("http://0948-105-208-196-136.ngrok.io")
 
 
     const openOrganisation = el =>

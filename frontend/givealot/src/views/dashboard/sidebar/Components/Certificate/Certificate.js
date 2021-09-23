@@ -25,7 +25,7 @@ export class Certificate extends Component {
             popUp1:false,
             popUp2:false,
             orgId:localStorage.getItem("id"),
-            serverDomain : 'http://localhost:8080',
+            serverDomain : 'http://0948-105-208-196-136.ngrok.io',
 
 
         };
@@ -166,7 +166,7 @@ export class Certificate extends Component {
                         startIcon={<SaveIcon />}
                         onClick={(e) => {
                             e.preventDefault();
-                            window.open('http://localhost:8080/cert/version/pdf/' + this.state.orgId);
+                            window.open('http://0948-105-208-196-136.ngrok.io/cert/version/pdf/' + this.state.orgId);
                         }}
                     >
                         Download
@@ -177,7 +177,7 @@ export class Certificate extends Component {
             </div>
 
             <div className="display">
-                <img src={"http://localhost:8080/cert/version/png/" + this.state.orgId} alt={"certificate"} height={546} width={713}/>
+                <img src={"http://0948-105-208-196-136.ngrok.io/cert/version/png/" + this.state.orgId} alt={"certificate"} height={546} width={713}/>
             </div>
         </div>
     );

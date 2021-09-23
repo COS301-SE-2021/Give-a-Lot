@@ -34,7 +34,7 @@ export default function Organisation(props)
     let org_image = props.imgUrl;
     if(org_image === null)
     {
-        org_image =  "http://localhost:8080/logo/version/" + props.orgId ;
+        org_image =  "http://0948-105-208-196-136.ngrok.io/logo/version/" + props.orgId ;
     }
 
     let description = trim_description(props.orgDescription);

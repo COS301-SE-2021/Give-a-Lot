@@ -17,8 +17,8 @@ const styles = {
 export class VerifyCertificate extends Component {
     static contextType = ApiContext;
 
-
-    constructor() {
+    constructor()
+    {
         super();
         this.state = {
             selectedFile: '',
@@ -27,7 +27,8 @@ export class VerifyCertificate extends Component {
         };
     }
 
-    onChange = (e) => {
+    onChange = (e) =>
+    {
         switch (e.target.name)
         {
             case 'selectedFile':
@@ -58,7 +59,7 @@ export class VerifyCertificate extends Component {
         AlertPromptWait.style.display = "flex";
 
         fetch(
-            this.context + '/certificate/compare',
+            'http://0948-105-208-196-136.ngrok.io/certificate/compare',
             {
                 method: 'POST',
                 body: formData,
@@ -85,13 +86,11 @@ export class VerifyCertificate extends Component {
                 }
                 else
                 {
-
                     AlertBadCertificate.style.display = "none";
                     AlertPromptWait.style.display = "none";
                     AlertGoodCertificate.style.display = "none";
                     AlertServerError.style.display = "flex";
                 }
-
         })
         .catch((error) => {
             console.error('Error:', error);
@@ -143,7 +142,6 @@ export class VerifyCertificate extends Component {
                                     visit
                                 </Button>
                             </Link>
-
                         </Alert>
                     </div>
                 </div>

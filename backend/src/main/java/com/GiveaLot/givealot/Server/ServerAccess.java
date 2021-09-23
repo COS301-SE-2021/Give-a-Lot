@@ -127,7 +127,6 @@ public class ServerAccess {
 
             channelSftp.connect();
 
-
             String templateLocation;
 
             if (points < 20) {
@@ -244,7 +243,7 @@ public class ServerAccess {
         }
     }
 
-  /*  public void uploadImageQRCode(long orgId, String orgName, MultipartFile imageMPF) throws Exception {
+    public void uploadImageQRCode(long orgId, MultipartFile imageMPF) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
             File image = new File("backend/src/main/resources/TempDocument/imageQr.png");
@@ -255,6 +254,8 @@ public class ServerAccess {
                 os.write(imageMPF.getBytes());
             }
             image.renameTo(new File("backend/src/main/resources/TempDocument/imageQr.png"));
+
+            System.out.println(image.exists());
 
             channelSftp.connect();
             String orgIdString = String.valueOf(orgId);
@@ -273,9 +274,9 @@ public class ServerAccess {
             channelSftp.exit();
             session.disconnect();
         }
-    }*/
+    }
 
-    public void uploadImageJPG(long orgId, String orgName, MultipartFile image, int numberOfImages) throws Exception {
+    public void uploadImageJPG(long orgId, MultipartFile image, int numberOfImages) throws Exception {
 
         ChannelSftp channelSftp = setupJsch();
         try {
@@ -291,20 +292,13 @@ public class ServerAccess {
             channelSftp.connect();
 
             String orgIdString = String.valueOf(orgId);
-
-            String localFile2 = "backend/src/main/resources/localFiles/" + orgId + "/gallery/backup/image" + numberOfImages + ".jpg";
             String localFile = "backend/src/main/resources/localFiles/" + orgId + "/gallery/image" + numberOfImages + ".jpg";
             FileUtils.copyFile(imageHolder, new File(localFile));
-            FileUtils.copyFile(imageHolder, new File(localFile2));
 
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + numberOfImages + ".jpg");
-            channelSftp.put(localFile2, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/Backup/image" + numberOfImages + ".jpg");
 
-            //Update number of images
-            //    organisationInfoRepository.incrementNumImagesd(orgId);
-
-            //image.delete();
-            // imageHolder.delete();
+            organisationInfoRepository.incrementNumImagesd(orgId);
+            imageHolder.delete();
         } catch (Exception e) {
             throw new Exception("Exception: Failed to interact with the server: " + e);
         } finally {
@@ -338,7 +332,7 @@ public class ServerAccess {
         }
     }
 
-    public void uploadImagePNG(long orgId, String orgName, MultipartFile imageMPF) throws Exception {
+    public void uploadImagePNG(long orgId, MultipartFile imageMPF) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
             File image = new File("backend/src/main/resources/TempDocument/TempImg.png");
@@ -371,7 +365,7 @@ public class ServerAccess {
         }
     }
 
-    public void uploadImageLogo(long orgId, String orgName, MultipartFile imageMPF) throws Exception {
+    public void uploadImageLogo(long orgId, MultipartFile imageMPF) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
             File image = new File("backend/src/main/resources/TempDocument/image.png");
@@ -401,35 +395,35 @@ public class ServerAccess {
         }
     }
 
-    public void uploadImageQRCode(long orgId, String orgName, MultipartFile imageMPF) throws Exception {
-        ChannelSftp channelSftp = setupJsch();
-        try {
-            File image = new File("backend/src/main/resources/TempDocument/imageQr.png");
-            if (!image.exists()) {
-                image.createNewFile();
-            }
-            try (OutputStream os = new FileOutputStream(image)) {
-                os.write(imageMPF.getBytes());
-            }
-            image.renameTo(new File("backend/src/main/resources/TempDocument/imageQr.png"));
-
-            channelSftp.connect();
-            String orgIdString = String.valueOf(orgId);
-            String localFile = "backend/src/main/resources/localFiles/" + orgId + "/gallery/QRCode.png";
-
-            FileUtils.copyFile(image, new File(localFile));
-
-            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/QRCode.png");
-
-
-            image.delete();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            channelSftp.exit();
-            session.disconnect();
-        }
-    }
+//    public void uploadImageQRCode(long orgId, MultipartFile imageMPF) throws Exception {
+//        ChannelSftp channelSftp = setupJsch();
+//        try {
+//            File image = new File("backend/src/main/resources/TempDocument/imageQr.png");
+//            if (!image.exists()) {
+//                image.createNewFile();
+//            }
+//            try (OutputStream os = new FileOutputStream(image)) {
+//                os.write(imageMPF.getBytes());
+//            }
+//            image.renameTo(new File("backend/src/main/resources/TempDocument/imageQr.png"));
+//
+//            channelSftp.connect();
+//            String orgIdString = String.valueOf(orgId);
+//            String localFile = "backend/src/main/resources/localFiles/" + orgId + "/gallery/QRCode.png";
+//
+//            FileUtils.copyFile(image, new File(localFile));
+//
+//            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/QRCode.png");
+//
+//
+//            image.delete();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//            channelSftp.exit();
+//            session.disconnect();
+//        }
+//    }
 
     public void deleteQR(long orgId) throws JSchException {
         ChannelSftp channelSftp = setupJsch();
@@ -575,13 +569,9 @@ public class ServerAccess {
 
         File file = new File("C:/test.jpg");
 
-        access.createOrganisationDirectory(1, "The Local Guys");
+        //access.uploadImageJPG(99, 3);
 
-        //File doc = access.downloadCertificate(45,"New Org");
 
-        //access.uploadTaxReference(45,"New Org",doc);
-
-//        File image = access.downloadImagePNG(45,0);
 //
     }
 

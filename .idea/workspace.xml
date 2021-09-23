@@ -6,6 +6,81 @@
   <component name="ChangeListManager">
     <list default="true" id="5f78d0bc-105a-4490-a724-3f99f807d042" name="Default Changelist" comment="Updated stuff">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/TempDocument/image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/100/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/100/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/100/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/101/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/101/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/101/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/102/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/102/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/102/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/103/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/103/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/103/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/104/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/104/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/104/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/105/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/105/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/105/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/107/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/107/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/107/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/108/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/108/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/108/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/110/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/110/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/110/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/111/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/111/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/111/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/112/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/112/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/112/gallery/blur.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/112/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/87/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/87/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/87/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/88/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/88/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/88/gallery/blur.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/88/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/89/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/89/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/89/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/90/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/90/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/90/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/91/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/91/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/91/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/92/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/92/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/92/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/93/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/93/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/93/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/94/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/94/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/94/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/95/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/95/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/95/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/96/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/97/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/97/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/97/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/98/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/98/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/98/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/99/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/99/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/99/gallery/logo.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +173,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.data.extractors.current.export.id" value="Comma-separated (CSV)_id" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/givealot/public/assets/logo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/src/main/resources/TempDocument" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -106,7 +181,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.3941019" />
-    <property name="settings.editor.selected.configurable" value="com.diffblue.cover.intellij" />
+    <property name="settings.editor.selected.configurable" value="web.server" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -114,11 +189,11 @@
       <recent name="com.GiveaLot.givealot.Organisation.response" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\joshu\Desktop\Coding\Give-a-Lot\backend\src\main\resources\TempDocument" />
       <recent name="C:\Users\joshu\Desktop\Coding\Give-a-Lot\frontend\givealot\public\assets\logo" />
       <recent name="C:\Users\joshu\Desktop\Coding\Give-a-Lot" />
       <recent name="C:\Users\joshu\Desktop\Give-a-Lot\backend\src\main\java\com\GiveaLot\givealot\Chatbot" />
       <recent name="$PROJECT_DIR$/backend/src/main/resources/TempDocument" />
-      <recent name="C:\Users\joshu\Desktop\Give-a-Lot\backend\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\joshu\Desktop\Coding\Give-a-Lot\frontend\givealot" />
@@ -135,7 +210,7 @@
       <command value="mvn clean install" />
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.GivealotApplication">
+  <component name="RunManager" selected="Application.ServerAccess">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -147,17 +222,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrganisationServiceImpTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ServerAccess" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.GiveaLot.givealot.Server.ServerAccess" />
       <module name="givealot" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.GiveaLot.givealot.UnitTests.*" />
+          <option name="PATTERN" value="com.GiveaLot.givealot.Server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.GiveaLot.givealot.UnitTests" />
-      <option name="MAIN_CLASS_NAME" value="com.GiveaLot.givealot.UnitTests.OrganisationServiceImpTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -258,20 +331,20 @@
       <item itemvalue="Diffblue Cover.Write tests for class BlockchainServiceImpl" />
       <item itemvalue="Diffblue Cover.Write tests for class searchServiceImp" />
       <item itemvalue="Diffblue Cover.Write tests for class GivealotApplication" />
-      <item itemvalue="JUnit.OrganisationServiceImpTest" />
       <item itemvalue="JUnit.ReportServiceImplTest" />
       <item itemvalue="JUnit.searchServiceImpTest" />
       <item itemvalue="JUnit.UserServiceImpTest" />
       <item itemvalue="Python.chat" />
       <item itemvalue="Spring Boot.GivealotApplication" />
+      <item itemvalue="Application.ServerAccess" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ServerAccess" />
         <item itemvalue="Diffblue Cover.Write tests for class GivealotApplication" />
         <item itemvalue="JUnit.UserServiceImpTest" />
         <item itemvalue="JUnit.searchServiceImpTest" />
         <item itemvalue="JUnit.ReportServiceImplTest" />
-        <item itemvalue="JUnit.OrganisationServiceImpTest" />
       </list>
     </recent_temporary>
   </component>
@@ -304,14 +377,8 @@
       <workItem from="1632124340157" duration="973000" />
       <workItem from="1632125413993" duration="8503000" />
       <workItem from="1632134204054" duration="7766000" />
-      <workItem from="1632232231467" duration="6208000" />
-    </task>
-    <task id="LOCAL-00090" summary="search done">
-      <created>1631615434997</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1631615434997</updated>
+      <workItem from="1632232231467" duration="6973000" />
+      <workItem from="1632348208794" duration="3648000" />
     </task>
     <task id="LOCAL-00091" summary="search done">
       <created>1631621066180</created>
@@ -649,7 +716,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632320703784</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="Updated stuff">
+      <created>1632335008231</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1632335008231</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

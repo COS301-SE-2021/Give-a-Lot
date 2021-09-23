@@ -615,7 +615,7 @@ public class OrganisationServiceImp implements OrganisationService {
 
         String name = organisation_tmp.getOrgName();
 
-        access.uploadImageLogo(request.getOrgId(), name, request.getImage());
+        access.uploadImageLogo(request.getOrgId(), request.getImage());
 
         return new generalOrganisationResponse("add_logo_200_OK", "success");
     }
@@ -859,7 +859,7 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("Exception: add image function did not finish, organisation does not exist");
 
         String name = organisation_tmp.getOrgName();
-        access.uploadImageQRCode(request.getOrgId(), name, request.getImage());
+        access.uploadImageQRCode(request.getOrgId(), request.getImage());
         return new generalOrganisationResponse("add_qr_200_OK", "success");
     }
 
@@ -1060,29 +1060,17 @@ public class OrganisationServiceImp implements OrganisationService {
         if (organisation_tmp == null)
             throw new Exception("Exception: add image function did not finish, organisation does not exist");
 
-
-        String name = organisation_tmp.getOrgName();
-        System.out.println("======================================#1");
-        List<MultipartFile> images = request.getImages();
-
-        int numberOFNewImages = 0;
-        System.out.println("======================================#2");
-        File file = new File("backend/src/main/resources/targetFile.jpg");
-        //int numImages = organisationInfoRepository.selectOrganisationInfo(request.getOrgId()).getNumberOfImages();
         int numImages = organisationPointsRepository.getNumberOfImages(request.getOrgId());
-        System.out.println("======================================#3");
         int i = 0;
         for (; i < request.getImages().size(); i++) {
-            System.out.println("======================================#4");
-            access.uploadImageJPG(request.getOrgId(), name, request.getImages().get(i), numImages);
+            access.uploadImageJPG(request.getOrgId(), request.getImages().get(i), numImages);
             numImages++;
         }
 
-        System.out.println("======================================5");
+
         if (organisationPointsRepository.incrementImage(request.getOrgId(), numImages) != 1)
             throw new Exception("Exception: value field failed to update");
 
-        System.out.println("======================================#6");
 
         return new generalOrganisationResponse("add_img_200_OK", "success");
     }

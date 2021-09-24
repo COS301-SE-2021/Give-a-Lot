@@ -73,7 +73,7 @@ const initialState = {
     secretaryContacts:"",
     secretaryContactsError:"",
     committee:"",
-    serverDomain : 'http://0948-105-208-196-136.ngrok.io',
+    serverDomain: 'http://localhost:8080',
 
 };
 

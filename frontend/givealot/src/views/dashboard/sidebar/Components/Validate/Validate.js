@@ -15,7 +15,7 @@ export class Validate extends Component {
             valid:[],
             error: "",
             adminUserEmail:localStorage.getItem('curr_user_email'),
-            serverDomain: "http://0948-105-208-196-136.ngrok.io"
+            serverDomain: "http://localhost:8080"
         }
     }
     componentDidMount(){
@@ -30,7 +30,7 @@ export class Validate extends Component {
             "adminUserEmail" : this.state.adminUserEmail
         }
 
-        axios.post('http://0948-105-208-196-136.ngrok.io/v1/notifications/get/notifications', adminUsersRequestBody  ,config)
+        axios.post(this.state.serverDomain + '/v1/notifications/get/notifications', adminUsersRequestBody  ,config)
             .then(response =>{
                 this.setState({valid: response.data.response})
             })

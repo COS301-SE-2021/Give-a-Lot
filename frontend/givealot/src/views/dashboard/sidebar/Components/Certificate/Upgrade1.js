@@ -43,8 +43,7 @@ const initialState = {
     addressError:"",
     popUp1:false,
     popUp2:false,
-    //serverDomain: "https://3c73e752688968.localhost.run"
-    serverDomain: 'http://0948-105-208-196-136.ngrok.io'
+    serverDomain: 'http://localhost:8080',
 };
 export class Upgrade1 extends Component {
 
@@ -103,7 +102,7 @@ export class Upgrade1 extends Component {
 
             };
             Axios
-                .post( "http://localhost:8080/v1/organisation/add/website", web)
+                .post( this.state.serverDomain + "/v1/organisation/add/website", web)
                 .then(res => {
                     console.log(res)
                     this.setState({popUp1: res.data.message});
@@ -116,7 +115,7 @@ export class Upgrade1 extends Component {
                 });
 
             Axios
-                .post("http://localhost:8080/v1/organisation/add/address", add)
+                .post(this.state.serverDomain + "/v1/organisation/add/address", add)
                 .then(res =>{
                     console.log(res)
                     this.setState({popUp2: res.data.message});
@@ -133,7 +132,7 @@ export class Upgrade1 extends Component {
             };
 
             Axios
-                .post("http://localhost:8080/v1/notifications/update/notifications", notification_update_body)
+                .post(this.state.serverDomain + "/v1/notifications/update/notifications", notification_update_body)
                 .then(res => console.log(res))
                 .catch(err => console.log(err))
             // clear form

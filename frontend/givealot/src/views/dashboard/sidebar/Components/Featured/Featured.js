@@ -4,9 +4,30 @@ import Chart from "./Chart"
 import Cards from "./Cards"
 // import { userData} from "../../../../../DummyData";
 import axios from "axios";
-
+import {ApiContext, ApiUrlProvider} from "../../../../../apiContext/ApiContext";
+import Sidebar from '../../Sidebar';
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import OrganisationsDash from "../OrganisationsDash/OrganisationsDash";
+import Org from "../OrganisationsDash/Org";
+import Users from "../Users/Users";
+import Reports from "../Report/Reports";
+import Calendar from "../Calendar/Calendar";
+import Validate from "../Validate/Validate";
+import AddOrg from "../OrganisationsDash/AddOrg";
+import OrgValidate from "../Validate/OrgValidate";
+import OrganisationTimeline from "../Timeline/Timeline";
+import Profile from "../Profile/Profile";
+import Certificate from "../Certificate/Certificate";
+import Upgrade1 from "../Certificate/Upgrade1";
+import Upgrade2 from "../Certificate/Upgrade2";
+import Upgrade3 from "../Certificate/Upgrade3";
+import Upgrade4 from "../Certificate/Upgrade4";
+import Upgrade5 from "../Certificate/Upgrade5";
+import Upgrade0 from "../Certificate/Upgrade0";
+import BlurImages from "../BlurImages/BlurImages";
 export class Featured extends Component {
 
+    static contextType = ApiContext;
     constructor(props) {
         super(props)
 
@@ -16,7 +37,7 @@ export class Featured extends Component {
             userData: [],
             adminUserEmail: localStorage.getItem('curr_user_email'),
             OrgData: [],
-            serverDomain: "http://0948-105-208-196-136.ngrok.io"
+            serverDomain: "http://localhost:8080"
         }
     }
 
@@ -35,6 +56,7 @@ export class Featured extends Component {
         const UserPerMonth = {
             "adminUserEmail":this.state.adminUserEmail
         }
+
         axios.post(this.state.serverDomain + '/v1/user/get/num_users/per_month', UserPerMonth, config)
             .then(response =>{
                 // console.log(response)
@@ -173,6 +195,7 @@ export class Featured extends Component {
         const { userData, OrgData } = this.state
         return (
             <div className="featured">
+
                 <div className="featuredBody">
                     <div className="featuredTop">
                         <Cards />

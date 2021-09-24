@@ -1,8 +1,12 @@
+import {useContext, useState} from "react";
+import {FrontEndContext} from "../../apiContext/FrontEndContext";
+
 function Default404()
 {
+    const [frontEndDomain, setFrontEndDomain] = useState(useContext(FrontEndContext));
     if (localStorage.getItem("role")){
         if (localStorage.getItem("role") === "admin" || localStorage.getItem("role") === "organisation"){
-            window.location.href = "http://c294-102-250-7-72.ngrok.io/dashboard/"
+            window.location.href = frontEndDomain + "/dashboard/"
         }
     }
     return (

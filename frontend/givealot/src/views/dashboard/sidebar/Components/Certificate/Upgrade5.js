@@ -39,7 +39,7 @@ export class Upgrade5 extends Component {
             orgId:"",
             website: "",
             address:"",
-            serverDomain: 'http://0948-105-208-196-136.ngrok.io'
+            serverDomain: 'http://localhost:8080',
 
         };
     }

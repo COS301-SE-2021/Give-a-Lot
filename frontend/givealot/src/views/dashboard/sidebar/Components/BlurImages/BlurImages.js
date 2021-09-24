@@ -1,11 +1,13 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import "./Blur.css"
 import {Box, TextField} from "@material-ui/core";
 import blurredFallback from '../../../../../assets/blurredFallback.jpeg';
 import {Alert} from "@material-ui/lab";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 function BlurImages()
 {
     let [current_image, set_current_image] = useState(blurredFallback);
+    const [serverDomain, setServerDomain] = useState(useContext(ApiContext))
     const uploadImage = event =>
     {
         const form_data = new FormData();
@@ -13,10 +15,11 @@ function BlurImages()
         form_data.append('image', event.target.files[0]);
         form_data.append('type',1);
 
+        alert(serverDomain)
         document.getElementById("processing_photo_info").style.display = "flex";
 
         fetch(
-            'http://0948-105-208-196-136.ngrok.io/v1/frecognition/blur',
+            serverDomain + '/v1/frecognition/blur',
             {
                 method: 'POST',
                 body: form_data,
@@ -25,7 +28,7 @@ function BlurImages()
         .then((response) => response.json())
         .then((result) =>
         {
-            set_current_image("http://0948-105-208-196-136.ngrok.io/pixelorblur/version/" + localStorage.getItem('id'))
+            set_current_image(serverDomain + "/pixelorblur/version/" + localStorage.getItem('id'))
             document.getElementById("processing_photo_info").style.display = "none";
         })
         .catch((error) => {

@@ -33,8 +33,7 @@ export class Upgrade4 extends Component {
             imagesError:"",
             popUp1:false,
             popUp2:false,
-            //serverDomain:"https://3c73e752688968.localhost.run"
-            serverDomain: 'http://0948-105-208-196-136.ngrok.io'
+            serverDomain: 'http://localhost:8080',
 
         };
     }
@@ -56,7 +55,7 @@ export class Upgrade4 extends Component {
         let imageStates = 0;
 
         fetch(
-            'http://0948-105-208-196-136.ngrok.io/v1/organisation/add/audit',
+            this.state.serverDomain + '/v1/organisation/add/audit',
             {
                 method: 'POST',
                 body: formData,
@@ -98,7 +97,7 @@ export class Upgrade4 extends Component {
         alert("images upload -- 2");
         console.log(event.target.files)
         fetch(
-            'http://0948-105-208-196-136.ngrok.io/v1/organisation/add/image',
+            this.state.serverDomain + '/v1/organisation/add/image',
             {
                 method: 'POST',
                 body: formData_gallery_images,

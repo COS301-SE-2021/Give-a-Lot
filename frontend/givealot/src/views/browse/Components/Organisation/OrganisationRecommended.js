@@ -1,10 +1,10 @@
-import {useState} from 'react';
+import {useContext, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import {Box, Tooltip} from "@material-ui/core";
+import {ApiContext} from "../../../../apiContext/ApiContext";
 
 function trim_description(descr)
 {
-
     let acceptableLength = 84;
     if(descr !== undefined) {
 
@@ -24,8 +24,7 @@ function trim_description(descr)
 export default function OrganisationRecommended(props)
 {
     let history = useHistory();
-    const [serverDomain, setServerDomain] = useState("http://0948-105-208-196-136.ngrok.io")
-
+    const [serverDomain, setServerDomain] = useState(useContext(ApiContext))
 
     const openOrganisation = el =>
     {
@@ -51,7 +50,7 @@ export default function OrganisationRecommended(props)
                 <p className="recommended-meta-data-descr">
                     {description}
                 </p>
-                {/*<p className="sector_organisation_other">{props.dateAdded}</p>*/}
+
                 <Tooltip title="certificate level"  aria-label="add">
                     <p className="recommended-meta-data-lvl">{props.certificate_level}</p>
                 </Tooltip>

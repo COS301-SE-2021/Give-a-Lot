@@ -25,6 +25,7 @@ import AddOrg from "./sidebar/Components/OrganisationsDash/AddOrg"
 import OrgValidate from "./sidebar/Components/Validate/OrgValidate"
 import OrganisationTimeline from "./sidebar/Components/Timeline/Timeline";
 import BlurImages from "./sidebar/Components/BlurImages/BlurImages"
+import {ApiUrlProvider} from "../../apiContext/ApiContext";
 
 
 const roles = localStorage.getItem('role')
@@ -36,96 +37,104 @@ function Dashboard() {
         if(roles === 'admin')
         {
             return(
-                <Switch>
-                    <Route exact path="/dashboard">
-                        <Featured />
-                    </Route>
-                    <Route exact path="/organisations">
-                        <OrganisationsDash />
-                    </Route>
-                    <Route path="/org/:id">
-                        <Org />
-                    </Route>
-                    <Route exact path="/users">
-                        <Users />
-                    </Route>
-                    <Route exact path="/report">
-                        <Reports />
-                    </Route>
-                    <Route exact path="/calendar">
-                        <Calendar />
-                    </Route>
-                    <Route exact path="/validate">
-                        <Validate />
-                    </Route>
-                    <Route exact path="/addOrg">
-                        <AddOrg />
-                    </Route>
-                    <Route exact path="/orgValidate/:id">
-                        <OrgValidate />
-                    </Route>
-                    <Route exact path="/timeline">
-                        <OrganisationTimeline />
-                    </Route>
-                </Switch>
+
+                <ApiUrlProvider>
+                    <Router>
+                        <Switch>
+                            <Route exact path="/dashboard">
+                                <Featured />
+                            </Route>
+                            <Route exact path="/organisations">
+                                <OrganisationsDash />
+                            </Route>
+                            <Route path="/org/:id">
+                                <Org />
+                            </Route>
+                            <Route exact path="/users">
+                                <Users />
+                            </Route>
+                            <Route exact path="/report">
+                                <Reports />
+                            </Route>
+                            <Route exact path="/calendar">
+                                <Calendar />
+                            </Route>
+                            <Route exact path="/validate">
+                                <Validate />
+                            </Route>
+                            <Route exact path="/addOrg">
+                                <AddOrg />
+                            </Route>
+                            <Route exact path="/orgValidate/:id">
+                                <OrgValidate />
+                            </Route>
+                            <Route exact path="/timeline">
+                                <OrganisationTimeline />
+                            </Route>
+                        </Switch>
+                    </Router>
+                </ApiUrlProvider>
             )
         }
         else if(roles === 'organisation'){
             return(
-                <Switch>
-                    <Route exact path="/dashboard">
-                        <Profile />
-                    </Route>
-                    <Route exact path="/report">
-                        <Reports />
-                    </Route>
-                    <Route exact path="/calendar">
-                        <Calendar />
-                    </Route>
-                    {/*<Route exact path="/profile">*/}
-                    {/*    <Profile />*/}
-                    {/*</Route>*/}
-                    <Route exact path="/certificate">
-                        <Certificate />
-                    </Route>
-                    <Route exact path="/upgrade1">
-                        <Upgrade1 />
-                    </Route>
-                    <Route exact path="/upgrade2">
-                        <Upgrade2 />
-                    </Route>
-                    <Route exact path="/upgrade3">
-                        <Upgrade3 />
-                    </Route>
-                    <Route exact path="/upgrade4">
-                        <Upgrade4 />
-                    </Route>
-                    <Route exact path="/upgrade5">
-                        <Upgrade5 />
-                    </Route>
-                    <Route exact path="/upgrade0">
-                        <Upgrade0 />
-                    </Route>
-                    <Route exact path="/timeline">
-                        <OrganisationTimeline />
-                    </Route>
-                    <Route exact path="/blurImages">
-                        <BlurImages />
-                    </Route>
-                </Switch>
+            <ApiUrlProvider>
+                <Router>
+                    <Switch>
+                        <Route exact path="/dashboard">
+                            <Profile />
+                        </Route>
+                        <Route exact path="/report">
+                            <Reports />
+                        </Route>
+                        <Route exact path="/calendar">
+                            <Calendar />
+                        </Route>
+                        <Route exact path="/certificate">
+                            <Certificate />
+                        </Route>
+                        <Route exact path="/upgrade1">
+                            <Upgrade1 />
+                        </Route>
+                        <Route exact path="/upgrade2">
+                            <Upgrade2 />
+                        </Route>
+                        <Route exact path="/upgrade3">
+                            <Upgrade3 />
+                        </Route>
+                        <Route exact path="/upgrade4">
+                            <Upgrade4 />
+                        </Route>
+                        <Route exact path="/upgrade5">
+                            <Upgrade5 />
+                        </Route>
+                        <Route exact path="/upgrade0">
+                            <Upgrade0 />
+                        </Route>
+                        <Route exact path="/timeline">
+                            <OrganisationTimeline />
+                        </Route>
+                        <Route exact path="/blurImages">
+                            <BlurImages />
+                        </Route>
+                    </Switch>
+                </Router>
+            </ApiUrlProvider>
             )
         }
     }
 
     return (
-        <Router>
-            <div className="Dashboard">
-                <div className="DashboardContainer">
-                    <Sidebar />
-                    {features()}
+        <ApiUrlProvider>
+            <Router>
+                <div className="Dashboard">
+                    <div className="DashboardContainer">
+                        <Sidebar />
+                        {features()}
+                    </div>
                 </div>
-            </div>
-        </Router>
+            </Router>
+        </ApiUrlProvider>
     );
 }
 

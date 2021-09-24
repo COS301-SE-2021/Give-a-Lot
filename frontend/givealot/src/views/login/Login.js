@@ -9,10 +9,12 @@ import "./Styles/Login.css";
 import {Alert} from "@material-ui/lab";
 
 import {ApiContext} from "../../apiContext/ApiContext";
+import {FrontEndContext} from "../../apiContext/FrontEndContext";
 
 const styles = {
     main: {
         backgroundImage: `url(${backgroundImg})`
+
     }
 }
 
@@ -22,6 +24,9 @@ function Login ()
     const [email_error_message,set_email_error_message] = useState("");
     const [password_error_message,set_password_error_message] = useState("");
     const [serverDomain, setServerDomain] = useState(useContext(ApiContext));
+    const [frontEndDomain, setFrontEndDomain] = useState(useContext(FrontEndContext));
+
+    alert(serverDomain + "\n" + frontEndDomain)
 
     const validate_email_address = event =>
     {
@@ -66,17 +71,17 @@ function Login ()
                 if(response.data.jwttoken === "general")
                 {
                     document.getElementById("waitInfo").style.display = "none";
-                    window.location.href = "http://localhost:3000/";
+                    window.location.href = frontEndDomain + "/";
                 }
                 else if(response.data.jwttoken === "admin")
                 {
                     document.getElementById("waitInfo").style.display = "none";
-                    window.location.href = "http://c294-102-250-7-72.ngrok.io/dashboard/";
+                    window.location.href = frontEndDomain + "/dashboard/";
                 }
                 else if(response.data.jwttoken === "organisation")
                 {
                     document.getElementById("waitInfo").style.display = "none";
-                    window.location.href = "http://c294-102-250-7-72.ngrok.io/dashboard/";
+                    window.location.href = frontEndDomain + "/dashboard/";
                 }
             })
             .catch(error =>{

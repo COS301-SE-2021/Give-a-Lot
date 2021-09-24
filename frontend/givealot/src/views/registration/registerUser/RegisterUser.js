@@ -9,7 +9,6 @@ import {Alert} from "@material-ui/lab";
 
 import {ApiContext} from "../../../apiContext/ApiContext";
 
-
 const styles = {
     main: {
         backgroundImage: `url(${backgroundImg})`

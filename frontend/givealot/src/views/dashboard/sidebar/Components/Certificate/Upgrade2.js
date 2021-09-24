@@ -47,8 +47,7 @@ const initialState = {
     popUp1:false,
     popUp2:false,
     popUp3:false,
-    //serverDomain: "https://3c73e752688968.localhost.run"
-    serverDomain: 'http://0948-105-208-196-136.ngrok.io'
+    serverDomain: 'http://localhost:8080',
 };
 
 
@@ -82,7 +81,7 @@ export class Upgrade2 extends Component {
         formData.append('orgId', this.state.orgId);
         let imageStates = 0;
         fetch(
-            'http://0948-105-208-196-136.ngrok.io/v1/organisation/add/qrcode',
+            this.state.serverDomain + '/v1/organisation/add/qrcode',
             {
                 method: 'POST',
                 body: formData,
@@ -155,7 +154,7 @@ export class Upgrade2 extends Component {
                 date: this.state.date,
             };
             Axios
-                .post("http://0948-105-208-196-136.ngrok.io/v1/organisation/add/estdate", data)
+                .post(this.state.serverDomain + "/v1/organisation/add/estdate", data)
                 .then(res => {
                     console.log(res)
                     this.setState({popUp1: res.data.message});
@@ -172,7 +171,7 @@ export class Upgrade2 extends Component {
                 orgInfo: this.state.orgInfo,
             };
             Axios
-                .post("http://0948-105-208-196-136.ngrok.io/v1/organisation/add/donation/info", paypal)
+                .post(this.state.serverDomain + "/v1/organisation/add/donation/info", paypal)
                 .then(res => {
                     console.log(res)
                     this.setState({popUp2: res.data.message});
@@ -189,7 +188,7 @@ export class Upgrade2 extends Component {
             };
 
             Axios
-                .post("http://0948-105-208-196-136.ngrok.io/v1/notifications/update/notifications", notification_update_body)
+                .post(this.state.serverDomain + "/v1/notifications/update/notifications", notification_update_body)
                 .then(res => console.log(res))
                 .catch(err => console.log(err))
         }

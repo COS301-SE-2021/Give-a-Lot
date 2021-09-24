@@ -42,10 +42,9 @@ const initialState = {
     ngoDate:"",
     ngoNumberError:"",
     ngoDateError:"",
-    serverDomain: 'http://0948-105-208-196-136.ngrok.io',
     popUp1:false,
     popUp2:false,
-    //serverDomain : this.context,
+    serverDomain: 'http://localhost:8080',
 };
 
 
@@ -111,14 +110,14 @@ export class Upgrade0 extends Component {
             };
             console.log(data)
             Axios
-                .post("http://0948-105-208-196-136.ngrok.io/v1/organisation/add/ngopdate", data)
+                .post(this.state.serverDomain + "/v1/organisation/add/ngopdate", data)
                 .then(res => {
 
                          this.setState({popUp1: res.data.message});
                          this.onToastZero();
 
                         Axios
-                            .post("http://0948-105-208-196-136.ngrok.io/v1/notifications/update/notifications", notification_update_body)
+                            .post(this.state.serverDomain + "/v1/notifications/update/notifications", notification_update_body)
                             .then(res => console.log(res))
                             .catch(err => console.log(err))
                     }

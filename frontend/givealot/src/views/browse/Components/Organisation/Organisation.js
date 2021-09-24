@@ -1,5 +1,7 @@
 import {useHistory} from "react-router-dom";
 import {Box, Tooltip} from "@material-ui/core";
+import {useContext, useState} from "react";
+import {ApiContext} from "../../../../apiContext/ApiContext";
 
 
 function trim_description(descr)
@@ -24,7 +26,7 @@ function trim_description(descr)
 export default function Organisation(props)
 {
     let history = useHistory();
-
+    const [serverDomain, setServerDomain] = useState(useContext(ApiContext))
     const openOrganisation = el =>
     {
         el.preventDefault();
@@ -34,7 +36,7 @@ export default function Organisation(props)
     let org_image = props.imgUrl;
     if(org_image === null)
     {
-        org_image =  "http://0948-105-208-196-136.ngrok.io/logo/version/" + props.orgId ;
+        org_image =  serverDomain + "/logo/version/" + props.orgId ;
     }
 
     let description = trim_description(props.orgDescription);

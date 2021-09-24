@@ -9,8 +9,6 @@ import NotificationsOutlinedIcon from '@material-ui/icons/NotificationsOutlined'
 import axios from "axios";
 import {ApiContext} from "../../../../../apiContext/ApiContext";
 
-
-
 export class Cards extends Component {
     static contextType = ApiContext;
 
@@ -25,7 +23,7 @@ export class Cards extends Component {
             orgId: 75,
             reports: [],
             adminId: localStorage.getItem('id'),
-            serverDomain : 'http://0948-105-208-196-136.ngrok.io',
+            serverDomain: "http://localhost:8080",
         }
     }
 
@@ -56,7 +54,6 @@ export class Cards extends Component {
 
             })
             .catch(error =>{
-                // console.log(error)
                 this.setState({error : 'Error Retrieving data'})
             })
     }
@@ -72,6 +69,7 @@ export class Cards extends Component {
             const adminUsersRequestBody = {
                 "adminUserEmail": this.state.adminUserEmail
             }
+
             axios.post(this.state.serverDomain + '/v1/user/get/num_user', adminUsersRequestBody, config)
                 .then(response => {
                     // console.log(response)
@@ -97,7 +95,7 @@ export class Cards extends Component {
             const adminUsersRequestBodyOrg = {
                 "adminId" : this.state.adminId
             }
-            axios.post(this.state.serverDomain+'/v1/organisation/get/organisations',adminUsersRequestBodyOrg , config)
+            axios.post(this.state.serverDomain + '/v1/organisation/get/organisations',adminUsersRequestBodyOrg , config)
                 .then(response =>{
                     // console.log(response)
                     this.setState({ Organisations: response.data.response })
@@ -124,7 +122,7 @@ export class Cards extends Component {
         const adminUsersRequestBodyNotification = {
             "adminUserEmail" : this.state.adminUserEmail
         }
-        axios.post('http://0948-105-208-196-136.ngrok.io/v1/notifications/get/num_notifications',adminUsersRequestBodyNotification , config)
+        axios.post(this.state.serverDomain + '/v1/notifications/get/num_notifications',adminUsersRequestBodyNotification , config)
             .then(response =>{
                 // console.log(response)
                 this.setState({ notifications: response.data.response })

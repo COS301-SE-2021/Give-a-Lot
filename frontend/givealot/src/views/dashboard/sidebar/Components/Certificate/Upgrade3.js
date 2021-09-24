@@ -230,7 +230,7 @@ export class Upgrade3 extends Component {
             };
             console.log(com)
             Axios
-                .post("http://0948-105-208-196-136.ngrok.io/v1/organisation/add/committee", com)
+                .post(this.state.serverDomain + "/v1/organisation/add/committee", com)
                 .then(res => {
                     console.log(res)
                     this.setState({popUp1: res.data.message});
@@ -244,7 +244,7 @@ export class Upgrade3 extends Component {
 
             console.log(social)
             Axios
-                .post("http://0948-105-208-196-136.ngrok.io/v1/organisation/add/socials", social)
+                .post(this.state.serverDomain + "/v1/organisation/add/socials", social)
                 .then(res => {
                     console.log(res)
                     this.setState({popUp2: res.data.message});
@@ -258,7 +258,7 @@ export class Upgrade3 extends Component {
 
             console.log(social1)
             Axios
-                .post("http://0948-105-208-196-136.ngrok.io/v1/organisation/add/socials", social1)
+                .post(this.state.serverDomain + "/v1/organisation/add/socials", social1)
                 .then(res => {
                     console.log(res)
                     this.setState({popUp3: res.data.message});
@@ -271,7 +271,7 @@ export class Upgrade3 extends Component {
                 });
 
             Axios
-                .post( "http://0948-105-208-196-136.ngrok.io/v1/organisation/add/socials", social2)
+                .post( this.state.serverDomain + "/v1/organisation/add/socials", social2)
                 .then(res => {
                     console.log(res)
                     this.setState({popUp4: res.data.message});
@@ -288,7 +288,7 @@ export class Upgrade3 extends Component {
             };
 
             Axios
-                .post("http://0948-105-208-196-136.ngrok.io/v1/notifications/update/notifications", notification_update_body)
+                .post(this.state.serverDomain + "/v1/notifications/update/notifications", notification_update_body)
                 .then(res => console.log(res))
                 .catch(err => console.log(err))
 

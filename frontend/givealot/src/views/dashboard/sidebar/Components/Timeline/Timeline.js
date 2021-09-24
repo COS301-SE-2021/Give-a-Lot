@@ -1,9 +1,10 @@
 import {Box, TextField} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import Timeline from "@material-ui/lab/Timeline";
 import OrganisationTimeLineItem from "../../../../browse/Components/OrganisationTimeLineItem/OrganisationTimeLineItem";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 
 
 function useForceUpdate()
@@ -14,9 +15,11 @@ function useForceUpdate()
 
 function OrganisationTimeline()
 {
+    const [serverDomain, setServerDomain] = useState("http://localhost:8080")
     let [timelineEvents, setTimelineEvents] = useState([]);
     let [curr_organisation_id, set_curr_organisation_id] = useState(localStorage.getItem('id'));
     const forceUpdate = useForceUpdate();
+
     const addTimelineEvent = event =>
     {
         event.preventDefault();
@@ -34,7 +37,7 @@ function OrganisationTimeline()
 
         console.log(addTimeLineEventRequest)
 
-        axios.post('http://0948-105-208-196-136.ngrok.io/event/add/timeline/', addTimeLineEventRequest)
+        axios.post(serverDomain + '/event/add/timeline/', addTimeLineEventRequest)
         .then(response =>
         {
             console.log(response)
@@ -64,7 +67,7 @@ function OrganisationTimeline()
     }
 
     useEffect(() => {
-            fetch( "http://0948-105-208-196-136.ngrok.io/event/get/timeline/" + curr_organisation_id)
+            fetch( serverDomain + "/event/get/timeline/" + curr_organisation_id)
                 .then(async response =>{
 
                     const data = await response.json();

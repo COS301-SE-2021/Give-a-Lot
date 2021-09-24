@@ -52,9 +52,7 @@ export class Level2 extends Component {
             orgInfoState:false,
             qrCode:"",
             qrCodeState:false,
-            serverDomain : 'http://0948-105-208-196-136.ngrok.io',
-
-
+            serverDomain: 'http://localhost:8080',
         };
         this.handleDateChange = this.handleDateChange.bind(this);
     }
@@ -84,7 +82,7 @@ export class Level2 extends Component {
         alert("take away submit button functionality");
 
         fetch(
-            'http://0948-105-208-196-136.ngrok.io/v1/organisation/add/logo',
+            this.state.serverDomain + '/v1/organisation/add/logo',
             {
                 method: 'POST',
                 body: formData,
@@ -157,7 +155,7 @@ export class Level2 extends Component {
             }
         }
         console.log(this.props)
-        axios.get('http://0948-105-208-196-136.ngrok.io/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config) //Change the API
+        axios.get(this.state.serverDomain + '/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config) //Change the API
             .then(response =>{
                 console.log(response)
                 this.setState({level2: response.data.response})

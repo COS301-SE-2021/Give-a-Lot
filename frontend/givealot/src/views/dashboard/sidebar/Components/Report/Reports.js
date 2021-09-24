@@ -19,7 +19,7 @@ export class Reports extends Component {
             reports: [],
             orgId:localStorage.getItem("id"),
             error: "",
-            serverDomain : 'http://0948-105-208-196-136.ngrok.io',
+            serverDomain: 'http://localhost:8080',
         }
     }
     componentDidMount(){
@@ -33,7 +33,7 @@ export class Reports extends Component {
             "orgId" : this.state.orgId
         }
 
-        axios.post('http://0948-105-208-196-136.ngrok.io/report/get/all', dataa  ,config)
+        axios.post(this.state.serverDomain + '/report/get/all', dataa  ,config)
             .then(response =>{
                 this.setState({reports: response.data.object})
                 console.log(response)

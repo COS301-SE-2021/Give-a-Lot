@@ -22,7 +22,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.io.File;
 
 @SpringBootApplication
-public class GivealotApplication implements CommandLineRunner {
+public class GivealotApplication /*implements CommandLineRunner*/ {
 
     @Autowired
     OrganisationRepository organisationRepository;
@@ -50,10 +50,10 @@ public class GivealotApplication implements CommandLineRunner {
         SpringApplication.run(GivealotApplication.class, args);
     }
 
-    @Override
+   /* @Override
     public  void run(String... args) throws Exception {
         System.out.println(blockchainService.deploySmartContract());
-    }
+    }*/
 
     /** Add an organisation **/
 

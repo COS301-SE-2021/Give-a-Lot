@@ -37,15 +37,13 @@ const styles = theme => ({
 
 const initialState = {
     level0:{},
-    //orgId: 60,
     orgId:localStorage.getItem("id"),
     startDate: new Date(),
     ngoNumber:"",
     ngoNumberState:false,
     ngoDate:"",
     ngoDateState:false,
-    serverDomain : 'http://0948-105-208-196-136.ngrok.io',
-
+    serverDomain: 'http://localhost:8080',
 };
 
 
@@ -90,7 +88,7 @@ export class Level0 extends Component {
 
             console.log(data)
             Axios
-                .post("http://0948-105-208-196-136.ngrok.io/v1/organisation/add/ngopdate", data)
+                .post(this.state.serverDomain + "/v1/organisation/add/ngopdate", data)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 
@@ -114,7 +112,7 @@ export class Level0 extends Component {
             }
         }
         console.log(this.props)
-        axios.get('http://0948-105-208-196-136.ngrok.io/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config) //Change the API
+        axios.get(this.state.serverDomain + '/v1/organisation/sel/organisation/'+this.state.orgId+'/default', config) //Change the API
             .then(response =>{
                 console.log(response)
                 this.setState({level0: response.data.response})

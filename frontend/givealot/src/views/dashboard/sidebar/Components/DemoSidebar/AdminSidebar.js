@@ -64,6 +64,64 @@ function Sidebar(){
 
     function Org(){
 
+        return(
+
+            <div>
+                <div className={splitLocation[1] === "featured" ? "active" : ""}>
+                    <Link to='/featured' className="link">
+                        <li className="sidebarListItem ">
+                            <DashboardOutlinedIcon />
+                            <div className="sideIcon" > Dashboard </div>
+                        </li>
+                    </Link>
+                </div>
+
+                <div className={splitLocation[1] === "organisations" || splitLocation[1] === 'org' ? "active" : ""}>
+                    <Link to='/organisations' className="link">
+                        <li className="sidebarListItem ">
+                            <PeopleOutlineIcon />
+                            <div className="sideIcon" > Organisations </div>
+                        </li>
+                    </Link>
+                </div>
+
+                <div className={splitLocation[1] === "users" ? "active" : ""}>
+                    <Link to='/users' className="link">
+                        <li className="sidebarListItem ">
+                            <PersonOutlineIcon />
+                            <div className="sideIcon" > Users </div>
+                        </li>
+                    </Link>
+                </div>
+
+                <div className={splitLocation[1] === "validate" || splitLocation[1] === "orgValidate" ? "active" : ""}>
+                    <Link to='/validate' className="link">
+                        <li className="sidebarListItem ">
+                            <VerifiedUserOutlinedIcon />
+                            <div className="sideIcon" > Validate </div>
+                        </li>
+                    </Link>
+                </div>
+
+                <div className={splitLocation[1] === "calendar" ? "active" : ""}>
+                    <Link to='/calendar' className="link">
+                        <li className="sidebarListItem ">
+                            <CalendarTodayOutlinedIcon />
+                            <div className="sideIcon" > Calendar </div>
+                        </li>
+                    </Link>
+                </div>
+
+                <div className={splitLocation[1] === "logout" ? "active" : ""}  onClick={handleLogOut}>
+                    <Link to='/browse' className="link">
+                        <li className="sidebarListItem ">
+                            <ExitToAppOutlinedIcon/>
+                            <div className="sideIcon" > Logout </div>
+                        </li>
+                    </Link>
+                </div>
+            </div>
+        )
 
     }
 

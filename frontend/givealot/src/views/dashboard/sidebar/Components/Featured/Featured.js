@@ -25,6 +25,7 @@ import Upgrade4 from "../Certificate/Upgrade4";
 import Upgrade5 from "../Certificate/Upgrade5";
 import Upgrade0 from "../Certificate/Upgrade0";
 import BlurImages from "../BlurImages/BlurImages";
+import AdminSidebar from "../DemoSidebar/AdminSidebar";
 export class Featured extends Component {
 
     static contextType = ApiContext;
@@ -194,22 +195,30 @@ export class Featured extends Component {
     render() {
         const { userData, OrgData } = this.state
         return (
-            <div className="featured">
 
-                <div className="featuredBody">
-                    <div className="featuredTop">
-                        <Cards />
-                        <div style={{display: "flex", flexDirection: "column"}}>
-                            <div className="dashGraph">
-                                <Chart data={userData} title="Users who registered on the system" grid dataKey="Registered Users" />
-                            </div>
-                            <div className="dashGraph">
-                                <Chart data={OrgData} title="Organisations who registered on the system" grid dataKey="Registered Organisations" />
+            <div className="trythis">
+                <div>
+                    <AdminSidebar />
+                </div>
+
+                <div className="featured">
+
+                    <div className="featuredBody">
+                        <div className="featuredTop">
+                            <Cards />
+                            <div style={{display: "flex", flexDirection: "column"}}>
+                                <div className="dashGraph">
+                                    <Chart data={userData} title="Users who registered on the system" grid dataKey="Registered Users" />
+                                </div>
+                                <div className="dashGraph">
+                                    <Chart data={OrgData} title="Organisations who registered on the system" grid dataKey="Registered Organisations" />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         )
     }
 }

@@ -43,6 +43,7 @@ export class Validate extends Component {
         const { valid } = this.state
         if(valid.length === 0){
             return(
+
                 <div className="validate">
                     <div className="validateInfo">
                         Verify Information
@@ -61,6 +62,7 @@ export class Validate extends Component {
         }
         else{
             return (
+
                 <div className="validate">
                     <div className="validateInfo">
                         Verify Information

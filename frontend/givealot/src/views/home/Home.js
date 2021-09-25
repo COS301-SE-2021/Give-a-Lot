@@ -57,7 +57,7 @@ function Home()
                     <img id="logo" src={logo} alt={"logo"}/>
                     {
                         btnDisplayText === "dashboard" ?
-                        <Link to="/dashboard">
+                        <Link to="/featured">
                             <Button className="loginDashBtn" variant={"contained"}
                                     startIcon={<DashboardIcon />}>
                                 {btnDisplayText}

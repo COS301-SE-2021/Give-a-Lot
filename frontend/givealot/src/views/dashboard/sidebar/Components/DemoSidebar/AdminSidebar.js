@@ -1,32 +1,3 @@
-/*import React from 'react'
-import './Side.css'
-import {AdminData} from "./AdminData";
-
-function AdminSidebar(){
-    return(
-        <div className="AdminSidebar">
-            <ul className="UnorderedList">
-                {AdminData.map((val,key)=>{
-                    return(
-                        <li
-                            key={key}
-                            id={window.location.pathname==val.link ? "active" : "y"}
-                            onClick={()=>{window.location.pathname= val.link}}
-                            className="row"
-                        >
-
-                            <div id="sidebarIcon">{ val.icon}</div>
-                            <div id="sidebarTitle">{ val.title}</div>
-                        </li>
-                    )
-                })}
-            </ul>
-        </div>
-    )
-}
-export default AdminSidebar*/
-
-
 import React from 'react'
 import "../../styles/Sidebar.css"
 import {  Link} from "react-router-dom";
@@ -38,11 +9,11 @@ import CalendarTodayOutlinedIcon from '@material-ui/icons/CalendarTodayOutlined'
 import VerifiedUserOutlinedIcon from '@material-ui/icons/VerifiedUserOutlined';
 import Logo from "../../../../login/Components/DashLogo"
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
-import { useHistory } from "react-router-dom";
+//import { useHistory } from "react-router-dom";
 
 
 /////general organisation admin
-const roles = localStorage.getItem('role')
+//const roles = localStorage.getItem('role')
 
 function Sidebar(){
 
@@ -51,7 +22,7 @@ function Sidebar(){
         window.location.href = '/';
     }
 
-    let history = useHistory();
+    //let history = useHistory();
 
     //assigning location variable
     const location = useLocation();

@@ -1,7 +1,6 @@
 import React, {useState,useContext} from 'react';
 import {Link, useHistory,Redirect} from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-
 import backgroundImg from "../../assets/homeBackground.jpg";
 import Logo from "./Components/Logo";
 import axios from "axios"
@@ -76,12 +75,12 @@ function Login ()
                 else if(response.data.jwttoken === "admin")
                 {
                     document.getElementById("waitInfo").style.display = "none";
-                    window.location.href = frontEndDomain + "/dashboard/";
+                    window.location.href = frontEndDomain + "/featured/";
                 }
                 else if(response.data.jwttoken === "organisation")
                 {
                     document.getElementById("waitInfo").style.display = "none";
-                    window.location.href = frontEndDomain + "/dashboard/";
+                    window.location.href = frontEndDomain + "/profile/";
                 }
             })
             .catch(error =>{
@@ -97,12 +96,14 @@ function Login ()
                     {
                         document.getElementById("serverError").style.display = "flex";
                         document.getElementById("waitInfo").style.display = "none";
+
                     }
                 }
                 else
                 {
                     document.getElementById("serverError").style.display = "flex";
                     document.getElementById("waitInfo").style.display = "none";
+
                 }
             })
         }

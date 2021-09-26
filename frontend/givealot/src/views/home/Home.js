@@ -33,7 +33,11 @@ function Home()
 
             if(localStorage.getItem("id") !== undefined && localStorage.getItem("role") !== undefined)
             {
-                if(localStorage.getItem("role") === "organisation" || localStorage.getItem("role") === "admin")
+                if(localStorage.getItem("role") === "organisation" )
+                {
+                    setBtnDisplayText("portal");
+                }
+                else if( localStorage.getItem("role") === "admin")
                 {
                     setBtnDisplayText("dashboard");
                 }
@@ -56,8 +60,17 @@ function Home()
                 <Box id="homeNav">
                     <img id="logo" src={logo} alt={"logo"}/>
                     {
+                        btnDisplayText === "profile" ?
+                            <Link to="/profile">
+                                <Button className="loginDashBtn" variant={"contained"}
+                                        startIcon={<DashboardIcon />}>
+                                    {btnDisplayText}
+
+                                </Button>
+                            </Link>
+                            :
                         btnDisplayText === "dashboard" ?
-                        <Link to="/dashboard">
+                        <Link to="/featured">
                             <Button className="loginDashBtn" variant={"contained"}
                                     startIcon={<DashboardIcon />}>
                                 {btnDisplayText}

@@ -21,6 +21,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableBody from "@material-ui/core/TableBody";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
+import AdminSidebar from "../DemoSidebar/AdminSidebar";
 
 export class OrganisationsDash extends Component {
 
@@ -124,6 +125,11 @@ export class OrganisationsDash extends Component {
     render () {
         const { org, getSector, sector } = this.state
         return(
+            <div className="trythis">
+
+                <div>
+                    <AdminSidebar />
+                </div>
                 <div className="OrganisationsDash">
                     <div className="userTitle">
                         All Organisations on Givealot
@@ -243,6 +249,9 @@ export class OrganisationsDash extends Component {
                         </Grid>
                     </div>
                 </div>
+
+    </div>
+
             );
     }
 

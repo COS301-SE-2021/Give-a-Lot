@@ -14,6 +14,7 @@ import {
     ConfirmationDialog,
 } from '@devexpress/dx-react-scheduler-material-ui';
 import axios from "axios";
+import AdminSidebar from "../DemoSidebar/AdminSidebar";
 
 export default class Demo extends React.PureComponent {
     constructor(props) {
@@ -279,6 +280,10 @@ export default class Demo extends React.PureComponent {
         } = this.state;
 
         return (
+            <div className="trythis">
+                <div>
+                    <AdminSidebar />
+                </div>
             <div className="calendar">
                     <Paper>
                         <Scheduler
@@ -310,6 +315,7 @@ export default class Demo extends React.PureComponent {
                             <AppointmentForm />
                         </Scheduler>
                     </Paper>
+            </div>
             </div>
 
         );

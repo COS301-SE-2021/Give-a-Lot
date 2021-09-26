@@ -23,7 +23,7 @@ export class Org extends Component {
             open: false,
             openInvestigate: false,
             openSuspend: false,
-            serverDomain: 'http://0948-105-208-196-136.ngrok.io'
+            serverDomain: 'http://localhost:8080'
         }
         // console.log(this.state.orgId)
         // let idUrl = window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
@@ -54,7 +54,7 @@ export class Org extends Component {
             }
         }
         // console.log(this.state.orgId)
-        axios.get('http://0948-105-208-196-136.ngrok.io/v1/organisation/admin/sel/organisation/'+this.state.orgId, config)
+        axios.get(this.state.serverDomain  + '/v1/organisation/admin/sel/organisation/'+this.state.orgId, config)
             .then(response =>{
                 // console.log(response)
                 this.setState({orgS: response.data.object})
@@ -77,7 +77,7 @@ export class Org extends Component {
             orgID : window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
         }
         // console.log(activate)
-        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/activate/orgId',activate ,config)
+        axios.put(this.state.serverDomain  + '/v1/organisation/activate/orgId',activate ,config)
             .then(response =>{
                 console.log(response)
             })
@@ -101,7 +101,7 @@ export class Org extends Component {
             orgID : window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
         }
         // console.log("investigate")
-        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/investigate/orgId',investigate ,config)
+        axios.put(this.state.serverDomain  + '/v1/organisation/investigate/orgId',investigate ,config)
             .then(response =>{
                 console.log(response)
                 // this.setState({investigate: response.data})
@@ -125,7 +125,7 @@ export class Org extends Component {
             orgID : window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
         }
         // console.log("investigate")
-        axios.put('http://0948-105-208-196-136.ngrok.io/v1/organisation/suspend/orgId',suspend ,config)
+        axios.put(this.state.serverDomain  + '/v1/organisation/suspend/orgId',suspend ,config)
             .then(response =>{
                 console.log(response)
                 // this.setState({investigate: response.data})

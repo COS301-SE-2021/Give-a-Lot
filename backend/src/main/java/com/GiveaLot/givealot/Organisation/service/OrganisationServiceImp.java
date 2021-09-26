@@ -160,8 +160,10 @@ public class OrganisationServiceImp implements OrganisationService {
 
         Blockchain blockchain_get_level = blockChainRepository.selectBlockchainOrgId(orgId);
 
-        if (blockchain_get_level == null)
-            throw new Exception("fatal: level not available");
+        if (blockchain_get_level == null) {
+            //remember to uncomment this
+            //throw new Exception("fatal: level not available");
+        }
         else res.setCertificateLevel(blockchain_get_level.getLevel());
 
         OrganisationInfo get_org_socials = organisationInfoRepository.selectOrganisationInfo(orgId);

@@ -187,19 +187,21 @@ public class BrowseServiceImp implements BrowseService{
             *  get organisations for the sector
             */
             List<Organisations> tmpOrgs = browseRepository.getOrganisationsBySector(sector);
-
+            System.out.println("1================================" + sector + "================================");
             if(tmpOrgs != null && tmpOrgs.size() > 0) {
 
                 List<browseSectorOrganisation> browseSectorOrganisation = new LinkedList<>();
 
                 for (Organisations org : tmpOrgs)
                 {
+
                     Blockchain blockchain_get_level = blockChainRepository.selectBlockchainOrgId(org.getOrgId());
 
-                    long curr_lvl;
+                    long curr_lvl = -1L;
                     if(blockchain_get_level != null)
                         curr_lvl = blockchain_get_level.getLevel();
-                    else continue;
+                   // else continue; //prevents showing organisations without a known level
+
 
                     browseSectorOrganisation.add(new browseSectorOrganisation(org.getOrgId(), org.getOrgName(),org.getDateAdded(), null,(int)curr_lvl,org.getOrgDescription()));
                 }

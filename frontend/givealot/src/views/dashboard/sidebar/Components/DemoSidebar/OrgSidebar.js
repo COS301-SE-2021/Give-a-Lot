@@ -36,8 +36,8 @@ function Sidebar(){
 
             return(
                 <div>
-                    <div className={splitLocation[1] === "dashboard" ? "active" : ""}>
-                        <Link to='/dashboard' className="link">
+                    <div className={splitLocation[1] === "profile" ? "active" : ""}>
+                        <Link to='/profile' className="link">
                             <li className="sidebarListItem ">
                                 <AccountCircleOutlinedIcon />
                                 <div className="sideIcon" > Profile</div>

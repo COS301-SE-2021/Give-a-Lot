@@ -254,7 +254,7 @@ function App()
                         </Route>
 
 
-                        <Route exact path="/orgSidebar">
+                        <Route exact path="/profile">
                             <Profile />
                         </Route>
                         <Route exact path="/report">

@@ -9,6 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios'
+import AdminSidebar from "../DemoSidebar/AdminSidebar";
 
 export class Users extends Component {
 
@@ -48,6 +49,11 @@ export class Users extends Component {
     render () {
         const { users } = this.state
         return(
+            <div className="trythis">
+
+                <div>
+                    <AdminSidebar />
+                </div>
             <div className="OrganisationsDash">
                 <div className="userTitle">
                     All Basic Users on Givealot
@@ -82,6 +88,7 @@ export class Users extends Component {
                         </Grid>
                     </Grid>
                 </div>
+            </div>
             </div>
         );
     }

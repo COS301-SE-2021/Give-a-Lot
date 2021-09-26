@@ -5,7 +5,7 @@ import Cards from "./Cards"
 // import { userData} from "../../../../../DummyData";
 import axios from "axios";
 import {ApiContext, ApiUrlProvider} from "../../../../../apiContext/ApiContext";
-import Sidebar from '../../Sidebar';
+/*import Sidebar from '../../Sidebar';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import OrganisationsDash from "../OrganisationsDash/OrganisationsDash";
 import Org from "../OrganisationsDash/Org";
@@ -24,7 +24,7 @@ import Upgrade3 from "../Certificate/Upgrade3";
 import Upgrade4 from "../Certificate/Upgrade4";
 import Upgrade5 from "../Certificate/Upgrade5";
 import Upgrade0 from "../Certificate/Upgrade0";
-import BlurImages from "../BlurImages/BlurImages";
+import BlurImages from "../BlurImages/BlurImages";*/
 import AdminSidebar from "../DemoSidebar/AdminSidebar";
 export class Featured extends Component {
 

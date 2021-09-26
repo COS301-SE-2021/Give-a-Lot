@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
 import axios from "axios";
 import Typography from "@material-ui/core/Typography";
+import AdminSidebar from "../DemoSidebar/AdminSidebar";
 
 export class Validate extends Component {
 
@@ -42,7 +43,13 @@ export class Validate extends Component {
     render() {
         const { valid } = this.state
         if(valid.length === 0){
+
             return(
+                <div className="trythis">
+
+                    <div>
+                        <AdminSidebar />
+                    </div>
 
                 <div className="validate">
                     <div className="validateInfo">
@@ -58,10 +65,17 @@ export class Validate extends Component {
                         </CardContent>
                     </Card>
                 </div>
+                </div>
             )
         }
         else{
-            return (
+
+            return(
+                <div className="trythis">
+
+                    <div>
+                        <AdminSidebar />
+                    </div>
 
                 <div className="validate">
                     <div className="validateInfo">
@@ -91,6 +105,7 @@ export class Validate extends Component {
                             )
                         })}
                     </div>
+                </div>
                 </div>
             )
         }

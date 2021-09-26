@@ -330,8 +330,6 @@ public class OrganisationServiceImp implements OrganisationService {
         organisationRepository.updateRepo(id, directory);
         this.addOrgLogo(new AddOrgLogoRequest(id, organisation.getImage()));
 
-        faceRecognitionService.FaceBlur(id);
-
         organisationInfoRepository.save(new OrganisationInfo((long) id));
         organisationPointsRepository.save(new OrganisationPoints((long) id));
 

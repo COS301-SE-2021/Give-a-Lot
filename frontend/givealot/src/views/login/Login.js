@@ -80,7 +80,7 @@ function Login ()
                 else if(response.data.jwttoken === "organisation")
                 {
                     document.getElementById("waitInfo").style.display = "none";
-                    window.location.href = frontEndDomain + "/dashboard/";
+                    window.location.href = frontEndDomain + "/profile/";
                 }
             })
             .catch(error =>{

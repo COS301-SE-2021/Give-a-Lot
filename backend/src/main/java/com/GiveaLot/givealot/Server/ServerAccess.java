@@ -359,7 +359,7 @@ public class ServerAccess implements server_access{
 
             templateLocation = remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/logo.png";
 
-            File fileLocation = new File("logo.png");
+            File fileLocation = new File("logo" + orgId + ".png");
             InputStream stream = channelSftp.get(templateLocation);
             FileUtils.copyInputStreamToFile(stream, fileLocation);
 

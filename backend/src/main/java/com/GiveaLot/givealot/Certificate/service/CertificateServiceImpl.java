@@ -141,7 +141,13 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     public File retrieveCertificate(RetrieveCertificateRequest request) throws Exception {
+        System.out.println(request.getOrgId() + " --certificate-- " + request.getOrgName());
         return access.downloadCertificate(request.getOrgId(), request.getOrgName());
+    }
+
+    public File retrieveLogo(Long orgId) throws Exception {
+        System.out.println(orgId + " --logo-- " );
+        return access.downloadImageLogo(orgId);
     }
 
     @Override
@@ -295,4 +301,6 @@ public class CertificateServiceImpl implements CertificateService {
         }
         return blockchainService.compareCertificateHash(blockchain.getIndex(), blockchain.getOrgId(), certCmp);
     }
+
+
 }

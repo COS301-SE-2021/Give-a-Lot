@@ -111,7 +111,7 @@ function Browse ()
                 let orgId = organisations[i].organisations[k].orgId;
                 let orgName = organisations[i].organisations[k].orgName;
                 let dateAdded = organisations[i].organisations[k].dateAdded;
-                let imgUrl = organisations[i].organisations[k].imgUrl;
+                let imgUrl = serverDomain + "/image/logo/org/download/" + orgId;
                 let orgDescription = organisations[i].organisations[k].orgDescription;
                 let certificate_level = organisations[i].organisations[k].certificate_level;
 
@@ -192,7 +192,7 @@ function Browse ()
             let orgId = recommendedOrganisations[k].orgId;
             let orgName = recommendedOrganisations[k].orgName;
             let dateAdded = recommendedOrganisations[k].dateAdded;
-            let imgUrl = recommendedOrganisations[k].imgUrl;
+            let imgUrl = serverDomain + "/image/logo/org/download/" + orgId;
             let certificate_level = recommendedOrganisations[k].certificate_level;
             let org_sector = recommendedOrganisations[k].sector;
             let orgDescription = recommendedOrganisations[k].orgDescription;

@@ -59,7 +59,7 @@ export class VerifyCertificate extends Component {
         AlertPromptWait.style.display = "flex";
 
         fetch(
-            'http://0948-105-208-196-136.ngrok.io/certificate/compare',
+             'http://localhost:8080/certificate/compare',
             {
                 method: 'POST',
                 body: formData,

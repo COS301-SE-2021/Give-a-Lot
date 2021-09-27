@@ -19,7 +19,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 @Service
-public class ServerAccess {
+public class ServerAccess implements server_access{
 
     @Autowired
     private OrganisationInfoRepository organisationInfoRepository;
@@ -35,18 +35,25 @@ public class ServerAccess {
 
     private Session session;
 
-    private ChannelSftp setupJsch() throws JSchException {
-        JSch jsch = new JSch();
+    private JSch jsch = null;
+    ChannelSftp ChannelSftp = null;
+
+    @Override
+    public ChannelSftp setupJsch() throws JSchException {
+
+        jsch = new JSch();
         jsch.setKnownHosts("backend/src/main/java/com/GiveaLot/givealot/Server/known_hosts");
         session = jsch.getSession(username, remoteHost);
         java.util.Properties config = new java.util.Properties();
         config.put("StrictHostKeyChecking", "no");
         session.setConfig(config);
         session.setPassword(password);
-        session.connect();
-        return (ChannelSftp) session.openChannel("sftp");
+        session.connect(5000);
+        this.ChannelSftp = (ChannelSftp) session.openChannel("sftp");
+        return this.ChannelSftp;
     }
 
+    @Override
     public void createOrganisationDirectory(long orgId, String orgName) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
@@ -102,6 +109,7 @@ public class ServerAccess {
         }
     }
 
+    @Override
     public void uploadCertificate(long orgId, String orgName) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
@@ -121,6 +129,7 @@ public class ServerAccess {
         }
     }
 
+    @Override
     public void downloadCertificateTemplate(int points) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
@@ -165,6 +174,7 @@ public class ServerAccess {
 
     }
 
+    @Override
     public File downloadCertificate(long orgId, String orgName) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
@@ -190,6 +200,7 @@ public class ServerAccess {
         }
     }
 
+    @Override
     public void uploadAuditDocument(long orgId, String orgName, MultipartFile document) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
@@ -218,6 +229,7 @@ public class ServerAccess {
         }
     }
 
+    @Override
     public File downloadAuditDoc(long orgId, String orgName) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
@@ -243,6 +255,7 @@ public class ServerAccess {
         }
     }
 
+    @Override
     public void uploadImageQRCode(long orgId, MultipartFile imageMPF) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
@@ -276,6 +289,7 @@ public class ServerAccess {
         }
     }
 
+    @Override
     public void uploadImageJPG(long orgId, MultipartFile image, int numberOfImages) throws Exception {
 
         ChannelSftp channelSftp = setupJsch();
@@ -307,6 +321,7 @@ public class ServerAccess {
         }
     }
 
+    @Override
     public File downloadImageJPG(long orgId, int index) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
@@ -332,6 +347,33 @@ public class ServerAccess {
         }
     }
 
+    @Override
+    public File downloadImageLogo(long orgId) throws Exception {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            channelSftp.connect();
+
+            String orgIdString = String.valueOf(orgId);
+
+            String templateLocation;
+
+            templateLocation = remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/logo.png";
+
+            File fileLocation = new File("logo.png");
+            InputStream stream = channelSftp.get(templateLocation);
+            FileUtils.copyInputStreamToFile(stream, fileLocation);
+
+            return fileLocation;
+
+        } catch (Exception e) {
+            throw new Exception("Exception: Failed to download logo: message ------> " + e);
+        } finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+
+    @Override
     public void uploadImagePNG(long orgId, MultipartFile imageMPF) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
@@ -365,6 +407,7 @@ public class ServerAccess {
         }
     }
 
+    @Override
     public void uploadImageLogo(long orgId, MultipartFile imageMPF) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
@@ -384,8 +427,9 @@ public class ServerAccess {
 
             FileUtils.copyFile(image, new File(localFile));
 
+            System.out.println("=======================uploading logo image to server================");
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/logo.png");
-
+            System.out.println("=======================uploading logo image to server end================");
             image.delete();
         } catch (Exception e) {
             e.printStackTrace();
@@ -425,6 +469,7 @@ public class ServerAccess {
 //        }
 //    }
 
+    @Override
     public void deleteQR(long orgId) throws JSchException {
         ChannelSftp channelSftp = setupJsch();
         try {
@@ -444,6 +489,7 @@ public class ServerAccess {
         }
     }
 
+    @Override
     public void deleteLogo(long orgId) throws JSchException {
         ChannelSftp channelSftp = setupJsch();
         try {
@@ -463,6 +509,7 @@ public class ServerAccess {
         }
     }
 
+    @Override
     public void deleteImage(long orgId, int number) throws JSchException {
         ChannelSftp channelSftp = setupJsch();
         try {
@@ -482,6 +529,7 @@ public class ServerAccess {
         }
     }
 
+    @Override
     public void uploadImageAnon(long orgId, MultipartFile imageMPF, int type) throws Exception {
 
         try {
@@ -509,6 +557,7 @@ public class ServerAccess {
         }
     }
 
+    @Override
     public void uploadReport(long orgId, File report, String date) throws Exception {
 
         ChannelSftp channelSftp = setupJsch();
@@ -539,6 +588,7 @@ public class ServerAccess {
         }
     }
 
+    @Override
     public File downloadImagePNG(long orgId, int index) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {

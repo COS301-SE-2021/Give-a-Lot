@@ -1,3 +1,57 @@
+GET http://localhost:8080/certificate/download/Nqobani's%20organisation/121
+
+<> 2021-09-27T013613.200.txt
+
+###
+
+GET http://localhost:8080/certificate/download
+Content-Type: application/json
+
+{
+  "orgId" : 121,
+  "orgName" : "Nqobani's organisation"
+}
+
+<> 2021-09-27T012935.200.txt
+
+###
+
+GET http://localhost:8080/certificate/download
+Content-Type: application/json
+
+{
+  "orgId" : 121,
+  "orgName" : "Nqobani's organisation"
+}
+
+<> 2021-09-27T012545.500.json
+
+###
+
+GET http://localhost:8080/certificate/download
+Content-Type: application/json
+
+{
+  "orgId" : 121,
+  "orgName" : "Nqobani's organisation"
+}
+
+<> 2021-09-27T012139.500.json
+
+###
+
+GET http://localhost:8080/certificate/download
+Content-Type: application/json
+
+{
+  "orgId" : 121,
+  "orgName" : "Nqobani's organisation"
+}
+
+<> 2021-09-27T012104.500.json
+
+###
+
 GET http://localhost:8080/v1/browse/sectors
 
 <> 2021-09-26T155245.200.json
@@ -270,36 +324,6 @@ PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/website/
 PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/address/true
 
 <> 2021-09-18T194158.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/address/false
-
-<> 2021-09-18T194129.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/address/true
-
-<> 2021-09-18T194100.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/address/true
-
-<> 2021-09-18T193805.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/website/false
-
-<> 2021-09-18T193741.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/website/true
-
-<> 2021-09-18T193731.200.json
 
 ###
 

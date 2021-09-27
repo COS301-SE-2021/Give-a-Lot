@@ -330,7 +330,7 @@ public class OrganisationServiceImp implements OrganisationService {
         long id = organisationRepository.selectOrganisationByEmail(organisation.getOrgEmail()).getOrgId();
         String directory = "/home/ubuntu/Organisations/" + id;
         organisationRepository.updateRepo(id, directory);
-        this.addOrgLogo(new AddOrgLogoRequest(id, organisation.getImage()));
+
 
         organisationInfoRepository.save(new OrganisationInfo((long) id));
         organisationPointsRepository.save(new OrganisationPoints((long) id));
@@ -355,6 +355,10 @@ public class OrganisationServiceImp implements OrganisationService {
 
         certificateRepository.save(certificate);
         certificateService.addCertificate(id, certificate);
+
+        System.out.println("=========saving logo==========");
+        this.addOrgLogo(new AddOrgLogoRequest(id, organisation.getImage()));
+        System.out.println("=========saving logo complete==========");
 
         /**Sending a verification email**/
         System.out.println("Sending Email...");

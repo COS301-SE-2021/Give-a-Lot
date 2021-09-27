@@ -33,11 +33,6 @@ export default function Organisation(props)
         history.push("/organisation/" + el.target.id);
     }
 
-    let org_image = props.imgUrl;
-    if(org_image === null)
-    {
-        org_image =  serverDomain + "/logo/version/" + props.orgId ;
-    }
 
     let description = trim_description(props.orgDescription);
 
@@ -45,7 +40,7 @@ export default function Organisation(props)
     return(
     <Box className ="sector_organisation">
         <Tooltip title={props.orgName}  aria-label="add">
-            <img src={org_image} alt={"profile-image"} id={props.orgId} onClick={e => openOrganisation(e,"id")} />
+            <img src={props.imgUrl} alt={"profile-image"} id={props.orgId} onClick={e => openOrganisation(e,"id")} />
         </Tooltip>
         <Box className="sector_organisation_meta">
             <p className="sector_organisation_title">{props.orgName}</p>

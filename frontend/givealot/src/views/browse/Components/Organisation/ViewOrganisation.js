@@ -287,7 +287,7 @@ function ViewOrganisation()
                            <h4>{organisationData.slogan}</h4>
                        </div>
 
-                       <img src={ serverDomain + "/logo/version/" + id} id={"imageCover"}/>
+                       <img src={ serverDomain + "/image/logo/org/download/" + id} id={"imageCover"}/>
 
                        <div id={"id_social_media"}>
                            {organisationData.istagramURl ?
@@ -407,10 +407,10 @@ function ViewOrganisation()
                        <Button variant="contained" color="secondary"
                                onClick={(e) => {
                                    e.preventDefault();
-                                   window.open(serverDomain + '/cert/version/pdf/' + id);
+                                   window.open(serverDomain +'/certificate/download/' + id);
                                }}
                        >
-                           Download
+                           Download certificate
                        </Button>
                    </Box>
 

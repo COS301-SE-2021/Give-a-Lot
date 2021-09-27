@@ -2,12 +2,15 @@ package com.GiveaLot.givealot.Certificate.Controller;
 
 import com.GiveaLot.givealot.Certificate.requests.RetrieveCertificateRequest;
 import com.GiveaLot.givealot.Certificate.service.CertificateServiceImpl;
+import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
+import com.GiveaLot.givealot.Organisation.service.OrganisationServiceImp;
 import org.springframework.http.HttpHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.core.io.ByteArrayResource;
@@ -27,6 +30,9 @@ public class CertificateController {
     @Autowired
     CertificateServiceImpl service;
 
+    @Autowired
+    OrganisationRepository organisationRepo;
+
     @PostMapping("/certificate/compare")
     public ResponseEntity<Long> compareCertificate(@RequestParam("selectedFile") MultipartFile certificate) throws Exception
     {
@@ -44,11 +50,14 @@ public class CertificateController {
        }
     }
 
-    @GetMapping("/certificate/download")
-    public ResponseEntity<Resource> download(RetrieveCertificateRequest body) throws Exception {
-    File file = service.retrieveCertificate(body);
+    @GetMapping("/certificate/download/{orgId}")
+    public ResponseEntity<Resource> download(@PathVariable("orgId") Long orgId) throws Exception {
+
+        String orgName = organisationRepo.selectOrganisationById(orgId).getOrgName();
+
+        File file = service.retrieveCertificate(new RetrieveCertificateRequest(orgId,orgName));
         HttpHeaders header = new HttpHeaders();
-        header.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=img.jpg");
+        header.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=certificate.pdf");
         header.add("Cache-Control", "no-cache, no-store, must-revalidate");
         header.add("Pragma", "no-cache");
         header.add("Expires", "0");
@@ -61,5 +70,29 @@ public class CertificateController {
                 .contentLength(file.length())
                 .contentType(MediaType.parseMediaType("application/octet-stream"))
                 .body(resource);
+    }
+
+    @GetMapping("/image/logo/org/download/{orgId}")
+    public ResponseEntity<byte []> download_logo(@PathVariable("orgId") Long orgId) throws Exception {
+
+        String orgName = organisationRepo.selectOrganisationById(orgId).getOrgName();
+
+        File file = service.retrieveLogo(orgId);
+        HttpHeaders header = new HttpHeaders();
+        header.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=logo.png");
+        header.add("Cache-Control", "no-cache, no-store, must-revalidate");
+        header.add("Pragma", "no-cache");
+        header.add("Expires", "0");
+
+        Path path = Paths.get(file.getAbsolutePath());
+        ByteArrayResource resource = new ByteArrayResource(Files.readAllBytes(path));
+
+        byte [] image_as_byte_array = resource.getByteArray();
+
+
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.IMAGE_PNG)
+                .body(image_as_byte_array);
     }
 }

@@ -32,18 +32,12 @@ export default function OrganisationRecommended(props)
         history.push("/organisation/" + el.target.id);
     }
 
-    let org_image = props.imgUrl;
-    if(org_image === null)
-    {
-        org_image =  serverDomain + "/logo/version/" + props.orgId;
-    }
-
     let description = trim_description(props.orgDescription);
 
     return(
         <Box className ="recommended">
             <Tooltip title={props.orgName}  aria-label="add">
-                <img src={org_image} alt={"profile"} id={props.orgId} onClick={e => openOrganisation(e,"id")}/>
+                <img src={props.imgUrl} alt={"profile"} id={props.orgId} onClick={e => openOrganisation(e,"id")}/>
             </Tooltip>
             <Box className="recommended-meta-data-container">
                 <p className="recommended-meta-data-title">{props.orgName} - <span className="recommended-meta-data-sector">{props.org_sector}</span> </p>

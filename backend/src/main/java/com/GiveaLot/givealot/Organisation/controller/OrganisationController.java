@@ -556,7 +556,6 @@ public class OrganisationController
     @PostMapping("/add/logo") /* all good - correctness not tested yet */
     public ResponseEntity<generalOrganisationResponse> addOrgLogo(@ModelAttribute AddOrgLogoRequest request)
     {
-
         generalOrganisationResponse response;
         try
         {
@@ -565,7 +564,6 @@ public class OrganisationController
             System.out.println("=================================");
 
             response = service.addOrgLogo(new AddOrgLogoRequest(request.getOrgId(),request.getImage()));
-
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
         catch (Exception e)

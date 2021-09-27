@@ -12,6 +12,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Complete from "./Style/complete.png";
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import Axios from "axios";
+import OrgSidebar from "../DemoSidebar/OrgSidebar";
 
 const styles = theme => ({
 
@@ -74,6 +75,10 @@ export class Upgrade5 extends Component {
     render(){
 
         return (
+            <div className="trythis">
+                <div>
+                    <OrgSidebar />
+                </div>
             <div className="upgrade">
                 <div className="wrap_upgrade">
                     <div>
@@ -116,6 +121,7 @@ export class Upgrade5 extends Component {
                 </Card>
                     </div>
                 </div>
+            </div>
             </div>
         );
     }

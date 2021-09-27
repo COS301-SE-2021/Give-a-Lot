@@ -15,7 +15,6 @@ import Axios from "axios";
 import * as PropTypes from "prop-types";
 import {ApiContext} from "../../../../../apiContext/ApiContext";
 import FullPageLoader from "../Report/FullPageLoader";
-import AdminSidebar from "../DemoSidebar/AdminSidebar";
 import OrgSidebar from "../DemoSidebar/OrgSidebar";
 
 

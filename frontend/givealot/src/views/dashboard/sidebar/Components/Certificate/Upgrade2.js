@@ -14,6 +14,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Axios from "axios";
 import TextField from "@material-ui/core/TextField";
 import {ApiContext} from "../../../../../apiContext/ApiContext";
+import OrgSidebar from "../DemoSidebar/OrgSidebar";
 
 const styles = theme => ({
 
@@ -252,104 +253,109 @@ export class Upgrade2 extends Component {
 
 
         return (
+            <div className="trythis">
+                <div>
+                    <OrgSidebar />
+                </div>
             <div className="upgrade">
                 <div className="wrap_upgrade">
                     <div>
-                <div className="upgradeTitle">
-                    <p className="upgradeTitle1">Current level:</p>
-                    <p className="upgradeTitle2">Two</p>
-                </div>
-
-                <div className="progress">
-                    <div className="progress_complete"/>
-                    <div className="progress_complete"/>
-                    <div className="progress_empty"/>
-                    <div className="progress_empty"/>
-                    <div className="progress_empty"/>
-                    <div className="progress6"> <StarOutlineIcon fontSize="large"/></div>
-                </div>
-
-                <Card className="upgrade_card1" variant="outlined">
-                    <CardContent>
-                        <div className={classes.root}>
-                            <form onSubmit={this.handleFormSubmit}>
-                                <span className="upgrade_header1">
-                                    Additional credentials needed to Upgrade to level 3
-                                 </span>
-                                <div>
-
-                                    <div >
-                                        <span className="upgrade_label">
-                                            Establishment date
-                                         </span>
-                                        <DatePicker
-
-                                            className="upgrade_date input3"
-                                            selected={ this.state.startDate }
-                                            onChange={ this.handleDateChange }
-                                            name="startDate"
-                                            dateFormat="yyyy/MM/dd"
-                                            fullWidth
-
-
-                                        />
-
-                                    </div>
-                                    <span className="loginError_certificate">{this.state.dateError}</span>
-                                    <div>
-                                    <TextField
-                                        id="outlined-full-width"
-                                        label="Paypal link"
-                                        name="orgInfo"
-                                        style={{ margin: 8 }}
-                                        placeholder="Enter  paypal link..."
-                                        fullWidth
-                                        margin="normal"
-                                        InputLabelProps={{
-                                            shrink: true,
-                                        }}
-                                        variant="outlined"
-                                        onChange={this.handleInputChange}
-                                    />
-                                        </div>
-                                    <span className="loginError_certificate">{this.state.paypalError}</span>
-                                    <div>
-                                        <span className="upgrade_label_logo">
-                                            QR code
-                                         </span>
-                                        <input
-                                            className="upgrade_logo"
-                                            type="file"
-                                            name="Qrcode"
-                                            onChange={this.handleChange}
-                                        />
-
-                                    </div>
-                                    <span className="loginError_certificate">{this.state.qrError}</span>
-
-                                </div>
-                                <div className="empty_space">
-                                    empty space
-                                </div>
-                                <div className="upgrade_Button">
-                                    <button className="upgrade-btn" type="submit">
-                                        Submit
-                                    </button>
-                                </div>
-                                <div className="form-group">
-                                    <ToastContainer/>
-                                </div>
-
-                            </form>
+                        <div className="upgradeTitle">
+                            <p className="upgradeTitle1">Current level:</p>
+                            <p className="upgradeTitle2">Two</p>
                         </div>
 
-                    </CardContent>
+                        <div className="progress">
+                            <div className="progress_complete"/>
+                            <div className="progress_complete"/>
+                            <div className="progress_empty"/>
+                            <div className="progress_empty"/>
+                            <div className="progress_empty"/>
+                            <div className="progress6"> <StarOutlineIcon fontSize="large"/></div>
+                        </div>
 
-                </Card>
+                        <Card className="upgrade_card1" variant="outlined">
+                            <CardContent>
+                                <div className={classes.root}>
+                                    <form onSubmit={this.handleFormSubmit}>
+                                        <span className="upgrade_header1">
+                                            Additional credentials needed to Upgrade to level 3
+                                         </span>
+                                        <div>
+
+                                            <div >
+                                                <span className="upgrade_label">
+                                                    Establishment date
+                                                 </span>
+                                                <DatePicker
+
+                                                    className="upgrade_date input3"
+                                                    selected={ this.state.startDate }
+                                                    onChange={ this.handleDateChange }
+                                                    name="startDate"
+                                                    dateFormat="yyyy/MM/dd"
+                                                    fullWidth
 
 
-            </div>
+                                                />
+
+                                            </div>
+                                            <span className="loginError_certificate">{this.state.dateError}</span>
+                                            <div>
+                                            <TextField
+                                                id="outlined-full-width"
+                                                label="Paypal link"
+                                                name="orgInfo"
+                                                style={{ margin: 8 }}
+                                                placeholder="Enter  paypal link..."
+                                                fullWidth
+                                                margin="normal"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                                variant="outlined"
+                                                onChange={this.handleInputChange}
+                                            />
+                                                </div>
+                                            <span className="loginError_certificate">{this.state.paypalError}</span>
+                                            <div>
+                                                <span className="upgrade_label_logo">
+                                                    QR code
+                                                 </span>
+                                                <input
+                                                    className="upgrade_logo"
+                                                    type="file"
+                                                    name="Qrcode"
+                                                    onChange={this.handleChange}
+                                                />
+
+                                            </div>
+                                            <span className="loginError_certificate">{this.state.qrError}</span>
+
+                                        </div>
+                                        <div className="empty_space">
+                                            empty space
+                                        </div>
+                                        <div className="upgrade_Button">
+                                            <button className="upgrade-btn" type="submit">
+                                                Submit
+                                            </button>
+                                        </div>
+                                        <div className="form-group">
+                                            <ToastContainer/>
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            </CardContent>
+
+                        </Card>
+
+
+                    </div>
                 </div>
+            </div>
             </div>
         );
     }

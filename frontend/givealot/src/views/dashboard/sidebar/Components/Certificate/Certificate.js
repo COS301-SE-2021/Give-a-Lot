@@ -7,6 +7,7 @@ import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import SaveIcon from '@material-ui/icons/Save';
 import axios from "axios";
 import {BeatLoader} from "react-spinners";
+import OrgSidebar from "../DemoSidebar/OrgSidebar";
 
 
 const styles = theme => ({
@@ -151,6 +152,10 @@ export class Certificate extends Component {
         }
 
     return (
+        <div className="trythis">
+            <div>
+                <OrgSidebar />
+            </div>
         <div className="certificate">
             {spinner}
 
@@ -179,6 +184,7 @@ export class Certificate extends Component {
             <div className="display">
                 <img src={this.state.serverDomain + "/cert/version/png/" + this.state.orgId} alt={"certificate"} height={546} width={713}/>
             </div>
+        </div>
         </div>
     );
     }

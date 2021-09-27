@@ -38,6 +38,7 @@ import Upgrade5 from "./views/dashboard/sidebar/Components/Certificate/Upgrade5"
 import Upgrade0 from "./views/dashboard/sidebar/Components/Certificate/Upgrade0";
 import BlurImages from "./views/dashboard/sidebar/Components/BlurImages/BlurImages";
 import AdminSidebar from "./views/dashboard/sidebar/Components/DemoSidebar/AdminSidebar";
+import OrgCalendar from "./views/dashboard/sidebar/Components/OrgCalender/OrgCalendar";
 
 function App()
 {
@@ -260,8 +261,8 @@ function App()
                         <Route exact path="/report">
                             <Reports />
                         </Route>
-                        <Route exact path="/calendar">
-                            <Calendar />
+                        <Route exact path="/orgcalendar">
+                            <OrgCalendar />
                         </Route>
                         <Route exact path="/certificate">
                             <Certificate />

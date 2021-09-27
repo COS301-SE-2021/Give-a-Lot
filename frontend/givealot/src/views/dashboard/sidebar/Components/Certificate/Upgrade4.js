@@ -10,6 +10,7 @@ import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import {ApiContext} from "../../../../../apiContext/ApiContext";
+import OrgSidebar from "../DemoSidebar/OrgSidebar";
 
 const styles =theme => ({
 
@@ -192,6 +193,10 @@ export class Upgrade4 extends Component {
         const { classes } = this.props;
 
         return (
+            <div className="trythis">
+                <div>
+                    <OrgSidebar />
+                </div>
             <div className="upgrade">
                 <div className="wrap_upgrade">
                     <div>
@@ -273,6 +278,7 @@ export class Upgrade4 extends Component {
                 </Card>
                     </div>
                 </div>
+            </div>
             </div>
         );
     }

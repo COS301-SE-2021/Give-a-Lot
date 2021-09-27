@@ -81,8 +81,8 @@ function Sidebar(){
                         </Link>
                     </div>
 
-                    <div className={splitLocation[1] === "calendar" ? "active" : ""}>
-                        <Link to='/calendar' className="link">
+                    <div className={splitLocation[1] === "orgcalendar" ? "active" : ""}>
+                        <Link to='/orgcalendar' className="link">
                             <li className="sidebarListItem ">
                                 <CalendarTodayOutlinedIcon />
                                 <div className="sideIcon" > Calendar </div>

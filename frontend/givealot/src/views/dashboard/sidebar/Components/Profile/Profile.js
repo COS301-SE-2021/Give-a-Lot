@@ -15,6 +15,7 @@ import Axios from "axios";
 import * as PropTypes from "prop-types";
 import {ApiContext} from "../../../../../apiContext/ApiContext";
 import FullPageLoader from "../Report/FullPageLoader";
+import OrgSidebar from "../DemoSidebar/OrgSidebar";
 
 
 function CancelOutlinedIcon() {
@@ -31,7 +32,6 @@ export class Profile extends Component {
 
         this.state = {
             persons:{},
-            level: 5,
             orgId:localStorage.getItem("id"),
             //orgId: 75,
             orgEmail:"",
@@ -460,6 +460,11 @@ export class Profile extends Component {
 
 
         return (
+            <div className="trythis">
+                <div>
+                    <OrgSidebar />
+                </div>
+
             <div className="profileOrg">
                 <div className="userTitleContainer">
                     <div className="userTitle">Edit Information</div>
@@ -592,7 +597,7 @@ export class Profile extends Component {
                 </div>
                 <div className="line">
                     <div className="profile_line"/>
-                    <div className="line_title"> Profile Updates </div>
+                    <div className="line_title"> Profile Information </div>
                     <div className="profile_line"/>
 
                 </div>
@@ -601,6 +606,7 @@ export class Profile extends Component {
                 { auto_spinner}
 
 
+            </div>
             </div>
         )
     }

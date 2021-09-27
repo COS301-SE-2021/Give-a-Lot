@@ -16,6 +16,7 @@ import Select from '@material-ui/core/Select';
 import TextField from "@material-ui/core/TextField";
 import Axios from "axios";
 import {ApiContext} from "../../../../../apiContext/ApiContext";
+import OrgSidebar from "../DemoSidebar/OrgSidebar";
 
 
 const styles = theme => ({
@@ -374,6 +375,10 @@ export class Upgrade3 extends Component {
 
 
         return (
+            <div className="trythis">
+                <div>
+                    <OrgSidebar />
+                </div>
             <div className="upgrade">
                 <div className="wrap_upgrade">
                     <div>
@@ -722,6 +727,7 @@ export class Upgrade3 extends Component {
                 </Card>
                     </div>
                 </div>
+            </div>
             </div>
         );
     }

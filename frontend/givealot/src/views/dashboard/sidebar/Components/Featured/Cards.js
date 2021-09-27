@@ -46,7 +46,7 @@ export class Cards extends Component {
             // "orgId":"id of an organisation"
             "orgId" : this.state.orgId
         }
-        // alert(this.state.serverDomain)
+
         axios.post(this.state.serverDomain+'/report/get/all', adminUsersRequestBodyReports, config)
             .then(response =>{
                 // console.log(response)

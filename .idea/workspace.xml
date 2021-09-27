@@ -4,22 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="no change">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/server_access.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="remote server modifications and change in the way we store and load our resources.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TempCompareCertificate.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/TempCompareCertificate.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/Controller/CertificateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/Controller/CertificateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/service/CertificateServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/controller/OrganisationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/TempDocument/image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/Organisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/Organisation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/OrganisationRecommended.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/OrganisationRecommended.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/verifyCertificate/VerifyCertificate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/verifyCertificate/VerifyCertificate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Cards.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,17 +100,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="generated-requests#73" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="73" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -149,9 +127,9 @@
       <item itemvalue="HTTP Request.generated-requests#81" />
       <item itemvalue="HTTP Request.generated-requests#83" />
       <item itemvalue="HTTP Request.generated-requests#92" />
+      <item itemvalue="HTTP Request.generated-requests#94" />
       <item itemvalue="Python.chat" />
       <item itemvalue="Spring Boot.GivealotApplication" />
-      <item itemvalue="HTTP Request.generated-requests#94" />
     </list>
     <recent_temporary>
       <list>
@@ -194,14 +172,8 @@
       <workItem from="1632370946202" duration="1509000" />
       <workItem from="1632487240058" duration="10055000" />
       <workItem from="1632660824102" duration="8282000" />
-      <workItem from="1632676627256" duration="17377000" />
-    </task>
-    <task id="LOCAL-00096" summary="finalizing frontend&#10;backend updates to add organisation">
-      <created>1631884114723</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1631884114723</updated>
+      <workItem from="1632676627256" duration="18632000" />
+      <workItem from="1632735543437" duration="2722000" />
     </task>
     <task id="LOCAL-00097" summary="dedicated organisaiton select for admin users">
       <created>1631906528649</created>
@@ -539,7 +511,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632681356443</updated>
     </task>
-    <option name="localTasksCounter" value="145" />
+    <task id="LOCAL-00145" summary="remote server modifications and change in the way we store and load our resources.">
+      <created>1632709366895</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1632709366895</updated>
+    </task>
+    <option name="localTasksCounter" value="146" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -558,7 +537,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="registration - upload photo" />
     <MESSAGE value="registration reiteration" />
     <MESSAGE value="beautifying search" />
     <MESSAGE value="beautifying search - search implementation styling" />
@@ -583,7 +561,8 @@
     <MESSAGE value="uncommitted changes" />
     <MESSAGE value="dash bug fix - Alexis take over" />
     <MESSAGE value="no change" />
-    <option name="LAST_COMMIT_MESSAGE" value="no change" />
+    <MESSAGE value="remote server modifications and change in the way we store and load our resources." />
+    <option name="LAST_COMMIT_MESSAGE" value="remote server modifications and change in the way we store and load our resources." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

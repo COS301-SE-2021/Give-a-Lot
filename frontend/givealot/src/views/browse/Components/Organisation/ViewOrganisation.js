@@ -117,6 +117,8 @@ function ViewOrganisation()
             description : reportDescription
         }
 
+
+
         if(userId === "default")
         {
             alert("please sign in if you want to report an organisation");
@@ -124,6 +126,8 @@ function ViewOrganisation()
         }
         else
         {
+            alert("reporting " + orgId)
+            console.log(reportRequest)
             axios.post(serverDomain + '/report/org/', reportRequest)
                 .then(response =>
                 {

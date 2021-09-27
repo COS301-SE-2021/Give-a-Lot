@@ -4,6 +4,7 @@ import {Box, TextField} from "@material-ui/core";
 import blurredFallback from '../../../../../assets/blurredFallback.jpeg';
 import {Alert} from "@material-ui/lab";
 import {ApiContext} from "../../../../../apiContext/ApiContext";
+import OrgSidebar from "../DemoSidebar/OrgSidebar";
 function BlurImages()
 {
     let [current_image, set_current_image] = useState(blurredFallback);
@@ -37,6 +38,10 @@ function BlurImages()
     }
 
     return (
+        <div className="trythis">
+            <div>
+                <OrgSidebar />
+            </div>
         <div className="blur">
             <Box id={"blur-image-container"}>
                 <p>
@@ -62,6 +67,7 @@ function BlurImages()
                 </Box>
 
             </Box>
+        </div>
         </div>
     );
 }

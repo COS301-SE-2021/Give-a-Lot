@@ -6,6 +6,7 @@ import {ApiContext} from "../../../../../apiContext/ApiContext";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
+import OrgSidebar from "../DemoSidebar/OrgSidebar";
 
 
 
@@ -47,17 +48,12 @@ export class Reports extends Component {
     render() {
 
         const { reports } = this.state
-        if (this.state.count===null){
-            return (
-                <div className="report">
-                    <h1 className="non">
-                        You do not have any reports
-                    </h1>
-                </div>
-            )
-        }
-        else if(reports.length === 0){
+     if(reports.length === 0){
             return(
+                <div className="trythis">
+                    <div>
+                        <OrgSidebar />
+                    </div>
                 <div className="report">
                     <div className="reportHeader">
                         Reports list
@@ -72,11 +68,16 @@ export class Reports extends Component {
                         </CardContent>
                     </Card>
                 </div>
+                </div>
             )
         }
 
         else{
             return (
+                <div className="trythis">
+                    <div>
+                        <OrgSidebar />
+                    </div>
                 <div className="report">
                     <div className="reportHeader">
                         Reports list
@@ -97,6 +98,7 @@ export class Reports extends Component {
 
                     </div>
 
+                </div>
                 </div>
 
             )

@@ -10,6 +10,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import Dialog from "@material-ui/core/Dialog";
 import { Link } from "react-router-dom";
+import AdminSidebar from "../DemoSidebar/AdminSidebar";
 
 export class Org extends Component {
 
@@ -140,6 +141,10 @@ export class Org extends Component {
         const { orgS } = this.state
         // const orgid = window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
         return (
+            <div className="trythis">
+                <div>
+                    <AdminSidebar />
+                </div>
             <div className="org">
                 <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" style={{width: "100%", height: "30%"}}/>
                 <div className="orgCard">
@@ -273,6 +278,7 @@ export class Org extends Component {
 
                     </Card>
                 </div>
+            </div>
             </div>
         )
     }

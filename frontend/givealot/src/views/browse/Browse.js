@@ -70,7 +70,7 @@ function Browse ()
                 }
                 else if(response.status === 401)
                 {
-                    alert("this token is unauthorized"); /* take them back to login */
+
                 }
 
                 if(typeof data !== 'undefined')
@@ -86,13 +86,13 @@ function Browse ()
             }
             else
             {
-                alert("error occured: " + data.code);
+
                 setOrganisations([]);
             }
         })
         
         .catch(error => {
-            alert("failed - organisations - sector")
+
         });
     }
     ,[])
@@ -171,13 +171,12 @@ function Browse ()
                     }
                     else
                     {
-                        alert("error occured: " + data.code);
                         setRecommendedOrganisations([]);
                     }
                 })
 
                 .catch(error => {
-                    alert("failed - organisations - recommendations")
+
                 });
         }
         ,[])

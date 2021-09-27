@@ -171,7 +171,7 @@ export class Certificate extends Component {
                         startIcon={<SaveIcon />}
                         onClick={(e) => {
                             e.preventDefault();
-                            window.open(this.state.serverDomain + '/cert/version/pdf/' + this.state.orgId);
+                            window.open(this.state.serverDomain +'/certificate/download/' + this.state.orgId);
                         }}
                     >
                         Download

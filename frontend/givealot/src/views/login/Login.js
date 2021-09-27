@@ -25,7 +25,6 @@ function Login ()
     const [serverDomain, setServerDomain] = useState(useContext(ApiContext));
     const [frontEndDomain, setFrontEndDomain] = useState(useContext(FrontEndContext));
 
-    alert(serverDomain + "\n" + frontEndDomain)
 
     const validate_email_address = event =>
     {

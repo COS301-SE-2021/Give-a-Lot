@@ -7,20 +7,19 @@ import Timeline from "@material-ui/lab/Timeline";
 import OrganisationTimeLineItem from "../../../../browse/Components/OrganisationTimeLineItem/OrganisationTimeLineItem";
 import {ApiContext} from "../../../../../apiContext/ApiContext";
 import OrgSidebar from "../DemoSidebar/OrgSidebar";
+import {FrontEndContext} from "../../../../../apiContext/FrontEndContext";
 
 
-function useForceUpdate()
-{
-    const [value, setValue] = useState(0); // integer state
-    return () => setValue(value => value + 1); // update the state to force render
-}
+
 
 function OrganisationTimeline()
 {
     const [serverDomain, setServerDomain] = useState("http://localhost:8080")
     let [timelineEvents, setTimelineEvents] = useState([]);
     let [curr_organisation_id, set_curr_organisation_id] = useState(localStorage.getItem('id'));
-    const forceUpdate = useForceUpdate();
+    const [frontEndDomain, setFrontEndDomain] = useState("http://localhost:3000");
+
+
 
     const addTimelineEvent = event =>
     {
@@ -47,7 +46,7 @@ function OrganisationTimeline()
             {
                 if(response.data.message.includes("success"))
                 {
-
+                    window.location.href = frontEndDomain + "/timeline";
                 }
                 else
                 {
@@ -57,6 +56,7 @@ function OrganisationTimeline()
         })
         .catch(error =>
         {
+            alert("error")
             if(error.response)
             {
                 console.log(error.response)
@@ -170,7 +170,7 @@ function OrganisationTimeline()
                     <Button
                         variant={"contained"}
                         color={"secondary"}
-                        onClick={forceUpdate}
+                        onClick={addTimelineEvent}
                     >
                         add event
                     </Button>

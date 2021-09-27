@@ -110,6 +110,7 @@ function ViewOrganisation()
         let reportType = document.getElementById("report-title-input").value;
         let reportDescription = document.getElementById("report-description-input").value;
 
+
         let reportRequest = {
             orgId : orgId,
             userId : userId,
@@ -119,15 +120,13 @@ function ViewOrganisation()
 
 
 
-        if(userId === "default")
+        if(userId === null || userId === "default")
         {
             alert("please sign in if you want to report an organisation");
             window.location.assign("/login");
         }
         else
         {
-            alert("reporting " + orgId)
-            console.log(reportRequest)
             axios.post(serverDomain + '/report/org/', reportRequest)
                 .then(response =>
                 {

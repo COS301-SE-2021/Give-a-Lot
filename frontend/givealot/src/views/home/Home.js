@@ -60,7 +60,7 @@ function Home()
                 <Box id="homeNav">
                     <img id="logo" src={logo} alt={"logo"}/>
                     {
-                        btnDisplayText === "profile" ?
+                        btnDisplayText === "portal" ?
                             <Link to="/profile">
                                 <Button className="loginDashBtn" variant={"contained"}
                                         startIcon={<DashboardIcon />}>

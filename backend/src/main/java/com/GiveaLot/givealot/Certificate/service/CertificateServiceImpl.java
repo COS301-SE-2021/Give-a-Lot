@@ -145,6 +145,12 @@ public class CertificateServiceImpl implements CertificateService {
         return access.downloadCertificate(request.getOrgId(), request.getOrgName());
     }
 
+    @Override
+    public File retrieveCertificateAsPNG(RetrieveCertificateRequest request) throws Exception {
+        System.out.println(request.getOrgId() + " --certificate png-- " + request.getOrgName());
+        return access.downloadCertificatePNG(request.getOrgId(), request.getOrgName());
+    }
+
     public File retrieveLogo(Long orgId) throws Exception {
         System.out.println(orgId + " --logo-- " );
         return access.downloadImageLogo(orgId);

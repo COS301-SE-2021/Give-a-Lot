@@ -166,7 +166,7 @@ public class ServerAccess implements server_access{
             return fileLocation;
 
         } catch (Exception e) {
-            throw new Exception("Exception: Failed to download certificate");
+            throw new Exception("Exception: Failed to download certificate " + e);
         } finally {
             channelSftp.exit();
             session.disconnect();

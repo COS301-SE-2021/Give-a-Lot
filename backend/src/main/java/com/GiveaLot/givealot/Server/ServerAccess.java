@@ -128,6 +128,95 @@ public class ServerAccess implements server_access{
             session.disconnect();
         }
     }
+    @Override
+    public void uploadCertificatePNG(long orgId, String orgName) throws Exception {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+
+            channelSftp.connect();
+
+            String orgIdString = String.valueOf(orgId);
+            String localFile = "backend/src/main/resources/localFiles/" + orgIdString + "/certificate/CertificateImage.png";
+
+            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Certificates" + "/" + orgName.replaceAll("\\s+", "") + "CertificateImage.png");
+
+        } catch (Exception e) {
+            throw new Exception("Exception: Failed to interact with the server");
+        } finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+    @Override
+    public File downloadCertificatePNG(long orgId, String orgName) throws Exception {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            channelSftp.connect();
+
+            String orgIdString = String.valueOf(orgId);
+
+            String templateLocation;
+
+            templateLocation = remoteDir + "Organisations/" + orgIdString + "/" + "Certificates" + "/" + orgName.replaceAll("\\s+", "") + "CertificateImage.png";
+
+            File fileLocation = new File(orgName.replaceAll("\\s+", "") + "CertificateImage.png");
+            InputStream stream = channelSftp.get(templateLocation);
+            FileUtils.copyInputStreamToFile(stream, fileLocation);
+
+            return fileLocation;
+
+        } catch (Exception e) {
+            throw new Exception("Exception: Failed to download certificate");
+        } finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+
+    @Override
+    public void uploadBlurredImage(long orgId, String orgName) throws Exception {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+
+            channelSftp.connect();
+
+            String orgIdString = String.valueOf(orgId);
+            String localFile = "backend/src/main/resources/localFiles/" + orgIdString + "/gallery/blur.jpg";
+
+            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery" + "/" + orgName.replaceAll("\\s+", "") + "blur.jpg");
+
+        } catch (Exception e) {
+            throw new Exception("Exception: Failed to interact with the server");
+        } finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+    @Override
+    public File downloadBlurredImage(long orgId, String orgName) throws Exception {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            channelSftp.connect();
+
+            String orgIdString = String.valueOf(orgId);
+
+            String templateLocation;
+
+            templateLocation = remoteDir + "Organisations/" + orgIdString + "/" + "Gallery" + "/" + orgName.replaceAll("\\s+", "") + "blur.jpg";
+
+            File fileLocation = new File(orgName.replaceAll("\\s+", "") + "blur.jpg");
+            InputStream stream = channelSftp.get(templateLocation);
+            FileUtils.copyInputStreamToFile(stream, fileLocation);
+
+            return fileLocation;
+
+        } catch (Exception e) {
+            throw new Exception("Exception: Failed to download certificate");
+        } finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
 
     @Override
     public void downloadCertificateTemplate(int points) throws Exception {
@@ -288,6 +377,33 @@ public class ServerAccess implements server_access{
             session.disconnect();
         }
     }
+
+    @Override
+    public File downloadImageQRCode(long orgId) throws Exception {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            channelSftp.connect();
+
+            String orgIdString = String.valueOf(orgId);
+
+            String templateLocation;
+
+            templateLocation = remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/QRCode.png";
+
+            File fileLocation = new File("QRCode" + orgId + ".png");
+            InputStream stream = channelSftp.get(templateLocation);
+            FileUtils.copyInputStreamToFile(stream, fileLocation);
+
+            return fileLocation;
+
+        } catch (Exception e) {
+            throw new Exception("Exception: Failed to download logo: message ------> " + e);
+        } finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+
 
     @Override
     public void uploadImageJPG(long orgId, MultipartFile image, int numberOfImages) throws Exception {

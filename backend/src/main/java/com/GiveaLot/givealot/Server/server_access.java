@@ -50,4 +50,10 @@ public interface server_access {
     File downloadCertificatePNG(long orgId, String orgName) throws Exception;
 
     void uploadCertificatePNG(long orgId, String orgName) throws Exception;
+
+    File downloadBlurredImage(long orgId, String orgName) throws Exception;
+
+    public void uploadBlurredImage(long orgId, String orgName) throws Exception;
+
+
 }

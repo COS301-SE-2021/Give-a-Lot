@@ -209,6 +209,7 @@ public class CertificateServiceImpl implements CertificateService {
         imageCreator(completeCertificate, organisation.getOrgId());
 
         access.uploadCertificate(organisation.getOrgId(), organisation.getOrgName());
+        access.uploadCertificatePNG(organisation.getOrgId(), organisation.getOrgName());
 
         File deletion1 = new File(templateCertificate);
 

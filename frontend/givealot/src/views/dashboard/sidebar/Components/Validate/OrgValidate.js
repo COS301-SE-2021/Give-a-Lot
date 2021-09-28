@@ -9,6 +9,7 @@ import axios from "axios";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import Dialog from "@material-ui/core/Dialog";
+import AdminSidebar from "../DemoSidebar/AdminSidebar";
 
 export class OrgValidate extends Component {
 
@@ -1070,6 +1071,10 @@ export class OrgValidate extends Component {
         }
 
         return (
+            <div className="trythis">
+                <div>
+                    <AdminSidebar />
+                </div>
             <div className="validate">
                 <div className="validBody">
                     <div  className="name">
@@ -1077,6 +1082,7 @@ export class OrgValidate extends Component {
                     </div>
                     {orgValidating()}
                 </div>
+            </div>
             </div>
         )
     }

@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="no changes">
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="slight update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Events/repository/TimelineRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Events/repository/TimelineRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TempCompareCertificate.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/TempCompareCertificate.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Certificate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Certificate/Certificate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Featured/Cards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/Org.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/OrganisationsDash/Org.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Timeline/Timeline.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Timeline/Timeline.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/login/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/chatbot/Chatbot.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/chatbot/Chatbot.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/home/Home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,10 +127,10 @@
       <item itemvalue="HTTP Request.generated-requests#83" />
       <item itemvalue="HTTP Request.generated-requests#92" />
       <item itemvalue="HTTP Request.generated-requests#94" />
-      <item itemvalue="Python.chat" />
-      <item itemvalue="Spring Boot.GivealotApplication" />
       <item itemvalue="HTTP Request.generated-requests#99" />
       <item itemvalue="HTTP Request.generated-requests#100" />
+      <item itemvalue="Python.chat" />
+      <item itemvalue="Spring Boot.GivealotApplication" />
     </list>
     <recent_temporary>
       <list>
@@ -179,14 +174,8 @@
       <workItem from="1632487240058" duration="10055000" />
       <workItem from="1632660824102" duration="8282000" />
       <workItem from="1632676627256" duration="18632000" />
-      <workItem from="1632735543437" duration="7603000" />
-    </task>
-    <task id="LOCAL-00098" summary="dedicated organisaiton select for admin users">
-      <created>1631906781397</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1631906781397</updated>
+      <workItem from="1632735543437" duration="11869000" />
+      <workItem from="1632818176323" duration="305000" />
     </task>
     <task id="LOCAL-00099" summary="dedicated organisation select for admin users">
       <created>1631921327670</created>
@@ -524,7 +513,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632738478483</updated>
     </task>
-    <option name="localTasksCounter" value="147" />
+    <task id="LOCAL-00147" summary="slight update">
+      <created>1632743699920</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1632743699920</updated>
+    </task>
+    <option name="localTasksCounter" value="148" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -543,7 +539,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="beautifying search" />
     <MESSAGE value="beautifying search - search implementation styling" />
     <MESSAGE value="search done" />
     <MESSAGE value="saving workspace" />
@@ -568,7 +563,8 @@
     <MESSAGE value="no change" />
     <MESSAGE value="remote server modifications and change in the way we store and load our resources." />
     <MESSAGE value="no changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="no changes" />
+    <MESSAGE value="slight update" />
+    <option name="LAST_COMMIT_MESSAGE" value="slight update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

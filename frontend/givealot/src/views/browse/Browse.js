@@ -211,7 +211,7 @@ function Browse ()
 
             {pageLoaded === false && <Loader />}
             <Navbar/>
-
+            <Chatbot />
             <div id="browse_body">
 
                 <div id="dark_backdrop_active_for_mobile" onClick={mobile_popUpControl_hide}>

@@ -56,7 +56,7 @@ function Home()
     return (
         <Box id="banner" style={styles.main}>
             <Box id="banner_filter">
-
+                    <Chatbot />
                 <Box id="homeNav">
                     <img id="logo" src={logo} alt={"logo"}/>
                     {

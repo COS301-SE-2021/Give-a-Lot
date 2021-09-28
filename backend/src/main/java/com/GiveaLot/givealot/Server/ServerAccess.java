@@ -379,6 +379,33 @@ public class ServerAccess implements server_access{
     }
 
     @Override
+    public File downloadImageQRCode(long orgId) throws Exception {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            channelSftp.connect();
+
+            String orgIdString = String.valueOf(orgId);
+
+            String templateLocation;
+
+            templateLocation = remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/QRCode.png";
+
+            File fileLocation = new File("QRCode" + orgId + ".png");
+            InputStream stream = channelSftp.get(templateLocation);
+            FileUtils.copyInputStreamToFile(stream, fileLocation);
+
+            return fileLocation;
+
+        } catch (Exception e) {
+            throw new Exception("Exception: Failed to download logo: message ------> " + e);
+        } finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+
+
+    @Override
     public void uploadImageJPG(long orgId, MultipartFile image, int numberOfImages) throws Exception {
 
         ChannelSftp channelSftp = setupJsch();

@@ -8,6 +8,7 @@ import axios from "axios";
 import {Alert} from "@material-ui/lab";
 
 import {ApiContext} from "../../../apiContext/ApiContext";
+import {TextField} from "@material-ui/core";
 
 const styles = {
     main: {
@@ -159,10 +160,11 @@ class RegisterUser extends Component {
                                             First Name
                                         </span>
                                             <div>
-                                                <input
+                                                <TextField
                                                     className="nameFields validate"
                                                     type="text"
                                                     name="firstName"
+                                                    variant={"outlined"}
                                                     placeholder="Enter your first name"
                                                     onChange={this.handleChange}
                                                 />
@@ -175,10 +177,11 @@ class RegisterUser extends Component {
                                         Last Name
                                     </span>
                                             <div>
-                                                <input
+                                                <TextField
                                                     className="nameFields validate"
                                                     type="text"
                                                     name="lastName"
+                                                    variant={"outlined"}
                                                     placeholder="Enter your last name"
                                                     onChange={this.handleChange}
                                                 />
@@ -193,10 +196,11 @@ class RegisterUser extends Component {
                                         Email
                                     </span>
                                         <div>
-                                            <input
+                                            <TextField
                                                 className="registerUserInnerInput validate"
                                                 type="email"
                                                 name="email"
+                                                variant={"outlined"}
                                                 placeholder="Enter your Email"
                                                 // value={this.state.email}
                                                 onChange={this.handleChange}/>
@@ -210,16 +214,17 @@ class RegisterUser extends Component {
                                     <span className="registerUserInputLabel">
                                         Password
                                     </span>
-                                        <div>
-                                            <input
-                                                className="registerUserInnerInput validate"
-                                                type="password"
-                                                name="password"
-                                                minLength="8"
-                                                placeholder="Enter your password"
-                                                onChange={this.handleChange}
-                                            />
-                                        </div>
+
+                                        <TextField
+                                            className="registerUserInnerInput validate"
+                                            type="password"
+                                            name="password"
+                                            minLength="8"
+                                            variant={"outlined"}
+                                            placeholder="Enter your password"
+                                            onChange={this.handleChange}
+                                        />
+
                                         <span className="error">{this.state.passwordError}</span>
                                     </div>
 

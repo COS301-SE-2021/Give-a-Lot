@@ -9,6 +9,7 @@ import {Alert} from "@material-ui/lab";
 
 import {ApiContext} from "../../apiContext/ApiContext";
 import {FrontEndContext} from "../../apiContext/FrontEndContext";
+import {TextField} from "@material-ui/core";
 
 const styles = {
     main: {
@@ -132,31 +133,32 @@ function Login ()
                                         Email
                                     </span>
 
-                                    <div>
-                                        <input
-                                            id="login_user_email"
-                                            className="innerInput validate"
-                                            type="email"
-                                            name="email"
-                                            placeholder="Enter your email"
-                                            onChange={validate_email_address}
-                                        />
-                                    </div>
+                                    <TextField
+                                        id="login_user_email"
+                                        className="innerInput validate"
+                                        type="email"
+                                        name="email"
+                                        variant={"outlined"}
+                                        placeholder="Enter your email"
+                                        onChange={validate_email_address}
+                                    />
+
                                     <span className="loginError">{email_error_message}</span>
                                 </div>
                                 <div className="LoginInput" data-validate="Username is required">
                                     <span className="LoginInputLabel">
                                         Password
                                     </span>
-                                    <div>
-                                        <input
-                                            id={"login_user_password"}
-                                            className="innerInput validate"
-                                            type="password"
-                                            name="password"
-                                            placeholder="Enter your password"
-                                        />
-                                    </div>
+
+                                    <TextField
+                                        id={"login_user_password"}
+                                        className="innerInput validate"
+                                        type="password"
+                                        name="password"
+                                        variant={"outlined"}
+                                        placeholder="Enter your password"
+                                    />
+
                                     <span className="loginError">{password_error_message}</span>
                                 </div>
 

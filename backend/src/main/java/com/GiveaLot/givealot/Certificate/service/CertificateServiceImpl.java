@@ -202,7 +202,9 @@ public class CertificateServiceImpl implements CertificateService {
 
         imageCreator(completeCertificate, organisation.getOrgId());
 
+
         access.uploadCertificate(organisation.getOrgId(), organisation.getOrgName());
+        access.uploadCertificatePNG(organisation.getOrgId(), organisation.getOrgName());
 
         File deletion1 = new File(templateCertificate);
 
@@ -212,17 +214,21 @@ public class CertificateServiceImpl implements CertificateService {
 
     }
 
-    public boolean imageCreator(String filepath, long orgId) throws IOException {
-        PDDocument document = PDDocument.load(new File(filepath));
-        PDFRenderer pdfRenderer = new PDFRenderer(document);
-        for (int page = 0; page < document.getNumberOfPages(); ++page) {
-            BufferedImage bim = pdfRenderer.renderImageWithDPI(page, 300, ImageType.RGB);
+    public void imageCreator(String filepath, long orgId) throws Exception {
+        try {
+            PDDocument document = PDDocument.load(new File(filepath));
+            PDFRenderer pdfRenderer = new PDFRenderer(document);
+            for (int page = 0; page < document.getNumberOfPages(); ++page) {
+                BufferedImage bim = pdfRenderer.renderImageWithDPI(page, 300, ImageType.RGB);
 
-            // suffix in filename will be used as the file format
-            ImageIOUtil.writeImage(bim, "backend/src/main/resources/localFiles/" + orgId + "/certificate/CertificateImage.png", 300);
+                // suffix in filename will be used as the file format
+                ImageIOUtil.writeImage(bim, "backend/src/main/resources/localFiles/" + orgId + "/certificate/CertificateImage.png", 300);
+            }
+            document.close();
+        }catch (Exception e){
+            throw new Exception("Exception: unable to create certificate image: " + e);
         }
-        document.close();
-        return true;
+
     }
 
     @Override

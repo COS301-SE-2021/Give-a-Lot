@@ -128,6 +128,50 @@ public class ServerAccess implements server_access{
             session.disconnect();
         }
     }
+    @Override
+    public void uploadCertificatePNG(long orgId, String orgName) throws Exception {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+
+            channelSftp.connect();
+
+            String orgIdString = String.valueOf(orgId);
+            String localFile = "backend/src/main/resources/localFiles/" + orgIdString + "/certificate/CertificateImage.png";
+
+            channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Certificates" + "/" + orgName.replaceAll("\\s+", "") + "CertificateImage.png");
+
+        } catch (Exception e) {
+            throw new Exception("Exception: Failed to interact with the server");
+        } finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+    @Override
+    public File downloadCertificatePNG(long orgId, String orgName) throws Exception {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            channelSftp.connect();
+
+            String orgIdString = String.valueOf(orgId);
+
+            String templateLocation;
+
+            templateLocation = remoteDir + "Organisations/" + orgIdString + "/" + "Certificates" + "/" + orgName.replaceAll("\\s+", "") + "CertificateImage.png";
+
+            File fileLocation = new File(orgName.replaceAll("\\s+", "") + "CertificateImage.png");
+            InputStream stream = channelSftp.get(templateLocation);
+            FileUtils.copyInputStreamToFile(stream, fileLocation);
+
+            return fileLocation;
+
+        } catch (Exception e) {
+            throw new Exception("Exception: Failed to download certificate");
+        } finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
 
     @Override
     public void downloadCertificateTemplate(int points) throws Exception {

@@ -56,6 +56,4 @@ public interface server_access {
     void uploadBlurredImage(long orgId, String orgName) throws Exception;
 
     File downloadImageQRCode(long orgId) throws Exception;
-
-
 }

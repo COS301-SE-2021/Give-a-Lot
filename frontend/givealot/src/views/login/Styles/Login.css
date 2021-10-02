@@ -1,11 +1,8 @@
-.Login{
-
+.Login
+{
     height: 100vh;
-
     background-size: cover;
     background-position: center;
-
-
 }
 
 #banner_filter
@@ -56,8 +53,7 @@
     line-height: 1.5;
     padding-left: 7px;
 }
-.innerInput{
-
+.innerInput,.registration_form_input{
     line-height: 1.2;
     display: block;
     width: 100%;
@@ -66,13 +62,14 @@
     color: #333;
     padding: 0 7px 0 10px;
     outline: none;
-    border: 2px solid #4b4250;
     border-radius: 10px;
     background-color: white !important;
 }
+
 .validate{
     position: relative;
 }
+
 .focus-input{
     position: absolute;
     display: block;
@@ -155,6 +152,7 @@
 .loginError{
     color: red;
     float: right;
+    border: none;
 
 }
 

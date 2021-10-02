@@ -152,24 +152,27 @@ public class ServerAccess implements server_access{
         ChannelSftp channelSftp = setupJsch();
         try {
             channelSftp.connect();
-
+            System.out.println("==========connected==============");
             String orgIdString = String.valueOf(orgId);
 
             String templateLocation;
 
             templateLocation = remoteDir + "Organisations/" + orgIdString + "/" + "Certificates" + "/" + orgName.replaceAll("\\s+", "") + "CertificateImage.png";
 
+
             File fileLocation = new File(orgName.replaceAll("\\s+", "") + "CertificateImage.png");
             InputStream stream = channelSftp.get(templateLocation);
             FileUtils.copyInputStreamToFile(stream, fileLocation);
 
+            System.out.println("==========file retrieved============");
             return fileLocation;
 
         } catch (Exception e) {
-            throw new Exception("Exception: Failed to download certificate");
+            throw new Exception("Exception: Failed to download certificate " + e);
         } finally {
             channelSftp.exit();
             session.disconnect();
+            System.out.println("==========disconnected============");
         }
     }
 
@@ -268,6 +271,7 @@ public class ServerAccess implements server_access{
         ChannelSftp channelSftp = setupJsch();
         try {
             channelSftp.connect();
+            System.out.println("==========connected - download pdf============");
 
             String orgIdString = String.valueOf(orgId);
 
@@ -279,6 +283,7 @@ public class ServerAccess implements server_access{
             InputStream stream = channelSftp.get(templateLocation);
             FileUtils.copyInputStreamToFile(stream, fileLocation);
 
+            System.out.println("==========file retrieved============");
             return fileLocation;
 
         } catch (Exception e) {
@@ -286,6 +291,7 @@ public class ServerAccess implements server_access{
         } finally {
             channelSftp.exit();
             session.disconnect();
+            System.out.println("==========disconnected============");
         }
     }
 

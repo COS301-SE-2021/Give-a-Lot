@@ -262,7 +262,7 @@ function OrganisationRegistration()
             document.getElementById('final_registration_toasts_org_info').style.display = "flex";
             document.getElementById('final_registration_toasts_org_error').style.display = "none";
             document.getElementsByClassName('registration_form_container_final')[0].style.display = "none";
-
+            document.getElementById("profile_photo_upload_registration_organisation").innerText = "setting you up";
             fetch(
                 serverDomain + '/v1/organisation/add/org',
                 {
@@ -334,6 +334,7 @@ function OrganisationRegistration()
                                 className={"registration_form_input"}
                                 id="registration_form_orgName"
                                 label="organisation name"
+                                variant={"outlined"}
                                 type="text"
                             />
                             <span className={"registration_form_required"}>this field is required *</span>
@@ -344,7 +345,9 @@ function OrganisationRegistration()
                                 className={"registration_form_input"}
                                 id="registration_form_orgEmail"
                                 label="email"
+                                variant={"outlined"}
                                 type="email"
+                                variant={"outlined"}
                             />
                             <span className={"registration_form_required"}>this field is required *</span>
                         </div>
@@ -355,6 +358,7 @@ function OrganisationRegistration()
                                 id="registration_form_orgPassword"
                                 label="password"
                                 type="password"
+                                variant={"outlined"}
                             />
                             <span className={"registration_form_required"}>this field is required *</span>
                         </div>
@@ -380,6 +384,7 @@ function OrganisationRegistration()
                                 id="registration_form_orgSlogan"
                                 label="provide your slogan"
                                 type="text"
+                                variant={"outlined"}
                             />
                             <span className={"registration_form_required"}>this field is required *</span>
                         </div>
@@ -401,6 +406,7 @@ function OrganisationRegistration()
                             multiline
                             rows={4}
                             required
+                            variant={"outlined"}
                         />
                         <span className={"registration_form_required"}>this field is required *</span>
                     </div>
@@ -436,6 +442,7 @@ function OrganisationRegistration()
                                 id="registration_form_orgContact_person"
                                 label="name and surname"
                                 type="text"
+                                variant={"outlined"}
                             />
                             <span className={"registration_form_required"}>this field is required *</span>
                         </div>
@@ -446,6 +453,7 @@ function OrganisationRegistration()
                                 id="registration_form_orgContact_number"
                                 label="phone no i.g 0112345679"
                                 type="number"
+                                variant={"outlined"}
                             />
                             <span className={"registration_form_required"}>this field is required *</span>
                         </div>
@@ -471,7 +479,7 @@ function OrganisationRegistration()
                     </div>
                 </Box>
                 <Box id={"register_organisation_outter_container_photo"} className={"register_organisation_outter_container"}>
-                    <p className={"register_organisation_heading"}>
+                    <p className={"register_organisation_heading profile_photo_upload_registration_organisation"}>
                         profile photo
                     </p>
 
@@ -496,6 +504,7 @@ function OrganisationRegistration()
                                 label="choose photo"
                                 type="file"
                                 accept="image/*"
+                                variant={"standard"}
                             />
                             <span className={"registration_form_required"}>this field is required *</span>
                         </div>

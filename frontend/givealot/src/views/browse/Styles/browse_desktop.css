@@ -465,6 +465,7 @@
   border-radius: 5px;
   margin-left: 10px;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 
@@ -505,7 +506,6 @@
     height: 40px;
     top: 50%;
     transform: translate(0,-50%);
-
   }
 
   #browse_search_input
@@ -521,8 +521,5 @@
 
   #browseNavSection > p {
     display: none;
-
   }
-
-
 }

@@ -16,7 +16,7 @@ function SearchResult(props)
             <Box>
                 <img className={"Result-image"} src={props.orgImage} width={200}/>
             </Box>
-            <Box >
+            <Box>
                 <Typography  className={"search-result-org-name"} noWrap>{props.orgName}</Typography>
                 <Typography className={"search-result-org-description"} noWrap>{props.orgDescription}</Typography>
                 <Typography className={"search-result-org-date"} noWrap>2021-09-09</Typography>

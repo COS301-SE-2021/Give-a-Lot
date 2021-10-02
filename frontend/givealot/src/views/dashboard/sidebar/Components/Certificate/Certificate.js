@@ -182,7 +182,7 @@ export class Certificate extends Component {
             </div>
 
             <div className="display">
-                <img src={this.state.serverDomain + "/cert/version/png/" + this.state.orgId} alt={"certificate"} height={546} width={713}/>
+                <img src={this.state.serverDomain + "/certificate/download/png/" + this.state.orgId} alt={"certificate"} height={546} width={713}/>
             </div>
         </div>
         </div>

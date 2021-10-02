@@ -14,12 +14,17 @@ import com.GiveaLot.givealot.User.requests.GetUsersRequest;
 import com.GiveaLot.givealot.User.response.UserResponse;
 import com.GiveaLot.givealot.User.response.userResponseGeneral;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RequestMapping("v1/organisation")
@@ -551,6 +556,20 @@ public class OrganisationController
         {
             return new ResponseEntity<>(new generalOrganisationResponse("rem_img_500_err","failed: " + e), HttpStatus.OK);
         }
+    }
+
+    @GetMapping(value = "/image/get/logo/{orgId}", produces = MediaType.IMAGE_JPEG_VALUE)
+    Resource downloadImage(@PathVariable("orgId") Long orgId) throws Exception {
+        try
+        {
+            byte[] image = service.getOrganisationLogo(orgId);
+            return new ByteArrayResource(image);
+        }
+        catch (Exception e)
+        {
+
+        }
+        return null;
     }
 
     @PostMapping("/add/logo") /* all good - correctness not tested yet */

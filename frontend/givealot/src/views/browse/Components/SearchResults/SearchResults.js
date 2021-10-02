@@ -40,7 +40,7 @@ function SearchResults(props)
             let orgDescription = props.org_suggestions[i].orgDescription;
             let orgName = props.org_suggestions[i].orgName;
             let orgId = props.org_suggestions[i].orgId;
-            let orgImage = serverDomain + "/logo/version/" + orgId;
+            let orgImage = serverDomain + "/v1/organisation/image/get/logo/" + orgId;
 
             curr_suggestions.push(
                 <>

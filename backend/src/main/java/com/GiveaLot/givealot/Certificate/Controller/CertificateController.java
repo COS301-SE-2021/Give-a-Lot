@@ -51,7 +51,7 @@ public class CertificateController {
     }
 
     @GetMapping("/certificate/download/{orgId}")
-    public ResponseEntity<Resource> download(@PathVariable("orgId") Long orgId) throws Exception {
+    public ResponseEntity<Resource> download_certificate_pdf(@PathVariable("orgId") Long orgId) throws Exception {
 
         String orgName = organisationRepo.selectOrganisationById(orgId).getOrgName();
 
@@ -72,10 +72,32 @@ public class CertificateController {
                 .body(resource);
     }
 
-    @GetMapping("/image/logo/org/download/{orgId}")
-    public ResponseEntity<byte []> download_logo(@PathVariable("orgId") Long orgId) throws Exception {
+    @GetMapping("/certificate/download/png/{orgId}")
+    public ResponseEntity<byte []> download_certificate_png(@PathVariable("orgId") Long orgId) throws Exception {
 
         String orgName = organisationRepo.selectOrganisationById(orgId).getOrgName();
+
+        File file = service.retrieveCertificateAsPNG(new RetrieveCertificateRequest(orgId,orgName));
+        HttpHeaders header = new HttpHeaders();
+        header.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=certificate.png");
+        header.add("Cache-Control", "no-cache, no-store, must-revalidate");
+        header.add("Pragma", "no-cache");
+        header.add("Expires", "0");
+
+        Path path = Paths.get(file.getAbsolutePath());
+        ByteArrayResource resource = new ByteArrayResource(Files.readAllBytes(path));
+
+        byte [] image_as_byte_array = resource.getByteArray();
+
+
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.IMAGE_PNG)
+                .body(image_as_byte_array);
+    }
+
+    @GetMapping("/image/logo/org/download/{orgId}")
+    public ResponseEntity<byte []> download_logo(@PathVariable("orgId") Long orgId) throws Exception {
 
         File file = service.retrieveLogo(orgId);
         HttpHeaders header = new HttpHeaders();

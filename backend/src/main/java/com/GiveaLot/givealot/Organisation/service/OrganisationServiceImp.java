@@ -322,7 +322,8 @@ public class OrganisationServiceImp implements OrganisationService {
                 organisation.getContactNumber(),
                 organisation.getDirectory(),
                 organisation.getPassword(),
-                organisation.getDateCreated()
+                organisation.getDateCreated(),
+                organisation.getImage().getBytes()
         );
         organisationRepository.save(save_org);
         /* save the organisation in the database */
@@ -616,6 +617,8 @@ public class OrganisationServiceImp implements OrganisationService {
         if (organisation_tmp == null)
             throw new Exception("Exception: add image function did not finish, organisation does not exist");
 
+
+        organisationRepository.addLogo(request.getOrgId(), request.getImage().getBytes());
 
         String name = organisation_tmp.getOrgName();
 
@@ -1613,6 +1616,18 @@ public class OrganisationServiceImp implements OrganisationService {
 
 
         return new responseJSON("get_num_orgs_per_month", "success", new getNumOrganisationPerMonthResponse(jan, feb, mar, apr, may, jun, jul, aug, sept, oct, nov, dec));
+    }
+
+    @Override
+    public byte [] getOrganisationLogo(Long orgId) throws Exception
+    {
+        if(orgId == null)
+            throw new Exception("organisation id is null");
+        else if(!organisationRepository.existsById(orgId))
+            throw new Exception("organisation does not exist");
+
+        byte [] image = organisationRepository.getOrganisationLogo(orgId);
+        return image;
     }
 
     @Override

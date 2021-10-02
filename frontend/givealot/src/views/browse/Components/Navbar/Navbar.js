@@ -77,6 +77,7 @@ function Navbar()
                     onKeyPress={onKeyUp}
                 />
                 <SearchIcon
+                    id={"search_icon_nav"}
                     onClick={searchOrganisation}
                 />
             </div>

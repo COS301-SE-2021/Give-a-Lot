@@ -290,7 +290,7 @@ function ViewOrganisation()
                            <h4>{organisationData.slogan}</h4>
                        </div>
 
-                       <img src={ serverDomain + "/image/logo/org/download/" + id} id={"imageCover"}/>
+                       <img src={ serverDomain + "/v1/organisation/image/get/logo/" + id} id={"imageCover"}/>
 
                        <div id={"id_social_media"}>
                            {organisationData.istagramURl ?
@@ -405,7 +405,7 @@ function ViewOrganisation()
                           their organisation and the information they provided to givealot
                        </p>
 
-                       <img src={serverDomain + "/cert/version/png/" + id}  />
+                       <img src={serverDomain + "/certificate/download/png/" + id}  />
 
                        <Button variant="contained" color="secondary"
                                onClick={(e) => {

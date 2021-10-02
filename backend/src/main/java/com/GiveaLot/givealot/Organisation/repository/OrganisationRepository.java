@@ -40,6 +40,9 @@ public interface OrganisationRepository extends JpaRepository<Organisations, Lon
     @Query("SELECT DISTINCT o.orgId FROM Organisations AS o WHERE o.orgEmail = ?1")
     long getOrgId(String orgEmail);
 
+    @Query("SELECT DISTINCT o.logo FROM Organisations AS o WHERE o.orgId = ?1")
+    byte [] getOrganisationLogo(long orgId);
+
     @Modifying
     @Transactional
     @Query("UPDATE Organisations o SET o.orgDescription = ?2 WHERE o.orgId = ?1")
@@ -76,5 +79,8 @@ public interface OrganisationRepository extends JpaRepository<Organisations, Lon
     @Query("SELECT o FROM Organisations o WHERE UPPER(o.orgDescription) LIKE CONCAT('%',UPPER(:search_str),'%') AND o.status NOT IN('suspended')")
     List<Organisations> searchOrganisationByDescription(String search_str);
 
-
+    @Modifying
+    @Transactional
+    @Query("UPDATE Organisations o SET o.logo = ?2 WHERE o.orgId = ?1")
+    int addLogo(Long orgId, byte[] bytes);
 }

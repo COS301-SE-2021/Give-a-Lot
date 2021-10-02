@@ -5,9 +5,6 @@ import backgroundImg from "../../../assets/homeBackground.jpg";
 import Logo from "./Logo"
 import "../Styles/Login.css"
 import {Alert} from "@material-ui/lab";
-
-
-
 const styles = {
     main: {
         backgroundImage: `url(${backgroundImg})`
@@ -16,10 +13,6 @@ const styles = {
 
 
 class ResetSuccess extends Component {
-
-
-
-
     render()
     {
         return (
@@ -39,8 +32,6 @@ class ResetSuccess extends Component {
                                     <span className="headerTag1">
                                        Password Reset was a success
                                     </span>
-
-
                                     <div className="wrapper-btn">
 
                                         <Link to={"/login"}>
@@ -48,9 +39,7 @@ class ResetSuccess extends Component {
                                                 Return to Login
                                             </button>
                                         </Link>
-
                                     </div>
-
                                 </form>
                             </div>
                         </div>

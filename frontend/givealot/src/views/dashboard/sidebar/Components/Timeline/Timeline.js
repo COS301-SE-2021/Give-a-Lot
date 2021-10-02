@@ -5,12 +5,7 @@ import "./Timeline.css"
 import React, {useContext, useEffect, useState} from "react";
 import Timeline from "@material-ui/lab/Timeline";
 import OrganisationTimeLineItem from "../../../../browse/Components/OrganisationTimeLineItem/OrganisationTimeLineItem";
-import {ApiContext} from "../../../../../apiContext/ApiContext";
 import OrgSidebar from "../DemoSidebar/OrgSidebar";
-import {FrontEndContext} from "../../../../../apiContext/FrontEndContext";
-
-
-
 
 function OrganisationTimeline()
 {
@@ -18,9 +13,6 @@ function OrganisationTimeline()
     let [timelineEvents, setTimelineEvents] = useState([]);
     let [curr_organisation_id, set_curr_organisation_id] = useState(localStorage.getItem('id'));
     const [frontEndDomain, setFrontEndDomain] = useState("http://localhost:3000");
-
-
-
     const addTimelineEvent = event =>
     {
         event.preventDefault();

@@ -221,13 +221,8 @@ export class Level3 extends Component {
                 .post(this.state.serverDomain + "/v1/organisation/add/socials", social1)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
-
-            // clear form
             this.setState(initialState);
         }
-
-
-
 
     };
 
@@ -242,9 +237,6 @@ export class Level3 extends Component {
         }
 
     }
-
-
-
 
     componentDidMount(){
         let config = {
@@ -268,10 +260,6 @@ export class Level3 extends Component {
 
     render(){
         const { classes } = this.props;
-
-
-
-
 
         return (
 

@@ -5,7 +5,6 @@ import Grid from "@material-ui/core/Grid";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import Select from '@material-ui/core/Select';
 import axios from "axios";
 import DialogTitle from "@material-ui/core/DialogTitle";
@@ -53,37 +52,29 @@ export class AddOrg extends Component {
             let imageError = '';
 
         if(this.state.orgEmail.indexOf('@') === -1){
-            // isErrors = true;
             orgEmailError = 'Please enter a valid email address';
         }
         if(this.state.password.length < 4){
-            // isErrors = true;
             passwordError = 'Password must be at least 4 characters long';
         }
         if(this.state.orgName.length < 1){
-            // isErrors = true;
             orgNameError = 'orgName cannot be blank';
         }
         if(this.state.slogan.length < 1){
-            // isErrors = true;
             sloganError = 'slogan cannot be blank';
         }
 
         if(this.state.orgSector.length < 1){
-            // isErrors = true;
             orgSectorError = 'Sector cannot be blank';
         }
 
         if(this.state.orgDescription.length < 1){
-            // isErrors = true;
             orgDescriptionError = 'Description cannot be blank';
         }
         if (!this.state.contactNumber.match(/^[0-9]{10}$/)) {
-            // isErrors = true;
             contactNumberError = "Please enter valid mobile number";
         }
         if(this.state.contactPerson.length < 1){
-            // isErrors = true;
             contactPersonError = 'Contact person cannot be blank';
         }
         if (!this.state.orgEmail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
@@ -119,13 +110,9 @@ export class AddOrg extends Component {
         }
         axios.get(this.state.serverDomain + '/v1/organisation/get/sectors',  config)
             .then(response =>{
-                // console.log(response)
                 this.setState({sectorS: response.data.sectors})
-                // console.log(this.state.sectorS)
-
             })
             .catch(error =>{
-                // console.log(error)
                 this.setState({error : 'Error Retrieving data'})
             })
     }
@@ -134,7 +121,6 @@ export class AddOrg extends Component {
         e.preventDefault();
         const isValid = this.validated();
         if (isValid) {
-            // this.setState({ openAdd: false });
             let config = {
                 headers: {
                     "Content-Type": "application/json",

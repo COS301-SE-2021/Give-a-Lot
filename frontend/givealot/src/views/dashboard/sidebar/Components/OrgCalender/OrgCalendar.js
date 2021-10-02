@@ -100,8 +100,6 @@ export default class OrgCalendar extends React.PureComponent {
                         { ...appointment, ...changed[appointment.id] } : appointment));
 
                 let testing = changed.undefined
-                // let event = data[data.length-1].eventId
-                // console.log(event)
 
                 if(testing.title !== undefined){
                     let config = {

@@ -7,8 +7,6 @@ import axios from "axios"
 import "../Styles/Login.css"
 import {Alert} from "@material-ui/lab";
 
-
-
 const styles = {
     main: {
         backgroundImage: `url(${backgroundImg})`
@@ -88,18 +86,13 @@ class ResetPassword extends Component {
                     document.getElementById("badLogin").style.display = "flex";
                     document.getElementById("waitInfo").style.display = "none";
                 });
-
-
-
         }
     };
-
 
     render()
     {
         return (
             <div>
-
                 <div className="Login" style={styles.main}>
                     <div  id={"banner_filter"}>
                         <Logo/>

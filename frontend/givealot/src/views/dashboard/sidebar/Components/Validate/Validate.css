@@ -48,3 +48,26 @@
     background-color: red !important;
     margin-left: 0.8em;
 }
+
+#loaderValidateContainer
+{
+    display: none;
+    position: fixed;
+    z-index: 500;
+    width: 100vw;
+    height: 100vh;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(137, 106, 106, 0);
+}
+#loaderValidate{
+
+    position: relative;
+    background-color: #4780b1 !important;
+    color: white;
+    width: 200px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}

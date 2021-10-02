@@ -7,7 +7,6 @@ import Sidebar from "./sidebar/Sidebar"
 import "./sidebar/styles/Dashboard.css"
 import OrganisationsDash from "./sidebar/Components/OrganisationsDash/OrganisationsDash"
 import Users from "./sidebar/Components/Users/Users"
-import Email from "./sidebar/Components/Email/Email"
 import Featured from "./sidebar/Components/Featured/Featured";
 import Reports from "./sidebar/Components/Report/Reports"
 import Org from "./sidebar/Components/OrganisationsDash/Org"

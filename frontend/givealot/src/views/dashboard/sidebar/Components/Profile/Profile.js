@@ -49,12 +49,16 @@ export class Profile extends Component {
             ContactPersonState:false,
             orgAddress:"",
             addressState:false,
+            password:"",
+            passwordState:false,
             popUp1:false,
             popUp2:false,
             popUp3:false,
             popUp4:false,
             popUp5:false,
             popUp6:false,
+            popUp7:false,
+            popUp8:false,
             serverDomain: 'http://localhost:8080',
             loader:false,
 
@@ -148,6 +152,16 @@ export class Profile extends Component {
 
     handleOrgName=event=>{
         this.setState({orgNameState: true})
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
+    }
+
+    handlePassword=event=>{
+        this.setState({passwordState: true})
         const isCheckbox = event.target.type === "checkbox";
         this.setState({
             [event.target.name]: isCheckbox
@@ -283,6 +297,24 @@ export class Profile extends Component {
                     console.log(res)
                     this.setState({popUp7: res.data.message});
                     this.onToastSlogan();
+                })
+                .catch(err => console.log(err));
+        }
+
+        if(this.state.passwordState) {
+            const data8 = {
+                orgId: this.state.orgId,
+                type: "password",
+                newValue: this.state.password,
+
+            };
+            console.log(data8)
+            Axios
+                .post(this.state.serverDomain + "/v1/organisation/update/info/organisation", data8)
+                .then(res => {
+                    console.log(res)
+                    this.setState({popUp8: res.data.message});
+                    this.onToastPassword();
                 })
                 .catch(err => console.log(err));
         }
@@ -569,6 +601,16 @@ export class Profile extends Component {
                                         name="orgEmail"
                                         onChange={this.handleEmail}
                                         placeholder={persons.orgEmail}
+                                        className="userUpdateInput"
+                                    />
+                                </div>
+                                <div className="userUpdateItem">
+                                    <label>Password</label>
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        onChange={this.handlePassword}
+                                        placeholder="Enter new password"
                                         className="userUpdateInput"
                                     />
                                 </div>

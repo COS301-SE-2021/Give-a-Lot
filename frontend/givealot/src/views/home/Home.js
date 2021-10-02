@@ -8,6 +8,8 @@ import Button from "@material-ui/core/Button";
 
 import backgroundImg from '../../assets/homeBackground.jpg';
 import logo from "../../assets/logo/logo3_1.png";
+
+import home_desktop from './Styles/home_desktop.css'
 import {Box} from "@material-ui/core";
 import Chatbot from "../chatbot/Chatbot";
 

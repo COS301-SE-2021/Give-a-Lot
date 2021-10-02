@@ -68,9 +68,9 @@ function Navbar()
 
             <Link to={"/"}><img id="browseLogo" src={logo} alt={"logo"} /></Link>
             <p>browse organisations</p>
-            <div className="header__input browseNavSection_searchContainer">
+            <div className="browse_search_input2_container">
                 <input
-                    id={"browse_search_input"}
+                    id={"browse_search_input2"}
                     placeholder="search organisation"
                     type="text"
 

@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Updated Server Access">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationDataRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/Validate.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/Validate.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,23 +43,19 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/frontend/givealot/src/views/default/Default404.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationPoints.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/frontend/givealot/src/views/default/Default404.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/organisationPointsRepository.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/givealot/src/views/login/Login.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
-        <entry key="JPA Inspector" value="true" />
-        <entry key="JPA Palette" value="true" />
         <entry key="JPA Structure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="JPA Inspector" value="false" />
-        <entry key="JPA Palette" value="false" />
         <entry key="JPA Structure" value="false" />
       </map>
     </option>
@@ -120,21 +116,11 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.ServerAccess">
-    <configuration name="ServerAccess" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.GiveaLot.givealot.Server.ServerAccess" />
-      <module name="givealot" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.GiveaLot.givealot.Server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.GivealotApplication">
     <configuration name="generated-requests#100" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="100" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests#83" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="83" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#92" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="92" runType="Run single request">
@@ -154,7 +140,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.ServerAccess" />
+      <item itemvalue="HTTP Request.generated-requests#83" />
       <item itemvalue="HTTP Request.generated-requests#92" />
       <item itemvalue="HTTP Request.generated-requests#94" />
       <item itemvalue="HTTP Request.generated-requests#99" />
@@ -164,11 +150,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ServerAccess" />
         <item itemvalue="HTTP Request.generated-requests#100" />
         <item itemvalue="HTTP Request.generated-requests#99" />
         <item itemvalue="HTTP Request.generated-requests#94" />
         <item itemvalue="HTTP Request.generated-requests#92" />
+        <item itemvalue="HTTP Request.generated-requests#83" />
       </list>
     </recent_temporary>
   </component>
@@ -202,6 +188,41 @@
       <workItem from="1632125413993" duration="8503000" />
       <workItem from="1632134204054" duration="7766000" />
       <workItem from="1632232231467" duration="6208000" />
+      <workItem from="1632821806682" duration="1061000" />
+      <workItem from="1632828284482" duration="921000" />
+      <workItem from="1632843512326" duration="554000" />
+      <workItem from="1632864645982" duration="6000" />
+      <workItem from="1633111812064" duration="1081000" />
+      <workItem from="1633116734932" duration="639000" />
+      <workItem from="1633182168816" duration="2529000" />
+    </task>
+    <task id="LOCAL-00094" summary="finalizing frontend&#10;backend updates to add organisation">
+      <created>1631881892800</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1631881892800</updated>
+    </task>
+    <task id="LOCAL-00095" summary="finalizing frontend&#10;backend updates to add organisation">
+      <created>1631882738879</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1631882738879</updated>
+    </task>
+    <task id="LOCAL-00096" summary="finalizing frontend&#10;backend updates to add organisation">
+      <created>1631884114723</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1631884114723</updated>
+    </task>
+    <task id="LOCAL-00097" summary="dedicated organisaiton select for admin users">
+      <created>1631906528649</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1631906528650</updated>
     </task>
     <task id="LOCAL-00098" summary="dedicated organisaiton select for admin users">
       <created>1631906781397</created>
@@ -512,41 +533,13 @@
       <updated>1632820350966</updated>
     </task>
     <task id="LOCAL-00142" summary="Updated Server Access">
-      <created>1632820811460</created>
+      <created>1633183194082</created>
       <option name="number" value="00142" />
       <option name="presentableId" value="LOCAL-00142" />
       <option name="project" value="LOCAL" />
-      <updated>1632820811460</updated>
+      <updated>1633183194083</updated>
     </task>
-    <task id="LOCAL-00143" summary="Updated Server Access">
-      <created>1632820947326</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1632820947326</updated>
-    </task>
-    <task id="LOCAL-00144" summary="slight update">
-      <created>1632838909651</created>
-      <option name="number" value="00144" />
-      <option name="presentableId" value="LOCAL-00144" />
-      <option name="project" value="LOCAL" />
-      <updated>1632838909651</updated>
-    </task>
-    <task id="LOCAL-00145" summary="slight update">
-      <created>1632851033209</created>
-      <option name="number" value="00145" />
-      <option name="presentableId" value="LOCAL-00145" />
-      <option name="project" value="LOCAL" />
-      <updated>1632851033209</updated>
-    </task>
-    <task id="LOCAL-00146" summary="Updated Server Access">
-      <created>1632823278964</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1632823278964</updated>
-    </task>
-    <option name="localTasksCounter" value="147" />
+    <option name="localTasksCounter" value="143" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -587,8 +580,7 @@
     <MESSAGE value="dash bug fix - Alexis take over" />
     <MESSAGE value="no change" />
     <MESSAGE value="Updated Server Access" />
-    <MESSAGE value="slight update" />
-    <option name="LAST_COMMIT_MESSAGE" value="slight update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Server Access" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -8,8 +8,6 @@ import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
 import OrgSidebar from "../DemoSidebar/OrgSidebar";
 
-
-
 export class Reports extends Component {
 
     static contextType = ApiContext;

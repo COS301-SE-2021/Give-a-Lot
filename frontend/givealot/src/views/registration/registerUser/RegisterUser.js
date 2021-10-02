@@ -78,8 +78,6 @@ class RegisterUser extends Component {
 
         if (isValid)
         {
-
-
             const data = {
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
@@ -145,15 +143,11 @@ class RegisterUser extends Component {
                             <Alert severity="error" id={"emailError"}>the provided email is already taken...</Alert>
                             <Alert severity="success" id={"registrationInfoPrompt"}>registration complete - please wait for redirection</Alert>
                             <Alert severity="info" id={"registrationInfoPromptWait"}>please wait...</Alert>
-                            {/*
-                        <Alert severity="error" id={"PasswordError"}>your password must be at least 8 characters long!</Alert>
-*/}
                             <div className="wrapp">
                                 <form className="registerUserForm" onSubmit={this.handleSubmit}>
                                <span className="registerUserHeader">
                                    Sign Up
                                </span>
-
                                     <div className="names">
                                         <div className="registerUserInput1" data-validate="Username is required">
                                         <span className="registerUserInputLabel">

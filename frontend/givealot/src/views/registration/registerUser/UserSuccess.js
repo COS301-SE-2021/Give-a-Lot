@@ -11,14 +11,12 @@ export class UserSuccess extends Component {
         }
     }
 
-
     render()
     {
         if(localStorage.getItem( "new_user") === "true")
         {
             localStorage.setItem( "new_user", "false");
         }
-
 
         return (
 

@@ -7,7 +7,6 @@ import {
     Appointments,
     AppointmentForm,
     AppointmentTooltip,
-    WeekView,
     MonthView,
     EditRecurrenceMenu,
     AllDayPanel,
@@ -100,9 +99,6 @@ export default class Demo extends React.PureComponent {
                         { ...appointment, ...changed[appointment.id] } : appointment));
 
                 let testing = changed.undefined
-                // let event = data[data.length-1].eventId
-                // console.log(event)
-
                 if(testing.title !== undefined){
                     let config = {
                         headers: {

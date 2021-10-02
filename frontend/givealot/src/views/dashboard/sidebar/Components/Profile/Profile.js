@@ -156,6 +156,16 @@ export class Profile extends Component {
         });
     }
 
+    handleOrgName=event=>{
+        this.setState({orgNameState: true})
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+        });
+    }
+
 
     handleFormSubmit = e => {
 
@@ -569,6 +579,16 @@ export class Profile extends Component {
                                         name="orgEmail"
                                         onChange={this.handleEmail}
                                         placeholder={persons.orgEmail}
+                                        className="userUpdateInput"
+                                    />
+                                </div>
+                                <div className="userUpdateItem">
+                                    <label>Password</label>
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        onChange={this.handlePassword}
+                                        placeholder="enter new password"
                                         className="userUpdateInput"
                                     />
                                 </div>

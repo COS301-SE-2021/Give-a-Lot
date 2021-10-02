@@ -34,6 +34,11 @@ public interface OrganisationRepository extends JpaRepository<Organisations, Lon
 
     @Modifying
     @Transactional
+    @Query("UPDATE Organisations o SET o.password = ?2 WHERE o.orgId = ?1")
+    Integer updatePasswordById(Long orgId, String password);
+
+    @Modifying
+    @Transactional
     @Query("UPDATE Organisations o SET o.directory = ?2 WHERE o.orgId = ?1")
     Integer updateRepo(Long orgId, String dir);
 

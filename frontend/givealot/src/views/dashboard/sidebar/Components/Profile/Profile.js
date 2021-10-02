@@ -448,6 +448,24 @@ export class Profile extends Component {
         }
     }
 
+    onToastPassword = () => {
+
+        if(this.state.popUp8){
+
+            toast.success('password Updated successful', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        }else{
+
+            toast.error('failed to update password', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+
+        }
+    }
+
 
 
 
@@ -594,16 +612,7 @@ export class Profile extends Component {
                                         className="userUpdateInput"
                                     />
                                 </div>
-                                <div className="userUpdateItem">
-                                    <label>Email</label>
-                                    <input
-                                        type="text"
-                                        name="orgEmail"
-                                        onChange={this.handleEmail}
-                                        placeholder={persons.orgEmail}
-                                        className="userUpdateInput"
-                                    />
-                                </div>
+
                                 <div className="userUpdateItem">
                                     <label>Password</label>
                                     <input

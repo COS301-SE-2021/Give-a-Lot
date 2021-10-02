@@ -9,11 +9,6 @@ import CalendarTodayOutlinedIcon from '@material-ui/icons/CalendarTodayOutlined'
 import VerifiedUserOutlinedIcon from '@material-ui/icons/VerifiedUserOutlined';
 import Logo from "../../../../login/Components/DashLogo"
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
-//import { useHistory } from "react-router-dom";
-
-
-/////general organisation admin
-//const roles = localStorage.getItem('role')
 
 function Sidebar(){
 

@@ -34,7 +34,6 @@ export class Cards extends Component {
         this. getReports();
     }
 
-/////////////////////////////////////Leave reports for only organisations
     getReports(){
         let config = {
             headers: {
@@ -43,7 +42,6 @@ export class Cards extends Component {
             }
         }
         const adminUsersRequestBodyReports = {
-            // "orgId":"id of an organisation"
             "orgId" : this.state.orgId
         }
 
@@ -72,13 +70,10 @@ export class Cards extends Component {
 
             axios.post(this.state.serverDomain + '/v1/user/get/num_user', adminUsersRequestBody, config)
                 .then(response => {
-                    // console.log(response)
                     this.setState({Users: response.data.response})
-                    // console.log(this.state.Users)
 
                 })
                 .catch(error => {
-                    // console.log(error)
                     this.setState({error: 'Error Retrieving data'})
                 })
         }
@@ -97,7 +92,6 @@ export class Cards extends Component {
             }
             axios.post(this.state.serverDomain + '/v1/organisation/get/organisations',adminUsersRequestBodyOrg , config)
                 .then(response =>{
-                    // console.log(response)
                     this.setState({ Organisations: response.data.response })
 
                 })
@@ -106,9 +100,6 @@ export class Cards extends Component {
                     this.setState({error : 'Error Retrieving data'})
                 })
         }
-        // else{
-        //     alert('current User not admin  ' + localStorage.getItem('role'))
-        // }
 
     }
 
@@ -124,13 +115,9 @@ export class Cards extends Component {
         }
         axios.post(this.state.serverDomain + '/v1/notifications/get/num_notifications',adminUsersRequestBodyNotification , config)
             .then(response =>{
-                // console.log(response)
                 this.setState({ notifications: response.data.response })
-                // console.log(this.state.Reports)
-
             })
             .catch(error =>{
-                // console.log(error)
                 this.setState({error : 'Error Retrieving data'})
             })
     }

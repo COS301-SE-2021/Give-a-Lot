@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Updated Server Access">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/OrgValidate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/Validate.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/Validate/Validate.css" afterDir="false" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="code clean up">
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Sidebar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,28 +192,7 @@
       <workItem from="1632864645982" duration="6000" />
       <workItem from="1633111812064" duration="1081000" />
       <workItem from="1633116734932" duration="639000" />
-      <workItem from="1633182168816" duration="2529000" />
-    </task>
-    <task id="LOCAL-00094" summary="finalizing frontend&#10;backend updates to add organisation">
-      <created>1631881892800</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1631881892800</updated>
-    </task>
-    <task id="LOCAL-00095" summary="finalizing frontend&#10;backend updates to add organisation">
-      <created>1631882738879</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1631882738879</updated>
-    </task>
-    <task id="LOCAL-00096" summary="finalizing frontend&#10;backend updates to add organisation">
-      <created>1631884114723</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1631884114723</updated>
+      <workItem from="1633182168816" duration="5166000" />
     </task>
     <task id="LOCAL-00097" summary="dedicated organisaiton select for admin users">
       <created>1631906528649</created>
@@ -539,7 +516,28 @@
       <option name="project" value="LOCAL" />
       <updated>1633183194083</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="Loader on org validate page">
+      <created>1633185459283</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1633185459283</updated>
+    </task>
+    <task id="LOCAL-00144" summary="Loader on org validate page">
+      <created>1633185679718</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1633185679718</updated>
+    </task>
+    <task id="LOCAL-00145" summary="code clean up">
+      <created>1633187542840</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1633187542840</updated>
+    </task>
+    <option name="localTasksCounter" value="146" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,7 +578,9 @@
     <MESSAGE value="dash bug fix - Alexis take over" />
     <MESSAGE value="no change" />
     <MESSAGE value="Updated Server Access" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Server Access" />
+    <MESSAGE value="Loader on org validate page" />
+    <MESSAGE value="code clean up" />
+    <option name="LAST_COMMIT_MESSAGE" value="code clean up" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

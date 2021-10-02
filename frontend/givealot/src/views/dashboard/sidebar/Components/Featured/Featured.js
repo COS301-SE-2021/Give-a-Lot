@@ -2,29 +2,8 @@ import React, { Component } from 'react'
 import "./Styles/Featured.css"
 import Chart from "./Chart"
 import Cards from "./Cards"
-// import { userData} from "../../../../../DummyData";
 import axios from "axios";
 import {ApiContext, ApiUrlProvider} from "../../../../../apiContext/ApiContext";
-/*import Sidebar from '../../Sidebar';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import OrganisationsDash from "../OrganisationsDash/OrganisationsDash";
-import Org from "../OrganisationsDash/Org";
-import Users from "../Users/Users";
-import Reports from "../Report/Reports";
-import Calendar from "../Calendar/Calendar";
-import Validate from "../Validate/Validate";
-import AddOrg from "../OrganisationsDash/AddOrg";
-import OrgValidate from "../Validate/OrgValidate";
-import OrganisationTimeline from "../Timeline/Timeline";
-import Profile from "../Profile/Profile";
-import Certificate from "../Certificate/Certificate";
-import Upgrade1 from "../Certificate/Upgrade1";
-import Upgrade2 from "../Certificate/Upgrade2";
-import Upgrade3 from "../Certificate/Upgrade3";
-import Upgrade4 from "../Certificate/Upgrade4";
-import Upgrade5 from "../Certificate/Upgrade5";
-import Upgrade0 from "../Certificate/Upgrade0";
-import BlurImages from "../BlurImages/BlurImages";*/
 import AdminSidebar from "../DemoSidebar/AdminSidebar";
 export class Featured extends Component {
 

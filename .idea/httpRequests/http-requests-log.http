@@ -1,3 +1,29 @@
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+ "orgId" : "2",
+  "type" : "password",
+  "newValue" : "pizzapizza"
+}
+
+<> 2021-10-02T170118.200.json
+
+###
+
+POST http://localhost:8080/v1/organisation/update/info/organisation
+Content-Type: application/json
+
+{
+ "orgId" : "2",
+  "type" : "password",
+  "newValue" : "pizzapizza"
+}
+
+<> 2021-10-02T165545.400.json
+
+###
+
 GET http://localhost:8080/certificate/download/png/131
 
 <> 2021-09-28T114523.500.json
@@ -326,18 +352,6 @@ PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/establis
 PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/donation_link/false
 
 <> 2021-09-18T202822.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/donation_link/true
-
-<> 2021-09-18T202754.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/qr_code/false
-
-<> 2021-09-18T202714.200.json
 
 ###
 

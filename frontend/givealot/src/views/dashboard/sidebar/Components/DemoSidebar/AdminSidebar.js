@@ -9,6 +9,7 @@ import CalendarTodayOutlinedIcon from '@material-ui/icons/CalendarTodayOutlined'
 import VerifiedUserOutlinedIcon from '@material-ui/icons/VerifiedUserOutlined';
 import Logo from "../../../../login/Components/DashLogo"
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
+import ReportOutlinedIcon from '@material-ui/icons/ReportOutlined';
 
 function Sidebar(){
 
@@ -65,6 +66,15 @@ function Sidebar(){
                         <li className="sidebarListItem ">
                             <VerifiedUserOutlinedIcon />
                             <div className="sideIcon" > Validate </div>
+                        </li>
+                    </Link>
+                </div>
+
+                <div className={splitLocation[1] === "adminReports" || splitLocation[1] === "orgValidate" ? "active" : ""}>
+                    <Link to='/adminReports' className="link">
+                        <li className="sidebarListItem ">
+                            <ReportOutlinedIcon />
+                            <div className="sideIcon" > Reports </div>
                         </li>
                     </Link>
                 </div>

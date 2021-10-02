@@ -1136,5 +1136,4 @@ export class OrgValidate extends Component {
         )
     }
 }
-
 export default OrgValidate

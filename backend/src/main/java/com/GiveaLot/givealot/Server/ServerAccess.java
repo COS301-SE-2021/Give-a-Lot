@@ -152,24 +152,27 @@ public class ServerAccess implements server_access{
         ChannelSftp channelSftp = setupJsch();
         try {
             channelSftp.connect();
-
+            System.out.println("==========connected==============");
             String orgIdString = String.valueOf(orgId);
 
             String templateLocation;
 
             templateLocation = remoteDir + "Organisations/" + orgIdString + "/" + "Certificates" + "/" + orgName.replaceAll("\\s+", "") + "CertificateImage.png";
 
+
             File fileLocation = new File(orgName.replaceAll("\\s+", "") + "CertificateImage.png");
             InputStream stream = channelSftp.get(templateLocation);
             FileUtils.copyInputStreamToFile(stream, fileLocation);
 
+            System.out.println("==========file retrieved============");
             return fileLocation;
 
         } catch (Exception e) {
-            throw new Exception("Exception: Failed to download certificate");
+            throw new Exception("Exception: Failed to download certificate " + e);
         } finally {
             channelSftp.exit();
             session.disconnect();
+            System.out.println("==========disconnected============");
         }
     }
 
@@ -268,6 +271,7 @@ public class ServerAccess implements server_access{
         ChannelSftp channelSftp = setupJsch();
         try {
             channelSftp.connect();
+            System.out.println("==========connected - download pdf============");
 
             String orgIdString = String.valueOf(orgId);
 
@@ -279,6 +283,7 @@ public class ServerAccess implements server_access{
             InputStream stream = channelSftp.get(templateLocation);
             FileUtils.copyInputStreamToFile(stream, fileLocation);
 
+            System.out.println("==========file retrieved============");
             return fileLocation;
 
         } catch (Exception e) {
@@ -286,6 +291,7 @@ public class ServerAccess implements server_access{
         } finally {
             channelSftp.exit();
             session.disconnect();
+            System.out.println("==========disconnected============");
         }
     }
 
@@ -377,6 +383,33 @@ public class ServerAccess implements server_access{
             session.disconnect();
         }
     }
+
+    @Override
+    public File downloadImageQRCode(long orgId) throws Exception {
+        ChannelSftp channelSftp = setupJsch();
+        try {
+            channelSftp.connect();
+
+            String orgIdString = String.valueOf(orgId);
+
+            String templateLocation;
+
+            templateLocation = remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/QRCode.png";
+
+            File fileLocation = new File("QRCode" + orgId + ".png");
+            InputStream stream = channelSftp.get(templateLocation);
+            FileUtils.copyInputStreamToFile(stream, fileLocation);
+
+            return fileLocation;
+
+        } catch (Exception e) {
+            throw new Exception("Exception: Failed to download logo: message ------> " + e);
+        } finally {
+            channelSftp.exit();
+            session.disconnect();
+        }
+    }
+
 
     @Override
     public void uploadImageJPG(long orgId, MultipartFile image, int numberOfImages) throws Exception {

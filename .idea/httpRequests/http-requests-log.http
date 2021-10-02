@@ -1,3 +1,15 @@
+GET http://localhost:8080/certificate/download/png/131
+
+<> 2021-09-28T114523.500.json
+
+###
+
+GET http://localhost:8080/certificate/download/png/131
+
+<> 2021-09-28T114342.500.json
+
+###
+
 POST http://localhost:8080/v1/user/get/users
 Content-Type: application/json
 
@@ -326,18 +338,6 @@ PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/donation
 PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/qr_code/false
 
 <> 2021-09-18T202714.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/qr_code/true
-
-<> 2021-09-18T202639.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/establishment_date/false
-
-<> 2021-09-18T202543.200.json
 
 ###
 

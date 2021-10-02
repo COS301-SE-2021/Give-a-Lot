@@ -1,13 +1,16 @@
 package com.GiveaLot.givealot.Organisation.model;
 
 import lombok.Builder;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
-@Builder
+
 @Entity
 @Table(name = "organisations")
 public class Organisations {
+
+
 
     @Column(
             name = "org_name",
@@ -91,7 +94,12 @@ public class Organisations {
     )
     private String dateAdded;
 
-    public Organisations(String orgName, String slogan, String orgDescription, String orgSector, String orgEmail, Long orgId, String status, String contactPerson, String contactNumber, String directory, String password, String date_added) {
+    @Lob
+    @Column(name="logo")
+    @Type(type="org.hibernate.type.BinaryType")
+    private byte[] logo;
+
+    public Organisations(String orgName, String slogan, String orgDescription, String orgSector, String orgEmail, Long orgId, String status, String contactPerson, String contactNumber, String directory, String password, String date_added,byte[] logo ) {
         this.orgName = orgName;
         this.slogan = slogan;
         this.orgDescription = orgDescription;
@@ -104,8 +112,16 @@ public class Organisations {
         this.directory = directory;
         this.password = password;
         this.dateAdded = date_added;
+        this.logo = logo;
     }
 
+    public byte[] getLogo() {
+        return logo;
+    }
+
+    public void setLogo(byte[] logo) {
+        this.logo = logo;
+    }
 
     public String getDateAdded() {
         return dateAdded;

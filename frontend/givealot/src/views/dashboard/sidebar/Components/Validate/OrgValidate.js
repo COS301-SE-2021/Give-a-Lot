@@ -6,9 +6,9 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import axios from "axios";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogContent from "@material-ui/core/DialogContent";
-import Dialog from "@material-ui/core/Dialog";
+import CircularProgress from '@material-ui/core/CircularProgress';
+import AdminSidebar from "../DemoSidebar/AdminSidebar";
+import {Alert} from "@material-ui/lab";
 
 export class OrgValidate extends Component {
 
@@ -34,7 +34,7 @@ export class OrgValidate extends Component {
             isConfirmedTwitter: false,
             isConfirmedFacebook: false,
             isConfirmedInstagram: false,
-            serverDomain: "http://localhost:8080"
+            serverDomain: "http://localhost:8080",
         }
     }
     handleClose = () => {
@@ -62,9 +62,10 @@ export class OrgValidate extends Component {
             }
         }
 
-
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+this.state.adminId+ '/ngo_date/true', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmed: true})
             })
             .catch(error =>{
@@ -81,9 +82,10 @@ export class OrgValidate extends Component {
             }
         }
 
-
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/ngo_date/false', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmed: true})
             })
             .catch(error =>{
@@ -100,10 +102,10 @@ export class OrgValidate extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-
-
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/ngo_number/true', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedNumber: true})
             })
             .catch(error =>{
@@ -122,10 +124,10 @@ export class OrgValidate extends Component {
             }
         }
 
-
-
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/ngo_number/false', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedNumber: true})
             })
             .catch(error =>{
@@ -142,11 +144,10 @@ export class OrgValidate extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        // this.setState({isConfirmedWebsite: true})
-
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/website/true', config)
             .then(response =>{
-                console.log(response)
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedWebsite: true})
             })
             .catch(error =>{
@@ -162,11 +163,10 @@ export class OrgValidate extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        // this.setState({isConfirmedWebsite: true})
-
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/website/false', config)
             .then(response =>{
-                console.log(response)
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedWebsite: true})
             })
             .catch(error =>{
@@ -182,11 +182,11 @@ export class OrgValidate extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        // this.setState({isConfirmedStreet: true})
 
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/address/true', config)
             .then(response =>{
-                console.log(response)
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedStreet: true})
             })
             .catch(error =>{
@@ -203,9 +203,10 @@ export class OrgValidate extends Component {
             }
         }
 
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/address/false', config)
             .then(response =>{
-                console.log(response)
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedStreet: true})
             })
             .catch(error =>{
@@ -222,8 +223,10 @@ export class OrgValidate extends Component {
             }
         }
 
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/establishment_date/true', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedEd: true})
             })
             .catch(error =>{
@@ -240,8 +243,10 @@ export class OrgValidate extends Component {
             }
         }
 
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/establishment_date/false', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedEd: true})
             })
             .catch(error =>{
@@ -258,8 +263,11 @@ export class OrgValidate extends Component {
             }
         }
 
+
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/donation_link/true', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedDonate: true})
             })
             .catch(error =>{
@@ -276,8 +284,10 @@ export class OrgValidate extends Component {
             }
         }
 
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/donation_link/false', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedDonate: true})
             })
             .catch(error =>{
@@ -294,8 +304,10 @@ export class OrgValidate extends Component {
             }
         }
 
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/qr_code/true', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedQr: true})
             })
             .catch(error =>{
@@ -312,8 +324,10 @@ export class OrgValidate extends Component {
             }
         }
 
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/qr_code/false', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedQr: true})
             })
             .catch(error =>{
@@ -331,8 +345,10 @@ export class OrgValidate extends Component {
             }
         }
 
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/committee/true', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedCommittee: true})
             })
             .catch(error =>{
@@ -349,8 +365,10 @@ export class OrgValidate extends Component {
             }
         }
 
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/committee/false', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedCommittee: true})
             })
             .catch(error =>{
@@ -367,8 +385,10 @@ export class OrgValidate extends Component {
             }
         }
 
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/facebook/true', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedFacebook: true})
             })
             .catch(error =>{
@@ -385,8 +405,10 @@ export class OrgValidate extends Component {
             }
         }
 
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/facebook/false', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedFacebook: true})
             })
             .catch(error =>{
@@ -403,8 +425,10 @@ export class OrgValidate extends Component {
             }
         }
 
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/instagram/true', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedInstagram: true})
             })
             .catch(error =>{
@@ -421,8 +445,10 @@ export class OrgValidate extends Component {
             }
         }
 
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/instagram/false', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedInstagram: true})
             })
             .catch(error =>{
@@ -439,8 +465,10 @@ export class OrgValidate extends Component {
             }
         }
 
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/twitter/true', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedTwitter: true})
             })
             .catch(error =>{
@@ -457,8 +485,10 @@ export class OrgValidate extends Component {
             }
         }
 
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/twitter/false', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedTwitter: true})
             })
             .catch(error =>{
@@ -475,8 +505,10 @@ export class OrgValidate extends Component {
             }
         }
 
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/audit/true', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 console.log(response)
             })
             .catch(error =>{
@@ -493,8 +525,10 @@ export class OrgValidate extends Component {
             }
         }
 
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/audit/false', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 console.log(response)
             })
             .catch(error =>{
@@ -512,8 +546,10 @@ export class OrgValidate extends Component {
             }
         }
 
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/images/true', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 console.log(response)
             })
             .catch(error =>{
@@ -530,8 +566,10 @@ export class OrgValidate extends Component {
             }
         }
 
+        document.getElementById("loaderValidateContainer").style.display="block";
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/images/false', config)
             .then(response =>{
+                document.getElementById("loaderValidateContainer").style.display="none";
                 console.log(response)
             })
             .catch(error =>{
@@ -1070,6 +1108,22 @@ export class OrgValidate extends Component {
         }
 
         return (
+
+            <div className="trythis">
+                <div>
+                    <AdminSidebar />
+                </div>
+
+                <div id='loaderValidateContainer'>
+                    {/*<CircularProgress id='loaderValidate'/>*/}
+                    <Alert
+                    severity={"info"}
+                    id='loaderValidate'
+                    >
+                        please wait...
+                    </Alert>
+                </div>
+
             <div className="validate">
                 <div className="validBody">
                     <div  className="name">
@@ -1077,6 +1131,7 @@ export class OrgValidate extends Component {
                     </div>
                     {orgValidating()}
                 </div>
+            </div>
             </div>
         )
     }

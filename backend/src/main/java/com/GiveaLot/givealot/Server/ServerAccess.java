@@ -48,7 +48,6 @@ public class ServerAccess implements server_access{
         config.put("StrictHostKeyChecking", "no");
         session.setConfig(config);
         session.setPassword(password);
-        session.connect(5000);
         this.ChannelSftp = (ChannelSftp) session.openChannel("sftp");
         return this.ChannelSftp;
     }
@@ -57,13 +56,9 @@ public class ServerAccess implements server_access{
     public void createOrganisationDirectory(long orgId, String orgName) throws Exception {
         ChannelSftp channelSftp = setupJsch();
         try {
-
             channelSftp.connect();
-
             String orgIdString = String.valueOf(orgId);
-
             String orgNameSpace = orgName.replaceAll("\\s+", "");
-
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString);
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Reports");
             channelSftp.mkdir(remoteDir + "Organisations/" + orgIdString + "/" + "Documents");

@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="slight update">
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-10-02T170118.200.json" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/2021-10-02T170118.200.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Styles/OrganisationRegistration.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/registration/registerOrganisation/Styles/OrganisationRegistration.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,10 +121,21 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="generated-requests#100" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="100" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#83" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="83" runType="Run single request">
+    <configuration name="generated-requests#105" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="105" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#92" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="92" runType="Run single request">
@@ -139,21 +155,21 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.generated-requests#83" />
       <item itemvalue="HTTP Request.generated-requests#92" />
       <item itemvalue="HTTP Request.generated-requests#94" />
       <item itemvalue="HTTP Request.generated-requests#99" />
       <item itemvalue="HTTP Request.generated-requests#100" />
       <item itemvalue="Python.chat" />
       <item itemvalue="Spring Boot.GivealotApplication" />
+      <item itemvalue="HTTP Request.generated-requests#105" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests#105" />
         <item itemvalue="HTTP Request.generated-requests#100" />
         <item itemvalue="HTTP Request.generated-requests#99" />
         <item itemvalue="HTTP Request.generated-requests#94" />
         <item itemvalue="HTTP Request.generated-requests#92" />
-        <item itemvalue="HTTP Request.generated-requests#83" />
       </list>
     </recent_temporary>
   </component>
@@ -187,20 +203,7 @@
       <workItem from="1632125413993" duration="8503000" />
       <workItem from="1632134204054" duration="7766000" />
       <workItem from="1632232231467" duration="6208000" />
-    </task>
-    <task id="LOCAL-00097" summary="dedicated organisaiton select for admin users">
-      <created>1631906528649</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1631906528650</updated>
-    </task>
-    <task id="LOCAL-00098" summary="dedicated organisaiton select for admin users">
-      <created>1631906781397</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1631906781397</updated>
+      <workItem from="1633133762871" duration="5086000" />
     </task>
     <task id="LOCAL-00099" summary="dedicated organisation select for admin users">
       <created>1631921327670</created>
@@ -531,7 +534,21 @@
       <option name="project" value="LOCAL" />
       <updated>1632851033209</updated>
     </task>
-    <option name="localTasksCounter" value="146" />
+    <task id="LOCAL-00146" summary="slight update">
+      <created>1632885549344</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1632885549344</updated>
+    </task>
+    <task id="LOCAL-00147" summary="slight update">
+      <created>1632885569699</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1632885569699</updated>
+    </task>
+    <option name="localTasksCounter" value="148" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

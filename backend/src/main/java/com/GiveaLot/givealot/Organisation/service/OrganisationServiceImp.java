@@ -1722,6 +1722,13 @@ public class OrganisationServiceImp implements OrganisationService {
 
             return new generalOrganisationResponse("update_org_address_200_OK", "success");
         }
+        else if (request.getType().equalsIgnoreCase("password"))
+        {
+            String salt = getMd5(organisationRepository.selectOrganisationById(request.getOrgId()).getOrgEmail());
+            String salted = getMd5(request.getNewValue() + salt);
+            organisationRepository.updatePasswordById(request.getOrgId(),salted);
+            return new generalOrganisationResponse("update_org_pass_200_OK", "success");
+        }
         throw new Exception("the type is incorrect");
     }
 

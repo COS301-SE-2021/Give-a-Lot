@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="reporting styled better. recommender should work for users currently signed in (admins and organisations) get default recommendations">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" afterDir="false" />
-    </list>
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="reporting styled better. recommender should work for users currently signed in (admins and organisations) get default recommendations" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -116,19 +113,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="generated-requests#100" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="100" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -202,13 +186,7 @@
       <workItem from="1632232231467" duration="6208000" />
       <workItem from="1633133762871" duration="20686000" />
       <workItem from="1633267541604" duration="1215000" />
-    </task>
-    <task id="LOCAL-00123" summary="timeline - welcome message on registration">
-      <created>1632057485288</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1632057485289</updated>
+      <workItem from="1633300746899" duration="905000" />
     </task>
     <task id="LOCAL-00124" summary="timeline - welcome message on registration">
       <created>1632060988616</created>
@@ -546,7 +524,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633288812482</updated>
     </task>
-    <option name="localTasksCounter" value="172" />
+    <task id="LOCAL-00172" summary="reporting styled better. recommender should work for users currently signed in (admins and organisations) get default recommendations">
+      <created>1633301726483</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1633301726484</updated>
+    </task>
+    <option name="localTasksCounter" value="173" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

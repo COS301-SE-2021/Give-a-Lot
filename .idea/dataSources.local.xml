@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="IU-211.7442.40">
+  <component name="dataSourceStorageLocal" created-in="IU-212.5284.40">
     <data-source name="postgres@209.97.142.151" uuid="c2115be9-a582-4130-8c1d-8deddc5027b3">
-      <database-info product="PostgreSQL" version="12.8 (Ubuntu 12.8-0ubuntu0.20.04.1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.5" dbms="POSTGRES" exact-version="12.8" exact-driver-version="42.2">
+      <database-info product="PostgreSQL" version="12.8 (Ubuntu 12.8-0ubuntu0.20.04.1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.22" dbms="POSTGRES" exact-version="12.8" exact-driver-version="42.2">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
@@ -20,6 +20,10 @@
           </node>
         </introspection-scope>
       </schema-mapping>
+      <ssh-properties>
+        <enabled>false</enabled>
+        <ssh-config-id>5b017e2a-a1cf-49ba-b297-388080217756</ssh-config-id>
+      </ssh-properties>
     </data-source>
   </component>
 </project>

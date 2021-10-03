@@ -7,5 +7,4 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 public interface OrganisationGalleryRepository extends JpaRepository<OrganisationGallery, Long> {
-
 }

@@ -65,7 +65,7 @@ function Sidebar(){
                     <Link to='/validate' className="link">
                         <li className="sidebarListItem ">
                             <VerifiedUserOutlinedIcon />
-                            <div className="sideIcon" > Validate </div>
+                            <div className="sideIcon" > Validate Information</div>
                         </li>
                     </Link>
                 </div>

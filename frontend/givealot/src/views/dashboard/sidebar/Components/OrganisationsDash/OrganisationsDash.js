@@ -76,6 +76,7 @@ export class OrganisationsDash extends Component {
         }
         axios.post(this.state.serverDomain + '/v1/organisation/get/organisations',adminUsersRequestBodyOrgs , config)
             .then(response =>{
+                console.log(response)
                 this.setState({org: response.data.response})
             })
             .catch(error =>{
@@ -208,10 +209,10 @@ export class OrganisationsDash extends Component {
                                 </DialogContent>
                             </Dialog>
                         </div>
-                        <div className="header__input">
-                            <input placeholder="search organisation" type="text" />
-                            <SearchIcon/>
-                        </div>
+                        {/*<div className="header__input">*/}
+                        {/*    <input placeholder="search organisation" type="text" />*/}
+                        {/*    <SearchIcon/>*/}
+                        {/*</div>*/}
                     </div>
 
                     <div className="table">
@@ -235,7 +236,7 @@ export class OrganisationsDash extends Component {
                                             {org.map((item) =>{
                                                 return(
                                                     <TableRow key={item.orgId}>
-                                                        <TableCell><Avatar aria-label="recipe" src="https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg" /> </TableCell>
+                                                        <TableCell><Avatar aria-label="recipe" src={item.logo} /> </TableCell>
                                                         <TableCell>{item.orgName}</TableCell>
                                                         <TableCell>{item.orgEmail}</TableCell>
                                                         <TableCell>{item.contactPerson}</TableCell>

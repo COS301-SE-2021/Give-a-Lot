@@ -2,10 +2,13 @@ import {Box, TextField} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
 import "./Timeline.css"
+import "../../styles/Dashboard.css"
 import React, {useContext, useEffect, useState} from "react";
 import Timeline from "@material-ui/lab/Timeline";
 import OrganisationTimeLineItem from "../../../../browse/Components/OrganisationTimeLineItem/OrganisationTimeLineItem";
+import {ApiContext} from "../../../../../apiContext/ApiContext";
 import OrgSidebar from "../DemoSidebar/OrgSidebar";
+import {FrontEndContext} from "../../../../../apiContext/FrontEndContext";
 
 function OrganisationTimeline()
 {

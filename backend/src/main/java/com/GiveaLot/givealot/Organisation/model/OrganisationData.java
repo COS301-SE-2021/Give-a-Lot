@@ -9,9 +9,9 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Table(name="organisation_data")
-public class OrganisationData {
+public class OrganisationData
+{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "org_id", nullable = false, unique = true)
     public Long orgId;
 
@@ -24,31 +24,6 @@ public class OrganisationData {
     @Column(name="qr_code")
     @Type(type="org.hibernate.type.BinaryType")
     private byte[] qrCode;
-
-    @Lob
-    @Column(name="image1")
-    @Type(type="org.hibernate.type.BinaryType")
-    private byte[] image1;
-
-    @Lob
-    @Column(name="image2")
-    @Type(type="org.hibernate.type.BinaryType")
-    private byte[] image2;
-
-    @Lob
-    @Column(name="image3")
-    @Type(type="org.hibernate.type.BinaryType")
-    private byte[] image3;
-
-    @Lob
-    @Column(name="image4")
-    @Type(type="org.hibernate.type.BinaryType")
-    private byte[] image4;
-
-    @Lob
-    @Column(name="image5")
-    @Type(type="org.hibernate.type.BinaryType")
-    private byte[] image5;
 
     @Lob
     @Column(name="certificate")
@@ -64,16 +39,52 @@ public class OrganisationData {
 
     }
 
-    public OrganisationData(Long orgId, byte[] auditDoc, byte[] qrCode, byte[] image1, byte[] image2, byte[] image3, byte[] image4, byte[] image5, byte[] certificate, byte[] certificateImage) {
+    public OrganisationData(Long orgId, byte[] auditDoc, byte[] qrCode, byte[] certificate, byte[] certificateImage) {
         this.orgId = orgId;
         this.auditDoc = auditDoc;
         this.qrCode = qrCode;
-        this.image1 = image1;
-        this.image2 = image2;
-        this.image3 = image3;
-        this.image4 = image4;
-        this.image5 = image5;
+
         this.certificate = certificate;
+        this.certificateImage = certificateImage;
+    }
+
+    public Long getOrgId() {
+        return orgId;
+    }
+
+    public void setOrgId(Long orgId) {
+        this.orgId = orgId;
+    }
+
+    public byte[] getAuditDoc() {
+        return auditDoc;
+    }
+
+    public void setAuditDoc(byte[] auditDoc) {
+        this.auditDoc = auditDoc;
+    }
+
+    public byte[] getQrCode() {
+        return qrCode;
+    }
+
+    public void setQrCode(byte[] qrCode) {
+        this.qrCode = qrCode;
+    }
+
+    public byte[] getCertificate() {
+        return certificate;
+    }
+
+    public void setCertificate(byte[] certificate) {
+        this.certificate = certificate;
+    }
+
+    public byte[] getCertificateImage() {
+        return certificateImage;
+    }
+
+    public void setCertificateImage(byte[] certificateImage) {
         this.certificateImage = certificateImage;
     }
 }

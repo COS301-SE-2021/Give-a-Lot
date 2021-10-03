@@ -32,24 +32,20 @@ public class ServerAccess implements server_access{
 
     private String remoteDir = "/home/ubuntu/";
 
-
     private Session session;
-
-    private JSch jsch = null;
-    ChannelSftp ChannelSftp = null;
 
     @Override
     public ChannelSftp setupJsch() throws JSchException {
 
-        jsch = new JSch();
+        JSch jsch = new JSch();
         jsch.setKnownHosts("backend/src/main/java/com/GiveaLot/givealot/Server/known_hosts");
         session = jsch.getSession(username, remoteHost);
         java.util.Properties config = new java.util.Properties();
         config.put("StrictHostKeyChecking", "no");
         session.setConfig(config);
         session.setPassword(password);
-        this.ChannelSftp = (ChannelSftp) session.openChannel("sftp");
-        return this.ChannelSftp;
+        session.connect();
+        return (ChannelSftp) session.openChannel("sftp");
     }
 
     @Override

@@ -20,8 +20,7 @@ function SearchResults(props)
             let orgDescription = props.org_list[i].orgDescription;
             let orgName = props.org_list[i].orgName;
             let orgId = props.org_list[i].orgId;
-            let orgImage = serverDomain + "/logo/version/" + orgId;
-
+            let orgImage = serverDomain + "/v1/organisation/image/get/logo/" + orgId;
             curr_results.push(
                 <>
                     <SearchResult key={orgId} orgDescription={orgDescription}

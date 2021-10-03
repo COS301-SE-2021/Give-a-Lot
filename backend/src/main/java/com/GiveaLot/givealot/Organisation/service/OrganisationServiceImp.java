@@ -1069,10 +1069,8 @@ public class OrganisationServiceImp implements OrganisationService {
 
         int numImages = organisationPointsRepository.getNumberOfImages(request.getOrgId());
         int i = 0;
-        for (; i < request.getImages().size(); i++) {
-            access.uploadImageJPG(request.getOrgId(), request.getImages().get(i), numImages);
+            access.uploadImageJPG(request.getOrgId(), request.getImages(), numImages);
             numImages++;
-        }
 
 
         if (organisationPointsRepository.incrementImage(request.getOrgId(), numImages) != 1)

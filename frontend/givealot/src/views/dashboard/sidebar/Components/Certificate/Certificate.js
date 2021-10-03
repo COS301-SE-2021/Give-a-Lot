@@ -46,9 +46,9 @@ export class Certificate extends Component {
 
         axios.post(this.state.serverDomain + '/v1/organisation/get/org_level', dataa  ,config)
             .then(response =>{
-                this.setState({level: response.data.level})
+               /* this.setState({level: response.data.level}) */
+                this.setState({level: 4})
                 console.log(response)
-
             })
             .catch(error =>{
                 console.log(error)

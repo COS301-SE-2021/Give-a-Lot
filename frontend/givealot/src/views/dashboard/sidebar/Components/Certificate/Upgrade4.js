@@ -91,38 +91,47 @@ export class Upgrade4 extends Component {
     };
 
     handleImageChange = event => {
-        const formData_gallery_images = new FormData();
-        formData_gallery_images.append('orgId', this.state.orgId);
-        formData_gallery_images.append('images', event.target.files);
 
-        alert("images upload -- 2");
-        console.log(event.target.files)
-        fetch(
-            this.state.serverDomain + '/v1/organisation/add/image',
-            {
-                method: 'POST',
-                body: formData_gallery_images,
-            }
-        )
-            .then((response) => response.json())
-            .then((result) => {
-                console.log('Success-----:', result);
-                this.setState({popUp2: result.data.message});
-                this.onToastImage();
-            })
-            .catch((error) => {
-                console.error('Error-----:', error);
-                this.setState({popUp2: false});
-                this.onToastImage();
+        if( event.target.files.length < 5)
+        {
+            alert("minimum photos not met");
+            return;
+        }
 
+        for(let idx = 0; idx <  event.target.files.length; idx++)
+        {
+            const formData_gallery_images = new FormData();
+            formData_gallery_images.append('orgId', this.state.orgId);
+            formData_gallery_images.append('images', event.target.files[idx]);
+
+            console.log(event.target.files)
+            fetch(
+                this.state.serverDomain + '/v1/organisation/add/image',
+                {
+                    method: 'POST',
+                    body: formData_gallery_images,
+                }
+            )
+                .then((response) => response.json())
+                .then((result) => {
+                    console.log('Success-----:', result);
+                    this.setState({popUp2: result.data.message});
+                    this.onToastImage();
+                })
+                .catch((error) => {
+                    console.error('Error-----:', error);
+                    this.setState({popUp2: false});
+                    this.onToastImage();
+
+                });
+
+            const isCheckbox = event.target.type === "checkbox";
+            this.setState({
+                [event.target.name]: isCheckbox
+                    ? event.target.checked
+                    : event.target.value
             });
-
-        const isCheckbox = event.target.type === "checkbox";
-        this.setState({
-            [event.target.name]: isCheckbox
-                ? event.target.checked
-                : event.target.value
-        });
+        }
     };
 
     validate = () => {
@@ -222,7 +231,6 @@ export class Upgrade4 extends Component {
                                    Additional credentials needed to Upgrade to level 5
                                  </span>
                                 <div>
-
                                     <div>
                                         <span className="upgrade_label">
                                             Upload images
@@ -238,7 +246,6 @@ export class Upgrade4 extends Component {
 
                                         />
 
-                                        {/* <FormHelperText className="helper">labelPlacement start</FormHelperText>*/}
                                     </div>
                                     <span className="loginError_certificate">{this.state.imagesError}</span>
                                     <div className="empty_space">

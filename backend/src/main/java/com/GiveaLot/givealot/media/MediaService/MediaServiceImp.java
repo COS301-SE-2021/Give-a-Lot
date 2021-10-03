@@ -1,6 +1,11 @@
 package com.GiveaLot.givealot.media.MediaService;
 
+import com.GiveaLot.givealot.Organisation.model.OrganisationData;
+import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
+import com.GiveaLot.givealot.Organisation.repository.OrganisationDataRepository;
+import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
+import com.GiveaLot.givealot.Organisation.repository.organisationPointsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +15,12 @@ import java.util.Locale;
 public class MediaServiceImp implements MediaService{
     @Autowired
     OrganisationRepository organisationRepository;
+
+    @Autowired
+    organisationPointsRepository organisationPointsRepository;
+
+    @Autowired
+    OrganisationDataRepository organisationDataRepository;
 
     @Override
     public boolean orgIdExists(Long orgId)
@@ -37,5 +48,42 @@ public class MediaServiceImp implements MediaService{
            return organisationRepository.selectOrganisationById(orgId).getStatus().toLowerCase().trim();
         }
         return null;
+    }
+
+    @Override
+    public byte[] getOrganisationQrCode(Long orgId) throws Exception
+    {
+        if(orgId == null)
+        {
+            throw new Exception("provided ID is null");
+        }
+        else if(!this.orgIdExists(orgId))
+        {
+            throw new Exception("Organisation is does not exist");
+        }
+        else if(!organisationPointsRepository.existsById(orgId))
+        {
+            throw new Exception("Fatal: info does not exist");
+        }
+        else if(!organisationPointsRepository.selectOrganisationPoints(orgId).isQrCodeIsValid())
+        {
+            throw new Exception("QR code not validated");
+        }
+        return organisationDataRepository.selectOrganisationDataById(orgId).getQrCode();
+    }
+
+    @Override
+    public byte[] getOrganisationCertificateAsPDF(Long orgId) throws Exception {
+
+        if(orgId == null)
+        {
+            throw new Exception("provided ID is null");
+        }
+        else if(!this.orgIdExists(orgId))
+        {
+            throw new Exception("Organisation is does not exist");
+        }
+
+        return organisationDataRepository.selectOrganisationDataById(orgId).getCertificateImage();
     }
 }

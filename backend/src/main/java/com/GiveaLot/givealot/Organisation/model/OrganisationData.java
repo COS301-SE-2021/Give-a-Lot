@@ -50,11 +50,21 @@ public class OrganisationData {
     @Type(type="org.hibernate.type.BinaryType")
     private byte[] image5;
 
+    @Lob
+    @Column(name="certificate")
+    @Type(type="org.hibernate.type.BinaryType")
+    private byte[] certificate;
+
+    @Lob
+    @Column(name="certificateImage")
+    @Type(type="org.hibernate.type.BinaryType")
+    private byte[] certificateImage;
+
     public OrganisationData() {
 
     }
 
-    public OrganisationData(Long orgId, byte[] auditDoc, byte[] qrCode, byte[] image1, byte[] image2, byte[] image3, byte[] image4, byte[] image5) {
+    public OrganisationData(Long orgId, byte[] auditDoc, byte[] qrCode, byte[] image1, byte[] image2, byte[] image3, byte[] image4, byte[] image5, byte[] certificate, byte[] certificateImage) {
         this.orgId = orgId;
         this.auditDoc = auditDoc;
         this.qrCode = qrCode;
@@ -63,5 +73,7 @@ public class OrganisationData {
         this.image3 = image3;
         this.image4 = image4;
         this.image5 = image5;
+        this.certificate = certificate;
+        this.certificateImage = certificateImage;
     }
 }

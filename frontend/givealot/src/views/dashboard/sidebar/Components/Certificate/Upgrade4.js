@@ -92,7 +92,6 @@ export class Upgrade4 extends Component {
 
     handleImageChange = event => {
 
-
         if( event.target.files.length < 5)
         {
             alert("minimum photos not met");

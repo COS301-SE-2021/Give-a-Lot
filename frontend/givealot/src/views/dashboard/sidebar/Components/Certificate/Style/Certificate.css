@@ -462,9 +462,24 @@
 }
 .upgrade_date{
     position: relative;
-    width:500px;
-    height: 55px;
-    padding: 15px;
+    width:505px;
+    height: 40px;
+    padding: 6px;
+    left:10px;
+    border-radius: 5px;
+    color: gray;
+    margin-bottom: 10px;
+    border: 2px solid #957b9e;
+
+}
+
+.upgrade_images{
+    position: relative;
+    width:505px;
+    height: 40px;
+    padding-top: 15px;
+
+padding-left: 11px;
     left:10px;
     border-radius: 5px;
     color: gray;

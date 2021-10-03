@@ -11,12 +11,26 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import {ApiContext} from "../../../../../apiContext/ApiContext";
 import OrgSidebar from "../DemoSidebar/OrgSidebar";
+import {TextField} from "@material-ui/core";
 
 const styles =theme => ({
 
     root: {
         display: "flex",
-        flexWrap: "wrap"
+        flexWrap: "wrap",
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: '#957b9e',
+                borderWidth: 2
+            },
+        },
+    },
+    textField: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: "30ch",
+
+
     },
 
 });
@@ -240,11 +254,12 @@ export class Upgrade4 extends Component {
                                  </span>
                                 <div>
                                     <div>
-                                        <span className="upgrade_label">
+
+                                       <span className="upgrade_label">
                                             Upload images
                                          </span>
                                         <input
-                                            className="upgrade_date"
+                                            className="upgrade_images"
                                             accept="image/*"
                                             name="images"
                                             id="contained-button-file"
@@ -260,13 +275,19 @@ export class Upgrade4 extends Component {
                                         empty space
                                     </div>
                                     <div>
-                                        <span className="upgrade_label_logo">
-                                            Audit financial document
-                                         </span>
-                                        <input
-                                            className="upgrade_logo"
+
+                                        <TextField
+                                            id="outlined-full-width"
+                                            style={{ margin: 8 }}
+                                            fullWidth
+                                            margin="normal"
+                                            variant="outlined"
+                                            InputLabelProps={{
+                                                shrink: true,
+                                            }}
                                             type="file"
                                             name="file"
+                                            label="Audit financial document"
                                             onChange={this.handleFileChange}
                                         />
 

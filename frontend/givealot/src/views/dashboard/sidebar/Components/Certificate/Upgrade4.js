@@ -11,12 +11,26 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import {ApiContext} from "../../../../../apiContext/ApiContext";
 import OrgSidebar from "../DemoSidebar/OrgSidebar";
+import {TextField} from "@material-ui/core";
 
 const styles =theme => ({
 
     root: {
         display: "flex",
-        flexWrap: "wrap"
+        flexWrap: "wrap",
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: '#957b9e',
+                borderWidth: 2
+            },
+        },
+    },
+    textField: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: "30ch",
+
+
     },
 
 });
@@ -35,6 +49,7 @@ export class Upgrade4 extends Component {
             popUp1:false,
             popUp2:false,
             serverDomain: 'http://localhost:8080',
+            frontEndDomain: 'http://localhost:3000',
 
         };
     }
@@ -91,38 +106,47 @@ export class Upgrade4 extends Component {
     };
 
     handleImageChange = event => {
-        const formData_gallery_images = new FormData();
-        formData_gallery_images.append('orgId', this.state.orgId);
-        formData_gallery_images.append('images', event.target.files);
 
-        alert("images upload -- 2");
-        console.log(event.target.files)
-        fetch(
-            this.state.serverDomain + '/v1/organisation/add/image',
-            {
-                method: 'POST',
-                body: formData_gallery_images,
-            }
-        )
-            .then((response) => response.json())
-            .then((result) => {
-                console.log('Success-----:', result);
-                this.setState({popUp2: result.data.message});
-                this.onToastImage();
-            })
-            .catch((error) => {
-                console.error('Error-----:', error);
-                this.setState({popUp2: false});
-                this.onToastImage();
+        if( event.target.files.length < 5)
+        {
+            alert("minimum photos not met");
+            return;
+        }
 
+        for(let idx = 0; idx <  event.target.files.length; idx++)
+        {
+            const formData_gallery_images = new FormData();
+            formData_gallery_images.append('orgId', this.state.orgId);
+            formData_gallery_images.append('images', event.target.files[idx]);
+
+            console.log(event.target.files)
+            fetch(
+                this.state.serverDomain + '/v1/organisation/add/image',
+                {
+                    method: 'POST',
+                    body: formData_gallery_images,
+                }
+            )
+                .then((response) => response.json())
+                .then((result) => {
+                    console.log('Success-----:', result);
+                    this.setState({popUp2: result.data.message});
+                    this.onToastImage();
+                })
+                .catch((error) => {
+                    console.error('Error-----:', error);
+                    this.setState({popUp2: false});
+                    this.onToastImage();
+
+                });
+
+            const isCheckbox = event.target.type === "checkbox";
+            this.setState({
+                [event.target.name]: isCheckbox
+                    ? event.target.checked
+                    : event.target.value
             });
-
-        const isCheckbox = event.target.type === "checkbox";
-        this.setState({
-            [event.target.name]: isCheckbox
-                ? event.target.checked
-                : event.target.value
-        });
+        }
     };
 
     validate = () => {
@@ -190,6 +214,13 @@ export class Upgrade4 extends Component {
 
     render()
     {
+        if(localStorage.getItem("id") === null ||
+            localStorage.getItem("id") === undefined ||
+            localStorage.getItem("id") === 'default')
+        {
+
+            window.location.href = this.state.frontEndDomain + "/login";
+        }
         const { classes } = this.props;
 
         return (
@@ -222,13 +253,13 @@ export class Upgrade4 extends Component {
                                    Additional credentials needed to Upgrade to level 5
                                  </span>
                                 <div>
-
                                     <div>
-                                        <span className="upgrade_label">
+
+                                       <span className="upgrade_label">
                                             Upload images
                                          </span>
                                         <input
-                                            className="upgrade_date"
+                                            className="upgrade_images"
                                             accept="image/*"
                                             name="images"
                                             id="contained-button-file"
@@ -238,20 +269,25 @@ export class Upgrade4 extends Component {
 
                                         />
 
-                                        {/* <FormHelperText className="helper">labelPlacement start</FormHelperText>*/}
                                     </div>
                                     <span className="loginError_certificate">{this.state.imagesError}</span>
                                     <div className="empty_space">
                                         empty space
                                     </div>
                                     <div>
-                                        <span className="upgrade_label_logo">
-                                            Audit financial document
-                                         </span>
-                                        <input
-                                            className="upgrade_logo"
+
+                                        <TextField
+                                            id="outlined-full-width"
+                                            style={{ margin: 8 }}
+                                            fullWidth
+                                            margin="normal"
+                                            variant="outlined"
+                                            InputLabelProps={{
+                                                shrink: true,
+                                            }}
                                             type="file"
                                             name="file"
+                                            label="Audit financial document"
                                             onChange={this.handleFileChange}
                                         />
 

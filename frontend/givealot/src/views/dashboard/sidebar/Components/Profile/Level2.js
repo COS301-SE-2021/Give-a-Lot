@@ -53,6 +53,7 @@ export class Level2 extends Component {
             qrCode:"",
             qrCodeState:false,
             serverDomain: 'http://localhost:8080',
+            frontEndDomain: 'http://localhost:3000'
         };
         this.handleDateChange = this.handleDateChange.bind(this);
     }
@@ -169,6 +170,14 @@ export class Level2 extends Component {
 
 
     render(){
+
+        if(localStorage.getItem("id") === null ||
+            localStorage.getItem("id") === undefined ||
+            localStorage.getItem("id") === 'default')
+        {
+
+            window.location.href = this.state.frontEndDomain + "/login";
+        }
         const { classes } = this.props;
         const { level2 } = this.state;
 

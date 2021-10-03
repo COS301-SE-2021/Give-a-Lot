@@ -19,6 +19,10 @@
     display: none;
 }
 
+#blur-image-input
+{
+    border: 1px solid #4b4250 !important;
+}
 #blur-image-container > p
 {
     text-align: center;
@@ -27,7 +31,9 @@
     font-size: 28px;
     font-weight: 800;
     margin-bottom: 20px;
-    text-transform: capitalize;
+    margin-top: 20px;
+    text-transform: uppercase;
+
 }
 
 #blurred_image_here

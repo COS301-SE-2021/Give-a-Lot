@@ -42,6 +42,14 @@
     margin:  0 0 15px 0;
     text-transform: uppercase;
 }
+
+#logo_dashboard
+{
+
+    object-fit: contain;
+    position: relative;
+
+}
 .LoginInput{
     width: 100%;
     border-bottom: 2px solid #d9d9d9;
@@ -161,13 +169,10 @@
     display: block;
     color: #4b4250;
     font-family:sans-serif;
-
     margin:  25px 0 25px 0;
 
 }
 
-.headers1{
-    margin-bottom: 10px;
-}
+
 
 /* mobile media query*/

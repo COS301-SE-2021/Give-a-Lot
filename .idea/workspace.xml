@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="Updated Server Access">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="fixed bugs on the dashboard">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationData.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationDataRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationDataRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,23 +42,19 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/frontend/givealot/src/views/default/Default404.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationPoints.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/organisationPointsRepository.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/givealot/src/views/login/Login.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/organisationPointsRepository.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/frontend/givealot/src/views/default/Default404.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
-        <entry key="JPA Inspector" value="true" />
-        <entry key="JPA Palette" value="true" />
         <entry key="JPA Structure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="JPA Inspector" value="false" />
-        <entry key="JPA Palette" value="false" />
         <entry key="JPA Structure" value="false" />
       </map>
     </option>
@@ -124,13 +116,24 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="generated-requests#100" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="100" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#83" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="83" runType="Run single request">
+    <configuration name="generated-requests#105" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="105" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#92" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="92" runType="Run single request">
+    <configuration name="generated-requests#106" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="106" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#94" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="94" runType="Run single request">
@@ -147,21 +150,21 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.generated-requests#83" />
-      <item itemvalue="HTTP Request.generated-requests#92" />
       <item itemvalue="HTTP Request.generated-requests#94" />
       <item itemvalue="HTTP Request.generated-requests#99" />
       <item itemvalue="HTTP Request.generated-requests#100" />
+      <item itemvalue="HTTP Request.generated-requests#105" />
+      <item itemvalue="HTTP Request.generated-requests#106" />
       <item itemvalue="Python.chat" />
       <item itemvalue="Spring Boot.GivealotApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests#106" />
+        <item itemvalue="HTTP Request.generated-requests#105" />
         <item itemvalue="HTTP Request.generated-requests#100" />
         <item itemvalue="HTTP Request.generated-requests#99" />
         <item itemvalue="HTTP Request.generated-requests#94" />
-        <item itemvalue="HTTP Request.generated-requests#92" />
-        <item itemvalue="HTTP Request.generated-requests#83" />
       </list>
     </recent_temporary>
   </component>
@@ -195,83 +198,7 @@
       <workItem from="1632125413993" duration="8503000" />
       <workItem from="1632134204054" duration="7766000" />
       <workItem from="1632232231467" duration="6208000" />
-      <workItem from="1632821806682" duration="1061000" />
-      <workItem from="1632828284482" duration="921000" />
-      <workItem from="1632843512326" duration="554000" />
-      <workItem from="1632864645982" duration="6000" />
-      <workItem from="1633111812064" duration="1081000" />
-      <workItem from="1633116734932" duration="639000" />
-      <workItem from="1633182168816" duration="5166000" />
-    </task>
-    <task id="LOCAL-00097" summary="dedicated organisaiton select for admin users">
-      <created>1631906528649</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1631906528650</updated>
-    </task>
-    <task id="LOCAL-00098" summary="dedicated organisaiton select for admin users">
-      <created>1631906781397</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1631906781397</updated>
-    </task>
-    <task id="LOCAL-00099" summary="dedicated organisation select for admin users">
-      <created>1631921327670</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1631921327670</updated>
-    </task>
-    <task id="LOCAL-00100" summary="dedicated organisation select for admin users">
-      <created>1631922290686</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1631922290686</updated>
-    </task>
-    <task id="LOCAL-00101" summary="dedicated organisation select for admin users">
-      <created>1631923037055</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1631923037056</updated>
-    </task>
-    <task id="LOCAL-00102" summary="dedicated organisation select for admin users">
-      <created>1631923246508</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
-      <option name="project" value="LOCAL" />
-      <updated>1631923246509</updated>
-    </task>
-    <task id="LOCAL-00103" summary="dedicated organisation select for admin users">
-      <created>1631924185046</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1631924185046</updated>
-    </task>
-    <task id="LOCAL-00104" summary="chatbot style and additional of a .css file">
-      <created>1631926448938</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
-      <option name="project" value="LOCAL" />
-      <updated>1631926448938</updated>
-    </task>
-    <task id="LOCAL-00105" summary="updated styling chatbot">
-      <created>1631926944918</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1631926944919</updated>
-    </task>
-    <task id="LOCAL-00106" summary="updated styling chatbot">
-      <created>1631928105725</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1631928105725</updated>
+      <workItem from="1633133762871" duration="20506000" />
     </task>
     <task id="LOCAL-00107" summary="login api">
       <created>1631963564109</created>
@@ -519,34 +446,104 @@
       <updated>1632820350966</updated>
     </task>
     <task id="LOCAL-00142" summary="Updated Server Access">
-      <created>1633183194082</created>
+      <created>1632820811460</created>
       <option name="number" value="00142" />
       <option name="presentableId" value="LOCAL-00142" />
       <option name="project" value="LOCAL" />
-      <updated>1633183194083</updated>
+      <updated>1632820811460</updated>
     </task>
-    <task id="LOCAL-00143" summary="Loader on org validate page">
-      <created>1633185459283</created>
+    <task id="LOCAL-00143" summary="Updated Server Access">
+      <created>1632820947326</created>
       <option name="number" value="00143" />
       <option name="presentableId" value="LOCAL-00143" />
       <option name="project" value="LOCAL" />
-      <updated>1633185459283</updated>
+      <updated>1632820947326</updated>
     </task>
-    <task id="LOCAL-00144" summary="Loader on org validate page">
-      <created>1633185679718</created>
+    <task id="LOCAL-00144" summary="slight update">
+      <created>1632838909651</created>
       <option name="number" value="00144" />
       <option name="presentableId" value="LOCAL-00144" />
       <option name="project" value="LOCAL" />
-      <updated>1633185679718</updated>
+      <updated>1632838909651</updated>
     </task>
-    <task id="LOCAL-00145" summary="code clean up">
-      <created>1633187542840</created>
+    <task id="LOCAL-00145" summary="slight update">
+      <created>1632851033209</created>
       <option name="number" value="00145" />
       <option name="presentableId" value="LOCAL-00145" />
       <option name="project" value="LOCAL" />
-      <updated>1633187542840</updated>
+      <updated>1632851033209</updated>
     </task>
-    <option name="localTasksCounter" value="146" />
+    <task id="LOCAL-00146" summary="slight update">
+      <created>1632885549344</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1632885549344</updated>
+    </task>
+    <task id="LOCAL-00147" summary="slight update">
+      <created>1632885569699</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1632885569699</updated>
+    </task>
+    <task id="LOCAL-00148" summary="slight update">
+      <created>1633187177179</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1633187177179</updated>
+    </task>
+    <task id="LOCAL-00149" summary="reporting done">
+      <created>1633190824046</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1633190824046</updated>
+    </task>
+    <task id="LOCAL-00150" summary="reporting done">
+      <created>1633199889618</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1633199889618</updated>
+    </task>
+    <task id="LOCAL-00151" summary="reporting done">
+      <created>1633217849387</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1633217849388</updated>
+    </task>
+    <task id="LOCAL-00152" summary="reporting done">
+      <created>1633224114538</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1633224114538</updated>
+    </task>
+    <task id="LOCAL-00153" summary="reporting done">
+      <created>1633226396469</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1633226396469</updated>
+    </task>
+    <task id="LOCAL-00154" summary="reporting done">
+      <created>1633226432068</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1633226432068</updated>
+    </task>
+    <task id="LOCAL-00155" summary="fixed bugs on the dashboard">
+      <created>1633230944859</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1633230944859</updated>
+    </task>
+    <option name="localTasksCounter" value="156" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -587,9 +584,10 @@
     <MESSAGE value="dash bug fix - Alexis take over" />
     <MESSAGE value="no change" />
     <MESSAGE value="Updated Server Access" />
-    <MESSAGE value="Loader on org validate page" />
-    <MESSAGE value="code clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="code clean up" />
+    <MESSAGE value="slight update" />
+    <MESSAGE value="reporting done" />
+    <MESSAGE value="fixed bugs on the dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs on the dashboard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -606,6 +604,6 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Give_a_Lot$chat.coverage" NAME="chat Coverage Results" MODIFIED="1632135411129" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Chatbot" />
+    <SUITE FILE_PATH="coverage/Give_a_Lot$chat.coverage" NAME="chat Coverage Results" MODIFIED="1631920655789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Chatbot" />
   </component>
 </project>

@@ -140,6 +140,8 @@ public class ReportServiceImpl implements ReportService {
         return new generalReportResponse("report_200_OK", "success");
     }
 
+
+
     @Override
     public responseJSON getAllReports(Long orgId) throws Exception {
         if (orgId == null)
@@ -172,7 +174,7 @@ public class ReportServiceImpl implements ReportService {
     public responseJSON getAppealedReports(Long adminId) throws Exception {
         if (adminId == null)
             throw new Exception("id is null");
-        else if (userRepository.findUserById(adminId) == null)
+        else if (!userRepository.existsById(adminId))
             throw new Exception("user not found");
         else if (!userRepository.findUserById(adminId).getAdmin())
             throw new Exception("not authorized");

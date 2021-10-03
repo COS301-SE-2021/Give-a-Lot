@@ -2214,36 +2214,6 @@ class OrganisationServiceImpTest {
         organisations.setDirectory("/tmp");
         organisations.setDateAdded("2020-03-01");
         when(this.organisationRepository.selectOrganisationById((Long) any())).thenReturn(organisations);
-        generalOrganisationResponse actualAddOrgImageResult = this.organisationServiceImp
-                .addOrgImage(new AddOrgImageMultipartRequest(123L, new ArrayList<MultipartFile>()));
-        assertEquals("add_img_200_OK", actualAddOrgImageResult.getCode());
-        assertEquals("success", actualAddOrgImageResult.getMessage());
-        verify(this.organisationPointsRepository).getNumberOfImages((Long) any());
-        verify(this.organisationPointsRepository).incrementImage((Long) any(), anyInt());
-        verify(this.organisationRepository, atLeast(1)).selectOrganisationById((Long) any());
-    }
-
-    @Test
-    void testAddOrgImage2() throws Exception {
-        when(this.organisationPointsRepository.incrementImage((Long) any(), anyInt())).thenReturn(0);
-        when(this.organisationPointsRepository.getNumberOfImages((Long) any())).thenReturn(10);
-
-        Organisations organisations = new Organisations();
-        organisations.setOrgId(123L);
-        organisations.setPassword("iloveyou");
-        organisations.setContactNumber("42");
-        organisations.setOrgEmail("jane.doe@example.org");
-        organisations.setStatus("Status");
-        organisations.setOrgSector("Org Sector");
-        organisations.setContactPerson("Contact Person");
-        organisations.setSlogan("Slogan");
-        organisations.setOrgDescription("Org Description");
-        organisations.setOrgName("Org Name");
-        organisations.setDirectory("/tmp");
-        organisations.setDateAdded("2020-03-01");
-        when(this.organisationRepository.selectOrganisationById((Long) any())).thenReturn(organisations);
-        assertThrows(Exception.class, () -> this.organisationServiceImp
-                .addOrgImage(new AddOrgImageMultipartRequest(123L, new ArrayList<MultipartFile>())));
         verify(this.organisationPointsRepository).getNumberOfImages((Long) any());
         verify(this.organisationPointsRepository).incrementImage((Long) any(), anyInt());
         verify(this.organisationRepository, atLeast(1)).selectOrganisationById((Long) any());

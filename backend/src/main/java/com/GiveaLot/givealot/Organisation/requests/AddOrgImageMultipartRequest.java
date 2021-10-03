@@ -8,12 +8,14 @@ import java.util.List;
 
 public class AddOrgImageMultipartRequest {
     private Long orgId;
-    private List<MultipartFile> images;
+
+    private MultipartFile image;
 
     public AddOrgImageMultipartRequest(@JsonProperty("orgId") Long orgId,
-                                       @JsonProperty("images") List<MultipartFile> images) {
+                             @JsonProperty("image") MultipartFile image)
+    {
         this.orgId = orgId;
-        this.images = images;
+        this.image = image;
     }
 
     public Long getOrgId() {
@@ -24,11 +26,11 @@ public class AddOrgImageMultipartRequest {
         this.orgId = orgId;
     }
 
-    public List<MultipartFile> getImages() {
-        return images;
+    public MultipartFile getImages() {
+        return image;
     }
 
-    public void setImages(List<MultipartFile> images) {
-        this.images = images;
+    public void setImages(MultipartFile images) {
+        this.image = images;
     }
 }

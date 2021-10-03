@@ -396,8 +396,6 @@ function ViewOrganisation()
                        <></>
                    }
 
-
-
                </Container>
 
                <Container maxWidth="sm" id="view_organisation_right">

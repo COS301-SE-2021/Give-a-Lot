@@ -489,24 +489,31 @@ public class ServerAccess implements server_access{
 
     @Override
     public void uploadImagePNG(long orgId, MultipartFile imageMPF) throws Exception {
+
+
         ChannelSftp channelSftp = setupJsch();
+
         try {
             File image = new File("backend/src/main/resources/TempDocument/TempImg.png");
+
             if (!image.exists()) {
+
                 image.createNewFile();
+
             }
             try (OutputStream os = new FileOutputStream(image)) {
-                os.write(imageMPF.getBytes());
-            }
-            image.renameTo(new File("backend/src/main/resources/TempDocument/image.png"));
 
+                os.write(imageMPF.getBytes());
+
+            }
+
+            image.renameTo(new File("backend/src/main/resources/TempDocument/image.png"));
             channelSftp.connect();
 
             int imageNumber = organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfImages() + 1;
 
             String orgIdString = String.valueOf(orgId);
-            String localFile = "backend/src/main/resources/localFiles/" + orgId + "Gallery/image" + imageNumber + ".png";
-
+            String localFile = "backend/src/main/resources/localFiles/" + orgId + "/gallery/image" + imageNumber + ".png";
             FileUtils.copyFile(image, new File(localFile));
 
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + imageNumber + ".png");
@@ -514,6 +521,7 @@ public class ServerAccess implements server_access{
 
             image.delete();
         } catch (Exception e) {
+
             e.printStackTrace();
         } finally {
             channelSftp.exit();

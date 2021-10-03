@@ -41,6 +41,7 @@ const initialState = {
     startDate: new Date(),
     orgInfo:"",
     Qrcode:"",
+    QrcodeFile:null,
     dateError:"",
     paypalError:"",
     qrError:"",
@@ -75,45 +76,8 @@ export class Upgrade2 extends Component {
     };
 
     handleChange = event => {
-        const formData = new FormData();
+        this.setState({ QrcodeFile: event.target.files[0]})
 
-        formData.append('image', event.target.files[0]);
-        formData.append('orgId', this.state.orgId);
-        let imageStates = 0;
-        fetch(
-            this.state.serverDomain + '/v1/organisation/add/qrcode',
-            {
-                method: 'POST',
-                body: formData,
-            }
-        )
-            .then((response) => response.json())
-            .then((result) => {
-                console.log('Success:', result);
-                imageStates = 1;
-                this.setState({popUp3: true});
-                this. onToastCode ();
-
-            })
-            .catch((error) => {
-                console.error('Error:', error.response);
-                imageStates = 2;
-                this.setState({popUp3: false});
-                this. onToastCode ();
-
-            });
-
-        if(imageStates===1)
-            alert("bring back button functionality");
-        else if(imageStates === 2)
-            alert("bring back button functionality also tell the user that the image didnt submit");
-
-        const isCheckbox = event.target.type === "checkbox";
-        this.setState({
-            [event.target.name]: isCheckbox
-                ? event.target.checked
-                : event.target.value
-        });
     };
 
 
@@ -132,7 +96,7 @@ export class Upgrade2 extends Component {
             paypalError="required";
         }
 
-        if (!this.state.Qrcode) {
+        if (!this.state.QrcodeFile) {
             qrError = "required";
         }
 
@@ -182,6 +146,33 @@ export class Upgrade2 extends Component {
                     this.setState({popUp2: false});
                     this. onToastPaypal ();
                 });
+
+            console.log(this.state.QrcodeFile)
+            const formData = new FormData();
+            formData.append('image', this.state.QrcodeFile);
+            formData.append('orgId', this.state.orgId);
+            fetch(
+                this.state.serverDomain + '/v1/organisation/add/qrcode',
+                {
+                    method: 'POST',
+                    body: formData,
+                }
+            )
+                .then((response) => response.json())
+                .then((result) => {
+                    console.log('Success:', result);
+                    this.setState({popUp3: true});
+                    this. onToastCode ();
+
+                })
+                .catch((error) => {
+                    console.error('Error:', error.response);
+                    this.setState({popUp3: false});
+                    this. onToastCode ();
+
+                });
+
+
 
             const notification_update_body = {
                 org_id: this.state.orgId,
@@ -318,11 +309,17 @@ export class Upgrade2 extends Component {
                                                 </div>
                                             <span className="loginError_certificate">{this.state.paypalError}</span>
                                             <div>
-                                                <span className="upgrade_label_logo">
-                                                    QR code
-                                                 </span>
-                                                <input
-                                                    className="upgrade_logo"
+
+                                                <TextField
+                                                    id="outlined-full-width"
+                                                    style={{ margin: 8 }}
+                                                    fullWidth
+                                                    margin="normal"
+                                                    variant="outlined"
+                                                    InputLabelProps={{
+                                                        shrink: true,
+                                                    }}
+                                                    label="QR code"
                                                     type="file"
                                                     name="Qrcode"
                                                     onChange={this.handleChange}

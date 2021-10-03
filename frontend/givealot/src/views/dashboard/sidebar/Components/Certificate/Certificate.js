@@ -27,6 +27,7 @@ export class Certificate extends Component {
             popUp2:false,
             orgId:localStorage.getItem("id"),
             serverDomain : 'http://localhost:8080',
+            frontEndDomain: 'http://localhost:3000',
 
 
         };
@@ -57,6 +58,14 @@ export class Certificate extends Component {
     }
 
     render(){
+        if(localStorage.getItem("id") === null ||
+            localStorage.getItem("id") === undefined ||
+            localStorage.getItem("id") === 'default')
+        {
+
+            window.location.href = this.state.frontEndDomain + "/login";
+        }
+
     const { classes } = this.props;
 
         let upgrade

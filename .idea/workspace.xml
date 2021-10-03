@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="reporting done" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="fixed bugs on the dashboard">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -195,21 +198,7 @@
       <workItem from="1632125413993" duration="8503000" />
       <workItem from="1632134204054" duration="7766000" />
       <workItem from="1632232231467" duration="6208000" />
-      <workItem from="1633133762871" duration="15159000" />
-    </task>
-    <task id="LOCAL-00105" summary="updated styling chatbot">
-      <created>1631926944918</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1631926944919</updated>
-    </task>
-    <task id="LOCAL-00106" summary="updated styling chatbot">
-      <created>1631928105725</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1631928105725</updated>
+      <workItem from="1633133762871" duration="20506000" />
     </task>
     <task id="LOCAL-00107" summary="login api">
       <created>1631963564109</created>
@@ -540,7 +529,21 @@
       <option name="project" value="LOCAL" />
       <updated>1633226396469</updated>
     </task>
-    <option name="localTasksCounter" value="154" />
+    <task id="LOCAL-00154" summary="reporting done">
+      <created>1633226432068</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1633226432068</updated>
+    </task>
+    <task id="LOCAL-00155" summary="fixed bugs on the dashboard">
+      <created>1633230944859</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1633230944859</updated>
+    </task>
+    <option name="localTasksCounter" value="156" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -583,7 +586,8 @@
     <MESSAGE value="Updated Server Access" />
     <MESSAGE value="slight update" />
     <MESSAGE value="reporting done" />
-    <option name="LAST_COMMIT_MESSAGE" value="reporting done" />
+    <MESSAGE value="fixed bugs on the dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs on the dashboard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

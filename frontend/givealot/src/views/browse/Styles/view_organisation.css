@@ -336,7 +336,7 @@ em
 #report_form_container
 {
     flex-direction: column;
-    display: none;
+    display: flex;
 }
 
 #report_success_alert

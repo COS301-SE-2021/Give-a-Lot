@@ -5,10 +5,21 @@ import blurredFallback from '../../../../../assets/blurredFallback.jpeg';
 import {Alert} from "@material-ui/lab";
 import {ApiContext} from "../../../../../apiContext/ApiContext";
 import OrgSidebar from "../DemoSidebar/OrgSidebar";
+import {FrontEndContext} from "../../../../../apiContext/FrontEndContext";
 function BlurImages()
 {
     let [current_image, set_current_image] = useState(blurredFallback);
     const [serverDomain, setServerDomain] = useState(useContext(ApiContext))
+    const [frontEndDomain, setFrontEndDomain] = useState(useContext(FrontEndContext));
+
+    if(localStorage.getItem("id") === null ||
+        localStorage.getItem("id") === undefined ||
+        localStorage.getItem("id") === 'default')
+    {
+
+        window.location.href = frontEndDomain + "/login";
+    }
+
     const uploadImage = event =>
     {
         const form_data = new FormData();

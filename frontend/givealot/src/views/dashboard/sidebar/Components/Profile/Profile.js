@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import "./Styles/Profile.css"
 import {toast, ToastContainer} from "react-toastify";
-
-
 import {
     CalendarToday, CheckCircleOutlineOutlined,
     MailOutline,
@@ -16,7 +14,6 @@ import * as PropTypes from "prop-types";
 import {ApiContext} from "../../../../../apiContext/ApiContext";
 import FullPageLoader from "../Report/FullPageLoader";
 import OrgSidebar from "../DemoSidebar/OrgSidebar";
-
 
 function CancelOutlinedIcon() {
     return null;
@@ -33,7 +30,6 @@ export class Profile extends Component {
         this.state = {
             persons:{},
             orgId:localStorage.getItem("id"),
-            //orgId: 75,
             orgEmail:"",
             orgName1:"",
             orgNameState:false,
@@ -61,8 +57,6 @@ export class Profile extends Component {
             popUp8:false,
             serverDomain: 'http://localhost:8080',
             loader:false,
-
-
         }
     }
 
@@ -91,7 +85,6 @@ export class Profile extends Component {
 
 
     }
-
 
     handleEmail=event=>{
         this.setState({emailState: true})
@@ -468,19 +461,6 @@ export class Profile extends Component {
 
 
 
-
-
-
-    /* onToastP = () => {
-         if (this.state.orgNameState || this.state.orgDescriptionState || this.state.emailState || this.state.ContactNumberState || this.state.ContactPersonState || this.state.sloganState || this.state.addressState) {
-             toast.success('Submit successful', {
-                 position: toast.POSITION.TOP_RIGHT
-
-             });
-         }
-     }*/
-
-
     render() {
         const { persons } = this.state
 
@@ -506,9 +486,6 @@ export class Profile extends Component {
             auto_spinner=<FullPageLoader />
         }
 
-
-
-
         return (
             <div className="trythis">
                 <div>
@@ -520,13 +497,8 @@ export class Profile extends Component {
                     <div className="userTitle">Edit Information</div>
                 </div>
                 <div className="userOrgContainer">
-
-
                             <div className="userShow">
-
                                 <div className="userShowTop">
-
-
                                     <div className="userShowTopTitle">
                                         <span className="userShowUsername">{persons.orgName}</span>
                                         <span className="userShowUserTitle">{persons.slogan} </span>
@@ -563,8 +535,6 @@ export class Profile extends Component {
                                     <div>
                                         {status}
                                     </div>
-
-
                                 </div>
                             </div>
 
@@ -624,7 +594,6 @@ export class Profile extends Component {
                                     />
                                 </div>
 
-
                                 <div className="userUpdateItem">
                                     <label>Description</label>
                                     <textarea
@@ -653,9 +622,7 @@ export class Profile extends Component {
 
                 </div>
 
-
                 { auto_spinner}
-
 
             </div>
             </div>

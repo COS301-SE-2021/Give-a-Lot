@@ -39,167 +39,10 @@ import Upgrade0 from "./views/dashboard/sidebar/Components/Certificate/Upgrade0"
 import BlurImages from "./views/dashboard/sidebar/Components/BlurImages/BlurImages";
 import AdminSidebar from "./views/dashboard/sidebar/Components/DemoSidebar/AdminSidebar";
 import OrgCalendar from "./views/dashboard/sidebar/Components/OrgCalender/OrgCalendar";
+import AdminReports from "./views/dashboard/sidebar/Components/AdminReports/AdminReports"
 
 function App()
 {
-   /* const roles = localStorage.getItem('role')
-    if(roles === "admin") {
-        return (
-            <FrontendUrlProvider>
-                <ApiUrlProvider>
-                    <Router>
-                        <Switch>
-                            <Route path="/" exact component={Home}/>
-                            <Route path="sidebar" exact component={SideBar}/>
-                            <Route path="/browse" exact component={Browse}/>
-                            <Route path="/login" exact component={Login}/>
-                            <Route path="/signUp" exact component={SignUp}/>
-                            <Route path="/UserSuccess" exact component={UserSuccess}/>
-                            <Route path="/ResetSuccess" exact component={ResetSuccess}/>
-                            <Route path="/TermsAndConditions" exact component={TermsAndConditions}/>
-                            <Route path="/ResetPassword" exact component={ResetPassword}/>
-                            <Route path="/Password" exact component={Password}/>
-                            <Route path="/EmailSent" exact component={EmailSent}/>
-                            <Route path="/register/organisation" exact component={RegisterOrganisation}/>
-                            <Route path="/registerUser" exact component={RegisterUser}/>
-                            <Route path="/organisation/:id" exact component={ViewOrganisation}/>
-                            <Route path="/verifyCertificate" exact component={VerifyCertificate}/>
-                            <Route path="/*" exact component={Default404}/>
-                            <Route path="/dashboard323" exact component={Featured}/>
-
-                            <Route exact path="/organisations">
-                                <OrganisationsDash/>
-                            </Route>
-                            <Route path="/org/:id">
-                                <Org/>
-                            </Route>
-                            <Route exact path="/users">
-                                <Users/>
-                            </Route>
-                            <Route exact path="/report">
-                                <Reports/>
-                            </Route>
-                            <Route exact path="/calendar">
-                                <Calendar/>
-                            </Route>
-                            <Route exact path="/validate">
-                                <Validate/>
-                            </Route>
-                            <Route exact path="/addOrg">
-                                <AddOrg/>
-                            </Route>
-                            <Route exact path="/orgValidate/:id">
-                                <OrgValidate/>
-                            </Route>
-                            <Route exact path="/timeline">
-                                <OrganisationTimeline/>
-                            </Route>
-
-                        </Switch>
-                    </Router>
-                </ApiUrlProvider>
-            </FrontendUrlProvider>
-        );
-    }
-    else if(roles === "organisation")
-    {
-        return (
-            <FrontendUrlProvider>
-                <ApiUrlProvider>
-                    <Router>
-                        <Switch>
-                            <Route path="/dashboard323" exact component={Featured}/>
-                            <Route path="/" exact component={Home}/>
-                            <Route path="/browse" exact component={Browse}/>
-                            <Route path="/login" exact component={Login}/>
-                            <Route path="/signUp" exact component={SignUp}/>
-                            <Route path="/UserSuccess" exact component={UserSuccess}/>
-                            <Route path="/ResetSuccess" exact component={ResetSuccess}/>
-                            <Route path="/TermsAndConditions" exact component={TermsAndConditions}/>
-                            <Route path="/ResetPassword" exact component={ResetPassword}/>
-                            <Route path="/Password" exact component={Password}/>
-                            <Route path="/EmailSent" exact component={EmailSent}/>
-                            <Route path="/register/organisation" exact component={RegisterOrganisation}/>
-                            <Route path="/registerUser" exact component={RegisterUser}/>
-                            <Route exact path="/dashboard/" component={Dashboard}/>
-                            <Route path="/organisation/:id" exact component={ViewOrganisation}/>
-                            <Route path="/verifyCertificate" exact component={VerifyCertificate}/>
-                            <Route path="/*" exact component={Default404}/>
-
-                            <Route exact path="/dashboard">
-                                <Profile />
-                            </Route>
-                            <Route exact path="/report">
-                                <Reports />
-                            </Route>
-                            <Route exact path="/calendar">
-                                <Calendar />
-                            </Route>
-                            <Route exact path="/certificate">
-                                <Certificate />
-                            </Route>
-                            <Route exact path="/upgrade1">
-                                <Upgrade1 />
-                            </Route>
-                            <Route exact path="/upgrade2">
-                                <Upgrade2 />
-                            </Route>
-                            <Route exact path="/upgrade3">
-                                <Upgrade3 />
-                            </Route>
-                            <Route exact path="/upgrade4">
-                                <Upgrade4 />
-                            </Route>
-                            <Route exact path="/upgrade5">
-                                <Upgrade5 />
-                            </Route>
-                            <Route exact path="/upgrade0">
-                                <Upgrade0 />
-                            </Route>
-                            <Route exact path="/timeline">
-                                <OrganisationTimeline />
-                            </Route>
-                            <Route exact path="/blurImages">
-                                <BlurImages />
-                            </Route>
-
-                        </Switch>
-                    </Router>
-                </ApiUrlProvider>
-            </FrontendUrlProvider>
-        );
-    }
-    else
-    {
-        return (
-            <FrontendUrlProvider>
-                <ApiUrlProvider>
-                    <Router>
-                        <Switch>
-                            <Route path="/dashboard323" exact component={Featured}/>
-                            <Route path="/" exact component={Home}/>
-                            <Route path="/browse" exact component={Browse}/>
-                            <Route path="/login" exact component={Login}/>
-                            <Route path="/signUp" exact component={SignUp}/>
-                            <Route path="/UserSuccess" exact component={UserSuccess}/>
-                            <Route path="/ResetSuccess" exact component={ResetSuccess}/>
-                            <Route path="/TermsAndConditions" exact component={TermsAndConditions}/>
-                            <Route path="/ResetPassword" exact component={ResetPassword}/>
-                            <Route path="/Password" exact component={Password}/>
-                            <Route path="/EmailSent" exact component={EmailSent}/>
-                            <Route path="/register/organisation" exact component={RegisterOrganisation}/>
-                            <Route path="/registerUser" exact component={RegisterUser}/>
-                            <Route exact path="/dashboard/" component={Dashboard}/>
-                            <Route path="/organisation/:id" exact component={ViewOrganisation}/>
-                            <Route path="/verifyCertificate" exact component={VerifyCertificate}/>
-                            <Route path="/*" exact component={Default404}/>
-                        </Switch>
-                    </Router>
-                </ApiUrlProvider>
-            </FrontendUrlProvider>
-        )
-    }*/
-
     return (
         <FrontendUrlProvider>
             <ApiUrlProvider>
@@ -222,7 +65,7 @@ function App()
                         <Route exact path="/dashboard/" component={Dashboard}/>
                         <Route path="/organisation/:id" exact component={ViewOrganisation}/>
                         <Route path="/verifyCertificate" exact component={VerifyCertificate}/>
-
+                        <Route path="/adminReports" exact component={AdminReports}/>
                         <Route exact path="/featured">
                             <Featured />
                         </Route>

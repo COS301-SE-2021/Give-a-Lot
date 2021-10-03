@@ -4,7 +4,6 @@ import "./Styles/SignUp.css"
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Logo from "../login/Components/TermsLogo"
 
-
 function TermsAndConditions()
 {
     return (

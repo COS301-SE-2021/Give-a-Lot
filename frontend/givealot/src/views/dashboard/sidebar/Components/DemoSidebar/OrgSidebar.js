@@ -11,7 +11,6 @@ import { useHistory } from "react-router-dom";
 import TimelineIcon from '@material-ui/icons/Timeline';
 import ReportOutlinedIcon from '@material-ui/icons/ReportOutlined';
 
-/////general organisation admin
 const roles = localStorage.getItem('role')
 
 function Sidebar(){

@@ -1,5 +1,3 @@
-
-
 import React, {Component} from 'react';
 import { Link } from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
@@ -8,8 +6,6 @@ import Logo from "./Logo"
 import axios from "axios"
 import "../Styles/Login.css"
 import {Alert} from "@material-ui/lab";
-
-
 
 const styles = {
     main: {
@@ -85,12 +81,8 @@ class EmailSent extends Component {
                     document.getElementById("waitInfo").style.display = "none";
                 });
 
-
-
         }
     };
-
-
 
     render()
     {
@@ -138,7 +130,6 @@ class EmailSent extends Component {
                                                     </button>
 
                                                 </div>
-
                                 </form>
                             </div>
                         </div>

@@ -9,7 +9,6 @@ import {CalendarToday, LocationSearching, MailOutline, PermIdentity, PhoneAndroi
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import Dialog from "@material-ui/core/Dialog";
-import { Link } from "react-router-dom";
 import AdminSidebar from "../DemoSidebar/AdminSidebar";
 
 export class Org extends Component {
@@ -26,16 +25,8 @@ export class Org extends Component {
             openSuspend: false,
             serverDomain: 'http://localhost:8080'
         }
-        // console.log(this.state.orgId)
-        // let idUrl = window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
-        // console.log(idUrl)
-
-
     }
 
-    // openDialog() {
-    //     this.setState({ open: true });
-    // }
 
     handleClose = () => {
         this.setState({ open: false });
@@ -54,10 +45,8 @@ export class Org extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        // console.log(this.state.orgId)
         axios.get(this.state.serverDomain  + '/v1/organisation/admin/sel/organisation/'+this.state.orgId, config)
             .then(response =>{
-                // console.log(response)
                 this.setState({orgS: response.data.object})
             })
             .catch(error =>{
@@ -77,14 +66,12 @@ export class Org extends Component {
         const activate = {
             orgID : window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
         }
-        // console.log(activate)
         axios.put(this.state.serverDomain  + '/v1/organisation/activate/orgId',activate ,config)
             .then(response =>{
                 console.log(response)
             })
             .catch(error =>{
                 console.log(error)
-                // this.setState({error : 'Error Retrieving data'})
             })
 
     }
@@ -101,16 +88,12 @@ export class Org extends Component {
         const investigate = {
             orgID : window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
         }
-        // console.log("investigate")
         axios.put(this.state.serverDomain  + '/v1/organisation/investigate/orgId',investigate ,config)
             .then(response =>{
                 console.log(response)
-                // this.setState({investigate: response.data})
-                // console.log(this.state.org)
             })
             .catch(error =>{
                 console.log(error)
-                // this.setState({error : 'Error Retrieving data'})
             })
     }
 
@@ -125,11 +108,9 @@ export class Org extends Component {
         const suspend = {
             orgID : window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
         }
-        // console.log("investigate")
         axios.put(this.state.serverDomain  + '/v1/organisation/suspend/orgId',suspend ,config)
             .then(response =>{
                 console.log(response)
-                // this.setState({investigate: response.data})
             })
             .catch(error =>{
                 console.log(error)
@@ -139,7 +120,6 @@ export class Org extends Component {
 
     render() {
         const { orgS } = this.state
-        // const orgid = window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
         return (
             <div className="trythis">
                 <div>
@@ -190,7 +170,7 @@ export class Org extends Component {
                             </Typography>
                         </CardContent>
                     </Card>
-                    {/*///////////////////////////////////////////////////*/}
+
                     <Card className="card2">
                         <CardContent>
                             <Typography color="textPrimary" gutterBottom>
@@ -206,7 +186,6 @@ export class Org extends Component {
                                     </div>
                                     <span className="userShowTitle">Description</span>
                                     <div className="userShowInfoO">
-                                        {/*<DescriptionOutlined className="userShowIcon" />*/}
                                         <p className="userShowInfoTitle">
                                             {orgS.orgDescription}
                                         </p>

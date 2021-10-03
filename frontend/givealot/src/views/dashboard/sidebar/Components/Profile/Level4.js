@@ -8,8 +8,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import TextField from "@material-ui/core/TextField";
-import Axios from "axios";
 import {ApiContext} from "../../../../../apiContext/ApiContext";
 
 const styles = theme => ({
@@ -41,7 +39,6 @@ export class Level4 extends Component {
 
         };
     }
-
 
     handleFileChange = event => {
 
@@ -138,11 +135,8 @@ export class Level4 extends Component {
         }
     }
 
-
     render(){
         const { classes } = this.props;
-
-
         return (
             <div className="upgrade">
 
@@ -169,7 +163,6 @@ export class Level4 extends Component {
                                             onChange={this.handleImageChange}
 
                                         />
-                                        {/* <FormHelperText className="helper">labelPlacement start</FormHelperText>*/}
                                         <div className="profile_files">
                                             <img src="https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg" height={70} width={70} />
                                             <img src="https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg" height={70} width={70} />

@@ -1,3 +1,14 @@
+POST http://localhost:8080/report/get/appealed
+Content-Type: application/json
+
+{
+  "orgId" : "50"
+}
+
+<> 2021-10-02T174942.200.json
+
+###
+
 POST http://localhost:8080/v1/organisation/update/info/organisation
 Content-Type: application/json
 
@@ -346,12 +357,6 @@ PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/qr_code/
 PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/establishment_date/true
 
 <> 2021-09-18T202847.200.json
-
-###
-
-PUT http://localhost:8080/v1/organisation/delete/validity/confirm/75/35/donation_link/false
-
-<> 2021-09-18T202822.200.json
 
 ###
 

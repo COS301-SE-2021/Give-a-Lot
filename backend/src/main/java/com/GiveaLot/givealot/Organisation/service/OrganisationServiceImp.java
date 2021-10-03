@@ -880,7 +880,7 @@ public class OrganisationServiceImp implements OrganisationService {
         }
         else
         {
-            /*otherwise update the field*/
+            /*otherwise update the existing field*/
             organisationDataRepository.updateQRCode(request.getOrgId(),request.getImage().getBytes());
         }
 

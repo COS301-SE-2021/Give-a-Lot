@@ -255,21 +255,16 @@ export class Upgrade4 extends Component {
                                 <div>
                                     <div>
 
-                                        <TextField
-                                            id="outlined-full-width"
-                                            style={{ margin: 8 }}
-                                            fullWidth
-                                            margin="normal"
-                                            variant="outlined"
-                                            InputLabelProps={{
-                                                shrink: true,
-                                            }}
-                                            fullWidth
+                                       <span className="upgrade_label">
+                                            Upload images
+                                         </span>
+                                        <input
+                                            className="upgrade_images"
                                             accept="image/*"
                                             name="images"
+                                            id="contained-button-file"
                                             multiple
                                             type="file"
-                                            label="upload images"
                                             onChange={this.handleImageChange}
 
                                         />
@@ -290,7 +285,6 @@ export class Upgrade4 extends Component {
                                             InputLabelProps={{
                                                 shrink: true,
                                             }}
-                                            fullWidth
                                             type="file"
                                             name="file"
                                             label="Audit financial document"

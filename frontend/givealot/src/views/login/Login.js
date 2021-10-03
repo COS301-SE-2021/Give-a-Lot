@@ -69,6 +69,7 @@ function Login ()
 
                 if(response.data.jwttoken === "general")
                 {
+
                     document.getElementById("waitInfo").style.display = "none";
                     window.location.href = frontEndDomain + "/";
                 }

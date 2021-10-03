@@ -32,24 +32,20 @@ public class ServerAccess implements server_access{
 
     private String remoteDir = "/home/ubuntu/";
 
-
     private Session session;
-
-    private JSch jsch = null;
-    ChannelSftp ChannelSftp = null;
 
     @Override
     public ChannelSftp setupJsch() throws JSchException {
 
-        jsch = new JSch();
+        JSch jsch = new JSch();
         jsch.setKnownHosts("backend/src/main/java/com/GiveaLot/givealot/Server/known_hosts");
         session = jsch.getSession(username, remoteHost);
         java.util.Properties config = new java.util.Properties();
         config.put("StrictHostKeyChecking", "no");
         session.setConfig(config);
         session.setPassword(password);
-        this.ChannelSftp = (ChannelSftp) session.openChannel("sftp");
-        return this.ChannelSftp;
+        session.connect();
+        return (ChannelSftp) session.openChannel("sftp");
     }
 
     @Override
@@ -411,6 +407,7 @@ public class ServerAccess implements server_access{
 
         ChannelSftp channelSftp = setupJsch();
         try {
+
             File imageHolder = new File("backend/src/main/resources/TempDocument/image.jpg");
             if (!imageHolder.exists()) {
                 imageHolder.createNewFile();
@@ -492,24 +489,31 @@ public class ServerAccess implements server_access{
 
     @Override
     public void uploadImagePNG(long orgId, MultipartFile imageMPF) throws Exception {
+
+
         ChannelSftp channelSftp = setupJsch();
+
         try {
             File image = new File("backend/src/main/resources/TempDocument/TempImg.png");
+
             if (!image.exists()) {
+
                 image.createNewFile();
+
             }
             try (OutputStream os = new FileOutputStream(image)) {
-                os.write(imageMPF.getBytes());
-            }
-            image.renameTo(new File("backend/src/main/resources/TempDocument/image.png"));
 
+                os.write(imageMPF.getBytes());
+
+            }
+
+            image.renameTo(new File("backend/src/main/resources/TempDocument/image.png"));
             channelSftp.connect();
 
             int imageNumber = organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfImages() + 1;
 
             String orgIdString = String.valueOf(orgId);
-            String localFile = "backend/src/main/resources/localFiles/" + orgId + "gallery/image" + imageNumber + ".png";
-
+            String localFile = "backend/src/main/resources/localFiles/" + orgId + "/gallery/image" + imageNumber + ".png";
             FileUtils.copyFile(image, new File(localFile));
 
             channelSftp.put(localFile, remoteDir + "Organisations/" + orgIdString + "/" + "Gallery/image" + imageNumber + ".png");
@@ -517,6 +521,7 @@ public class ServerAccess implements server_access{
 
             image.delete();
         } catch (Exception e) {
+
             e.printStackTrace();
         } finally {
             channelSftp.exit();

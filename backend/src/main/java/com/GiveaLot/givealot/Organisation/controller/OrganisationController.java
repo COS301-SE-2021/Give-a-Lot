@@ -73,7 +73,6 @@ public class OrganisationController
      @GetMapping("/sel/organisation/{orgId}/{userId}") /*tested all good*/
     public ResponseEntity<selectOrganisationResponse> selectOrganisation(@PathVariable("orgId") @NonNull String orgId,@PathVariable("userId") @NonNull String userId)
     {
-        System.out.println(orgId + " ------------------- " + userId);
         selectOrganisationResponse response;
         try
         {

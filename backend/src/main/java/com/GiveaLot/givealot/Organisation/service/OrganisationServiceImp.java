@@ -14,14 +14,8 @@ import com.GiveaLot.givealot.Notification.dataclass.Mail;
 import com.GiveaLot.givealot.Notification.repository.NotificationRepository;
 import com.GiveaLot.givealot.Notification.service.SendMailServiceImpl;
 import com.GiveaLot.givealot.Notification.service.notificationServiceImpl;
-import com.GiveaLot.givealot.Organisation.model.OrganisationInfo;
-import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
-import com.GiveaLot.givealot.Organisation.model.Organisations;
-import com.GiveaLot.givealot.Organisation.model.Sectors;
-import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
-import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
-import com.GiveaLot.givealot.Organisation.repository.organisationPointsRepository;
-import com.GiveaLot.givealot.Organisation.repository.sectorsRepository;
+import com.GiveaLot.givealot.Organisation.model.*;
+import com.GiveaLot.givealot.Organisation.repository.*;
 import com.GiveaLot.givealot.Organisation.requests.*;
 import com.GiveaLot.givealot.Organisation.response.*;
 import com.GiveaLot.givealot.Organisation.service.response.responseJSON;
@@ -91,6 +85,9 @@ public class OrganisationServiceImp implements OrganisationService {
     private FaceRecognitionServiceImpl faceRecognitionService;
 
     @Autowired
+    private OrganisationDataRepository organisationDataRepository;
+
+    @Autowired
     private eventsServiceImp eventsService;
 
     @Autowired
@@ -156,25 +153,38 @@ public class OrganisationServiceImp implements OrganisationService {
                 null,
                 null,
                 null,
-                organisationPointsRepository.getNumberOfImages(orgId));
+                organisationPointsRepository.getNumberOfImages(orgId),
+                null);
 
         Blockchain blockchain_get_level = blockChainRepository.selectBlockchainOrgId(orgId);
 
         if (blockchain_get_level == null) {
             //remember to uncomment this
             //throw new Exception("fatal: level not available");
-        }
-        else res.setCertificateLevel(blockchain_get_level.getLevel());
+        } else res.setCertificateLevel(blockchain_get_level.getLevel());
 
-        OrganisationInfo get_org_socials = organisationInfoRepository.selectOrganisationInfo(orgId);
+        OrganisationInfo get_org_info = organisationInfoRepository.selectOrganisationInfo(orgId);
+        OrganisationPoints organisationPoints = organisationPointsRepository.selectOrganisationPoints(orgId);
 
-        if (get_org_socials == null)
-            throw new Exception("fatal: info not available");
-        else {
-            res.setFacebookUrl(get_org_socials.getFacebook());
-            res.setIstagramURl(get_org_socials.getInstagram());
-            res.setTwitterUrl(get_org_socials.getTwitter());
-        }
+
+            if (get_org_info == null)
+                throw new Exception("fatal: info not available");
+            else
+            {
+                if(organisationPoints.isFacebookIsValid())
+                    res.setFacebookUrl(get_org_info.getFacebook());
+
+                if(organisationPoints.isInstagramIsValid())
+                    res.setIstagramURl(get_org_info.getInstagram());
+
+                if(organisationPoints.isTwitterIsValid())
+                    res.setTwitterUrl(get_org_info.getTwitter());
+
+                if(organisationPoints.isDonationURLIsValid())
+                    res.setDonationLink(get_org_info.getDonationURL());
+            }
+
+
 
         if (userId != -1) {
             User user = userRepository.findUserById(userId);
@@ -356,6 +366,10 @@ public class OrganisationServiceImp implements OrganisationService {
 
         certificateRepository.save(certificate);
         certificateService.addCertificate(id, certificate);
+
+        OrganisationData organisationData = new OrganisationData();
+        organisationData.setOrgId(id);
+        organisationDataRepository.save(organisationData);
 
         System.out.println("=========saving logo==========");
         this.addOrgLogo(new AddOrgLogoRequest(id, organisation.getImage()));
@@ -866,6 +880,23 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("Exception: add image function did not finish, organisation does not exist");
 
         String name = organisation_tmp.getOrgName();
+
+        OrganisationData organisationData = organisationDataRepository.selectOrganisationDataById(organisation_tmp.getOrgId());
+
+        /*for existing organisation's without a field on the table*/
+        if(organisationData == null)
+        {
+            organisationData = new OrganisationData();
+            organisationData.setOrgId(request.getOrgId());
+            organisationData.setQrCode(request.getImage().getBytes());
+            organisationDataRepository.save(organisationData);
+        }
+        else
+        {
+            /*otherwise update the existing field*/
+            organisationDataRepository.updateQRCode(request.getOrgId(),request.getImage().getBytes());
+        }
+
         access.uploadImageQRCode(request.getOrgId(), request.getImage());
         return new generalOrganisationResponse("add_qr_200_OK", "success");
     }
@@ -1069,10 +1100,9 @@ public class OrganisationServiceImp implements OrganisationService {
 
         int numImages = organisationPointsRepository.getNumberOfImages(request.getOrgId());
         int i = 0;
-        for (; i < request.getImages().size(); i++) {
-            access.uploadImageJPG(request.getOrgId(), request.getImages().get(i), numImages);
+
+        access.uploadImageJPG(request.getOrgId(), request.getImages(), numImages);
             numImages++;
-        }
 
 
         if (organisationPointsRepository.incrementImage(request.getOrgId(), numImages) != 1)

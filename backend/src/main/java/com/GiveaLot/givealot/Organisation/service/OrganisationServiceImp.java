@@ -153,25 +153,38 @@ public class OrganisationServiceImp implements OrganisationService {
                 null,
                 null,
                 null,
-                organisationPointsRepository.getNumberOfImages(orgId));
+                organisationPointsRepository.getNumberOfImages(orgId),
+                null);
 
         Blockchain blockchain_get_level = blockChainRepository.selectBlockchainOrgId(orgId);
 
         if (blockchain_get_level == null) {
             //remember to uncomment this
             //throw new Exception("fatal: level not available");
-        }
-        else res.setCertificateLevel(blockchain_get_level.getLevel());
+        } else res.setCertificateLevel(blockchain_get_level.getLevel());
 
-        OrganisationInfo get_org_socials = organisationInfoRepository.selectOrganisationInfo(orgId);
+        OrganisationInfo get_org_info = organisationInfoRepository.selectOrganisationInfo(orgId);
+        OrganisationPoints organisationPoints = organisationPointsRepository.selectOrganisationPoints(orgId);
 
-        if (get_org_socials == null)
-            throw new Exception("fatal: info not available");
-        else {
-            res.setFacebookUrl(get_org_socials.getFacebook());
-            res.setIstagramURl(get_org_socials.getInstagram());
-            res.setTwitterUrl(get_org_socials.getTwitter());
-        }
+
+            if (get_org_info == null)
+                throw new Exception("fatal: info not available");
+            else
+            {
+                if(organisationPoints.isFacebookIsValid())
+                    res.setFacebookUrl(get_org_info.getFacebook());
+
+                if(organisationPoints.isInstagramIsValid())
+                    res.setIstagramURl(get_org_info.getInstagram());
+
+                if(organisationPoints.isTwitterIsValid())
+                    res.setTwitterUrl(get_org_info.getTwitter());
+
+                if(organisationPoints.isDonationURLIsValid())
+                    res.setDonationLink(get_org_info.getDonationURL());
+            }
+
+
 
         if (userId != -1) {
             User user = userRepository.findUserById(userId);

@@ -10,6 +10,7 @@ public class OrganisationResponseObject {
     private String facebookUrl;
     private String twitterUrl;
     private String istagramURl;
+    private String donationLink;
     private Integer numberOfImages;
 
     public OrganisationResponseObject(String orgName,
@@ -20,7 +21,8 @@ public class OrganisationResponseObject {
                                       String facebookUrl,
                                       String twitterUrl,
                                       String istagramURl,
-                                      Integer numberOfImages) {
+                                      Integer numberOfImages,
+                                      String donationLink) {
         this.orgName = orgName;
         this.slogan = slogan;
         this.orgDescription = orgDescription;
@@ -30,6 +32,15 @@ public class OrganisationResponseObject {
         this.twitterUrl = twitterUrl;
         this.istagramURl = istagramURl;
         this.numberOfImages = numberOfImages;
+        this.donationLink = donationLink;
+    }
+
+    public String getDonationLink() {
+        return donationLink;
+    }
+
+    public void setDonationLink(String donationLink) {
+        this.donationLink = donationLink;
     }
 
     public String getOrgName() {

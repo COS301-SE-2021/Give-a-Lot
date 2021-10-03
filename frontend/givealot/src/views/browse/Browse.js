@@ -15,8 +15,8 @@ import Loader from "../loader/Loader";
 /* components import end */
 
 /*css imports */
-import browse_general from './Styles/browse_general.css';
-import browse_desktop from './Styles/browse_desktop.css';
+import  './Styles/browse_general.css';
+import  './Styles/browse_desktop.css';
 import {ApiContext} from "../../apiContext/ApiContext";
 import Chatbot from "../chatbot/Chatbot";
 
@@ -152,16 +152,16 @@ function Browse ()
                     {
                         if(response.status === 500)
                         {
-                            alert("bad parameters, fatal");
+
                         }
                         else if(response.status === 401)
                         {
-                            alert("this token is unauthorized"); /* take them back to login */
+
                         }
 
                         if(typeof data !== 'undefined')
                         {
-                            alert(data.message);
+
                         }
                     }
 
@@ -176,7 +176,7 @@ function Browse ()
                 })
 
                 .catch(error => {
-
+                    alert("server unreachable")
                 });
         }
         ,[])

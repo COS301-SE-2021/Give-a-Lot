@@ -29,6 +29,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
+import Chatbot from "../../../chatbot/Chatbot";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -79,7 +80,6 @@ function ViewOrganisation()
     const [expanded, setExpanded] = React.useState(false);
     const [pageLoaded, setPageLoaded] = React.useState(true);
     const [organisationData, setOrganisationData] = React.useState([]);
-    const [selectedUserId, setSelectedUserId] = React.useState("default");
     const [serverDomain, setServerDomain] = useState(useContext(ApiContext))
     const [open, setOpen] = React.useState(false);
 
@@ -102,20 +102,6 @@ function ViewOrganisation()
         setOpen(false);
     };
 
-    const reportFormToggle = event =>
-    {
-        event.preventDefault();
-        /*if(showReportFormTrack === false)
-        {
-            document.getElementById("report_form_container").style.display = "flex";
-            showReportFormTrack = true;
-        }
-        else
-        {
-            document.getElementById("report_form_container").style.display = "none";
-            showReportFormTrack = false;
-        }*/
-    }
     const reportOrganisation = event =>
     {
         event.preventDefault();
@@ -124,15 +110,12 @@ function ViewOrganisation()
         let reportType = document.getElementById("report-title-input").value;
         let reportDescription = document.getElementById("report-description-input").value;
 
-
         let reportRequest = {
             orgId : orgId,
             userId : userId,
             reportType : reportType,
             description : reportDescription
         }
-
-
 
         if(userId === null || userId === "default")
         {
@@ -141,34 +124,44 @@ function ViewOrganisation()
         }
         else
         {
+            document.getElementById('report_wait_alert').style.display = "flex";
+            document.getElementById('report_error_alert').style.display = "none";
+            document.getElementById('report_server_error_alert').style.display = "none";
             axios.post(serverDomain + '/report/org/', reportRequest)
-                .then(response =>
+            .then(response =>
+            {
+                if(response)
                 {
-                    if(response)
-                    {
-                        document.getElementById('report_success_alert').style.display = "flex";
-                        setTimeout(function(){
-                            document.getElementById('report_success_alert').style.display = "none";
-                        }, 3000);
-                    }
-                })
-                .catch(error =>
+                    document.getElementById('report_success_alert').style.display = "flex";
+                    document.getElementById('report_wait_alert').style.display = "none";
+                    setTimeout(function(){
+                        document.getElementById('report_success_alert').style.display = "none";
+                    }, 3000);
+                }
+            })
+            .catch(error =>
+            {
+                document.getElementById('report_wait_alert').style.display = "none";
+                if(error.response)
                 {
-                    if(error.response)
-                    {
-                        console.error(error.response)
-                    }
-                    else
-                    {
-
-                    }
-                })
+                    document.getElementById('report_error_alert').style.display = "flex";
+                }
+                else
+                {
+                    document.getElementById('report_server_error_alert').style.display = "flex";
+                }
+            })
         }
     }
 
     useEffect(() => {
 
-            fetch( serverDomain + "/v1/organisation/sel/organisation/" + id + "/" + selectedUserId)
+            let tmp_selected_user;
+            if(localStorage.getItem("role") !== "general")
+                tmp_selected_user = "default";
+            else tmp_selected_user = localStorage.getItem("id");
+
+            fetch( serverDomain + "/v1/organisation/sel/organisation/" + id + "/" + tmp_selected_user)
             .then(async response =>
             {
                 const data = await response.json();
@@ -176,25 +169,19 @@ function ViewOrganisation()
                 if (!response.ok) /* error handling here */
                 {
                     if (response.status === 500) {
-                        alert("bad parameters, fatal");
                     } else if (response.status === 401) {
-                        alert("this token is unauthorized"); /* take them back to login */
                     }
-
                     if (typeof data !== 'undefined') {
-                        alert(data.message);
                     }
                 }
 
                 if (data.message === "success") /*successfully fetched*/
                 {
-
                     setOrganisationData(data.response);
                     setPageLoaded(true);
                 }
                 else
                 {
-                    alert("error occured: " + data.code);
                     setOrganisationData([]);
                 }
             })
@@ -211,27 +198,18 @@ function ViewOrganisation()
                     if(!response.ok) /* error handling here */
                     {
                         if(response.status === 500)
-                        {
-                            alert("bad parameters, fatal");
-                        }
+                        {}
                         else if(response.status === 401)
-                        {
-                            alert("this token is unauthorized"); /* take them back to login */
-                        }
+                        {}
 
                         if(typeof data !== 'undefined')
-                        {
-                            alert(data.message);
-                        }
+                        {}
                     }
 
                     if(data.message === "success") /*successfully fetched*/
                         setTimelineEvents(data.object)
-
                     else
-                    {
-                        alert("error occured: " + data.code);
-                    }
+                    {}
                 })
 
                 .catch(error => {
@@ -279,7 +257,6 @@ function ViewOrganisation()
 
     }
 
-
     let images = [];
 
     for(let i = 0; i < number_of_images; i++)
@@ -294,7 +271,7 @@ function ViewOrganisation()
     return (
        <div id={"view_organisation_container_outer"}>
            {pageLoaded === false && <Loader />}
-
+           <Chatbot />
            <Navbar/>
            <Container maxWidth={"xl"}  id="view_organisation_container">
                <Container maxWidth={"sm"} id="view_organisation">
@@ -408,7 +385,18 @@ function ViewOrganisation()
 
                            <Box id={"donateSection"}>
                                <img src={serverDomain + "/media/version/qr_code/" + id} width={128} height={128}/>
-                               <Button variant={"contained"}>donate</Button>
+
+                               {
+                                   organisationData.donationLink ?
+                                       <Button variant={"contained"}>donate</Button>
+
+                                       :
+
+                                       <Button variant={"contained"}
+                                               disabled
+                                               className={"disabledBTN"}>donate</Button>
+                               }
+
                            </Box>
                        </div>
 
@@ -429,6 +417,7 @@ function ViewOrganisation()
                        </Button>
                    </Box>
 
+
                    <Box id={"report_organisation_container"}>
                        <p>
                            your satisfaction matters to us,
@@ -443,7 +432,7 @@ function ViewOrganisation()
                            report
                        </Button>
                        <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                           <DialogTitle id="form-dialog-title">please complete your report</DialogTitle>
+                           <DialogTitle id="report_organisation_heading_browse">please complete your report</DialogTitle>
                            <Box id={"report_form_container"}>
 
                                <Alert
@@ -452,6 +441,28 @@ function ViewOrganisation()
                                >
                                    successfully reported
                                </Alert>
+
+                               <Alert
+                                   id={"report_wait_alert"}
+                                   severity={"info"}
+                               >
+                                   please wait...
+                               </Alert>
+
+                               <Alert
+                                   id={"report_error_alert"}
+                                   severity={"error"}
+                               >
+                                   all fields are required!!!
+                               </Alert>
+
+                               <Alert
+                                   id={"report_server_error_alert"}
+                                   severity={"error"}
+                               >
+                                   server error :-(
+                               </Alert>
+
                                <TextField
                                    className={"report_form_input"}
                                    id={"report-title-input"}
@@ -474,7 +485,12 @@ function ViewOrganisation()
                                <Button
                                    variant={"contained"}
                                    color={"primary"}
+                                   class="g-recaptcha"
+                                   data-sitekey="reCAPTCHA_site_key"
+                                   data-action='submit'
+                                   data-callback='reportOrganisation'
                                    onClick={reportOrganisation}
+
                                >
                                    submit
                                </Button>

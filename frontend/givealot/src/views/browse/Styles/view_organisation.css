@@ -333,15 +333,23 @@ em
     background: #4b4250;
 }
 
+#report_organisation_heading_browse
+{
+    text-align: center;
+}
+
 #report_form_container
 {
     flex-direction: column;
     display: flex;
+    width: 350px !important;
+    padding: 5px;
 }
 
-#report_success_alert
+#report_success_alert,#report_wait_alert,#report_error_alert, #report_server_error_alert
 {
     display: none;
+    margin-bottom: 10px;
 }
 
 .report_form_input
@@ -423,6 +431,7 @@ em
     {
         font-size: 10px;
         width: 90px;
+        cursor: pointer;
     }
 
     #view_organisation_gallery

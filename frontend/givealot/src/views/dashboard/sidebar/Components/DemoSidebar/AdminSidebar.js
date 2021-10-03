@@ -70,7 +70,7 @@ function Sidebar(){
                     </Link>
                 </div>
 
-                <div className={splitLocation[1] === "adminReports" || splitLocation[1] === "orgValidate" ? "active" : ""}>
+                <div className={splitLocation[1] === "adminReports" ? "active" : ""}>
                     <Link to='/adminReports' className="link">
                         <li className="sidebarListItem ">
                             <ReportOutlinedIcon />

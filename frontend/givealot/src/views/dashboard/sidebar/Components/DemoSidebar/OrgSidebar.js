@@ -57,7 +57,7 @@ function Sidebar(){
                         <Link to='/report' className="link">
                             <li className="sidebarListItem ">
                                 <ReportOutlinedIcon/>
-                                <div className="sideIcon" > Report </div>
+                                <div className="sideIcon" > Reports </div>
                             </li>
                         </Link>
                     </div>

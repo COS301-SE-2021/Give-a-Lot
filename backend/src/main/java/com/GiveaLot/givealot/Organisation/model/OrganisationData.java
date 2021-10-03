@@ -43,6 +43,7 @@ public class OrganisationData {
         this.orgId = orgId;
         this.auditDoc = auditDoc;
         this.qrCode = qrCode;
+
         this.certificate = certificate;
         this.certificateImage = certificateImage;
     }

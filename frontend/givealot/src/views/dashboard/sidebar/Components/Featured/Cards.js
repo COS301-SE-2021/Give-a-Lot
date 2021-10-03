@@ -41,18 +41,18 @@ export class Cards extends Component {
                 'Access-Control-Allow-Origin': '*',
             }
         }
-        const adminUsersRequestBodyReports = {
-            "orgId" : this.state.orgId
+
+        const adminReportRequestBody = {
+            "orgId" : this.state.adminId
         }
 
-        axios.post(this.state.serverDomain+'/report/get/all', adminUsersRequestBodyReports, config)
+        axios.post(this.state.serverDomain + '/report/get/appealed', adminReportRequestBody ,config)
             .then(response =>{
-                // console.log(response)
-                this.setState({ reports: response.data.object })
-
+                console.log(response.data.object)
+                this.setState({reports: response.data.object})
             })
             .catch(error =>{
-                this.setState({error : 'Error Retrieving data'})
+                console.log(error)
             })
     }
 

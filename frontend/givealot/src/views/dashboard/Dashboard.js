@@ -25,6 +25,7 @@ import OrgValidate from "./sidebar/Components/Validate/OrgValidate"
 import OrganisationTimeline from "./sidebar/Components/Timeline/Timeline";
 import BlurImages from "./sidebar/Components/BlurImages/BlurImages"
 import {ApiUrlProvider} from "../../apiContext/ApiContext";
+import {useState} from "react";
 
 
 const roles = localStorage.getItem('role')
@@ -32,6 +33,15 @@ const roles = localStorage.getItem('role')
 
 function Dashboard() {
 
+    const [frontEndDomain, setFrontEndDomain] = useState("http://localhost:3000");
+
+    if(localStorage.getItem("id") === null ||
+        localStorage.getItem("id") === undefined ||
+        localStorage.getItem("id") === 'default')
+    {
+
+        window.location.href = frontEndDomain + "/login";
+    }
     function features(){
         if(roles === 'admin')
         {

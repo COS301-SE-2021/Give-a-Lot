@@ -35,6 +35,7 @@ export class Upgrade4 extends Component {
             popUp1:false,
             popUp2:false,
             serverDomain: 'http://localhost:8080',
+            frontEndDomain: 'http://localhost:3000',
 
         };
     }
@@ -199,6 +200,13 @@ export class Upgrade4 extends Component {
 
     render()
     {
+        if(localStorage.getItem("id") === null ||
+            localStorage.getItem("id") === undefined ||
+            localStorage.getItem("id") === 'default')
+        {
+
+            window.location.href = this.state.frontEndDomain + "/login";
+        }
         const { classes } = this.props;
 
         return (

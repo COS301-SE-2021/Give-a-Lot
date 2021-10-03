@@ -56,9 +56,12 @@ export class Profile extends Component {
             popUp7:false,
             popUp8:false,
             serverDomain: 'http://localhost:8080',
+            frontEndDomain: 'http://localhost:3000',
             loader:false,
         }
     }
+
+
 
 
     componentDidMount(){
@@ -442,6 +445,15 @@ export class Profile extends Component {
     }
 
     render() {
+
+        if(localStorage.getItem("id") === null ||
+            localStorage.getItem("id") === undefined ||
+            localStorage.getItem("id") === 'default')
+        {
+
+            window.location.href = this.state.frontEndDomain + "/login";
+        }
+        
         const { persons } = this.state
 
         let status
@@ -473,11 +485,14 @@ export class Profile extends Component {
                 </div>
 
             <div className="profileOrg">
-                <div className="userTitleContainer">
-                    <div className="userTitle">Edit Information</div>
-                </div>
+
                 <div className="userOrgContainer">
-                            <div className="userShow">
+                    <div className="userTitleContainer">
+                        <div className="userTitle">Edit Information</div>
+                    </div>
+
+                    <div id={"userOrgContainer_content"}>
+                        <div className="userShow">
                                 <div className="userShowTop">
                                     <div className="userShowTopTitle">
                                         <span className="userShowUsername">{persons.orgName}</span>
@@ -518,7 +533,7 @@ export class Profile extends Component {
                                 </div>
                             </div>
 
-                    <div className="userUpdate">
+                        <div className="userUpdate">
                         <span className="userUpdateTitle">Edit</span>
                         <form className="userUpdateForm" onSubmit={this.handleFormSubmit}>
                             <div className="userUpdateLeft">
@@ -603,12 +618,12 @@ export class Profile extends Component {
                             </div>
                         </form>
                     </div>
+                    </div>
                 </div>
                 <div className="line">
                     <div className="profile_line"/>
                     <div className="line_title"> Profile Information </div>
                     <div className="profile_line"/>
-
                 </div>
 
                 { auto_spinner}

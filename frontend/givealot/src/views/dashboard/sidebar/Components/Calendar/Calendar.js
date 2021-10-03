@@ -26,7 +26,8 @@ export default class Demo extends React.PureComponent {
             addedAppointment: {},
             appointmentChanges: {},
             editingAppointment: undefined,
-            serverDomain : 'http://localhost:8080'
+            serverDomain : 'http://localhost:8080',
+            frontEndDomain: 'http://localhost:3000',
         };
 
         this.commitChanges = this.commitChanges.bind(this);
@@ -271,6 +272,14 @@ export default class Demo extends React.PureComponent {
     }
 
     render() {
+
+        if(localStorage.getItem("id") === null ||
+            localStorage.getItem("id") === undefined ||
+            localStorage.getItem("id") === 'default')
+        {
+
+            window.location.href = this.state.frontEndDomain + "/login";
+        }
         const {
             currentDate, data, addedAppointment, appointmentChanges, editingAppointment,
         } = this.state;

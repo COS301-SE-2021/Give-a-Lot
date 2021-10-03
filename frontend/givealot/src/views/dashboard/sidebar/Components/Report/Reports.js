@@ -19,6 +19,7 @@ export class Reports extends Component {
             orgId:localStorage.getItem("id"),
             error: "",
             serverDomain: 'http://localhost:8080',
+            frontEndDomain: 'http://localhost:3000'
         }
     }
     componentDidMount(){
@@ -44,7 +45,13 @@ export class Reports extends Component {
 
 
     render() {
+        if(localStorage.getItem("id") === null ||
+            localStorage.getItem("id") === undefined ||
+            localStorage.getItem("id") === 'default')
+        {
 
+            window.location.href = this.state.frontEndDomain + "/login";
+        }
         const { reports } = this.state
      if(reports.length === 0){
             return(

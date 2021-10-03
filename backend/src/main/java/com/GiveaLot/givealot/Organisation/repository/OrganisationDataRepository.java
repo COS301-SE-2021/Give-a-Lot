@@ -46,4 +46,14 @@ public interface OrganisationDataRepository extends JpaRepository <OrganisationD
     @Transactional
     @Query("UPDATE OrganisationData o SET o.image5 = ?2 WHERE o.orgId = ?1")
     Integer updateImage5(Long orgId, String data);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE OrganisationData o SET o.certificate = ?2 WHERE o.orgId = ?1")
+    Integer updateCertificate(Long orgId, String data);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE OrganisationData o SET o.certificateImage = ?2 WHERE o.orgId = ?1")
+    Integer updateCertificateImage(Long orgId, String data);
 }

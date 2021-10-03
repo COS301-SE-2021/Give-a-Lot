@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="qr code">
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationGalleryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationGalleryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,10 +42,10 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationPoints.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/frontend/givealot/src/views/login/Login.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/organisationPointsRepository.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/givealot/src/views/default/Default404.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationPoints.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/organisationPointsRepository.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/frontend/givealot/src/views/login/Login.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -87,7 +87,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.17774086" />
-    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+    <property name="settings.editor.selected.configurable" value="web.server" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -116,19 +116,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="generated-requests#100" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="100" runType="Run single request">
       <method v="2" />
     </configuration>

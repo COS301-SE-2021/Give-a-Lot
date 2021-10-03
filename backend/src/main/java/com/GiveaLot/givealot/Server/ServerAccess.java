@@ -505,7 +505,7 @@ public class ServerAccess implements server_access{
             int imageNumber = organisationInfoRepository.selectOrganisationInfo(orgId).getNumberOfImages() + 1;
 
             String orgIdString = String.valueOf(orgId);
-            String localFile = "backend/src/main/resources/localFiles/" + orgId + "gallery/image" + imageNumber + ".png";
+            String localFile = "backend/src/main/resources/localFiles/" + orgId + "Gallery/image" + imageNumber + ".png";
 
             FileUtils.copyFile(image, new File(localFile));
 

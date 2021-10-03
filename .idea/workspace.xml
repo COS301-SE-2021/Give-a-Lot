@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="gallery images table">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationGalleryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="gallery images - repository">
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationGalleryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationGalleryRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,27 +201,6 @@
       <workItem from="1632232231467" duration="6208000" />
       <workItem from="1633133762871" duration="20686000" />
       <workItem from="1633267541604" duration="1215000" />
-    </task>
-    <task id="LOCAL-00111" summary="level 1 info accept-deny">
-      <created>1631973644387</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
-      <option name="project" value="LOCAL" />
-      <updated>1631973644387</updated>
-    </task>
-    <task id="LOCAL-00112" summary="level 1 info accept-deny">
-      <created>1631973725421</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1631973725422</updated>
-    </task>
-    <task id="LOCAL-00113" summary="level 1 upgrade">
-      <created>1631982031139</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
-      <option name="project" value="LOCAL" />
-      <updated>1631982031140</updated>
     </task>
     <task id="LOCAL-00114" summary="level 2 upgrade complete">
       <created>1631987838626</created>
@@ -546,7 +524,28 @@
       <option name="project" value="LOCAL" />
       <updated>1633274377532</updated>
     </task>
-    <option name="localTasksCounter" value="160" />
+    <task id="LOCAL-00160" summary="gallery images table">
+      <created>1633274847548</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1633274847548</updated>
+    </task>
+    <task id="LOCAL-00161" summary="gallery images table">
+      <created>1633274979006</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1633274979006</updated>
+    </task>
+    <task id="LOCAL-00162" summary="gallery images - repository">
+      <created>1633275012022</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1633275012022</updated>
+    </task>
+    <option name="localTasksCounter" value="163" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -565,7 +564,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="saving workspace" />
     <MESSAGE value="finalizing frontend&#10;backend updates to add organisation" />
     <MESSAGE value="dedicated organisaiton select for admin users" />
     <MESSAGE value="dedicated organisation select for admin users" />
@@ -590,7 +588,8 @@
     <MESSAGE value="fixed bugs on the dashboard" />
     <MESSAGE value="updated the report form" />
     <MESSAGE value="gallery images table" />
-    <option name="LAST_COMMIT_MESSAGE" value="gallery images table" />
+    <MESSAGE value="gallery images - repository" />
+    <option name="LAST_COMMIT_MESSAGE" value="gallery images - repository" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

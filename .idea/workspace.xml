@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="fixed bugs on the dashboard">
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="updated the report form">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,17 +115,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="generated-requests#100" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="100" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -198,14 +186,7 @@
       <workItem from="1632125413993" duration="8503000" />
       <workItem from="1632134204054" duration="7766000" />
       <workItem from="1632232231467" duration="6208000" />
-      <workItem from="1633133762871" duration="20506000" />
-    </task>
-    <task id="LOCAL-00107" summary="login api">
-      <created>1631963564109</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1631963564109</updated>
+      <workItem from="1633133762871" duration="20686000" />
     </task>
     <task id="LOCAL-00108" summary="login api">
       <created>1631963770377</created>
@@ -543,7 +524,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633230944859</updated>
     </task>
-    <option name="localTasksCounter" value="156" />
+    <task id="LOCAL-00156" summary="updated the report form">
+      <created>1633231968007</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1633231968007</updated>
+    </task>
+    <option name="localTasksCounter" value="157" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,7 +550,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="beautifying search - search implementation styling" />
     <MESSAGE value="search done" />
     <MESSAGE value="saving workspace" />
     <MESSAGE value="finalizing frontend&#10;backend updates to add organisation" />
@@ -587,7 +574,8 @@
     <MESSAGE value="slight update" />
     <MESSAGE value="reporting done" />
     <MESSAGE value="fixed bugs on the dashboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs on the dashboard" />
+    <MESSAGE value="updated the report form" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated the report form" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

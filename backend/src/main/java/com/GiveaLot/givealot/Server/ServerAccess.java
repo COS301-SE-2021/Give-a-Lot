@@ -734,9 +734,9 @@ public class ServerAccess implements server_access{
     public static void main(String[] args) throws Exception {
         ServerAccess access = new ServerAccess();
 
-        File file = new File("C:/test.jpg");
+        File img = access.downloadCertificatePNG(133, "CHOSA South Africa");
 
-        //access.uploadImageJPG(99, 3);
+        System.out.println(img.exists());
 
 
 //

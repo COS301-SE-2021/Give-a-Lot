@@ -27,6 +27,7 @@ export class Certificate extends Component {
             popUp2:false,
             orgId:localStorage.getItem("id"),
             serverDomain : 'http://localhost:8080',
+            frontEndDomain: 'http://localhost:3000',
 
 
         };
@@ -46,9 +47,9 @@ export class Certificate extends Component {
 
         axios.post(this.state.serverDomain + '/v1/organisation/get/org_level', dataa  ,config)
             .then(response =>{
-                this.setState({level: response.data.level})
+               /* this.setState({level: response.data.level}) */
+                this.setState({level: 4})
                 console.log(response)
-
             })
             .catch(error =>{
                 console.log(error)
@@ -57,6 +58,14 @@ export class Certificate extends Component {
     }
 
     render(){
+        if(localStorage.getItem("id") === null ||
+            localStorage.getItem("id") === undefined ||
+            localStorage.getItem("id") === 'default')
+        {
+
+            window.location.href = this.state.frontEndDomain + "/login";
+        }
+
     const { classes } = this.props;
 
         let upgrade

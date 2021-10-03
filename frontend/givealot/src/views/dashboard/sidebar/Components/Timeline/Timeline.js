@@ -13,6 +13,15 @@ function OrganisationTimeline()
     let [timelineEvents, setTimelineEvents] = useState([]);
     let [curr_organisation_id, set_curr_organisation_id] = useState(localStorage.getItem('id'));
     const [frontEndDomain, setFrontEndDomain] = useState("http://localhost:3000");
+
+    if(localStorage.getItem("id") === null ||
+        localStorage.getItem("id") === undefined ||
+        localStorage.getItem("id") === 'default')
+    {
+
+        window.location.href = frontEndDomain + "/login";
+    }
+
     const addTimelineEvent = event =>
     {
         event.preventDefault();

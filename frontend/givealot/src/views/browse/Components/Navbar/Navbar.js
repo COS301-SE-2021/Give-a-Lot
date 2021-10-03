@@ -16,7 +16,7 @@ function Navbar()
     function searchOrganisation(e)
     {
         e.preventDefault();
-        fetch(serverDomain + "/search/organisation/browse/"+document.getElementById("browse_search_input").value)
+        fetch(serverDomain + "/search/organisation/browse/"+document.getElementById("browse_search_input2").value)
         .then(async response =>{
             const data = await response.json();
 

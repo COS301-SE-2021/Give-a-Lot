@@ -17,6 +17,7 @@ export class AdminReports extends Component {
         this.state={
             adminId:localStorage.getItem('id'),
             serverDomain: "http://localhost:8080",
+            frontEndDomain: 'http://localhost:3000',
             AdminReports: []
         };
     }
@@ -44,6 +45,15 @@ export class AdminReports extends Component {
     }
 
     render() {
+
+        if(localStorage.getItem("id") === null ||
+            localStorage.getItem("id") === undefined ||
+            localStorage.getItem("id") === 'default')
+        {
+
+            window.location.href = this.state.frontEndDomain + "/login";
+        }
+
         const { AdminReports } = this.state
         return (
             <div className="trythis">

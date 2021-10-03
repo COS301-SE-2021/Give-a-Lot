@@ -24,6 +24,11 @@ import Loader from "../../../loader/Loader";
 import {ApiContext} from "../../../../apiContext/ApiContext";
 import axios from "axios";
 import {Alert} from "@material-ui/lab";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -76,6 +81,7 @@ function ViewOrganisation()
     const [organisationData, setOrganisationData] = React.useState([]);
     const [selectedUserId, setSelectedUserId] = React.useState("default");
     const [serverDomain, setServerDomain] = useState(useContext(ApiContext))
+    const [open, setOpen] = React.useState(false);
 
     let [timelineEvents, setTimelineEvents] = useState([]);
     let [curr_organisation_id, set_curr_organisation_id] = useState(localStorage.getItem('id'));
@@ -87,11 +93,19 @@ function ViewOrganisation()
     let {id} = useParams();
     let image_id = id + "";
     let showReportFormTrack = false;
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     const reportFormToggle = event =>
     {
         event.preventDefault();
-
-        if(showReportFormTrack === false)
+        /*if(showReportFormTrack === false)
         {
             document.getElementById("report_form_container").style.display = "flex";
             showReportFormTrack = true;
@@ -100,7 +114,7 @@ function ViewOrganisation()
         {
             document.getElementById("report_form_container").style.display = "none";
             showReportFormTrack = false;
-        }
+        }*/
     }
     const reportOrganisation = event =>
     {
@@ -425,12 +439,15 @@ function ViewOrganisation()
                        <Button
                         variant={"outlined"}
                         color={"secondary"}
-                        onClick={reportFormToggle}
+                        /*onClick={reportFormToggle}*/
+                           onClick={handleClickOpen}
                        >
                            report
                        </Button>
-
+                       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                           <DialogTitle id="form-dialog-title">please complete your report</DialogTitle>
                            <Box id={"report_form_container"}>
+
                                <Alert
                                    id={"report_success_alert"}
                                    severity={"success"}
@@ -457,13 +474,16 @@ function ViewOrganisation()
                                />
 
                                <Button
-                               variant={"contained"}
-                               color={"primary"}
-                               onClick={reportOrganisation}
+                                   variant={"contained"}
+                                   color={"primary"}
+                                   onClick={reportOrganisation}
                                >
                                    submit
                                </Button>
                            </Box>
+                       </Dialog>
+
+
                    </Box>
 
                    <p id="view_organisation_meta_body_about">timeline</p>

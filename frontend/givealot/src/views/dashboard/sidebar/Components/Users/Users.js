@@ -20,7 +20,9 @@ export class Users extends Component {
             users:[],
             error: "",
             adminUserEmail: localStorage.getItem('curr_user_email'),
-            serverDomain: "http://localhost:8080"
+            serverDomain: "http://localhost:8080",
+            frontEndDomain: "http://localhost:3000"
+
         }
 
     }
@@ -47,6 +49,14 @@ export class Users extends Component {
             })
     }
     render () {
+        if(localStorage.getItem("id") === null ||
+            localStorage.getItem("id") === undefined ||
+            localStorage.getItem("id") === 'default')
+        {
+
+            window.location.href = this.state.frontEndDomain + "/login";
+        }
+
         const { users } = this.state
         return(
             <div className="trythis">

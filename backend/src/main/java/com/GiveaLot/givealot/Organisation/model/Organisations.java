@@ -10,8 +10,6 @@ import javax.persistence.*;
 @Table(name = "organisations")
 public class Organisations {
 
-
-
     @Column(
             name = "org_name",
             nullable = false,

@@ -9,9 +9,9 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Table(name="organisation_data")
-public class OrganisationData {
+public class OrganisationData
+{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "org_id", nullable = false, unique = true)
     public Long orgId;
 
@@ -45,6 +45,46 @@ public class OrganisationData {
         this.qrCode = qrCode;
 
         this.certificate = certificate;
+        this.certificateImage = certificateImage;
+    }
+
+    public Long getOrgId() {
+        return orgId;
+    }
+
+    public void setOrgId(Long orgId) {
+        this.orgId = orgId;
+    }
+
+    public byte[] getAuditDoc() {
+        return auditDoc;
+    }
+
+    public void setAuditDoc(byte[] auditDoc) {
+        this.auditDoc = auditDoc;
+    }
+
+    public byte[] getQrCode() {
+        return qrCode;
+    }
+
+    public void setQrCode(byte[] qrCode) {
+        this.qrCode = qrCode;
+    }
+
+    public byte[] getCertificate() {
+        return certificate;
+    }
+
+    public void setCertificate(byte[] certificate) {
+        this.certificate = certificate;
+    }
+
+    public byte[] getCertificateImage() {
+        return certificateImage;
+    }
+
+    public void setCertificateImage(byte[] certificateImage) {
         this.certificateImage = certificateImage;
     }
 }

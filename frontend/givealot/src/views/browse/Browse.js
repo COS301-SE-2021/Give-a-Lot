@@ -176,7 +176,7 @@ function Browse ()
                 })
 
                 .catch(error => {
-                    alert("server unreachable")
+
                 });
         }
         ,[])

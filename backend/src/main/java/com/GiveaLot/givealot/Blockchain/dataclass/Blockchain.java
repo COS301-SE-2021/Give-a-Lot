@@ -14,7 +14,7 @@ public class Blockchain {
     @Column(
             name = "org_id",
             nullable = false,
-            columnDefinition = "BIGINTEGER"
+            columnDefinition = "BIGINT"
     )
     long orgId;
 

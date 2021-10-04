@@ -17,6 +17,9 @@ public class OrganisationGallery
     @Column(name="org_id")
     public Long orgId;
 
+    @Column(name="name")
+    public String name;
+
     @Lob
     @Column(name="image")
     @Type(type="org.hibernate.type.BinaryType")
@@ -26,9 +29,18 @@ public class OrganisationGallery
 
     }
 
-    public OrganisationGallery(Long orgId, byte[] image) {
+    public OrganisationGallery(Long orgId, byte[] image, String name) {
         this.orgId = orgId;
         this.image = image;
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Long getImageId() {

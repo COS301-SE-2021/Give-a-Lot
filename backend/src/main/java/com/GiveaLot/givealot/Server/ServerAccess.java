@@ -2,6 +2,8 @@
 package com.GiveaLot.givealot.Server;
 
 import com.GiveaLot.givealot.FaceRecognition.service.FaceRecognitionServiceImpl;
+import com.GiveaLot.givealot.Organisation.model.OrganisationGallery;
+import com.GiveaLot.givealot.Organisation.repository.OrganisationGalleryRepository;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
@@ -23,6 +25,9 @@ public class ServerAccess implements server_access{
 
     @Autowired
     private OrganisationInfoRepository organisationInfoRepository;
+
+    @Autowired
+    private OrganisationGalleryRepository organisationGalleryRepository;
 
     ServerConfig config = new ServerConfig();
 
@@ -404,6 +409,14 @@ public class ServerAccess implements server_access{
 
     @Override
     public void uploadImageJPG(long orgId, MultipartFile image, int numberOfImages) throws Exception {
+
+        System.out.println("================saving image to db================");
+        OrganisationGallery newGalleryImage = new OrganisationGallery();
+        newGalleryImage.setOrgId(orgId);
+        newGalleryImage.setImage(image.getBytes());
+        newGalleryImage.setName("image" + numberOfImages);
+        organisationGalleryRepository.save(newGalleryImage);
+        System.out.println("================saving image to db finished================");
 
         ChannelSftp channelSftp = setupJsch();
         try {

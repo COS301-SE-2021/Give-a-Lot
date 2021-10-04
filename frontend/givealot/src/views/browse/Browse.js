@@ -161,9 +161,9 @@ function Browse ()
 
                         if(typeof data !== 'undefined')
                         {
-
                         }
                     }
+
 
                     if(data.message === "success") /*successfully fetched*/
                     {

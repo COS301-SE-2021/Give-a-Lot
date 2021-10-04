@@ -415,6 +415,10 @@
   transform: translate(0,-50%);
 }
 
+#searchResultsProgressLoader
+{
+  display: none;
+}
 
 
 #searchResults
@@ -481,6 +485,8 @@
 {
 
 }
+
+
 
 #report_organisation_container > Button
 {

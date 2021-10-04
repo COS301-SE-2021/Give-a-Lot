@@ -1,10 +1,14 @@
 package com.GiveaLot.givealot.media.Controller;
 
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
+
 import com.GiveaLot.givealot.media.MediaService.MediaServiceImp;
 import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StreamUtils;
@@ -154,21 +158,27 @@ public class MediaController {
         }
         catch (Exception e)
         {
-            System.out.println("======QR CODE ERROR======= " + e);
-            var fallback = new ClassPathResource("localFiles/fallback/QRCodeDefault.jpeg");
+            return ResponseEntity
+                    .notFound().build();
+        }
+    }
 
-            try {
-                bytes = StreamUtils.copyToByteArray(fallback.getInputStream());
-                return ResponseEntity
-                        .ok()
-                        .contentType(MediaType.IMAGE_JPEG)
-                        .body(bytes);
-            }
-            catch (IOException ew)
-            {
-                return ResponseEntity
-                        .notFound().build();
-            }
+    @RequestMapping(value = "/version/gallery/images/{orgId}/{imageId}", method = RequestMethod.GET,
+            produces = MediaType.ALL_VALUE)
+    public ResponseEntity<byte[]> getGalleryImage(@PathVariable("orgId") Long orgId,@PathVariable("imageId") Long imageId)
+    {
+        byte[] bytes;
+        try {
+            bytes = service.getGalleryImages(orgId, imageId);
+            return ResponseEntity
+                    .ok()
+                    .contentType(MediaType.IMAGE_PNG)
+                    .body(bytes);
+        }
+        catch (Exception e)
+        {
+            return ResponseEntity
+                    .notFound().build();
         }
     }
 

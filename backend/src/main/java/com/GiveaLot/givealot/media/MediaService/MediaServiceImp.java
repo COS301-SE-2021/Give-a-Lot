@@ -2,13 +2,11 @@ package com.GiveaLot.givealot.media.MediaService;
 
 import com.GiveaLot.givealot.Organisation.model.OrganisationData;
 import com.GiveaLot.givealot.Organisation.model.OrganisationPoints;
-import com.GiveaLot.givealot.Organisation.repository.OrganisationDataRepository;
-import com.GiveaLot.givealot.Organisation.repository.OrganisationInfoRepository;
-import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
-import com.GiveaLot.givealot.Organisation.repository.organisationPointsRepository;
+import com.GiveaLot.givealot.Organisation.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Locale;
 
 @Service
@@ -21,6 +19,9 @@ public class MediaServiceImp implements MediaService{
 
     @Autowired
     OrganisationDataRepository organisationDataRepository;
+
+    @Autowired
+    OrganisationGalleryRepository organisationGalleryRepository;
 
     @Override
     public boolean orgIdExists(Long orgId)
@@ -85,5 +86,28 @@ public class MediaServiceImp implements MediaService{
         }
 
         return organisationDataRepository.selectOrganisationDataById(orgId).getCertificateImage();
+    }
+
+    @Override
+    public byte[] getGalleryImages(Long orgId, Long imageId) throws Exception {
+        if(orgId == null)
+        {
+            throw new Exception("provided ID is null");
+        }
+        else if(!this.orgIdExists(orgId))
+        {
+            throw new Exception("Organisation is does not exist");
+        }
+        else if(imageId == null)
+        {
+            throw new Exception("Image name not provided");
+        }
+
+        byte[] image = organisationGalleryRepository.getOrganisationGalleryImages(orgId,"image"+imageId);
+
+        if(image == null)
+            throw new Exception("image not found");
+
+        return image;
     }
 }

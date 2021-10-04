@@ -3,7 +3,8 @@ import {useParams} from 'react-router-dom';
 import Navbar from "../Navbar/Navbar";
 import Button from '@material-ui/core/Button';
 import ImageGallery from 'react-image-gallery';
-import "react-image-gallery/styles/css/image-gallery.css";
+
+
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -25,11 +26,9 @@ import {ApiContext} from "../../../../apiContext/ApiContext";
 import axios from "axios";
 import {Alert} from "@material-ui/lab";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
 import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
 import Chatbot from "../../../chatbot/Chatbot";
+import "react-image-gallery/styles/css/image-gallery.css";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -262,8 +261,15 @@ function ViewOrganisation()
     for(let i = 0; i < number_of_images; i++)
     {
         let image = {
-            original : serverDomain + "/gallery/image/version/"+id+"/" + i,
-            thumbnail: serverDomain + "/gallery/image/version/"+id+"/" + i
+            original : serverDomain + "/media/version/gallery/images/"+id+"/" + i,
+            originalClass: "galleryOriginal",
+            originalHeight: 310,
+            originalWidth: 400,
+            thumbnail: serverDomain + "/media/version/gallery/images/"+id+"/" + i,
+            thumbnailHeight: 60,
+            thumbnailWidth: 20,
+
+            thumbnailClass: "galleryThumbnail"
         }
         images.push(image);
     }
@@ -364,7 +370,12 @@ function ViewOrganisation()
                            <p id="view_organisation_meta_body_about">gallery</p>
                            <div id="view_organisation_gallery">
                            <p>{images.length} pictures</p>
-                           <ImageGallery items={images}/>
+                           <ImageGallery
+                               showFullscreenButton={false}
+                               showPlayButton={false}
+                               showIndex={true}
+                               autoPlay={true}
+                               items={images}/>
                            </div>
                        </>
 

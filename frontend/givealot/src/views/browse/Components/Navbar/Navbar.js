@@ -4,6 +4,7 @@ import React, {useContext, useEffect, useState} from "react";
 import SearchIcon from "@material-ui/icons/Search";
 import SearchResults from "../SearchResults/SearchResults";
 import {ApiContext} from "../../../../apiContext/ApiContext";
+import {Box, LinearProgress} from "@material-ui/core";
 
 function Navbar()
 {
@@ -16,10 +17,11 @@ function Navbar()
     function searchOrganisation(e)
     {
         e.preventDefault();
+        document.getElementById("searchResultsProgressLoader").style.display = "block";
         fetch(serverDomain + "/search/organisation/browse/"+document.getElementById("browse_search_input2").value)
         .then(async response =>{
             const data = await response.json();
-
+            document.getElementById("searchResultsProgressLoader").style.display = "none";
             if(!response.ok) /* error handling here */
             {
                 if(response.status === 500)
@@ -61,27 +63,32 @@ function Navbar()
 
     },[]);
     return (
-        <div id="browseNavSection">
 
-            {showSearchResults && <SearchResults org_list={searchResultsOrganisations}
-                            org_suggestions={searchResultsOrganisationsRelated}/>}
+        <>
+            <div id="browseNavSection">
+                {showSearchResults && <SearchResults org_list={searchResultsOrganisations}
+                                org_suggestions={searchResultsOrganisationsRelated}/>}
 
-            <Link to={"/"}><img id="browseLogo" src={logo} alt={"logo"} /></Link>
-            <p>browse organisations</p>
-            <div className="browse_search_input2_container">
-                <input
-                    id={"browse_search_input2"}
-                    placeholder="search organisation"
-                    type="text"
+                <Link to={"/"}><img id="browseLogo" src={logo} alt={"logo"} /></Link>
+                <p>browse organisations</p>
+                <div className="browse_search_input2_container">
+                    <input
+                        id={"browse_search_input2"}
+                        placeholder="search organisation"
+                        type="text"
 
-                    onKeyPress={onKeyUp}
-                />
-                <SearchIcon
-                    id={"search_icon_nav"}
-                    onClick={searchOrganisation}
-                />
+                        onKeyPress={onKeyUp}
+                    />
+                    <SearchIcon
+                        id={"search_icon_nav"}
+                        onClick={searchOrganisation}
+                    />
+                </div>
             </div>
-        </div>
+            <Box sx={{ width: '100%' }} id={"searchResultsProgressLoader"}>
+                <LinearProgress color={"secondary"} />
+            </Box>
+        </>
     )
 }
 

@@ -9,4 +9,7 @@ import java.util.List;
 public interface OrganisationGalleryRepository extends JpaRepository<OrganisationGallery, Long> {
     @Query("select o from OrganisationGallery o where o.orgId = ?1")
     List<OrganisationData> selectOrganisationImagesById(Long orgId);
+
+    @Query("select o.image from OrganisationGallery o where o.orgId = ?1 AND o.name = ?2")
+    byte[] getOrganisationGalleryImages(Long orgId, String name);
 }

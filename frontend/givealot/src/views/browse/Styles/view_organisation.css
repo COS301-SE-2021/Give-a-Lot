@@ -255,6 +255,19 @@
     */
 }
 
+.galleryOriginal
+{
+
+}
+
+.galleryThumbnail
+{
+    object-fit: cover !important;
+    background: none !important;
+    height: 60px !important;
+    border: none !important;
+}
+
 em
 {
     font-weight: bolder;

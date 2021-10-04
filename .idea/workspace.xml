@@ -4,9 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="admin search removed and reports card on admin dashboard">
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="reporting styled better. recommender should work for users currently signed in (admins and organisations) get default recommendations">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c2115be9-a582-4130-8c1d-8deddc5027b3/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/DemoSidebar/AdminSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/DemoSidebar/AdminSidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TempCompareCertificate.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/TempCompareCertificate.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationGallery.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationGallery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationGalleryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationGalleryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/media/Controller/MediaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/media/Controller/MediaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/media/MediaService/MediaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/media/MediaService/MediaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/media/MediaService/MediaServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/media/MediaService/MediaServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Browse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Navbar/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Navbar/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Components/Organisation/ViewOrganisation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_desktop.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/browse_desktop.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/view_organisation.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/browse/Styles/view_organisation.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +43,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="neon" />
+        <entry key="$PROJECT_DIR$" value="7fbdfa341e27059f12dcb9452ed582b4c2dafa14" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,9 +58,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationPoints.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/frontend/givealot/src/views/default/Default404.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/organisationPointsRepository.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/givealot/src/views/login/Login.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/organisationPointsRepository.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/frontend/givealot/src/views/default/Default404.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -116,16 +131,27 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="generated-requests#100" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="100" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#83" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="83" runType="Run single request">
+    <configuration name="generated-requests#105" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="105" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#92" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="92" runType="Run single request">
+    <configuration name="generated-requests#106" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="106" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#94" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="94" runType="Run single request">
+    <configuration name="generated-requests#111" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="111" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#99" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="99" runType="Run single request">
@@ -139,21 +165,21 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.generated-requests#83" />
-      <item itemvalue="HTTP Request.generated-requests#92" />
-      <item itemvalue="HTTP Request.generated-requests#94" />
       <item itemvalue="HTTP Request.generated-requests#99" />
       <item itemvalue="HTTP Request.generated-requests#100" />
+      <item itemvalue="HTTP Request.generated-requests#105" />
+      <item itemvalue="HTTP Request.generated-requests#106" />
       <item itemvalue="Python.chat" />
       <item itemvalue="Spring Boot.GivealotApplication" />
+      <item itemvalue="HTTP Request.generated-requests#111" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests#111" />
+        <item itemvalue="HTTP Request.generated-requests#106" />
+        <item itemvalue="HTTP Request.generated-requests#105" />
         <item itemvalue="HTTP Request.generated-requests#100" />
         <item itemvalue="HTTP Request.generated-requests#99" />
-        <item itemvalue="HTTP Request.generated-requests#94" />
-        <item itemvalue="HTTP Request.generated-requests#92" />
-        <item itemvalue="HTTP Request.generated-requests#83" />
       </list>
     </recent_temporary>
   </component>
@@ -187,185 +213,9 @@
       <workItem from="1632125413993" duration="8503000" />
       <workItem from="1632134204054" duration="7766000" />
       <workItem from="1632232231467" duration="6208000" />
-      <workItem from="1632821806682" duration="1061000" />
-      <workItem from="1632828284482" duration="921000" />
-      <workItem from="1632843512326" duration="554000" />
-      <workItem from="1632864645982" duration="6000" />
-      <workItem from="1633111812064" duration="1081000" />
-      <workItem from="1633116734932" duration="639000" />
-      <workItem from="1633182168816" duration="8207000" />
-      <workItem from="1633194400233" duration="4400000" />
-      <workItem from="1633210828440" duration="1841000" />
-      <workItem from="1633268645839" duration="5006000" />
-      <workItem from="1633290014506" duration="312000" />
-    </task>
-    <task id="LOCAL-00101" summary="dedicated organisation select for admin users">
-      <created>1631923037055</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1631923037056</updated>
-    </task>
-    <task id="LOCAL-00102" summary="dedicated organisation select for admin users">
-      <created>1631923246508</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
-      <option name="project" value="LOCAL" />
-      <updated>1631923246509</updated>
-    </task>
-    <task id="LOCAL-00103" summary="dedicated organisation select for admin users">
-      <created>1631924185046</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1631924185046</updated>
-    </task>
-    <task id="LOCAL-00104" summary="chatbot style and additional of a .css file">
-      <created>1631926448938</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
-      <option name="project" value="LOCAL" />
-      <updated>1631926448938</updated>
-    </task>
-    <task id="LOCAL-00105" summary="updated styling chatbot">
-      <created>1631926944918</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1631926944919</updated>
-    </task>
-    <task id="LOCAL-00106" summary="updated styling chatbot">
-      <created>1631928105725</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1631928105725</updated>
-    </task>
-    <task id="LOCAL-00107" summary="login api">
-      <created>1631963564109</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1631963564109</updated>
-    </task>
-    <task id="LOCAL-00108" summary="login api">
-      <created>1631963770377</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
-      <option name="project" value="LOCAL" />
-      <updated>1631963770377</updated>
-    </task>
-    <task id="LOCAL-00109" summary="login api">
-      <created>1631967450484</created>
-      <option name="number" value="00109" />
-      <option name="presentableId" value="LOCAL-00109" />
-      <option name="project" value="LOCAL" />
-      <updated>1631967450484</updated>
-    </task>
-    <task id="LOCAL-00110" summary="level 1 info add">
-      <created>1631970144021</created>
-      <option name="number" value="00110" />
-      <option name="presentableId" value="LOCAL-00110" />
-      <option name="project" value="LOCAL" />
-      <updated>1631970144021</updated>
-    </task>
-    <task id="LOCAL-00111" summary="level 1 info accept-deny">
-      <created>1631973644387</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
-      <option name="project" value="LOCAL" />
-      <updated>1631973644387</updated>
-    </task>
-    <task id="LOCAL-00112" summary="level 1 info accept-deny">
-      <created>1631973725421</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1631973725422</updated>
-    </task>
-    <task id="LOCAL-00113" summary="level 1 upgrade">
-      <created>1631982031139</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
-      <option name="project" value="LOCAL" />
-      <updated>1631982031140</updated>
-    </task>
-    <task id="LOCAL-00114" summary="level 2 upgrade complete">
-      <created>1631987838626</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1631987838655</updated>
-    </task>
-    <task id="LOCAL-00115" summary="upgrade to level 4 complete">
-      <created>1631997680567</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1631997680606</updated>
-    </task>
-    <task id="LOCAL-00116" summary="upgrade to level 4 complete">
-      <created>1631998047770</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1631998047783</updated>
-    </task>
-    <task id="LOCAL-00117" summary="upgrade to level 4 complete">
-      <created>1632009154892</created>
-      <option name="number" value="00117" />
-      <option name="presentableId" value="LOCAL-00117" />
-      <option name="project" value="LOCAL" />
-      <updated>1632009154893</updated>
-    </task>
-    <task id="LOCAL-00118" summary="upgrade to level 4 complete">
-      <created>1632015251840</created>
-      <option name="number" value="00118" />
-      <option name="presentableId" value="LOCAL-00118" />
-      <option name="project" value="LOCAL" />
-      <updated>1632015251840</updated>
-    </task>
-    <task id="LOCAL-00119" summary="added  organisation">
-      <created>1632045585511</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
-      <option name="project" value="LOCAL" />
-      <updated>1632045585511</updated>
-    </task>
-    <task id="LOCAL-00120" summary="added  organisation">
-      <created>1632045659942</created>
-      <option name="number" value="00120" />
-      <option name="presentableId" value="LOCAL-00120" />
-      <option name="project" value="LOCAL" />
-      <updated>1632045659958</updated>
-    </task>
-    <task id="LOCAL-00121" summary="added  organisation">
-      <created>1632046061868</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1632046061868</updated>
-    </task>
-    <task id="LOCAL-00122" summary="timeline implemented, however further halted due to internal reasons">
-      <created>1632052089868</created>
-      <option name="number" value="00122" />
-      <option name="presentableId" value="LOCAL-00122" />
-      <option name="project" value="LOCAL" />
-      <updated>1632052089868</updated>
-    </task>
-    <task id="LOCAL-00123" summary="timeline - welcome message on registration">
-      <created>1632057485288</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1632057485289</updated>
-    </task>
-    <task id="LOCAL-00124" summary="timeline - welcome message on registration">
-      <created>1632060988616</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1632060988616</updated>
+      <workItem from="1633133762871" duration="20686000" />
+      <workItem from="1633267541604" duration="1215000" />
+      <workItem from="1633300746899" duration="14091000" />
     </task>
     <task id="LOCAL-00125" summary="timeline - welcome message on registration">
       <created>1632061975180</created>
@@ -487,62 +337,230 @@
       <updated>1632820350966</updated>
     </task>
     <task id="LOCAL-00142" summary="Updated Server Access">
-      <created>1633183194082</created>
+      <created>1632820811460</created>
       <option name="number" value="00142" />
       <option name="presentableId" value="LOCAL-00142" />
       <option name="project" value="LOCAL" />
-      <updated>1633183194083</updated>
+      <updated>1632820811460</updated>
     </task>
-    <task id="LOCAL-00143" summary="Loader on org validate page">
-      <created>1633185459283</created>
+    <task id="LOCAL-00143" summary="Updated Server Access">
+      <created>1632820947326</created>
       <option name="number" value="00143" />
       <option name="presentableId" value="LOCAL-00143" />
       <option name="project" value="LOCAL" />
-      <updated>1633185459283</updated>
+      <updated>1632820947326</updated>
     </task>
-    <task id="LOCAL-00144" summary="Loader on org validate page">
-      <created>1633185679718</created>
+    <task id="LOCAL-00144" summary="slight update">
+      <created>1632838909651</created>
       <option name="number" value="00144" />
       <option name="presentableId" value="LOCAL-00144" />
       <option name="project" value="LOCAL" />
-      <updated>1633185679718</updated>
+      <updated>1632838909651</updated>
     </task>
-    <task id="LOCAL-00145" summary="code clean up">
-      <created>1633187542840</created>
+    <task id="LOCAL-00145" summary="slight update">
+      <created>1632851033209</created>
       <option name="number" value="00145" />
       <option name="presentableId" value="LOCAL-00145" />
       <option name="project" value="LOCAL" />
-      <updated>1633187542840</updated>
+      <updated>1632851033209</updated>
     </task>
-    <task id="LOCAL-00146" summary="code clean up">
-      <created>1633187748884</created>
+    <task id="LOCAL-00146" summary="slight update">
+      <created>1632885549344</created>
       <option name="number" value="00146" />
       <option name="presentableId" value="LOCAL-00146" />
       <option name="project" value="LOCAL" />
-      <updated>1633187748884</updated>
+      <updated>1632885549344</updated>
     </task>
-    <task id="LOCAL-00147" summary="report page completed">
-      <created>1633212528593</created>
+    <task id="LOCAL-00147" summary="slight update">
+      <created>1632885569699</created>
       <option name="number" value="00147" />
       <option name="presentableId" value="LOCAL-00147" />
       <option name="project" value="LOCAL" />
-      <updated>1633212528594</updated>
+      <updated>1632885569699</updated>
     </task>
-    <task id="LOCAL-00148" summary="report page completed">
-      <created>1633269725332</created>
+    <task id="LOCAL-00148" summary="slight update">
+      <created>1633187177179</created>
       <option name="number" value="00148" />
       <option name="presentableId" value="LOCAL-00148" />
       <option name="project" value="LOCAL" />
-      <updated>1633269725332</updated>
+      <updated>1633187177179</updated>
     </task>
-    <task id="LOCAL-00149" summary="admin search removed and reports card on admin dashboard">
-      <created>1633273734465</created>
+    <task id="LOCAL-00149" summary="reporting done">
+      <created>1633190824046</created>
       <option name="number" value="00149" />
       <option name="presentableId" value="LOCAL-00149" />
       <option name="project" value="LOCAL" />
-      <updated>1633273734465</updated>
+      <updated>1633190824046</updated>
     </task>
-    <option name="localTasksCounter" value="150" />
+    <task id="LOCAL-00150" summary="reporting done">
+      <created>1633199889618</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1633199889618</updated>
+    </task>
+    <task id="LOCAL-00151" summary="reporting done">
+      <created>1633217849387</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1633217849388</updated>
+    </task>
+    <task id="LOCAL-00152" summary="reporting done">
+      <created>1633224114538</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1633224114538</updated>
+    </task>
+    <task id="LOCAL-00153" summary="reporting done">
+      <created>1633226396469</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1633226396469</updated>
+    </task>
+    <task id="LOCAL-00154" summary="reporting done">
+      <created>1633226432068</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1633226432068</updated>
+    </task>
+    <task id="LOCAL-00155" summary="fixed bugs on the dashboard">
+      <created>1633230944859</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1633230944859</updated>
+    </task>
+    <task id="LOCAL-00156" summary="updated the report form">
+      <created>1633231968007</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1633231968007</updated>
+    </task>
+    <task id="LOCAL-00157" summary="updated the report form">
+      <created>1633267701106</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1633267701107</updated>
+    </task>
+    <task id="LOCAL-00158" summary="gallery images table">
+      <created>1633273934467</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1633273934467</updated>
+    </task>
+    <task id="LOCAL-00159" summary="gallery images table">
+      <created>1633274377532</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL-00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1633274377532</updated>
+    </task>
+    <task id="LOCAL-00160" summary="gallery images table">
+      <created>1633274847548</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1633274847548</updated>
+    </task>
+    <task id="LOCAL-00161" summary="gallery images table">
+      <created>1633274979006</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1633274979006</updated>
+    </task>
+    <task id="LOCAL-00162" summary="gallery images - repository">
+      <created>1633275012022</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1633275012022</updated>
+    </task>
+    <task id="LOCAL-00163" summary="gallery images - repository">
+      <created>1633275038281</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1633275038282</updated>
+    </task>
+    <task id="LOCAL-00164" summary="gallery images - repository">
+      <created>1633276269291</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1633276269291</updated>
+    </task>
+    <task id="LOCAL-00165" summary="qr code">
+      <created>1633276486821</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1633276486822</updated>
+    </task>
+    <task id="LOCAL-00166" summary="qr code">
+      <created>1633276790789</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1633276790789</updated>
+    </task>
+    <task id="LOCAL-00167" summary="qr code finished">
+      <created>1633280489440</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL-00167" />
+      <option name="project" value="LOCAL" />
+      <updated>1633280489440</updated>
+    </task>
+    <task id="LOCAL-00168" summary="qr code finished">
+      <created>1633280707274</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1633280707274</updated>
+    </task>
+    <task id="LOCAL-00169" summary="qr code finished">
+      <created>1633281046417</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1633281046417</updated>
+    </task>
+    <task id="LOCAL-00170" summary="localFiles">
+      <created>1633281914998</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1633281914999</updated>
+    </task>
+    <task id="LOCAL-00171" summary="reporting styled better. recommender should work for users currently signed in (admins and organisations) get default recommendations">
+      <created>1633288812482</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1633288812482</updated>
+    </task>
+    <task id="LOCAL-00172" summary="reporting styled better. recommender should work for users currently signed in (admins and organisations) get default recommendations">
+      <created>1633301726483</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1633301726484</updated>
+    </task>
+    <task id="LOCAL-00173" summary="reporting styled better. recommender should work for users currently signed in (admins and organisations) get default recommendations">
+      <created>1633301891843</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1633301891844</updated>
+    </task>
+    <option name="localTasksCounter" value="174" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -561,12 +579,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="search done" />
-    <MESSAGE value="saving workspace" />
-    <MESSAGE value="finalizing frontend&#10;backend updates to add organisation" />
-    <MESSAGE value="dedicated organisaiton select for admin users" />
-    <MESSAGE value="dedicated organisation select for admin users" />
-    <MESSAGE value="chatbot style and additional of a .css file" />
     <MESSAGE value="login api" />
     <MESSAGE value="level 1 info add" />
     <MESSAGE value="level 1 info accept-deny" />
@@ -582,11 +594,17 @@
     <MESSAGE value="dash bug fix - Alexis take over" />
     <MESSAGE value="no change" />
     <MESSAGE value="Updated Server Access" />
-    <MESSAGE value="Loader on org validate page" />
-    <MESSAGE value="code clean up" />
-    <MESSAGE value="report page completed" />
-    <MESSAGE value="admin search removed and reports card on admin dashboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="admin search removed and reports card on admin dashboard" />
+    <MESSAGE value="slight update" />
+    <MESSAGE value="reporting done" />
+    <MESSAGE value="fixed bugs on the dashboard" />
+    <MESSAGE value="updated the report form" />
+    <MESSAGE value="gallery images table" />
+    <MESSAGE value="gallery images - repository" />
+    <MESSAGE value="qr code" />
+    <MESSAGE value="qr code finished" />
+    <MESSAGE value="localFiles" />
+    <MESSAGE value="reporting styled better. recommender should work for users currently signed in (admins and organisations) get default recommendations" />
+    <option name="LAST_COMMIT_MESSAGE" value="reporting styled better. recommender should work for users currently signed in (admins and organisations) get default recommendations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -603,6 +621,6 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Give_a_Lot$chat.coverage" NAME="chat Coverage Results" MODIFIED="1632135411129" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Chatbot" />
+    <SUITE FILE_PATH="coverage/Give_a_Lot$chat.coverage" NAME="chat Coverage Results" MODIFIED="1631920655789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Chatbot" />
   </component>
 </project>

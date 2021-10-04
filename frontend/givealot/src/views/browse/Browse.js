@@ -161,9 +161,9 @@ function Browse ()
 
                         if(typeof data !== 'undefined')
                         {
-
                         }
                     }
+
 
                     if(data.message === "success") /*successfully fetched*/
                     {
@@ -176,7 +176,7 @@ function Browse ()
                 })
 
                 .catch(error => {
-                    alert("server unreachable")
+
                 });
         }
         ,[])

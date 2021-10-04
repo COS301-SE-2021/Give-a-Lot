@@ -21,13 +21,13 @@ public class Blockchain {
     @Column(
             name = "index",
             nullable = false,
-            columnDefinition = "BIGINTEGER"
+            columnDefinition = "BIGINT"
     )
     long index;
     @Column(
             name = "level",
             nullable = false,
-            columnDefinition = "BIGINTEGER"
+            columnDefinition = "BIGINT"
     )
     long level;
     @Column(

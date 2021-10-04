@@ -613,6 +613,13 @@ padding-left: 11px;
     display: flex;
 }
 
+.images_header{
+    text-align: center;
+    margin-bottom: 5px;
+    display: block;
+    font-size: 15px;
+    color: #7c6d81;
+}
 
 
 

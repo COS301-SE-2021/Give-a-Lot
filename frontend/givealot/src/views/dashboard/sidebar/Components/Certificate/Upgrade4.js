@@ -66,7 +66,7 @@ export class Upgrade4 extends Component {
     handleFileChange = event => {
         const formData = new FormData();
 
-        formData.append('file', event.target.files);
+        formData.append('file', event.target.files[0]);
         formData.append('orgId', this.state.orgId);
         let imageStates = 0;
 
@@ -117,11 +117,11 @@ export class Upgrade4 extends Component {
         {
             const formData_gallery_images = new FormData();
             formData_gallery_images.append('orgId', this.state.orgId);
-            formData_gallery_images.append('images', event.target.files[idx]);
+            formData_gallery_images.append('image', event.target.files[idx]);
 
             console.log(event.target.files)
             fetch(
-                this.state.serverDomain + '/v1/organisation/add/image',
+                'http://localhost:8080/v1/organisation/add/image',
                 {
                     method: 'POST',
                     body: formData_gallery_images,
@@ -251,6 +251,9 @@ export class Upgrade4 extends Component {
                             <form onSubmit={this.handleFormSubmit}>
                                 <span className="upgrade_header">
                                    Additional credentials needed to Upgrade to level 5
+                                 </span>
+                                <span className="images_header">
+                                   Please upload Atleast 5 pictures
                                  </span>
                                 <div>
                                     <div>

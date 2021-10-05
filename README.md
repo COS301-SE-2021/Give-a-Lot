@@ -52,7 +52,7 @@
 <br><br>
 <a href="https://drive.google.com/file/d/1d2mmmjHTeDIyyrKhxPyu8q_SxNpFCn-P/view?usp=sharing"> Architectural requirements document </a>
 <br><br>
-<a href=""> Testing Policy </a>
+<a href="https://drive.google.com/file/d/1JK4spKdRAElRoTZFiwxgvGIQaNYnm3LX/view?usp=sharing"> Testing Policy </a>
 
 
 

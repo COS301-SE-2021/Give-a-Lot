@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="qr code">
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationGalleryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/OrganisationGalleryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/23/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/23/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/23/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/33/gallery/blur.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/localFiles/23/certificate/CertificateComplete.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/localFiles/23/certificate/CertificateImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/localFiles/23/gallery/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/localFiles/33/gallery/blur.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +40,8 @@
         <entry key="$PROJECT_DIR$" value="7fbdfa341e27059f12dcb9452ed582b4c2dafa14" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/backend" />
+    <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -42,10 +52,10 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/frontend/givealot/src/views/default/Default404.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/model/OrganisationPoints.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/repository/organisationPointsRepository.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/givealot/src/views/login/Login.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/frontend/givealot/src/views/default/Default404.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -83,7 +93,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.data.extractors.current.export.id" value="Comma-separated (CSV)_id" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Chatbot" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -120,17 +130,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GivealotApplication">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="generated-requests#100" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="100" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -205,6 +204,7 @@
       <workItem from="1633133762871" duration="20686000" />
       <workItem from="1633267541604" duration="1215000" />
       <workItem from="1633300746899" duration="14091000" />
+      <workItem from="1633949033873" duration="487000" />
     </task>
     <task id="LOCAL-00125" summary="timeline - welcome message on registration">
       <created>1632061975180</created>

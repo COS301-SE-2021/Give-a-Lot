@@ -13,7 +13,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Give-a-Lot" target="9" />
-      <module name="givealot" target="9" />
+      <module name="givealot" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

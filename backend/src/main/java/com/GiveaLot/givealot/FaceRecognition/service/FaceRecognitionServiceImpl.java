@@ -1,11 +1,9 @@
 package com.GiveaLot.givealot.FaceRecognition.service;
 
 import org.apache.commons.io.FileUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.stereotype.Service;
-import com.GiveaLot.givealot.FaceRecognition.repository.FaceBlurRepository;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,9 +14,6 @@ import java.nio.file.Paths;
 @Service
 @Configurable
 public class FaceRecognitionServiceImpl implements FaceRecognitionService {
-
-    @Autowired
-    FaceBlurRepository
 
     @Override
     public File FacePixel(long orgId) throws IOException, InterruptedException {

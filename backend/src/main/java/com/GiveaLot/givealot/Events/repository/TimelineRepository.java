@@ -10,3 +10,4 @@ public interface TimelineRepository extends JpaRepository<Timeline,Long> {
     @Query("SELECT t FROM Timeline as t where t.orgId = ?1 ORDER BY t.eventDate")
     List<Timeline> getAllEvents(Long orgId);
 }
+

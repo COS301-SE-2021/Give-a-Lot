@@ -48,6 +48,7 @@ public class OrganisationServiceImp implements OrganisationService {
     @Autowired
     private OrganisationRepository organisationRepository;
 
+
     @Autowired
     private NotificationRepository notificationRepository;
 
@@ -255,6 +256,9 @@ public class OrganisationServiceImp implements OrganisationService {
         else if (organisation.getOrgName().isEmpty() || organisation.getOrgName().length() > 255)
             throw new Exception("Exception: orgName does not satisfy the database constraints");
 
+        else if(organisationRepository.selectOrganisationByName(organisation.getOrgName()) != null)
+            throw new Exception("Exception: organisation name already exists");
+
         else if (organisation.getOrgDescription().isEmpty() || organisation.getOrgDescription().length() > 65535)
             throw new Exception("Exception: orgDescription does not satisfy the database constraints");
 
@@ -342,6 +346,22 @@ public class OrganisationServiceImp implements OrganisationService {
         String directory = "/home/ubuntu/Organisations/" + id;
         organisationRepository.updateRepo(id, directory);
 
+        String orgIdString = String.valueOf(id);
+        String localStorage = "src/main/resources/localFiles/" + orgIdString;
+        String localImageStorage = "src/main/resources/localFiles/" + orgIdString + "/gallery";
+        String localImageStorage2 = "src/main/resources/localFiles/" + orgIdString + "/gallery/backup";
+        String localCertificateStorage = "src/main/resources/localFiles/" + orgIdString + "/certificate";
+        System.out.println(localCertificateStorage);
+
+        File directoryLocal = new File(localStorage);
+        File directoryImageLocal = new File(localImageStorage);
+        File directoryImageLocal2 = new File(localImageStorage2);
+        File directoryCertLocal = new File(localCertificateStorage);
+
+        directoryLocal.mkdir();
+        directoryImageLocal.mkdir();
+        directoryImageLocal2.mkdir();
+        directoryCertLocal.mkdir();
 
         organisationInfoRepository.save(new OrganisationInfo((long) id));
         organisationPointsRepository.save(new OrganisationPoints((long) id));
@@ -357,19 +377,32 @@ public class OrganisationServiceImp implements OrganisationService {
         dateEx.setYear(year + 1);
         String dateExpiry = format.format(dateEx);
         try {
+            System.out.println("==========server access enter==========");
             ServerAccess access = new ServerAccess();
+            System.out.println("==========server access constructed==========");
             certificate = new Certificate(id, dateCreated, dateExpiry, 0);
+            System.out.println("==========server access certificate object==========");
             access.createOrganisationDirectory(id, organisation.getOrgName());
+            System.out.println("==========server access directory created==========");
         } catch (Exception e) {
             throw new Exception("Exception : cert || server access -> " + e);
         }
 
-        certificateRepository.save(certificate);
-        certificateService.addCertificate(id, certificate);
-
+        System.out.println("===========organisation data create================");
         OrganisationData organisationData = new OrganisationData();
         organisationData.setOrgId(id);
         organisationDataRepository.save(organisationData);
+        System.out.println("===========organisation data saved================");
+
+
+        System.out.println("===========organisation certificate create================");
+        certificateRepository.save(certificate);
+        System.out.println("===========organisation certificate saved================");
+
+        System.out.println("===========organisation certificate pdf create================");
+        certificateService.addCertificate(id, certificate);
+        System.out.println("===========organisation certificate pdf created================");
+
 
         System.out.println("=========saving logo==========");
         this.addOrgLogo(new AddOrgLogoRequest(id, organisation.getImage()));

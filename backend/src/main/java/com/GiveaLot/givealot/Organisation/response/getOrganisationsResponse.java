@@ -16,6 +16,7 @@ public class getOrganisationsResponse {
         this.response = response;
     }
 
+
     public String getCode() {
         return code;
     }

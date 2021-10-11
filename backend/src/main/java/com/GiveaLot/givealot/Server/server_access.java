@@ -13,6 +13,7 @@ public interface server_access {
 
     ChannelSftp setupJsch() throws JSchException;
 
+
     void createOrganisationDirectory(long orgId, String orgName) throws Exception;
 
     void uploadCertificate(long orgId, String orgName) throws Exception;

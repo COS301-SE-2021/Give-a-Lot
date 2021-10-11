@@ -42,6 +42,7 @@ public class OrganisationController
         this.response = response;
     }
 
+
     @PostMapping("check/email")
     public ResponseEntity<Boolean> emailExists(@RequestBody emailExistsRequest request)
     {

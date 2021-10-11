@@ -15,5 +15,4 @@ public interface eventsService {
     generalResponse editEventStartDate(editEventDateRequest request) throws Exception;
     generalResponse editEventEndDate(editEventDateRequest request) throws Exception;
     responseJSON getCalenderEvents(String userEmail) throws Exception;
-
 }

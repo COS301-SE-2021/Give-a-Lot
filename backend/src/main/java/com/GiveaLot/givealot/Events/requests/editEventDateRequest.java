@@ -7,6 +7,7 @@ public class editEventDateRequest {
     private Long eventId;
     private String newDate;
 
+
     public editEventDateRequest(@JsonProperty("userEmail") String userEmail,
                            @JsonProperty("eventId") Long eventId,
                            @JsonProperty("newDate") String newDate)

@@ -9,7 +9,6 @@ public class createReportRequest {
     String reporterEmail;
     String orgName;
 
-
     public createReportRequest(@JsonProperty("orgId") long orgId,
                                @JsonProperty("orgName") String orgName,
                                @JsonProperty("description") String reportDescription,

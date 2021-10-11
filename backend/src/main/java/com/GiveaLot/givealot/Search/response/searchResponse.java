@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 
 import java.util.List;
 
-
 @JsonRootName(value = "search_results")
 public class searchResponse
 {

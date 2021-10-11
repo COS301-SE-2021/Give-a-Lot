@@ -13,6 +13,7 @@ public class OrganisationResponseObject {
     private String donationLink;
     private Integer numberOfImages;
 
+
     public OrganisationResponseObject(String orgName,
                                       String slogan,
                                       String orgDescription,

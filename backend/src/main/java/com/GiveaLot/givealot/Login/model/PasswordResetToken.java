@@ -21,7 +21,6 @@ public class PasswordResetToken {
     @Column(name = "token",nullable = false)
     private String token;
 
-
     @Column(name = "email",nullable = false)
     private String userEmail;
 

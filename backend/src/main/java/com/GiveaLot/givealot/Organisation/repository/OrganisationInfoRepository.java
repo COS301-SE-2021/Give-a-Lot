@@ -21,6 +21,7 @@ public interface OrganisationInfoRepository extends JpaRepository<OrganisationIn
     @Query("UPDATE OrganisationInfo i SET i.website = ?2 WHERE i.orgId = ?1")
     Integer addOrgWebsite(Long orgId, String url);
 
+
     @Modifying
     @Transactional
     @Query("UPDATE OrganisationInfo i SET i.website = null WHERE i.orgId = ?1")

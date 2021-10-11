@@ -20,15 +20,18 @@ public class OrganisationInfo
             nullable = false,
             unique = true)
     public Long orgId;
+
     @Column(name = "address",
             nullable = true,
             unique = false
     )
     private String address;
+
     @Column(name = "number_of_images",
             nullable = true,
             unique = false)
     private Integer numberOfImages;
+
     @Column(name = "get_number_of_reports",
             nullable = true,
             unique = false)

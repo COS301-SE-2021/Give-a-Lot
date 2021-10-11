@@ -9,6 +9,7 @@ public class GetOrganisationCertificateLevelRequest {
         this.orgid = orgid;
     }
 
+
     public Long getOrgid() {
         return orgid;
     }

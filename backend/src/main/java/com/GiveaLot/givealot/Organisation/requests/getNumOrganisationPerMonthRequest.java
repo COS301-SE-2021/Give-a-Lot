@@ -8,7 +8,6 @@ public class getNumOrganisationPerMonthRequest {
     public getNumOrganisationPerMonthRequest(@JsonProperty("adminUserEmail") String adminUserEmail) {
         this.adminUserEmail = adminUserEmail;
     }
-
     public String getAdminUserEmail() {
         return adminUserEmail;
     }

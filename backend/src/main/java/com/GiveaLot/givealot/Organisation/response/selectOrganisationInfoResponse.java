@@ -13,6 +13,7 @@ public class selectOrganisationInfoResponse {
         this.response = response;
     }
 
+
     public String getCode() {
         return code;
     }

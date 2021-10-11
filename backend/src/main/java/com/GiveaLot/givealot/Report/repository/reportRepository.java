@@ -24,7 +24,4 @@ public interface reportRepository extends JpaRepository<Reports, Long>
     @Transactional
     @Query("UPDATE Reports re SET re.appealed = true WHERE re.reportId = ?1")
     Integer appealReport(Long reportId);
-
-
-
 }

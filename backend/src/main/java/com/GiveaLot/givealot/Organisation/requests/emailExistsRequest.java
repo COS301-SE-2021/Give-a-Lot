@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class emailExistsRequest {
     public String email;
 
+
     public emailExistsRequest(@JsonProperty("email") String email) {
         this.email = email;
     }

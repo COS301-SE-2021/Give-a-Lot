@@ -18,6 +18,7 @@ public class AddOrgImageMultipartRequest {
         this.image = image;
     }
 
+
     public Long getOrgId() {
         return orgId;
     }

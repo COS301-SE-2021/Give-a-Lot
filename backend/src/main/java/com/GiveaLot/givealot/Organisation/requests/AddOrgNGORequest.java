@@ -38,6 +38,7 @@ public class AddOrgNGORequest
         return ngoDate;
     }
 
+
     public void setNgoDate(String ngoDate) {
         this.ngoDate = ngoDate;
     }

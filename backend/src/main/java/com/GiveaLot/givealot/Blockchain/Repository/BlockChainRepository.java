@@ -17,6 +17,7 @@ public interface BlockChainRepository extends JpaRepository<Blockchain, Long> {
     @Query("select i FROM Blockchain i  WHERE i.orgId = ?1")
     Blockchain selectBlockchainOrgId(long orgId);
 
+
     /**
      * (SELECT * FROM Blockchain WHERE certificateHash = ?)
      **/

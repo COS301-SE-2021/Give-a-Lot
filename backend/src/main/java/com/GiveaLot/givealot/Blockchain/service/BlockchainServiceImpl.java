@@ -50,6 +50,7 @@ public class BlockchainServiceImpl implements BlockchainService {
         }
     }
 
+
     @Override
     public String[] upgradeCertificate(long index, long orgId, File certificate, long level) throws Exception {
         CertificateContract certificateContract = loadSmartContract();

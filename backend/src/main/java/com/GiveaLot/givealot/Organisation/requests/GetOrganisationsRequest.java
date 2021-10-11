@@ -10,6 +10,7 @@ public class GetOrganisationsRequest {
         this.adminId = adminId;
     }
 
+
     public Long getAdminId() {
         return adminId;
     }

@@ -16,7 +16,6 @@ public interface BrowseRecommenderRepository extends JpaRepository<Browse,Long>
     @Query("SELECT s.sector FROM Browse AS s order by s.interactions desc")
     List<String> getInteractionsbySectorGeneral();
 
-
     @Query("SELECT s FROM Browse AS s where s.userId = ?1 AND s.sector = ?2")
     Browse getRowByUserIdAndSector(Long userId,String sector);
 

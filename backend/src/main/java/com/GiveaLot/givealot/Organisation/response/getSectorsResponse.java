@@ -13,6 +13,7 @@ public class getSectorsResponse {
         this.sectors = sectors;
     }
 
+
     public String getCode() {
         return code;
     }

@@ -17,6 +17,7 @@ public class AddOrgImageRequest
         this.image = image;
     }
 
+
     public Long getOrgId() {
         return orgId;
     }

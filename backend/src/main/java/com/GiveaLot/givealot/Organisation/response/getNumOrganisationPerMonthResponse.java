@@ -17,6 +17,7 @@ public class getNumOrganisationPerMonthResponse {
     private long Nov;
     private long Dec;
 
+
     public getNumOrganisationPerMonthResponse(long jan, long feb, long mar, long apr, long may, long jun, long jul, long aug, long sept, long oct, long nov, long dec) {
         Jan = jan;
         Feb = feb;

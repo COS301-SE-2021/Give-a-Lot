@@ -12,6 +12,7 @@ public class AddOrgCommitteeRequest {
         this.committee = committee;
     }
 
+
     public Long getOrgId() {
         return orgId;
     }

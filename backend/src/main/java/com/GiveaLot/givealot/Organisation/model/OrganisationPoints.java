@@ -33,8 +33,8 @@ public class OrganisationPoints {
 
     public OrganisationPoints()
     {
-
     }
+
     public OrganisationPoints( Long orgId, boolean addressIsValid, boolean websiteIsValid, boolean auditIsValid, boolean committeeIsValid, boolean ngoNoIsValid, boolean ngoDateIsValid, String socialMediaType, boolean estDateIsValid, int numberOfImages, boolean donationURLIsValid, boolean qrCodeIsValid) {
         this.orgId = orgId;
 

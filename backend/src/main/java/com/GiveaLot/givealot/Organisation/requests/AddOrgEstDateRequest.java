@@ -15,6 +15,7 @@ public class AddOrgEstDateRequest {
         this.orgId = orgId;
     }
 
+
     public String getDate() {
         return date;
     }

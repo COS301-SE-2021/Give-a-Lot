@@ -88,4 +88,8 @@ public interface OrganisationRepository extends JpaRepository<Organisations, Lon
     @Transactional
     @Query("UPDATE Organisations o SET o.logo = ?2 WHERE o.orgId = ?1")
     int addLogo(Long orgId, byte[] bytes);
+
+    @Query("select o from Organisations o where o.orgName = ?1")
+    Organisations selectOrganisationByName(String orgName);
+
 }

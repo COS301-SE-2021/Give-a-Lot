@@ -17,6 +17,7 @@ public interface OrganisationDataRepository extends JpaRepository <OrganisationD
     @Query("UPDATE OrganisationData o SET o.auditDoc = ?2 WHERE o.orgId = ?1")
     Integer updateAuditDoc(Long orgId, byte[] data);
 
+
     @Modifying
     @Transactional
     @Query("UPDATE OrganisationData o SET o.qrCode = ?2 WHERE o.orgId = ?1")
@@ -25,10 +26,10 @@ public interface OrganisationDataRepository extends JpaRepository <OrganisationD
     @Modifying
     @Transactional
     @Query("UPDATE OrganisationData o SET o.certificate = ?2 WHERE o.orgId = ?1")
-    Integer updateCertificate(Long orgId, String data);
+    Integer updateCertificate(Long orgId, byte[] data);
 
     @Modifying
     @Transactional
     @Query("UPDATE OrganisationData o SET o.certificateImage = ?2 WHERE o.orgId = ?1")
-    Integer updateCertificateImage(Long orgId, String data);
+    Integer updateCertificateImage(Long orgId, byte[] data);
 }

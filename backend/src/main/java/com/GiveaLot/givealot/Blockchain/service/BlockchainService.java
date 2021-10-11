@@ -20,6 +20,7 @@ public interface BlockchainService {
 
     public long findCertificateIndex(long orgId) throws Exception;
 
+
     public String retrieveCertificateHash(long index, long orgId) throws Exception;
 
     public long compareCertificateHash(long index, long orgId, File certificate) throws Exception;

@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(
         name = "blockchain"
@@ -14,28 +15,32 @@ public class Blockchain {
     @Column(
             name = "org_id",
             nullable = false,
-            columnDefinition = "BIGINT"
+            columnDefinition = "bigint"
     )
     long orgId;
 
     @Column(
             name = "index",
             nullable = false,
-            columnDefinition = "BIGINT"
+            columnDefinition = "bigint"
     )
     long index;
     @Column(
             name = "level",
             nullable = false,
-            columnDefinition = "BIGINT"
+            columnDefinition = "bigint"
     )
     long level;
+
+
     @Column(
             name = "transaction_hash",
             nullable = false,
-            columnDefinition = "TEXT"
+            columnDefinition = "text"
     )
     String transactionHash;
+
+
     @Column(
             name = "certificate_hash",
             nullable = false,

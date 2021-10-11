@@ -17,7 +17,6 @@ public class Organisations {
     )
     private String orgName;
 
-
     @Column(
             name = "org_slogan",
             nullable = false,

@@ -13,7 +13,6 @@ public interface organisationPointsRepository extends JpaRepository<Organisation
     @Query("SELECT DISTINCT op.numberOfImages FROM OrganisationPoints AS op WHERE op.orgId = ?1")
     Integer getNumberOfImages(Long orgId);
 
-
     @Query("select op from OrganisationPoints op where op.orgId = ?1")
     OrganisationPoints selectOrganisationPoints(long orgId);
 

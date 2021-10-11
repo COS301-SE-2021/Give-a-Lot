@@ -8,6 +8,7 @@ public class editEventTitleRequest
     private Long eventId;
     private String newTitle;
 
+
     public editEventTitleRequest(@JsonProperty("userEmail") String userEmail,
                             @JsonProperty("eventId") Long eventId,
                             @JsonProperty("newTitle") String newTitle)

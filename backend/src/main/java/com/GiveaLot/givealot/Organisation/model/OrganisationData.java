@@ -15,6 +15,7 @@ public class OrganisationData
     @Column(name = "org_id", nullable = false, unique = true)
     public Long orgId;
 
+
     @Lob
     @Column(name="audit_doc")
     @Type(type="org.hibernate.type.BinaryType")

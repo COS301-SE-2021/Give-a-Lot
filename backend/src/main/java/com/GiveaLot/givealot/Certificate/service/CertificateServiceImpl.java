@@ -1,5 +1,4 @@
 package com.GiveaLot.givealot.Certificate.service;
-
 import com.GiveaLot.givealot.Blockchain.Repository.BlockChainRepository;
 import com.GiveaLot.givealot.Blockchain.dataclass.Blockchain;
 import com.GiveaLot.givealot.Blockchain.service.BlockchainService;
@@ -11,8 +10,11 @@ import com.GiveaLot.givealot.Events.service.eventsServiceImp;
 import com.GiveaLot.givealot.Notification.dataclass.Mail;
 import com.GiveaLot.givealot.Notification.service.SendMailService;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
+import com.GiveaLot.givealot.Organisation.repository.OrganisationDataRepository;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Server.ServerAccess;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
@@ -26,15 +28,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import org.springframework.mock.web.MockMultipartFile;
 
 @Service
 @Configurable
@@ -65,6 +65,9 @@ public class CertificateServiceImpl implements CertificateService {
     private eventsServiceImp eventsService;
 
     @Autowired
+    private OrganisationDataRepository organisationDataRepository;
+
+    @Autowired
     public CertificateServiceImpl(BlockchainService blockchainService, OrganisationRepository organisationRepository, CertificateRepository certificateRepository, BlockChainRepository blockChainRepository, SendMailService service) {
         this.blockchainService = blockchainService;
         this.organisationRepository = organisationRepository;
@@ -78,13 +81,26 @@ public class CertificateServiceImpl implements CertificateService {
 
         Organisations organisation = organisationRepository.selectOrganisationById(orgId);
 
+        System.out.println("=================================================");
         boolean certificateCreated = createPDFDocument(cert, organisation, 0);
 
         if (!certificateCreated) {
             throw new Exception("Exception: Problem creating and storing certificate");
         }
 
-        File certificate = retrieveCertificate(new RetrieveCertificateRequest(orgId, organisation.getOrgName()));
+        //File certificate = retrieveCertificate(new RetrieveCertificateRequest(orgId, organisation.getOrgName()));
+        System.out.println("hello ============= addCertificate");
+        File certificate = new File("src/main/resources/localFiles/"+orgId+"/certificate/CertificateComplete.pdf");
+        /*System.out.println("===============saving certificate to db=================");
+        //byte [] byte_pdf = FileUtils.readFileToByteArray(certificate);
+
+
+        FileInputStream input = new FileInputStream(certificate);
+        MultipartFile multipartFile = new MockMultipartFile("file",
+                certificate.getName(), "application/pdf", IOUtils.toByteArray(input));
+
+        organisationDataRepository.updateCertificate(orgId,multipartFile.getBytes());
+        System.out.println("===============saving certificate to db complete=================");*/
 
         String[] result = blockchainService
                 .uploadCertificate(orgId, certificate);
@@ -95,7 +111,7 @@ public class CertificateServiceImpl implements CertificateService {
         Blockchain blockchain = new Blockchain(orgId, index, 0, txHash, certificateHash);
 
         blockChainRepository.save(blockchain);
-
+        System.out.println("===============saving certificate to db exit=================");
         return true;
     }
 
@@ -112,7 +128,7 @@ public class CertificateServiceImpl implements CertificateService {
             throw new Exception("Exception: Problem creating and storing certificate");
         }
 
-        File certificate = retrieveCertificate(new RetrieveCertificateRequest(orgId, organisation.getOrgName()));
+        File certificate = new File("src/main/resources/localFiles/"+orgId+"/certificate/CertificateComplete.pdf");
 
         String[] result = blockchainService
                 .upgradeCertificate(blockchain.getIndex(), orgId, certificate, blockchain.getLevel());
@@ -140,6 +156,15 @@ public class CertificateServiceImpl implements CertificateService {
     }
 
     @Override
+    public void refreshCertificates(long bottom, long top) throws Exception {
+        for (long i = bottom; i < top+1; i++) {
+            updateCertificate(i);
+            System.out.println("[Organisation " + i + " has been refreshed]");
+        }
+        System.out.println("[Certificates have been refreshed]");
+    }
+
+    @Override
     public File retrieveCertificate(RetrieveCertificateRequest request) throws Exception {
         System.out.println(request.getOrgId() + " --certificate-- " + request.getOrgName());
         return access.downloadCertificate(request.getOrgId(), request.getOrgName());
@@ -159,14 +184,14 @@ public class CertificateServiceImpl implements CertificateService {
     @Override
     public boolean createPDFDocument(Certificate cert, Organisations organisation, int points) throws Exception {
         access.downloadCertificateTemplate(points);
-
+        System.out.println("===============createPDFDocument()=================");
         if (points != 0) {
             File deletion = new File("frontend/givealot/src/localFiles/" + organisation.getOrgId() + "certificate/CertificateComplete.pdf");
             deletion.delete();
         }
 
-        String templateCertificate = "backend/src/main/resources/TempCertificate/CertificateTemplate.pdf";
-        String completeCertificate = "backend/src/main/resources/localFiles/" + organisation.getOrgId() + "/certificate/CertificateComplete.pdf";
+        String templateCertificate = "src/main/resources/TempCertificate/CertificateTemplate.pdf";
+        String completeCertificate = "src/main/resources/localFiles/" + organisation.getOrgId() + "/certificate/CertificateComplete.pdf";
 
         /** Setup the pdf file **/
 
@@ -206,6 +231,9 @@ public class CertificateServiceImpl implements CertificateService {
         document.save(completeCertificate);
         document.close();
 
+
+
+
         imageCreator(completeCertificate, organisation.getOrgId());
 
 
@@ -223,14 +251,35 @@ public class CertificateServiceImpl implements CertificateService {
     public void imageCreator(String filepath, long orgId) throws Exception {
         try {
             PDDocument document = PDDocument.load(new File(filepath));
+
+            System.out.println("===============saving certificate to db=================");
+            File pdf_tmp = new File(filepath);
+            FileInputStream input = new FileInputStream(pdf_tmp);
+            MultipartFile multipartFile = new MockMultipartFile("file",
+                    pdf_tmp.getName(), "application/pdf", IOUtils.toByteArray(input));
+
+            organisationDataRepository.updateCertificate(orgId,multipartFile.getBytes());
+
+            System.out.println("===============saving certificate to db complete=================");
+
+
             PDFRenderer pdfRenderer = new PDFRenderer(document);
             for (int page = 0; page < document.getNumberOfPages(); ++page) {
-                BufferedImage bim = pdfRenderer.renderImageWithDPI(page, 300, ImageType.RGB);
+                BufferedImage bim = pdfRenderer.renderImageWithDPI(page, 50, ImageType.RGB);
 
                 // suffix in filename will be used as the file format
-                ImageIOUtil.writeImage(bim, "backend/src/main/resources/localFiles/" + orgId + "/certificate/CertificateImage.png", 300);
+                ImageIOUtil.writeImage(bim, "src/main/resources/localFiles/" + orgId + "/certificate/CertificateImage.png", 50);
             }
             document.close();
+
+            File image_tmp = new File("src/main/resources/localFiles/" + orgId + "/certificate/CertificateImage.png");
+
+            input = new FileInputStream(image_tmp);
+            multipartFile = new MockMultipartFile("file",
+                    image_tmp.getName(), "image/png", IOUtils.toByteArray(input));
+            organisationDataRepository.updateCertificateImage(orgId,multipartFile.getBytes());
+
+
         }catch (Exception e){
             throw new Exception("Exception: unable to create certificate image: " + e);
         }
@@ -306,6 +355,7 @@ public class CertificateServiceImpl implements CertificateService {
             os.write(certificate.getBytes());
         }
 
+        System.out.println("============comparing certificate===========");
         Blockchain blockchain = blockChainRepository.selectBlockchainCertificateHash(
                 blockchainService.hashCertificate(certCmp));
         if (blockchain == null) {

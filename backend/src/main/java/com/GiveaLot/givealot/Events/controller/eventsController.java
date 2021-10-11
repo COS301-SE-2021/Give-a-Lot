@@ -22,6 +22,7 @@ public class eventsController {
     @Autowired
     eventsServiceImp service;
 
+
     @PostMapping("/calender/add")
     ResponseEntity<generalResponse> addCalenderEvent(@RequestBody @NonNull addCalenderEventRequest body)
     {

@@ -73,6 +73,25 @@ public class MediaServiceImp implements MediaService{
         return organisationDataRepository.selectOrganisationDataById(orgId).getQrCode();
     }
 
+
+    @Override
+    public byte[] getOrganisationQrCodeAdmin(Long orgId) throws Exception
+    {
+        if(orgId == null)
+        {
+            throw new Exception("provided ID is null");
+        }
+        else if(!this.orgIdExists(orgId))
+        {
+            throw new Exception("Organisation is does not exist");
+        }
+        else if(!organisationPointsRepository.existsById(orgId))
+        {
+            throw new Exception("Fatal: info does not exist");
+        }
+        return organisationDataRepository.selectOrganisationDataById(orgId).getQrCode();
+    }
+
     @Override
     public byte[] getOrganisationCertificateAsPDF(Long orgId) throws Exception {
 
@@ -108,6 +127,21 @@ public class MediaServiceImp implements MediaService{
         if(image == null)
             throw new Exception("image not found");
 
+        return image;
+    }
+
+    @Override
+    public byte[] getOrganisationCertificateAsPNG(Long orgId) throws Exception {
+        if(orgId == null)
+        {
+            throw new Exception("provided ID is null");
+        }
+        else if(!this.orgIdExists(orgId))
+        {
+            throw new Exception("Organisation is does not exist");
+        }
+
+        byte [] image = organisationDataRepository.selectOrganisationDataById(orgId).getCertificateImage();
         return image;
     }
 }

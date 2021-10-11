@@ -12,6 +12,7 @@ public class AddOrgWebsiteRequest {
         this.website = website;
     }
 
+
     public Long getOrgId() {
         return orgId;
     }

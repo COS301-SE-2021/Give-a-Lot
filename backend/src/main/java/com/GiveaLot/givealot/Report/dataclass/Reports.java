@@ -23,7 +23,6 @@ public class Reports {
     private String description;
     private boolean appealed;
 
-
     public Reports() {
 
     }

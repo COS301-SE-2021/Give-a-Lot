@@ -23,7 +23,6 @@ public class AddOrganisationRequest {
     private String directory;
     private String dateCreated;
 
-
     public AddOrganisationRequest(@JsonProperty("orgName") String orgName,
                                   @JsonProperty("slogan") String slogan,
                                   @JsonProperty("orgDescription") String orgDescription,

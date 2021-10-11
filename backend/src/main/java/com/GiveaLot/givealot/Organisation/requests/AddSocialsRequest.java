@@ -16,6 +16,7 @@ public class AddSocialsRequest {
         this.orgId = orgId;
     }
 
+
     public Long getOrgId() {
         return orgId;
     }

@@ -12,6 +12,7 @@ public class browseSectorOrganisation {
     private String orgDescription;
     private Integer certificate_level;
 
+
     public browseSectorOrganisation(Long orgId, String orgName, String dateAdded, String imgUrl, Integer certificate_level, String orgDescription) {
         this.orgId = orgId;
         this.orgName = orgName;

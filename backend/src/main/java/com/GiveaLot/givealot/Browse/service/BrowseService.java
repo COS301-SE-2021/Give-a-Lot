@@ -17,6 +17,5 @@ public interface BrowseService
     * */
 
     List<browseRecommendedResponse> getRecommendedOrganisations(Long userId) throws Exception;
-
     List<browseOrganisationsBySectorResponse> browseOrganisationsBySectors() throws Exception;
 }

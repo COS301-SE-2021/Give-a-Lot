@@ -1,6 +1,5 @@
 package com.GiveaLot.givealot.Report.exception;
 
-
 public class InvalidRequestException extends ReportException
 {
     public InvalidRequestException(){}

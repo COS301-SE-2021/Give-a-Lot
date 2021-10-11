@@ -20,6 +20,7 @@ public interface calenderRepository extends JpaRepository<Calender,Long>
     @Query("UPDATE Calender c SET c.description = ?2 WHERE c.eventId = ?1")
     Integer editEventDescription(Long eventId, String newDescription);
 
+
     @Modifying
     @Transactional
     @Query("UPDATE Calender c SET c.startTime = ?2 WHERE c.eventId = ?1")

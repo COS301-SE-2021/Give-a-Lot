@@ -28,6 +28,7 @@ public class BrowseServiceImp implements BrowseService{
     @Autowired
     BrowseRecommenderRepository browseRecommenderRepository;
 
+
     @Autowired
     UserRepository userRepository;
 

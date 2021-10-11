@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Table(name = "timeline")
 public class Timeline
 {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "event_id", nullable = false, unique = true)

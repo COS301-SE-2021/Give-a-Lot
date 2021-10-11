@@ -7,6 +7,7 @@ public class editEventDescription {
     private Long eventId;
     private String newDescription;
 
+
     public editEventDescription(@JsonProperty("userEmail") String userEmail,
                                  @JsonProperty("eventId") Long eventId,
                                  @JsonProperty("newDescription") String newDescription)

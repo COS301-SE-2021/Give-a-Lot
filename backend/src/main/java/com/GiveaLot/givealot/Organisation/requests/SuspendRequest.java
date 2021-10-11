@@ -9,6 +9,7 @@ public class SuspendRequest {
         this.orgID = orgID;
     }
 
+
     public Long getOrgID() {
         return orgID;
     }

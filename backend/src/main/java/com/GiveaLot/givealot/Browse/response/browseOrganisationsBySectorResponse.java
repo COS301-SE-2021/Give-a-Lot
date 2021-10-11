@@ -15,6 +15,7 @@ public class browseOrganisationsBySectorResponse {
         Organisations = organisations;
     }
 
+
     public String getSector() {
         return sector;
     }

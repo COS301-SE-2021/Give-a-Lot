@@ -11,6 +11,7 @@ public class getOrgCertLevelResponse {
         this.level = level;
     }
 
+
     public long getLevel() {
         return level;
     }

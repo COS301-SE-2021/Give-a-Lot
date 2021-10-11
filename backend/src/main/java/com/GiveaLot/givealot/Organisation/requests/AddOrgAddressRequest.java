@@ -13,6 +13,7 @@ public class AddOrgAddressRequest {
         this.address = address;
     }
 
+
     public void setOrgId(Long orgId) {
         this.orgId = orgId;
     }

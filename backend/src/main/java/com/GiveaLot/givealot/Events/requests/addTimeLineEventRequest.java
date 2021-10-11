@@ -9,6 +9,7 @@ public class addTimeLineEventRequest
     private String eventTitle;
     private String eventShortDescription;
 
+
     public addTimeLineEventRequest(@JsonProperty("orgId") Long orgId,
                                    @JsonProperty("eventDate") String eventDate,
                                    @JsonProperty("eventTitle") String eventTitle,

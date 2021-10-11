@@ -13,6 +13,7 @@ public class browseRecommendedResponse {
     private Integer certificate_level;
     private String sector;
 
+
     public browseRecommendedResponse(Long orgId, String orgName, String dateAdded, String imgUrl, Integer certificate_level, String orgDescription, String sector) {
         this.orgId = orgId;
         this.orgName = orgName;

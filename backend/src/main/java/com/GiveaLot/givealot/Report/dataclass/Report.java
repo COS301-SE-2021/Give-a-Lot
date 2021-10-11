@@ -13,7 +13,6 @@ public class Report {
     String date;
     String id;
 
-
     public Report(long orgId, String orgName, String reportDescription, String reportType, String reporterEmail) {
         //Standard Report
         this.orgId = orgId;

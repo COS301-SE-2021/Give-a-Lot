@@ -17,6 +17,7 @@ public class OrganisationGallery
     @Column(name="org_id")
     public Long orgId;
 
+
     @Column(name="name")
     public String name;
 

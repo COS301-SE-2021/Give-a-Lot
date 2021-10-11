@@ -15,6 +15,7 @@ public class AddOrgAuditInfoRequest {
         this.audit = audit;
     }
 
+
     public Long getOrgId() {
         return orgId;
     }

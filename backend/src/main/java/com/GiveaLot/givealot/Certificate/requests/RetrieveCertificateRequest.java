@@ -11,6 +11,7 @@ public class RetrieveCertificateRequest {
         this.orgName = orgName;
     }
 
+
     public Long getOrgId() {
         return orgId;
     }

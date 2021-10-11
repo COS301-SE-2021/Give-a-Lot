@@ -16,4 +16,5 @@ public class ActivateRequest {
     public void setOrgID(Long orgID) {
         this.orgID = orgID;
     }
+
 }

@@ -16,7 +16,6 @@ public class AddOrgLogoRequest {
         this.image = image;
     }
 
-
     public Long getOrgId() {
         return orgId;
     }

@@ -8,6 +8,7 @@ public class updateOrganisationInfoRequest {
     private String type;
     private String newValue;
 
+
     public updateOrganisationInfoRequest(@JsonProperty("orgId") Long orgId, @JsonProperty("type") String type, @JsonProperty("newValue") String newValue) {
         this.orgId = orgId;
         this.type = type;

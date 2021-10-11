@@ -11,4 +11,9 @@ public interface MediaService {
     byte[] getOrganisationCertificateAsPDF(Long valueOf)throws Exception;
 
     byte[] getGalleryImages(Long orgId, Long imageId) throws Exception;
+
+    byte[] getOrganisationCertificateAsPNG(Long valueOf) throws Exception;
+
+
+    byte[] getOrganisationQrCodeAdmin(Long orgId) throws Exception;
 }

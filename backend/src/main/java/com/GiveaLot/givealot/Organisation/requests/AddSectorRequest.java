@@ -12,6 +12,7 @@ public class AddSectorRequest {
         this.adminId = adminId;
     }
 
+
     public String getSector() {
         return sector;
     }

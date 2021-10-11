@@ -9,6 +9,7 @@ public class getEventsRequest {
         this.userId = userId;
     }
 
+
     public Long getUserId() {
         return userId;
     }

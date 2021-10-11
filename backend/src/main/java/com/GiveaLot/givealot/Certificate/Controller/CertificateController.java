@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-
+@CrossOrigin("*")
 @RestController
 public class CertificateController {
 
@@ -32,6 +32,7 @@ public class CertificateController {
 
     @Autowired
     OrganisationRepository organisationRepo;
+
 
     @PostMapping("/certificate/compare")
     public ResponseEntity<Long> compareCertificate(@RequestParam("selectedFile") MultipartFile certificate) throws Exception
@@ -51,11 +52,18 @@ public class CertificateController {
     }
 
     @GetMapping("/certificate/download/{orgId}")
-    public ResponseEntity<Resource> download_certificate_pdf(@PathVariable("orgId") Long orgId) throws Exception {
+    public ResponseEntity<Resource> download_certificate_pdf(@PathVariable("orgId") Long orgId) {
 
         String orgName = organisationRepo.selectOrganisationById(orgId).getOrgName();
 
-        File file = service.retrieveCertificate(new RetrieveCertificateRequest(orgId,orgName));
+        //File file = service.retrieveCertificate(new RetrieveCertificateRequest(orgId,orgName));
+        String pathName = "src/main/resources/localFiles/"+orgId+"/certificate/CertificateComplete.pdf";
+
+        System.out.println("================\ndownloading certificate from" + pathName + "\n==============================");
+        try
+        {
+            File file = new File(pathName);
+
         HttpHeaders header = new HttpHeaders();
         header.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=certificate.pdf");
         header.add("Cache-Control", "no-cache, no-store, must-revalidate");
@@ -65,11 +73,18 @@ public class CertificateController {
         Path path = Paths.get(file.getAbsolutePath());
         ByteArrayResource resource = new ByteArrayResource(Files.readAllBytes(path));
 
+        System.out.println("===done downloading===");
         return ResponseEntity.ok()
-                .headers(header)
-                .contentLength(file.length())
-                .contentType(MediaType.parseMediaType("application/octet-stream"))
-                .body(resource);
+            .headers(header)
+            .contentLength(file.length())
+            .contentType(MediaType.parseMediaType("application/octet-stream"))
+            .body(resource);
+        }
+        catch (Exception e)
+        {
+            System.out.println("********************* " + e + " *********************");
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @GetMapping("/certificate/download/png/{orgId}")

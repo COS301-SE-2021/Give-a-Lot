@@ -21,6 +21,7 @@ public class Sectors {
 
     }
 
+
     public String getSector() {
         return sector;
     }

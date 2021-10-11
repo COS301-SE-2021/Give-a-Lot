@@ -13,6 +13,7 @@ public class AddOrgDonationInfoRequest {
         this.orgInfo = orgInfo;
     }
 
+
     public Long getOrgId() {
         return orgId;
     }

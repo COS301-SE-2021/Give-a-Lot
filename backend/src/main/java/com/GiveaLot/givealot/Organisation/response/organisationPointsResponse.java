@@ -15,6 +15,7 @@ public class organisationPointsResponse {
         this.response = response;
     }
 
+
     public String getCode() {
         return code;
     }

@@ -13,6 +13,7 @@ public class InvestigateRequest {
         return orgID;
     }
 
+
     public void setOrgID(Long orgID) {
         this.orgID = orgID;
     }

@@ -9,6 +9,7 @@ public class reportRequest {
     private String reportType;
     private String description;
 
+
     public reportRequest(@JsonProperty("orgId") Long orgId,
                          @JsonProperty("userId") Long userId,
                          @JsonProperty("reportType") String reportType,

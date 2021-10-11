@@ -16,3 +16,4 @@ public interface ReportService {
     generalReportResponse reportOrganisation(reportRequest request) throws Exception;
     responseJSON getAppealedReports(Long adminId) throws Exception;
 }
+

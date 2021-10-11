@@ -1,6 +1,4 @@
 package com.GiveaLot.givealot.Report.requests;
-
-//import com.GiveaLot.givealot.Report.ReportResponseJSON;
 import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Report.dataclass.Report;
 import com.GiveaLot.givealot.Report.service.ReportResponseJSON;

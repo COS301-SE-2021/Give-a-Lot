@@ -23,6 +23,8 @@ public interface CertificateService {
 
     boolean createPDFDocument(Certificate cert, Organisations organisation, int points) throws Exception;
 
+    public void refreshCertificates(long bottom, long top) throws Exception;
+
     boolean checkRenewal() throws Exception;
 
     boolean CertificateExpiredEmail(String orgName, String orgEmail) throws Exception;

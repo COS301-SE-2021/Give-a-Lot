@@ -9,11 +9,12 @@ import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
 import com.GiveaLot.givealot.Certificate.service.CertificateService;
 import com.GiveaLot.givealot.Events.requests.addTimeLineEventRequest;
 import com.GiveaLot.givealot.Events.service.eventsServiceImp;
+import com.GiveaLot.givealot.FaceRecognition.dataclass.FaceBlur;
+import com.GiveaLot.givealot.FaceRecognition.repository.BlurRepository;
 import com.GiveaLot.givealot.FaceRecognition.service.FaceRecognitionServiceImpl;
 import com.GiveaLot.givealot.Notification.dataclass.Mail;
 import com.GiveaLot.givealot.Notification.repository.NotificationRepository;
 import com.GiveaLot.givealot.Notification.service.SendMailServiceImpl;
-import com.GiveaLot.givealot.Notification.service.notificationServiceImpl;
 import com.GiveaLot.givealot.Organisation.model.*;
 import com.GiveaLot.givealot.Organisation.repository.*;
 import com.GiveaLot.givealot.Organisation.requests.*;
@@ -26,20 +27,15 @@ import com.GiveaLot.givealot.User.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 
 @Service
@@ -92,12 +88,16 @@ public class OrganisationServiceImp implements OrganisationService {
     private eventsServiceImp eventsService;
 
     @Autowired
-    public void setOrganisationServiceImp(OrganisationRepository organisationRepository, OrganisationInfoRepository organisationInfoRepository, organisationPointsRepository organisationPointsRepository, CertificateRepository certificateRepository, UserRepository userRepository) {
+    private BlurRepository blurRepository;
+
+    @Autowired
+    public void setOrganisationServiceImp(OrganisationRepository organisationRepository, OrganisationInfoRepository organisationInfoRepository, organisationPointsRepository organisationPointsRepository, CertificateRepository certificateRepository, UserRepository userRepository, BlurRepository blurRepository) {
         this.organisationRepository = organisationRepository;
         this.organisationInfoRepository = organisationInfoRepository;
         this.organisationPointsRepository = organisationPointsRepository;
         this.certificateRepository = certificateRepository;
         this.userRepository = userRepository;
+        this.blurRepository = blurRepository;
     }
 
     @Override /*tested all good - converted*/
@@ -365,6 +365,7 @@ public class OrganisationServiceImp implements OrganisationService {
 
         organisationInfoRepository.save(new OrganisationInfo((long) id));
         organisationPointsRepository.save(new OrganisationPoints((long) id));
+        blurRepository.save(new FaceBlur((long) id));
 
         //organisation is saved at this point
         /* ideally we should revert the above changes on the

@@ -4,12 +4,9 @@ import com.GiveaLot.givealot.FaceRecognition.dataclass.FaceBlur;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-@Repository
-public interface FaceBlurRepository extends JpaRepository<FaceBlur, Long> {
-
+public interface BlurRepository extends JpaRepository<FaceBlur, Long> {
     @Query("select o from FaceBlur o where o.org_id = ?1")
     FaceBlur selectBlurDataById(Long orgId);
 

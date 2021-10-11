@@ -1,19 +1,23 @@
 package com.GiveaLot.givealot.FaceRecognition.service;
 
+import com.GiveaLot.givealot.FaceRecognition.repository.BlurRepository;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.core.io.ByteArrayResource;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 @Service
 @Configurable
 public class FaceRecognitionServiceImpl implements FaceRecognitionService {
+
+    @Autowired
+    private BlurRepository blurRepository;
 
     @Override
     public File FacePixel(long orgId) throws IOException, InterruptedException {
@@ -30,8 +34,10 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService {
             File dest = new File("src/main/resources/localFiles/" + orgId + "/gallery/blur.jpg");
             FileUtils.copyFile(src, dest);
 
-            Path path = Paths.get(dest.getAbsolutePath());
-            ByteArrayResource resource = new ByteArrayResource(Files.readAllBytes(path));
+            FileInputStream input = new FileInputStream(dest);
+            MockMultipartFile multipartFile = new MockMultipartFile("file",
+                    dest.getName(), "image/png", IOUtils.toByteArray(input));
+            blurRepository.updateBlur(orgId,multipartFile.getBytes());
 
         } catch (Exception e) {
             e.printStackTrace();

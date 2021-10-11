@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="merge heroku branch">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/Controller/CertificateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Certificate/Controller/CertificateController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -207,21 +206,7 @@
       <workItem from="1633267541604" duration="1215000" />
       <workItem from="1633300746899" duration="14091000" />
       <workItem from="1633949033873" duration="1019000" />
-      <workItem from="1633956352376" duration="3638000" />
-    </task>
-    <task id="LOCAL-00129" summary="backup">
-      <created>1632090083542</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1632090083542</updated>
-    </task>
-    <task id="LOCAL-00130" summary="backup">
-      <created>1632090817053</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1632090817053</updated>
+      <workItem from="1633956352376" duration="4198000" />
     </task>
     <task id="LOCAL-00131" summary="backup">
       <created>1632095972159</created>
@@ -552,7 +537,21 @@
       <option name="project" value="LOCAL" />
       <updated>1633964304834</updated>
     </task>
-    <option name="localTasksCounter" value="178" />
+    <task id="LOCAL-00178" summary="merge heroku branch">
+      <created>1633964690961</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1633964690961</updated>
+    </task>
+    <task id="LOCAL-00179" summary="merge heroku branch">
+      <created>1633965134178</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1633965134178</updated>
+    </task>
+    <option name="localTasksCounter" value="180" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

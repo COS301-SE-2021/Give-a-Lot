@@ -1,13 +1,25 @@
 package com.GiveaLot.givealot.FaceRecognition.service;
 
 import org.apache.commons.io.FileUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.stereotype.Service;
+import com.GiveaLot.givealot.FaceRecognition.repository.FaceBlurRepository;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Service
+@Configurable
 public class FaceRecognitionServiceImpl implements FaceRecognitionService {
+
+    @Autowired
+    FaceBlurRepository
+
     @Override
     public File FacePixel(long orgId) throws IOException, InterruptedException {
         try {
@@ -22,7 +34,10 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService {
             File src = new File("src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/blur" + orgId + ".jpg");
             File dest = new File("src/main/resources/localFiles/" + orgId + "/gallery/blur.jpg");
             FileUtils.copyFile(src, dest);
-            return dest;
+
+            Path path = Paths.get(dest.getAbsolutePath());
+            ByteArrayResource resource = new ByteArrayResource(Files.readAllBytes(path));
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

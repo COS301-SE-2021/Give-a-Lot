@@ -1,12 +1,13 @@
 package com.GiveaLot.givealot.Organisation.repository;
 
 import com.GiveaLot.givealot.Organisation.model.OrganisationData;
-import com.GiveaLot.givealot.Organisation.model.Organisations;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+@Repository
 public interface OrganisationDataRepository extends JpaRepository <OrganisationData, Long>{
 
     @Query("select o from OrganisationData o where o.orgId = ?1")

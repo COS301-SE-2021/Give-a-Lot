@@ -1,0 +1,21 @@
+package com.GiveaLot.givealot.FaceRecognition.repository;
+
+import com.GiveaLot.givealot.FaceRecognition.dataclass.FaceBlur;
+import com.GiveaLot.givealot.Organisation.model.OrganisationData;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+@Repository
+public interface FaceBlurRepository extends JpaRepository<FaceBlur, Long> {
+
+    @Query("select o from FaceBlur o where o.org_id = ?1")
+    OrganisationData selectOrganisationDataById(Long orgId);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE FaceBlur o SET o.image_bytes = ?2 WHERE o.org_id = ?1")
+    Integer updateQRCode(Long orgId, byte[] data);
+}

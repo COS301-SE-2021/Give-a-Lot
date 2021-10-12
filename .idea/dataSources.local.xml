@@ -15,7 +15,10 @@
               <node kind="schema" qname="@" />
             </node>
             <node kind="database" qname="postgres">
-              <node kind="schema" qname="public" />
+              <node kind="schema">
+                <name qname="@" />
+                <name qname="public" />
+              </node>
             </node>
           </node>
         </introspection-scope>

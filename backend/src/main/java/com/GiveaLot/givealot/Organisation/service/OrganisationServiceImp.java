@@ -127,6 +127,16 @@ public class OrganisationServiceImp implements OrganisationService {
     }
 
     @Override
+    public Long getOrgBottom(){
+        return organisationRepository.getOrgBottom()/5 -5;
+    }
+
+    @Override
+    public Long getOrgTop(){
+        return organisationRepository.getOrgTop()/5 -5;
+    }
+
+    @Override
     public responseJSON selectOrganisationAdmin(Long orgId) throws Exception {
         if (orgId == null)
             throw new Exception("Exception: Id provided is null");

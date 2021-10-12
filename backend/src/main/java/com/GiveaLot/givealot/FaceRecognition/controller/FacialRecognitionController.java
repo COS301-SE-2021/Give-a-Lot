@@ -1,5 +1,7 @@
 package com.GiveaLot.givealot.FaceRecognition.controller;
 
+import com.GiveaLot.givealot.FaceRecognition.dataclass.FaceBlur;
+import com.GiveaLot.givealot.FaceRecognition.repository.BlurRepository;
 import com.GiveaLot.givealot.FaceRecognition.service.requests.AddFRImageMultipartRequest;
 import com.GiveaLot.givealot.FaceRecognition.service.response.generalFaceRecognitionResponse;
 import com.GiveaLot.givealot.Server.ServerAccess;
@@ -10,7 +12,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,6 +23,9 @@ public class FacialRecognitionController {
     @Autowired
     ServerAccess serverAccess;
 
+    @Autowired
+    BlurRepository blurRepository;
+
 
     @PostMapping("/blur")
     public ResponseEntity<generalFaceRecognitionResponse> addOrgImage(@ModelAttribute AddFRImageMultipartRequest body)
@@ -29,6 +33,31 @@ public class FacialRecognitionController {
         try
         {
             serverAccess.uploadImageAnon(body.getOrgId(),body.getImage(), body.getType());
+
+            File dest = new File("backend/src/main/resources/localFiles/" + body.getOrgId() + "/gallery/blur.jpg");
+
+            FileInputStream input = new FileInputStream(dest);
+            MockMultipartFile multipartFile = new MockMultipartFile("file",
+                    dest.getName(), "image/png", IOUtils.toByteArray(input));
+
+
+
+            if(blurRepository == null)
+            {
+                System.out.println("=====null repository======");
+            }
+            else {
+                FaceBlur faceBlur = blurRepository.selectBlurDataById(body.getOrgId());
+                if (faceBlur == null) {
+                    faceBlur = new FaceBlur();
+                    faceBlur.setOrg_id(body.getOrgId());
+
+                    blurRepository.save(faceBlur);
+                }
+
+                System.out.println("=====saved blurred image======");
+                blurRepository.updateBlur(body.getOrgId(), multipartFile.getBytes());
+            }
             return new ResponseEntity<>(new generalFaceRecognitionResponse("added_blur","success"), HttpStatus.OK);
         }
         catch (Exception e)
@@ -42,15 +71,11 @@ public class FacialRecognitionController {
     public ResponseEntity<byte[]> getImageCertificate(@PathVariable("orgId") Long body)
     {
         try {
-            File dest = new File("src/main/resources/localFiles/" + body + "/gallery/blur.jpg");
-            FileInputStream input = new FileInputStream(dest);
-            MultipartFile multipartFile = new MockMultipartFile("file",
-                    dest.getName(), "image/png", IOUtils.toByteArray(input));
-
+            byte [] blurred_image = blurRepository.selectBlurDataById(body).getImage_bytes();
             return ResponseEntity
                     .ok()
                     .contentType(MediaType.IMAGE_PNG)
-                    .body(multipartFile.getBytes());
+                    .body(blurred_image);
         }
         catch (Exception e)
         {

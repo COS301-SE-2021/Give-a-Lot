@@ -1,15 +1,11 @@
 package com.GiveaLot.givealot.FaceRecognition.service;
 
-import com.GiveaLot.givealot.FaceRecognition.dataclass.FaceBlur;
 import com.GiveaLot.givealot.FaceRecognition.repository.BlurRepository;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 
 @Service
@@ -34,7 +30,7 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService {
             File dest = new File("backend/src/main/resources/localFiles/" + orgId + "/gallery/blur.jpg");
             FileUtils.copyFile(src, dest);
 
-            FileInputStream input = new FileInputStream(dest);
+            /*FileInputStream input = new FileInputStream(dest);
             MockMultipartFile multipartFile = new MockMultipartFile("file",
                     dest.getName(), "image/png", IOUtils.toByteArray(input));
 
@@ -55,7 +51,7 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService {
 
                 System.out.println("=====saved blurred image======");
                 blurRepository.updateBlur(orgId, multipartFile.getBytes());
-            }
+            }*/
 
         } catch (Exception e) {
             e.printStackTrace();

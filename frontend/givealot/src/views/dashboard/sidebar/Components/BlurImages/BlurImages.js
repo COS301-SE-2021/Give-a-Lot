@@ -35,12 +35,14 @@ function BlurImages()
             {
                 method: 'POST',
                 body: form_data,
+
             }
         )
         .then((response) => response.json())
         .then((result) =>
         {
-            set_current_image(serverDomain + "/pixelorblur/version/" + localStorage.getItem('id'))
+            alert(serverDomain + "/v1/frecognition/blur/get/" + localStorage.getItem('id'));
+            set_current_image(serverDomain + "/v1/frecognition/blur/get/" + localStorage.getItem('id'))
             document.getElementById("processing_photo_info").style.display = "none";
         })
         .catch((error) => {

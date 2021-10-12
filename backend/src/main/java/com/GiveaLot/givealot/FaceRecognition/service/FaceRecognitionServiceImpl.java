@@ -15,7 +15,7 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService {
     private BlurRepository blurRepository;
 
     @Override
-    public File FacePixel(long orgId) throws IOException, InterruptedException {
+    public void FacePixel(long orgId) throws IOException, InterruptedException {
         System.out.println("=====saved blurred start======");
         try {
             /** Executes python.exe script to blur the image **/
@@ -65,10 +65,9 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService {
                 new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/blur" + orgId + ".jpg").delete();
             }
         }
-        return null;
     }
 
-    public File FaceBlur(long orgId) throws IOException, InterruptedException {
+    public void FaceBlur(long orgId) throws IOException, InterruptedException {
         System.out.println("=====saved blurred image 2======");
         try {
             /** Executes python.exe script to blur the image **/
@@ -82,7 +81,6 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService {
             File src = new File("src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/blur" + orgId + ".jpg");
             File dest = new File("src/main/resources/localFiles/" + orgId + "/gallery/blur.jpg");
             FileUtils.copyFile(src, dest);
-            return dest;
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -96,7 +94,6 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService {
                 new File("src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/blur" + orgId + ".jpg").delete();
             }
         }
-        return null;
     }
 
     public boolean FaceBlurSuspend(long orgId, int num) throws IOException, InterruptedException {
@@ -136,7 +133,6 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         FaceRecognitionServiceImpl tester = new FaceRecognitionServiceImpl();
-        System.out.println(tester.FaceBlur(56).exists());
     }
 }
 

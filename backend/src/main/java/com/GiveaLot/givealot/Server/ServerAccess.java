@@ -12,7 +12,6 @@ import com.jcraft.jsch.Session;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.GiveaLot.givealot.Server.ServerConfig;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -686,14 +685,14 @@ public class ServerAccess implements server_access{
     public void uploadImageAnon(long orgId, MultipartFile imageMPF, int type) throws Exception {
 
         try {
-            File image = new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg");
+            File image = new File("src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg");
             if (!image.exists()) {
                 image.createNewFile();
             }
             try (OutputStream os = new FileOutputStream(image)) {
                 os.write(imageMPF.getBytes());
             }
-            image.renameTo(new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg"));
+            image.renameTo(new File("src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg"));
 
             FaceRecognitionServiceImpl faceRecognitionService = new FaceRecognitionServiceImpl();
             if (type==0){

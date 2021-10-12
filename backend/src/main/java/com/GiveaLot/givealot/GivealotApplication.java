@@ -8,12 +8,11 @@ import com.GiveaLot.givealot.Organisation.service.OrganisationService;
 import com.GiveaLot.givealot.Report.service.ReportService;
 import com.GiveaLot.givealot.User.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GivealotApplication implements CommandLineRunner {
+public class GivealotApplication /*implements CommandLineRunner*/ {
 
     @Autowired
     OrganisationRepository organisationRepository;
@@ -42,14 +41,14 @@ public class GivealotApplication implements CommandLineRunner {
         SpringApplication.run(GivealotApplication.class, args);
     }
 
-    @Override
-    public  void run(String... args) throws Exception {
-        long bot = organisationService.getOrgBottom();
-        long top = organisationService.getOrgTop();
-        System.out.println("Bottom organisation: " + bot);
-        System.out.println("Top organisation: " + top);
-        certificateService.refreshCertificates(bot,top);
-    }
+//    @Override
+//    public  void run(String... args) throws Exception {
+//        long bot = organisationService.getOrgBottom();
+//        long top = organisationService.getOrgTop();
+//        System.out.println("Bottom organisation: " + bot);
+//        System.out.println("Top organisation: " + top);
+//        certificateService.refreshCertificates(bot,top);
+//    }
 
 //    @Override
 //    public  void run(String... args) throws Exception {

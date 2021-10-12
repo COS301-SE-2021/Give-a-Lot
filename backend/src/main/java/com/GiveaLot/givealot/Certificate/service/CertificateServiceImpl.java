@@ -13,7 +13,6 @@ import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationDataRepository;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
 import com.GiveaLot.givealot.Server.ServerAccess;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
@@ -24,17 +23,20 @@ import org.apache.pdfbox.rendering.PDFRenderer;
 import org.apache.pdfbox.tools.imageio.ImageIOUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.awt.image.BufferedImage;
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import org.springframework.mock.web.MockMultipartFile;
 
 @Service
 @Configurable
@@ -185,6 +187,7 @@ public class CertificateServiceImpl implements CertificateService {
     public boolean createPDFDocument(Certificate cert, Organisations organisation, int points) throws Exception {
         access.downloadCertificateTemplate(points);
         System.out.println("===============createPDFDocument()=================");
+
         if (points != 0) {
             File deletion = new File("frontend/givealot/src/localFiles/" + organisation.getOrgId() + "certificate/CertificateComplete.pdf");
             deletion.delete();
@@ -230,8 +233,6 @@ public class CertificateServiceImpl implements CertificateService {
 
         document.save(completeCertificate);
         document.close();
-
-
 
 
         imageCreator(completeCertificate, organisation.getOrgId());

@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="blur image update">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp43.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/controller/FacialRecognitionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/controller/FacialRecognitionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/FaceRecognitionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/FaceRecognitionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/localFiles/43/gallery/blur.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/localFiles/43/gallery/blur.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/BlurImages/BlurImages.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/givealot/src/views/dashboard/sidebar/Components/BlurImages/BlurImages.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -230,14 +230,7 @@
       <workItem from="1633956352376" duration="5140000" />
       <workItem from="1633982288910" duration="476000" />
       <workItem from="1633982851454" duration="3067000" />
-      <workItem from="1633996893320" duration="8813000" />
-    </task>
-    <task id="LOCAL-00137" summary="uncommitted changes">
-      <created>1632429363652</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1632429363652</updated>
+      <workItem from="1633996893320" duration="9760000" />
     </task>
     <task id="LOCAL-00138" summary="uncommitted changes">
       <created>1632429424026</created>
@@ -575,7 +568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634006025840</updated>
     </task>
-    <option name="localTasksCounter" value="186" />
+    <task id="LOCAL-00186" summary="blur image update">
+      <created>1634006333399</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1634006333399</updated>
+    </task>
+    <option name="localTasksCounter" value="187" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

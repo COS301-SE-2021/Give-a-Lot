@@ -27,7 +27,7 @@ function BlurImages()
         form_data.append('image', event.target.files[0]);
         form_data.append('type',1);
 
-        alert(serverDomain)
+        set_current_image("")
         document.getElementById("processing_photo_info").style.display = "flex";
 
         fetch(
@@ -35,13 +35,11 @@ function BlurImages()
             {
                 method: 'POST',
                 body: form_data,
-
             }
         )
         .then((response) => response.json())
         .then((result) =>
         {
-            alert(serverDomain + "/v1/frecognition/blur/get/" + localStorage.getItem('id'));
             set_current_image(serverDomain + "/v1/frecognition/blur/get/" + localStorage.getItem('id'))
             document.getElementById("processing_photo_info").style.display = "none";
         })

@@ -1,13 +1,10 @@
 package com.GiveaLot.givealot.FaceRecognition.dataclass;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
-@Builder
-@AllArgsConstructor
+
 @Entity
 @Table(
         name = "blurred_images"
@@ -27,18 +24,23 @@ public class FaceBlur {
     @Type(type="org.hibernate.type.BinaryType")
     private byte[] image_bytes;
 
-    public FaceBlur(Long org_id, byte[] image_bytes) {
-        this.org_id = org_id;
-        this.image_bytes = image_bytes;
-    }
-
-    public FaceBlur(Long org_id) {
-    this.org_id = org_id;
-    }
-
     public FaceBlur() {
 
     }
 
+    public long getOrg_id() {
+        return org_id;
+    }
 
+    public void setOrg_id(long org_id) {
+        this.org_id = org_id;
+    }
+
+    public byte[] getImage_bytes() {
+        return image_bytes;
+    }
+
+    public void setImage_bytes(byte[] image_bytes) {
+        this.image_bytes = image_bytes;
+    }
 }

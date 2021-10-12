@@ -365,7 +365,9 @@ public class OrganisationServiceImp implements OrganisationService {
 
         organisationInfoRepository.save(new OrganisationInfo((long) id));
         organisationPointsRepository.save(new OrganisationPoints((long) id));
-        blurRepository.save(new FaceBlur((long) id));
+        FaceBlur faceBlur = new FaceBlur();
+        faceBlur.setOrg_id(id);
+        blurRepository.save(faceBlur);
 
         //organisation is saved at this point
         /* ideally we should revert the above changes on the

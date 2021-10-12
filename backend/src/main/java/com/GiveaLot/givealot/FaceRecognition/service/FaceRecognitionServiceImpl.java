@@ -1,10 +1,10 @@
 package com.GiveaLot.givealot.FaceRecognition.service;
 
+import com.GiveaLot.givealot.FaceRecognition.dataclass.FaceBlur;
 import com.GiveaLot.givealot.FaceRecognition.repository.BlurRepository;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 @Service
-@Configurable
 public class FaceRecognitionServiceImpl implements FaceRecognitionService {
 
     @Autowired
@@ -21,40 +20,60 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService {
 
     @Override
     public File FacePixel(long orgId) throws IOException, InterruptedException {
+        System.out.println("=====saved blurred start======");
         try {
             /** Executes python.exe script to blur the image **/
 
             String id = String.valueOf(orgId);
-            ProcessBuilder processBuilder = new ProcessBuilder("src/main/java/com/GiveaLot/givealot/FaceRecognition/service/face_pixel.exe", id)
-                    .directory(new File("src/main/java/com/GiveaLot/givealot/FaceRecognition/service"));
+            ProcessBuilder processBuilder = new ProcessBuilder("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/face_pixel.exe", id)
+                    .directory(new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service"));
             processBuilder.inheritIO();
             Process process = processBuilder.start();
             process.waitFor();
-            File src = new File("src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/blur" + orgId + ".jpg");
-            File dest = new File("src/main/resources/localFiles/" + orgId + "/gallery/blur.jpg");
+            File src = new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/blur" + orgId + ".jpg");
+            File dest = new File("backend/src/main/resources/localFiles/" + orgId + "/gallery/blur.jpg");
             FileUtils.copyFile(src, dest);
 
             FileInputStream input = new FileInputStream(dest);
             MockMultipartFile multipartFile = new MockMultipartFile("file",
                     dest.getName(), "image/png", IOUtils.toByteArray(input));
-            blurRepository.updateBlur(orgId,multipartFile.getBytes());
+
+
+
+            if(blurRepository == null)
+            {
+                System.out.println("=====null repository======");
+            }
+            else {
+                FaceBlur faceBlur = blurRepository.selectBlurDataById(orgId);
+                if (faceBlur == null) {
+                    faceBlur = new FaceBlur();
+                    faceBlur.setOrg_id(orgId);
+
+                    blurRepository.save(faceBlur);
+                }
+
+                System.out.println("=====saved blurred image======");
+                blurRepository.updateBlur(orgId, multipartFile.getBytes());
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             /** Deletes all unnecessary files **/
 
-            if (new File("src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg").exists()) {
-                new File("src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg").delete();
+            if (new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg").exists()) {
+                new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg").delete();
             }
-            if (new File("src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/blur" + orgId + ".jpg").exists()) {
-                new File("src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/blur" + orgId + ".jpg").delete();
+            if (new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/blur" + orgId + ".jpg").exists()) {
+                new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/blur" + orgId + ".jpg").delete();
             }
         }
         return null;
     }
 
     public File FaceBlur(long orgId) throws IOException, InterruptedException {
+        System.out.println("=====saved blurred image 2======");
         try {
             /** Executes python.exe script to blur the image **/
 

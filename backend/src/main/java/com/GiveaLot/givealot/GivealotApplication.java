@@ -3,26 +3,16 @@ package com.GiveaLot.givealot;
 import com.GiveaLot.givealot.Blockchain.service.BlockchainService;
 import com.GiveaLot.givealot.Certificate.repository.CertificateRepository;
 import com.GiveaLot.givealot.Certificate.service.CertificateService;
-import com.GiveaLot.givealot.Organisation.model.Organisations;
 import com.GiveaLot.givealot.Organisation.repository.OrganisationRepository;
-import com.GiveaLot.givealot.Organisation.requests.AddOrgImageRequest;
-import com.GiveaLot.givealot.Organisation.requests.AddOrgWebsiteRequest;
-import com.GiveaLot.givealot.Organisation.requests.AddOrganisationRequest;
 import com.GiveaLot.givealot.Organisation.service.OrganisationService;
-import com.GiveaLot.givealot.Report.dataclass.Report;
 import com.GiveaLot.givealot.Report.service.ReportService;
-import com.GiveaLot.givealot.User.requests.RegisterUserRequest;
-import com.GiveaLot.givealot.User.requests.SetAdminRequest;
 import com.GiveaLot.givealot.User.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.io.File;
-
 @SpringBootApplication
-public class GivealotApplication implements CommandLineRunner {
+public class GivealotApplication /*implements CommandLineRunner */{
 
     @Autowired
     OrganisationRepository organisationRepository;
@@ -51,11 +41,10 @@ public class GivealotApplication implements CommandLineRunner {
         SpringApplication.run(GivealotApplication.class, args);
     }
 
-    @Override
+    /*@Override
     public  void run(String... args) throws Exception {
         certificateService.refreshCertificates(2,6);
-
-    }
+    }*/
 
 //    @Override
 //    public  void run(String... args) throws Exception {

@@ -101,7 +101,7 @@ function Home()
 
                 <Box id="main_content_container">
                     <div>
-                        <p id="main_head">safe and verified donations</p>
+                        <p id="main_head">Safe and verified donations</p>
                         <p id="supporting_head">Your hub for verified charities</p>
                     </div>
 

@@ -48,8 +48,8 @@ export class Upgrade4 extends Component {
             imagesError:"",
             popUp1:false,
             popUp2:false,
-            serverDomain: 'http://localhost:8080',
-            frontEndDomain: 'http://localhost:3000',
+            serverDomain: 'https://givealotcharities.herokuapp.com',
+            frontEndDomain: 'https://givealot.netlify.app/',
 
         };
     }

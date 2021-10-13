@@ -49,7 +49,7 @@ export class Level1 extends Component {
             websiteState: false,
             address:"",
             addressState:false,
-            serverDomain: 'http://localhost:8080',
+            serverDomain: 'https://givealotcharities.herokuapp.com',
         };
     }
 

@@ -59,7 +59,7 @@ export class VerifyCertificate extends Component {
         AlertPromptWait.style.display = "flex";
 
         fetch(
-             'http://localhost:8080/certificate/compare',
+            "https://givealotcharities.herokuapp.com"+ '/certificate/compare',
             {
                 method: 'POST',
                 body: formData,

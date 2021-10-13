@@ -80,8 +80,7 @@ const initialState = {
     popUp2:false,
     popUp3:false,
     popUp4:false,
-    //serverDomain: "https://3c73e752688968.localhost.run"
-    serverDomain: 'http://0948-105-208-196-136.ngrok.io'
+    serverDomain: 'https://givealotcharities.herokuapp.com'
 
 };
 

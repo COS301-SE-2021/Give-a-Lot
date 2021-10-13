@@ -390,7 +390,7 @@ function ViewOrganisation()
                    <Box maxWidth={500} id="certificate_container" color="text.primary">
                        <div>
                            <div id={"view_header_meta_content"}>
-                               <div><p>certificate level</p></div>
+                               <div><p>Certificate level</p></div>
                                <img src={"https://avatars.dicebear.com/api/initials/" + organisationData.certificateLevel + ".svg?w=500"} />
                            </div>
 
@@ -412,11 +412,11 @@ function ViewOrganisation()
                        </div>
 
                        <p id={"certificate_award_message"}>
-                          the following certificate was awarded by givealot to <em>{organisationData.orgName}</em> upon reviewing
-                          their organisation and the information they provided to givealot
+                          The following certificate was awarded by Give A Lot to <em>{organisationData.orgName}</em> upon reviewing
+                          their organisation and the information they provided to Give A Lot.
                        </p>
 
-                       <img src={serverDomain + "/certificate/download/png/" + id}  />
+                       <img src={serverDomain + "/media/version/cert_png/" + id}  />
 
                        <Button variant="contained" color="secondary"
                                onClick={(e) => {
@@ -431,8 +431,8 @@ function ViewOrganisation()
 
                    <Box id={"report_organisation_container"}>
                        <p>
-                           your satisfaction matters to us,
-                           report an organisation if you have any suspicions
+                           Your satisfaction matters to us,
+                           report an organisation if you have any suspicions.
                        </p>
                        <Button
                         variant={"outlined"}
@@ -440,7 +440,7 @@ function ViewOrganisation()
                         /*onClick={reportFormToggle}*/
                            onClick={handleClickOpen}
                        >
-                           report
+                           Report
                        </Button>
                        <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                            <DialogTitle id="report_organisation_heading_browse">please complete your report</DialogTitle>
@@ -478,7 +478,7 @@ function ViewOrganisation()
                                    className={"report_form_input"}
                                    id={"report-title-input"}
                                    variant={"outlined"}
-                                   label="what's your accusation?"
+                                   label="What is your accusation?"
                                    placeholder={"example, imposter"}
                                    type="text"
                                />
@@ -488,7 +488,7 @@ function ViewOrganisation()
                                    variant={"outlined"}
                                    id={"report-description-input"}
                                    label="describe the event"
-                                   placeholder="describe the accusation in detail"
+                                   placeholder="Describe the accusation in detail"
                                    maxRows={3}
                                    multiline
                                />

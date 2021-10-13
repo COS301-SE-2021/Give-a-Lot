@@ -25,7 +25,7 @@ const initialState = {
     fileState: false,
     images:"",
     imagesState:false,
-    serverDomain: 'http://localhost:8080',
+    serverDomain: 'https://givealotcharities.herokuapp.com',
 
 };
 

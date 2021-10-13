@@ -262,7 +262,7 @@ function OrganisationRegistration()
             document.getElementById('final_registration_toasts_org_info').style.display = "flex";
             document.getElementById('final_registration_toasts_org_error').style.display = "none";
             document.getElementsByClassName('registration_form_container_final')[0].style.display = "none";
-            document.getElementById("profile_photo_upload_registration_organisation").innerText = "setting you up";
+            document.getElementsByClassName("profile_photo_upload_registration_organisation")[0].innerText = "setting you up";
             fetch(
                 serverDomain + '/v1/organisation/add/org',
                 {

@@ -74,7 +74,7 @@ function Navbar()
                 <div className="browse_search_input2_container">
                     <input
                         id={"browse_search_input2"}
-                        placeholder="search organisation"
+                        placeholder="Search organisation"
                         type="text"
 
                         onKeyPress={onKeyUp}

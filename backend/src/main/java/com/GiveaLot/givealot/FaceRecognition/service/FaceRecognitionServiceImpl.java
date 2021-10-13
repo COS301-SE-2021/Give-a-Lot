@@ -73,8 +73,8 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService {
             /** Executes python.exe script to blur the image **/
 
             String id = String.valueOf(orgId);
-            ProcessBuilder processBuilder = new ProcessBuilder("src/main/java/com/GiveaLot/givealot/FaceRecognition/service/face_blur.exe", id)
-                    .directory(new File("src/main/java/com/GiveaLot/givealot/FaceRecognition/service"));
+            ProcessBuilder processBuilder = new ProcessBuilder("givealotcharities/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/face_blur.exe", id)
+                    .directory(new File("givealotcharities/src/main/java/com/GiveaLot/givealot/FaceRecognition/service"));
             processBuilder.inheritIO();
             Process process = processBuilder.start();
             process.waitFor();

@@ -118,7 +118,7 @@ function ViewOrganisation()
 
         if(userId === null || userId === "default")
         {
-            alert("please sign in if you want to report an organisation");
+            alert("Please sign in if you want to report an organisation");
             window.location.assign("/login");
         }
         else
@@ -412,8 +412,8 @@ function ViewOrganisation()
                        </div>
 
                        <p id={"certificate_award_message"}>
-                          the following certificate was awarded by givealot to <em>{organisationData.orgName}</em> upon reviewing
-                          their organisation and the information they provided to givealot
+                          The following certificate was awarded by Give A Lot to <em>{organisationData.orgName}</em>, upon reviewing
+                          their organisation and the information they provided to Give A Lot.
                        </p>
 
                        <img src={serverDomain + "/certificate/download/png/" + id}  />
@@ -431,8 +431,8 @@ function ViewOrganisation()
 
                    <Box id={"report_organisation_container"}>
                        <p>
-                           your satisfaction matters to us,
-                           report an organisation if you have any suspicions
+                           Your satisfaction matters to us,
+                           report an organisation if you have any suspicions.
                        </p>
                        <Button
                         variant={"outlined"}
@@ -440,46 +440,46 @@ function ViewOrganisation()
                         /*onClick={reportFormToggle}*/
                            onClick={handleClickOpen}
                        >
-                           report
+                           Report
                        </Button>
                        <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                           <DialogTitle id="report_organisation_heading_browse">please complete your report</DialogTitle>
+                           <DialogTitle id="report_organisation_heading_browse">Please complete your report.</DialogTitle>
                            <Box id={"report_form_container"}>
 
                                <Alert
                                    id={"report_success_alert"}
                                    severity={"success"}
                                >
-                                   successfully reported
+                                   Successfully Reported
                                </Alert>
 
                                <Alert
                                    id={"report_wait_alert"}
                                    severity={"info"}
                                >
-                                   please wait...
+                                   Please wait...
                                </Alert>
 
                                <Alert
                                    id={"report_error_alert"}
                                    severity={"error"}
                                >
-                                   all fields are required!!!
+                                   All fields are required!!!
                                </Alert>
 
                                <Alert
                                    id={"report_server_error_alert"}
                                    severity={"error"}
                                >
-                                   server error :-(
+                                   Server error :-(
                                </Alert>
 
                                <TextField
                                    className={"report_form_input"}
                                    id={"report-title-input"}
                                    variant={"outlined"}
-                                   label="what's your accusation?"
-                                   placeholder={"example, imposter"}
+                                   label="What is your accusation?"
+                                   placeholder={"Example: Imposter organisation"}
                                    type="text"
                                />
 
@@ -487,8 +487,8 @@ function ViewOrganisation()
                                    className={"report_form_input"}
                                    variant={"outlined"}
                                    id={"report-description-input"}
-                                   label="describe the event"
-                                   placeholder="describe the accusation in detail"
+                                   label="Describe the accusation."
+                                   placeholder="Describe the accusation in detail."
                                    maxRows={3}
                                    multiline
                                />
@@ -498,12 +498,12 @@ function ViewOrganisation()
                                    color={"primary"}
                                    class="g-recaptcha"
                                    data-sitekey="reCAPTCHA_site_key"
-                                   data-action='submit'
+                                   data-action='Submit'
                                    data-callback='reportOrganisation'
                                    onClick={reportOrganisation}
 
                                >
-                                   submit
+                                   Submit
                                </Button>
                            </Box>
                        </Dialog>

@@ -15,7 +15,7 @@ function OrganisationTimeline()
     const [serverDomain, setServerDomain] = useState("http://localhost:8080")
     let [timelineEvents, setTimelineEvents] = useState([]);
     let [curr_organisation_id, set_curr_organisation_id] = useState(localStorage.getItem('id'));
-    const [frontEndDomain, setFrontEndDomain] = useState("http://localhost:3000");
+    const [frontEndDomain, setFrontEndDomain] = useState("https://givealot.netlify.app");
 
     if(localStorage.getItem("id") === null ||
         localStorage.getItem("id") === undefined ||

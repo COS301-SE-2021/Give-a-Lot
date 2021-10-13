@@ -34,7 +34,7 @@ public class FacialRecognitionController {
         {
             serverAccess.uploadImageAnon(body.getOrgId(),body.getImage(), body.getType());
 
-            File dest = new File("backend/src/main/resources/localFiles/" + body.getOrgId() + "/gallery/blur.jpg");
+            File dest = new File("src/main/resources/localFiles/" + body.getOrgId() + "/gallery/blur.jpg");
 
             FileInputStream input = new FileInputStream(dest);
             MockMultipartFile multipartFile = new MockMultipartFile("file",

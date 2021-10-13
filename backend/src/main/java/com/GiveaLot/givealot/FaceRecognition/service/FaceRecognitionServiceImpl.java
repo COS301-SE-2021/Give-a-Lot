@@ -21,20 +21,18 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService {
             /** Executes python.exe script to blur the image **/
 
             String id = String.valueOf(orgId);
-            ProcessBuilder processBuilder = new ProcessBuilder("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/face_pixel.exe", id)
-                    .directory(new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service"));
+            ProcessBuilder processBuilder = new ProcessBuilder("src/main/java/com/GiveaLot/givealot/FaceRecognition/service/face_pixel.exe", id)
+                    .directory(new File("src/main/java/com/GiveaLot/givealot/FaceRecognition/service"));
             processBuilder.inheritIO();
             Process process = processBuilder.start();
             process.waitFor();
-            File src = new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/blur" + orgId + ".jpg");
-            File dest = new File("backend/src/main/resources/localFiles/" + orgId + "/gallery/blur.jpg");
+            File src = new File("src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/blur" + orgId + ".jpg");
+            File dest = new File("src/main/resources/localFiles/" + orgId + "/gallery/blur.jpg");
             FileUtils.copyFile(src, dest);
 
             /*FileInputStream input = new FileInputStream(dest);
             MockMultipartFile multipartFile = new MockMultipartFile("file",
                     dest.getName(), "image/png", IOUtils.toByteArray(input));
-
-
 
             if(blurRepository == null)
             {
@@ -58,11 +56,11 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService {
         } finally {
             /** Deletes all unnecessary files **/
 
-            if (new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg").exists()) {
-                new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg").delete();
+            if (new File("src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg").exists()) {
+                new File("src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/temp" + orgId + ".jpg").delete();
             }
-            if (new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/blur" + orgId + ".jpg").exists()) {
-                new File("backend/src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/blur" + orgId + ".jpg").delete();
+            if (new File("src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/blur" + orgId + ".jpg").exists()) {
+                new File("src/main/java/com/GiveaLot/givealot/FaceRecognition/service/tempImages/blur" + orgId + ".jpg").delete();
             }
         }
         return null;

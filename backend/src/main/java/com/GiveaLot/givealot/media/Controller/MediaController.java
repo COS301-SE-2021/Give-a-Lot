@@ -132,7 +132,7 @@ public class MediaController {
     {
         byte[] bytes;
         try {
-            bytes = service.getOrganisationQrCode(Long.valueOf(orgId));
+            bytes = service.getOrganisationQrCodeAdmin(Long.valueOf(orgId));
             return ResponseEntity
                     .ok()
                     .contentType(MediaType.IMAGE_PNG)
@@ -140,21 +140,10 @@ public class MediaController {
         }
         catch (Exception e)
         {
-            System.out.println("======QR CODE ERROR======= " + e);
-            var fallback = new ClassPathResource("localFiles/fallback/QRCodeDefault.jpeg");
 
-            try {
-                bytes = StreamUtils.copyToByteArray(fallback.getInputStream());
-                return ResponseEntity
-                        .ok()
-                        .contentType(MediaType.IMAGE_JPEG)
-                        .body(bytes);
-            }
-            catch (IOException ew)
-            {
                 return ResponseEntity
                         .notFound().build();
-            }
+
         }
     }
 

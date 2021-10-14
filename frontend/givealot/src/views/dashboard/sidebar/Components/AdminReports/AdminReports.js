@@ -16,8 +16,8 @@ export class AdminReports extends Component {
 
         this.state={
             adminId:localStorage.getItem('id'),
-            serverDomain: "http://localhost:8080",
-            frontEndDomain: 'http://localhost:3000',
+            serverDomain: "https://givealotcharities.herokuapp.com",
+            frontEndDomain: 'https://givealot.netlify.app/',
             AdminReports: []
         };
     }

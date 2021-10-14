@@ -48,7 +48,7 @@ const initialState = {
     popUp1:false,
     popUp2:false,
     popUp3:false,
-    serverDomain: 'http://localhost:8080',
+    serverDomain: 'https://givealotcharities.herokuapp.com',
 };
 
 
@@ -275,7 +275,7 @@ export class Upgrade2 extends Component {
 
                                             <div >
                                                 <span className="upgrade_label">
-                                                    Establishment date
+                                                    NGO Establishment date
                                                  </span>
                                                 <DatePicker
 

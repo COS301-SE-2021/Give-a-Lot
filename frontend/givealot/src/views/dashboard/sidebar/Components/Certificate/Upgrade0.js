@@ -45,8 +45,8 @@ const initialState = {
     ngoDateError:"",
     popUp1:false,
     popUp2:false,
-    serverDomain: 'http://localhost:8080',
-    frontEndDomain: 'http://localhost:3000'
+    serverDomain: 'https://givealotcharities.herokuapp.com',
+    frontEndDomain: 'https://givealot.netlify.app/'
 };
 
 
@@ -202,7 +202,7 @@ export class Upgrade0 extends Component {
 
                                     <div >
                                         <span className="upgrade_label">
-                                            Registration date
+                                            NGO Registration date
                                          </span>
                                         <DatePicker
 
@@ -219,10 +219,10 @@ export class Upgrade0 extends Component {
                                     <div>
                                         <TextField
                                             id="outlined-full-width"
-                                            label="Registration number"
+                                            label="NGO Registration number"
                                             style={{ margin: 8 }}
                                             name="ngoNumber"
-                                            placeholder="Enter registration.."
+                                            placeholder="Enter NGO registration number.."
                                             fullWidth
                                             margin="normal"
                                             InputLabelProps={{

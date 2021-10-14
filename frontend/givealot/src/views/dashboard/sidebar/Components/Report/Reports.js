@@ -18,8 +18,8 @@ export class Reports extends Component {
             reports: [],
             orgId:localStorage.getItem("id"),
             error: "",
-            serverDomain: 'http://localhost:8080',
-            frontEndDomain: 'http://localhost:3000'
+            serverDomain: 'https://givealotcharities.herokuapp.com',
+            frontEndDomain: 'https://givealot.netlify.app'
         }
     }
     componentDidMount(){

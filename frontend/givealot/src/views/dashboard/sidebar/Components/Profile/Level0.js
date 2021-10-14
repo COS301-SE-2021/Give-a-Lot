@@ -43,7 +43,7 @@ const initialState = {
     ngoNumberState:false,
     ngoDate:"",
     ngoDateState:false,
-    serverDomain: 'http://localhost:8080',
+    serverDomain: 'https://givealotcharities.herokuapp.com',
 };
 
 

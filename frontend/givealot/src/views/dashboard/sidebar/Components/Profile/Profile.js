@@ -55,8 +55,8 @@ export class Profile extends Component {
             popUp6:false,
             popUp7:false,
             popUp8:false,
-            serverDomain: 'http://localhost:8080',
-            frontEndDomain: 'http://localhost:3000',
+            serverDomain: 'https://givealotcharities.herokuapp.com',
+            frontEndDomain: 'https://givealot.netlify.app',
             loader:false,
         }
     }

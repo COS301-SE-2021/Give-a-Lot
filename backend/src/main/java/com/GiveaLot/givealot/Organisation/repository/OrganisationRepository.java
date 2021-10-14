@@ -13,8 +13,15 @@ import java.util.List;
 
 @Repository
 public interface OrganisationRepository extends JpaRepository<Organisations, Long> {
+
     @Query("SELECT distinct o FROM Organisations AS o")
     List<Organisations> getAllOrganisations();
+
+    @Query(value = "SELECT min(orgId) FROM Organisations")
+    Long getOrgBottom();
+
+    @Query(value = "SELECT max(orgId) FROM Organisations")
+    Long getOrgTop();
 
     @Query("select o from Organisations o where o.orgId = ?1")
     Organisations selectOrganisationById(Long orgId);

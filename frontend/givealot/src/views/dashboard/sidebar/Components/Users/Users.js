@@ -20,8 +20,8 @@ export class Users extends Component {
             users:[],
             error: "",
             adminUserEmail: localStorage.getItem('curr_user_email'),
-            serverDomain: "http://localhost:8080",
-            frontEndDomain: "http://localhost:3000"
+            serverDomain: "https://givealotcharities.herokuapp.com",
+            frontEndDomain: "https://givealot.netlify.app"
 
         }
 

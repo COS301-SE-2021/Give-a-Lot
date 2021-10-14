@@ -26,8 +26,8 @@ export default class Demo extends React.PureComponent {
             addedAppointment: {},
             appointmentChanges: {},
             editingAppointment: undefined,
-            serverDomain : 'http://localhost:8080',
-            frontEndDomain: 'http://localhost:3000',
+            serverDomain : 'https://givealotcharities.herokuapp.com',
+            frontEndDomain: 'https://givealot.netlify.app/',
         };
 
         this.commitChanges = this.commitChanges.bind(this);

@@ -207,6 +207,7 @@ public class CertificateServiceImpl implements CertificateService {
             directoryCertLocal.mkdir();
             System.out.println("complete");
         }
+
         if (points != 0) {
             File deletion = new File("src/main/resources/src/localFiles/" + organisation.getOrgId() + "certificate/CertificateComplete.pdf");
             deletion.delete();

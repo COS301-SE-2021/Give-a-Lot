@@ -188,25 +188,45 @@ public class CertificateServiceImpl implements CertificateService {
         access.downloadCertificateTemplate(points);
         System.out.println("===============createPDFDocument()=================");
 
+        if(!new File("/app/src/main/resources/localFiles/" + organisation.getOrgId() + "/certificate/").mkdir()){
+            String orgIdString = String.valueOf(organisation.getOrgId());
+            String localStorage = "src/main/resources/localFiles/" + orgIdString;
+            String localImageStorage = "src/main/resources/localFiles/" + orgIdString + "/gallery";
+            String localImageStorage2 = "src/main/resources/localFiles/" + orgIdString + "/gallery/backup";
+            String localCertificateStorage = "src/main/resources/localFiles/" + orgIdString + "/certificate";
+            System.out.println(localCertificateStorage);
+
+            File directoryLocal = new File(localStorage);
+            File directoryImageLocal = new File(localImageStorage);
+            File directoryImageLocal2 = new File(localImageStorage2);
+            File directoryCertLocal = new File(localCertificateStorage);
+
+            directoryLocal.mkdir();
+            directoryImageLocal.mkdir();
+            directoryImageLocal2.mkdir();
+            directoryCertLocal.mkdir();
+            System.out.println("complete");
+        }
         if (points != 0) {
-            File deletion = new File("frontend/givealot/src/localFiles/" + organisation.getOrgId() + "certificate/CertificateComplete.pdf");
+            File deletion = new File("src/main/resources/src/localFiles/" + organisation.getOrgId() + "certificate/CertificateComplete.pdf");
             deletion.delete();
         }
 
-        String templateCertificate = "src/main/resources/TempCertificate/CertificateTemplate.pdf";
-        String completeCertificate = "src/main/resources/localFiles/" + organisation.getOrgId() + "/certificate/CertificateComplete.pdf";
+
+        String templateCertificate = "/app/src/main/resources/TempCertificate/CertificateTemplate.pdf";
+        String completeCertificate = "/app/src/main/resources/localFiles/" + organisation.getOrgId() + "/certificate/CertificateComplete.pdf";
 
         /** Setup the pdf file **/
 
         File template = new File(templateCertificate);
-
+        System.out.println("works");
         PDDocument document = PDDocument.load(template);
         PDDocumentCatalog catalog = document.getDocumentCatalog();
 
         PDAcroForm acroForm = catalog.getAcroForm();
 
         /** Assign acroform fields **/
-
+        System.out.println("works");
         try {
 
             if (acroForm != null) {
@@ -230,10 +250,12 @@ public class CertificateServiceImpl implements CertificateService {
         } catch (Exception e) {
             throw new Exception("Exception: unable to create certificate: " + e);
         }
+        System.out.println("works");
+
 
         document.save(completeCertificate);
         document.close();
-
+        System.out.println("works");
 
         imageCreator(completeCertificate, organisation.getOrgId());
 

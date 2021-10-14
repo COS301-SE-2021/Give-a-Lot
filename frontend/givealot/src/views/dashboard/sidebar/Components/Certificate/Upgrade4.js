@@ -138,7 +138,7 @@ export class Upgrade4 extends Component {
                     console.log('Success-----:', result);
                     if(result.message==='success'){
                         this.setState({popUp2: true})
-                        this.onToastFile();
+                        this.onToastImage();
                     }else {
                         this.setState({popUp2: false})
                         this.onToastFile();

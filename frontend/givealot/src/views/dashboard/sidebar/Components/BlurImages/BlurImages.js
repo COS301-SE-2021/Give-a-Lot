@@ -9,7 +9,7 @@ import {FrontEndContext} from "../../../../../apiContext/FrontEndContext";
 function BlurImages()
 {
     let [current_image, set_current_image] = useState(blurredFallback);
-    const [serverDomain, setServerDomain] = useState(useContext(ApiContext))
+    const [serverDomain, setServerDomain] = useState("https://446b-105-208-196-200.ngrok.io");
     const [frontEndDomain, setFrontEndDomain] = useState(useContext(FrontEndContext));
 
     if(localStorage.getItem("id") === null ||

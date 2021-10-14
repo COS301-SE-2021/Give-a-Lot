@@ -45,11 +45,11 @@ public class GivealotApplication implements CommandLineRunner {
     public  void run(String... args) throws Exception {
         long bot = organisationService.getOrgBottom();
         long top = organisationService.getOrgTop();
-        System.out.println("Bottom organisation: " + bot);
-        System.out.println("Top organisation: " + top);
-        if(top - bot != 0) {
-            certificateService.refreshCertificates(bot, top);
-        }
+        System.out.println("Bottom organisation: " + 56);
+        System.out.println("Top organisation: " + 57);
+
+        certificateService.refreshCertificates(56, 57);
+
     }
 
 //    @Override

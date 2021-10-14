@@ -235,9 +235,8 @@ public class ServerAccess implements server_access{
     public void downloadCertificateTemplate(int points) throws Exception {
         //ChannelSftp channelSftp = setupJsch();
         try {
-
+            System.out.println(points);
             //channelSftp.connect();
-
             String templateLocation;
 
             System.out.println("===============downloadCertificateTemplate()=================");
@@ -246,19 +245,19 @@ public class ServerAccess implements server_access{
                 templateLocation = "src/main/resources/certificateTemplates/cert0Template.pdf";
 
             } else if (points >= 20 && points < 40) {
-                templateLocation = remoteDir + "/cert1Template.pdf";
+                templateLocation = "src/main/resources/certificateTemplates/cert1Template.pdf";
 
             } else if (points >= 40 && points < 60) {
-                templateLocation = remoteDir + "/cert2Template.pdf";
+                templateLocation = "src/main/resources/certificateTemplates/cert2Template.pdf";
 
             } else if (points >= 60 && points < 80) {
-                templateLocation = remoteDir + "/cert3Template.pdf";
+                templateLocation = "src/main/resources/certificateTemplates/cert3Template.pdf";
 
             } else if (points >= 80 && points < 100) {
-                templateLocation = remoteDir + "/cert4Template.pdf";
+                templateLocation = "src/main/resources/certificateTemplates/cert4Template.pdf";
 
             } else if (points == 100) {
-                templateLocation = remoteDir + "/cert5Template.pdf";
+                templateLocation = "src/main/resources/certificateTemplates/cert5Template.pdf";
 
             } else {
                 throw new Exception("Exception: Invalid certificate level");
@@ -266,8 +265,11 @@ public class ServerAccess implements server_access{
 
             File fileLocation = new File("src/main/resources/TempCertificate/CertificateTemplate.pdf");
 
-            FileUtils.copyFile(new File(templateLocation), fileLocation);
+            File temp = new File(templateLocation);
 
+            System.out.println(temp.getAbsolutePath());
+            FileUtils.copyFile(temp, fileLocation);
+            System.out.println(fileLocation.getAbsolutePath());
 
         } catch (Exception e) {
             throw new Exception("Exception: Failed to download certificate template: " + e);

@@ -433,7 +433,7 @@ public class ServerAccess implements server_access{
         OrganisationGallery newGalleryImage = new OrganisationGallery();
         newGalleryImage.setOrgId(orgId);
         newGalleryImage.setImage(image.getBytes());
-        newGalleryImage.setName("image" + numberOfImages);
+        newGalleryImage.setName("image" + (numberOfImages+1));
         organisationGalleryRepository.save(newGalleryImage);
         System.out.println("================saving image to db finished================");
 

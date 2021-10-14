@@ -1145,7 +1145,6 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("Exception: add image function did not finish, organisation does not exist");
 
         int numImages = organisationPointsRepository.getNumberOfImages(request.getOrgId());
-        int i = 0;
 
         access.uploadImageJPG(request.getOrgId(), request.getImages(), numImages);
             numImages++;

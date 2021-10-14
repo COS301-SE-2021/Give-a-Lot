@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="qr code media controller function update">
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="updated image upload and audit doc upload">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" afterDir="false" />
@@ -217,28 +217,7 @@
       <workItem from="1633982288910" duration="476000" />
       <workItem from="1633982851454" duration="3067000" />
       <workItem from="1633996893320" duration="11230000" />
-      <workItem from="1634153969280" duration="5331000" />
-    </task>
-    <task id="LOCAL-00141" summary="Updated Server Access">
-      <created>1632820350966</created>
-      <option name="number" value="00141" />
-      <option name="presentableId" value="LOCAL-00141" />
-      <option name="project" value="LOCAL" />
-      <updated>1632820350966</updated>
-    </task>
-    <task id="LOCAL-00142" summary="Updated Server Access">
-      <created>1632820811460</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1632820811460</updated>
-    </task>
-    <task id="LOCAL-00143" summary="Updated Server Access">
-      <created>1632820947326</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1632820947326</updated>
+      <workItem from="1634153969280" duration="9653000" />
     </task>
     <task id="LOCAL-00144" summary="slight update">
       <created>1632838909651</created>
@@ -562,7 +541,28 @@
       <option name="project" value="LOCAL" />
       <updated>1634169524315</updated>
     </task>
-    <option name="localTasksCounter" value="190" />
+    <task id="LOCAL-00190" summary="qr code media controller function update">
+      <created>1634171821648</created>
+      <option name="number" value="00190" />
+      <option name="presentableId" value="LOCAL-00190" />
+      <option name="project" value="LOCAL" />
+      <updated>1634171821648</updated>
+    </task>
+    <task id="LOCAL-00191" summary="updated image upload">
+      <created>1634171908999</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1634171908999</updated>
+    </task>
+    <task id="LOCAL-00192" summary="updated image upload and audit doc upload">
+      <created>1634172913597</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1634172913597</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -585,8 +585,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/backend" />
     </ignored-roots>
-    <MESSAGE value="level 2 upgrade complete" />
-    <MESSAGE value="upgrade to level 4 complete" />
     <MESSAGE value="added  organisation" />
     <MESSAGE value="timeline implemented, however further halted due to internal reasons" />
     <MESSAGE value="timeline - welcome message on registration" />
@@ -610,7 +608,9 @@
     <MESSAGE value="Updated code for heroku deployment" />
     <MESSAGE value="blur image update" />
     <MESSAGE value="qr code media controller function update" />
-    <option name="LAST_COMMIT_MESSAGE" value="qr code media controller function update" />
+    <MESSAGE value="updated image upload" />
+    <MESSAGE value="updated image upload and audit doc upload" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated image upload and audit doc upload" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

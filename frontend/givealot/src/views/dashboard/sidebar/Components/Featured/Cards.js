@@ -23,7 +23,7 @@ export class Cards extends Component {
             orgId: null,
             reports: [],
             adminId: localStorage.getItem('id'),
-            serverDomain: "http://localhost:8080",
+            serverDomain: "https://givealotcharities.herokuapp.com",
         }
     }
 

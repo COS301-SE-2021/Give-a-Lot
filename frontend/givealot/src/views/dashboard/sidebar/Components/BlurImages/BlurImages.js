@@ -37,15 +37,15 @@ function BlurImages()
                 body: form_data,
             }
         )
-        .then((response) => response.json())
-        .then((result) =>
-        {
-            set_current_image(serverDomain + "/v1/frecognition/blur/get/" + localStorage.getItem('id'))
-            document.getElementById("processing_photo_info").style.display = "none";
-        })
-        .catch((error) => {
-            console.error('Error:', error.response);
-        });
+            .then((response) => response.json())
+            .then((result) =>
+            {
+                set_current_image(serverDomain + "/v1/frecognition/blur/get/" + localStorage.getItem('id'))
+                document.getElementById("processing_photo_info").style.display = "none";
+            })
+            .catch((error) => {
+                console.error('Error:', error.response);
+            });
     }
 
     return (
@@ -53,11 +53,11 @@ function BlurImages()
             <div>
                 <OrgSidebar />
             </div>
-        <div className="blur">
-            <Box id={"blur-image-container"}>
-                <p>
-                    Upload an image to blur faces
-                </p>
+            <div className="blur">
+                <Box id={"blur-image-container"}>
+                    <p>
+                        Upload an image to blur faces
+                    </p>
                     <TextField
                         className={"blur-image-input"}
                         id={"blur-image-input"}
@@ -67,18 +67,18 @@ function BlurImages()
                         accept="image/*"
                     />
 
-                <Alert
-                    severity={'info'}
-                    id={"processing_photo_info"}
-                >
-                    please wait while we process the photo
-                </Alert>
-                <Box>
-                    <img id={"blurred_image_here"} src={current_image} width={400}/>
-                </Box>
+                    <Alert
+                        severity={'info'}
+                        id={"processing_photo_info"}
+                    >
+                        please wait while we process the photo
+                    </Alert>
+                    <Box>
+                        <img id={"blurred_image_here"} src={current_image} width={400}/>
+                    </Box>
 
-            </Box>
-        </div>
+                </Box>
+            </div>
         </div>
     );
 }

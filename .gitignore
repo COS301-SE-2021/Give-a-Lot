@@ -115,3 +115,4 @@ modules.xml
 /frontend/givealot/node_modules/
 /frontend/givealot/package-lock.json
 /lib/package-lock.json
+/frontend/givealot/build/

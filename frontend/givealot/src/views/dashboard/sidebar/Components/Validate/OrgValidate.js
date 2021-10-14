@@ -9,6 +9,7 @@ import axios from "axios";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import AdminSidebar from "../DemoSidebar/AdminSidebar";
 import {Alert} from "@material-ui/lab";
+import {toast, ToastContainer} from "react-toastify";
 
 export class OrgValidate extends Component {
 
@@ -34,7 +35,8 @@ export class OrgValidate extends Component {
             isConfirmedTwitter: false,
             isConfirmedFacebook: false,
             isConfirmedInstagram: false,
-            serverDomain: "http://localhost:8080",
+            serverDomain: "https://givealotcharities.herokuapp.com",
+            popUp1:false,
         }
     }
     handleClose = () => {
@@ -67,6 +69,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmed: true})
+                this.onToastSubmit()
             })
             .catch(error =>{
                 console.log(error)
@@ -87,6 +90,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmed: true})
+                this.onToastSubmitFail()
             })
             .catch(error =>{
                 console.log(error)
@@ -107,6 +111,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedNumber: true})
+                this.onToastSubmit()
             })
             .catch(error =>{
                 console.log(error)
@@ -129,6 +134,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedNumber: true})
+                this.onToastSubmitFail()
             })
             .catch(error =>{
                 console.log(error)
@@ -149,6 +155,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedWebsite: true})
+                this.onToastSubmit()
             })
             .catch(error =>{
                 console.log(error)
@@ -168,6 +175,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedWebsite: true})
+                this.onToastSubmitFail()
             })
             .catch(error =>{
                 console.log(error)
@@ -188,6 +196,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedStreet: true})
+                this.onToastSubmit()
             })
             .catch(error =>{
                 console.log(error)
@@ -208,6 +217,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedStreet: true})
+                this.onToastSubmitFail()
             })
             .catch(error =>{
                 console.log(error)
@@ -228,6 +238,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedEd: true})
+                this.onToastSubmit()
             })
             .catch(error =>{
                 console.log(error)
@@ -248,6 +259,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedEd: true})
+                this.onToastSubmitFail()
             })
             .catch(error =>{
                 console.log(error)
@@ -269,6 +281,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedDonate: true})
+                this.onToastSubmit()
             })
             .catch(error =>{
                 console.log(error)
@@ -289,6 +302,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedDonate: true})
+                this.onToastSubmitFail()
             })
             .catch(error =>{
                 console.log(error)
@@ -309,6 +323,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedQr: true})
+                this.onToastSubmit()
             })
             .catch(error =>{
                 console.log(error)
@@ -329,6 +344,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedQr: true})
+                this.onToastSubmitFail()
             })
             .catch(error =>{
                 console.log(error)
@@ -350,6 +366,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedCommittee: true})
+                this.onToastSubmit()
             })
             .catch(error =>{
                 console.log(error)
@@ -370,6 +387,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedCommittee: true})
+                this.onToastSubmitFail()
             })
             .catch(error =>{
                 console.log(error)
@@ -390,6 +408,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedFacebook: true})
+                this.onToastSubmit();
             })
             .catch(error =>{
                 console.log(error)
@@ -410,6 +429,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedFacebook: true})
+                this.onToastSubmitFail()
             })
             .catch(error =>{
                 console.log(error)
@@ -430,6 +450,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedInstagram: true})
+                this.onToastSubmit()
             })
             .catch(error =>{
                 console.log(error)
@@ -450,6 +471,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedInstagram: true})
+                this.onToastSubmitFail()
             })
             .catch(error =>{
                 console.log(error)
@@ -470,6 +492,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedTwitter: true})
+                this.onToastSubmit()
             })
             .catch(error =>{
                 console.log(error)
@@ -490,6 +513,7 @@ export class OrgValidate extends Component {
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
                 this.setState({isConfirmedTwitter: true})
+                this.onToastSubmitFail()
             })
             .catch(error =>{
                 console.log(error)
@@ -509,7 +533,7 @@ export class OrgValidate extends Component {
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/audit/true', config)
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
-                console.log(response)
+                this.onToastSubmit()
             })
             .catch(error =>{
                 console.log(error)
@@ -529,7 +553,7 @@ export class OrgValidate extends Component {
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/audit/false', config)
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
-                console.log(response)
+                this.onToastSubmitFail()
             })
             .catch(error =>{
                 console.log(error)
@@ -550,7 +574,7 @@ export class OrgValidate extends Component {
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/images/true', config)
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
-                console.log(response)
+                this.onToastSubmit()
             })
             .catch(error =>{
                 console.log(error)
@@ -570,11 +594,43 @@ export class OrgValidate extends Component {
         axios.put(this.state.serverDomain + '/v1/organisation/delete/validity/confirm/'+this.state.orgId+ '/'+ this.state.adminId+ '/images/false', config)
             .then(response =>{
                 document.getElementById("loaderValidateContainer").style.display="none";
-                console.log(response)
+                this.onToastSubmitFail()
             })
             .catch(error =>{
                 console.log(error)
             })
+    }
+
+    onToastSubmit = () => {
+        // if(this.state.isConfirmedInstagram){
+
+            toast.success('Submitted ', {
+                position: toast.POSITION.TOP_RIGHT
+
+            });
+        // }else{
+        //
+        //     toast.error('failed to submit', {
+        //         position: toast.POSITION.TOP_RIGHT
+        //
+        //     });
+        //
+        // }
+    }
+
+    onToastSubmitFail = () => {
+        // if(this.state.isConfirmedInstagram){
+        //
+        //     toast.success('Submitted ', {
+        //         position: toast.POSITION.TOP_RIGHT
+        //
+        //     });
+        //     // }else{
+
+                toast.error('failed to submit', {
+                    position: toast.POSITION.TOP_RIGHT
+
+                });
     }
 
     componentDidMount(){
@@ -1132,6 +1188,9 @@ export class OrgValidate extends Component {
                     {orgValidating()}
                 </div>
             </div>
+                <div className="form-group">
+                    <ToastContainer/>
+                </div>
             </div>
         )
     }

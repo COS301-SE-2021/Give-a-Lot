@@ -23,7 +23,7 @@ export class Org extends Component {
             open: false,
             openInvestigate: false,
             openSuspend: false,
-            serverDomain: 'http://localhost:8080'
+            serverDomain: 'https://givealotcharities.herokuapp.com'
         }
     }
 

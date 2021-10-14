@@ -23,7 +23,7 @@ function Chatbot()
     return (
         <Box id={"iframe-container"}>
             <div id={"iframe"}>
-                <iframe src={"http://e0b7-105-208-196-128.ngrok.io/"}>
+                <iframe src="https://31b4-105-208-196-65.ngrok.io/">
                     sorry, the bot is not available for you
                 </iframe>
             </div>

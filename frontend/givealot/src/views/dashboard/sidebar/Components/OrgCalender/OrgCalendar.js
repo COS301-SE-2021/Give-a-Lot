@@ -27,7 +27,7 @@ export default class OrgCalendar extends React.PureComponent {
             addedAppointment: {},
             appointmentChanges: {},
             editingAppointment: undefined,
-            serverDomain : 'http://localhost:8080'
+            serverDomain : 'https://givealotcharities.herokuapp.com'
         };
 
         this.commitChanges = this.commitChanges.bind(this);

@@ -26,8 +26,8 @@ export class Certificate extends Component {
             popUp1:false,
             popUp2:false,
             orgId:localStorage.getItem("id"),
-            serverDomain : 'http://localhost:8080',
-            frontEndDomain: 'http://localhost:3000',
+            serverDomain : 'https://givealotcharities.herokuapp.com',
+            frontEndDomain: 'https://givealot.netlify.app/',
 
 
         };
@@ -47,7 +47,7 @@ export class Certificate extends Component {
 
         axios.post(this.state.serverDomain + '/v1/organisation/get/org_level', dataa  ,config)
             .then(response =>{
-                //this.setState({level: response.data.level})
+                this.setState({level: response.data.level})
                 // this.setState({level: 4})
                 console.log(response)
             })
@@ -191,7 +191,7 @@ export class Certificate extends Component {
             </div>
 
             <div className="display">
-                <img src={this.state.serverDomain + "/certificate/download/png/" + this.state.orgId} alt={"certificate"} height={546} width={713}/>
+                <img src={this.state.serverDomain + "/media/version/cert_png/" + this.state.orgId} alt={"certificate"} height={546} width={713}/>
             </div>
         </div>
         </div>

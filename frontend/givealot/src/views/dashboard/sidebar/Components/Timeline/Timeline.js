@@ -12,7 +12,7 @@ import {FrontEndContext} from "../../../../../apiContext/FrontEndContext";
 
 function OrganisationTimeline()
 {
-    const [serverDomain, setServerDomain] = useState("http://localhost:8080")
+    const [serverDomain, setServerDomain] = useState("https://givealotcharities.herokuapp.com")
     let [timelineEvents, setTimelineEvents] = useState([]);
     let [curr_organisation_id, set_curr_organisation_id] = useState(localStorage.getItem('id'));
     const [frontEndDomain, setFrontEndDomain] = useState("https://givealot.netlify.app");

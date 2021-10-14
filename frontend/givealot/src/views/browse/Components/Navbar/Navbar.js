@@ -45,7 +45,7 @@ function Navbar()
             }
         })
         .catch(error => {
-            alert("Failed Search " + error)
+            alert("failed search " + error)
         });
     }
 
@@ -74,7 +74,7 @@ function Navbar()
                 <div className="browse_search_input2_container">
                     <input
                         id={"browse_search_input2"}
-                        placeholder="Search Organisation"
+                        placeholder="Search organisation"
                         type="text"
 
                         onKeyPress={onKeyUp}

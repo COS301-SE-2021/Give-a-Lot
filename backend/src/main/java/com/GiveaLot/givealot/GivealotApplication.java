@@ -18,7 +18,6 @@ public class GivealotApplication implements CommandLineRunner {
     @Autowired
     OrganisationRepository organisationRepository;
 
-
     @Autowired
     OrganisationService organisationService;
 

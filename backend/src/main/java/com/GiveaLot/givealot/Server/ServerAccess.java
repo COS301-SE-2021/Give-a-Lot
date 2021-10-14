@@ -435,7 +435,7 @@ public class ServerAccess implements server_access{
         organisationGalleryRepository.save(newGalleryImage);
         System.out.println("================saving image to db finished================");
 
-        ChannelSftp channelSftp = setupJsch();
+        /*ChannelSftp channelSftp = setupJsch();
         try {
 
             File imageHolder = new File("src/main/resources/TempDocument/image.jpg");
@@ -462,7 +462,7 @@ public class ServerAccess implements server_access{
         } finally {
             channelSftp.exit();
             session.disconnect();
-        }
+        }*/
     }
 
     @Override

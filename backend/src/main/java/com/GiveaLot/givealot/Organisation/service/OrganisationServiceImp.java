@@ -1523,7 +1523,18 @@ public class OrganisationServiceImp implements OrganisationService {
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
-        } else throw new Exception("Exception: type is incorrect");
+        }
+        else if(type.equalsIgnoreCase("images"))
+        {
+            Integer currentPoints = 0, dps = 20;
+
+            if(organisationPointsRepository.selectOrganisationPoints(orgId).getNumberOfImages() >= 5)
+            {
+                Integer res = confirmValidity ? certificateRepository.updatePoints(orgId, currentPoints + dps) : certificateRepository.updatePoints(orgId, currentPoints - dps);
+            }
+            else throw new Exception("Minimum images not provided");
+        }
+        else throw new Exception("Exception: type is incorrect");
 
         if (confirmValidity) {
             try {

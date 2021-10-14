@@ -888,7 +888,8 @@ export class OrgValidate extends Component {
                                             QR code Url:
                                         </div>
                                         <div style={{marginLeft: "1em"}}>
-                                            <img src={validation.qrCode_url}/>
+                                            {/*<img src={validation.qrCode_url}/>*/}
+                                            <img src={this.state.serverDomain + "/media/version/qr_code/admin/" + this.state.orgId}  height={120} width={120} />
                                         </div>
                                     </Typography>
                                     <Typography style={{

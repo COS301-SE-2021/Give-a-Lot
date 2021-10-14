@@ -258,7 +258,7 @@ function ViewOrganisation()
 
     let images = [];
 
-    for(let i = 0; i < number_of_images; i++)
+    for(let i = 1; i < number_of_images+1; i++)
     {
         let image = {
             original : serverDomain + "/media/version/gallery/images/"+id+"/" + i,

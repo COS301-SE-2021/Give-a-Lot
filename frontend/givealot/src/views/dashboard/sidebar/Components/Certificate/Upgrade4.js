@@ -12,6 +12,7 @@ import CardContent from '@material-ui/core/CardContent';
 import {ApiContext} from "../../../../../apiContext/ApiContext";
 import OrgSidebar from "../DemoSidebar/OrgSidebar";
 import {TextField} from "@material-ui/core";
+import Axios from "axios";
 
 const styles =theme => ({
 
@@ -81,8 +82,13 @@ export class Upgrade4 extends Component {
             .then((result) => {
                 console.log('Success:', result);
                 imageStates = 1;
-                this.setState({popUp1: result.data.message});
-                this.onToastFile();
+                if(result.message==='success'){
+                    this.setState({popUp1: true})
+                    this.onToastFile();
+
+                }
+
+
 
             })
             .catch((error) => {
@@ -119,9 +125,9 @@ export class Upgrade4 extends Component {
             formData_gallery_images.append('orgId', this.state.orgId);
             formData_gallery_images.append('image', event.target.files[idx]);
 
-            console.log(event.target.files)
+            console.log(event.target.files[idx])
             fetch(
-                'http://localhost:8080/v1/organisation/add/image',
+                this.state.serverDomain +'/v1/organisation/add/image',
                 {
                     method: 'POST',
                     body: formData_gallery_images,
@@ -130,8 +136,13 @@ export class Upgrade4 extends Component {
                 .then((response) => response.json())
                 .then((result) => {
                     console.log('Success-----:', result);
-                    this.setState({popUp2: result.data.message});
-                    this.onToastImage();
+                    if(result.message==='success'){
+                        this.setState({popUp2: true})
+                        this.onToastFile();
+                    }else {
+                        this.setState({popUp2: false})
+                        this.onToastFile();
+                    }
                 })
                 .catch((error) => {
                     console.error('Error-----:', error);
@@ -173,6 +184,15 @@ export class Upgrade4 extends Component {
         e.preventDefault();
         const isValid = this.validate();
         if (isValid) {
+
+            const notification_update_body = {
+                org_id: this.state.orgId,
+            };
+
+            Axios
+                .post(this.state.serverDomain + "/v1/notifications/update/notifications", notification_update_body)
+                .then(res => console.log(res))
+                .catch(err => console.log(err))
 
         }
     };

@@ -439,7 +439,6 @@ public class ServerAccess implements server_access{
 
         /*ChannelSftp channelSftp = setupJsch();
         try {
-
             File imageHolder = new File("src/main/resources/TempDocument/image.jpg");
             if (!imageHolder.exists()) {
                 imageHolder.createNewFile();

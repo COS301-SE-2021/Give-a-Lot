@@ -4,64 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="frontend test">
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/_redirects" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/asset-manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/assets/blurredFallback.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/assets/homeBackground.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/assets/logo/givealot-logo-red.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/homeBackground.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/13.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/14.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/15.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/16.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/17.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/18.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/19.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/20.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/21.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/22.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/23.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/24.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/25.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/26.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/checklist.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/search-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/white-24dp/1x/baseline_search_white_24dp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/images_tmp/white-24dp/2x/search-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/static/css/2.90841768.chunk.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/static/css/2.90841768.chunk.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/static/css/main.bf516df2.chunk.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/static/css/main.bf516df2.chunk.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/static/js/2.778e9fc9.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/static/js/2.778e9fc9.chunk.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/static/js/2.778e9fc9.chunk.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/static/js/main.ca9c9f88.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/static/js/main.ca9c9f88.chunk.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/static/js/runtime-main.0775b5c7.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/static/js/runtime-main.0775b5c7.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/static/media/Curve-Loading.5e01ee79.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/static/media/blurredFallback.a1c7985f.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/static/media/complete.d4b4e66b.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/static/media/feedback-2044700_1280.b0c38cae.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/static/media/filter_list_black_24dp.e0b6601f.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/static/media/givealot-logo-red..b08aeed2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/static/media/homeBackground.581f1315.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/givealot/build/static/media/logo3_1.4e3e63ec.png" afterDir="false" />
+    <list default="true" id="bedf1f0c-bffb-43a4-949c-edb7f0ef26d0" name="Default Changelist" comment="updated image upload and audit doc upload">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Organisation/service/OrganisationServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/GiveaLot/givealot/Server/ServerAccess.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +109,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.17774086" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -270,52 +216,8 @@
       <workItem from="1633956352376" duration="5140000" />
       <workItem from="1633982288910" duration="476000" />
       <workItem from="1633982851454" duration="3067000" />
-      <workItem from="1634056005211" duration="468000" />
-      <workItem from="1634056484822" duration="5812000" />
-      <workItem from="1634065319215" duration="1937000" />
-      <workItem from="1634159244577" duration="263000" />
-    </task>
-    <task id="LOCAL-00138" summary="uncommitted changes">
-      <created>1632429424026</created>
-      <option name="number" value="00138" />
-      <option name="presentableId" value="LOCAL-00138" />
-      <option name="project" value="LOCAL" />
-      <updated>1632429424026</updated>
-    </task>
-    <task id="LOCAL-00139" summary="dash bug fix - Alexis take over">
-      <created>1632511618916</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL-00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1632511618931</updated>
-    </task>
-    <task id="LOCAL-00140" summary="Updated Server Access">
-      <created>1632820327975</created>
-      <option name="number" value="00140" />
-      <option name="presentableId" value="LOCAL-00140" />
-      <option name="project" value="LOCAL" />
-      <updated>1632820327975</updated>
-    </task>
-    <task id="LOCAL-00141" summary="Updated Server Access">
-      <created>1632820350966</created>
-      <option name="number" value="00141" />
-      <option name="presentableId" value="LOCAL-00141" />
-      <option name="project" value="LOCAL" />
-      <updated>1632820350966</updated>
-    </task>
-    <task id="LOCAL-00142" summary="Updated Server Access">
-      <created>1632820811460</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1632820811460</updated>
-    </task>
-    <task id="LOCAL-00143" summary="Updated Server Access">
-      <created>1632820947326</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1632820947326</updated>
+      <workItem from="1633996893320" duration="11230000" />
+      <workItem from="1634153969280" duration="9653000" />
     </task>
     <task id="LOCAL-00144" summary="slight update">
       <created>1632838909651</created>
@@ -597,28 +499,70 @@
       <option name="project" value="LOCAL" />
       <updated>1633985123132</updated>
     </task>
-    <task id="LOCAL-00184" summary="Updated code for heroku deployment">
-      <created>1634055224902</created>
+    <task id="LOCAL-00184" summary="blur image update">
+      <created>1634003487241</created>
       <option name="number" value="00184" />
       <option name="presentableId" value="LOCAL-00184" />
       <option name="project" value="LOCAL" />
-      <updated>1634055224902</updated>
+      <updated>1634003487241</updated>
     </task>
-    <task id="LOCAL-00185" summary="Updated code for heroku deployment">
-      <created>1634059773089</created>
+    <task id="LOCAL-00185" summary="blur image update">
+      <created>1634006025840</created>
       <option name="number" value="00185" />
       <option name="presentableId" value="LOCAL-00185" />
       <option name="project" value="LOCAL" />
-      <updated>1634059773090</updated>
+      <updated>1634006025840</updated>
     </task>
-    <task id="LOCAL-00186" summary="frontend test">
-      <created>1634159448852</created>
+    <task id="LOCAL-00186" summary="blur image update">
+      <created>1634006333399</created>
       <option name="number" value="00186" />
       <option name="presentableId" value="LOCAL-00186" />
       <option name="project" value="LOCAL" />
-      <updated>1634159448854</updated>
+      <updated>1634006333399</updated>
     </task>
-    <option name="localTasksCounter" value="187" />
+    <task id="LOCAL-00187" summary="blur image update">
+      <created>1634007024755</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1634007024755</updated>
+    </task>
+    <task id="LOCAL-00188" summary="blur image update">
+      <created>1634169468116</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1634169468116</updated>
+    </task>
+    <task id="LOCAL-00189" summary="qr code media controller function update">
+      <created>1634169524315</created>
+      <option name="number" value="00189" />
+      <option name="presentableId" value="LOCAL-00189" />
+      <option name="project" value="LOCAL" />
+      <updated>1634169524315</updated>
+    </task>
+    <task id="LOCAL-00190" summary="qr code media controller function update">
+      <created>1634171821648</created>
+      <option name="number" value="00190" />
+      <option name="presentableId" value="LOCAL-00190" />
+      <option name="project" value="LOCAL" />
+      <updated>1634171821648</updated>
+    </task>
+    <task id="LOCAL-00191" summary="updated image upload">
+      <created>1634171908999</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1634171908999</updated>
+    </task>
+    <task id="LOCAL-00192" summary="updated image upload and audit doc upload">
+      <created>1634172913597</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1634172913597</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -641,8 +585,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/backend" />
     </ignored-roots>
-    <MESSAGE value="level 2 upgrade complete" />
-    <MESSAGE value="upgrade to level 4 complete" />
     <MESSAGE value="added  organisation" />
     <MESSAGE value="timeline implemented, however further halted due to internal reasons" />
     <MESSAGE value="timeline - welcome message on registration" />
@@ -663,10 +605,12 @@
     <MESSAGE value="reporting styled better. recommender should work for users currently signed in (admins and organisations) get default recommendations" />
     <MESSAGE value="qr code" />
     <MESSAGE value="merge heroku branch" />
-    <MESSAGE value="blur image update" />
     <MESSAGE value="Updated code for heroku deployment" />
-    <MESSAGE value="frontend test" />
-    <option name="LAST_COMMIT_MESSAGE" value="frontend test" />
+    <MESSAGE value="blur image update" />
+    <MESSAGE value="qr code media controller function update" />
+    <MESSAGE value="updated image upload" />
+    <MESSAGE value="updated image upload and audit doc upload" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated image upload and audit doc upload" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1145,7 +1145,6 @@ public class OrganisationServiceImp implements OrganisationService {
             throw new Exception("Exception: add image function did not finish, organisation does not exist");
 
         int numImages = organisationPointsRepository.getNumberOfImages(request.getOrgId());
-        int i = 0;
 
         access.uploadImageJPG(request.getOrgId(), request.getImages(), numImages);
             numImages++;
@@ -1241,7 +1240,8 @@ public class OrganisationServiceImp implements OrganisationService {
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
-        } else if (type.equalsIgnoreCase("website")) {
+        }
+        else if (type.equalsIgnoreCase("website")) {
             OrganisationPoints organisationPoints_current_status = organisationPointsRepository.selectOrganisationPoints(orgId);
 
             if (organisationPoints_current_status != null && organisationPoints_current_status.isWebsiteIsValid() == confirmValidity) {
@@ -1268,7 +1268,8 @@ public class OrganisationServiceImp implements OrganisationService {
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
-        } else if (type.equalsIgnoreCase("establishment_date")) {
+        }
+        else if (type.equalsIgnoreCase("establishment_date")) {
             OrganisationPoints organisationPoints_current_status = organisationPointsRepository.selectOrganisationPoints(orgId);
 
             if (organisationPoints_current_status != null && organisationPoints_current_status.isEstDateIsValid() == confirmValidity) {
@@ -1294,7 +1295,8 @@ public class OrganisationServiceImp implements OrganisationService {
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
-        } else if (type.equalsIgnoreCase("qr_code")) {
+        }
+        else if (type.equalsIgnoreCase("qr_code")) {
             OrganisationPoints organisationPoints_current_status = organisationPointsRepository.selectOrganisationPoints(orgId);
 
             if (organisationPoints_current_status != null && organisationPoints_current_status.isQrCodeIsValid() == confirmValidity) {
@@ -1320,7 +1322,8 @@ public class OrganisationServiceImp implements OrganisationService {
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
-        } else if (type.equalsIgnoreCase("donation_link")) {
+        }
+        else if (type.equalsIgnoreCase("donation_link")) {
             OrganisationPoints organisationPoints_current_status = organisationPointsRepository.selectOrganisationPoints(orgId);
 
             if (organisationPoints_current_status != null && organisationPoints_current_status.isDonationURLIsValid() == confirmValidity) {
@@ -1346,7 +1349,8 @@ public class OrganisationServiceImp implements OrganisationService {
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
-        } else if (type.equalsIgnoreCase("committee")) {
+        }
+        else if (type.equalsIgnoreCase("committee")) {
             OrganisationPoints organisationPoints_current_status = organisationPointsRepository.selectOrganisationPoints(orgId);
 
             if (organisationPoints_current_status != null && organisationPoints_current_status.isCommitteeIsValid() == confirmValidity) {
@@ -1372,7 +1376,8 @@ public class OrganisationServiceImp implements OrganisationService {
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
-        } else if (type.equalsIgnoreCase("twitter")) {
+        }
+        else if (type.equalsIgnoreCase("twitter")) {
             OrganisationPoints organisationPoints_current_status = organisationPointsRepository.selectOrganisationPoints(orgId);
 
             if (organisationPoints_current_status != null && organisationPoints_current_status.isTwitterIsValid() == confirmValidity) {
@@ -1398,7 +1403,8 @@ public class OrganisationServiceImp implements OrganisationService {
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
-        } else if (type.equalsIgnoreCase("facebook")) {
+        }
+        else if (type.equalsIgnoreCase("facebook")) {
             OrganisationPoints organisationPoints_current_status = organisationPointsRepository.selectOrganisationPoints(orgId);
 
             if (organisationPoints_current_status != null && organisationPoints_current_status.isFacebookIsValid() == confirmValidity) {
@@ -1424,7 +1430,8 @@ public class OrganisationServiceImp implements OrganisationService {
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
-        } else if (type.equalsIgnoreCase("instagram")) {
+        }
+        else if (type.equalsIgnoreCase("instagram")) {
             OrganisationPoints organisationPoints_current_status = organisationPointsRepository.selectOrganisationPoints(orgId);
 
             if (organisationPoints_current_status != null && organisationPoints_current_status.isInstagramIsValid() == confirmValidity) {
@@ -1450,7 +1457,8 @@ public class OrganisationServiceImp implements OrganisationService {
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
-        } else if (type.equalsIgnoreCase("ngo_date")) {
+        }
+        else if (type.equalsIgnoreCase("ngo_date")) {
             OrganisationPoints organisationPoints_current_status = organisationPointsRepository.selectOrganisationPoints(orgId);
 
             if (organisationPoints_current_status != null && organisationPoints_current_status.isNgoDateIsValid() == confirmValidity) {
@@ -1475,7 +1483,8 @@ public class OrganisationServiceImp implements OrganisationService {
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
-        } else if (type.equalsIgnoreCase("ngo_number")) {
+        }
+        else if (type.equalsIgnoreCase("ngo_number")) {
             OrganisationPoints organisationPoints_current_status = organisationPointsRepository.selectOrganisationPoints(orgId);
 
             if (organisationPoints_current_status != null && organisationPoints_current_status.isNgoNoIsValid() == confirmValidity) {
@@ -1501,21 +1510,27 @@ public class OrganisationServiceImp implements OrganisationService {
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
-        } else if (type.equalsIgnoreCase("audit")) {
-            Integer currentPoints = 0, dps = 15;
+        }
+        else if (type.equalsIgnoreCase("audit")) {
+
+            OrganisationPoints organisationPoints_current_status = organisationPointsRepository.selectOrganisationPoints(orgId);
+
+            if (organisationPoints_current_status != null && organisationPoints_current_status.isAuditIsValid() == confirmValidity) {
+                throw new Exception("audit document is already updated");
+            } else if (organisationPoints_current_status == null) {
+                throw new Exception("points not allocated for this organisation");
+            }
+
+            Integer currentPoints = 0, dps = 10;
             Integer res = confirmValidity ? organisationPointsRepository.Audit(orgId, true) : organisationPointsRepository.Audit(orgId, false);
             if (res != 1)
                 throw new Exception("Exception: audit validity not confirmed");
 
-            Certificate certificate_tmp = certificateRepository.selectPointsById(orgId);
-            if (certificate_tmp == null) /*perform rollback*/ {
-                res = confirmValidity ? organisationPointsRepository.Audit(orgId, false) : organisationPointsRepository.Audit(orgId, true);
-                if (res == 1)
-                    throw new Exception("Exception: error occurred, rollback action performed successfully");
-                else throw new Exception("Exception: error occurred, rollback action failed");
-            } else currentPoints = certificate_tmp.getPoints();
+            currentPoints = certificateRepository.select_Points_ById(orgId);
 
             res = confirmValidity ? certificateRepository.updatePoints(orgId, currentPoints + dps) : certificateRepository.updatePoints(orgId, currentPoints - dps);
+
+            currentPoints = certificateRepository.select_Points_ById(orgId);
 
             if (res != 1) {
                 res = confirmValidity ? organisationPointsRepository.Audit(orgId, false) : organisationPointsRepository.Audit(orgId, true);
@@ -1523,7 +1538,21 @@ public class OrganisationServiceImp implements OrganisationService {
                     throw new Exception("Exception: error occurred, rollback action performed successfully");
                 else throw new Exception("Exception: error occurred, rollback action failed");
             }
-        } else throw new Exception("Exception: type is incorrect");
+        }
+        else if(type.equalsIgnoreCase("images"))
+        {
+            Integer currentPoints = 0, dps = 10;
+            currentPoints = certificateRepository.select_Points_ById(orgId);
+            if(currentPoints >= 100)
+                throw new Exception("Images already updated");
+
+            if(organisationPointsRepository.selectOrganisationPoints(orgId).getNumberOfImages() >= 5)
+            {
+                Integer res = confirmValidity ? certificateRepository.updatePoints(orgId, currentPoints + dps) : certificateRepository.updatePoints(orgId, currentPoints - dps);
+            }
+            else throw new Exception("Minimum images not provided");
+        }
+        else throw new Exception("Exception: type is incorrect");
 
         if (confirmValidity) {
             try {

@@ -34,8 +34,6 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService {
             MockMultipartFile multipartFile = new MockMultipartFile("file",
                     dest.getName(), "image/png", IOUtils.toByteArray(input));
 
-
-
             if(blurRepository == null)
             {
                 System.out.println("=====null repository======");

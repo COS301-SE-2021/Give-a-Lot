@@ -312,7 +312,7 @@ public class ServerAccess implements server_access{
 
     @Override
     public void uploadAuditDocument(long orgId, String orgName, MultipartFile document) throws Exception {
-        ChannelSftp channelSftp = setupJsch();
+        /*ChannelSftp channelSftp = setupJsch();
         try {
             File image = new File("src/main/resources/TempDocument/audit.pdf");
             if (!image.exists()) {
@@ -336,7 +336,7 @@ public class ServerAccess implements server_access{
         } finally {
             channelSftp.exit();
             session.disconnect();
-        }
+        }*/
     }
 
     @Override
